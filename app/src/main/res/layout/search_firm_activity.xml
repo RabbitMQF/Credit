@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.5"
+        android:background="@mipmap/search_background"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/arrow_back"
+            android:layout_width="20dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:background="@mipmap/arrow_left_back" />
+
+
+        <!--输入框下拉popupwindow-->
+        <!--<TextView
+            android:id="@+id/down_button"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="15dp"
+            android:background="@drawable/spinner_bg"
+            android:drawableRight="@mipmap/senior_arraow_down"
+            android:gravity="center"
+            android:hint="查全部"
+            />-->
+        <ImageView
+            android:id="@+id/magnifying"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="15dp"
+            android:background="@drawable/spinner_bg"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:src="@mipmap/search_drawable_left" />
+
+        <LinearLayout
+            android:layout_width="0px"
+            android:layout_height="0px"
+            android:focusable="true"
+            android:focusableInTouchMode="true" />
+
+        <EditText
+            android:id="@+id/search_et"
+            android:layout_width="0dp"
+            android:layout_height="35dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="10dp"
+            android:layout_weight="10"
+            android:background="@drawable/edit_bg"
+            android:hint="请输入企业名称"
+            android:text="智容"
+            android:textSize="14sp" />
+
+        <ImageView
+            android:id="@+id/search_bt"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1.2"
+            android:src="@mipmap/point3x"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:layout_weight="0.6"
+        android:orientation="vertical"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="#ffffff"
+            android:orientation="horizontal"
+            android:layout_marginTop="5dp">
+            <TextView
+                android:id="@+id/tab_frim"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="企业"
+                android:textColor="@android:color/white"
+                android:gravity="center_vertical|center_horizontal"
+                android:background="@drawable/tebhost_bg_selected"
+                android:layout_marginRight="1dp"
+                />
+            <TextView
+                android:id="@+id/tab_illegal"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="违法"
+                android:textColor="#000000"
+                android:gravity="center_vertical|center_horizontal"
+                android:background="@drawable/tebhost_bg_unselected"
+                android:layout_marginRight="1dp"
+                />
+            <TextView
+                android:id="@+id/tab_shareholder"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="股东"
+                android:textColor="#000000"
+                android:gravity="center_vertical|center_horizontal"
+                android:background="@drawable/tebhost_bg_unselected"/>
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:background="@color/blue2"/>
+    </LinearLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.2"
+        android:background="#ffffff"
+        >
+
+        <ImageView
+            android:id="@+id/orange_magnifying"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_gravity="center_vertical"
+            android:background="@mipmap/orange_magnifying"
+            android:layout_marginLeft="23dp"
+            android:layout_marginStart="23dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:layout_gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="查询到？个公司"
+            android:textColor="#000000"
+            android:layout_marginLeft="12dp"
+            android:layout_marginStart="12dp"
+            android:layout_alignTop="@+id/selectCity"
+            android:layout_toRightOf="@+id/orange_magnifying"
+            android:layout_toEndOf="@+id/orange_magnifying" />
+        <TextView
+
+            android:layout_gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="全国"
+            android:textColor="#000000"
+            android:drawableRight="@mipmap/senior_arraow_down"
+            android:layout_marginRight="30dp"
+            android:layout_marginEnd="30dp"
+            android:id="@+id/selectCity"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+    </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.2"
+        android:background="@color/blue2"/>
+    <!--这listview什么鬼？-->
+    <ListView
+        android:id="@+id/auto_listview"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:background="#ffffff"
+        android:divider="#00000000"
+        android:listSelector="#00000000"
+        android:scrollbars="none"
+        android:visibility="gone" />
+
+    <!--城市 资金 时间 行业选择器-->
+    <!--<LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.9"
+        android:background="@android:color/white"
+        android:orientation="vertical">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
+        <TextView
+            android:id="@+id/city"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+
+            android:gravity="center_horizontal|center_vertical"
+            android:text="海西蒙古族藏族自治州"
+            android:textColor="@color/text_nocheck" />
+
+        <ImageView
+            android:id="@+id/city_arraow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:src="@mipmap/senior_arraow_down" />
+
+        <View
+            android:layout_width="0.5dp"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="10dip"
+            android:layout_marginLeft="3dip"
+            android:layout_marginTop="10dip"
+            android:background="@color/material_grey_600" />
+
+        <TextView
+            android:id="@+id/capital"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+
+            android:gravity="center_horizontal|center_vertical"
+            android:text="500万到1000万"
+            android:textColor="@color/text_nocheck" />
+
+        <ImageView
+            android:id="@+id/capital_arraow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:src="@mipmap/senior_arraow_down" />
+
+        <View
+            android:layout_width="0.5dp"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="10dip"
+            android:layout_marginLeft="3dip"
+            android:layout_marginTop="10dip"
+            android:background="@color/text_nocheck" />
+
+        <TextView
+            android:id="@+id/time"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+
+            android:gravity="center_horizontal|center_vertical"
+            android:text="10年以上"
+            android:textColor="@color/text_nocheck" />
+
+        <ImageView
+            android:id="@+id/time_arraow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:src="@mipmap/senior_arraow_down" />
+
+        <View
+            android:layout_width="0.5dp"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="10dip"
+            android:layout_marginLeft="3dip"
+            android:layout_marginTop="10dip"
+            android:background="@color/material_grey_600" />
+
+        <TextView
+            android:id="@+id/industry"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+
+            android:gravity="center_horizontal|center_vertical"
+            android:text="不限行业"
+            android:textColor="@color/text_nocheck" />
+
+        <ImageView
+            android:id="@+id/industry_arraow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:src="@mipmap/senior_arraow_down" />
+</LinearLayout>
+
+
+
+    </LinearLayout>-->
+    <!--灰线-->
+    <!--<View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/dim_foreground_material_dark" />-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@android:color/holo_green_dark"
+        android:orientation="horizontal"
+        android:visibility="gone"></LinearLayout>
+
+    <ListView
+        android:id="@+id/list"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="10"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:id="@+id/history"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="10">
+
+        <ListView
+            android:id="@+id/search_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:divider="#00000000"
+            android:listSelector="#00000000"
+            android:scrollbars="none" />
+    </LinearLayout>
+
+    <!--城市选择布局-->
+    <LinearLayout
+        android:id="@+id/select"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="10"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <ListView
+            android:id="@+id/menu_one"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/white"
+
+            android:contextClickable="false"
+            android:divider="@color/dim_foreground_disabled_material_dark"
+            android:dividerHeight="0.5dip"
+            android:textFilterEnabled="true">
+
+        </ListView>
+
+        <ListView
+            android:id="@+id/menu_two"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#f5f7fa"
+            android:divider="@color/dim_foreground_disabled_material_dark"
+            android:dividerHeight="0.5dip"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:visibility="invisible">
+
+        </ListView>
+    </LinearLayout>
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.8"
+        android:background="@mipmap/search_bottom">
+
+    </LinearLayout>
+</LinearLayout>
