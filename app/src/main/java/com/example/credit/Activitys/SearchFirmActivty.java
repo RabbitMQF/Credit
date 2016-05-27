@@ -43,7 +43,7 @@ import java.util.Arrays;
 public class SearchFirmActivty extends BaseActivity implements View.OnClickListener {
     private SearchAutoAdapter mSearchAutoAdapter;
     public static final String SEARCH_HISTORY = "search_history";
-    public static final int NOHTTP_SEARCH = 0x02;
+    public static final int NOHTTP_SEARCH = 0x022;
     private ListView mAutoListView;
     public static EditText searchEt;
     public static TextView downButton, city, capital, time, industry, selectCity, tab_frim, tab_illegal, tab_shareholder;
@@ -72,8 +72,8 @@ public class SearchFirmActivty extends BaseActivity implements View.OnClickListe
         setContentView(R.layout.search_firm_activity);
         search_list = (ListView) findViewById(R.id.search_list);
         initView();
-//        initData();
-        init();
+        initData();
+        init();//历史记录
         handler = new Handler() {
             @Override
             public void handleMessage(Message msg) {
@@ -86,7 +86,6 @@ public class SearchFirmActivty extends BaseActivity implements View.OnClickListe
                         @Override
                         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                             Intent i=new Intent(SearchFirmActivty.this, CompanyDetailsActivity.class);
-                            i.putExtra("s",0);
                             i.putExtra("position",position);
                             i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                             startActivity(i);
@@ -349,7 +348,7 @@ public class SearchFirmActivty extends BaseActivity implements View.OnClickListe
                 // &startDateEnd=
                 // &pageSize=40
                 GsonUtil request = new GsonUtil(URLconstant.SEARCHURL, RequestMethod.GET);
-                request.add("searchKey", searchEt.getText().toString());
+                request.add("searchKey", "智容");
                 request.add("industryCode", "");
                 request.add("startDateBegin", "");
                 request.add("registCapiBegin", "");
@@ -441,17 +440,17 @@ public class SearchFirmActivty extends BaseActivity implements View.OnClickListe
     private void init() {
         mSearchAutoAdapter = new SearchAutoAdapter(this, -1, this);
         mAutoListView = (ListView) findViewById(R.id.auto_listview);
-        mAutoListView.setAdapter(mSearchAutoAdapter);
-        mAutoListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-
-            @Override
-            public void onItemClick(AdapterView<?> arg0, View view, int position,
-                                    long arg3) {
-                SearchAutoData data = (SearchAutoData) mSearchAutoAdapter.getItem(position);
-                searchEt.setText(data.getContent());
-                search_bt.performClick();
-            }
-        });
+//        mAutoListView.setAdapter(mSearchAutoAdapter);
+//        mAutoListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//
+//            @Override
+//            public void onItemClick(AdapterView<?> arg0, View view, int position,
+//                                    long arg3) {
+//                SearchAutoData data = (SearchAutoData) mSearchAutoAdapter.getItem(position);
+//                searchEt.setText(data.getContent());
+//                search_bt.performClick();
+//            }
+//        });
 
         search_bt = (ImageView) findViewById(R.id.search_bt);
         search_bt.setOnClickListener(this);

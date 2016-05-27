@@ -25,6 +25,7 @@
                 android:textColor="#000000"
                 android:text="股东"/>
             <TextView
+                android:id="@+id/partenr"
                 android:layout_marginTop="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -46,6 +47,7 @@
                 android:textColor="#000000"
                 android:text="认缴额(元)"/>
             <TextView
+                android:id="@+id/money"
                 android:layout_marginTop="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -67,6 +69,7 @@
                 android:textColor="#000000"
                 android:text="实缴额(元)"/>
             <TextView
+                android:id="@+id/true_money"
                 android:layout_marginTop="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -116,6 +119,7 @@
                     android:text="认缴出资方式"
                     />
                 <TextView
+                    android:id="@+id/subscribed_type"
                     android:layout_marginTop="5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -145,6 +149,7 @@
                     android:text="认缴出资额(元)"
                     />
                 <TextView
+                    android:id="@+id/subscribed"
                     android:layout_marginTop="5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -174,6 +179,8 @@
                     android:text="认缴出资日期"
                     />
                 <TextView
+
+                    android:id="@+id/subscribed_time"
                     android:layout_marginTop="5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -218,6 +225,7 @@
                     android:text="实缴出资方式"
                     />
                 <TextView
+                    android:id="@+id/paid_type"
                     android:layout_marginTop="5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -247,6 +255,7 @@
                     android:text="实缴出资额(元)"
                     />
                 <TextView
+                    android:id="@+id/paid"
                     android:layout_marginTop="5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -276,6 +285,7 @@
                     android:text="实缴出资日期"
                     />
                 <TextView
+                    android:id="@+id/paid_time"
                     android:layout_marginTop="5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -288,6 +298,33 @@
 
 
     </LinearLayout>
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingRight="30dp"
+    android:paddingTop="5dp"
+    >
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="公示日期："
+        android:layout_alignParentTop="true"
+        android:layout_toLeftOf="@+id/funded_public_time"
+        android:layout_toStartOf="@+id/funded_public_time"
+        android:textColor="#57737D"/>
+
+    <TextView
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2016-10-10"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/funded_public_time"
+        android:textColor="#57737D"/>
+</RelativeLayout>
 
 </LinearLayout>

@@ -6,15 +6,18 @@
     android:background="#ffffff"
     android:orientation="vertical"
     tools:context=".Activitys.DetailsContentActivity">
+
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#ffffff"
             android:layout_marginLeft="30dp"
+            android:background="#ffffff"
             android:orientation="horizontal">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -58,7 +61,8 @@
                             android:layout_marginLeft="20dp"
                             android:layout_marginRight="20dp"
                             android:layout_marginTop="10dp"
-                            android:text="南昌智臻投资中心,出资*万人民币,占***%,实缴出资*万;李志,出资*万人民币,占***%,实缴出资*万;" />
+                            android:text="南昌智臻投资中心,出资*万人民币,占***%,实缴出资*万;李志,出资*万人民币,占***%,实缴出资*万;"
+                            android:textColor="#000000" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -85,11 +89,13 @@
                             android:layout_marginLeft="20dp"
                             android:layout_marginRight="20dp"
                             android:layout_marginTop="10dp"
-                            android:text="李志,出资*万人民币,占***%,实缴出资*万;万杏娥,出资*万人民币,占***%,实缴出资*万;" />
+                            android:text="李志,出资*万人民币,占***%,实缴出资*万;万杏娥,出资*万人民币,占***%,实缴出资*万;"
+                            android:textColor="#000000" />
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
+
         <View
             android:layout_width="2dp"
             android:layout_height="match_parent"

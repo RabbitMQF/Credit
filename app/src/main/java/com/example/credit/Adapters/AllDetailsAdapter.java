@@ -15,16 +15,18 @@ import java.util.List;
 
 public class AllDetailsAdapter extends BaseAdapter {
     private Context context;
-    private List<String> list;
+    private List<String> list1;
+    private List<String> list2;
 
-    public AllDetailsAdapter(Context context, List<String> list) {
+    public AllDetailsAdapter(Context context, List<String> list1,List<String> list2) {
         this.context = context;
-        this.list = list;
+        this.list1 = list1;
+        this.list2 = list2;
     }
 
     @Override
     public int getCount() {
-        return list.size();
+        return list1.size();
     }
 
     @Override
@@ -43,20 +45,19 @@ public class AllDetailsAdapter extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(context).inflate(R.layout.activity_c_details_item, null);
             vh = new ViewHolder();
-            vh.cdc_name = (TextView) view.findViewById(R.id.cdc_topname);
+            vh.cdc_tv1 = (TextView) view.findViewById(R.id.cdc_tv1);
+            vh.cdc_tv2 = (TextView) view.findViewById(R.id.cdc_tv2);
             view.setTag(vh);
         } else {
             vh = (ViewHolder) view.getTag();
         }
-        if (position % 2 == 0) {//偶数
-            vh.cdc_name.setTextColor(Color.parseColor("#B8B8B8"));
-        } else {//奇数
-            vh.cdc_name.setTextColor(Color.parseColor("#ffffff"));
-        }
+        vh.cdc_tv1.setText(list2.get(position));
+        vh.cdc_tv2.setText(list1.get(position));
         return view;
     }
 
     public class ViewHolder {
-        TextView cdc_name;
+        TextView cdc_tv1;
+        TextView cdc_tv2;
     }
 }

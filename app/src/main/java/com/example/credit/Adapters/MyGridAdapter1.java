@@ -70,7 +70,7 @@ public class MyGridAdapter1 extends BaseAdapter {
 
 		iv.setBackgroundResource(imgs[position]);
 		tv1.setText(arrays1[position]);
-		tv2.setText(arrays2[position]);
+//		tv2.setText(arrays2[position]);
 		return convertView;
 	}
 

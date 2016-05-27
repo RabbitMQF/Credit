@@ -1,6 +1,7 @@
 package com.example.credit.Activitys;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ListView;
 
 import com.example.credit.Adapters.Advertisement_Adapter;
@@ -9,10 +10,13 @@ import com.example.credit.R;
 
 /**
  * Created by alucard on 2016-05-25.
+ * 广告资质
  */
 public class AdvertisementActivity extends BaseActivity {
     ListView listView;
     Advertisement_Adapter adapter;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,9 +24,15 @@ public class AdvertisementActivity extends BaseActivity {
         setContentView(R.layout.activity_advertisement);
         listView = (ListView) findViewById(R.id.advertisement_listview);
         initData();
-
         adapter = new Advertisement_Adapter(this, DataManager.advertisementList);
         listView.setAdapter(adapter);
+        findViewById(R.id.c_return).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+                overridePendingTransition(R.anim.finish_tran_one, R.anim.finish_tran_two);
+            }
+        });
     }
 
     private void initData() {

@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.credit.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -16,11 +17,13 @@ public class CC_List_itemAdapter extends BaseAdapter {
     private Context context;
     private List<String> list;
     private String str;
+    List<String> imgUrl;
 
-    public CC_List_itemAdapter(Context context, List<String> list, String str) {
+    public CC_List_itemAdapter(Context context, List<String> list, String str,List<String> imgUrl) {
         this.context = context;
         this.list = list;
         this.str = str;
+        this.imgUrl=imgUrl;
     }
 
     @Override
@@ -61,6 +64,7 @@ public class CC_List_itemAdapter extends BaseAdapter {
             vh.im.setVisibility(View.VISIBLE);
             vh.cl_tv1.setVisibility(View.VISIBLE);
             vh.cl_tv1.setText(list.get(position));
+            Picasso.with(context).load(imgUrl.get(position)).into(vh.im);
 
         } else if (str.equals("judicial")) {//司法信息
             vh.im.setVisibility(View.VISIBLE);

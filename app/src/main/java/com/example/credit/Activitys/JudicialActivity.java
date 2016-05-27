@@ -40,7 +40,7 @@ public class JudicialActivity extends BaseActivity {
             }
         });
         List<String> list = Arrays.asList(getResources().getStringArray(R.array.judicial));
-        CC_List_itemAdapter adapter=new CC_List_itemAdapter(JudicialActivity.this,list,"judicial");
+        CC_List_itemAdapter adapter=new CC_List_itemAdapter(JudicialActivity.this,list,"judicial",null);
         jListView1.setAdapter(adapter);
         jListView1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

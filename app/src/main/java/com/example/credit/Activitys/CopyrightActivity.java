@@ -9,10 +9,12 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.credit.Adapters.CC_List_itemAdapter;
+import com.example.credit.Entitys.DataManager;
 import com.example.credit.R;
 import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ViewInject;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -39,13 +41,18 @@ public class CopyrightActivity extends BaseActivity {
                 overridePendingTransition(R.anim.finish_tran_one, R.anim.finish_tran_two);
             }
         });
-        List<String> list = Arrays.asList(getResources().getStringArray(R.array.alert));
-        CC_List_itemAdapter adapter = new CC_List_itemAdapter(CopyrightActivity.this, list,"copyright");
+        List<String> list = new ArrayList<>();
+        for(DataManager.copyrightInfo p:DataManager.copyrightInfoList){
+            list.add(p.literatureName);
+        }
+        CC_List_itemAdapter adapter = new CC_List_itemAdapter(CopyrightActivity.this, list,"copyright",null);
         ccListView1.setAdapter(adapter);
         ccListView1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent i = new Intent(CopyrightActivity.this, Public_Detail_ctivity.class);
+                i.putExtra("position",position);
+                i.putExtra("state","copyright");
                 startActivity(i);
                 overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
             }

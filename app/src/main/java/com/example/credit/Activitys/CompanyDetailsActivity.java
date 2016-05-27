@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageView;
@@ -15,12 +17,18 @@ import com.example.credit.Entitys.DataManager;
 import com.example.credit.R;
 import com.example.credit.Adapters.MyGridAdapter1;
 import com.example.credit.Adapters.MyGridAdapter2;
+import com.example.credit.Services.CallServer;
+import com.example.credit.Utils.GsonUtil;
+import com.example.credit.Utils.MyhttpCallBack;
+import com.example.credit.Utils.URLconstant;
 import com.example.credit.Views.MyGridView;
 import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ViewInject;
+import com.yolanda.nohttp.RequestMethod;
 
 import java.util.ArrayList;
 import java.util.List;
+
 /**
  * 公司信息界面
  */
@@ -38,7 +46,7 @@ public class CompanyDetailsActivity extends BaseActivity {
     @ViewInject(R.id.cp_name)
     TextView cp_name;
     @ViewInject(R.id.details_tit1)//浏览量
-    TextView details_tit1;
+            TextView details_tit1;
 
     @ViewInject(R.id.vg)
     RelativeLayout vg;
@@ -53,6 +61,7 @@ public class CompanyDetailsActivity extends BaseActivity {
 
     MyGridAdapter1 adapter1;
     MyGridAdapter2 adapter2;
+    private final int MSG = 0x015;
     List<DataManager.search> detailsList = new ArrayList<DataManager.search>();
     public String[] arrays3 = {"注册资本", "法定代表", "发照日期", "成立日期",
             "工商注册号", "组织机构代码"};
@@ -78,6 +87,7 @@ public class CompanyDetailsActivity extends BaseActivity {
             R.mipmap.infodetial_fun15_abled, R.mipmap.infodetial_fun16_abled};
 
     int position;
+    public static Handler handler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,9 +99,13 @@ public class CompanyDetailsActivity extends BaseActivity {
         int s = i.getIntExtra("s", 0);
         position = i.getIntExtra("position", 0);
         detailsList = DataManager.searchList;
-        if (s == 0) {
-            imgs[4] = R.mipmap.infodetial_fun5_unable;
-        }
+        imgs[13] = R.mipmap.infodetial_fun5_unable;
+        imgs[14] = R.mipmap.infodetial_fun5_unable;
+
+        imgs[6] = R.mipmap.infodetial_fun5_unable;//BUG
+        imgs[7] = R.mipmap.infodetial_fun5_unable;//BUG
+        imgs[11] = R.mipmap.infodetial_fun5_unable;//BUG
+        imgs[15] = R.mipmap.infodetial_fun5_unable;//BUG
         init();
         adapter1 = new MyGridAdapter1(CompanyDetailsActivity.this, arrays1, arrays2, imgs);
         myGridView1.setAdapter(adapter1);
@@ -115,7 +129,55 @@ public class CompanyDetailsActivity extends BaseActivity {
         adapter2 = new MyGridAdapter2(CompanyDetailsActivity.this, arrays3, arrays4);
         myGridView2.setAdapter(adapter2);
         myGridView2.setSelector(new ColorDrawable(Color.TRANSPARENT));
-
+        handler = new Handler() {
+            @Override
+            public void handleMessage(Message msg) {
+                switch (msg.what) {
+                    case 2://荣誉信息
+                        Intent i2 = new Intent(CompanyDetailsActivity.this, Honor_Support_Activity.class);
+                        i2.putExtra("st", 1);
+                        startActivity(i2);
+                        overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
+                        break;
+                    case 3://扶持信息
+                        Intent i3 = new Intent(CompanyDetailsActivity.this, Honor_Support_Activity.class);
+                        i3.putExtra("st", 2);
+                        startActivity(i3);
+                        overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
+                        break;
+                    case 5:
+                        Intent i5 = new Intent(CompanyDetailsActivity.this, PledgeActivity.class);
+                        startActivity(i5);
+                        overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
+                        break;
+                    case 8:
+                        Intent i8 = new Intent(CompanyDetailsActivity.this, PunishActivity.class);
+                        startActivity(i8);
+                        overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
+                        break;
+                    case 9://经营异常
+                        Intent i9 = new Intent(CompanyDetailsActivity.this, AbnormalActivity.class);
+                        startActivity(i9);
+                        overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
+                        break;
+                    case 10:
+                        Intent i10 = new Intent(CompanyDetailsActivity.this, PatentActivity.class);
+                        startActivity(i10);
+                        overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
+                        break;
+                    case 11:
+                        Intent i11 = new Intent(CompanyDetailsActivity.this, TrademarkActivity.class);
+                        startActivity(i11);
+                        overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
+                        break;
+                    case 12:
+                        Intent i12 = new Intent(CompanyDetailsActivity.this, CopyrightActivity.class);
+                        startActivity(i12);
+                        overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
+                        break;
+                }
+            }
+        };
     }
 
     AdapterView.OnItemClickListener listener = new AdapterView.OnItemClickListener() {
@@ -128,74 +190,78 @@ public class CompanyDetailsActivity extends BaseActivity {
                     startActivity(i0);
                     overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
                     break;
-                case 1:
-                    startActivity(new Intent(CompanyDetailsActivity.this,AdminActivity.class));
-                    overridePendingTransition(R.anim.start_tran_one,R.anim.start_tran_two);
-                    break;
-                case 4:
-                    startActivity(new Intent(CompanyDetailsActivity.this,Mortgage_detail_Activity.class));
-                    overridePendingTransition(R.anim.start_tran_one,R.anim.start_tran_two);
-                    break;
-                case 2://荣誉信息
-                    Intent i2 = new Intent(CompanyDetailsActivity.this, Honor_Support_Activity.class);
-                    i2.putExtra("st", 1);
-                    startActivity(i2);
+                case 1://行政审批
+                    startActivity(new Intent(CompanyDetailsActivity.this, AdminActivity.class));
                     overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
                     break;
+                case 2://荣誉信息
+                    GsonUtil request2 = new GsonUtil(URLconstant.HONORURL, RequestMethod.GET);
+                    CallServer.getInstance().add(CompanyDetailsActivity.this, request2, MyhttpCallBack.getInstance(), 0x002, true, false, true);
+
+                    break;
                 case 3://扶持信息
-                    Intent i3 = new Intent(CompanyDetailsActivity.this, Honor_Support_Activity.class);
-                    i3.putExtra("st", 2);
-                    startActivity(i3);
+                    GsonUtil request3 = new GsonUtil(URLconstant.SUPPORTURL, RequestMethod.GET);
+                    CallServer.getInstance().add(CompanyDetailsActivity.this, request3, MyhttpCallBack.getInstance(), 0x003, true, false, true);
+
+                    break;
+                case 4://抵押信息
+                    startActivity(new Intent(CompanyDetailsActivity.this, Mortgage_detail_Activity.class));
                     overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
                     break;
                 case 5://出质信息
-                    Intent i5= new Intent(CompanyDetailsActivity.this, PledgeActivity.class);
-                    startActivity(i5);
-                    overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
+                    GsonUtil request5 = new GsonUtil(URLconstant.PLEDGEURL, RequestMethod.GET);
+                    CallServer.getInstance().add(CompanyDetailsActivity.this, request5, MyhttpCallBack.getInstance(), 0x005, true, false, true);
+
                     break;
                 case 6://司法信息
-                    Intent i6= new Intent(CompanyDetailsActivity.this, JudicialActivity.class);
-                    startActivity(i6);
-                    overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
+//                    Intent i6 = new Intent(CompanyDetailsActivity.this, JudicialActivity.class);
+//                    startActivity(i6);
+//                    overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
                     break;
                 case 7://预警信息
-                    Intent i7 = new Intent(CompanyDetailsActivity.this, AlertActivity.class);
-                    startActivity(i7);
-                    overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
+//                    Intent i7 = new Intent(CompanyDetailsActivity.this, AlertActivity.class);
+//                    startActivity(i7);
+//                    overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
                     break;
                 case 8://行政处罚
-                    Intent i8 = new Intent(CompanyDetailsActivity.this, PunishActivity.class);
-                    startActivity(i8);
-                    overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
+                    GsonUtil request = new GsonUtil(URLconstant.PUNISHURL, RequestMethod.GET);
+                    CallServer.getInstance().add(CompanyDetailsActivity.this, request, MyhttpCallBack.getInstance(), 0X008, true, false, true);
+
                     break;
                 case 9://经营异常
-                    Intent i9 = new Intent(CompanyDetailsActivity.this, AbnormalActivity.class);
-                    startActivity(i9);
-                    overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
+                    GsonUtil request9 = new GsonUtil(URLconstant.ABNORMALURL, RequestMethod.GET);
+                    CallServer.getInstance().add(CompanyDetailsActivity.this, request9, MyhttpCallBack.getInstance(), 0X009, true, false, true);
+
                     break;
                 case 10://专利信息
-                    Intent i10= new Intent(CompanyDetailsActivity.this, PatentActivity.class);
-                    startActivity(i10);
-                    overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
+                    GsonUtil request10 = new GsonUtil(URLconstant.PATENTURL, RequestMethod.GET);
+                    CallServer.getInstance().add(CompanyDetailsActivity.this, request10, MyhttpCallBack.getInstance(), 0X010, true, false, true);
+
                     break;
-                case 11://著作权
-                    Intent i11= new Intent(CompanyDetailsActivity.this, TrademarkActivity.class);
-                    startActivity(i11);
-                    overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
+                case 11://商标信息
+//                    GsonUtil request11 = new GsonUtil(URLconstant.TRADEMARKURL, RequestMethod.GET);
+//                    CallServer.getInstance().add(CompanyDetailsActivity.this, request11, MyhttpCallBack.getInstance(), 0x011, true, false, true);
                     break;
                 case 12://著作权
-                    Intent i12= new Intent(CompanyDetailsActivity.this, CopyrightActivity.class);
-                    startActivity(i12);
-                    overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
+                    GsonUtil request12 = new GsonUtil(URLconstant.COPYRIGHTURL, RequestMethod.GET);
+                    CallServer.getInstance().add(CompanyDetailsActivity.this, request12, MyhttpCallBack.getInstance(), 0x012, true, false, true);
+
                     break;
                 case 13://广告资质
-                    startActivity(new Intent(CompanyDetailsActivity.this,AdvertisementActivity.class));
-                    overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
+//                    startActivity(new Intent(CompanyDetailsActivity.this, AdvertisementActivity.class));
+//                    overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
                     break;
                 case 14://守合同重信用
-                    Intent i14 = new Intent(CompanyDetailsActivity.this, ObeyedActivity.class);
-                    startActivity(i14);
-                    overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
+//                    Intent i14 = new Intent(CompanyDetailsActivity.this, ObeyedActivity.class);
+//                    startActivity(i14);
+//                    overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
+                    break;
+                case 15://自主公示
+//                    CallServer.getInstance().add(CompanyDetailsActivity.this, new GsonUtil(URLconstant.GETAUTONOMY, RequestMethod.GET), MyhttpCallBack.getInstance(), MSG, true, false, true);
+//                    startActivity(new Intent(CompanyDetailsActivity.this, AutonomyActivity.class));
+//                    overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
+                    break;
+                default:
                     break;
             }
         }
@@ -210,18 +276,19 @@ public class CompanyDetailsActivity extends BaseActivity {
 
             }
         });
-        details_tit.setText(detailsList.get(position).Status);
-        cp_name.setText(detailsList.get(position).Name);
-        List<String> lt = new ArrayList<String>();
-        lt.add(detailsList.get(position).RegistCapi);
-        lt.add(detailsList.get(position).OperName);
-        lt.add(detailsList.get(position).UpdatedDate);
-        lt.add(detailsList.get(position).StartDate);
-        lt.add(detailsList.get(position).No);
-        lt.add(detailsList.get(position).CreditCode);
-        int size = lt.size();
-        arrays4= (String[]) lt.toArray(new String[size]);
-
+        if (detailsList != null && detailsList.size() > 0) {
+            details_tit.setText(detailsList.get(position).Status);
+            cp_name.setText(detailsList.get(position).Name);
+            List<String> lt = new ArrayList<String>();
+            lt.add(detailsList.get(position).RegistCapi);
+            lt.add(detailsList.get(position).OperName);
+            lt.add(detailsList.get(position).UpdatedDate);
+            lt.add(detailsList.get(position).StartDate);
+            lt.add(detailsList.get(position).No);
+            lt.add(detailsList.get(position).CreditCode);
+            int size = lt.size();
+            arrays4 = (String[]) lt.toArray(new String[size]);
+        }
     }
 
 

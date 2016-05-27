@@ -9,10 +9,12 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.credit.Adapters.CC_List_itemAdapter;
+import com.example.credit.Entitys.DataManager;
 import com.example.credit.R;
 import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ViewInject;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -39,8 +41,13 @@ public class TrademarkActivity extends BaseActivity {
                 overridePendingTransition(R.anim.finish_tran_one, R.anim.finish_tran_two);
             }
         });
-        List<String> list = Arrays.asList(getResources().getStringArray(R.array.pledge));
-        CC_List_itemAdapter adapter = new CC_List_itemAdapter(TrademarkActivity.this, list,"trademark");
+        List<String> list = new ArrayList<>();
+        List<String> listurl = new ArrayList<>();//商标URL
+        for(DataManager.trademarkInfo p:DataManager.trademarkInfoList){
+            list.add(p.registeredName);
+            listurl.add(p.iconUrl);
+        }
+        CC_List_itemAdapter adapter = new CC_List_itemAdapter(TrademarkActivity.this, list,"trademark",listurl);
         tListView1.setAdapter(adapter);
         tListView1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

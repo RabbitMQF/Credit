@@ -115,19 +115,55 @@
         <item>(赣洪)内顾等级涉【2015】第00058号</item>
         <item>(赣洪)内顾等级涉【2015】第00058号</item>
     </string-array>
-
-    <string-array name="patent_c">
+    <string-array name="pledge_c"><!--出质-->
+        <item>登记编号</item>
+        <item>出质人</item>
+        <item>证照/证件号码</item>
+        <item>出质股份数额</item>
+        <item>质权人</item>
+        <item>证照/证件号码</item>
+        <item>质权出质</item>
+        <item>设立登记日期</item>
+        <item>状态</item>
+        <item>注销/变更日期</item>
+        <item>注销/变更内容</item>
+    </string-array>
+    <string-array name="patent_c"><!--专利-->
         <item>专利名称</item>
         <item>申请号</item>
-        <item>申请日期</item>
+        <item>申请日</item>
         <item>申请公布号</item>
+        <item>申请公布日</item>
         <item>发明人</item>
         <item>类型</item>
         <item>专利代理机构</item>
         <item>法律状态</item>
         <item>摘要</item>
     </string-array>
-
+    <string-array name="copyright_c"><!--著作-->
+        <item>著作名称</item>
+        <item>登记日期</item>
+        <item>登记号</item>
+        <item>类别</item>
+        <item>创作完成日期</item>
+        <item>创作发布日期</item>
+    </string-array>
+    <string-array name="punish_c"><!--处罚-->
+        <item>违法行为类型</item>
+        <item>处罚内容</item>
+        <item>行政处罚决定文书号</item>
+        <item>作出行政处罚决定机关</item>
+        <item>作出行政处罚决定日期</item>
+        <item>详情</item>
+    </string-array>
+    <string-array name="trademark_c"><!--商标-->
+        <item>注册商标</item>
+        <item>使用商品</item>
+        <item>驰名商标/著名商标</item>
+        <item>认定机关</item>
+        <item>申请公布日</item>
+        <item>认定时间</item>
+    </string-array>
 
     <string-array name="autonomy">
         <item>企业年报</item>

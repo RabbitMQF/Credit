@@ -39,7 +39,7 @@ public class DataManager {
         public int TotalRecords;
     }
 
-    public static List<search> searchList;//搜索列表集合
+    public static List<search> searchList=new ArrayList<>();//搜索列表集合
 
     public class search {//搜索列表信息 Result
         public String KeyNo;
@@ -205,11 +205,100 @@ public class DataManager {
     }
 
     /**
+     * 广告资质实体类
+     */
+    public static List<advertisement> advertisementList = new ArrayList<>();
+
+    public static class advertisement {
+        public String level;//许可文件名称
+        public String type;//许可证号
+        public String dates;//有效期
+        public String times;//认定日期
+        public String office;//认定机关
+    }
+
+    /**
+     * 荣誉信息实体类
+     */
+
+    public static List<honorInfo> honorInfoList;
+
+    public static class honorInfo {
+        public String No;
+        public String name;
+        public String type;
+        public String organs;
+        public String detail;
+
+
+    }
+
+    /**
+     * 企业扶持信息实体类
+     */
+
+    public static List<supportInfo> supportInfoList;
+
+    public static class supportInfo {
+        public String No;
+        public String supportNum;
+        public String content;
+        public String department;
+        public String supportDate;
+
+
+    }
+    /**
+     * 出质信息实体类
+     */
+    public class Root5 {
+        public String status;
+        public String message;
+        public List<pledgeInfo> data;
+    }
+
+    public static List<pledgeInfo> pledgeInfoList;
+
+    public static class pledgeInfo {
+        public String No;
+        public String registerNum;
+        public String pledgor;
+        public String pledgorCertificateNum;
+        public String pledgedEquityNum;
+        public String pledgee;
+        public String pledgeeCertificateNum;
+        public String equityPledge;
+        public String setRegisterDate;
+        public String status;
+        public String registerAndChangeTime;
+        public String registerAndChangeContent;
+
+
+    }
+
+    /**
+     * 经营异常信息实体类
+     */
+
+    public static List<abnormalInfo> abnormalInfoList;
+
+    public static class abnormalInfo {
+        public String No;
+        public String why;
+        public String date;
+        public String remove;
+        public String removeDate;
+        public String decision;
+    }
+
+    /**
      * 专利信息实体类
      */
+
     public static List<patentInfo> patentInfoList;
 
     public static class patentInfo {
+        public String No;
         public String patentName;
         public String applyNum;
         public String applyDate;
@@ -221,18 +310,122 @@ public class DataManager {
         public String LegalStatus;
         public String abstracts;
     }
+
     /**
-     * 广告资质实体类
+     * 处罚信息实体类
      */
-    public static List<advertisement> advertisementList=new ArrayList<>();
-    public static class advertisement{
-        public String level;//许可文件名称
-        public String type;//许可证号
-        public String dates;//有效期
-        public String times;//认定日期
-        public String office;//认定机关
+    public class Root8 {
+        public String status;
+        public String message;
+        public List<punishInfo> data;
+    }
+
+    public static List<punishInfo> punishInfoList;
+
+    public static class punishInfo {
+        public String No;
+        public String type;
+        public String centent;
+        public String documentNumber;
+        public String organs;
+        public String time;
+        public String detail;
+    }
+
+    /**
+     * 商标信息实体类
+     */
+    public static List<trademarkInfo> trademarkInfoList;
+
+    public static class trademarkInfo {
+        public String No;
+        public String registeredName;
+        public String iconUrl;
+        public String applyNum;
+        public String applyDate;
+        public String RecognizedAuthority;
+        public String applyPublishDate;
+        public String identifiedDate;
+
+    }
+
+    /**
+     * 著作信息实体类
+     */
+    public class Root12 {
+        public String status;
+        public String message;
+        public List<copyrightInfo> data;
+    }
+
+    public static List<copyrightInfo> copyrightInfoList;
+
+    public static class copyrightInfo {
+        public String No;
+        public String literatureName;
+        public String registerDate;
+        public String registerNum;
+        public String category;
+        public String literatureCompleteData;
+        public String firstPublishDate;
+
     }
 
 
+    public static List<report> reportList = new ArrayList<>();
+    /**
+     * 企业年报实体类
+     */
+    public static class report {
+        String NO;//编号
+        String name;//标题
+        String time;//时间
+        String url;//h5地址
+    }
+
+
+    public static List<funded> fundedList = new ArrayList<>();
+    /**
+     * 股东出资
+     */
+    public static class funded {
+        String shareholdersName;//股东
+        String subscribedNums;//认缴额
+        String actuallyPaidNums;//实缴额
+        String subscribedWay;//认缴出资方式
+        String subscribedNum;//认缴出资额
+        String subscribedDate;//认缴出资日期
+        String actuallyPaidWay;//实缴出资方式
+        String actuallyPaidNum;//实缴出资额
+        String actuallyPaidDate;//实缴出资日期
+        String publishDate;//公示日期
+    }
+
+
+    public static List<stock> stockList = new ArrayList<>();
+    /**
+     * 股权变更
+     */
+    public static class stock {
+        String changeDate;//时间
+        String afterChange;//变更后
+        String beforeChange;//变更前
+    }
+
+
+    public static List<permit> permitList = new ArrayList<>();
+    /**
+     * 行政许可信息实体类
+     */
+    public static class permit {
+        String licenseName;//许可文件名称
+        String licenseNum;//许可证号
+        String invalidDate;//有效期
+        String licenseDepart;//许可机关
+        String sendDate;//发证日期
+        String licensedContent;//许可内容
+
+
+    }
 
 }

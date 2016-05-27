@@ -6,11 +6,13 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.example.credit.Adapters.CC_List_itemAdapter;
 import com.example.credit.Entitys.DataManager;
 import com.example.credit.R;
+import com.example.credit.Views.MyListView;
 import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ViewInject;
 
@@ -27,14 +29,17 @@ public class PatentActivity extends BaseActivity {
     @ViewInject(R.id.pa_topname)
     TextView pa_topname;
 
+    @ViewInject(R.id.pa_sc)
+    ScrollView pa_sc;
     @ViewInject(R.id.paListView1)
-    ListView paListView1;
+    MyListView paListView1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_patent);
         ViewUtils.inject(this);
+        pa_sc.smoothScrollTo(0,20);
         pa_return.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -42,29 +47,22 @@ public class PatentActivity extends BaseActivity {
                 overridePendingTransition(R.anim.finish_tran_one, R.anim.finish_tran_two);
             }
         });
-        List<String> list = Arrays.asList(getResources().getStringArray(R.array.judicial));
-        CC_List_itemAdapter adapter = new CC_List_itemAdapter(PatentActivity.this, list, "patent");
+        List<String> list = new ArrayList<>();
+        for(DataManager.patentInfo p:DataManager.patentInfoList){
+            list.add(p.patentName);
+        }
+        CC_List_itemAdapter adapter = new CC_List_itemAdapter(PatentActivity.this, list, "patent",null);
         paListView1.setAdapter(adapter);
         paListView1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent i = new Intent(PatentActivity.this, Public_Detail_ctivity.class);
-                i.putExtra("position", position);
+                i.putExtra("position",position);
+                i.putExtra("state","patent");
                 startActivity(i);
                 overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
             }
         });
     }
 
-    public void init() {
-        List<DataManager.patentInfo> list = new ArrayList<>();
-        DataManager.patentInfo p1 = new DataManager.patentInfo();
-        p1.patentName="标牌(企业征信11315";
-        p1.applyNum="";
-        p1.applyDate="";
-        p1.applyPublishNum="";
-        p1.applyPublishDate="";
-        p1.inventor="";
-        p1.type="";
-    }
 }

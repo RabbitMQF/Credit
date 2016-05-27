@@ -1,8 +1,10 @@
 package com.example.credit.Utils;
 
+import com.example.credit.Activitys.CompanyDetailsActivity;
 import com.example.credit.Activitys.SearchFirmActivty;
 import com.example.credit.Entitys.DataManager;
 import com.google.gson.Gson;
+import com.google.gson.internal.LinkedTreeMap;
 import com.google.gson.reflect.TypeToken;
 import com.yolanda.nohttp.Response;
 
@@ -17,6 +19,7 @@ import java.util.Map;
 public class MyhttpCallBack implements HttpCallBack {
     Gson gson;
     static Map<String, Object> map;
+    String jsonString;
 
     private static MyhttpCallBack instance;
 
@@ -42,11 +45,8 @@ public class MyhttpCallBack implements HttpCallBack {
                 }.getType());
                 DataManager.citysList = list;
                 break;
-            case 0x02:
+            case 0x022:
                 String searchstr = (String) response.get();
-//                map=gson.fromJson(searchstr, new TypeToken<Map<String,Object>>(){}.getType());
-//                List<DataManager.search> listadds= gson.fromJson( ((Map<String, Object>) map.get("data")).get("Result").toString(), new TypeToken<List<DataManager.citys>>() {
-//                }.getType());
                 Type type = new TypeToken<DataManager.Root>() {
                 }.getType();
                 DataManager.Root jsonRoot = gson.fromJson(searchstr, type);
@@ -56,7 +56,7 @@ public class MyhttpCallBack implements HttpCallBack {
                     SearchFirmActivty.handler.sendEmptyMessage(0);
                 }
                 break;
-            case 0x03:
+            case 0x023:
 //                gson = new Gson();
 //                String str3 = (String) response.get();
 //                map = gson.fromJson(str3, new TypeToken<Map<String, Object>>() {
@@ -93,9 +93,81 @@ public class MyhttpCallBack implements HttpCallBack {
                     e.printStackTrace();
                 }*/
                 break;
-            case 0x111://专利信息
-
+            case 0x002://荣誉信息
+                String jstring2 = (String) response.get();
+                map = gson.fromJson(jstring2, new TypeToken<Map<String, Object>>() {
+                }.getType());
+                List<DataManager.honorInfo> list2 = gson.fromJson(((Map<String, Object>) map.get("data")).get("chattel").toString(), new TypeToken<List<DataManager.honorInfo>>() {
+                }.getType());
+                DataManager.honorInfoList = list2;
+                CompanyDetailsActivity.handler.sendEmptyMessage(2);
                 break;
+            case 0x003://企业扶持信息
+                String jstring3 = (String) response.get();
+                map = gson.fromJson(jstring3, new TypeToken<Map<String, Object>>() {
+                }.getType());
+                List<DataManager.supportInfo> list3 = gson.fromJson(((Map<String, Object>) map.get("data")).get("support").toString(), new TypeToken<List<DataManager.supportInfo>>() {
+                }.getType());
+                DataManager.supportInfoList = list3;
+                CompanyDetailsActivity.handler.sendEmptyMessage(3);
+                break;
+            case 0x005://出质信息
+                String jstring5 = (String) response.get();
+                DataManager.Root5 jsonRoot5 = gson.fromJson(jstring5, new TypeToken<DataManager.Root5>() {
+                }.getType());
+                DataManager.pledgeInfoList= jsonRoot5.data;
+                CompanyDetailsActivity.handler.sendEmptyMessage(5);
+                break;
+            case 0x008://处罚信息
+                String jstring8 = (String) response.get();
+                DataManager.Root8 jsonRoot8 = gson.fromJson(jstring8, new TypeToken<DataManager.Root8>() {
+                }.getType());
+                DataManager.punishInfoList = jsonRoot8.data;
+                CompanyDetailsActivity.handler.sendEmptyMessage(8);
+                break;
+            case 0x009://经营异常信息
+                String jstring9 = (String) response.get();
+                map = gson.fromJson(jstring9, new TypeToken<Map<String, Object>>() {
+                }.getType());
+                List<DataManager.abnormalInfo> list9 = gson.fromJson(((Map<String, Object>) map.get("data")).get("abNormal").toString(), new TypeToken<List<DataManager.abnormalInfo>>() {
+                }.getType());
+                DataManager.abnormalInfoList = list9;
+                CompanyDetailsActivity.handler.sendEmptyMessage(9);
+                break;
+            case 0x010://专利信息
+                String jstring10 = (String) response.get();
+                map = gson.fromJson(jstring10, new TypeToken<Map<String, Object>>() {
+                }.getType());
+                List<DataManager.patentInfo> list10 = gson.fromJson(((Map<String, Object>) map.get("data")).get("patentInfo").toString(), new TypeToken<List<DataManager.patentInfo>>() {
+                }.getType());
+                DataManager.patentInfoList = list10;
+                CompanyDetailsActivity.handler.sendEmptyMessage(10);
+                break;
+            case 0x011://商标信息
+                String jstring11 = (String) response.get();
+                map = gson.fromJson(jstring11, new TypeToken<Map<String, Object>>() {
+                }.getType());
+                List<DataManager.trademarkInfo> list11 = gson.fromJson(((Map<String, Object>) map.get("data")).get("trademark").toString(), new TypeToken<List<DataManager.trademarkInfo>>() {
+                }.getType());
+                DataManager.trademarkInfoList = list11;
+                CompanyDetailsActivity.handler.sendEmptyMessage(11);
+                break;
+            case 0x012://著作信息
+                String jstring12 = (String) response.get();
+                DataManager.Root12 jsonRoot12 = gson.fromJson(jstring12, new TypeToken<DataManager.Root12>() {
+                }.getType());
+                DataManager.copyrightInfoList = jsonRoot12.data;
+                CompanyDetailsActivity.handler.sendEmptyMessage(12);
+                break;
+            case 0x015://自主公示
+                jsonString= (String) response.get();
+                map=gson.fromJson(jsonString, new TypeToken<Map<String, Object>>() {
+                }.getType());
+                List<LinkedTreeMap> list1= (List<LinkedTreeMap>) map;
+                list1.get(0).get("type");
+                list1.get(1).get("type");
+                //DataManager.permitList=gson.fromJson(map.get("data"),new TypeToken<>())
+
             default:
                 break;
         }

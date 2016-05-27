@@ -1,88 +1,9 @@
 <resources>
-    <string name="app_name">Credit</string>
+    <string name="app_name">百信</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
-    <string name="patentUrl">{
-    "status": 1,
-    "message": "成功",
-    "data": {
-        "patentInfo": [
-            {
-                "patentName": "标牌(企业征信11315)",
-                "applyNum": "CN201430495483.8",
-                "applyDate": "2014-12-03",
-                "applyPublishNum": "CN3032579845",
-                "applyPublishDate": "2015-06-24",
-                "inventor": "代联启",
-                "type": "外观设计",
-                "patentAgency": "北京中北知识产权代理有限公司",
-                "LegalStatus": "授权",
-                "abstract": "摘要"
-            },
-            {
-                "patentName": "标牌(企业征信11315)",
-                "applyNum": "CN201430495483.8",
-                "applyDate": "2014-12-03",
-                "applyPublishNum": "CN3032579845",
-                "applyPublishDate": "2015-06-24",
-                "inventor": "代联启",
-                "type": "外观设计",
-                "patentAgency": "北京中北知识产权代理有限公司",
-                "LegalStatus": "授权",
-                "abstract": "摘要"
-            },
-            {
-                "patentName": "标牌(企业征信11315)",
-                "applyNum": "CN201430495483.8",
-                "applyDate": "2014-12-03",
-                "applyPublishNum": "CN3032579845",
-                "applyPublishDate": "2015-06-24",
-                "inventor": "代联启",
-                "type": "外观设计",
-                "patentAgency": "北京中北知识产权代理有限公司",
-                "LegalStatus": "授权",
-                "abstract": "摘要"
-            },
-            {
-                "patentName": "标牌(企业征信11315)",
-                "applyNum": "CN201430495483.8",
-                "applyDate": "2014-12-03",
-                "applyPublishNum": "CN3032579845",
-                "applyPublishDate": "2015-06-24",
-                "inventor": "代联启",
-                "type": "外观设计",
-                "patentAgency": "北京中北知识产权代理有限公司",
-                "LegalStatus": "授权",
-                "abstract": "摘要"
-            },
-            {
-                "patentName": "标牌(企业征信11315)",
-                "applyNum": "CN201430495483.8",
-                "applyDate": "2014-12-03",
-                "applyPublishNum": "CN3032579845",
-                "applyPublishDate": "2015-06-24",
-                "inventor": "代联启",
-                "type": "外观设计",
-                "patentAgency": "北京中北知识产权代理有限公司",
-                "LegalStatus": "授权",
-                "abstract": "摘要"
-            },
-            {
-                "patentName": "标牌(企业征信11315)",
-                "applyNum": "CN201430495483.8",
-                "applyDate": "2014-12-03",
-                "applyPublishNum": "CN3032579845",
-                "applyPublishDate": "2015-06-24",
-                "inventor": "代联启",
-                "type": "外观设计",
-                "patentAgency": "北京中北知识产权代理有限公司",
-                "LegalStatus": "授权",
-                "abstract": "摘要"
-            }
-        ]
-    }
-}</string>
+
 </resources>

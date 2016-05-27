@@ -31,7 +31,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     private long exitTime = 0;
     private SlidingMenu mLeftMenu;
     private final int NOHTTP_CITY = 0x01;//获取城市
-    private final int NOHTTP_INDUSTRY = 0x03;//获取行业
+    private final int NOHTTP_INDUSTRY = 0x023;//获取行业
     @ViewInject(R.id.tab1)
     LinearLayout tab1;
     @ViewInject(R.id.tab2)
@@ -59,8 +59,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
         tab1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this, ContactsActivity.class);
-                startActivity(i);
+                //Intent i = new Intent(MainActivity.this, ContactsActivity.class);
+                //startActivity(i);
             }
         });
         GsonUtil request = new GsonUtil(URLconstant.GETCITYLIST, RequestMethod.GET);
