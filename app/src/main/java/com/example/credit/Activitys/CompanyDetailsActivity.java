@@ -257,9 +257,9 @@ public class CompanyDetailsActivity extends BaseActivity {
 //                    overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
                     break;
                 case 15://自主公示
-//                    CallServer.getInstance().add(CompanyDetailsActivity.this, new GsonUtil(URLconstant.GETAUTONOMY, RequestMethod.GET), MyhttpCallBack.getInstance(), MSG, true, false, true);
-//                    startActivity(new Intent(CompanyDetailsActivity.this, AutonomyActivity.class));
-//                    overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
+                    CallServer.getInstance().add(CompanyDetailsActivity.this, new GsonUtil(URLconstant.GETAUTONOMY, RequestMethod.GET), MyhttpCallBack.getInstance(), MSG, true, false, true);
+                    startActivity(new Intent(CompanyDetailsActivity.this, AutonomyActivity.class));
+                    overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
                     break;
                 default:
                     break;

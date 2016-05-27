@@ -4,6 +4,7 @@ import com.example.credit.Activitys.CompanyDetailsActivity;
 import com.example.credit.Activitys.SearchFirmActivty;
 import com.example.credit.Entitys.DataManager;
 import com.google.gson.Gson;
+import com.google.gson.JsonElement;
 import com.google.gson.internal.LinkedTreeMap;
 import com.google.gson.reflect.TypeToken;
 import com.yolanda.nohttp.Response;
@@ -163,7 +164,7 @@ public class MyhttpCallBack implements HttpCallBack {
                 jsonString= (String) response.get();
                 map=gson.fromJson(jsonString, new TypeToken<Map<String, Object>>() {
                 }.getType());
-                List<LinkedTreeMap> list1= (List<LinkedTreeMap>) map;
+                List<LinkedTreeMap> list1= (List<LinkedTreeMap>)map.get("data");
                 list1.get(0).get("type");
                 list1.get(1).get("type");
                 //DataManager.permitList=gson.fromJson(map.get("data"),new TypeToken<>())
