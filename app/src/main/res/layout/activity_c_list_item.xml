@@ -64,6 +64,7 @@
                 android:textColor="#000000" />
 
             <TextView
+                android:id="@+id/report_year"
                 android:paddingTop="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -91,13 +92,13 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/date"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="20dp"
                     android:gravity="center_vertical"
                     android:text="2015-05-8"
                     android:layout_marginTop="5dp"
-                    android:visibility="gone"
                     android:textColor="#B8B8B8"
                     android:textSize="18sp" />
             </LinearLayout>
@@ -110,6 +111,7 @@
         </LinearLayout>
 
         <TextView
+            android:id="@+id/detail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"

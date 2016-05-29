@@ -219,9 +219,9 @@ public class CompanyDetailsActivity extends BaseActivity {
 //                    overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
                     break;
                 case 7://预警信息
-//                    Intent i7 = new Intent(CompanyDetailsActivity.this, AlertActivity.class);
-//                    startActivity(i7);
-//                    overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
+                    Intent i7 = new Intent(CompanyDetailsActivity.this, AlertActivity.class);
+                    startActivity(i7);
+                    overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
                     break;
                 case 8://行政处罚
                     GsonUtil request = new GsonUtil(URLconstant.PUNISHURL, RequestMethod.GET);
