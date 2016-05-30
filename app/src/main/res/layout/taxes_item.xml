@@ -19,16 +19,16 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="许可文件名称"
+                android:text="欠税日期"
                 android:textColor="#000000"
                 android:textSize="16sp"
                 android:layout_marginRight="5dp"/>
 
             <TextView
-                android:id="@+id/permit_name"
+                android:id="@+id/taxes_time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="企业投资技术改造项目变更建设年限批复"
+                android:text="2015年1月"
                 android:textColor="#57737D"
                 android:textSize="14sp" />
 
@@ -37,17 +37,17 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="许可证号"
+                android:text="欠税金额"
                 android:layout_marginTop="5dp"
                 android:layout_marginRight="5dp"
                 android:textColor="#000000"
                 android:textSize="16sp" />
 
             <TextView
-                android:id="@+id/permit_no"
+                android:id="@+id/taxes_money"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="赣环评函[2015]182号"
+                android:text="100万"
                 android:textColor="#57737D"
                 android:textSize="14sp" />
 
@@ -55,71 +55,37 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="有效期"
+                android:text="征缴机关"
                 android:layout_marginRight="5dp"
                 android:layout_marginTop="5dp"
                 android:textColor="#000000"
                 android:textSize="16sp" />
 
             <TextView
-                android:id="@+id/permit_date"
+                android:id="@+id/taxes_office"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="2019年11月12日-2020年11月20日"
+                android:text="南昌市国家税务局"
                 android:textColor="#57737D"
                 android:textSize="14sp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="许可机关"
+                android:text="完税状态"
                 android:layout_marginRight="5dp"
                 android:layout_marginTop="5dp"
                 android:textColor="#000000"
                 android:textSize="16sp" />
 
             <TextView
-                android:id="@+id/permit_office"
+                android:id="@+id/taxes_status"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="南昌经开区经发局"
+                android:text="未缴"
                 android:textColor="#57737D"
                 android:textSize="14sp" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="发证日期"
-            android:layout_marginTop="5dp"
-            android:textColor="#000000"
-            android:textSize="16sp" />
 
-        <TextView
-            android:id="@+id/permit_time"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="2015年12月30日"
-            android:textColor="#57737D"
-            android:textSize="14sp" />
-
-
-
-        <TextView
-            android:id="@+id/permit_content1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="许可内容"
-            android:layout_marginTop="5dp"
-            android:textColor="#000000"
-            android:textSize="16sp" />
-
-        <TextView
-            android:id="@+id/permit_content"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="许可该机构经营中国银行业监督管理委员会依照有关法律、行政法规和其他规定批准的业务，经营范围以批准文件所列的为准。"
-            android:textColor="#57737D"
-            android:textSize="14sp"
-            android:layout_marginRight="10dp"/>
 
     </LinearLayout>
 

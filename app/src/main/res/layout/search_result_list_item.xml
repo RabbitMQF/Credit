@@ -41,7 +41,7 @@
                     android:layout_height="wrap_content"
                     android:text="法人代表babababab"
                     android:textColor="#636262"
-                    android:textSize="16sp" />
+                    android:textSize="14sp" />
 
                 <TextView
                     android:id="@+id/status"
@@ -50,7 +50,7 @@
                     android:layout_alignParentRight="true"
                     android:text="经营状态"
                     android:textColor="#636262"
-                    android:textSize="16sp" />
+                    android:textSize="14sp" />
 
             </RelativeLayout>
 
@@ -67,7 +67,7 @@
                     android:layout_height="wrap_content"
                     android:text="注册资金babababab"
                     android:textColor="#636262"
-                    android:textSize="16sp" />
+                    android:textSize="14sp" />
 
                 <TextView
                     android:id="@+id/date"
@@ -78,7 +78,7 @@
                     android:layout_alignParentTop="true"
                     android:text="成立日期"
                     android:textColor="#636262"
-                    android:textSize="16sp" />
+                    android:textSize="14sp" />
             </RelativeLayout>
         </LinearLayout>
         <ImageView

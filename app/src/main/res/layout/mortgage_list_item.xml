@@ -34,7 +34,7 @@
              android:layout_height="wrap_content"
              android:text="登记编号:"
              android:textColor="#000000"
-             android:textSize="18sp"
+             android:textSize="16sp"
              android:layout_marginRight="5dp"/>
 
          <TextView
@@ -43,7 +43,7 @@
              android:layout_height="wrap_content"
              android:text="123123123131"
              android:textColor="#57737D"
-             android:textSize="18sp" />
+             android:textSize="14sp" />
      </LinearLayout>
         <LinearLayout
             android:layout_marginTop="5dp"
@@ -57,7 +57,7 @@
             android:text="登记日期:"
             android:layout_marginRight="5dp"
             android:textColor="#000000"
-            android:textSize="18sp" />
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/register_date"
@@ -65,7 +65,7 @@
             android:layout_height="wrap_content"
             android:text="2019年11月12日"
             android:textColor="#57737D"
-            android:textSize="18sp" />
+            android:textSize="14sp" />
         </LinearLayout>
         <LinearLayout
             android:layout_marginTop="5dp"
@@ -79,7 +79,7 @@
             android:text="公示时间:"
             android:layout_marginRight="5dp"
             android:textColor="#000000"
-            android:textSize="18sp" />
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/public_date"
@@ -87,7 +87,7 @@
             android:layout_height="wrap_content"
             android:text="2019年11月12日-2020年11月20日"
             android:textColor="#57737D"
-            android:textSize="18sp" />
+            android:textSize="14sp" />
         </LinearLayout>
         <LinearLayout
             android:layout_marginTop="5dp"
@@ -100,7 +100,7 @@
                 android:text="被担保债权数额:"
                 android:layout_marginRight="5dp"
                 android:textColor="#000000"
-                android:textSize="18sp" />
+                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/debts"
@@ -108,7 +108,7 @@
                 android:layout_height="wrap_content"
                 android:text="100万"
                 android:textColor="#57737D"
-                android:textSize="18sp" />
+                android:textSize="14sp" />
         </LinearLayout>
         <TextView
             android:layout_width="wrap_content"
@@ -116,7 +116,7 @@
             android:text="登记机关:"
             android:layout_marginTop="5dp"
             android:textColor="#000000"
-            android:textSize="18sp" />
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/office"
@@ -124,7 +124,7 @@
             android:layout_height="wrap_content"
             android:text="南昌市西湖区人民法院"
             android:textColor="#57737D"
-            android:textSize="18sp" />
+            android:textSize="14sp" />
         <TextView
             android:id="@+id/Collateral1"
             android:layout_width="wrap_content"
@@ -132,7 +132,7 @@
             android:text="抵押物:"
             android:layout_marginTop="5dp"
             android:textColor="#000000"
-            android:textSize="18sp"
+            android:textSize="16sp"
             android:visibility="gone"/>
 
         <TextView
@@ -141,7 +141,7 @@
             android:layout_height="wrap_content"
             android:text="阿斯顿马丁 ONE-77"
             android:textColor="#57737D"
-            android:textSize="18sp"
+            android:textSize="14sp"
             android:visibility="gone"/>
         <TextView
             android:id="@+id/Valuation1"
@@ -150,7 +150,7 @@
             android:text="抵押估值:"
             android:layout_marginTop="5dp"
             android:textColor="#000000"
-            android:textSize="18sp"
+            android:textSize="16sp"
             android:visibility="gone"/>
 
         <TextView
@@ -159,7 +159,7 @@
             android:layout_height="wrap_content"
             android:text="4700万人民币"
             android:textColor="#57737D"
-            android:textSize="18sp"
+            android:textSize="14sp"
             android:visibility="gone"/>
 
 
@@ -170,7 +170,7 @@
             android:text="详情:"
             android:layout_marginTop="5dp"
             android:textColor="#000000"
-            android:textSize="18sp" />
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/detail"
@@ -178,7 +178,7 @@
             android:layout_height="wrap_content"
             android:text="许可该机构经营中国银行业监督管理委员会依照有关法律、行政法规和其他规定批准的业务，经营范围以批准文件所列的为准。"
             android:textColor="#57737D"
-            android:textSize="18sp"
+            android:textSize="14sp"
             android:layout_marginRight="10dp"/>
 
     </LinearLayout>

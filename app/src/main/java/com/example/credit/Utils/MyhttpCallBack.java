@@ -119,7 +119,64 @@ public class MyhttpCallBack implements HttpCallBack {
                 DataManager.pledgeInfoList = jsonRoot5.data;
                 CompanyDetailsActivity.handler.sendEmptyMessage(5);
                 break;
-            case 0x008://处罚信息
+            case 0x006://司法信息
+                String jstring6 = (String) response.get();
+                map = gson.fromJson(jstring6, new TypeToken<Map<String, Object>>() {
+                }.getType());
+                List<DataManager.JudicialDocuments> list61 = gson.fromJson(((Map<String, Object>) map.get("data")).get("judicialDocuments").toString(), new TypeToken<List<DataManager.JudicialDocuments>>() {
+                }.getType());
+                List<DataManager.CrackCredit> list62 = gson.fromJson(((Map<String, Object>) map.get("data")).get("crackCredit").toString(), new TypeToken<List<DataManager.CrackCredit>>() {
+                }.getType());
+                List<DataManager.ShareholderInformationChange> list63 = gson.fromJson(((Map<String, Object>) map.get("data")).get("shareholderInformationChange").toString(), new TypeToken<List<DataManager.ShareholderInformationChange>>() {
+                }.getType());
+                List<DataManager.FrozenInformation> list64 = gson.fromJson(((Map<String, Object>) map.get("data")).get("frozenInformation").toString(), new TypeToken<List<DataManager.FrozenInformation>>() {
+                }.getType());
+
+                DataManager.JudicialDocumentsList = list61;//司法文书信息
+                DataManager.CrackCreditList = list62;//失信被执行人信息
+                DataManager.ShareholderInformationChangeList = list63;//股东变更信息
+                DataManager.FrozenInformationList = list64;//股权冻结信息
+                CompanyDetailsActivity.handler.sendEmptyMessage(6);
+                break;
+            case 0x007://预警信息
+                String jsonstring = (String) response.get();
+                map = gson.fromJson(jsonstring, new TypeToken<Map<String, Object>>() {
+                }.getType());
+                List<LinkedTreeMap> listtemp2 = (List<LinkedTreeMap>) map.get("data");
+                for (int i = 0; i < listtemp2.size(); i++) {
+                    switch (listtemp2.get(i).get("type").toString()) {
+                        case "证照到期":
+                            DataManager.paperwork_expireList = gson.fromJson(listtemp2.get(i).get("data").toString(), new TypeToken<List<DataManager.paperwork_expire>>() {
+                            }.getType());
+                            break;
+                        case "证照过期":
+                            DataManager.paperwork_ExpiredList = gson.fromJson(listtemp2.get(i).get("data").toString(), new TypeToken<List<DataManager.paperwork_Expired>>() {
+                            }.getType());
+                            break;
+                        case "责令改正":
+                            DataManager.correctionList = gson.fromJson(listtemp2.get(i).get("data").toString(), new TypeToken<List<DataManager.correction>>() {
+                            }.getType());
+                            break;
+                        case "欠贷信息":
+                            DataManager.loanList = gson.fromJson(listtemp2.get(i).get("data").toString(), new TypeToken<List<DataManager.loan>>() {
+                            }.getType());
+                            break;
+                        case "欠税信息":
+                            DataManager.taxesList = gson.fromJson(listtemp2.get(i).get("data").toString(), new TypeToken<List<DataManager.Taxes>>() {
+                            }.getType());
+                            break;
+                        case "欠薪信息":
+                            DataManager.wagesList = gson.fromJson(listtemp2.get(i).get("data").toString(), new TypeToken<List<DataManager.Wages>>() {
+                            }.getType());
+                            break;
+                        default:
+                            break;
+                    }
+                }
+
+
+                break;
+            case 0x008://行政处罚
                 String jstring8 = (String) response.get();
                 DataManager.Root8 jsonRoot8 = gson.fromJson(jstring8, new TypeToken<DataManager.Root8>() {
                 }.getType());
@@ -160,6 +217,24 @@ public class MyhttpCallBack implements HttpCallBack {
                 DataManager.copyrightInfoList = jsonRoot12.data;
                 CompanyDetailsActivity.handler.sendEmptyMessage(12);
                 break;
+            case 0x013://广告信息
+                String jstring13 = (String) response.get();
+                map = gson.fromJson(jstring13, new TypeToken<Map<String, Object>>() {
+                }.getType());
+                List<DataManager.advertisementInfo> list13 = gson.fromJson(((Map<String, Object>) map.get("data")).get("advertising").toString(), new TypeToken<List<DataManager.advertisementInfo>>() {
+                }.getType());
+                DataManager.advertisementInfoList = list13;
+                CompanyDetailsActivity.handler.sendEmptyMessage(13);
+                break;
+            case 0x014://守合同重信用信息
+                String jstring14 = (String) response.get();
+                map = gson.fromJson(jstring14, new TypeToken<Map<String, Object>>() {
+                }.getType());
+                List<DataManager.obeyedInfo> list14 = gson.fromJson(((Map<String, Object>) map.get("data")).get("contractInfo").toString(), new TypeToken<List<DataManager.obeyedInfo>>() {
+                }.getType());
+                DataManager.obeyedInfoList = list14;
+                CompanyDetailsActivity.handler.sendEmptyMessage(14);
+                break;
             case 0x015://自主公示
                 jsonString = (String) response.get();
                 map = gson.fromJson(jsonString, new TypeToken<Map<String, Object>>() {
@@ -168,16 +243,20 @@ public class MyhttpCallBack implements HttpCallBack {
                 for (int i = 0; i < listtemp.size(); i++) {
                     switch (listtemp.get(i).get("type").toString()) {
                         case "企业年报":
-                            DataManager.reportList=gson.fromJson(listtemp.get(i).get("date").toString(),new TypeToken<List<DataManager.report>>(){}.getType());
+                            DataManager.reportList = gson.fromJson(listtemp.get(i).get("date").toString(), new TypeToken<List<DataManager.report>>() {
+                            }.getType());
                             break;
                         case "股东及出资信息":
-                            DataManager.fundedList=gson.fromJson(listtemp.get(i).get("date").toString(),new TypeToken<List<DataManager.funded>>(){}.getType());
+                            DataManager.fundedList = gson.fromJson(listtemp.get(i).get("date").toString(), new TypeToken<List<DataManager.funded>>() {
+                            }.getType());
                             break;
                         case "股权变更信息":
-                            DataManager.stockList=gson.fromJson(listtemp.get(i).get("date").toString(),new TypeToken<List<DataManager.stock>>(){}.getType());
+                            DataManager.stockList = gson.fromJson(listtemp.get(i).get("date").toString(), new TypeToken<List<DataManager.stock>>() {
+                            }.getType());
                             break;
                         case "行政许可信息":
-                            DataManager.permitList=gson.fromJson(listtemp.get(i).get("date").toString(),new TypeToken<List<DataManager.permit>>(){}.getType());
+                            DataManager.permitList = gson.fromJson(listtemp.get(i).get("date").toString(), new TypeToken<List<DataManager.permit>>() {
+                            }.getType());
                             break;
                         default:
                             break;

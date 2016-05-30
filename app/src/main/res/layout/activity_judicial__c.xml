@@ -3,9 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="#ffffff"
     android:orientation="vertical"
-    tools:context="com.example.credit.Activitys.ObeyedActivity">
+    tools:context="com.example.credit.Activitys.Judicial_CActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -13,7 +13,7 @@
         android:background="@mipmap/detail_top">
 
         <ImageView
-            android:id="@+id/o_return"
+            android:id="@+id/jc_return"
             android:layout_width="25dp"
             android:layout_height="25dp"
             android:layout_centerVertical="true"
@@ -21,7 +21,7 @@
             android:background="@mipmap/arrow_left_back" />
 
         <TextView
-            android:id="@+id/o_topname"
+            android:id="@+id/jc_topname"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
@@ -33,19 +33,21 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <ScrollView
+            android:id="@+id/jst_sc"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:scrollbars="none"
-            android:id="@+id/o_scs"
-            android:layout_marginBottom="30dp">
+            android:layout_marginBottom="30dp"
+            android:scrollbars="none">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginBottom="30dp"
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/juh_tit"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
@@ -56,12 +58,12 @@
                     android:paddingLeft="20dp"
                     android:paddingRight="20dp"
                     android:paddingTop="5dp"
-                    android:text="守合同重信用信息"
+                    android:text="信息"
                     android:textColor="#ffffff"
                     android:textSize="16sp" />
 
                 <com.example.credit.Views.MyListView
-                    android:id="@+id/oListView1"
+                    android:id="@+id/jcListView1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
@@ -72,6 +74,7 @@
                     android:scrollbars="none" />
             </LinearLayout>
         </ScrollView>
+
         <View
             android:layout_width="match_parent"
             android:layout_height="30dp"

@@ -12,7 +12,7 @@
         android:gravity="center_vertical"
         android:orientation="vertical"
         android:paddingLeft="10dp"
-        android:paddingRight="10dp">
+        android:paddingRight="5dp">
 
 
         <TextView
@@ -22,7 +22,7 @@
             android:maxLines="1"
             android:text="注册资本"
             android:textColor="#000000"
-            android:textSize="16sp" />
+            android:textSize="12sp" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -35,9 +35,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="详情"
-                android:layout_marginRight="10dp"
+                android:layout_marginRight="5dp"
                 android:textColor="@color/blue1"
-                android:textSize="16sp" />
+                android:textSize="12sp" />
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="20dp"

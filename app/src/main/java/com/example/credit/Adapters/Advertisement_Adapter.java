@@ -16,9 +16,9 @@ import java.util.List;
  */
 public class Advertisement_Adapter extends BaseAdapter {
     Context context;
-    List<DataManager.advertisement> advertisementList;
+    List<DataManager.advertisementInfo> advertisementList;
 
-    public Advertisement_Adapter(Context context, List<DataManager.advertisement> advertisementList) {
+    public Advertisement_Adapter(Context context, List<DataManager.advertisementInfo> advertisementList) {
         this.context = context;
         this.advertisementList = advertisementList;
     }
@@ -54,13 +54,12 @@ public class Advertisement_Adapter extends BaseAdapter {
             convertView.setTag(vh);
         }else {
             vh= (ViewHolder) convertView.getTag();
-            DataManager.advertisement temp=advertisementList.get(position);
-            //vh.title.setText("");
+            DataManager.advertisementInfo temp=advertisementList.get(position);
             vh.level.setText(temp.level);
             vh.type.setText(temp.type);
-            vh.dates.setText(temp.dates);
-            vh.times.setText(temp.times);
-            vh.office.setText(temp.office);
+            vh.dates.setText(temp.validity);
+            vh.times.setText(temp.identifiedDate);
+            vh.office.setText(temp.RecognizedAuthority);
         }
 
         return convertView;

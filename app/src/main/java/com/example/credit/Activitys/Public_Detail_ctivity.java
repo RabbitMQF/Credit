@@ -21,7 +21,7 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * 著作权详情界面
+ * 【专利】，【处罚】，【著作】，【商标】，【出质】，【】详情界面
  */
 public class Public_Detail_ctivity extends BaseActivity {
     @ViewInject(R.id.cd_return)
@@ -114,7 +114,7 @@ public class Public_Detail_ctivity extends BaseActivity {
             list1.add(DataManager.pledgeInfoList.get(position).registerAndChangeContent);
             list2 = Arrays.asList(getResources().getStringArray(R.array.pledge_c));
 
-        } else if (state.equals("333")) {//333
+        } else if (state.equals("333")) {
 
         }
         AllDetailsAdapter adapter = new AllDetailsAdapter(Public_Detail_ctivity.this, list1, list2);

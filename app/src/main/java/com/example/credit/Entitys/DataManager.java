@@ -206,18 +206,6 @@ public class DataManager {
 
     }
 
-    /**
-     * 广告资质实体类
-     */
-    public static List<advertisement> advertisementList = new ArrayList<>();
-
-    public static class advertisement {
-        public String level;//许可文件名称
-        public String type;//许可证号
-        public String dates;//有效期
-        public String times;//认定日期
-        public String office;//认定机关
-    }
 
     /**
      * 荣誉信息实体类
@@ -432,8 +420,152 @@ public class DataManager {
         public String licenseDepart;//许可机关
         public String sendDate;//发证日期
         public String licensedContent;//许可内容
+    }
 
+    /**
+     * 证照到期
+     */
+    public static List<paperwork_expire> paperwork_expireList = new ArrayList<>();
+
+    public static class paperwork_expire {
+        public String No;//编号
+        public String certificateName;//证件名
+        public String deadline;//证照期间
+        public String daysRemaining;//剩余天数
 
     }
 
+    /**
+     * 证照过期
+     */
+    public static List<paperwork_Expired> paperwork_ExpiredList = new ArrayList<>();
+
+    public static class paperwork_Expired {
+        public String No;//编号
+        public String certificateName;//证件名
+        public String deadline;//证照期间
+        public String state;//状态（是否过期）
+    }
+
+    /**
+     * 责令改正
+     */
+    public static List<correction> correctionList = new ArrayList<>();
+
+    public static class correction {
+        public String No;//编号
+        public String project;//整改项目名
+        public String centent;//整改内容
+
+    }
+
+    /**
+     * 欠贷信息
+     */
+    public static List<loan> loanList = new ArrayList<>();
+
+    public static class loan {
+        public String No;//编号
+        public String time;//欠贷时间
+        public String money;//欠贷金额
+        public String bank;//欠贷银行
+        public String status;//欠贷状态（还清、未还清）
+    }
+
+    /**
+     * 欠税信息
+     */
+    public static List<Taxes> taxesList = new ArrayList<>();
+
+    public static class Taxes {
+        public String No;//编号
+        public String time;//欠税日期
+        public String money;//欠税金额
+        public String organ;//征缴机关
+        public String status;//完税状态（完税,未缴）
+    }
+
+    /**
+     * 欠薪信息
+     */
+    public static List<Wages> wagesList = new ArrayList<>();
+
+    public static class Wages {
+        public String No;//编号
+        public String time;//欠薪日期
+        public String money;//欠薪金额
+        public String status;//给薪状态
+        public String source;//信息来源
+    }
+
+    /**
+     * 司法信息实体类
+     */
+
+    public static List<JudicialDocuments> JudicialDocumentsList;
+    public static class JudicialDocuments {//司法文书信息
+        public String No;
+        public String centent;
+        public String number;
+        public String unit;
+        public String decisiontime;
+        public String detail;
+    }
+    public static List<CrackCredit> CrackCreditList;
+    public static class CrackCredit {//失信被执行人信息
+        public String No;
+        public String court;
+        public String jurisdictionTime;
+        public String caseNumber;
+        public String referenceNumber;
+        public String performCondition;
+        public String peopleCondition;
+        public String detail;
+    }
+    public static List<ShareholderInformationChange> ShareholderInformationChangeList;
+    public static class ShareholderInformationChange {//股东变更信息
+        public String No;
+        public String executedPerson;
+        public String equityAmount;
+        public String acceptPerson;
+        public String courtOfExecution;
+        public String detail;
+    }
+    public static List<FrozenInformation> FrozenInformationList;
+    public static class FrozenInformation {//股权冻结信息
+        public String No;
+        public String time;
+        public String term;
+        public String company;
+        public String shareholderName;
+        public String money;
+        public String detail;
+
+    }
+    //========================
+    /**
+     * 广告信息实体类
+     */
+    public static List<advertisementInfo> advertisementInfoList;
+
+    public static class advertisementInfo {
+        public String No;
+        public String level;
+        public String type;
+        public String validity;
+        public String identifiedDate;
+        public String RecognizedAuthority;
+
+    }
+    /**
+     * 守合同重信用信息实体类
+     */
+    public static List<obeyedInfo> obeyedInfoList;
+
+    public static class obeyedInfo {
+        public String No;
+        public String publicName;
+        public String publicDate;
+
+    }
 }

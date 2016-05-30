@@ -4,9 +4,10 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AbsListView;
 import android.widget.BaseAdapter;
+import android.widget.LinearLayout;
 import android.widget.TextView;
-
 import com.example.credit.R;
 import com.example.credit.Views.BaseViewHolder;
 
@@ -17,11 +18,15 @@ import com.example.credit.Views.BaseViewHolder;
 public class MyGridAdapter4 extends BaseAdapter {
 	private Context mContext;
 	private String[] arrays1;
+	LinearLayout.LayoutParams layoutParam;
 
 	public MyGridAdapter4(Context context, String[] array1 ) {
 		super();
 		this.mContext = context;
 		arrays1=array1;
+	}
+	public void setmargin(LinearLayout.LayoutParams layoutParam){
+		this.layoutParam=layoutParam;
 	}
 
 	@Override
@@ -51,12 +56,18 @@ public class MyGridAdapter4 extends BaseAdapter {
 		if (convertView == null) {
 			convertView = LayoutInflater.from(mContext).inflate(
 					R.layout.grid_item4, parent, false);
+
 		}
 		if(arrays1.length%2!=0){
 			if((arrays1.length-1)<position){
 				return convertView;
 			}
 		}
+		if(layoutParam!=null){
+			TextView ttemp=BaseViewHolder.get(convertView,R.id.tbv);
+			ttemp.setTextSize(13);
+		}
+
 		TextView tv1 = BaseViewHolder.get(convertView, R.id.tbv);
 		tv1.setText(arrays1[position]);
 		return convertView;

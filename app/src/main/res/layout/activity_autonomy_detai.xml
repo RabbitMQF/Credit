@@ -29,133 +29,151 @@
             android:textColor="#ffffff"
             android:textSize="20sp" />
     </RelativeLayout>
-
-    <LinearLayout
-        android:id="@+id/stock_content"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:orientation="vertical"
-        android:visibility="gone">
-
-        <TextView
-            android:id="@+id/stock_title"
-            android:layout_width="120dp"
-            android:layout_height="30dp"
-            android:layout_margin="10dp"
-            android:background="@drawable/details_gg_bg1"
-            android:gravity="center"
-            android:text="股权变更信息"
-            android:textColor="#ffffff"
-            android:textSize="18sp" />
-
-        <ListView
-            android:id="@+id/stock_listview"
+        android:layout_height="match_parent">
+        <ScrollView
+            android:id="@+id/au_scr"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="10dp"
-            android:divider="#00000000"
-            android:listSelector="#00000000" />
-    </LinearLayout>
+            android:layout_height="match_parent"
+            android:scrollbars="none"
+            android:layout_marginBottom="30dp"
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:id="@+id/stock_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:visibility="gone">
 
-    <LinearLayout
-        android:id="@+id/permit_content"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:orientation="vertical"
-        android:visibility="gone">
+                    <TextView
+                        android:id="@+id/stock_title"
+                        android:layout_width="120dp"
+                        android:layout_height="30dp"
+                        android:layout_margin="10dp"
+                        android:background="@drawable/details_gg_bg1"
+                        android:gravity="center"
+                        android:text="股权变更信息"
+                        android:textColor="#ffffff"
+                        android:textSize="18sp" />
 
-        <TextView
-            android:id="@+id/permit_title"
-            android:layout_width="120dp"
-            android:layout_height="30dp"
-            android:layout_margin="10dp"
-            android:background="@drawable/details_gg_bg1"
-            android:gravity="center"
-            android:text="行政许可信息"
-            android:textColor="#ffffff"
-            android:textSize="18sp" />
+                    <com.example.credit.Views.MyListView
+                        android:id="@+id/stock_listview"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:scrollbars="none"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="10dp"
+                        android:divider="#00000000"
+                        android:listSelector="#00000000" />
+                </LinearLayout>
 
-        <ListView
-            android:id="@+id/permit_listview"
+                <LinearLayout
+                    android:id="@+id/permit_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:id="@+id/permit_title"
+                        android:layout_width="120dp"
+                        android:layout_height="30dp"
+                        android:layout_margin="10dp"
+                        android:background="@drawable/details_gg_bg1"
+                        android:gravity="center"
+                        android:text="行政许可信息"
+                        android:textColor="#ffffff"
+                        android:textSize="18sp" />
+
+                    <com.example.credit.Views.MyListView
+                        android:id="@+id/permit_listview"
+                        android:layout_width="match_parent"
+                        android:scrollbars="none"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="10dp"
+                        android:divider="#00000000"
+                        android:listSelector="#00000000" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/funded_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:id="@+id/funded_title"
+                        android:layout_width="140dp"
+                        android:layout_height="30dp"
+                        android:layout_margin="10dp"
+                        android:background="@drawable/details_gg_bg1"
+                        android:gravity="center"
+                        android:text="股东及出资信息"
+                        android:textColor="#ffffff"
+                        android:textSize="18sp" />
+
+                    <com.example.credit.Views.MyListView
+                        android:id="@+id/funded_listview"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="10dp"
+                        android:scrollbars="none"
+                        android:divider="#00000000"
+                        android:listSelector="#00000000" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/report_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/report_title"
+                        android:layout_width="120dp"
+                        android:layout_height="30dp"
+                        android:layout_margin="10dp"
+                        android:background="@drawable/details_gg_bg1"
+                        android:gravity="center"
+                        android:text="企业年报"
+                        android:textColor="#ffffff"
+                        android:textSize="18sp" />
+
+                    <com.example.credit.Views.MyListView
+                        android:id="@+id/report_listview"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:scrollbars="none"
+                        android:layout_marginTop="10dp"
+                        android:divider="#00000000"
+                        android:listSelector="#00000000" />
+
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+        <View
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="10dp"
-            android:divider="#00000000"
-            android:listSelector="#00000000" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/funded_content"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:orientation="vertical"
-        android:visibility="gone">
-
-        <TextView
-            android:id="@+id/funded_title"
-            android:layout_width="140dp"
             android:layout_height="30dp"
-            android:layout_margin="10dp"
-            android:background="@drawable/details_gg_bg1"
-            android:gravity="center"
-            android:text="股东及出资信息"
-            android:textColor="#ffffff"
-            android:textSize="18sp" />
-
-        <ListView
-            android:id="@+id/funded_listview"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="10dp"
-            android:divider="#00000000"
-            android:listSelector="#00000000" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/report_content"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/report_title"
-            android:layout_width="120dp"
-            android:layout_height="30dp"
-            android:layout_margin="10dp"
-            android:background="@drawable/details_gg_bg1"
-            android:gravity="center"
-            android:text="企业年报"
-            android:textColor="#ffffff"
-            android:textSize="18sp" />
-
-        <ListView
-            android:id="@+id/report_listview"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="10dp"
-            android:divider="#00000000"
-            android:listSelector="#00000000" />
-
-    </LinearLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:layout_gravity="bottom"
-        android:background="@mipmap/backgroudstop" />
-
+            android:layout_gravity="bottom"
+            android:background="@mipmap/backgroudstop" />
+    </FrameLayout>
 </LinearLayout>

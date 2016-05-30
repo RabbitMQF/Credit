@@ -103,12 +103,6 @@
         <item>欠税信息</item>
         <item>欠薪信息</item>
     </string-array>
-    <string-array name="judicial">
-        <item>司法文书信息</item>
-        <item>失信被执行人信息</item>
-        <item>司法股东变更登记信息</item>
-        <item>股权冻结信息</item>
-    </string-array>
     <string-array name="pledge">
         <item>(赣洪)内顾等级涉【2015】第00058号</item>
         <item>(赣洪)内顾等级涉【2015】第00058号</item>
@@ -173,6 +167,55 @@
         <item>知识产权登记信息</item>
         <item>行政处罚信息</item>
     </string-array>
-
+<!--司法信息集合-->
+    <string-array name="judicial">
+        <item>司法文书信息</item>
+        <item>失信被执行人信息</item>
+        <item>司法股东变更登记信息</item>
+        <item>股权冻结信息</item>
+    </string-array>
+    <string-array name="JudicialDocuments"><!--司法文书信息-->
+        <item>司法文书信息</item>
+        <item>判决内容</item>
+        <item>判决书文号</item>
+        <item>作出判决机关</item>
+        <item>作出判决书日期</item>
+        <item>详情</item>
+    </string-array>
+    <string-array name="CrackCredit"><!--失信被执行人信息-->
+        <item>失信被执行人信息</item>
+        <item>执行法院</item>
+        <item>立案时间</item>
+        <item>执行案号</item>
+        <item>执行依据文号</item>
+        <item>履行情况</item>
+        <item>失信被执行人具体情形</item>
+        <item>详情</item>
+    </string-array>
+    <string-array name="ShareholderInformationChange"><!--股东变更信息-->
+        <item>司法股东变更登记信息</item>
+        <item>被执行人</item>
+        <item>股权数额</item>
+        <item>受让人</item>
+        <item>执行法院</item>
+        <item>详情</item>
+    </string-array>
+    <string-array name="FrozenInformation"><!--股权冻结信息-->
+        <item>股权冻结信息</item>
+        <item>冻结时间</item>
+        <item>冻结期限</item>
+        <item>冻结机关</item>
+        <item>股东姓名（姓名）</item>
+        <item>冻结股权数额</item>
+        <item>详情</item>
+    </string-array>
+<!--===========================================-->
+    <string-array name="advertisement"><!--广告信息-->
+        <item>级别</item>
+        <item>类别</item>
+        <item>有效期</item>
+        <item>认定时间</item>
+        <item>认定机关</item>
+    </string-array>
 
 </resources>

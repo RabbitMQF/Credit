@@ -99,13 +99,9 @@ public class CompanyDetailsActivity extends BaseActivity {
         int s = i.getIntExtra("s", 0);
         position = i.getIntExtra("position", 0);
         detailsList = DataManager.searchList;
-        imgs[13] = R.mipmap.infodetial_fun5_unable;
-        imgs[14] = R.mipmap.infodetial_fun5_unable;
 
-        imgs[6] = R.mipmap.infodetial_fun5_unable;//BUG
         imgs[7] = R.mipmap.infodetial_fun5_unable;//BUG
         imgs[11] = R.mipmap.infodetial_fun5_unable;//BUG
-        imgs[15] = R.mipmap.infodetial_fun5_unable;//BUG
         init();
         adapter1 = new MyGridAdapter1(CompanyDetailsActivity.this, arrays1, arrays2, imgs);
         myGridView1.setAdapter(adapter1);
@@ -150,6 +146,11 @@ public class CompanyDetailsActivity extends BaseActivity {
                         startActivity(i5);
                         overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
                         break;
+                    case 6://司法信息
+                        Intent i6 = new Intent(CompanyDetailsActivity.this, JudicialActivity.class);
+                        startActivity(i6);
+                        overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
+                        break;
                     case 8:
                         Intent i8 = new Intent(CompanyDetailsActivity.this, PunishActivity.class);
                         startActivity(i8);
@@ -173,6 +174,16 @@ public class CompanyDetailsActivity extends BaseActivity {
                     case 12:
                         Intent i12 = new Intent(CompanyDetailsActivity.this, CopyrightActivity.class);
                         startActivity(i12);
+                        overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
+                        break;
+                    case 13://广告资质
+                        Intent i13 = new Intent(CompanyDetailsActivity.this, AdvertisementActivity.class);
+                        startActivity(i13);
+                        overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
+                        break;
+                    case 14://守合同重信用
+                        Intent i14 = new Intent(CompanyDetailsActivity.this, ObeyedActivity.class);
+                        startActivity(i14);
                         overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
                         break;
                 }
@@ -214,11 +225,12 @@ public class CompanyDetailsActivity extends BaseActivity {
 
                     break;
                 case 6://司法信息
-//                    Intent i6 = new Intent(CompanyDetailsActivity.this, JudicialActivity.class);
-//                    startActivity(i6);
-//                    overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
+                    GsonUtil request8 = new GsonUtil(URLconstant.JUDICIALURL, RequestMethod.GET);
+                    CallServer.getInstance().add(CompanyDetailsActivity.this, request8, MyhttpCallBack.getInstance(), 0X006, true, false, true);
+
                     break;
                 case 7://预警信息
+                    CallServer.getInstance().add(CompanyDetailsActivity.this,new GsonUtil(URLconstant.GETALERT,RequestMethod.GET),MyhttpCallBack.getInstance(),0x007,true,false,true);
                     Intent i7 = new Intent(CompanyDetailsActivity.this, AlertActivity.class);
                     startActivity(i7);
                     overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
@@ -239,22 +251,22 @@ public class CompanyDetailsActivity extends BaseActivity {
 
                     break;
                 case 11://商标信息
-//                    GsonUtil request11 = new GsonUtil(URLconstant.TRADEMARKURL, RequestMethod.GET);
-//                    CallServer.getInstance().add(CompanyDetailsActivity.this, request11, MyhttpCallBack.getInstance(), 0x011, true, false, true);
+                    GsonUtil request11 = new GsonUtil(URLconstant.TRADEMARKURL, RequestMethod.GET);
+                    CallServer.getInstance().add(CompanyDetailsActivity.this, request11, MyhttpCallBack.getInstance(), 0x011, true, false, true);
                     break;
                 case 12://著作权
                     GsonUtil request12 = new GsonUtil(URLconstant.COPYRIGHTURL, RequestMethod.GET);
                     CallServer.getInstance().add(CompanyDetailsActivity.this, request12, MyhttpCallBack.getInstance(), 0x012, true, false, true);
-
                     break;
                 case 13://广告资质
-//                    startActivity(new Intent(CompanyDetailsActivity.this, AdvertisementActivity.class));
-//                    overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
+                    GsonUtil request13 = new GsonUtil(URLconstant.ADVERTISEMENTURL, RequestMethod.GET);
+                    CallServer.getInstance().add(CompanyDetailsActivity.this, request13, MyhttpCallBack.getInstance(), 0x013, true, false, true);
+
                     break;
                 case 14://守合同重信用
-//                    Intent i14 = new Intent(CompanyDetailsActivity.this, ObeyedActivity.class);
-//                    startActivity(i14);
-//                    overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
+                    GsonUtil request14= new GsonUtil(URLconstant.OBEYEDURL, RequestMethod.GET);
+                    CallServer.getInstance().add(CompanyDetailsActivity.this, request14, MyhttpCallBack.getInstance(), 0x014, true, false, true);
+
                     break;
                 case 15://自主公示
                     CallServer.getInstance().add(CompanyDetailsActivity.this, new GsonUtil(URLconstant.GETAUTONOMY, RequestMethod.GET), MyhttpCallBack.getInstance(), MSG, true, false, true);

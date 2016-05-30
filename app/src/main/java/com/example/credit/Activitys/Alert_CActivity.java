@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.credit.R;
@@ -22,11 +23,11 @@ public class Alert_CActivity extends BaseActivity {
     @ViewInject(R.id.bc_topname)
     TextView bc_topname;
 
-    @ViewInject(R.id.tv_stit)
-    TextView tv_stit;
+    @ViewInject(R.id.alert_title)
+    TextView alert_title;
 
-    @ViewInject(R.id.myListViewc)
-    MyListView myListViewc;
+    @ViewInject(R.id.alert_lv)
+    ListView alert_lv;
     int position;
 
     @Override
@@ -48,7 +49,7 @@ public class Alert_CActivity extends BaseActivity {
 
     public void init() {
         String[] str = getResources().getStringArray(R.array.alert);
-        tv_stit.setText(str[position]);
+        alert_title.setText(str[position]);
     }
 
 

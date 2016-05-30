@@ -5,10 +5,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.ScrollView;
 
 import com.example.credit.Adapters.Autonomy_Adapter;
 import com.example.credit.Entitys.DataManager;
 import com.example.credit.R;
+import com.example.credit.Views.MyListView;
 
 /**
  * Created by alucard on 2016-05-26.
@@ -16,7 +18,7 @@ import com.example.credit.R;
  */
 public class Autonomy_Detail_Activity extends BaseActivity{
    LinearLayout report,funded,stock,permit;
-    ListView report_lv,funded_lv,stock_lv,permit_lv;
+    MyListView report_lv,funded_lv,stock_lv,permit_lv;
     String value;
     Intent in;
     Autonomy_Adapter autoAdapter=new Autonomy_Adapter(this);
@@ -26,6 +28,8 @@ public class Autonomy_Detail_Activity extends BaseActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_autonomy_detai);
+        ScrollView sv= (ScrollView) findViewById(R.id.au_scr);
+        sv.smoothScrollTo(0,20);
         in=getIntent();
         initview();
         initdata();
@@ -41,10 +45,10 @@ public class Autonomy_Detail_Activity extends BaseActivity{
         funded= (LinearLayout) findViewById(R.id.funded_content);
         stock= (LinearLayout) findViewById(R.id.stock_content);
         permit= (LinearLayout) findViewById(R.id.permit_content);
-        report_lv= (ListView) findViewById(R.id.report_listview);
-        funded_lv= (ListView) findViewById(R.id.funded_listview);
-        stock_lv= (ListView) findViewById(R.id.stock_listview);
-        permit_lv= (ListView) findViewById(R.id.permit_listview);
+        report_lv= (MyListView) findViewById(R.id.report_listview);
+        funded_lv= (MyListView) findViewById(R.id.funded_listview);
+        stock_lv= (MyListView) findViewById(R.id.stock_listview);
+        permit_lv= (MyListView) findViewById(R.id.permit_listview);
         value=in.getStringExtra("key");
         
         switch (value){
@@ -98,7 +102,7 @@ public class Autonomy_Detail_Activity extends BaseActivity{
               @Override
               public void onClick(View v) {
                   finish();
-                  overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
+                  overridePendingTransition(R.anim.finish_tran_one, R.anim.finish_tran_two);
               }
           });
     }

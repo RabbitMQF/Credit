@@ -34,7 +34,7 @@
             android:layout_marginRight="5dp"
             android:text="许可证文件名称"
             android:textColor="#000000"
-            android:textSize="18sp" />
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/aname"
@@ -42,7 +42,7 @@
             android:layout_height="wrap_content"
             android:text="123123123131"
             android:textColor="#57737D"
-            android:textSize="18sp" />
+            android:textSize="14sp" />
 
 
         <TextView
@@ -52,7 +52,7 @@
             android:layout_marginTop="5dp"
             android:text="许可证号"
             android:textColor="#000000"
-            android:textSize="18sp" />
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/no"
@@ -60,7 +60,7 @@
             android:layout_height="wrap_content"
             android:text="4561561651"
             android:textColor="#57737D"
-            android:textSize="18sp" />
+            android:textSize="14sp" />
 
 
         <TextView
@@ -70,7 +70,7 @@
             android:layout_marginTop="5dp"
             android:text="有效期"
             android:textColor="#000000"
-            android:textSize="18sp" />
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/dates"
@@ -78,7 +78,7 @@
             android:layout_height="wrap_content"
             android:text="2019年11月12日-2020年11月20日"
             android:textColor="#57737D"
-            android:textSize="18sp" />
+            android:textSize="14sp" />
 
 
         <TextView
@@ -88,7 +88,7 @@
             android:layout_marginTop="5dp"
             android:text="许可机关"
             android:textColor="#000000"
-            android:textSize="18sp" />
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/office"
@@ -96,7 +96,7 @@
             android:layout_height="wrap_content"
             android:text="南昌经开区**局"
             android:textColor="#57737D"
-            android:textSize="18sp" />
+            android:textSize="14sp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -104,7 +104,7 @@
             android:layout_marginTop="5dp"
             android:text="发证日期"
             android:textColor="#000000"
-            android:textSize="18sp" />
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/times"
@@ -112,7 +112,7 @@
             android:layout_height="wrap_content"
             android:text="2015年1月30日"
             android:textColor="#57737D"
-            android:textSize="18sp" />
+            android:textSize="14sp" />
 
 
         <TextView
@@ -122,7 +122,7 @@
             android:layout_marginTop="5dp"
             android:text="许可内容"
             android:textColor="#000000"
-            android:textSize="18sp" />
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/contetns"
@@ -131,7 +131,7 @@
             android:layout_marginRight="10dp"
             android:text="许可该机构经营中国银行业监督管理委员会依照有关法律、行政法规和其他规定批准的业务，经营范围以批准文件所列的为准。"
             android:textColor="#57737D"
-            android:textSize="18sp" />
+            android:textSize="14sp" />
 
     </LinearLayout>
 

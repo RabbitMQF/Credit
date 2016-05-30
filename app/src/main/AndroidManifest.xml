@@ -39,8 +39,9 @@
         <activity android:name=".Activitys.TrademarkActivity" />
         <activity android:name=".Activitys.Public_Detail_ctivity" />
         <activity android:name=".Activitys.AdvertisementActivity" />
-        <activity android:name=".Activitys.AutonomyActivity"/>
-        <activity android:name=".Activitys.Autonomy_Detail_Activity"/>
+        <activity android:name=".Activitys.AutonomyActivity" />
+        <activity android:name=".Activitys.Autonomy_Detail_Activity" />
+        <activity android:name=".Activitys.Judicial_CActivity"></activity>
     </application>
 
 </manifest>

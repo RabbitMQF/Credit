@@ -5,10 +5,11 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AbsListView;
 import android.widget.AdapterView;
-import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
-
 import com.example.credit.Adapters.MyGridAdapter4;
 import com.example.credit.R;
 import com.example.credit.Views.MyGridView;
@@ -35,16 +36,23 @@ public class AutonomyActivity extends BaseActivity {
         auto_title = (TextView) findViewById(R.id.menu_title);
         auto_title.setText("企业自主公示");
         auto_mgv = (MyGridView) findViewById(R.id.myGridView4);
+
         autoAdapter = new MyGridAdapter4(this, getResources().getStringArray(R.array.autonomy));
+        LinearLayout.LayoutParams layoutParam = new LinearLayout.LayoutParams( ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        layoutParam.setMargins(10,10,0,10);
+        auto_mgv.setLayoutParams(layoutParam);
+        autoAdapter.setmargin(layoutParam);
         auto_mgv.setAdapter(autoAdapter);
         auto_mgv.setSelector(new ColorDrawable(Color.TRANSPARENT));
         auto_mgv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 TextView tbv = (TextView) view.findViewById(R.id.tbv);
                 Intent in = new Intent(AutonomyActivity.this, Autonomy_Detail_Activity.class);
                 in.putExtra("key", tbv.getText());
                 startActivity(in);
+                overridePendingTransition(R.anim.start_tran_one,R.anim.start_tran_two);
             }
         });
         findViewById(R.id.b_return).setOnClickListener(new View.OnClickListener() {

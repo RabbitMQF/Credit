@@ -1,19 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#ffffff">
-    <TextView
-        android:id="@+id/title"
-        android:layout_width="150dp"
-        android:layout_height="30dp"
-        android:layout_margin="10dp"
-        android:background="@drawable/details_gg_bg1"
-        android:gravity="center"
-        android:text="广告资质"
-        android:textColor="#ffffff"
-        android:textSize="18sp" />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -31,7 +21,7 @@
              android:layout_height="wrap_content"
              android:text="级别"
              android:textColor="#000000"
-             android:textSize="18sp"
+             android:textSize="16sp"
              android:layout_marginRight="5dp"/>
 
          <TextView
@@ -40,7 +30,7 @@
              android:layout_height="wrap_content"
              android:text="123123123131"
              android:textColor="#57737D"
-             android:textSize="18sp" />
+             android:textSize="14sp" />
 
 
         <TextView
@@ -50,7 +40,7 @@
             android:layout_marginRight="5dp"
             android:layout_marginTop="5dp"
             android:textColor="#000000"
-            android:textSize="18sp" />
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/type"
@@ -58,7 +48,7 @@
             android:layout_height="wrap_content"
             android:text="156165415616516"
             android:textColor="#57737D"
-            android:textSize="18sp" />
+            android:textSize="14sp" />
 
 
 
@@ -69,7 +59,7 @@
             android:layout_marginRight="5dp"
             android:layout_marginTop="5dp"
             android:textColor="#000000"
-            android:textSize="18sp" />
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/dates"
@@ -77,7 +67,7 @@
             android:layout_height="wrap_content"
             android:text="2019年11月12日-2020年11月20日"
             android:textColor="#57737D"
-            android:textSize="18sp" />
+            android:textSize="14sp" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -86,7 +76,7 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginRight="5dp"
                 android:textColor="#000000"
-                android:textSize="18sp" />
+                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/times"
@@ -94,7 +84,7 @@
                 android:layout_height="wrap_content"
                 android:text="2019年11月12日"
                 android:textColor="#57737D"
-                android:textSize="18sp" />
+                android:textSize="14sp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -102,7 +92,7 @@
             android:text="认定机关"
             android:layout_marginTop="5dp"
             android:textColor="#000000"
-            android:textSize="18sp" />
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/office"
@@ -110,7 +100,7 @@
             android:layout_height="wrap_content"
             android:text="南昌市西湖区工商局"
             android:textColor="#57737D"
-            android:textSize="18sp" />
+            android:textSize="14sp" />
 
 
     </LinearLayout>

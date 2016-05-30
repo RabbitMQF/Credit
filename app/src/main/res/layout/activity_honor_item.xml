@@ -22,7 +22,7 @@
             android:layout_marginTop="10dp"
             android:text="荣誉名称"
             android:textColor="#000000"
-            android:textSize="18sp" />
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/hitem_tv1C"
@@ -31,7 +31,7 @@
             android:layout_marginTop="5dp"
             android:text="纳税先锋"
             android:textColor="#57737D"
-            android:textSize="18sp" />
+            android:textSize="14sp" />
 
 
         <TextView
@@ -40,7 +40,7 @@
             android:layout_marginTop="10dp"
             android:text="荣誉类型"
             android:textColor="#000000"
-            android:textSize="18sp" />
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/hitem_tv2C"
@@ -49,7 +49,7 @@
             android:layout_marginTop="5dp"
             android:text="国家级"
             android:textColor="#57737D"
-            android:textSize="18sp" />
+            android:textSize="14sp" />
 
 
         <TextView
@@ -58,7 +58,7 @@
             android:layout_marginTop="10dp"
             android:text="授予机关"
             android:textColor="#000000"
-            android:textSize="18sp" />
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/hitem_tv3C"
@@ -67,7 +67,7 @@
             android:layout_marginTop="5dp"
             android:text="江西省工商银行"
             android:textColor="#57737D"
-            android:textSize="18sp" />
+            android:textSize="14sp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -75,7 +75,7 @@
             android:layout_marginTop="10dp"
             android:text="说明"
             android:textColor="#000000"
-            android:textSize="18sp" />
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/hitem_tv4C"
@@ -84,7 +84,7 @@
             android:layout_marginTop="5dp"
             android:text="2014年"
             android:textColor="#57737D"
-            android:textSize="18sp" />
+            android:textSize="14sp" />
     </LinearLayout>
 
 </LinearLayout>
