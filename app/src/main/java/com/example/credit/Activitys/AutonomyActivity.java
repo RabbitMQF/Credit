@@ -1,5 +1,6 @@
 package com.example.credit.Activitys;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -40,7 +41,10 @@ public class AutonomyActivity extends BaseActivity {
         auto_mgv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
+                TextView tbv = (TextView) view.findViewById(R.id.tbv);
+                Intent in = new Intent(AutonomyActivity.this, Autonomy_Detail_Activity.class);
+                in.putExtra("key", tbv.getText());
+                startActivity(in);
             }
         });
         findViewById(R.id.b_return).setOnClickListener(new View.OnClickListener() {

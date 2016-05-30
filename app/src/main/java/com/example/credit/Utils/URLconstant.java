@@ -26,6 +26,7 @@ public class URLconstant {
     public static final String SUPPORTURL = "http://www.zhirong.applinzi.com/editor/attached/file/20160527/20160527091814_22025.txt";//企业扶持URL
 
     public static final String ABNORMALURL = "http://www.zhirong.applinzi.com/editor/attached/file/20160527/20160527092007_15820.txt";//经营异常URLAbnormal
-    public static final String GETAUTONOMY = "http://www.zhirong.applinzi.com/editor/attached/file/20160527/20160527125335_44878.txt";//获取自主公示  test
+
+    public static final String GETAUTONOMY = "http://www.zhirong.applinzi.com/editor/attached/file/20160529/20160529004302_91385.txt";//获取自主公示  test
 
 }
