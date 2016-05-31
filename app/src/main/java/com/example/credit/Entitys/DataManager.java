@@ -326,7 +326,7 @@ public class DataManager {
     /**
      * 商标信息实体类
      */
-    public static List<trademarkInfo> trademarkInfoList;
+    public static List<trademarkInfo> trademarkInfoList=new ArrayList<>();
 
     public static class trademarkInfo {
         public String No;

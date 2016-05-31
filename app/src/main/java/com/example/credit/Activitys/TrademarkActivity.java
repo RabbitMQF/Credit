@@ -53,6 +53,8 @@ public class TrademarkActivity extends BaseActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent i = new Intent(TrademarkActivity.this, Public_Detail_ctivity.class);
+                i.putExtra("position", position);
+                i.putExtra("state", "trademark");
                 startActivity(i);
                 overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
             }

@@ -100,8 +100,6 @@ public class CompanyDetailsActivity extends BaseActivity {
         position = i.getIntExtra("position", 0);
         detailsList = DataManager.searchList;
 
-        //imgs[7] = R.mipmap.infodetial_fun5_unable;//BUG
-        imgs[11] = R.mipmap.infodetial_fun5_unable;//BUG
         init();
         adapter1 = new MyGridAdapter1(CompanyDetailsActivity.this, arrays1, arrays2, imgs);
         myGridView1.setAdapter(adapter1);

@@ -205,9 +205,25 @@ public class MyhttpCallBack implements HttpCallBack {
                 String jstring11 = (String) response.get();
                 map = gson.fromJson(jstring11, new TypeToken<Map<String, Object>>() {
                 }.getType());
-                List<DataManager.trademarkInfo> list11 = gson.fromJson(((Map<String, Object>) map.get("data")).get("trademark").toString(), new TypeToken<List<DataManager.trademarkInfo>>() {
-                }.getType());
-                DataManager.trademarkInfoList = list11;
+//                List<DataManager.trademarkInfo> list11 = gson.fromJson(((Map<String, Object>) map.get("data")).get("trademark").toString(), new TypeToken<List<DataManager.trademarkInfo>>() {
+//                }.getType());
+                map= (Map<String, Object>) map.get("data");
+                List<LinkedTreeMap>list11= (List<LinkedTreeMap>) map.get("trademark");
+
+                if(DataManager.trademarkInfoList.size()!=0){
+                    DataManager.trademarkInfoList.clear();
+                }
+                for(LinkedTreeMap temp:list11){
+                    DataManager.trademarkInfo trademarkInfo=new DataManager.trademarkInfo();
+                    trademarkInfo.registeredName= (String) temp.get("registeredName");
+                    trademarkInfo.iconUrl= (String) temp.get("iconUrl");
+                    trademarkInfo.applyNum= (String) temp.get("applyNum");
+                    trademarkInfo.applyDate= (String) temp.get("applyDate");
+                    trademarkInfo.RecognizedAuthority= (String) temp.get("RecognizedAuthority");
+                    trademarkInfo.applyPublishDate= (String) temp.get("applyPublishDate");
+                    trademarkInfo.identifiedDate= (String) temp.get("identifiedDate");
+                    DataManager.trademarkInfoList.add(trademarkInfo);
+                }
                 CompanyDetailsActivity.handler.sendEmptyMessage(11);
                 break;
             case 0x012://著作信息

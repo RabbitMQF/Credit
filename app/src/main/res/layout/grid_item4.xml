@@ -35,13 +35,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="详情"
+                android:textColor="@color/blue1"
+                android:textSize="12sp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" 〉"
                 android:layout_marginRight="5dp"
                 android:textColor="@color/blue1"
                 android:textSize="12sp" />
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="20dp"
-                android:background="@mipmap/button14"/>
         </LinearLayout>
     </RelativeLayout>
 
