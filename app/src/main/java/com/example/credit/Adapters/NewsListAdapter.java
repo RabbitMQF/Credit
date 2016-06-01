@@ -1,16 +1,18 @@
 package com.example.credit.Adapters;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.example.credit.Entitys.DataManager;
 import com.example.credit.R;
-
+import com.squareup.picasso.Picasso;
 import java.util.List;
 
 /**
@@ -18,9 +20,8 @@ import java.util.List;
  */
 public class NewsListAdapter extends BaseAdapter{
     Context context;
-    List<DataManager.News> newsList;
-
-    public NewsListAdapter(Context context, List<DataManager.News> newsList) {
+    List<DataManager.Newss> newsList;
+    public NewsListAdapter(Context context, List<DataManager.Newss> newsList) {
         this.context = context;
         this.newsList = newsList;
     }
@@ -55,10 +56,15 @@ public class NewsListAdapter extends BaseAdapter{
         }else {
             vh=(ViewHolder) convertView.getTag();
         }
-        DataManager.News tempNews=newsList.get(position);
+        DataManager.Newss tempNews=newsList.get(position);
+        //Bitmap bitmap=BitmapFactory.decodeByteArray(Base64.decode(tempNews.img,Base64.DEFAULT),0,Base64.decode(tempNews.img,Base64.DEFAULT).length);
+        if(tempNews.img!=""){
+            Picasso.with(context).load(tempNews.img).into(vh.img);
+        }
+
         vh.title.setText(tempNews.title);
         vh.congtent.setText(tempNews.content);
-        vh.time.setText(tempNews.time);
+        vh.time.setText(tempNews.pdate_src);
         return convertView;
     }
 

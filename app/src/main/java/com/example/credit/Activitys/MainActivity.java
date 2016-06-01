@@ -3,6 +3,8 @@ package com.example.credit.Activitys;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.view.KeyEvent;
 import android.view.View;
 
@@ -38,7 +40,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     LinearLayout tab2;
     RelativeLayout topSearch;
     ListView NewsListview;
-
+    public static Handler handler;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,10 +68,19 @@ public class MainActivity extends Activity implements View.OnClickListener {
         GsonUtil request = new GsonUtil(URLconstant.GETCITYLIST, RequestMethod.GET);
         CallServer.getInstance().add(this, request, MyhttpCallBack.getInstance(), NOHTTP_CITY, true, false, true);
         CallServer.getInstance().add(this, new GsonUtil(URLconstant.GETINDUSTRY, RequestMethod.GET), MyhttpCallBack.getInstance(), NOHTTP_INDUSTRY, true, false, true);
+         handler=new Handler(){
+            @Override
+            public void handleMessage(Message msg) {
+                NewsListAdapter adapter= new NewsListAdapter(MainActivity.this,DataManager.NewssList);
+                NewsListview.setAdapter(adapter);
+                adapter.notifyDataSetChanged();
+            }
+        };
     }
 
     private void initData() {
-        List<DataManager.News> listData = new ArrayList<>();
+        CallServer.getInstance().add(this,new GsonUtil(URLconstant.NEWSURL,RequestMethod.GET),MyhttpCallBack.getInstance(),0x111,true,false,true);
+        /*List<DataManager.News> listData = new ArrayList<>();
         DataManager.News news1= new DataManager.News("","新闻标题1","内容内容内容内容内容内容内容内容内容内容内容内容内容","2016-9-19");
         DataManager.News news2= new DataManager.News("","新闻标题2","内容内容内容内容内容内容内容内容内容内容内容内容内容","2016-9-19");
         DataManager.News news3= new DataManager.News("","新闻标题3","内容内容内容内容内容内容内容内容内容内容内容内容内容","2016-9-19");
@@ -81,10 +92,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
         listData.add(news3);
         listData.add(news4);
         listData.add(news5);
-        listData.add(news6);
-        NewsListAdapter adapter= new NewsListAdapter(this,listData);
-        NewsListview.setAdapter(adapter);
-        adapter.notifyDataSetChanged();
+        listData.add(news6);*/
+
 
 
     }

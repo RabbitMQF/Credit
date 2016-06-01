@@ -568,4 +568,29 @@ public class DataManager {
         public String publicDate;
 
     }
+
+
+    public static List<Newss> NewssList=new ArrayList<>();
+    /**
+     * 新闻测试实体类
+     */
+    public class Newss {
+        public String title;
+        public String content;
+        public String img_width;
+        public String full_title;
+        public String pdate;
+        public String src;
+        public String img_length;
+        public String img;
+        public String url;
+        public String pdate_src;
+    }
+    public class Root11 {
+        public String reason;
+        public List<Newss> result;
+        public int error_code;
+    }
+
+
 }

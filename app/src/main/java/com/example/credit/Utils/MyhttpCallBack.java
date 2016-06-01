@@ -1,6 +1,7 @@
 package com.example.credit.Utils;
 
 import com.example.credit.Activitys.CompanyDetailsActivity;
+import com.example.credit.Activitys.MainActivity;
 import com.example.credit.Activitys.SearchFirmActivty;
 import com.example.credit.Entitys.DataManager;
 import com.google.gson.Gson;
@@ -45,6 +46,20 @@ public class MyhttpCallBack implements HttpCallBack {
                 List<DataManager.citys> list = gson.fromJson(((Map<String, Object>) map.get("data")).get("Result").toString(), new TypeToken<List<DataManager.citys>>() {
                 }.getType());
                 DataManager.citysList = list;
+                break;
+            case 0x111:
+                String jstring111 = (String) response.get();
+//                map = gson.fromJson(jstring111, new TypeToken<Map<String, Object>>() {
+//                }.getType());
+//                List<DataManager.Newss> list1s11 = gson.fromJson( map.get("result").toString(), new TypeToken<LinkedTreeMap>() {
+//                }.getType());
+//                DataManager.NewssList = list1s11;
+                DataManager.Root11 jsonRoot11 = gson.fromJson(jstring111, new TypeToken<DataManager.Root11>() {
+                }.getType());
+                DataManager.NewssList = jsonRoot11.result;
+                if (DataManager.NewssList != null && DataManager.NewssList.size() > 0) {
+                    MainActivity.handler.sendEmptyMessage(0);
+                }
                 break;
             case 0x022:
                 String searchstr = (String) response.get();

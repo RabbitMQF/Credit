@@ -29,6 +29,7 @@
             <TextView
                 android:id="@+id/news_title"
                 android:layout_width="wrap_content"
+                android:textSize="16sp"
                 android:layout_height="wrap_content"
                 android:text="补偿400万，就不能当钉子户了？"
                 android:textColor="@android:color/black"/>
@@ -37,6 +38,7 @@
                 android:id="@+id/news_content"
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
+                android:textSize="14sp"
                 android:text="hkl;asjdfklsadhfoipsaddsafsdafsadfsafhfiopsadhfiopsahdifophasopdfhasopdhfoisapdhfposa"
                 android:lines="2"
                 android:ellipsize="end"
