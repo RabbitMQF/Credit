@@ -58,9 +58,11 @@ public class NewsListAdapter extends BaseAdapter{
         }
         DataManager.Newss tempNews=newsList.get(position);
         //Bitmap bitmap=BitmapFactory.decodeByteArray(Base64.decode(tempNews.img,Base64.DEFAULT),0,Base64.decode(tempNews.img,Base64.DEFAULT).length);
-        if(tempNews.img!=""){
+        /*if(tempNews.img!=""){
             Picasso.with(context).load(tempNews.img).into(vh.img);
-        }
+        }else {*/
+            Picasso.with(context).load("http://zkres.myzaker.com/201606/574e83227f52e98f2700000c_320.jpg").into(vh.img);
+        /*}*/
 
         vh.title.setText(tempNews.title);
         vh.congtent.setText(tempNews.content);

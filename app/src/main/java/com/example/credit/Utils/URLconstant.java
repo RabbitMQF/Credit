@@ -31,7 +31,7 @@ public class URLconstant {
 
     public static final String JUDICIALURL = "http://www.zhirong.applinzi.com/editor/attached/file/20160530/20160530101457_32579.txt";//司法信息URL
 
-    public static final String NEWSURL = "http://op.juhe.cn/onebox/news/query?key=c0e7b7d679e557ef030efeaaa7be0b07&q=%E6%B1%9F%E8%A5%BF";//新闻URLObeyed
+    public static final String NEWSURL = "http://op.juhe.cn/onebox/news/query?key=c0e7b7d679e557ef030efeaaa7be0b07&q=%E6%B1%9F%E8%A5%BF"/*""*/;//新闻URLObeyed
 
 
 

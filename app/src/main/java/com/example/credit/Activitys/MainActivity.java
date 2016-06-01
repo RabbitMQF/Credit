@@ -23,6 +23,7 @@ import com.example.credit.Utils.MyhttpCallBack;
 import com.example.credit.Utils.URLconstant;
 import com.example.credit.Views.SlidingMenu;
 import com.lidroid.xutils.ViewUtils;
+import com.lidroid.xutils.http.client.util.URLEncodedUtils;
 import com.lidroid.xutils.view.annotation.ViewInject;
 import com.yolanda.nohttp.RequestMethod;
 

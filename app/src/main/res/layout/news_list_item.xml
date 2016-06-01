@@ -10,6 +10,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="20dp"
+
         android:orientation="horizontal">
 
         <ImageView
@@ -32,14 +33,15 @@
                 android:textSize="16sp"
                 android:layout_height="wrap_content"
                 android:text="补偿400万，就不能当钉子户了？"
+                android:lines="1"
                 android:textColor="@android:color/black"/>
 
             <TextView
                 android:id="@+id/news_content"
                 android:layout_width="250dp"
-                android:layout_height="wrap_content"
+                android:layout_height="35dp"
                 android:textSize="14sp"
-                android:text="hkl;asjdfklsadhfoipsaddsafsdafsadfsafhfiopsadhfiopsahdifophasopdfhasopdhfoisapdhfposa"
+                android:text="补偿400万，就不能当钉子户了？补偿400万，就不能当钉子户了？补偿400万，就不能当钉子户了？"
                 android:lines="2"
                 android:ellipsize="end"
                 />
