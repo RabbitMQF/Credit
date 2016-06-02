@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#ffffff"
+    android:background="#EEEEEE"
     android:orientation="vertical">
 
     <TextView
@@ -10,7 +10,7 @@
         android:layout_width="150dp"
         android:layout_height="30dp"
         android:layout_margin="10dp"
-        android:background="@drawable/details_gg_bg1"
+        android:background="@drawable/details_gg_bgtit"
         android:gravity="center"
         android:text="行政许可信息"
         android:textColor="#ffffff"
@@ -44,7 +44,12 @@
             android:textColor="#57737D"
             android:textSize="14sp" />
 
-
+        <View
+            android:background="#B8B8B8"
+            android:layout_width="match_parent"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="10dp"
+            android:layout_height="1dp"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -62,7 +67,12 @@
             android:textColor="#57737D"
             android:textSize="14sp" />
 
-
+        <View
+            android:background="#B8B8B8"
+            android:layout_width="match_parent"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="10dp"
+            android:layout_height="1dp"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -80,7 +90,12 @@
             android:textColor="#57737D"
             android:textSize="14sp" />
 
-
+        <View
+            android:background="#B8B8B8"
+            android:layout_width="match_parent"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="10dp"
+            android:layout_height="1dp"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -97,7 +112,12 @@
             android:text="南昌经开区**局"
             android:textColor="#57737D"
             android:textSize="14sp" />
-
+        <View
+            android:background="#B8B8B8"
+            android:layout_width="match_parent"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="10dp"
+            android:layout_height="1dp"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -113,7 +133,12 @@
             android:text="2015年1月30日"
             android:textColor="#57737D"
             android:textSize="14sp" />
-
+        <View
+            android:background="#B8B8B8"
+            android:layout_width="match_parent"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="10dp"
+            android:layout_height="1dp"/>
 
         <TextView
             android:id="@+id/contetns1"
@@ -132,7 +157,12 @@
             android:text="许可该机构经营中国银行业监督管理委员会依照有关法律、行政法规和其他规定批准的业务，经营范围以批准文件所列的为准。"
             android:textColor="#57737D"
             android:textSize="14sp" />
-
+        <View
+            android:background="#B8B8B8"
+            android:layout_width="match_parent"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="10dp"
+            android:layout_height="1dp"/>
     </LinearLayout>
 
 </LinearLayout>

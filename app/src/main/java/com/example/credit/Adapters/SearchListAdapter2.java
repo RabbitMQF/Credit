@@ -51,11 +51,11 @@ public class SearchListAdapter2 extends BaseAdapter {
 			vh=(ViewHolder) view.getTag();
 		}
 		search c=list.get(position);
-		vh.firm_name.setText(c.Name);
-		vh.corporate.setText(c.OperName);
-		vh.funds.setText(c.RegistCapi);
-		vh.status.setText(c.Status);
-		vh.time.setText(c.StartDate);
+		vh.firm_name.setText(c.entname);
+		vh.corporate.setText(c.NAME);
+		vh.funds.setText(c.REGCAP+"万元");
+		vh.status.setText(c.REGSTATE_CN);
+		vh.time.setText(c.D_ADDTIME);
 		return view;
 	}
 	public class ViewHolder{

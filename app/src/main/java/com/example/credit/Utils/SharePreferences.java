@@ -31,16 +31,15 @@ public class SharePreferences {
     }
 
 
-   /* //保存历史记录
-    public void putHistory(List<String> list) {
+    //保存历史记录
+    public void putHistory(String listory) {
         Editor editor = sp.edit();
-        editor.putInt("list", list);
+        editor.putString("listory", listory);
         editor.commit();
     }
 
-    public List<String> getHistory() {
-        return sp.getList;
-    }*/
-
+    public String getHistory() {
+        return sp.getString("listory", null);
+    }
 
 }

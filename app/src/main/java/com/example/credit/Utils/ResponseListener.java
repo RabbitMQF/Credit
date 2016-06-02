@@ -2,18 +2,17 @@ package com.example.credit.Utils;
 
 import android.content.Context;
 import android.content.DialogInterface;
-
 import com.example.credit.Dialogs.WaitDialog;
-import com.yolanda.nohttp.OnResponseListener;
-import com.yolanda.nohttp.Request;
-import com.yolanda.nohttp.Response;
-import com.yolanda.nohttp.error.ClientError;
 import com.yolanda.nohttp.error.NetworkError;
 import com.yolanda.nohttp.error.NotFoundCacheError;
 import com.yolanda.nohttp.error.ServerError;
 import com.yolanda.nohttp.error.TimeoutError;
+
 import com.yolanda.nohttp.error.URLError;
 import com.yolanda.nohttp.error.UnKnownHostError;
+import com.yolanda.nohttp.rest.OnResponseListener;
+import com.yolanda.nohttp.rest.Request;
+import com.yolanda.nohttp.rest.Response;
 
 /**
  * Created by alucard on 2016/5/14.
@@ -53,9 +52,9 @@ public class ResponseListener<T> implements OnResponseListener<T> {
     @Override
     public void onFailed(int what, String url, Object tag, Exception exception, int responseCode, long networkMillis) {
         if (isShowError) {
-            if (exception instanceof ClientError) {
+            /*if (exception instanceof ClientError) {
                 Toast.show("客户端发生错误");
-            } else if (exception instanceof ServerError) {
+            } else*/ if (exception instanceof ServerError) {
                 Toast.show("服务器发生错误");
             } else if (exception instanceof NetworkError) {
                 Toast.show("请检查网络");

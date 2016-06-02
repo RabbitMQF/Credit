@@ -26,4 +26,11 @@
         android:text="江西科技有限公司"
         android:textColor="#B8B8B8"
         android:textSize="14sp" />
+    <View
+        android:background="#B8B8B8"
+        android:layout_width="match_parent"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="10dp"
+        android:layout_height="1dp"/>
+
 </LinearLayout>

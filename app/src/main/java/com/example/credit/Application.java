@@ -16,7 +16,7 @@ public class Application extends android.app.Application {
     public void onCreate() {
         super.onCreate();
         instance = this;
-        NoHttp.init(this);
+        NoHttp.initialize(this);
         //打开Nohttp的调试模式
         Logger.setDebug(true);
         //设置Nohttp的日志tag

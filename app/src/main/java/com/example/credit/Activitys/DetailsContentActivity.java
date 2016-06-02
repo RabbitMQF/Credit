@@ -150,66 +150,66 @@ public class DetailsContentActivity extends BaseActivity {
                 int x = pointY[2];
                 if (c_scr.getScrollY() < pointY[0] || (c_scr.getScrollY() >= pointY[0] && c_scr.getScrollY() < pointY[1])) {
                     c_tab1.setBackgroundResource(R.drawable.details_con_tabbg1);
-                    c_tab1.setTextColor(getResources().getColor(R.color.black));
+                    c_tab1.setTextColor(getResources().getColor(R.color.white));
 
                     c_tab2.setBackgroundResource(R.drawable.details_con_tabbg2);
-                    c_tab2.setTextColor(getResources().getColor(R.color.white));
+                    c_tab2.setTextColor(getResources().getColor(R.color.black));
                     c_tab3.setBackgroundResource(R.drawable.details_con_tabbg2);
-                    c_tab3.setTextColor(getResources().getColor(R.color.white));
+                    c_tab3.setTextColor(getResources().getColor(R.color.black));
                     c_tab4.setBackgroundResource(R.drawable.details_con_tabbg2);
-                    c_tab4.setTextColor(getResources().getColor(R.color.white));
+                    c_tab4.setTextColor(getResources().getColor(R.color.black));
                     c_tab5.setBackgroundResource(R.drawable.details_con_tabbg2);
-                    c_tab5.setTextColor(getResources().getColor(R.color.white));
+                    c_tab5.setTextColor(getResources().getColor(R.color.black));
 
                 } else if (c_scr.getScrollY() >= pointY[1] && c_scr.getScrollY() < pointY[2]) {
                     c_tab2.setBackgroundResource(R.drawable.details_con_tabbg1);
-                    c_tab2.setTextColor(getResources().getColor(R.color.black));
+                    c_tab2.setTextColor(getResources().getColor(R.color.white));
 
                     c_tab1.setBackgroundResource(R.drawable.details_con_tabbg2);
-                    c_tab1.setTextColor(getResources().getColor(R.color.white));
+                    c_tab1.setTextColor(getResources().getColor(R.color.black));
                     c_tab3.setBackgroundResource(R.drawable.details_con_tabbg2);
-                    c_tab3.setTextColor(getResources().getColor(R.color.white));
+                    c_tab3.setTextColor(getResources().getColor(R.color.black));
                     c_tab4.setBackgroundResource(R.drawable.details_con_tabbg2);
-                    c_tab4.setTextColor(getResources().getColor(R.color.white));
+                    c_tab4.setTextColor(getResources().getColor(R.color.black));
                     c_tab5.setBackgroundResource(R.drawable.details_con_tabbg2);
-                    c_tab5.setTextColor(getResources().getColor(R.color.white));
+                    c_tab5.setTextColor(getResources().getColor(R.color.black));
 
                 } else if (c_scr.getScrollY() >= pointY[2] && c_scr.getScrollY() < pointY[3]) {
                     c_tab3.setBackgroundResource(R.drawable.details_con_tabbg1);
-                    c_tab3.setTextColor(getResources().getColor(R.color.black));
+                    c_tab3.setTextColor(getResources().getColor(R.color.white));
 
                     c_tab1.setBackgroundResource(R.drawable.details_con_tabbg2);
-                    c_tab1.setTextColor(getResources().getColor(R.color.white));
+                    c_tab1.setTextColor(getResources().getColor(R.color.black));
                     c_tab2.setBackgroundResource(R.drawable.details_con_tabbg2);
-                    c_tab2.setTextColor(getResources().getColor(R.color.white));
+                    c_tab2.setTextColor(getResources().getColor(R.color.black));
                     c_tab4.setBackgroundResource(R.drawable.details_con_tabbg2);
-                    c_tab4.setTextColor(getResources().getColor(R.color.white));
+                    c_tab4.setTextColor(getResources().getColor(R.color.black));
                     c_tab5.setBackgroundResource(R.drawable.details_con_tabbg2);
-                    c_tab5.setTextColor(getResources().getColor(R.color.white));
+                    c_tab5.setTextColor(getResources().getColor(R.color.black));
                 } else if (c_scr.getScrollY() >= pointY[3] && c_scr.getScrollY() < pointY[4]) {
                     c_tab4.setBackgroundResource(R.drawable.details_con_tabbg1);
-                    c_tab4.setTextColor(getResources().getColor(R.color.black));
+                    c_tab4.setTextColor(getResources().getColor(R.color.white));
 
                     c_tab1.setBackgroundResource(R.drawable.details_con_tabbg2);
-                    c_tab1.setTextColor(getResources().getColor(R.color.white));
+                    c_tab1.setTextColor(getResources().getColor(R.color.black));
                     c_tab2.setBackgroundResource(R.drawable.details_con_tabbg2);
-                    c_tab2.setTextColor(getResources().getColor(R.color.white));
+                    c_tab2.setTextColor(getResources().getColor(R.color.black));
                     c_tab3.setBackgroundResource(R.drawable.details_con_tabbg2);
-                    c_tab3.setTextColor(getResources().getColor(R.color.white));
+                    c_tab3.setTextColor(getResources().getColor(R.color.black));
                     c_tab5.setBackgroundResource(R.drawable.details_con_tabbg2);
-                    c_tab5.setTextColor(getResources().getColor(R.color.white));
+                    c_tab5.setTextColor(getResources().getColor(R.color.black));
                 } else if (c_scr.getScrollY() >= pointY[4]) {
                     c_tab5.setBackgroundResource(R.drawable.details_con_tabbg1);
-                    c_tab5.setTextColor(getResources().getColor(R.color.black));
+                    c_tab5.setTextColor(getResources().getColor(R.color.white));
 
                     c_tab1.setBackgroundResource(R.drawable.details_con_tabbg2);
-                    c_tab1.setTextColor(getResources().getColor(R.color.white));
+                    c_tab1.setTextColor(getResources().getColor(R.color.black));
                     c_tab2.setBackgroundResource(R.drawable.details_con_tabbg2);
-                    c_tab2.setTextColor(getResources().getColor(R.color.white));
+                    c_tab2.setTextColor(getResources().getColor(R.color.black));
                     c_tab3.setBackgroundResource(R.drawable.details_con_tabbg2);
-                    c_tab3.setTextColor(getResources().getColor(R.color.white));
+                    c_tab3.setTextColor(getResources().getColor(R.color.black));
                     c_tab4.setBackgroundResource(R.drawable.details_con_tabbg2);
-                    c_tab4.setTextColor(getResources().getColor(R.color.white));
+                    c_tab4.setTextColor(getResources().getColor(R.color.black));
                 }
                 return false;
             }
@@ -221,72 +221,72 @@ public class DetailsContentActivity extends BaseActivity {
             case R.id.c_tab1:
                 c_scr.smoothScrollTo(0, pointY[0]);
                 c_tab1.setBackgroundResource(R.drawable.details_con_tabbg1);
-                c_tab1.setTextColor(getResources().getColor(R.color.black));
+                c_tab1.setTextColor(getResources().getColor(R.color.white));
 
                 c_tab2.setBackgroundResource(R.drawable.details_con_tabbg2);
-                c_tab2.setTextColor(getResources().getColor(R.color.white));
+                c_tab2.setTextColor(getResources().getColor(R.color.black));
                 c_tab3.setBackgroundResource(R.drawable.details_con_tabbg2);
-                c_tab3.setTextColor(getResources().getColor(R.color.white));
+                c_tab3.setTextColor(getResources().getColor(R.color.black));
                 c_tab4.setBackgroundResource(R.drawable.details_con_tabbg2);
-                c_tab4.setTextColor(getResources().getColor(R.color.white));
+                c_tab4.setTextColor(getResources().getColor(R.color.black));
                 c_tab5.setBackgroundResource(R.drawable.details_con_tabbg2);
-                c_tab5.setTextColor(getResources().getColor(R.color.white));
+                c_tab5.setTextColor(getResources().getColor(R.color.black));
                 break;
             case R.id.c_tab2:
                 c_scr.smoothScrollTo(0, pointY[1]);
                 c_tab2.setBackgroundResource(R.drawable.details_con_tabbg1);
-                c_tab2.setTextColor(getResources().getColor(R.color.black));
+                c_tab2.setTextColor(getResources().getColor(R.color.white));
 
                 c_tab1.setBackgroundResource(R.drawable.details_con_tabbg2);
-                c_tab1.setTextColor(getResources().getColor(R.color.white));
+                c_tab1.setTextColor(getResources().getColor(R.color.black));
                 c_tab3.setBackgroundResource(R.drawable.details_con_tabbg2);
-                c_tab3.setTextColor(getResources().getColor(R.color.white));
+                c_tab3.setTextColor(getResources().getColor(R.color.black));
                 c_tab4.setBackgroundResource(R.drawable.details_con_tabbg2);
-                c_tab4.setTextColor(getResources().getColor(R.color.white));
+                c_tab4.setTextColor(getResources().getColor(R.color.black));
                 c_tab5.setBackgroundResource(R.drawable.details_con_tabbg2);
-                c_tab5.setTextColor(getResources().getColor(R.color.white));
+                c_tab5.setTextColor(getResources().getColor(R.color.black));
                 break;
             case R.id.c_tab3:
                 c_scr.smoothScrollTo(0, pointY[2]);
                 c_tab3.setBackgroundResource(R.drawable.details_con_tabbg1);
-                c_tab3.setTextColor(getResources().getColor(R.color.black));
+                c_tab3.setTextColor(getResources().getColor(R.color.white));
 
                 c_tab1.setBackgroundResource(R.drawable.details_con_tabbg2);
-                c_tab1.setTextColor(getResources().getColor(R.color.white));
+                c_tab1.setTextColor(getResources().getColor(R.color.black));
                 c_tab2.setBackgroundResource(R.drawable.details_con_tabbg2);
-                c_tab2.setTextColor(getResources().getColor(R.color.white));
+                c_tab2.setTextColor(getResources().getColor(R.color.black));
                 c_tab4.setBackgroundResource(R.drawable.details_con_tabbg2);
-                c_tab4.setTextColor(getResources().getColor(R.color.white));
+                c_tab4.setTextColor(getResources().getColor(R.color.black));
                 c_tab5.setBackgroundResource(R.drawable.details_con_tabbg2);
-                c_tab5.setTextColor(getResources().getColor(R.color.white));
+                c_tab5.setTextColor(getResources().getColor(R.color.black));
                 break;
             case R.id.c_tab4:
                 c_scr.smoothScrollTo(0, pointY[3]);
                 c_tab4.setBackgroundResource(R.drawable.details_con_tabbg1);
-                c_tab4.setTextColor(getResources().getColor(R.color.black));
+                c_tab4.setTextColor(getResources().getColor(R.color.white));
 
                 c_tab1.setBackgroundResource(R.drawable.details_con_tabbg2);
-                c_tab1.setTextColor(getResources().getColor(R.color.white));
+                c_tab1.setTextColor(getResources().getColor(R.color.black));
                 c_tab2.setBackgroundResource(R.drawable.details_con_tabbg2);
-                c_tab2.setTextColor(getResources().getColor(R.color.white));
+                c_tab2.setTextColor(getResources().getColor(R.color.black));
                 c_tab3.setBackgroundResource(R.drawable.details_con_tabbg2);
-                c_tab3.setTextColor(getResources().getColor(R.color.white));
+                c_tab3.setTextColor(getResources().getColor(R.color.black));
                 c_tab5.setBackgroundResource(R.drawable.details_con_tabbg2);
-                c_tab5.setTextColor(getResources().getColor(R.color.white));
+                c_tab5.setTextColor(getResources().getColor(R.color.black));
                 break;
             case R.id.c_tab5:
                 c_scr.smoothScrollTo(0, pointY[4]);
                 c_tab5.setBackgroundResource(R.drawable.details_con_tabbg1);
-                c_tab5.setTextColor(getResources().getColor(R.color.black));
+                c_tab5.setTextColor(getResources().getColor(R.color.white));
 
                 c_tab1.setBackgroundResource(R.drawable.details_con_tabbg2);
-                c_tab1.setTextColor(getResources().getColor(R.color.white));
+                c_tab1.setTextColor(getResources().getColor(R.color.black));
                 c_tab2.setBackgroundResource(R.drawable.details_con_tabbg2);
-                c_tab2.setTextColor(getResources().getColor(R.color.white));
+                c_tab2.setTextColor(getResources().getColor(R.color.black));
                 c_tab3.setBackgroundResource(R.drawable.details_con_tabbg2);
-                c_tab3.setTextColor(getResources().getColor(R.color.white));
+                c_tab3.setTextColor(getResources().getColor(R.color.black));
                 c_tab4.setBackgroundResource(R.drawable.details_con_tabbg2);
-                c_tab4.setTextColor(getResources().getColor(R.color.white));
+                c_tab4.setTextColor(getResources().getColor(R.color.black));
                 break;
         }
     }
@@ -299,24 +299,24 @@ public class DetailsContentActivity extends BaseActivity {
             }
         });
         dcList = DataManager.searchList;
-        topname.setText(dcList.get(position).Name);//企业名称
-        c_type.setText(dcList.get(position).EconKind);//企业类型
-        c_state.setText(dcList.get(position).ShortStatus);//经营状态/
-        c_fangwei.setText(dcList.get(position).Scope);//经营范围
-        c_address.setText(dcList.get(position).Address);//企业地址
-        c_datetiem.setText(dcList.get(position).StartDate + "至");//经营期限
-        c_djjg.setText(dcList.get(position).BelongOrg);//登记机关
-        c_people.setText(dcList.get(position).OperName);//投资人
-        c_impPeople.setText(dcList.get(position).OperName);//主要人员
+        topname.setText(dcList.get(position).entname);//企业名称
+        c_type.setText(dcList.get(position).ENTTYPE_CN);//企业类型
+        c_state.setText(dcList.get(position).REGSTATE_CN);//经营状态/
+        c_fangwei.setText(dcList.get(position).OPSCOPE);//经营范围
+        c_address.setText(dcList.get(position).DOM);//企业地址
+        c_datetiem.setText(dcList.get(position).OPFROM + "至"+dcList.get(position).OPTO);//经营期限
+        c_djjg.setText(dcList.get(position).OPTO);//登记机关
+        c_people.setText(dcList.get(position).NAME);//投资人
+        c_impPeople.setText(dcList.get(position).NAME);//主要人员
 
 
         List<String> lt = new ArrayList<String>();
-        lt.add(dcList.get(position).RegistCapi);
-        lt.add(dcList.get(position).OperName);
-        lt.add(dcList.get(position).UpdatedDate);
-        lt.add(dcList.get(position).StartDate);
-        lt.add(dcList.get(position).No);
-        lt.add(dcList.get(position).CreditCode);
+        lt.add(dcList.get(position).REGCAP+"万元");
+        lt.add(dcList.get(position).NAME);
+        lt.add(dcList.get(position).OPFROM);
+        lt.add(dcList.get(position).OPFROM);
+        lt.add(dcList.get(position).REGNO);
+        lt.add(dcList.get(position).INDUSTRYPHY);
         int size = lt.size();
         arrays4 = (String[]) lt.toArray(new String[size]);
         adapter2 = new MyGridAdapter3(DetailsContentActivity.this, arrays3, arrays4);

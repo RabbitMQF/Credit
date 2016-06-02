@@ -1,6 +1,7 @@
 package com.example.credit.Utils;
 
-import com.yolanda.nohttp.Response;
+
+import com.yolanda.nohttp.rest.Response;
 
 /**
  * Created by alucard on 2016/5/14.

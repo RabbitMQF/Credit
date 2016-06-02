@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ffffff"
+    android:background="#EEEEEE"
     android:orientation="vertical"
     tools:context=".Activitys.AdvertisementActivity">
 
@@ -51,7 +51,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="10dp"
-                    android:background="@drawable/details_gg_bg1"
+                    android:background="@drawable/details_gg_bgtit"
                     android:gravity="center"
                     android:paddingBottom="5dp"
                     android:paddingLeft="20dp"

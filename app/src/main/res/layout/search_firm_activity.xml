@@ -78,11 +78,13 @@
             android:src="@drawable/aic_search_black_24dp"
             />
     </LinearLayout>
+    <!--旧版设计 企业、违法、股东选项卡-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="5dp"
         android:layout_weight="0.6"
         android:orientation="vertical"
+        android:visibility="gone"
         >
         <LinearLayout
             android:layout_width="match_parent"
@@ -90,7 +92,8 @@
             android:layout_weight="1"
             android:background="#ffffff"
             android:orientation="horizontal"
-            android:layout_marginTop="5dp">
+            android:layout_marginTop="5dp"
+           >
             <TextView
                 android:id="@+id/tab_frim"
                 android:layout_width="0dp"
@@ -128,7 +131,9 @@
             android:layout_height="5dp"
             android:background="@color/blue2"/>
     </LinearLayout>
-    <RelativeLayout
+
+    <!--旧版查询条数+城市选择-->
+    <!--<RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1.2"
@@ -177,8 +182,8 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="0.2"
-        android:background="@color/blue2"/>
-    <!--这listview什么鬼？-->
+        android:background="@color/blue2"/>-->
+    <!--历史记录listview-->
     <ListView
         android:id="@+id/auto_listview"
         android:layout_width="100dp"
@@ -191,7 +196,7 @@
         android:visibility="gone" />
 
     <!--城市 资金 时间 行业选择器-->
-    <!--<LinearLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="0.9"
@@ -296,12 +301,12 @@
 
 
 
-    </LinearLayout>-->
-    <!--灰线-->
-    <!--<View
+    </LinearLayout>
+    <!--下灰线-->
+    <View
         android:layout_width="match_parent"
         android:layout_height="0.5dp"
-        android:background="@color/dim_foreground_material_dark" />-->
+        android:background="@color/dim_foreground_material_dark" />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -322,7 +327,6 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="10">
-
         <ListView
             android:id="@+id/search_list"
             android:layout_width="wrap_content"

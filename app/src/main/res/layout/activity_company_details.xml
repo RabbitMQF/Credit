@@ -72,12 +72,15 @@
                             android:layout_width="70dp"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="20dp"
+                            android:paddingTop="3dp"
+                            android:paddingBottom="3dp"
                             android:layout_toRightOf="@+id/ll"
+                            android:layout_marginLeft="20dp"
                             android:background="@drawable/details_tit"
                             android:gravity="center"
                             android:text="在业"
                             android:textColor="#ffffff"
-                            android:textSize="18sp" />
+                            android:textSize="16sp" />
 
                     </RelativeLayout>
 
@@ -164,8 +167,8 @@
                 <RelativeLayout
                     android:id="@+id/vg"
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:background="#D9EFFC"
+                    android:layout_height="35dp"
+                    android:background="@drawable/details_c_tle"
                     android:orientation="horizontal">
 
                     <TextView
@@ -174,8 +177,8 @@
                         android:layout_centerVertical="true"
                         android:layout_marginLeft="20dp"
                         android:text="企业基本信息"
-                        android:textColor="@color/blue2"
-                        android:textSize="20sp" />
+                        android:textColor="#3A3331"
+                        android:textSize="18sp" />
 
                     <ImageView
                         android:id="@+id/state_iv"
@@ -195,8 +198,8 @@
                         android:layout_marginRight="5dp"
                         android:layout_toLeftOf="@+id/state_iv"
                         android:text="展开"
-                        android:textColor="@color/blue2"
-                        android:textSize="20sp" />
+                        android:textColor="#C2C3C2"
+                        android:textSize="18sp" />
 
                 </RelativeLayout>
 
@@ -205,6 +208,9 @@
                     android:id="@+id/myGridView2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:paddingLeft="20dp"
+                    android:background="#EEEEEE"
+                    android:paddingRight="20dp"
                     android:numColumns="2"
                     android:visibility="gone" />
 

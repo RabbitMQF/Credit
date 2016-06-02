@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:background="#ffffff">
+    android:background="#EEEEEE">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -31,7 +31,12 @@
                 android:text="企业投资技术改造项目变更建设年限批复"
                 android:textColor="#57737D"
                 android:textSize="14sp" />
-
+        <View
+            android:background="#B8B8B8"
+            android:layout_width="match_parent"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="10dp"
+            android:layout_height="1dp"/>
 
 
             <TextView
@@ -51,7 +56,12 @@
                 android:textColor="#57737D"
                 android:textSize="14sp" />
 
-
+        <View
+            android:background="#B8B8B8"
+            android:layout_width="match_parent"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="10dp"
+            android:layout_height="1dp"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -68,7 +78,12 @@
                 android:text="2019年11月12日-2020年11月20日"
                 android:textColor="#57737D"
                 android:textSize="14sp" />
-
+        <View
+            android:background="#B8B8B8"
+            android:layout_width="match_parent"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="10dp"
+            android:layout_height="1dp"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -85,6 +100,12 @@
                 android:text="南昌经开区经发局"
                 android:textColor="#57737D"
                 android:textSize="14sp" />
+        <View
+            android:background="#B8B8B8"
+            android:layout_width="match_parent"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="10dp"
+            android:layout_height="1dp"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -101,7 +122,12 @@
             android:textColor="#57737D"
             android:textSize="14sp" />
 
-
+        <View
+            android:background="#B8B8B8"
+            android:layout_width="match_parent"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="10dp"
+            android:layout_height="1dp"/>
 
         <TextView
             android:id="@+id/permit_content1"
@@ -120,7 +146,12 @@
             android:textColor="#57737D"
             android:textSize="14sp"
             android:layout_marginRight="10dp"/>
-
+        <View
+            android:background="#B8B8B8"
+            android:layout_width="match_parent"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="10dp"
+            android:layout_height="1dp"/>
     </LinearLayout>
 
 

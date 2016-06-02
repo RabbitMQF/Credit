@@ -6,13 +6,18 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ImageView;
+import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
+import com.example.credit.Adapters.MyGridAdapters;
 import com.example.credit.Entitys.DataManager;
 import com.example.credit.R;
 import com.example.credit.Adapters.MyGridAdapter1;
@@ -86,6 +91,14 @@ public class CompanyDetailsActivity extends BaseActivity {
             R.mipmap.infodetial_fun13_abled, R.mipmap.infodetial_fun14_abled,
             R.mipmap.infodetial_fun15_abled, R.mipmap.infodetial_fun16_abled};
 
+    public int[] imgs1 = {R.mipmap.icon1, R.mipmap.icon2,
+            R.mipmap.icon3, R.mipmap.icon4,
+            R.mipmap.icon5, R.mipmap.icon6,
+            R.mipmap.icon7, R.mipmap.icon8,
+            R.mipmap.icon9, R.mipmap.icon10,
+            R.mipmap.icon11, R.mipmap.icon12,
+            R.mipmap.icon13, R.mipmap.icon14,
+            R.mipmap.icon15, R.mipmap.icon16};
     int position;
     public static Handler handler;
 
@@ -102,7 +115,8 @@ public class CompanyDetailsActivity extends BaseActivity {
 
         init();
         adapter1 = new MyGridAdapter1(CompanyDetailsActivity.this, arrays1, arrays2, imgs);
-        myGridView1.setAdapter(adapter1);
+        MyGridAdapters adapters = new MyGridAdapters(CompanyDetailsActivity.this, imgs1);
+        myGridView1.setAdapter(adapters);
         myGridView1.setSelector(new ColorDrawable(Color.TRANSPARENT));
         myGridView1.setOnItemClickListener(listener);
 
@@ -287,19 +301,55 @@ public class CompanyDetailsActivity extends BaseActivity {
             }
         });
         if (detailsList != null && detailsList.size() > 0) {
-            details_tit.setText(detailsList.get(position).Status);
-            cp_name.setText(detailsList.get(position).Name);
+            String stra=(detailsList.get(position).REGSTATE_CN).substring(0,2);
+            details_tit.setText(stra);//状态
+            details_tit.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    showPopupWindow(v);
+                }
+            });
+            cp_name.setText(detailsList.get(position).entname);
             List<String> lt = new ArrayList<String>();
-            lt.add(detailsList.get(position).RegistCapi);
-            lt.add(detailsList.get(position).OperName);
-            lt.add(detailsList.get(position).UpdatedDate);
-            lt.add(detailsList.get(position).StartDate);
-            lt.add(detailsList.get(position).No);
-            lt.add(detailsList.get(position).CreditCode);
+            lt.add(detailsList.get(position).REGCAP+"万元");
+            lt.add(detailsList.get(position).NAME);
+            lt.add(detailsList.get(position).OPFROM);
+            lt.add(detailsList.get(position).OPFROM);
+            lt.add(detailsList.get(position).REGNO);
+            lt.add(detailsList.get(position).INDUSTRYPHY);
             int size = lt.size();
             arrays4 = (String[]) lt.toArray(new String[size]);
         }
     }
+    public void  showPopupWindow(View view){
+        // 一个自定义的布局，作为显示的内容
+        View contentView = LayoutInflater.from(CompanyDetailsActivity.this).inflate(
+                R.layout.popupwindow_state, null);
 
+        final PopupWindow popupWindow = new PopupWindow(contentView,
+                ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT, true);
+        TextView tv= (TextView) contentView.findViewById(R.id.tv_state);
+        tv.setText(detailsList.get(position).REGSTATE_CN);
+        popupWindow.setTouchable(true);
+
+        popupWindow.setTouchInterceptor(new View.OnTouchListener() {
+
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                return false;
+                // 这里如果返回true的话，touch事件将被拦截
+                // 拦截后 PopupWindow的onTouchEvent不被调用，这样点击外部区域无法dismiss
+            }
+        });
+
+        // 如果不设置PopupWindow的背景，无论是点击外部区域还是Back键都无法dismiss弹框
+        // 我觉得这里是API的一个bug
+        popupWindow.setBackgroundDrawable(getResources().getDrawable(
+                R.mipmap.menu_bg));
+
+        // 设置好参数之后再show
+        popupWindow.showAsDropDown(view);
+
+    }
 
 }

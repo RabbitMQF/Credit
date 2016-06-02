@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ffffff"
+    android:background="#EEEEEE"
     android:orientation="vertical"
     tools:context="com.example.credit.Activitys.AlertActivity">
     <!--证照到期item-->
@@ -39,7 +39,12 @@
                 android:textColor="#57737D"
                 android:textSize="18sp" />
         </LinearLayout>
-
+        <View
+            android:background="#B8B8B8"
+            android:layout_width="match_parent"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="10dp"
+            android:layout_height="1dp"/>
         <LinearLayout
             android:id="@+id/l2"
             android:layout_width="wrap_content"
@@ -64,7 +69,12 @@
                 android:textColor="#57737D"
                 android:textSize="18sp" />
         </LinearLayout>
-
+        <View
+            android:background="#B8B8B8"
+            android:layout_width="match_parent"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="10dp"
+            android:layout_height="1dp"/>
         <LinearLayout
             android:id="@+id/l3"
             android:layout_width="wrap_content"
@@ -89,7 +99,12 @@
                 android:textColor="#57737D"
                 android:textSize="18sp" />
         </LinearLayout>
-
+        <View
+            android:background="#B8B8B8"
+            android:layout_width="match_parent"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="10dp"
+            android:layout_height="1dp"/>
         <LinearLayout
             android:id="@+id/l4"
             android:layout_width="wrap_content"

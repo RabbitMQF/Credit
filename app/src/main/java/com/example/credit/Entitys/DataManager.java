@@ -44,7 +44,26 @@ public class DataManager {
     public static List<search> searchList = new ArrayList<>();//搜索列表集合
 
     public class search {//搜索列表信息 Result
-        public String KeyNo;
+        public String PRIPID;//主体身份代码
+        public String entname;//企业(机构)名称
+        public String REGNO;//注册号
+        public String REGORG_CN;//登记机关（中文名称）
+        public String NAME;//法定代表人
+        public String OPFROM;//经营(驻在)期限自
+        public String OPTO;//经营(驻在)期限至
+        public String REGSTATE_CN;//登记状态中文名称
+        public String C_PROVINCE;//省代码
+        public String D_ADDTIME;//更新时间
+        public String C_STATE;//经营状态  1 存续（在营，开业，在册）  2 吊销，未注销    3吊销，已注销  4，注销  5，撤销  6，迁出   9，其他
+        public double REGCAP;//注册资本(金)  万元
+        public String ENTTYPE_CN;//市场主体类型
+        public String DOM;//住所
+        public String INDUSTRYPHY;//行业代码
+        public String INDUSTRYPHY_NAME;//行业代码中文名字
+        public String OPSCOPE;//经营范围
+
+
+       /* public String KeyNo;
         public String Name;//公司名
         public String No;
         public String BelongOrg;
@@ -68,7 +87,7 @@ public class DataManager {
         public String WebSite;
         public String ImageUrl;
         public String OrgNo;
-        public String EnglishName;
+        public String EnglishName;*/
     }
 
     public class Industry {

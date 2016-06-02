@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ffffff"
+    android:background="#EEEEEE"
     android:orientation="vertical"
     tools:context=".Activitys.DetailsContentActivity">
 
@@ -55,7 +55,7 @@
                     android:gravity="center"
                     android:onClick="tabshow"
                     android:text="登记信息"
-                    android:textColor="#000000" />
+                    android:textColor="#FFFFFF" />
 
                 <Button
                     android:id="@+id/c_tab2"
@@ -67,7 +67,7 @@
                     android:gravity="center"
                     android:onClick="tabshow"
                     android:text="投资人"
-                    android:textColor="#ffffff" />
+                    android:textColor="#353334" />
 
                 <Button
                     android:id="@+id/c_tab3"
@@ -79,7 +79,7 @@
                     android:gravity="center"
                     android:onClick="tabshow"
                     android:text="主要人员"
-                    android:textColor="#ffffff" />
+                    android:textColor="#353334" />
 
                 <Button
                     android:id="@+id/c_tab4"
@@ -91,7 +91,7 @@
                     android:gravity="center"
                     android:onClick="tabshow"
                     android:text="工商变更"
-                    android:textColor="#ffffff" />
+                    android:textColor="#353334" />
 
                 <Button
                     android:id="@+id/c_tab5"
@@ -103,7 +103,7 @@
                     android:gravity="center"
                     android:onClick="tabshow"
                     android:text="分支机构"
-                    android:textColor="#ffffff" />
+                    android:textColor="#353334" />
             </LinearLayout>
 
             <View
@@ -127,7 +127,7 @@
                         android:layout_width="100dp"
                         android:layout_height="30dp"
                         android:layout_margin="10dp"
-                        android:background="@drawable/details_gg_bg1"
+                        android:background="@drawable/details_gg_bgtit"
                         android:gravity="center"
                         android:text="登记信息"
                         android:textColor="#ffffff"
@@ -321,7 +321,7 @@
                         android:layout_width="100dp"
                         android:layout_height="30dp"
                         android:layout_margin="10dp"
-                        android:background="@drawable/details_gg_bg1"
+                        android:background="@drawable/details_gg_bgtit"
                         android:gravity="center"
                         android:text="投资人"
                         android:textColor="#ffffff"
@@ -355,7 +355,7 @@
                         android:layout_width="100dp"
                         android:layout_height="30dp"
                         android:layout_margin="10dp"
-                        android:background="@drawable/details_gg_bg1"
+                        android:background="@drawable/details_gg_bgtit"
                         android:gravity="center"
                         android:text="主要人员"
                         android:textColor="#ffffff"
@@ -389,7 +389,7 @@
                         android:layout_width="100dp"
                         android:layout_height="30dp"
                         android:layout_margin="10dp"
-                        android:background="@drawable/details_gg_bg1"
+                        android:background="@drawable/details_gg_bgtit"
                         android:gravity="center"
                         android:text="工商变更"
                         android:textColor="#ffffff"
@@ -402,6 +402,7 @@
                         android:layout_marginLeft="10dp"
                         android:layout_marginRight="10dp"
                         android:layout_marginTop="10dp"
+                        android:onClick="@null"
                         android:divider="#00000000"
                         android:listSelector="#00000000" />
 
@@ -410,7 +411,7 @@
                         android:layout_width="100dp"
                         android:layout_height="30dp"
                         android:layout_margin="10dp"
-                        android:background="@drawable/details_gg_bg1"
+                        android:background="@drawable/details_gg_bgtit"
                         android:gravity="center"
                         android:text="分支机构"
                         android:textColor="#ffffff"

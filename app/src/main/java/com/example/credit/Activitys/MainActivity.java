@@ -80,7 +80,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
     }
 
     private void initData() {
-        CallServer.getInstance().add(this,new GsonUtil(URLconstant.NEWSURL,RequestMethod.GET),MyhttpCallBack.getInstance(),0x111,true,false,true);
+        GsonUtil NewsRequest=new GsonUtil(URLconstant.NEWSURL,RequestMethod.GET);
+        NewsRequest.setConnectTimeout(20000);
+        CallServer.getInstance().add(this,NewsRequest,MyhttpCallBack.getInstance(),0x111,true,false,true);
         /*List<DataManager.News> listData = new ArrayList<>();
         DataManager.News news1= new DataManager.News("","新闻标题1","内容内容内容内容内容内容内容内容内容内容内容内容内容","2016-9-19");
         DataManager.News news2= new DataManager.News("","新闻标题2","内容内容内容内容内容内容内容内容内容内容内容内容内容","2016-9-19");

@@ -19,8 +19,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
-
-
 import com.example.credit.Adapters.SearchAutoAdapter;
 import com.example.credit.Adapters.SearchAutoData;
 import com.example.credit.Adapters.SearchListAdapter2;
@@ -32,7 +30,9 @@ import com.example.credit.Utils.MyhttpCallBack;
 import com.example.credit.Utils.URLconstant;
 import com.example.credit.Views.CustomPopupwindow;
 import com.yolanda.nohttp.RequestMethod;
-
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.security.MessageDigest;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Arrays;
@@ -44,7 +44,7 @@ public class SearchFirmActivty extends BaseActivity implements View.OnClickListe
     private SearchAutoAdapter mSearchAutoAdapter;
     public static final String SEARCH_HISTORY = "search_history";
     public static final int NOHTTP_SEARCH = 0x022;
-    private ListView mAutoListView;
+    private ListView mAutoListView;//历史记录
     public static EditText searchEt;
     public static TextView downButton, city, capital, time, industry, selectCity, tab_frim, tab_illegal, tab_shareholder;
     TextView temp;
@@ -52,7 +52,7 @@ public class SearchFirmActivty extends BaseActivity implements View.OnClickListe
     CustomPopupwindow popupwindow;
     ImageView search_bt;
     SharedPreferences sp;
-    public static boolean city_check = false, capital_check = false, time_check = false, industry_check = false,tab_frim_check=false,tab_illegal_check=false,tab_shareholder_check=false;
+    public static boolean city_check = false, capital_check = false, time_check = false, industry_check = false, tab_frim_check = false, tab_illegal_check = false, tab_shareholder_check = false;
     LinearLayout history, select;
     ListView menu_one;
     ListView menu_two;
@@ -85,17 +85,16 @@ public class SearchFirmActivty extends BaseActivity implements View.OnClickListe
                     search_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                         @Override
                         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                            Intent i=new Intent(SearchFirmActivty.this, CompanyDetailsActivity.class);
-                            i.putExtra("position",position);
+                            Intent i = new Intent(SearchFirmActivty.this, CompanyDetailsActivity.class);
+                            i.putExtra("position", position);
                             i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                             startActivity(i);
-                            overridePendingTransition(R.anim.start_tran_one,R.anim.start_tran_two);
+                            overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
                         }
                     });
                 }
             }
         };
-
     }
 
     private void initData() {
@@ -144,10 +143,15 @@ public class SearchFirmActivty extends BaseActivity implements View.OnClickListe
                 menu_two.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                        temp= (TextView) view.findViewById(R.id.menu_two_tv);
+                        temp = (TextView) view.findViewById(R.id.menu_two_tv);
                         select.setVisibility(View.GONE);
                         history.setVisibility(View.VISIBLE);
-                        selectCity.setText(temp.getText());
+                        //selectCity.setText(temp.getText());//旧版城市选择器
+                        city.setText(temp.getText());//四合一城市选择器
+                        city.setTextColor(getResources().getColor(R.color.text_nocheck));
+                        city_arraow.setImageResource(R.mipmap.senior_arraow_down);
+                        city_check = false;
+
                     }
                 });
 
@@ -167,8 +171,8 @@ public class SearchFirmActivty extends BaseActivity implements View.OnClickListe
     private void initView() {
 
         searchEt = (EditText) findViewById(R.id.search_et);
-        selectCity = (TextView) findViewById(R.id.selectCity);
-        selectCity.setOnClickListener(this);
+        //selectCity = (TextView) findViewById(R.id.selectCity);//旧版搜索城市
+        //selectCity.setOnClickListener(this);////旧版搜索城市
         arrowBack = (ImageView) findViewById(R.id.arrow_back);
         arrowBack.setOnClickListener(this);
         tab_frim = (TextView) findViewById(R.id.tab_frim);
@@ -179,18 +183,18 @@ public class SearchFirmActivty extends BaseActivity implements View.OnClickListe
         tab_shareholder.setOnClickListener(this);
 //        downButton = (TextView) findViewById(R.id.down_button);
 //        downButton.setOnClickListener(this);
-//        city = (TextView) findViewById(R.id.city);
-//        capital = (TextView) findViewById(R.id.capital);
-//        time = (TextView) findViewById(R.id.time);
-//        industry = (TextView) findViewById(R.id.industry);
-//        city_arraow = (ImageView) findViewById(R.id.city_arraow);
-//        capital_arraow = (ImageView) findViewById(R.id.capital_arraow);
-//        time_arraow = (ImageView) findViewById(R.id.time_arraow);
-//        industry_arraow = (ImageView) findViewById(R.id.industry_arraow);
-//        city.setOnClickListener(this);
-//        capital.setOnClickListener(this);
-//        time.setOnClickListener(this);
-//        industry.setOnClickListener(this);
+        city = (TextView) findViewById(R.id.city);//四合一选择器
+        capital = (TextView) findViewById(R.id.capital);//四合一选择器
+        time = (TextView) findViewById(R.id.time);//四合一选择器
+        industry = (TextView) findViewById(R.id.industry);//四合一选择器
+        city_arraow = (ImageView) findViewById(R.id.city_arraow);//四合一选择器
+        capital_arraow = (ImageView) findViewById(R.id.capital_arraow);//四合一选择器
+        time_arraow = (ImageView) findViewById(R.id.time_arraow);//四合一选择器
+        industry_arraow = (ImageView) findViewById(R.id.industry_arraow);//四合一选择器
+        city.setOnClickListener(this);//四合一选择器
+        capital.setOnClickListener(this);//四合一选择器
+        time.setOnClickListener(this);//四合一选择器
+        industry.setOnClickListener(this);//四合一选择器
         menu_one = (ListView) findViewById(R.id.menu_one);
         menu_two = (ListView) findViewById(R.id.menu_two);
         history = (LinearLayout) findViewById(R.id.history);
@@ -218,161 +222,150 @@ public class SearchFirmActivty extends BaseActivity implements View.OnClickListe
 //                popupwindow = new CustomPopupwindow(this, popDataList);
 //                popupwindow.showAtDropDownLeft(v);
 //                break;
-//            case R.id.city:
-//                if (city_check) {
-//                    city.setTextColor(getResources().getColor(R.color.text_nocheck));
-//                    city_arraow.setImageResource(R.mipmap.senior_arraow_down);
-//                    city_check = false;
-//                    history.setVisibility(View.VISIBLE);
-//                    select.setVisibility(View.GONE);
-//                    if (adapter2 != null) {
-//                        adapter2.clear();
-//                    }
-//                } else {
-//                    city.setTextColor(getResources().getColor(R.color.text_check));
-//                    city_arraow.setImageResource(R.mipmap.senior_arraow_up);
-//                    capital.setTextColor(getResources().getColor(R.color.text_nocheck));
-//                    capital_arraow.setImageResource(R.mipmap.senior_arraow_down);
-//                    time.setTextColor(getResources().getColor(R.color.text_nocheck));
-//                    time_arraow.setImageResource(R.mipmap.senior_arraow_down);
-//                    industry.setTextColor(getResources().getColor(R.color.text_nocheck));
-//                    industry_arraow.setImageResource(R.mipmap.senior_arraow_down);
-//                    city_check = true;
-//                    history.setVisibility(View.GONE);
-//                    select.setVisibility(View.VISIBLE);
-//                }
-//                break;
-//            case R.id.capital:
-//                if (capital_check) {
-//                    capital.setTextColor(getResources().getColor(R.color.text_nocheck));
-//                    capital_arraow.setImageResource(R.mipmap.senior_arraow_down);
-//                    capital_check = false;
-//                } else {
-//                    city.setTextColor(getResources().getColor(R.color.text_nocheck));
-//                    city_arraow.setImageResource(R.mipmap.senior_arraow_down);
-//                    capital.setTextColor(getResources().getColor(R.color.text_check));
-//                    capital_arraow.setImageResource(R.mipmap.senior_arraow_up);
-//                    time.setTextColor(getResources().getColor(R.color.text_nocheck));
-//                    time_arraow.setImageResource(R.mipmap.senior_arraow_down);
-//                    industry.setTextColor(getResources().getColor(R.color.text_nocheck));
-//                    industry_arraow.setImageResource(R.mipmap.senior_arraow_down);
-//                    select.setVisibility(View.GONE);
-//                    history.setVisibility(View.VISIBLE);
-//                    popDataList = new ArrayList<>();
-//                    popDataList.add("不限注册");
-//                    popDataList.add("100万以内");
-//                    popDataList.add("100万到200万");
-//                    popDataList.add("200万到500万");
-//                    popDataList.add("500万到1000万");
-//                    popDataList.add("1000万以上");
-//                    popupwindow = new CustomPopupwindow(this, popDataList);
-//                    popupwindow.setWidth(ViewGroup.LayoutParams.MATCH_PARENT);
-//                    popupwindow.showAtDropDownLeft(v);
-//                    city_check = false;
-//                    industry_check = false;
-//                    capital_check = true;
-//                    time_check = false;
-//                }
-//                break;
-//            case R.id.time:
-//                if (time_check) {
-//                    time.setTextColor(getResources().getColor(R.color.text_nocheck));
-//                    time_arraow.setImageResource(R.mipmap.senior_arraow_down);
-//                    time_check = false;
-//                } else {
-//                    city.setTextColor(getResources().getColor(R.color.text_nocheck));
-//                    city_arraow.setImageResource(R.mipmap.senior_arraow_down);
-//                    capital.setTextColor(getResources().getColor(R.color.text_nocheck));
-//                    capital_arraow.setImageResource(R.mipmap.senior_arraow_down);
-//                    time.setTextColor(getResources().getColor(R.color.text_check));
-//                    time_arraow.setImageResource(R.mipmap.senior_arraow_up);
-//                    industry.setTextColor(getResources().getColor(R.color.text_nocheck));
-//                    industry_arraow.setImageResource(R.mipmap.senior_arraow_down);
-//                    select.setVisibility(View.GONE);
-//                    history.setVisibility(View.VISIBLE);
-//                    popDataList = new ArrayList<>();
-//                    popDataList.add("不限年限");
-//                    popDataList.add("1年内");
-//                    popDataList.add("1-2年");
-//                    popDataList.add("2-3年");
-//                    popDataList.add("3-5年");
-//                    popDataList.add("5-10年");
-//                    popDataList.add("10年以上");
-//                    popupwindow = new CustomPopupwindow(this, popDataList);
-//                    popupwindow.setWidth(ViewGroup.LayoutParams.MATCH_PARENT);
-//                    popupwindow.showAtDropDownLeft(v);
-//                    time_check = true;
-//                    city_check = false;
-//                    industry_check = false;
-//                    capital_check = false;
-//                }
-//                break;
-//            case R.id.industry:
-//                if (industry_check) {
-//                    industry.setTextColor(getResources().getColor(R.color.text_nocheck));
-//                    industry_arraow.setImageResource(R.mipmap.senior_arraow_down);
-//                    industry_check = false;
-//                } else {
-//                    city.setTextColor(getResources().getColor(R.color.text_nocheck));
-//                    city_arraow.setImageResource(R.mipmap.senior_arraow_down);
-//                    capital.setTextColor(getResources().getColor(R.color.text_nocheck));
-//                    capital_arraow.setImageResource(R.mipmap.senior_arraow_down);
-//                    time.setTextColor(getResources().getColor(R.color.text_nocheck));
-//                    time_arraow.setImageResource(R.mipmap.senior_arraow_down);
-//                    industry.setTextColor(getResources().getColor(R.color.text_check));
-//                    industry_arraow.setImageResource(R.mipmap.senior_arraow_up);
-//                    industry_check = true;
-//                }
-//                break;
+            case R.id.city:
+                if (city_check) {
+                    city.setTextColor(getResources().getColor(R.color.text_nocheck));
+                    city_arraow.setImageResource(R.mipmap.senior_arraow_down);
+                    city_check = false;
+                    history.setVisibility(View.VISIBLE);
+                    select.setVisibility(View.GONE);
+                    if (adapter2 != null) {
+                        adapter2.clear();
+                    }
+                } else {
+                    city.setTextColor(getResources().getColor(R.color.text_check));
+                    city_arraow.setImageResource(R.mipmap.senior_arraow_up);
+                    capital.setTextColor(getResources().getColor(R.color.text_nocheck));
+                    capital_arraow.setImageResource(R.mipmap.senior_arraow_down);
+                    time.setTextColor(getResources().getColor(R.color.text_nocheck));
+                    time_arraow.setImageResource(R.mipmap.senior_arraow_down);
+                    industry.setTextColor(getResources().getColor(R.color.text_nocheck));
+                    industry_arraow.setImageResource(R.mipmap.senior_arraow_down);
+                    city_check = true;
+                    history.setVisibility(View.GONE);
+                    select.setVisibility(View.VISIBLE);
+                }
+                break;
+            case R.id.capital:
+                if (capital_check) {
+                    capital.setTextColor(getResources().getColor(R.color.text_nocheck));
+                    capital_arraow.setImageResource(R.mipmap.senior_arraow_down);
+                    capital_check = false;
+                } else {
+                    city.setTextColor(getResources().getColor(R.color.text_nocheck));
+                    city_arraow.setImageResource(R.mipmap.senior_arraow_down);
+                    capital.setTextColor(getResources().getColor(R.color.text_check));
+                    capital_arraow.setImageResource(R.mipmap.senior_arraow_up);
+                    time.setTextColor(getResources().getColor(R.color.text_nocheck));
+                    time_arraow.setImageResource(R.mipmap.senior_arraow_down);
+                    industry.setTextColor(getResources().getColor(R.color.text_nocheck));
+                    industry_arraow.setImageResource(R.mipmap.senior_arraow_down);
+                    select.setVisibility(View.GONE);
+                    history.setVisibility(View.VISIBLE);
+                    popDataList = new ArrayList<>();
+                    popDataList.add("不限注册");
+                    popDataList.add("100万以内");
+                    popDataList.add("100万到200万");
+                    popDataList.add("200万到500万");
+                    popDataList.add("500万到1000万");
+                    popDataList.add("1000万以上");
+                    popupwindow = new CustomPopupwindow(this, popDataList);
+                    popupwindow.setWidth(ViewGroup.LayoutParams.MATCH_PARENT);
+                    popupwindow.showAtDropDownLeft(v);
+                    city_check = false;
+                    industry_check = false;
+                    capital_check = true;
+                    time_check = false;
+                }
+                break;
+            case R.id.time:
+                if (time_check) {
+                    time.setTextColor(getResources().getColor(R.color.text_nocheck));
+                    time_arraow.setImageResource(R.mipmap.senior_arraow_down);
+                    time_check = false;
+                } else {
+                    city.setTextColor(getResources().getColor(R.color.text_nocheck));
+                    city_arraow.setImageResource(R.mipmap.senior_arraow_down);
+                    capital.setTextColor(getResources().getColor(R.color.text_nocheck));
+                    capital_arraow.setImageResource(R.mipmap.senior_arraow_down);
+                    time.setTextColor(getResources().getColor(R.color.text_check));
+                    time_arraow.setImageResource(R.mipmap.senior_arraow_up);
+                    industry.setTextColor(getResources().getColor(R.color.text_nocheck));
+                    industry_arraow.setImageResource(R.mipmap.senior_arraow_down);
+                    select.setVisibility(View.GONE);
+                    history.setVisibility(View.VISIBLE);
+                    popDataList = new ArrayList<>();
+                    popDataList.add("不限年限");
+                    popDataList.add("1年内");
+                    popDataList.add("1-2年");
+                    popDataList.add("2-3年");
+                    popDataList.add("3-5年");
+                    popDataList.add("5-10年");
+                    popDataList.add("10年以上");
+                    popupwindow = new CustomPopupwindow(this, popDataList);
+                    popupwindow.setWidth(ViewGroup.LayoutParams.MATCH_PARENT);
+                    popupwindow.showAtDropDownLeft(v);
+                    time_check = true;
+                    city_check = false;
+                    industry_check = false;
+                    capital_check = false;
+                }
+                break;
+            case R.id.industry:
+                if (industry_check) {
+                    industry.setTextColor(getResources().getColor(R.color.text_nocheck));
+                    industry_arraow.setImageResource(R.mipmap.senior_arraow_down);
+                    industry_check = false;
+                } else {
+                    city.setTextColor(getResources().getColor(R.color.text_nocheck));
+                    city_arraow.setImageResource(R.mipmap.senior_arraow_down);
+                    capital.setTextColor(getResources().getColor(R.color.text_nocheck));
+                    capital_arraow.setImageResource(R.mipmap.senior_arraow_down);
+                    time.setTextColor(getResources().getColor(R.color.text_nocheck));
+                    time_arraow.setImageResource(R.mipmap.senior_arraow_down);
+                    industry.setTextColor(getResources().getColor(R.color.text_check));
+                    industry_arraow.setImageResource(R.mipmap.senior_arraow_up);
+                    industry_check = true;
+                }
+                break;
 
             case R.id.search_bt://搜索按钮
                 saveSearchHistory();
                 mSearchAutoAdapter.initSearchHistory();
-                // http://app.qichacha.com/enterprises/new/advancedSearch
-                // ?industryCode=
-                // &startDateBegin=
-                // &registCapiBegin=
-                // &pageIndex=1
-                // &registCapiEnd=
-                // &province=
-                // &searchIndex=default
-                // &deviceType=iOS
-                // &cityCode=
-                // &sortField=Default
-                // &isSortAsc=false
-                // &token=836bdb71843f45ec29e8c1f9e6165305
-                // &deviceId=8F39D131-A0D5-457F-AAC1-062765847E73
-                // &searchKey=智容
-                // &subIndustryCode=
-                // &user=
-                // &startDateEnd=
-                // &pageSize=40
-                GsonUtil request = new GsonUtil(URLconstant.SEARCHURL, RequestMethod.GET);
-                request.add("searchKey", "智容");
-                request.add("industryCode", "");
-                request.add("startDateBegin", "");
-                request.add("registCapiBegin", "");
-                request.add("pageIndex", 1);
-                request.add("registCapiEnd", "");
-                request.add("province", "");
-                request.add("searchIndex", "default");
-                request.add("deviceType", "IOS");
-                request.add("cityCode", "");
-                request.add("sortField", "Default");
-                request.add("isSortAsc", "false");
-                request.add("token", "836bdb71843f45ec29e8c1f9e6165305");
-                request.add("deviceId", "8F39D131-A0D5-457F-AAC1-062765847E73");
-                request.add("subIndustryCode", "");
-                request.add("user", "");
-                request.add("startDateEnd", "");
+
+
+                Build bd = new Build();
+                String model = bd.MODEL;//设备ID
+                String Tname = searchEt.getText().toString();
+                String Tks = get32MD5(Tname+model);
+                String str = "";
+                try {
+                    str = URLEncoder.encode("智容", "utf-8");
+                } catch (UnsupportedEncodingException e) {
+                    e.printStackTrace();
+                }
+                GsonUtil request = new GsonUtil(URLconstant.URLINSER + URLconstant.SEARCHURL, RequestMethod.GET);
+                request.setConnectTimeout(20000);
+                request.add("token", "8aa0c494da4960466c3cb41aec54b0f7");
+                request.add("searchKey", Tname);
+                request.add("deviceld", "123");
+                request.add("searchType", 0);
+                request.add("pageIndex", 0);
                 request.add("pageSize", 40);
+                request.add("industryCode", "I");
+                request.add("startDateBegin", 0);
+                request.add("startDateEnd", 30);
+                request.add("registCapiBegin", 20);
+                request.add("registCapiEnd", 5555);
+                request.add("province", "36");
+                request.add("cityCode", 3601);
                 CallServer.getInstance().add(this, request, MyhttpCallBack.getInstance(), NOHTTP_SEARCH, true, false, true);
                 break;
             case R.id.auto_add:
                 SearchAutoData data = (SearchAutoData) v.getTag();
                 searchEt.setText(data.getContent());
                 break;
-            case R.id.selectCity:
+           /* case R.id.selectCity://旧版搜索城市
                 if (select.getVisibility() != View.VISIBLE) {
                     select.setVisibility(View.VISIBLE);
                     history.setVisibility(View.GONE);
@@ -380,28 +373,28 @@ public class SearchFirmActivty extends BaseActivity implements View.OnClickListe
                     select.setVisibility(View.GONE);
                     history.setVisibility(View.VISIBLE);
                 }
-                break;
+                break;*/
             case R.id.arrow_back:
                 finish();
-                overridePendingTransition(R.anim.finish_tran_one,R.anim.finish_tran_two);
+                overridePendingTransition(R.anim.finish_tran_one, R.anim.finish_tran_two);
                 break;
             case R.id.tab_frim:
-               if(!tab_frim_check) {
-                   tab_frim.setTextColor(getResources().getColor(R.color.black));
-                   tab_illegal.setTextColor(getResources().getColor(R.color.white));
-                   tab_shareholder.setTextColor(getResources().getColor(R.color.white));
-                   if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-                       tab_frim.setBackground(getResources().getDrawable(R.drawable.tebhost_bg_selected));
-                       tab_illegal.setBackground(getResources().getDrawable(R.drawable.tebhost_bg_unselected));
-                       tab_shareholder.setBackground(getResources().getDrawable(R.drawable.tebhost_bg_unselected));
-                   }
-                   tab_frim_check=true;
-                   tab_illegal_check=false;
-                   tab_shareholder_check=false;
-               }
+                if (!tab_frim_check) {
+                    tab_frim.setTextColor(getResources().getColor(R.color.black));
+                    tab_illegal.setTextColor(getResources().getColor(R.color.white));
+                    tab_shareholder.setTextColor(getResources().getColor(R.color.white));
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                        tab_frim.setBackground(getResources().getDrawable(R.drawable.tebhost_bg_selected));
+                        tab_illegal.setBackground(getResources().getDrawable(R.drawable.tebhost_bg_unselected));
+                        tab_shareholder.setBackground(getResources().getDrawable(R.drawable.tebhost_bg_unselected));
+                    }
+                    tab_frim_check = true;
+                    tab_illegal_check = false;
+                    tab_shareholder_check = false;
+                }
                 break;
             case R.id.tab_illegal:
-                if(!tab_illegal_check) {
+                if (!tab_illegal_check) {
                     tab_frim.setTextColor(getResources().getColor(R.color.white));
                     tab_illegal.setTextColor(getResources().getColor(R.color.black));
                     tab_shareholder.setTextColor(getResources().getColor(R.color.white));
@@ -410,13 +403,13 @@ public class SearchFirmActivty extends BaseActivity implements View.OnClickListe
                         tab_illegal.setBackground(getResources().getDrawable(R.drawable.tebhost_bg_selected));
                         tab_shareholder.setBackground(getResources().getDrawable(R.drawable.tebhost_bg_unselected));
                     }
-                    tab_frim_check=false;
-                    tab_illegal_check=true;
-                    tab_shareholder_check=false;
+                    tab_frim_check = false;
+                    tab_illegal_check = true;
+                    tab_shareholder_check = false;
                 }
                 break;
             case R.id.tab_shareholder:
-                if(!tab_shareholder_check) {
+                if (!tab_shareholder_check) {
                     tab_frim.setTextColor(getResources().getColor(R.color.white));
                     tab_illegal.setTextColor(getResources().getColor(R.color.white));
                     tab_shareholder.setTextColor(getResources().getColor(R.color.black));
@@ -425,9 +418,9 @@ public class SearchFirmActivty extends BaseActivity implements View.OnClickListe
                         tab_illegal.setBackground(getResources().getDrawable(R.drawable.tebhost_bg_unselected));
                         tab_shareholder.setBackground(getResources().getDrawable(R.drawable.tebhost_bg_selected));
                     }
-                    tab_frim_check=false;
-                    tab_illegal_check=false;
-                    tab_shareholder_check=true;
+                    tab_frim_check = false;
+                    tab_illegal_check = false;
+                    tab_shareholder_check = true;
                 }
                 break;
 
@@ -438,6 +431,7 @@ public class SearchFirmActivty extends BaseActivity implements View.OnClickListe
 
 
     private void init() {
+        //历史记录
         mSearchAutoAdapter = new SearchAutoAdapter(this, -1, this);
         mAutoListView = (ListView) findViewById(R.id.auto_listview);
 //        mAutoListView.setAdapter(mSearchAutoAdapter);
@@ -534,6 +528,54 @@ public class SearchFirmActivty extends BaseActivity implements View.OnClickListe
         }
     }
 
+    // MD5加密，32位
+    public static String MD5(String str) {
+        MessageDigest md5 = null;
+        try {
+            md5 = MessageDigest.getInstance("MD5");
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "";
+        }
+        char[] charArray = str.toCharArray();
+        byte[] byteArray = new byte[charArray.length];
 
+        for (int i = 0; i < charArray.length; i++) {
+            byteArray[i] = (byte) charArray[i];
+        }
+        byte[] md5Bytes = md5.digest(byteArray);
+        StringBuffer hexValue = new StringBuffer();
+        for (int i = 0; i < md5Bytes.length; i++) {
+            int val = ((int) md5Bytes[i]) & 0xff;
+            if (val < 16) {
+                hexValue.append("0");
+            }
+            hexValue.append(Integer.toHexString(val));
+        }
+        return hexValue.toString();
+    }
 
+    public final static String get32MD5(String s) {
+        char hexDigits[] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+        try {
+            byte[] strTemp = s.getBytes();
+//使用MD5创建MessageDigest对象
+            MessageDigest mdTemp = MessageDigest.getInstance("MD5");
+            mdTemp.update(strTemp);
+            byte[] md = mdTemp.digest();
+            int j = md.length;
+            char str[] = new char[j * 2];
+            int k = 0;
+            for (int i = 0; i < j; i++) {
+                byte b = md[i];
+//System.out.println((int)b);
+//将没个数(int)b进行双字节加密
+                str[k++] = hexDigits[b >> 4 & 0xf];
+                str[k++] = hexDigits[b & 0xf];
+            }
+            return new String(str);
+        } catch (Exception e) {
+            return null;
+        }
+    }
 }

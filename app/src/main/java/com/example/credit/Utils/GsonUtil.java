@@ -2,8 +2,8 @@ package com.example.credit.Utils;
 
 import com.yolanda.nohttp.Headers;
 import com.yolanda.nohttp.RequestMethod;
-import com.yolanda.nohttp.RestRequest;
-import com.yolanda.nohttp.StringRequest;
+import com.yolanda.nohttp.rest.RestRequest;
+import com.yolanda.nohttp.rest.StringRequest;
 
 /**
  * Created by alucard on 2016/5/14.

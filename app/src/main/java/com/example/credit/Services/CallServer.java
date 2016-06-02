@@ -1,12 +1,11 @@
 package com.example.credit.Services;
-
 import android.content.Context;
-
 import com.example.credit.Utils.HttpCallBack;
 import com.example.credit.Utils.ResponseListener;
 import com.yolanda.nohttp.NoHttp;
-import com.yolanda.nohttp.Request;
-import com.yolanda.nohttp.RequestQueue;
+import com.yolanda.nohttp.rest.Request;
+import com.yolanda.nohttp.rest.RequestQueue;
+
 
 /**
  * Created by alucard on 2016/5/14.
@@ -38,7 +37,7 @@ public class CallServer {
      * @param isShowError 是否提示用户错误信息
      * @param <T>
      */
-    public <T> void add(Context context, Request<T> request, HttpCallBack<T> callback,int what, boolean isShowDialog, boolean isCanCancel, boolean isShowError) {
+    public <T> void add(Context context, Request<T> request, HttpCallBack<T> callback, int what, boolean isShowDialog, boolean isCanCancel, boolean isShowError) {
     queue.add(what,request,new ResponseListener<T>(request,context,callback,isShowDialog,isCanCancel,isShowError));
     }
 

@@ -63,7 +63,7 @@ public class CustomPopupwindow extends PopupWindow implements View.OnClickListen
         popuplist.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                //temp = (TextView) view.findViewById(R.id.textview);
+                temp = (TextView) view.findViewById(R.id.menu_two_tv);//textview
                 switch (temp.getText().toString()) {
                     case "查全部":
                         SearchFirmActivty.downButton.setText("按全部");

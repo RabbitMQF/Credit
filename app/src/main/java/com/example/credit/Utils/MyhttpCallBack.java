@@ -8,7 +8,7 @@ import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.internal.LinkedTreeMap;
 import com.google.gson.reflect.TypeToken;
-import com.yolanda.nohttp.Response;
+import com.yolanda.nohttp.rest.Response;
 
 
 import java.lang.reflect.Type;
@@ -34,7 +34,6 @@ public class MyhttpCallBack implements HttpCallBack {
 
 
     @Override
-
     public void onSucceed(int what, Response response) {
         gson = new Gson();
         switch (what) {
@@ -62,12 +61,21 @@ public class MyhttpCallBack implements HttpCallBack {
                 }
                 break;
             case 0x022:
+//                String searchstr = (String) response.get();
+//                Type type = new TypeToken<DataManager.Root>() {
+//                }.getType();
+//                DataManager.Root jsonRoot = gson.fromJson(searchstr, type);
+//                DataManager.DataS str2 = jsonRoot.data;
+//                DataManager.searchList = str2.Result;
+//                if (DataManager.searchList != null && DataManager.searchList.size() > 0) {
+//                    SearchFirmActivty.handler.sendEmptyMessage(0);
+//                }
                 String searchstr = (String) response.get();
-                Type type = new TypeToken<DataManager.Root>() {
-                }.getType();
-                DataManager.Root jsonRoot = gson.fromJson(searchstr, type);
-                DataManager.DataS str2 = jsonRoot.data;
-                DataManager.searchList = str2.Result;
+                map = gson.fromJson(searchstr, new TypeToken<Map<String, Object>>() {
+                }.getType());
+                List<DataManager.search> searchstrlist2 = gson.fromJson(((Map<String, Object>) map.get("data")).get("Result").toString(), new TypeToken<List<DataManager.search>>() {
+                }.getType());
+                DataManager.searchList = searchstrlist2;
                 if (DataManager.searchList != null && DataManager.searchList.size() > 0) {
                     SearchFirmActivty.handler.sendEmptyMessage(0);
                 }

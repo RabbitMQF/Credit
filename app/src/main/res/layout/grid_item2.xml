@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="#AADCF7"
+    android:background="#EEEEEE"
     android:descendantFocusability="beforeDescendants">
 
     <LinearLayout
@@ -30,7 +30,7 @@
             android:layout_marginTop="5dp"
             android:text="5000万人民币"
             android:textColor="#57737D"
-            android:textSize="14sp" />
+            android:textSize="12sp" />
 
 
     </LinearLayout>

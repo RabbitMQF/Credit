@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="#EEEEEE"
     android:orientation="vertical"
     tools:context="com.example.credit.Activitys.AbnormalActivity">
 
@@ -32,6 +32,12 @@
             android:textColor="#57737D"
             android:textSize="14sp" />
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="5dp"
+            android:background="#B8B8B8" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -50,6 +56,12 @@
             android:textColor="#57737D"
             android:textSize="14sp" />
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="5dp"
+            android:background="#B8B8B8" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -68,6 +80,13 @@
             android:textColor="#57737D"
             android:textSize="14sp" />
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="5dp"
+            android:background="#B8B8B8" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -85,6 +104,13 @@
             android:textColor="#57737D"
             android:textSize="14sp" />
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="5dp"
+            android:background="#B8B8B8" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -101,5 +127,12 @@
             android:text="2014年"
             android:textColor="#57737D"
             android:textSize="14sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="5dp"
+            android:background="#B8B8B8" />
     </LinearLayout>
 </LinearLayout>
