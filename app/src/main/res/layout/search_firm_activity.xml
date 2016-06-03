@@ -60,7 +60,7 @@
             android:layout_weight="10"
             android:background="@drawable/edit_bg"
             android:hint="请输入企业名称"
-            android:text="智容"
+            android:lines="1"
             android:textSize="14sp" />
 
         <!--android:src="@mipmap/point3x"

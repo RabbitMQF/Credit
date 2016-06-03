@@ -169,10 +169,10 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
         citysList = DataManager.citysList;
         List<String> provincelist = new ArrayList<String>();
         provincelist.add("不限");
-        final List<DataManager.citycode> alist = null;
         for (DataManager.citys temp : DataManager.citysList) {
             provincelist.add(temp.c_name);
-            // alist.add((DataManager.citycode) temp.citycode);
+
+
         }
 
         //List<String> citylist = new ArrayList<>();
@@ -200,11 +200,11 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
                 int pid = position;
                 if (twolist == null) {
                     twolist = new ArrayList<String>();
-                    twolist.add("全省");
+                    //twolist.add("全省");
                 } else {
                     twolist.clear();
                     twolist = new ArrayList<String>();
-                    twolist.add("全省");
+                    //twolist.add("全省");
                 }
 
 //企查查城市解析     for (DataManager.citys city : citysList) {
@@ -212,11 +212,32 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
 //                        twolist.add(city.City);
 //                    }
 //                }
-                DataManager.citycode a = alist.get(pid + 1);
-                //a.c_name
+
+                try {
+                    for(DataManager.citycode citycode:citysList.get(pid-1).citycode){
+                        twolist.add(citycode.c_name);
+                    }
+                } catch (ArrayIndexOutOfBoundsException e) {
+                    select.setVisibility(View.GONE);
+                    if (his_sra.getVisibility() == View.GONE) {//当历史界面隐藏
+                        if (falg == 2) {//并且当前处于已经搜索结果时
+                            search_list.setVisibility(View.VISIBLE);//则显示搜索结果list
+                        } else {
+                            his_sra.setVisibility(View.VISIBLE);//反之则显示历史UI
+                        }
+                    }
+
+                    city.setText(temp.getText());//四合一城市选择器
+                    city.setTextColor(getResources().getColor(R.color.text_nocheck));
+                    city_arraow.setImageResource(R.mipmap.senior_arraow_down);
+                    city_check = false;
+                    e.printStackTrace();
+                }
+
+                 /*for(int i=0;i<citysList.get(pid+1).citycode.size();i++)*/
                 adapter2 = new ArrayAdapter<String>(SearchFirmActivty.this, R.layout.search_select_twolistitem, twolist);
-                //menu_two.setAdapter(adapter2);
-                //adapter2.notifyDataSetChanged();
+                menu_two.setAdapter(adapter2);
+                adapter2.notifyDataSetChanged();
                 menu_two.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -275,7 +296,7 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
         capital_arraow = (ImageView) findViewById(R.id.capital_arraow);//四合一选择器
         time_arraow = (ImageView) findViewById(R.id.time_arraow);//四合一选择器
         industry_arraow = (ImageView) findViewById(R.id.industry_arraow);//四合一选择器
-        //city.setOnClickListener(onClickListener);//四合一选择器
+        city.setOnClickListener(onClickListener);//四合一选择器
         capital.setOnClickListener(onClickListener);//四合一选择器
         time.setOnClickListener(onClickListener);//四合一选择器
         industry.setOnClickListener(onClickListener);//四合一选择器
@@ -318,10 +339,14 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
                             }
                         }
                         select.setVisibility(View.GONE);
-                        if (adapter2 != null) {
+                        /*if (adapter2 != null) {
                             adapter2.clear();
-                        }
+                        }*/
                     } else {
+                        if(city.getText()=="不限"){//判定如果选中不限回复menu_one的全屏宽
+                            oneLayoutParams.width = screenWidth;
+                            menu_one.setLayoutParams(oneLayoutParams);
+                        }
                         city.setTextColor(getResources().getColor(R.color.text_check));
                         city_arraow.setImageResource(R.mipmap.senior_arraow_up);
                         capital.setTextColor(getResources().getColor(R.color.text_nocheck));
@@ -440,10 +465,11 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
                     String Tks = MD5s(Tname + model);
                     String str = "";
                     try {
-                        str = URLEncoder.encode("智容", "utf-8");
+                        str = URLEncoder.encode(Tname, "utf-8");
                     } catch (UnsupportedEncodingException e) {
                         e.printStackTrace();
                     }
+
                     //历史记录保存本地SP
                     String Tnameh = Tname + ",";//历史字备用
                     if (!Tname.equals("")) {
@@ -498,11 +524,11 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
                     request.add("searchType", 0);//int 搜索类型 （企业、法人、失信、违法）默认为0企业,1是该法人名下企业,2失信企业,3违法企业
                     request.add("pageIndex", 0);//int 搜索请求页数
                     request.add("pageSize", 40);//int 搜索请求条数
-                    //request.add("industryCode", "I");//int/string(建议传string) 行业代码为空不做限制
-                    //request.add("startDateBegin", 0);//int 企业经营时间起 3（3至startDateEnd）
-                    //request.add("startDateEnd", 30);//int 企业经营时间止 5（startDateBegin至5） 为空不作限制，为空必须与startDateBegin一起为空
-                    //request.add("registCapiBegin", 20);//int 注册资金起 为空不做限制
-                    //request.add("registCapiEnd", 5555);//int 注册资金止 为空必须和registCapiEnd一起为空
+                    request.add("industryCode", "I");//int/string(建议传string) 行业代码为空不做限制
+                    request.add("startDateBegin", 0);//int 企业经营时间起 3（3至startDateEnd）
+                    request.add("startDateEnd", 30);//int 企业经营时间止 5（startDateBegin至5） 为空不作限制，为空必须与startDateBegin一起为空
+                    request.add("registCapiBegin", 20);//int 注册资金起 为空不做限制
+                    request.add("registCapiEnd", 5000);//int 注册资金止 为空必须和registCapiEnd一起为空
                     //request.add("province", "36");//int/string 省代码 为空不做限制 为空citicode必须为空
                     //request.add("cityCode", 3601);//int 城市代码  为空为当前省所有城市
                     CallServer.getInstance().add(SearchFirmActivty.this, request, MyhttpCallBack.getInstance(), NOHTTP_SEARCH, true, false, true);
