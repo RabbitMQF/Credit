@@ -37,16 +37,24 @@ public class MyhttpCallBack implements HttpCallBack {
     public void onSucceed(int what, Response response) {
         gson = new Gson();
         switch (what) {
-            case 0x01:
+            case 0x01://获取城市
 
-                String jstring = (String) response.get();
-                map = gson.fromJson(jstring, new TypeToken<Map<String, Object>>() {
-                }.getType());
-                List<DataManager.citys> list = gson.fromJson(((Map<String, Object>) map.get("data")).get("Result").toString(), new TypeToken<List<DataManager.citys>>() {
-                }.getType());
-                DataManager.citysList = list;
+                //企查查城市数据解法
+//                String jstring = (String) response.get();
+//                map = gson.fromJson(jstring, new TypeToken<Map<String, Object>>() {
+//                }.getType());
+//                List<DataManager.citys> list = gson.fromJson(((Map<String, Object>) map.get("data")).get("Result").toString(), new TypeToken<List<DataManager.citys>>() {
+//                }.getType());
+//                DataManager.citysList = list;
+
+                //真实城市数据解法
+                String jstring= (String) response.get();
+                map=gson.fromJson(jstring,new TypeToken<Map<String,Object>>(){}.getType());
+                List<DataManager.citys> list =gson.fromJson(((Map<String, Object>) map.get("data")).get("city").toString(),new TypeToken<List<DataManager.citys>>(){}.getType());//
+                DataManager.citysList=list;
+
                 break;
-            case 0x111:
+            case 0x111://获取新闻
                 String jstring111 = (String) response.get();
 //                map = gson.fromJson(jstring111, new TypeToken<Map<String, Object>>() {
 //                }.getType());
@@ -60,7 +68,7 @@ public class MyhttpCallBack implements HttpCallBack {
                     MainActivity.handler.sendEmptyMessage(0);
                 }
                 break;
-            case 0x022:
+            case 0x022://搜索结果
 //                String searchstr = (String) response.get();
 //                Type type = new TypeToken<DataManager.Root>() {
 //                }.getType();
@@ -73,14 +81,14 @@ public class MyhttpCallBack implements HttpCallBack {
                 String searchstr = (String) response.get();
                 map = gson.fromJson(searchstr, new TypeToken<Map<String, Object>>() {
                 }.getType());
-                List<DataManager.search> searchstrlist2 = gson.fromJson(((Map<String, Object>) map.get("data")).get("Result").toString(), new TypeToken<List<DataManager.search>>() {
+                List<DataManager.search> searchstrlist2 = gson.fromJson(((Map<String, Object>) map.get("data")).get("Result").toString().trim(), new TypeToken<List<DataManager.search>>() {
                 }.getType());
                 DataManager.searchList = searchstrlist2;
                 if (DataManager.searchList != null && DataManager.searchList.size() > 0) {
                     SearchFirmActivty.handler.sendEmptyMessage(0);
                 }
                 break;
-            case 0x023:
+            case 0x023://预留获取行业
 //                gson = new Gson();
 //                String str3 = (String) response.get();
 //                map = gson.fromJson(str3, new TypeToken<Map<String, Object>>() {
@@ -161,7 +169,7 @@ public class MyhttpCallBack implements HttpCallBack {
                 DataManager.FrozenInformationList = list64;//股权冻结信息
                 CompanyDetailsActivity.handler.sendEmptyMessage(6);
                 break;
-            case 0x007://预警信息
+            case 0x007://预警信息zlh
                 String jsonstring = (String) response.get();
                 map = gson.fromJson(jsonstring, new TypeToken<Map<String, Object>>() {
                 }.getType());
@@ -274,7 +282,7 @@ public class MyhttpCallBack implements HttpCallBack {
                 DataManager.obeyedInfoList = list14;
                 CompanyDetailsActivity.handler.sendEmptyMessage(14);
                 break;
-            case 0x015://自主公示
+            case 0x015://自主公示zlh
                 jsonString = (String) response.get();
                 map = gson.fromJson(jsonString, new TypeToken<Map<String, Object>>() {
                 }.getType());

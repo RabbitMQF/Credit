@@ -218,8 +218,13 @@ public class CompanyDetailsActivity extends BaseActivity {
                     overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
                     break;
                 case 2://荣誉信息
-                    GsonUtil request2 = new GsonUtil(URLconstant.HONORURL, RequestMethod.GET);
-                    CallServer.getInstance().add(CompanyDetailsActivity.this, request2, MyhttpCallBack.getInstance(), 0x002, true, false, true);
+//                    GsonUtil request2 = new GsonUtil(URLconstant.HONORURL, RequestMethod.GET);
+//                    CallServer.getInstance().add(CompanyDetailsActivity.this, request2, MyhttpCallBack.getInstance(), 0x002, true, false, true);
+                      GsonUtil request2 = new GsonUtil(URLconstant.URLINSER+URLconstant.HONORURL, RequestMethod.GET);
+                    request2.add("token，","");
+                    request2.add("deviceld","");
+                    request2.add("KeyNo","");
+                      CallServer.getInstance().add(CompanyDetailsActivity.this, request2, MyhttpCallBack.getInstance(), 0x002, true, false, true);
 
                     break;
                 case 3://扶持信息
@@ -242,7 +247,7 @@ public class CompanyDetailsActivity extends BaseActivity {
 
                     break;
                 case 7://预警信息
-                    CallServer.getInstance().add(CompanyDetailsActivity.this,new GsonUtil(URLconstant.GETALERT,RequestMethod.GET),MyhttpCallBack.getInstance(),0x007,true,false,true);
+                    CallServer.getInstance().add(CompanyDetailsActivity.this, new GsonUtil(URLconstant.GETALERT, RequestMethod.GET), MyhttpCallBack.getInstance(), 0x007, true, false, true);
                     Intent i7 = new Intent(CompanyDetailsActivity.this, AlertActivity.class);
                     startActivity(i7);
                     overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
@@ -276,7 +281,7 @@ public class CompanyDetailsActivity extends BaseActivity {
 
                     break;
                 case 14://守合同重信用
-                    GsonUtil request14= new GsonUtil(URLconstant.OBEYEDURL, RequestMethod.GET);
+                    GsonUtil request14 = new GsonUtil(URLconstant.OBEYEDURL, RequestMethod.GET);
                     CallServer.getInstance().add(CompanyDetailsActivity.this, request14, MyhttpCallBack.getInstance(), 0x014, true, false, true);
 
                     break;
@@ -301,7 +306,7 @@ public class CompanyDetailsActivity extends BaseActivity {
             }
         });
         if (detailsList != null && detailsList.size() > 0) {
-            String stra=(detailsList.get(position).REGSTATE_CN).substring(0,2);
+            String stra = (detailsList.get(position).REGSTATE_CN).substring(0, 2);
             details_tit.setText(stra);//状态
             details_tit.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -311,7 +316,7 @@ public class CompanyDetailsActivity extends BaseActivity {
             });
             cp_name.setText(detailsList.get(position).entname);
             List<String> lt = new ArrayList<String>();
-            lt.add(detailsList.get(position).REGCAP+"万元");
+            lt.add(detailsList.get(position).REGCAP + "万元");
             lt.add(detailsList.get(position).NAME);
             lt.add(detailsList.get(position).OPFROM);
             lt.add(detailsList.get(position).OPFROM);
@@ -321,14 +326,15 @@ public class CompanyDetailsActivity extends BaseActivity {
             arrays4 = (String[]) lt.toArray(new String[size]);
         }
     }
-    public void  showPopupWindow(View view){
+
+    public void showPopupWindow(View view) {
         // 一个自定义的布局，作为显示的内容
         View contentView = LayoutInflater.from(CompanyDetailsActivity.this).inflate(
                 R.layout.popupwindow_state, null);
 
         final PopupWindow popupWindow = new PopupWindow(contentView,
                 ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT, true);
-        TextView tv= (TextView) contentView.findViewById(R.id.tv_state);
+        TextView tv = (TextView) contentView.findViewById(R.id.tv_state);
         tv.setText(detailsList.get(position).REGSTATE_CN);
         popupWindow.setTouchable(true);
 

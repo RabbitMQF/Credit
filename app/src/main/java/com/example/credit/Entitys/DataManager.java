@@ -43,6 +43,9 @@ public class DataManager {
 
     public static List<search> searchList = new ArrayList<>();//搜索列表集合
 
+    /**
+     * 搜索实体类
+     */
     public class search {//搜索列表信息 Result
         public String PRIPID;//主体身份代码
         public String entname;//企业(机构)名称
@@ -107,23 +110,45 @@ public class DataManager {
     }
 
 
-    public static List<citys> citysList = new ArrayList<citys>();//城市集合
+//    public static List<citys> citysList = new ArrayList<citys>();//城市集合
+//    /**
+//     * 企查查城市实体类
+//     */
+//    public class citys {
+//        public String Province;
+//        public String City;
+//        public String ProvinceCode;
+//        public String CityCode;
+//    }
 
+    public static List<citys> citysList=new ArrayList<>();
+    /**
+     * 省份实体类
+     */
+    public class citys {
+        public String c_code;
+        public String c_name;
+        public List<citycode> citycode;
+
+    }
+
+    public static List<citycode> citycodeList = new ArrayList<>();
     /**
      * 城市实体类
      */
-    public class citys {
-        public String Province;
-        public String City;
-        public String ProvinceCode;
-        public String CityCode;
+    public class citycode {
+        public String c_code;
+        public String c_name;
     }
+    public static List<String> city = new ArrayList<>();//城市数据源
+
+
+
+    public static List<industryData> dataList;
 
     /**
      * 行业实体类
      */
-    public static List<industryData> dataList;
-
     public class industryData {
         public String Code;
         public String Name;
@@ -131,11 +156,12 @@ public class DataManager {
         public List<SubIndustryList> SubIndustryList;
     }
 
+
+    public static List<SubIndustryList> SubyList;
+
     /**
      * 行业子类
      */
-    public static List<SubIndustryList> SubyList;
-
     public class SubIndustryList {
         public String Code;
         public String Name;
@@ -345,7 +371,7 @@ public class DataManager {
     /**
      * 商标信息实体类
      */
-    public static List<trademarkInfo> trademarkInfoList=new ArrayList<>();
+    public static List<trademarkInfo> trademarkInfoList = new ArrayList<>();
 
     public static class trademarkInfo {
         public String No;
@@ -522,6 +548,7 @@ public class DataManager {
      */
 
     public static List<JudicialDocuments> JudicialDocumentsList;
+
     public static class JudicialDocuments {//司法文书信息
         public String No;
         public String centent;
@@ -530,7 +557,9 @@ public class DataManager {
         public String decisiontime;
         public String detail;
     }
+
     public static List<CrackCredit> CrackCreditList;
+
     public static class CrackCredit {//失信被执行人信息
         public String No;
         public String court;
@@ -541,7 +570,9 @@ public class DataManager {
         public String peopleCondition;
         public String detail;
     }
+
     public static List<ShareholderInformationChange> ShareholderInformationChangeList;
+
     public static class ShareholderInformationChange {//股东变更信息
         public String No;
         public String executedPerson;
@@ -550,7 +581,9 @@ public class DataManager {
         public String courtOfExecution;
         public String detail;
     }
+
     public static List<FrozenInformation> FrozenInformationList;
+
     public static class FrozenInformation {//股权冻结信息
         public String No;
         public String time;
@@ -576,6 +609,7 @@ public class DataManager {
         public String RecognizedAuthority;
 
     }
+
     /**
      * 守合同重信用信息实体类
      */
@@ -589,7 +623,8 @@ public class DataManager {
     }
 
 
-    public static List<Newss> NewssList=new ArrayList<>();
+    public static List<Newss> NewssList = new ArrayList<>();
+
     /**
      * 新闻测试实体类
      */
@@ -605,6 +640,7 @@ public class DataManager {
         public String url;
         public String pdate_src;
     }
+
     public class Root11 {
         public String reason;
         public List<Newss> result;

@@ -66,7 +66,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 //startActivity(i);
             }
         });
-        GsonUtil request = new GsonUtil(URLconstant.GETCITYLIST, RequestMethod.GET);
+        GsonUtil request = new GsonUtil(URLconstant.URLINSER+URLconstant.GETCITY, RequestMethod.GET);
         CallServer.getInstance().add(this, request, MyhttpCallBack.getInstance(), NOHTTP_CITY, true, false, true);
         CallServer.getInstance().add(this, new GsonUtil(URLconstant.GETINDUSTRY, RequestMethod.GET), MyhttpCallBack.getInstance(), NOHTTP_INDUSTRY, true, false, true);
          handler=new Handler(){

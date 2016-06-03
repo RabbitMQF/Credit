@@ -7,7 +7,13 @@ public class URLconstant {
     //真数据
     public static final String URLINSER="http://101.201.211.27:8282/esws.interface/";//所有接口前缀
 
-    public static final String SEARCHURL ="baseinfo/querymodelbaseinfo.do";
+    public static final String SEARCHURL ="baseinfo/querymodelbaseinfo.do";//搜索接口
+
+    public static  final  String GETCITY="baseinfo/querycitys.do";//获取城市接口
+
+    public static final String ADMINURL ="eilcCertificate/getEilcCertificate.do";//获取行政Admin
+
+    public static final String HONORURL ="honorifo/getqueryhonorinfo.do";//获取荣誉
 
 //===========
 
@@ -24,7 +30,7 @@ public class URLconstant {
 
     public static final String PLEDGEURL = "http://www.zhirong.applinzi.com/editor/attached/file/20160527/20160527091853_75579.txt";//出质URLpledge
 
-    public static final String HONORURL = "http://www.zhirong.applinzi.com/editor/attached/file/20160527/20160527091752_78425.txt";//荣誉URL
+//    public static final String HONORURL = "http://www.zhirong.applinzi.com/editor/attached/file/20160527/20160527091752_78425.txt";//荣誉URL
 
     public static final String SUPPORTURL = "http://www.zhirong.applinzi.com/editor/attached/file/20160527/20160527091814_22025.txt";//企业扶持URL
 

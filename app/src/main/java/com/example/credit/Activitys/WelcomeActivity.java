@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 import com.example.credit.R;
+import com.example.credit.Utils.CreditSharePreferences;
 import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ViewInject;
 
@@ -18,11 +19,15 @@ public class WelcomeActivity extends Activity {
     ImageView iv;
     @ViewInject(R.id.next)
     Button next;
+
+    CreditSharePreferences esp;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
         ViewUtils.inject(this);
+        CreditSharePreferences.init(this);
+        esp=CreditSharePreferences.getLifeSharedPreferences();
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
