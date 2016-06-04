@@ -19,16 +19,19 @@ import android.view.ViewGroup.LayoutParams;
 
 import com.example.credit.Adapters.Details_content_mylistAdapter;
 import com.example.credit.Adapters.MyGridAdapter3;
+import com.example.credit.Adapters.MyGridZYAdapter;
 import com.example.credit.Entitys.DataManager;
 import com.example.credit.Entitys.changeContent;
 import com.example.credit.Entitys.changeResult;
 import com.example.credit.R;
+import com.example.credit.Views.MyGridView;
 import com.example.credit.Views.MyListView;
 import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ViewInject;
 
 import java.util.ArrayList;
 import java.util.List;
+
 /**
  * 工商信息主界面
  */
@@ -91,8 +94,8 @@ public class DetailsContentActivity extends BaseActivity {
     @ViewInject(R.id.c_people)
     TextView c_people;//投资人
 
-    @ViewInject(R.id.c_impPeople)
-    TextView c_impPeople;//主要人员
+    @ViewInject(R.id.myGridViewZY)
+    MyGridView myGridViewZY;//主要人员
 
     @ViewInject(R.id.GSmylist)
     MyListView GSmylist;//工商变更
@@ -105,6 +108,7 @@ public class DetailsContentActivity extends BaseActivity {
             "工商注册号", "组织机构代码"};
     public String[] arrays4;
     MyGridAdapter3 adapter2;
+    MyGridZYAdapter adapterzy;
     int position;
 
     @Override
@@ -216,8 +220,9 @@ public class DetailsContentActivity extends BaseActivity {
         });
 
     }
-    public void tabshow(View v){
-        switch (v.getId()){
+
+    public void tabshow(View v) {
+        switch (v.getId()) {
             case R.id.c_tab1:
                 c_scr.smoothScrollTo(0, pointY[0]);
                 c_tab1.setBackgroundResource(R.drawable.details_con_tabbg1);
@@ -290,6 +295,7 @@ public class DetailsContentActivity extends BaseActivity {
                 break;
         }
     }
+
     public void init() {
         c_return.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -304,14 +310,13 @@ public class DetailsContentActivity extends BaseActivity {
         c_state.setText(dcList.get(position).REGSTATE_CN);//经营状态/
         c_fangwei.setText(dcList.get(position).OPSCOPE);//经营范围
         c_address.setText(dcList.get(position).DOM);//企业地址
-        c_datetiem.setText(dcList.get(position).OPFROM + "至"+dcList.get(position).OPTO);//经营期限
+        c_datetiem.setText(dcList.get(position).OPFROM + "至" + dcList.get(position).OPTO);//经营期限
         c_djjg.setText(dcList.get(position).OPTO);//登记机关
         c_people.setText(dcList.get(position).NAME);//投资人
-        c_impPeople.setText(dcList.get(position).NAME);//主要人员
 
 
         List<String> lt = new ArrayList<String>();
-        lt.add(dcList.get(position).REGCAP+"万元");
+        lt.add(dcList.get(position).REGCAP + "万元");
         lt.add(dcList.get(position).NAME);
         lt.add(dcList.get(position).OPFROM);
         lt.add(dcList.get(position).OPFROM);
@@ -322,47 +327,62 @@ public class DetailsContentActivity extends BaseActivity {
         adapter2 = new MyGridAdapter3(DetailsContentActivity.this, arrays3, arrays4);
         myGridView3.setAdapter(adapter2);
         myGridView3.setSelector(new ColorDrawable(Color.TRANSPARENT));
+
+//        List<String> zy1 = new ArrayList<String>();//职位list
+//
+//        List<String> zy2 = new ArrayList<String>();//人员list
+//
+//        int size1 = zy1.size();
+//        int size2 = zy2.size();
+//        String[] arrayszy1 = (String[]) zy1.toArray(new String[size1]);
+//        String[] arrayszy2 = (String[]) zy2.toArray(new String[size2]);
+//        adapterzy = new MyGridZYAdapter(DetailsContentActivity.this, arrayszy1, arrayszy2);
+//        myGridView3.setAdapter(adapter2);
+//        myGridView3.setSelector(new ColorDrawable(Color.TRANSPARENT));
     }
 
     /**
-     * 工商变更模拟数据
+     * 工商变更数据
      */
     public void GSchages() {
-        List<changeContent> clist1 = new ArrayList<changeContent>();
-        List<changeContent> clist2 = new ArrayList<changeContent>();
-        changeContent c1 = new changeContent("法定代表人变更", "证件号码:******************,姓名:李志", "证件号码:******************,姓名:万杏娥");
-        changeContent c2 = new changeContent("投资人(股权)变更", "南昌智臻投资中心,出资*万人民币,占***%,实缴出资*万;李志,出资*万人民币,占***%,实缴出资*万", "李志,出资*万人民币,占***%,实缴出资*万;万杏娥,出资*万人民币,占***%,实缴出资*万");
-        changeContent c3 = new changeContent("主要人员变更(董事会成员、监事、经理变更)", "监事,陈淑惠,1945-02-06;执行董事兼总经理,李志,1976-09-17", "监事,李志,1976-09-17;执行董事兼总经理,万杏娥,1985-06-16");
+        List<changeResult> clisttimeD = new ArrayList<>();//变更集合
+        List<changeContent> clistd = new ArrayList<>();//变更信息临时仓库
 
-        changeContent c4 = new changeContent("注册资本(金)变更", "200", "5000");
-        changeContent c5 = new changeContent("法定代表人变更", "证件号码:******************,姓名:余水秀", "证件号码:******************,姓名:李志");
-        changeContent c6 = new changeContent("投资人(股权)变更", "余水秀,出资**万人民币,占****%,实缴出资**万;李志,出资***万人民币,占****%,实缴出资***万", "南昌智臻投资中心,出资*万人民币,占***%,实缴出资*万;李志,出资*万,占***%,实缴出资*万");
-        changeContent c7 = new changeContent("主要人员变更(董事会成员、监事、经理变更)", "监事,李志,1976-09-17;执行董事兼总经理,余水秀,1946-05-26;", "监事,陈淑惠,1945-02-06;执行董事兼总经理,李志,1976-09-17;");
-        clist1.add(c1);
-        clist1.add(c2);
-        clist1.add(c3);
-        clist2.add(c4);
-        clist2.add(c5);
-        clist2.add(c6);
-        clist2.add(c7);
-        List<changeResult> rlist = new ArrayList<changeResult>();
-        changeResult cr5=new changeResult("2015-05-20T00:00:00+08:00",clist2);
-        changeResult cr4=new changeResult("2015-05-11T00:00:00+08:00",clist2);
+        List<DataManager.ChangeRecords> clistc = DataManager.Data0List.get(0).ChangeRecords;//工商变更信息
 
+        for (int i = 0; i < clistc.size(); i++) {//重新分组
+            if (i > 0) {
+                if (clistc.get(i).ALTDATE.equals(clistc.get(i - 1).ALTDATE)) {//当下标为i的日期与下标为i-1的日期 相等 时
+                    changeContent cc2=new changeContent();
+                    cc2.setALTDATE(clistc.get(i).ALTDATE);
+                    cc2.setALTITEM_CN(clistc.get(i).ALTITEM_CN);
+                    cc2.setALTBE(clistc.get(i).ALTBE);
+                    cc2.setALTAF(clistc.get(i).ALTAF);
+                    clistd.add(cc2);//把数据追加入临时仓库
+                } else {//当下标为i的日期与下标为i-1的日期 不相等 时
+                    changeResult ccr=new changeResult();
+                    ccr.setALTDATE(clistd.get(0).ALTDATE);
+                    ccr.setChangedata(clistd);
+                    clisttimeD.add(ccr);//先把临时仓库中的数据加入变更集合中
+                    clistd.clear();//然后清空临时仓库
 
-        changeResult cr1=new changeResult("2015-05-04T00:00:00+08:00",clist1);
-        changeResult cr2=new changeResult("2015-04-15T00:00:00+08:00",clist2);
-
-        changeResult cr3=new changeResult("2015-01-16T00:00:00+08:00",clist2);
-        rlist.add(cr5);
-        rlist.add(cr4);
-
-        rlist.add(cr1);
-        rlist.add(cr2);
-
-        rlist.add(cr3);
-
-        Details_content_mylistAdapter adapter1 = new Details_content_mylistAdapter(DetailsContentActivity.this, rlist);
+                    changeContent cc3=new changeContent();
+                    cc3.setALTDATE(clistc.get(i).ALTDATE);
+                    cc3.setALTITEM_CN(clistc.get(i).ALTITEM_CN);
+                    cc3.setALTBE(clistc.get(i).ALTBE);
+                    cc3.setALTAF(clistc.get(i).ALTAF);
+                    clistd.add(cc3);//把数据加入临时仓库
+                }
+            } else {//下标为0的数据直接加入临时仓库
+                changeContent cc1=new changeContent();
+                cc1.setALTDATE(clistc.get(i).ALTDATE);
+                cc1.setALTITEM_CN(clistc.get(i).ALTITEM_CN);
+                cc1.setALTBE(clistc.get(i).ALTBE);
+                cc1.setALTAF(clistc.get(i).ALTAF);
+                clistd.add(cc1);
+            }
+        }
+        Details_content_mylistAdapter adapter1 = new Details_content_mylistAdapter(DetailsContentActivity.this, clisttimeD);
         GSmylist.setAdapter(adapter1);
     }
 

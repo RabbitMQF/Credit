@@ -58,7 +58,7 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
     public static final int NOHTTP_SEARCH = 0x022;
     public static EditText searchEt;
     public static TextView downButton, city, capital, time, industry, selectCity, tab_frim, tab_illegal, tab_shareholder;
-    TextView temp;
+    TextView temp, tempprovince;
     public static ImageView city_arraow, capital_arraow, time_arraow, industry_arraow, arrowBack;
     CustomPopupwindow popupwindow;
     ImageView search_bt;
@@ -100,13 +100,9 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.search_firm_activity);
-        search_list = (ListView) findViewById(R.id.search_list);
-        his_sra = (LinearLayout) findViewById(R.id.his_sra);//历史记录view
-        searchContent = (RelativeLayout) findViewById(R.id.searchContent);
-        history_list_null = (TextView) findViewById(R.id.history_list_null);
-        csp = CreditSharePreferences.getLifeSharedPreferences();
+
         initView();
-        initData();
+        initCityData();
         search_bt = (ImageView) findViewById(R.id.search_bt);
         search_bt.setOnClickListener(onClickListener);
         handler = new Handler() {
@@ -132,28 +128,7 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
                         }
                     });
                 } else if (msg.what == 1) {
-                    adapter2 = new ArrayAdapter<String>(SearchFirmActivty.this, R.layout.search_select_twolistitem, DataManager.city);
-                    menu_two.setAdapter(adapter2);
-                    /*menu_two.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                        @Override
-                        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                            temp = (TextView) view.findViewById(R.id.menu_two_tv);
-                            select.setVisibility(View.GONE);
-                            search_list.setVisibility(View.VISIBLE);
-                            //selectCity.setText(temp.getText());//旧版城市选择器
-                            city.setText(temp.getText());//四合一城市选择器
-                            city.setTextColor(getResources().getColor(R.color.text_nocheck));
-                            city_arraow.setImageResource(R.mipmap.senior_arraow_down);
-                            city_check = false;
 
-                        }
-                    });*/
-
-                    oneLayoutParams.width = screenWidth / 2;
-                    twoLayoutParams.width = screenWidth / 2;
-                    menu_one.setLayoutParams(oneLayoutParams);
-                    menu_two.setLayoutParams(twoLayoutParams);
-                    menu_two.setVisibility(View.VISIBLE);
 
                 }
             }
@@ -165,14 +140,23 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
         gDetector = new GestureDetector(this);
     }
 
-    private void initData() {
+    /**
+     * 初始化城市数据
+     */
+    private void initCityData() {
         citysList = DataManager.citysList;
         List<String> provincelist = new ArrayList<String>();
-        provincelist.add("不限");
-        for (DataManager.citys temp : DataManager.citysList) {
-            provincelist.add(temp.c_name);
-
-
+        if (provincelist.size() == 0) {
+            provincelist.add("不限");
+            for (DataManager.citys temp : DataManager.citysList) {
+                provincelist.add(temp.c_name);
+            }
+        }else {
+            provincelist.clear();
+            provincelist.add("不限");
+            for (DataManager.citys temp : DataManager.citysList) {
+                provincelist.add(temp.c_name);
+            }
         }
 
         //List<String> citylist = new ArrayList<>();
@@ -187,16 +171,14 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
 //                }
 //            }
 //        }
-
         //Citys_Adapter adapter= new Citys_Adapter(this,citysList);
         final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.search_select_onelistitem, provincelist);
         menu_one.setAdapter(adapter);
-
-
         menu_one.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 temp = (TextView) view.findViewById(R.id.item_tv);
+                tempprovince = (TextView) view.findViewById(R.id.item_tv);
                 int pid = position;
                 if (twolist == null) {
                     twolist = new ArrayList<String>();
@@ -206,18 +188,16 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
                     twolist = new ArrayList<String>();
                     //twolist.add("全省");
                 }
-
 //企查查城市解析     for (DataManager.citys city : citysList) {
 //                    if (city.Province.equals(temp.getText())) {
 //                        twolist.add(city.City);
 //                    }
 //                }
-
                 try {
-                    for(DataManager.citycode citycode:citysList.get(pid-1).citycode){
+                    for (DataManager.citycode citycode : citysList.get(pid - 1).citycode) {
                         twolist.add(citycode.c_name);
                     }
-                } catch (ArrayIndexOutOfBoundsException e) {
+                } catch (ArrayIndexOutOfBoundsException e) {//捕获数组越界异常用于处理城市选择器的不限
                     select.setVisibility(View.GONE);
                     if (his_sra.getVisibility() == View.GONE) {//当历史界面隐藏
                         if (falg == 2) {//并且当前处于已经搜索结果时
@@ -226,7 +206,6 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
                             his_sra.setVisibility(View.VISIBLE);//反之则显示历史UI
                         }
                     }
-
                     city.setText(temp.getText());//四合一城市选择器
                     city.setTextColor(getResources().getColor(R.color.text_nocheck));
                     city_arraow.setImageResource(R.mipmap.senior_arraow_down);
@@ -252,7 +231,11 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
                         }
 
                         //selectCity.setText(temp.getText());//旧版城市选择器
-                        city.setText(temp.getText());//四合一城市选择器
+                        if (temp.getText().equals("全省") || temp.getText() == "全省") {
+                            city.setText(tempprovince.getText());
+                        } else {//如果二级列表选择的是全省取上级省的text
+                            city.setText(temp.getText());//四合一城市选择器
+                        }
                         city.setTextColor(getResources().getColor(R.color.text_nocheck));
                         city_arraow.setImageResource(R.mipmap.senior_arraow_down);
                         city_check = false;
@@ -273,8 +256,10 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
 
     }
 
+    /**
+     * 初始化UI组建
+     */
     private void initView() {
-
         searchEt = (EditText) findViewById(R.id.search_et);
         //selectCity = (TextView) findViewById(R.id.selectCity);//旧版搜索城市
         //selectCity.setOnClickListener(this);////旧版搜索城市
@@ -308,7 +293,11 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
         screenWidth = wm.getDefaultDisplay().getWidth();
         oneLayoutParams = (ViewGroup.MarginLayoutParams) menu_one.getLayoutParams();
         twoLayoutParams = (ViewGroup.MarginLayoutParams) menu_two.getLayoutParams();
-
+        search_list = (ListView) findViewById(R.id.search_list);
+        his_sra = (LinearLayout) findViewById(R.id.his_sra);//历史记录view
+        searchContent = (RelativeLayout) findViewById(R.id.searchContent);
+        history_list_null = (TextView) findViewById(R.id.history_list_null);
+        csp = CreditSharePreferences.getLifeSharedPreferences();
     }
 
     View.OnClickListener onClickListener = new View.OnClickListener() {
@@ -326,7 +315,7 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
 //                popupwindow = new CustomPopupwindow(this, popDataList);
 //                popupwindow.showAtDropDownLeft(v);
 //                break;
-                case R.id.city:
+                case R.id.city://城市选择按钮
                     if (city_check) {
                         city.setTextColor(getResources().getColor(R.color.text_nocheck));
                         city_arraow.setImageResource(R.mipmap.senior_arraow_down);
@@ -343,7 +332,7 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
                             adapter2.clear();
                         }*/
                     } else {
-                        if(city.getText()=="不限"){//判定如果选中不限回复menu_one的全屏宽
+                        if (city.getText() == "不限") {//判定如果选中不限回复menu_one的全屏宽
                             oneLayoutParams.width = screenWidth;
                             menu_one.setLayoutParams(oneLayoutParams);
                         }
@@ -364,7 +353,7 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
                         select.setVisibility(View.VISIBLE);
                     }
                     break;
-                case R.id.capital:
+                case R.id.capital://注册资金按钮
                     if (capital_check) {
                         capital.setTextColor(getResources().getColor(R.color.text_nocheck));
                         capital_arraow.setImageResource(R.mipmap.senior_arraow_down);
@@ -400,7 +389,7 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
                         time_check = false;
                     }
                     break;
-                case R.id.time:
+                case R.id.time://经营年限按钮
                     if (time_check) {
                         time.setTextColor(getResources().getColor(R.color.text_nocheck));
                         time_arraow.setImageResource(R.mipmap.senior_arraow_down);
@@ -437,7 +426,7 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
                         capital_check = false;
                     }
                     break;
-                case R.id.industry:
+                case R.id.industry://行业选择按钮
                     if (industry_check) {
                         industry.setTextColor(getResources().getColor(R.color.text_nocheck));
                         industry_arraow.setImageResource(R.mipmap.senior_arraow_down);
@@ -477,7 +466,6 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
                             String str1 = csp.getHistory();
                             String[] strh = str1.split(",");
                             List<String> listh = new ArrayList<String>(Arrays.asList(strh));
-
                             if (listh != null && listh.size() < 13) {
                                 String temp = "";
                                 for (int i = 0; i < listh.size(); i++) {
@@ -488,7 +476,6 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
                                 if (temp.equals("")) {
                                     csp.putHistory(str1 + Tnameh);
                                 }
-
                             } else {
                                 String temp = "";
                                 for (int i = 0; i < listh.size(); i++) {
@@ -521,14 +508,14 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
                     request.add("token", Tks);//加密结果
                     request.add("searchKey", Tname);//string搜索关键字
                     request.add("deviceld", model);//设备ID
-                    request.add("searchType", 0);//int 搜索类型 （企业、法人、失信、违法）默认为0企业,1是该法人名下企业,2失信企业,3违法企业
-                    request.add("pageIndex", 0);//int 搜索请求页数
-                    request.add("pageSize", 40);//int 搜索请求条数
-                    request.add("industryCode", "I");//int/string(建议传string) 行业代码为空不做限制
-                    request.add("startDateBegin", 0);//int 企业经营时间起 3（3至startDateEnd）
-                    request.add("startDateEnd", 30);//int 企业经营时间止 5（startDateBegin至5） 为空不作限制，为空必须与startDateBegin一起为空
-                    request.add("registCapiBegin", 20);//int 注册资金起 为空不做限制
-                    request.add("registCapiEnd", 5000);//int 注册资金止 为空必须和registCapiEnd一起为空
+                    //request.add("searchType", 0);//int 搜索类型 （企业、法人、失信、违法）默认为0企业,1是该法人名下企业,2失信企业,3违法企业
+                    //request.add("pageIndex", 0);//int 搜索请求页数
+                    //request.add("pageSize", 40);//int 搜索请求条数
+                    //request.add("industryCode", "I");//int/string(建议传string) 行业代码为空不做限制
+                    //request.add("startDateBegin", 0);//int 企业经营时间起 3（3至startDateEnd）
+                    //request.add("startDateEnd", 30);//int 企业经营时间止 5（startDateBegin至5） 为空不作限制，为空必须与startDateBegin一起为空
+                    //request.add("registCapiBegin", 20);//int 注册资金起 为空不做限制
+                    //request.add("registCapiEnd", 5000);//int 注册资金止 为空必须和registCapiEnd一起为空
                     //request.add("province", "36");//int/string 省代码 为空不做限制 为空citicode必须为空
                     //request.add("cityCode", 3601);//int 城市代码  为空为当前省所有城市
                     CallServer.getInstance().add(SearchFirmActivty.this, request, MyhttpCallBack.getInstance(), NOHTTP_SEARCH, true, false, true);
@@ -603,57 +590,11 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
     };
 
 
-    // MD5加密，32位
-    public static String MD5(String str) {
-        MessageDigest md5 = null;
-        try {
-            md5 = MessageDigest.getInstance("MD5");
-        } catch (Exception e) {
-            e.printStackTrace();
-            return "";
-        }
-        char[] charArray = str.toCharArray();
-        byte[] byteArray = new byte[charArray.length];
-
-        for (int i = 0; i < charArray.length; i++) {
-            byteArray[i] = (byte) charArray[i];
-        }
-        byte[] md5Bytes = md5.digest(byteArray);
-        StringBuffer hexValue = new StringBuffer();
-        for (int i = 0; i < md5Bytes.length; i++) {
-            int val = ((int) md5Bytes[i]) & 0xff;
-            if (val < 16) {
-                hexValue.append("0");
-            }
-            hexValue.append(Integer.toHexString(val));
-        }
-        return hexValue.toString();
-    }
-
-    public final String get32MD5(String s) {
-        char hexDigits[] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
-        try {
-            byte[] strTemp = s.getBytes();
-//使用MD5创建MessageDigest对象
-            MessageDigest mdTemp = MessageDigest.getInstance("MD5");
-            mdTemp.update(strTemp);
-            byte[] md = mdTemp.digest();
-            int j = md.length;
-            char str[] = new char[j * 2];
-            int k = 0;
-            for (int i = 0; i < j; i++) {
-                byte b = md[i];
-//System.out.println((int)b);
-//将没个数(int)b进行双字节加密
-                str[k++] = hexDigits[b >> 4 & 0xf];
-                str[k++] = hexDigits[b & 0xf];
-            }
-            return new String(str);
-        } catch (Exception e) {
-            return null;
-        }
-    }
-
+    /**
+     * MD5加密
+     * @param s
+     * @return
+     */
     public final static String MD5s(String s) {
         try {
 
@@ -675,12 +616,14 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
         }
     }
 
-
-    //===========历史记录悬浮动画效果监听手势滑动如果滑动就随机乱序
+    /**
+     * 历史记录悬浮动画效果监听手势滑动如果滑动就随机乱序
+     * @param event
+     * @return
+     */
     public boolean onTouchEvent(MotionEvent event) {
         return gDetector.onTouchEvent(event);
     }
-
     private void initViews() {
         mTextView1 = (TextView) findViewById(R.id.txt1);
         mTextView2 = (TextView) findViewById(R.id.txt2);
@@ -695,7 +638,6 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
         mTextView11 = (TextView) findViewById(R.id.txt11);
         mTextView12 = (TextView) findViewById(R.id.txt12);
         mTextView13 = (TextView) findViewById(R.id.txt13);
-
         mTextView1.setOnClickListener(textbt);
         mTextView2.setOnClickListener(textbt);
         mTextView3.setOnClickListener(textbt);
@@ -711,8 +653,6 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
         mTextView13.setOnClickListener(textbt);
         his_nullbt = (ImageView) findViewById(R.id.his_nullbt);
         his_nullbt.setOnClickListener(textbt);
-
-
     }
 
     /**
@@ -740,6 +680,11 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
 
     }
 
+    /**
+     * 随机乱序方法
+     * @param list 数据源
+     * @return
+     */
     private String getKeyword(List<String> list) {
         if (list != null && list.size() > 0) {
             int num = random.nextInt(list.size());
@@ -811,9 +756,6 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
         mTextView13.startAnimation(animation2_13);
     }
 
-    private void startAnimations3() {
-
-    }
 
     public boolean onDown(MotionEvent e) {
         // TODO Auto-generated method stub

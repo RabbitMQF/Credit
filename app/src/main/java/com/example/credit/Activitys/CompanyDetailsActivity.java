@@ -3,6 +3,7 @@ package com.example.credit.Activitys;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -101,6 +102,9 @@ public class CompanyDetailsActivity extends BaseActivity {
             R.mipmap.icon15, R.mipmap.icon16};
     int position;
     public static Handler handler;
+    String model;
+    String KeyNo;
+    String token;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -112,7 +116,10 @@ public class CompanyDetailsActivity extends BaseActivity {
         int s = i.getIntExtra("s", 0);
         position = i.getIntExtra("position", 0);
         detailsList = DataManager.searchList;
-
+        Build bd = new Build();
+        model = bd.MODEL;//设备ID
+        KeyNo = DataManager.searchList.get(position).PRIPID;//市场主体身份代码
+        token = SearchFirmActivty.MD5s(KeyNo + model);//token 由 设备ID+市场主体身份代码 MD5生成
         init();
         adapter1 = new MyGridAdapter1(CompanyDetailsActivity.this, arrays1, arrays2, imgs);
         MyGridAdapters adapters = new MyGridAdapters(CompanyDetailsActivity.this, imgs1);
@@ -141,6 +148,16 @@ public class CompanyDetailsActivity extends BaseActivity {
             @Override
             public void handleMessage(Message msg) {
                 switch (msg.what) {
+                    case 0://工商信息
+                        Intent i0 = new Intent(CompanyDetailsActivity.this, DetailsContentActivity.class);
+                        i0.putExtra("position", position);
+                        startActivity(i0);
+                        overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
+                        break;
+                    case 1://行政审批
+                        startActivity(new Intent(CompanyDetailsActivity.this, AdminActivity.class));
+                        overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
+                        break;
                     case 2://荣誉信息
                         Intent i2 = new Intent(CompanyDetailsActivity.this, Honor_Support_Activity.class);
                         i2.putExtra("st", 1);
@@ -208,23 +225,31 @@ public class CompanyDetailsActivity extends BaseActivity {
         public void onItemClick(AdapterView<?> parent, View view, int index, long id) {
             switch (index) {
                 case 0://工商信息
-                    Intent i0 = new Intent(CompanyDetailsActivity.this, DetailsContentActivity.class);
-                    i0.putExtra("position", position);
-                    startActivity(i0);
-                    overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
+//                    KeyNo = 360001000042005100900010;
+//                    deviceld = "5A955499-E1D8-4274-BD35-CE48EE917E54";
+//                    token = b6bd25f6a1c806f7c75bdcda0a0ec065;
+                    GsonUtil request0 = new GsonUtil(URLconstant.URLINSER + URLconstant.DETAILSCINFOURL, RequestMethod.GET);
+                    request0.add("token", token);
+                    request0.add("deviceld", model);
+                    request0.add("KeyNo", KeyNo);
+                    CallServer.getInstance().add(CompanyDetailsActivity.this, request0, MyhttpCallBack.getInstance(), 0x000, true, false, true);
                     break;
                 case 1://行政审批
-                    startActivity(new Intent(CompanyDetailsActivity.this, AdminActivity.class));
-                    overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
+                    GsonUtil request1 = new GsonUtil(URLconstant.URLINSER + URLconstant.ADMINURL, RequestMethod.GET);
+                    request1.add("token", token);
+                    request1.add("deviceld", model);
+                    request1.add("KeyNo", KeyNo);
+                    CallServer.getInstance().add(CompanyDetailsActivity.this, request1, MyhttpCallBack.getInstance(), 0x001, true, false, true);
                     break;
                 case 2://荣誉信息
+                    //model = Settings.System.getString(getContentResolver(), Settings.System.ANDROID_ID);
 //                    GsonUtil request2 = new GsonUtil(URLconstant.HONORURL, RequestMethod.GET);
 //                    CallServer.getInstance().add(CompanyDetailsActivity.this, request2, MyhttpCallBack.getInstance(), 0x002, true, false, true);
-                      GsonUtil request2 = new GsonUtil(URLconstant.URLINSER+URLconstant.HONORURL, RequestMethod.GET);
-                    request2.add("token，","");
-                    request2.add("deviceld","");
-                    request2.add("KeyNo","");
-                      CallServer.getInstance().add(CompanyDetailsActivity.this, request2, MyhttpCallBack.getInstance(), 0x002, true, false, true);
+                    GsonUtil request2 = new GsonUtil(URLconstant.URLINSER + URLconstant.HONORURL, RequestMethod.GET);
+                    request2.add("token", token);
+                    request2.add("deviceld", model);
+                    request2.add("KeyNo", KeyNo);
+                    CallServer.getInstance().add(CompanyDetailsActivity.this, request2, MyhttpCallBack.getInstance(), 0x002, true, false, true);
 
                     break;
                 case 3://扶持信息

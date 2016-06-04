@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import com.example.credit.Entitys.DataManager;
 import com.example.credit.Entitys.changeContent;
 import com.example.credit.R;
 
@@ -42,16 +43,16 @@ public class Details_content_mylist_ItemAdapter extends BaseAdapter {
 			view=LayoutInflater.from(context).inflate(R.layout.activity_details_content_myitems_item, null);
 			vh=new ViewHolder();
 			vh.mylist_items_title=(TextView) view.findViewById(R.id.mylist_items_title);
-			vh.BeforeContent=(TextView) view.findViewById(R.id.BeforeContent);
-			vh.AfterContent=(TextView) view.findViewById(R.id.AfterContent);
+			vh.BeforeContent=(TextView) view.findViewById(R.id.BeforeContent);//变更后
+			vh.AfterContent=(TextView) view.findViewById(R.id.AfterContent);//变更前
 			view.setTag(vh);
 		}else{
 			vh=(ViewHolder) view.getTag();
 		}
 		changeContent cc=list.get(position);
-		vh.mylist_items_title.setText(cc.ProjectName);
-		vh.BeforeContent.setText(cc.BeforeContent);
-		vh.AfterContent.setText(cc.AfterContent);
+		vh.mylist_items_title.setText(cc.ALTITEM_CN);
+		vh.BeforeContent.setText(cc.ALTAF);
+		vh.AfterContent.setText(cc.ALTBE);
 		return view;
 	}
 	public class ViewHolder{

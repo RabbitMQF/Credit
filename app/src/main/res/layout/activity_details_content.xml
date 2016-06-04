@@ -361,28 +361,13 @@
                         android:textColor="#ffffff"
                         android:textSize="18sp" />
 
-                    <LinearLayout
+                    <com.example.credit.Views.MyGridView
+                        android:id="@+id/myGridViewZY"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:layout_marginRight="10dp"
-                        android:layout_marginTop="10dp"
-                        android:background="@drawable/details_con_bg"
-                        android:gravity="center"
-                        android:orientation="vertical"
-                        android:paddingBottom="10dp"
-                        android:paddingLeft="10dp"
-                        android:paddingTop="10dp">
-
-                        <TextView
-                            android:id="@+id/c_impPeople"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="5dp"
-                            android:text="该企业没有相关信息"
-                            android:textColor="#57737D"
-                            android:textSize="18sp" />
-                    </LinearLayout>
+                        android:numColumns="2" />
 
                     <TextView
                         android:id="@+id/c_tv4"

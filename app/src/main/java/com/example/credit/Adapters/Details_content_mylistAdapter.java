@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import com.example.credit.Entitys.DataManager;
 import com.example.credit.Entitys.changeContent;
 import com.example.credit.Entitys.changeResult;
 import com.example.credit.R;
@@ -51,8 +52,8 @@ public class Details_content_mylistAdapter extends BaseAdapter {
             vh = (ViewHolder) view.getTag();
         }
         changeResult cr = list.get(position);
-        vh.GSmylist_time.setText(cr.ChangeDate);
-        List<changeContent> clist=cr.changeContent;
+        vh.GSmylist_time.setText(cr.ALTDATE);
+        List<changeContent> clist=cr.changedata;
         Details_content_mylist_ItemAdapter adapter1 = new Details_content_mylist_ItemAdapter(context, clist);
         vh.GSmylist_item1.setAdapter(adapter1);
         return view;

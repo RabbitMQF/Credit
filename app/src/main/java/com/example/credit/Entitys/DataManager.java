@@ -125,7 +125,7 @@ public class DataManager {
     /**
      * 省份实体类
      */
-    public class citys {
+    public static class citys {
         public String c_code;
         public String c_name;
         public List<citycode> citycode;
@@ -136,12 +136,11 @@ public class DataManager {
     /**
      * 城市实体类
      */
-    public class citycode {
+    public static class citycode {
         public String c_code;
         public String c_name;
     }
     public static List<String> city = new ArrayList<>();//城市数据源
-
 
 
     public static List<industryData> dataList;
@@ -188,22 +187,117 @@ public class DataManager {
 
     }
 
-    /**
-     * 工商变更类
-     */
-   /* public class changeContent {
-        public String ChangeDate;//变更时间
-        public String ProjectName;//变更标题
-        public String AfterContent;//变更后
-        public String BeforeContent;//变更前
+    public static List<Data0> Data0List = new ArrayList<>();
 
-        public changeContent(String ChangeDate, String ProjectName, String AfterContent, String BeforeContent) {
-            this.ChangeDate = ChangeDate;
-            this.ProjectName = ProjectName;
-            this.AfterContent = AfterContent;
-            this.BeforeContent = BeforeContent;
-        }
-    }*/
+    public class Root0 {
+        public String message;
+        public int status;
+        public Data0 data;
+    }
+
+    /**
+     * 工商信息类
+     */
+    public class Data0 {
+        public String ESTDATE;//成立日期
+        public String D_ADDTIME;//更新时间
+        public String ENTNAME;//企业(机构)名称
+        public String REGNO;//注册号
+        public String REGORG_CN;//登记机关（中文名称）
+        public String NAME;//法定代表人
+        public String OPFROM;//经营(驻在)期限自
+        public String REGSTATE_CN;//登记状态（中文名称）
+        public String C_PROVINCE;//省
+        public String C_STATE;//经营状态 （1 存续（在营，开业，在册）  2 吊销，未注销    3吊销，已注销  4，注销  5，撤销  6，迁出   9，其他 ）
+        public String ENTTYPE_CN;//市场主体类型（中文名称）
+        public String DOM;//住所
+        public String INDUSTRYPHY;//行业门类
+        public String OPSCOPE;//经营范围
+        public String PRIPID;//主体身份代码
+        public List<Partners> Partners;//自然人信息
+        public List<Employees> Employees;//主要人员信息
+        public List<ChangeRecords> ChangeRecords;//工商变更
+        public List<AnnualReports> AnnualReports;//分支机构
+        public Area Area;//公司所在省市区
+        public Company Company;
+    }
+
+    /**
+     * 自然人信息
+     */
+    public class Partners {
+    }
+
+    /**
+     * 主要人员信息
+     */
+    public class Employees {
+    }
+
+    /**
+     * 公司所在省市区
+     */
+    public class Area {
+        private String C_PROVINCE;//省
+        private String C_CITY;//市
+        private String C_COUNTY;//县/区
+    }
+
+    /**
+     * 工商变更
+     */
+    public class ChangeRecords {
+        public String ALTITEM_CN;//变更事项
+        public String ALTBE;//变更前
+        public String ALTAF;//变更后
+        public String ALTDATE;//变更日期
+    }
+    public class ChangeTime {
+        public String ALTDATE;//变更日期
+        public List<ChangeData> changedata;//变更信息
+    }
+    public class ChangeData {//临时仓库
+        public String ALTDATE;//变更日期
+        public String ALTITEM_CN;//变更事项
+        public String ALTBE;//变更前
+        public String ALTAF;//变更后
+
+    }
+
+    /**
+     * 分支机构
+     */
+    public class AnnualReports {//分支机构
+        public String BRID;//分支机构ID
+        public String PRIPID;//分支机构主体身份代码
+        public String REGNO;//注册号
+        public String REGIDATE;//登记日期
+    }
+
+    /**
+     *
+     */
+    public class Company {
+        public CountInfo CountInfo;
+    }
+
+    /**
+     *
+     */
+    public class CountInfo {
+        public int sbxx;//商标信息
+        public int xzsp;//行政审批
+        public int xyxx;//信用信息
+        public int xzcf;//行政处罚
+        public int zlxx;//专利信息
+        public int dyxx;//抵押信息
+        public int ggzz;//广告资质
+        public int ryxx;//荣誉信息
+        public int czxx;//出资信息
+        public int zzq;//著作权
+        public int fcxx;//扶持信息
+        public int jyyc;//经营异常
+    }
 
 
     /**
@@ -594,7 +688,6 @@ public class DataManager {
         public String detail;
 
     }
-    //========================
     /**
      * 广告信息实体类
      */

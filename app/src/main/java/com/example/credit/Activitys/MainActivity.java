@@ -33,7 +33,7 @@ import java.util.List;
 public class MainActivity extends Activity implements View.OnClickListener {
     private long exitTime = 0;
     private SlidingMenu mLeftMenu;
-    private final int NOHTTP_CITY = 0x01;//获取城市
+    private final int NOHTTP_CITY = 0x021;//获取城市
     private final int NOHTTP_INDUSTRY = 0x023;//获取行业
     @ViewInject(R.id.tab1)
     LinearLayout tab1;
@@ -67,7 +67,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
             }
         });
         GsonUtil request = new GsonUtil(URLconstant.URLINSER+URLconstant.GETCITY, RequestMethod.GET);
-        CallServer.getInstance().add(this, request, MyhttpCallBack.getInstance(), NOHTTP_CITY, true, false, true);
+//        CallServer.getInstance().add(this, request, MyhttpCallBack.getInstance(), NOHTTP_CITY, true, false, true);
         CallServer.getInstance().add(this, new GsonUtil(URLconstant.GETINDUSTRY, RequestMethod.GET), MyhttpCallBack.getInstance(), NOHTTP_INDUSTRY, true, false, true);
          handler=new Handler(){
             @Override

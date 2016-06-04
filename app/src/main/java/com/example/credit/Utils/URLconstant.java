@@ -7,9 +7,11 @@ public class URLconstant {
     //真数据
     public static final String URLINSER="http://101.201.211.27:8282/esws.interface/";//所有接口前缀
 
+    public static  final  String GETCITY="baseinfo/querycitys.do";//获取城市接口
+
     public static final String SEARCHURL ="baseinfo/querymodelbaseinfo.do";//搜索接口
 
-    public static  final  String GETCITY="baseinfo/querycitys.do";//获取城市接口
+    public static final String DETAILSCINFOURL ="info/queryinfomessage.do";//获取工商DetailsContent
 
     public static final String ADMINURL ="eilcCertificate/getEilcCertificate.do";//获取行政Admin
 

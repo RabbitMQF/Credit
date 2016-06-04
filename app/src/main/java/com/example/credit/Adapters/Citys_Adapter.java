@@ -72,7 +72,7 @@ public class Citys_Adapter extends BaseAdapter{
         vh.tv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DataManager.city=list;
+                //DataManager.city=list;
                // SearchFirmActivty.handler.sendEmptyMessage(1);
                 //Toast.makeText(context,"TTTTTTTT",Toast.LENGTH_SHORT).show();
 //                adapter=new ArrayAdapter(context,R.layout.search_select_twolistitem,list);

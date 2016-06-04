@@ -9,10 +9,12 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
 import com.google.gson.internal.LinkedTreeMap;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.stream.JsonReader;
 import com.yolanda.nohttp.rest.Response;
 
-
+import java.io.StringReader;
 import java.lang.reflect.Type;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -39,7 +41,7 @@ public class MyhttpCallBack implements HttpCallBack {
         gson = new Gson();
 
         switch (what) {
-            case 0x01://获取城市
+            case 0x021://获取城市
 
                 //企查查城市数据解法
 //                String jstring = (String) response.get();
@@ -49,12 +51,37 @@ public class MyhttpCallBack implements HttpCallBack {
 //                }.getType());
 //                DataManager.citysList = list;
 
-                //真实城市数据解法
-                String jstring= (String) response.get();
-                map=gson.fromJson(jstring,new TypeToken<Map<String,Object>>(){}.getType());
-                List<DataManager.citys> list =gson.fromJson(((Map<String, Object>) map.get("data")).get("city").toString(),new TypeToken<List<DataManager.citys>>(){}.getType());//
-                DataManager.citysList=list;
+                //真实城市数据解法————zlh手解json
+                String jstring = (String) response.get();
+                map = gson.fromJson(jstring, new TypeToken<Map<String, Object>>() {
+                }.getType());
+                //JsonReader reader = new JsonReader(new StringReader(((Map<String, Object>) map.get("data")).get("city").toString()));
+                //reader.setLenient(true);
+                //List<DataManager.citys> list =gson.fromJson(((Map<String, Object>) map.get("data")).get("city").toString(),new TypeToken<List<DataManager.citys>>(){}.getType());//((Map<String, Object>) map.get("data")).get("city").toString()
+                List<LinkedTreeMap> list = (List<LinkedTreeMap>) ((Map<String, Object>) map.get("data")).get("city");
+                //DataManager.citysList=gson.fromJson(list.toString(),new TypeToken<List<DataManager.citys>>(){}.getType());
+                for (int i = 0; i < list.size(); i++) {
+                    DataManager.citys temp1 = new DataManager.citys();
+                    temp1.c_name = (String) list.get(i).get("c_name");
+                    temp1.c_code = (String) list.get(i).get("c_code");
+                    temp1.citycode = new ArrayList<>();
+                    //temp1.citycode=gson.fromJson(list.get(i).get("citycode").toString(),new TypeToken<List<DataManager.citycode>>(){}.getType());
+                    //List<DataManager.citycode> templist=new ArrayList<>();
+                    //templist= (List<DataManager.citycode>) list.get(i).get("citycode");
+                    List<LinkedTreeMap> templist = (List<LinkedTreeMap>) list.get(i).get("citycode");
+                    for (int j = 0; j < templist.size(); j++) {
+                        DataManager.citycode temp2 = new DataManager.citycode();
+                        //String a= (String) templist.get(j).get("c_code");
+                        temp2.c_code = (String) templist.get(j).get("c_code");
+                        temp2.c_name = (String) templist.get(j).get("c_name");
+                        temp1.citycode.add(temp2);
+                    }
+                    DataManager.citysList.add(temp1);
 
+                    //DataManager.citysList=gson.fromJson(list.get(i).toString(),new TypeToken<List<DataManager.citys>>(){}.getType());
+                    // DataManager.citysList.get(i).citycode= (List<DataManager.citycode>) list.get(i).get("citycode");
+                    // for(int j=0;j<list.get(i).)
+                }
                 break;
             case 0x111://获取新闻
                 String jstring111 = (String) response.get();
@@ -81,14 +108,14 @@ public class MyhttpCallBack implements HttpCallBack {
 //                    SearchFirmActivty.handler.sendEmptyMessage(0);
 //                }
                 String searchstr = (String) response.get();
-                map = gson.fromJson(searchstr.trim(), new TypeToken<Map<String, Object>>() {
+                map = gson.fromJson(searchstr, new TypeToken<Map<String, Object>>() {
                 }.getType());
                 List<DataManager.search> searchstrlist2 = gson.fromJson(((Map<String, Object>) map.get("data")).get("Result").toString(), new TypeToken<List<DataManager.search>>() {
                 }.getType());
                 DataManager.searchList = searchstrlist2;
                 if (DataManager.searchList != null && DataManager.searchList.size() > 0) {
-                    SearchFirmActivty.handler.sendEmptyMessage(0);
-                }
+                SearchFirmActivty.handler.sendEmptyMessage(0);
+            }
                 break;
             case 0x023://预留获取行业
 //                gson = new Gson();
@@ -126,6 +153,28 @@ public class MyhttpCallBack implements HttpCallBack {
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }*/
+                String str3 = (String) response.get();
+                map=gson.fromJson(str3,new TypeToken<Map<String, Object>>(){
+                }.getType());
+                //List<LinkedTreeMap> list4= (List<LinkedTreeMap>) ((Map<String, Object>)map.get("data")).get("industry");
+
+                break;
+            case 0x000://工商信息
+                String jstring0 = (String) response.get();
+                DataManager.Root0 jsonRoot0 = gson.fromJson(jstring0, new TypeToken<DataManager.Root0>() {
+                }.getType());
+                DataManager.Data0 dt=jsonRoot0.data;
+                DataManager.Data0List.add(dt);
+                CompanyDetailsActivity.handler.sendEmptyMessage(0);
+                break;
+            case 0x001://行政信息
+//                String jstring1 = (String) response.get();
+//                map = gson.fromJson(jstring1, new TypeToken<Map<String, Object>>() {
+//                }.getType());
+//                List<DataManager.honorInfo> list2 = gson.fromJson(((Map<String, Object>) map.get("data")).get("chattel").toString(), new TypeToken<List<DataManager.honorInfo>>() {
+//                }.getType());
+//                DataManager.honorInfoList = list2;
+                CompanyDetailsActivity.handler.sendEmptyMessage(1);
                 break;
             case 0x002://荣誉信息
                 String jstring2 = (String) response.get();
@@ -240,21 +289,21 @@ public class MyhttpCallBack implements HttpCallBack {
                 }.getType());
 //                List<DataManager.trademarkInfo> list11 = gson.fromJson(((Map<String, Object>) map.get("data")).get("trademark").toString(), new TypeToken<List<DataManager.trademarkInfo>>() {
 //                }.getType());
-                map= (Map<String, Object>) map.get("data");
-                List<LinkedTreeMap>list11= (List<LinkedTreeMap>) map.get("trademark");
+                map = (Map<String, Object>) map.get("data");
+                List<LinkedTreeMap> list11 = (List<LinkedTreeMap>) map.get("trademark");
 
-                if(DataManager.trademarkInfoList.size()!=0){
+                if (DataManager.trademarkInfoList.size() != 0) {
                     DataManager.trademarkInfoList.clear();
                 }
-                for(LinkedTreeMap temp:list11){
-                    DataManager.trademarkInfo trademarkInfo=new DataManager.trademarkInfo();
-                    trademarkInfo.registeredName= (String) temp.get("registeredName");
-                    trademarkInfo.iconUrl= (String) temp.get("iconUrl");
-                    trademarkInfo.applyNum= (String) temp.get("applyNum");
-                    trademarkInfo.applyDate= (String) temp.get("applyDate");
-                    trademarkInfo.RecognizedAuthority= (String) temp.get("RecognizedAuthority");
-                    trademarkInfo.applyPublishDate= (String) temp.get("applyPublishDate");
-                    trademarkInfo.identifiedDate= (String) temp.get("identifiedDate");
+                for (LinkedTreeMap temp : list11) {
+                    DataManager.trademarkInfo trademarkInfo = new DataManager.trademarkInfo();
+                    trademarkInfo.registeredName = (String) temp.get("registeredName");
+                    trademarkInfo.iconUrl = (String) temp.get("iconUrl");
+                    trademarkInfo.applyNum = (String) temp.get("applyNum");
+                    trademarkInfo.applyDate = (String) temp.get("applyDate");
+                    trademarkInfo.RecognizedAuthority = (String) temp.get("RecognizedAuthority");
+                    trademarkInfo.applyPublishDate = (String) temp.get("applyPublishDate");
+                    trademarkInfo.identifiedDate = (String) temp.get("identifiedDate");
                     DataManager.trademarkInfoList.add(trademarkInfo);
                 }
                 CompanyDetailsActivity.handler.sendEmptyMessage(11);
