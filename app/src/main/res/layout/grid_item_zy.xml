@@ -7,7 +7,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:layout_margin="5dp"
         android:gravity="center_vertical"
         android:paddingLeft="10dp"
@@ -19,17 +19,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:maxLines="1"
-            android:text="【总经理】"
-            android:textColor="#ff333333"
+            android:textColor="#000000"
             android:textSize="16sp" />
         <TextView
             android:id="@+id/tvzy_item2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="和氏璧"
-            android:textColor="#57737D"
+            android:layout_marginTop="5dp"
+            android:textColor="#B8B8B8"
             android:textSize="14sp" />
-
 
     </LinearLayout>
 

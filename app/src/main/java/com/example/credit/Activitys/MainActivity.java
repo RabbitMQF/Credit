@@ -67,8 +67,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
             }
         });
         GsonUtil request = new GsonUtil(URLconstant.URLINSER+URLconstant.GETCITY, RequestMethod.GET);
-//        CallServer.getInstance().add(this, request, MyhttpCallBack.getInstance(), NOHTTP_CITY, true, false, true);
-        CallServer.getInstance().add(this, new GsonUtil(URLconstant.GETINDUSTRY, RequestMethod.GET), MyhttpCallBack.getInstance(), NOHTTP_INDUSTRY, true, false, true);
+        CallServer.getInstance().add(this, request, MyhttpCallBack.getInstance(), NOHTTP_CITY, true, false, true);//获取城市
+        CallServer.getInstance().add(this, new GsonUtil(URLconstant.URLINSER+URLconstant.GETINDUSTRY, RequestMethod.GET), MyhttpCallBack.getInstance(), NOHTTP_INDUSTRY, true, false, true);//获取行业
          handler=new Handler(){
             @Override
             public void handleMessage(Message msg) {

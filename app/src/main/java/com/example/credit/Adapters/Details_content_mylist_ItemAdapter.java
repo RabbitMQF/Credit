@@ -15,8 +15,8 @@ import java.util.List;
 
 public class Details_content_mylist_ItemAdapter extends BaseAdapter {
 	private Context context;
-	private  List<changeContent> list;
-	public Details_content_mylist_ItemAdapter(Context context, List<changeContent> list) {
+	private  List<DataManager.ChangeData> list;
+	public Details_content_mylist_ItemAdapter(Context context, List<DataManager.ChangeData> list) {
 		this.context = context;
 		this.list = list;
 	}
@@ -49,7 +49,7 @@ public class Details_content_mylist_ItemAdapter extends BaseAdapter {
 		}else{
 			vh=(ViewHolder) view.getTag();
 		}
-		changeContent cc=list.get(position);
+		DataManager.ChangeData cc=list.get(position);
 		vh.mylist_items_title.setText(cc.ALTITEM_CN);
 		vh.BeforeContent.setText(cc.ALTAF);
 		vh.AfterContent.setText(cc.ALTBE);

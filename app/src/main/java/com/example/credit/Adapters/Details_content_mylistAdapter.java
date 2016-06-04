@@ -17,9 +17,9 @@ import java.util.List;
 
 public class Details_content_mylistAdapter extends BaseAdapter {
     private Context context;
-    private List<changeResult> list;
+    private List<DataManager.ChangeTime> list;
 
-    public Details_content_mylistAdapter(Context context, List<changeResult> list) {
+    public Details_content_mylistAdapter(Context context, List<DataManager.ChangeTime> list) {
         this.context = context;
         this.list = list;
     }
@@ -51,9 +51,9 @@ public class Details_content_mylistAdapter extends BaseAdapter {
         } else {
             vh = (ViewHolder) view.getTag();
         }
-        changeResult cr = list.get(position);
+        DataManager.ChangeTime cr = list.get(position);
         vh.GSmylist_time.setText(cr.ALTDATE);
-        List<changeContent> clist=cr.changedata;
+        List<DataManager.ChangeData> clist=cr.changedata;
         Details_content_mylist_ItemAdapter adapter1 = new Details_content_mylist_ItemAdapter(context, clist);
         vh.GSmylist_item1.setAdapter(adapter1);
         return view;

@@ -198,7 +198,9 @@ public class DataManager {
     /**
      * 工商信息类
      */
+
     public class Data0 {
+        public String APPRDATE;//发照日期
         public String ESTDATE;//成立日期
         public String D_ADDTIME;//更新时间
         public String ENTNAME;//企业(机构)名称
@@ -206,9 +208,12 @@ public class DataManager {
         public String REGORG_CN;//登记机关（中文名称）
         public String NAME;//法定代表人
         public String OPFROM;//经营(驻在)期限自
+        public String OPTO;//经营(驻在)期限到
         public String REGSTATE_CN;//登记状态（中文名称）
         public String C_PROVINCE;//省
         public String C_STATE;//经营状态 （1 存续（在营，开业，在册）  2 吊销，未注销    3吊销，已注销  4，注销  5，撤销  6，迁出   9，其他 ）
+        public String UNISCID;
+        public String REGCAP;//注册资本
         public String ENTTYPE_CN;//市场主体类型（中文名称）
         public String DOM;//住所
         public String INDUSTRYPHY;//行业门类
@@ -226,12 +231,19 @@ public class DataManager {
      * 自然人信息
      */
     public class Partners {
+        public String PRIPID;//主体身份代码
+        public String INV;//姓名
+        public String INVTYPE_CN;//股东类型
     }
 
     /**
      * 主要人员信息
      */
     public class Employees {
+        public String PERSONID;//主要人员id
+        public String NAME;//姓名
+        public String POSITION_CN;//职务（中文名称）
+        public String CERNO;//件号码/代表证编号（DB320）
     }
 
     /**
@@ -252,11 +264,12 @@ public class DataManager {
         public String ALTAF;//变更后
         public String ALTDATE;//变更日期
     }
-    public class ChangeTime {
+
+    public static class ChangeTime {
         public String ALTDATE;//变更日期
         public List<ChangeData> changedata;//变更信息
     }
-    public class ChangeData {//临时仓库
+    public static class ChangeData {//临时仓库
         public String ALTDATE;//变更日期
         public String ALTITEM_CN;//变更事项
         public String ALTBE;//变更前

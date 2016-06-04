@@ -38,8 +38,8 @@ public class MyhttpCallBack implements HttpCallBack {
 
     @Override
     public void onSucceed(int what, Response response) {
-        gson = new Gson();
-
+        //gson = new Gson();
+          gson=new GsonBuilder().create();
         switch (what) {
             case 0x021://获取城市
 
@@ -108,6 +108,8 @@ public class MyhttpCallBack implements HttpCallBack {
 //                    SearchFirmActivty.handler.sendEmptyMessage(0);
 //                }
                 String searchstr = (String) response.get();
+                //test
+                //searchstr="{\"message\":\"true\",\"status\":1,\"data\":{\"Result\":[{\"PRIPID\":\"3601032011041300098564\",\"entname\":\"江西智容科技有限公司\",\"REGNO\":\"360103210025958\",\"REGORG_CN\":\"南昌高新技术产业开发区\",\"NAME\":\"万杏娥\",\"OPFROM\":\"2011-04-28\",\"OPTO\":\"2031-04-27\",\"REGSTATE_CN\":\"存续（在营、开业、在册）\",\"C_PROVINCE\":\"36\",\"D_ADDTIME\":\"2016-03-17\",\"C_STATE\":\"1\",\"UNISCID\":\"null\",\"REGCAP\":\"5000.0\",\"ENTTYPE_CN\":\"有限责任公司(自然人投资或控股)\",\"DOM\":\"江西省南昌市高新技术产业开发区高新区高新二路建昌工业园金庐软件园海外大厦北楼306室\",\"INDUSTRYPHY\":\"I\",\"INDUSTRYPHY_NAME\":\"信息传输、软件和信息技术服务业\",\"OPSCOPE\":\"计算机软件系统开发；办公自动化设备销售；计算机系统集成；国内广告的设计、制作、发布、代理；会展服务（以上项目国家有专项规定的除外）\"},{\"PRIPID\":\"20160127091814206993\",\"entname\":\"江西智容科技有限公司南昌分公司\",\"REGNO\":\"360105220000025\",\"REGORG_CN\":\"null\",\"NAME\":\"罗川\",\"OPFROM\":\"2016-02-04\",\"OPTO\":\"null\",\"REGSTATE_CN\":\"存续（在营、开业、在册）\",\"C_PROVINCE\":\"36\",\"D_ADDTIME\":\"2016-03-17\",\"C_STATE\":\"null\",\"UNISCID\":\"91360105MA35GGBY60\",\"REGCAP\":\"null\",\"ENTTYPE_CN\":\"有限责任公司分公司(自然人投资或控股)\",\"DOM\":\"红星村原红星乡财政所\",\"INDUSTRYPHY\":\"L\",\"INDUSTRYPHY_NAME\":\"租赁和商业服务业\",\"OPSCOPE\":\"餐饮企业管理服务；食堂（主食、热菜、早点）（卫生许可证有效期至2011年5月13日止）（以上项目国家有专项规定的除外）\"}],\"Paging\":{\"PageSize\":40,\"PageIndex\":0,\"TotalRecords\":2}}}";
                 map = gson.fromJson(searchstr, new TypeToken<Map<String, Object>>() {
                 }.getType());
                 List<DataManager.search> searchstrlist2 = gson.fromJson(((Map<String, Object>) map.get("data")).get("Result").toString(), new TypeToken<List<DataManager.search>>() {
@@ -156,8 +158,8 @@ public class MyhttpCallBack implements HttpCallBack {
                 String str3 = (String) response.get();
                 map=gson.fromJson(str3,new TypeToken<Map<String, Object>>(){
                 }.getType());
-                //List<LinkedTreeMap> list4= (List<LinkedTreeMap>) ((Map<String, Object>)map.get("data")).get("industry");
-
+                List<LinkedTreeMap> list4= (List<LinkedTreeMap>)((Map<String, Object>)map.get("data")).get("industry");
+                   list4.get(0).get("EC_NAME");
                 break;
             case 0x000://工商信息
                 String jstring0 = (String) response.get();

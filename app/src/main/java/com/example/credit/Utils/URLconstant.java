@@ -8,6 +8,7 @@ public class URLconstant {
     public static final String URLINSER="http://101.201.211.27:8282/esws.interface/";//所有接口前缀
 
     public static  final  String GETCITY="baseinfo/querycitys.do";//获取城市接口
+    public static final String GETINDUSTRY= "baseinfo/queryindustry.do";//获取行业门类      没参    返回  data    industry：  EC_VALUE：行业门类代码   EC_NAME：行业门类名字
 
     public static final String SEARCHURL ="baseinfo/querymodelbaseinfo.do";//搜索接口
 
@@ -17,12 +18,12 @@ public class URLconstant {
 
     public static final String HONORURL ="honorifo/getqueryhonorinfo.do";//获取荣誉
 
-//===========
+//===========企查查
 
     public static final String GETCITYLIST="http://app.qichacha.com/enterprises/new/GetCityList";//获取城市接口
 
     //    public static final String SEARCHURL="http://168s.mobile.hc360.com/get168.cgi";//获取搜索列表
-    public static final String GETINDUSTRY = "http://app.qichacha.com/enterprises/new/getIndustryList";//获取行业接口
+    //public static final String GETINDUSTRY = "http://app.qichacha.com/enterprises/new/getIndustryList";//获取行业接口
 
     public static final String PATENTURL = "http://www.zhirong.applinzi.com/editor/attached/file/20160527/20160527092029_66150.txt";//专利URLpatent
 
