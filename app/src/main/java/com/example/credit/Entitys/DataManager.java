@@ -46,7 +46,7 @@ public class DataManager {
     /**
      * 搜索实体类
      */
-    public class search {//搜索列表信息 Result
+    public static class search {//搜索列表信息 Result
         public String PRIPID;//主体身份代码
         public String entname;//企业(机构)名称
         public String REGNO;//注册号
@@ -58,7 +58,7 @@ public class DataManager {
         public String C_PROVINCE;//省代码
         public String D_ADDTIME;//更新时间
         public String C_STATE;//经营状态  1 存续（在营，开业，在册）  2 吊销，未注销    3吊销，已注销  4，注销  5，撤销  6，迁出   9，其他
-        public double REGCAP;//注册资本(金)  万元
+        public String REGCAP;//注册资本(金)  万元
         public String ENTTYPE_CN;//市场主体类型
         public String DOM;//住所
         public String INDUSTRYPHY;//行业代码

@@ -502,7 +502,7 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
                     pd.setMessage("正在加载中...");
                     pd.setCancelable(false);
                     pd.show();
-                    GsonUtil request = new GsonUtil(URLconstant.URLINSER + URLconstant.SEARCHURL, RequestMethod.GET);
+                    GsonUtil request = new GsonUtil(URLconstant.URLINSER + URLconstant.SEARCHURL, RequestMethod.POST);
                     //request.setConnectTimeout(50000);
                     request.setReadTimeout(50000);
                     request.add("token", Tks);//加密结果

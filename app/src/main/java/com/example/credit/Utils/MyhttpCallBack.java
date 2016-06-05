@@ -5,15 +5,18 @@ import com.example.credit.Activitys.MainActivity;
 import com.example.credit.Activitys.SearchFirmActivty;
 import com.example.credit.Entitys.DataManager;
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonElement;
+
+
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import com.google.gson.internal.LinkedTreeMap;
 import com.google.gson.reflect.TypeToken;
-import com.google.gson.stream.JsonReader;
+
 import com.yolanda.nohttp.rest.Response;
 
-import java.io.StringReader;
-import java.lang.reflect.Type;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -39,7 +42,7 @@ public class MyhttpCallBack implements HttpCallBack {
     @Override
     public void onSucceed(int what, Response response) {
         //gson = new Gson();
-          gson=new GsonBuilder().create();
+          gson=new Gson();
         switch (what) {
             case 0x021://获取城市
 
@@ -112,9 +115,34 @@ public class MyhttpCallBack implements HttpCallBack {
                 //searchstr="{\"message\":\"true\",\"status\":1,\"data\":{\"Result\":[{\"PRIPID\":\"3601032011041300098564\",\"entname\":\"江西智容科技有限公司\",\"REGNO\":\"360103210025958\",\"REGORG_CN\":\"南昌高新技术产业开发区\",\"NAME\":\"万杏娥\",\"OPFROM\":\"2011-04-28\",\"OPTO\":\"2031-04-27\",\"REGSTATE_CN\":\"存续（在营、开业、在册）\",\"C_PROVINCE\":\"36\",\"D_ADDTIME\":\"2016-03-17\",\"C_STATE\":\"1\",\"UNISCID\":\"null\",\"REGCAP\":\"5000.0\",\"ENTTYPE_CN\":\"有限责任公司(自然人投资或控股)\",\"DOM\":\"江西省南昌市高新技术产业开发区高新区高新二路建昌工业园金庐软件园海外大厦北楼306室\",\"INDUSTRYPHY\":\"I\",\"INDUSTRYPHY_NAME\":\"信息传输、软件和信息技术服务业\",\"OPSCOPE\":\"计算机软件系统开发；办公自动化设备销售；计算机系统集成；国内广告的设计、制作、发布、代理；会展服务（以上项目国家有专项规定的除外）\"},{\"PRIPID\":\"20160127091814206993\",\"entname\":\"江西智容科技有限公司南昌分公司\",\"REGNO\":\"360105220000025\",\"REGORG_CN\":\"null\",\"NAME\":\"罗川\",\"OPFROM\":\"2016-02-04\",\"OPTO\":\"null\",\"REGSTATE_CN\":\"存续（在营、开业、在册）\",\"C_PROVINCE\":\"36\",\"D_ADDTIME\":\"2016-03-17\",\"C_STATE\":\"null\",\"UNISCID\":\"91360105MA35GGBY60\",\"REGCAP\":\"null\",\"ENTTYPE_CN\":\"有限责任公司分公司(自然人投资或控股)\",\"DOM\":\"红星村原红星乡财政所\",\"INDUSTRYPHY\":\"L\",\"INDUSTRYPHY_NAME\":\"租赁和商业服务业\",\"OPSCOPE\":\"餐饮企业管理服务；食堂（主食、热菜、早点）（卫生许可证有效期至2011年5月13日止）（以上项目国家有专项规定的除外）\"}],\"Paging\":{\"PageSize\":40,\"PageIndex\":0,\"TotalRecords\":2}}}";
                 map = gson.fromJson(searchstr, new TypeToken<Map<String, Object>>() {
                 }.getType());
-                List<DataManager.search> searchstrlist2 = gson.fromJson(((Map<String, Object>) map.get("data")).get("Result").toString(), new TypeToken<List<DataManager.search>>() {
-                }.getType());
-                DataManager.searchList = searchstrlist2;
+//                List<DataManager.search> searchstrlist2 = gson.fromJson(((Map<String, Object>) map.get("data")).get("Result").toString(), new TypeToken<List<DataManager.search>>() {
+//                }.getType());
+//                DataManager.searchList = searchstrlist2;
+                List<LinkedTreeMap> searchstrlist2= (List<LinkedTreeMap>) ((Map<String, Object>) map.get("data")).get("Result");
+                if(DataManager.searchList.size()!=0){
+                    DataManager.searchList.clear();
+                }
+                for(LinkedTreeMap temp:searchstrlist2){
+                    DataManager.search serchtemp=new DataManager.search();
+                    serchtemp.PRIPID= (String) temp.get("PRIPID");
+                    serchtemp.entname= (String) temp.get("entname");
+                    serchtemp.REGNO= (String) temp.get("REGNO");
+                    serchtemp.REGORG_CN= (String) temp.get("REGORG_CN");
+                    serchtemp.NAME= (String) temp.get("NAME");
+                    serchtemp.OPFROM= (String) temp.get("OPFROM");
+                    serchtemp.OPTO= (String) temp.get("OPTO");
+                    serchtemp.REGSTATE_CN= (String) temp.get("REGSTATE_CN");
+                    serchtemp.C_PROVINCE= (String) temp.get("C_PROVINCE");
+                    serchtemp.D_ADDTIME= (String) temp.get("D_ADDTIME");
+                    serchtemp.C_STATE= (String) temp.get("C_STATE");
+                    serchtemp.REGCAP= (String) temp.get("REGCAP");
+                    serchtemp.ENTTYPE_CN= (String) temp.get("ENTTYPE_CN");
+                    serchtemp.DOM= (String) temp.get("DOM");
+                    serchtemp.INDUSTRYPHY= (String) temp.get("INDUSTRYPHY");
+                    serchtemp.INDUSTRYPHY_NAME= (String) temp.get("INDUSTRYPHY_NAME");
+                    serchtemp.OPSCOPE= (String) temp.get("OPSCOPE");
+                    DataManager.searchList.add(serchtemp);
+                }
                 if (DataManager.searchList != null && DataManager.searchList.size() > 0) {
                 SearchFirmActivty.handler.sendEmptyMessage(0);
             }
