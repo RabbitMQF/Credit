@@ -127,9 +127,9 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
                             overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
                         }
                     });
-                } else if (msg.what == 1) {
-
-
+                } else if (msg.what == 500) {
+                    pd.dismiss();
+                    android.widget.Toast.makeText(SearchFirmActivty.this, "暂无数据！", android.widget.Toast.LENGTH_SHORT).show();
                 }
             }
         };
@@ -147,13 +147,13 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
         citysList = DataManager.citysList;
         List<String> provincelist = new ArrayList<String>();
         if (provincelist.size() == 0) {
-            provincelist.add("不限");
+            provincelist.add("不限城市");
             for (DataManager.citys temp : DataManager.citysList) {
                 provincelist.add(temp.c_name);
             }
         }else {
             provincelist.clear();
-            provincelist.add("不限");
+            provincelist.add("不限城市");
             for (DataManager.citys temp : DataManager.citysList) {
                 provincelist.add(temp.c_name);
             }
@@ -328,11 +328,14 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
                             }
                         }
                         select.setVisibility(View.GONE);
+                        searchEt.setFocusable(true);//重新获取焦点
+                        searchEt.setFocusableInTouchMode(true);//重新获取焦点
+                        searchEt.requestFocus();//重新获取焦点
                         /*if (adapter2 != null) {
                             adapter2.clear();
                         }*/
                     } else {
-                        if (city.getText() == "不限") {//判定如果选中不限回复menu_one的全屏宽
+                        if (city.getText() == "不限城市") {//判定如果选中不限回复menu_one的全屏宽
                             oneLayoutParams.width = screenWidth;
                             menu_one.setLayoutParams(oneLayoutParams);
                         }
@@ -351,6 +354,8 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
                             his_sra.setVisibility(View.GONE);//反之则隐藏历史UI
                         }
                         select.setVisibility(View.VISIBLE);
+                        searchEt.clearFocus();//edit失焦点
+                        searchEt.setFocusable(false);//edit失焦点
                     }
                     break;
                 case R.id.capital://注册资金按钮
@@ -368,10 +373,19 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
                         industry.setTextColor(getResources().getColor(R.color.text_nocheck));
                         industry_arraow.setImageResource(R.mipmap.senior_arraow_down);
                         select.setVisibility(View.GONE);
-                        if (his_sra.getVisibility() == View.GONE) {//当历史界面隐藏
-                            search_list.setVisibility(View.VISIBLE);//则显示搜索结果list
-                        } else {
-                            his_sra.setVisibility(View.VISIBLE);//反之则显示历史UI
+                        if (city_check) {
+                            city.setTextColor(getResources().getColor(R.color.text_nocheck));
+                            city_arraow.setImageResource(R.mipmap.senior_arraow_down);
+                            city_check = false;
+                            if (his_sra.getVisibility() == View.GONE) {//当历史界面隐藏
+                                if (falg == 2) {//并且当前处于已经搜索结果时
+                                    search_list.setVisibility(View.VISIBLE);//则显示搜索结果list
+                                } else {
+                                    his_sra.setVisibility(View.VISIBLE);//反之则显示历史UI
+                                }
+                            }
+                            select.setVisibility(View.GONE);
+
                         }
                         popDataList = new ArrayList<>();
                         popDataList.add("不限注册");
@@ -380,7 +394,7 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
                         popDataList.add("200万到500万");
                         popDataList.add("500万到1000万");
                         popDataList.add("1000万以上");
-                        popupwindow = new CustomPopupwindow(SearchFirmActivty.this, popDataList);
+                        popupwindow = new CustomPopupwindow(SearchFirmActivty.this, popDataList,null);
                         popupwindow.setWidth(ViewGroup.LayoutParams.MATCH_PARENT);
                         popupwindow.showAtDropDownLeft(v);
                         city_check = false;
@@ -404,10 +418,19 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
                         industry.setTextColor(getResources().getColor(R.color.text_nocheck));
                         industry_arraow.setImageResource(R.mipmap.senior_arraow_down);
                         select.setVisibility(View.GONE);
-                        if (his_sra.getVisibility() == View.GONE) {//当历史界面隐藏
-                            search_list.setVisibility(View.VISIBLE);//则显示搜索结果list
-                        } else {
-                            his_sra.setVisibility(View.VISIBLE);//反之则显示历史UI
+                        if (city_check) {
+                            city.setTextColor(getResources().getColor(R.color.text_nocheck));
+                            city_arraow.setImageResource(R.mipmap.senior_arraow_down);
+                            city_check = false;
+                            if (his_sra.getVisibility() == View.GONE) {//当历史界面隐藏
+                                if (falg == 2) {//并且当前处于已经搜索结果时
+                                    search_list.setVisibility(View.VISIBLE);//则显示搜索结果list
+                                } else {
+                                    his_sra.setVisibility(View.VISIBLE);//反之则显示历史UI
+                                }
+                            }
+                            select.setVisibility(View.GONE);
+
                         }
                         popDataList = new ArrayList<>();
                         popDataList.add("不限年限");
@@ -417,7 +440,7 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
                         popDataList.add("3-5年");
                         popDataList.add("5-10年");
                         popDataList.add("10年以上");
-                        popupwindow = new CustomPopupwindow(SearchFirmActivty.this, popDataList);
+                        popupwindow = new CustomPopupwindow(SearchFirmActivty.this, popDataList,null);
                         popupwindow.setWidth(ViewGroup.LayoutParams.MATCH_PARENT);
                         popupwindow.showAtDropDownLeft(v);
                         time_check = true;
@@ -440,7 +463,28 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
                         time_arraow.setImageResource(R.mipmap.senior_arraow_down);
                         industry.setTextColor(getResources().getColor(R.color.text_check));
                         industry_arraow.setImageResource(R.mipmap.senior_arraow_up);
+                        if (city_check) {
+                            city.setTextColor(getResources().getColor(R.color.text_nocheck));
+                            city_arraow.setImageResource(R.mipmap.senior_arraow_down);
+                            city_check = false;
+                            if (his_sra.getVisibility() == View.GONE) {//当历史界面隐藏
+                                if (falg == 2) {//并且当前处于已经搜索结果时
+                                    search_list.setVisibility(View.VISIBLE);//则显示搜索结果list
+                                } else {
+                                    his_sra.setVisibility(View.VISIBLE);//反之则显示历史UI
+                                }
+                            }
+                            select.setVisibility(View.GONE);
+
+                        }
+                        popupwindow = new CustomPopupwindow(SearchFirmActivty.this,null, DataManager.industryDataList);
+                        popupwindow.setWidth(ViewGroup.LayoutParams.MATCH_PARENT);
+                        popupwindow.setHeight(350);
+                        popupwindow.showAtDropDownLeft(v);
+                        time_check = false;
+                        city_check = false;
                         industry_check = true;
+                        capital_check = false;
                     }
                     break;
 

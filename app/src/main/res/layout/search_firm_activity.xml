@@ -56,11 +56,11 @@
             android:layout_width="0dp"
             android:layout_height="35dp"
             android:layout_gravity="center_vertical"
-            android:maxLines="10"
+            android:lines="1"
             android:layout_weight="10"
             android:background="@drawable/edit_bg"
             android:hint="请输入企业名称"
-            android:lines="1"
+            android:maxLength="5"
             android:textSize="14sp" />
 
         <!--android:src="@mipmap/point3x"
@@ -407,7 +407,7 @@
                 android:layout_marginLeft="43dip"
                 android:layout_marginTop="15dip"
                 android:text="飞信"
-                android:textColor="@color/t2"
+                android:textColor="@color/t6"
                 android:textSize="18sp" />
 
             <TextView
@@ -419,7 +419,7 @@
                 android:layout_marginRight="43dip"
                 android:layout_marginTop="15dip"
                 android:text="赛车"
-                android:textColor="@color/t3"
+                android:textColor="@color/t6"
                 android:textSize="18sp" />
 
             <TextView
@@ -443,7 +443,7 @@
                 android:layout_marginRight="103dip"
                 android:layout_marginTop="15dip"
                 android:text="短信"
-                android:textColor="@color/t5"
+                android:textColor="@color/t4"
                 android:textSize="16sp" />
 
             <TextView
@@ -455,7 +455,7 @@
                 android:layout_marginLeft="15dip"
                 android:layout_marginTop="15dip"
                 android:text="文件管理"
-                android:textColor="@color/t6"
+                android:textColor="@color/t1"
                 android:textSize="20sp" />
 
             <TextView
@@ -467,7 +467,7 @@
                 android:layout_marginRight="103dip"
                 android:layout_marginTop="17dip"
                 android:text="拨号"
-                android:textColor="@color/t7"
+                android:textColor="@color/t2"
                 android:textSize="14sp" />
 
             <TextView
@@ -491,7 +491,7 @@
                 android:layout_marginLeft="93dip"
                 android:layout_marginTop="27dip"
                 android:text="捕鱼达人"
-                android:textColor="@color/t2"
+                android:textColor="@color/t4"
                 android:textSize="16sp" />
 
             <TextView
@@ -515,7 +515,7 @@
                 android:layout_marginLeft="58dip"
                 android:layout_marginTop="27dip"
                 android:text="hd"
-                android:textColor="@color/t5"
+                android:textColor="@color/t6"
                 android:textSize="18sp" />
 
             <TextView
@@ -538,7 +538,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="17dip"
                 android:text="3D动态壁纸"
-                android:textColor="@color/t7"
+                android:textColor="@color/t1"
                 android:textSize="20sp" />
         </RelativeLayout>
     </LinearLayout>

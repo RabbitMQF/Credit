@@ -12,6 +12,7 @@ import android.view.ViewTreeObserver;
 import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
@@ -34,6 +35,9 @@ import java.util.List;
  * 工商信息主界面
  */
 public class DetailsContentActivity extends BaseActivity {
+//    @ViewInject(R.id.about_top)
+//    LinearLayout about_top;//返回
+
     @ViewInject(R.id.c_return)
     ImageView c_return;//返回
 
@@ -92,15 +96,26 @@ public class DetailsContentActivity extends BaseActivity {
     @ViewInject(R.id.myGridViewp)
     MyGridView myGridViewp;//投资列表
 
+    @ViewInject(R.id.c_people)
+    LinearLayout c_people;//投资列表null
 
     @ViewInject(R.id.myGridViewZY)
     MyGridView myGridViewZY;//主要人员
 
+    @ViewInject(R.id.c_Cpeople)
+    LinearLayout c_Cpeople;//主要人员null
+
     @ViewInject(R.id.GSmylist)
     MyListView GSmylist;//工商变更
 
+    @ViewInject(R.id.c_GS)
+    LinearLayout c_GS;//工商变更null
+
+    @ViewInject(R.id.myGridViewZYfz)
+    MyGridView myGridViewZYfz;//分支机构
+
     @ViewInject(R.id.c_fzjg)
-    TextView c_impPeoc_fzjgple;//分支机构
+    LinearLayout c_impPeoc_fzjgple;//分支机构null
 
     List<DataManager.Data0> dcList = new ArrayList<DataManager.Data0>();
     public String[] arrays3 = {"注册资本", "法定代表", "发照日期", "成立日期",
@@ -303,18 +318,11 @@ public class DetailsContentActivity extends BaseActivity {
                 overridePendingTransition(R.anim.finish_tran_one, R.anim.finish_tran_two);
             }
         });
-        dcList = DataManager.Data0List;
-        topname.setText(dcList.get(0).ENTNAME);//企业名称
-        c_type.setText(dcList.get(0).ENTTYPE_CN);//企业类型
-        c_state.setText(dcList.get(0).REGSTATE_CN);//经营状态/
-        c_fangwei.setText(dcList.get(0).OPSCOPE);//经营范围
-        c_address.setText(dcList.get(0).DOM);//企业地址
-        c_datetiem.setText(dcList.get(0).OPFROM + "至" + dcList.get(0).OPTO);//经营期限
-        c_djjg.setText(dcList.get(0).REGORG_CN);//登记机关
-
         /**
          * 基本信息
          */
+        dcList = DataManager.Data0List;
+
         List<String> lt = new ArrayList<String>();
         lt.add(dcList.get(0).REGCAP + "万元");
         lt.add(dcList.get(0).NAME);
@@ -327,38 +335,134 @@ public class DetailsContentActivity extends BaseActivity {
         adapter2 = new MyGridAdapter3(DetailsContentActivity.this, arrays3, arrays4);
         myGridView3.setAdapter(adapter2);
         myGridView3.setSelector(new ColorDrawable(Color.TRANSPARENT));
+
+        /**
+         * 判断企业名称是否为空
+         */
+        if(!(dcList.get(0).ENTNAME).equals("")){
+            topname.setText(dcList.get(0).ENTNAME);//企业名称
+        }else{
+            topname.setText("暂无信息");
+        }
+        /**
+         * 判断企业类型是否为空
+         */
+        if(!(dcList.get(0).ENTTYPE_CN).equals("")){
+            c_type.setText(dcList.get(0).ENTTYPE_CN);//企业类型
+        }else{
+            c_type.setText("暂无信息");
+        }
+        /**
+         * 判断经营状态是否为空
+         */
+        if(!(dcList.get(0).REGSTATE_CN).equals("")){
+            c_state.setText(dcList.get(0).REGSTATE_CN);//经营状态/
+        }else{
+            c_state.setText("暂无信息");
+        }
+        /**
+         * 判断经营范围是否为空
+         */
+        if(!(dcList.get(0).OPSCOPE).equals("")){
+            c_fangwei.setText(dcList.get(0).OPSCOPE);//经营范围
+        }else{
+            c_fangwei.setText("暂无信息");
+        }
+        /**
+         * 判断企业地址是否为空
+         */
+        if(!(dcList.get(0).DOM).equals("")){
+            c_address.setText(dcList.get(0).DOM);//企业地址
+        }else{
+            c_address.setText("暂无信息");
+        }
+        /**
+         * 判断经营期限是否为空
+         */
+        if((dcList.get(0).OPFROM).equals("")){
+            c_datetiem.setText("**** 至" + dcList.get(0).OPTO);
+        }else if((dcList.get(0).OPTO).equals("")){
+            c_datetiem.setText(dcList.get(0).OPFROM + "至 ****" );
+        }else if(!(dcList.get(0).OPFROM).equals("") && !(dcList.get(0).OPTO).equals("")){
+            c_datetiem.setText(dcList.get(0).OPFROM + "至" + dcList.get(0).OPTO);//经营期限
+        }else{
+            c_datetiem.setText("暂无信息");
+        }
+        /**
+         * 判断登记机关是否为空
+         */
+        if(!(dcList.get(0).REGORG_CN).equals("")){
+            c_djjg.setText(dcList.get(0).REGORG_CN);//登记机关
+        }else{
+            c_djjg.setText("暂无信息");
+        }
+
+
         /**
          * 投资人员
          */
         List<String> p1 = new ArrayList<String>();//股东类型list
         List<String> p2 = new ArrayList<String>();//人员list
-        for (DataManager.Partners p : dcList.get(0).Partners) {
-            p1.add(p.INVTYPE_CN);
-            p2.add(p.INV);
+        if((dcList.get(0).Partners)!=null && (dcList.get(0).Partners).size()>0){
+            for (DataManager.Partners p : dcList.get(0).Partners) {
+                p1.add(p.INVTYPE_CN);
+                p2.add(p.INV);
+            }
+            int size11 = p1.size();
+            int size21 = p2.size();
+            String[] arrayszy11 = (String[]) p1.toArray(new String[size11]);
+            String[] arrayszy21 = (String[]) p2.toArray(new String[size21]);
+            adapterzy = new MyGridZYAdapter(DetailsContentActivity.this, arrayszy11, arrayszy21);
+            myGridViewp.setAdapter(adapterzy);
+            myGridViewp.setSelector(new ColorDrawable(Color.TRANSPARENT));
+        }else{
+            c_people.setVisibility(View.VISIBLE);
+            myGridViewp.setVisibility(View.GONE);
         }
-        int size11 = p1.size();
-        int size21 = p2.size();
-        String[] arrayszy11 = (String[]) p1.toArray(new String[size11]);
-        String[] arrayszy21 = (String[]) p2.toArray(new String[size21]);
-        adapterzy = new MyGridZYAdapter(DetailsContentActivity.this, arrayszy11, arrayszy21);
-        myGridViewp.setAdapter(adapterzy);
-        myGridViewp.setSelector(new ColorDrawable(Color.TRANSPARENT));
+
         /**
          * 主要人员
          */
         List<String> zy1 = new ArrayList<String>();//职位list
         List<String> zy2 = new ArrayList<String>();//人员list
-        for (DataManager.Employees e : dcList.get(0).Employees) {
-            zy1.add(e.POSITION_CN);
-            zy2.add(e.NAME);
+        if((dcList.get(0).Employees)!=null && (dcList.get(0).Employees).size()>0){
+            for (DataManager.Employees e : dcList.get(0).Employees) {
+                zy1.add(e.POSITION_CN);
+                zy2.add(e.NAME);
+            }
+            int size1 = zy1.size();
+            int size2 = zy2.size();
+            String[] arrayszy1 = (String[]) zy1.toArray(new String[size1]);
+            String[] arrayszy2 = (String[]) zy2.toArray(new String[size2]);
+            adapterzy = new MyGridZYAdapter(DetailsContentActivity.this, arrayszy1, arrayszy2);
+            myGridViewZY.setAdapter(adapterzy);
+            myGridViewZY.setSelector(new ColorDrawable(Color.TRANSPARENT));
+        }else{
+            c_Cpeople.setVisibility(View.VISIBLE);
+            myGridViewZY.setVisibility(View.GONE);
         }
-        int size1 = zy1.size();
-        int size2 = zy2.size();
-        String[] arrayszy1 = (String[]) zy1.toArray(new String[size1]);
-        String[] arrayszy2 = (String[]) zy2.toArray(new String[size2]);
-        adapterzy = new MyGridZYAdapter(DetailsContentActivity.this, arrayszy1, arrayszy2);
-        myGridViewZY.setAdapter(adapterzy);
-        myGridViewZY.setSelector(new ColorDrawable(Color.TRANSPARENT));
+        /**
+         * 分支机构
+         */
+        List<String> fz1 = new ArrayList<String>();//日期list
+        List<String> fz2 = new ArrayList<String>();//名称list
+        if((dcList.get(0).AnnualReports)!=null && (dcList.get(0).AnnualReports).size()>0){
+            for (DataManager.AnnualReports e : dcList.get(0).AnnualReports) {
+                fz1.add(e.REGIDATE);
+                fz2.add(e.BRNAME);
+            }
+            int size1 = fz1.size();
+            int size2 = fz2.size();
+            String[] arrayszys1 = (String[]) fz1.toArray(new String[size1]);
+            String[] arrayszys2 = (String[]) fz2.toArray(new String[size2]);
+            adapterzy = new MyGridZYAdapter(DetailsContentActivity.this, arrayszys1, arrayszys2);
+            myGridViewZYfz.setAdapter(adapterzy);
+            myGridViewZYfz.setSelector(new ColorDrawable(Color.TRANSPARENT));
+        }else{
+            c_impPeoc_fzjgple.setVisibility(View.VISIBLE);
+            myGridViewZYfz.setVisibility(View.GONE);
+        }
+
     }
 
     /**
@@ -366,44 +470,57 @@ public class DetailsContentActivity extends BaseActivity {
      */
     public void GSchages() {
         List<DataManager.ChangeTime> clisttimeD = new ArrayList<>();//变更集合
-        List<DataManager.ChangeData> clistd1 = new ArrayList<>();//变更信息临时仓库1
+        List<DataManager.ChangeData> clistd1 = new ArrayList<>();//变更信息临时仓库
 
         List<DataManager.ChangeRecords> clistc = DataManager.Data0List.get(0).ChangeRecords;//工商变更信息
+        if((DataManager.Data0List.get(0).ChangeRecords)!=null && (DataManager.Data0List.get(0).ChangeRecords).size()>0){//判断数据是否为空
+            for (int i = 0; i <clistc.size(); i++) {//数据打乱并按时间重新分组
+                if (i > 0) {
+                    if (clistc.get(i).ALTDATE.equals(clistc.get(i - 1).ALTDATE)) {//当下标为i的日期与下标为i-1的日期 相等 时
+                        DataManager.ChangeData cc2 = new DataManager.ChangeData();
+                        cc2.ALTDATE = clistc.get(i).ALTDATE;
+                        cc2.ALTITEM_CN = clistc.get(i).ALTITEM_CN;
+                        cc2.ALTBE = clistc.get(i).ALTBE;
+                        cc2.ALTAF = clistc.get(i).ALTAF;
+                        clistd1.add(cc2);//把数据追加入临时仓库
 
-        for (int i = 0; i < clistc.size(); i++) {//重新分组
-            if (i > 0) {
-                if (clistc.get(i).ALTDATE.equals(clistc.get(i - 1).ALTDATE)) {//当下标为i的日期与下标为i-1的日期 相等 时
-                    DataManager.ChangeData cc2 = new DataManager.ChangeData();
-                    cc2.ALTDATE = clistc.get(i).ALTDATE;
-                    cc2.ALTITEM_CN = clistc.get(i).ALTITEM_CN;
-                    cc2.ALTBE = clistc.get(i).ALTBE;
-                    cc2.ALTAF = clistc.get(i).ALTAF;
-                    clistd1.add(cc2);//把数据追加入临时仓库
-                } else {//当下标为i的日期与下标为i-1的日期 不相等 时
-                    DataManager.ChangeTime ccr = new DataManager.ChangeTime();
-                    ccr.ALTDATE = clistd1.get(0).ALTDATE;
-                    ccr.changedata = clistd1;
-                    clisttimeD.add(ccr);//先把临时仓库中的数据加入变更集合中
-                    clistd1.clear();//然后清空临时仓库
+                        if(i==clistc.size()-1){//当i==数据最大size时(数据的最后结算位置，直接加入变更集合)
+                            DataManager.ChangeTime ccr = new DataManager.ChangeTime();
+                            ccr.ALTDATE = clistd1.get(0).ALTDATE;
+                            ccr.changedata = clistd1;
+                            clisttimeD.add(ccr);//则把最后变更信息临时仓库中的全部数据加入变更集合中
+                        }
+                    } else {//当下标为i的日期与下标为i-1的日期 不相等 时（因为这里是结算的位置，所以要使用中转仓库，不然直接使用临时仓库会使变更集合中的数据错乱）
+                        DataManager.ChangeTime ccr = new DataManager.ChangeTime();//变更中转仓库1
+                        ccr.ALTDATE = clistd1.get(0).ALTDATE;
+                        ccr.changedata = clistd1;
+                        clisttimeD.add(ccr);//先把临时仓库中的数据加入变更集合中
 
-                    DataManager.ChangeData cc3 = new DataManager.ChangeData();
-                    cc3.ALTDATE = clistc.get(i).ALTDATE;
-                    cc3.ALTITEM_CN = clistc.get(i).ALTITEM_CN;
-                    cc3.ALTBE = clistc.get(i).ALTBE;
-                    cc3.ALTAF = clistc.get(i).ALTAF;
-                    clistd1.add(cc3);//把数据加入临时仓库
+                        List<DataManager.ChangeData> clistdtest = new ArrayList<>();//变更中转仓库2
+                        DataManager.ChangeData cc3 = new DataManager.ChangeData();
+                        cc3.ALTDATE = clistc.get(i).ALTDATE;
+                        cc3.ALTITEM_CN = clistc.get(i).ALTITEM_CN;
+                        cc3.ALTBE = clistc.get(i).ALTBE;
+                        cc3.ALTAF = clistc.get(i).ALTAF;
+                        clistdtest.add(cc3);//把数据加入临时仓库
+                        clistd1 = clistdtest;
+                    }
+                } else {//下标为0的数据直接加入临时仓库
+                    DataManager.ChangeData cc1 = new DataManager.ChangeData();
+                    cc1.ALTDATE = clistc.get(i).ALTDATE;
+                    cc1.ALTITEM_CN = clistc.get(i).ALTITEM_CN;
+                    cc1.ALTBE = clistc.get(i).ALTBE;
+                    cc1.ALTAF = clistc.get(i).ALTAF;
+                    clistd1.add(cc1);
                 }
-            } else {//下标为0的数据直接加入临时仓库
-                DataManager.ChangeData cc1 = new DataManager.ChangeData();
-                cc1.ALTDATE = clistc.get(i).ALTDATE;
-                cc1.ALTITEM_CN = clistc.get(i).ALTITEM_CN;
-                cc1.ALTBE = clistc.get(i).ALTBE;
-                cc1.ALTAF = clistc.get(i).ALTAF;
-                clistd1.add(cc1);
             }
+            Details_content_mylistAdapter adapter1 = new Details_content_mylistAdapter(DetailsContentActivity.this, clisttimeD);
+            GSmylist.setAdapter(adapter1);
+        }else{
+            GSmylist.setVisibility(View.GONE);
+            c_GS.setVisibility(View.VISIBLE);
         }
-        Details_content_mylistAdapter adapter1 = new Details_content_mylistAdapter(DetailsContentActivity.this, clisttimeD);
-        GSmylist.setAdapter(adapter1);
+
     }
 
 

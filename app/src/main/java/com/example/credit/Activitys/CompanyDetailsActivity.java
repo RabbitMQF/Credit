@@ -26,6 +26,7 @@ import com.example.credit.Adapters.MyGridAdapter2;
 import com.example.credit.Services.CallServer;
 import com.example.credit.Utils.GsonUtil;
 import com.example.credit.Utils.MyhttpCallBack;
+import com.example.credit.Utils.Toast;
 import com.example.credit.Utils.URLconstant;
 import com.example.credit.Views.MyGridView;
 import com.lidroid.xutils.ViewUtils;
@@ -303,19 +304,18 @@ public class CompanyDetailsActivity extends BaseActivity {
                 case 13://广告资质
                     GsonUtil request13 = new GsonUtil(URLconstant.ADVERTISEMENTURL, RequestMethod.GET);
                     CallServer.getInstance().add(CompanyDetailsActivity.this, request13, MyhttpCallBack.getInstance(), 0x013, true, false, true);
-
                     break;
                 case 14://守合同重信用
                     GsonUtil request14 = new GsonUtil(URLconstant.OBEYEDURL, RequestMethod.GET);
                     CallServer.getInstance().add(CompanyDetailsActivity.this, request14, MyhttpCallBack.getInstance(), 0x014, true, false, true);
-
                     break;
                 case 15://自主公示
                     CallServer.getInstance().add(CompanyDetailsActivity.this, new GsonUtil(URLconstant.GETAUTONOMY, RequestMethod.GET), MyhttpCallBack.getInstance(), MSG, true, false, true);
                     startActivity(new Intent(CompanyDetailsActivity.this, AutonomyActivity.class));
                     overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
                     break;
-                default:
+                case 500://没有数据时返回信息
+                    android.widget.Toast.makeText(CompanyDetailsActivity.this, "暂无数据！", android.widget.Toast.LENGTH_SHORT).show();
                     break;
             }
         }

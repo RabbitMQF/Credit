@@ -14,6 +14,7 @@ import android.widget.PopupWindow;
 import android.widget.TextView;
 
 import com.example.credit.Activitys.SearchFirmActivty;
+import com.example.credit.Entitys.DataManager;
 import com.example.credit.R;
 import com.example.credit.Utils.Toast;
 
@@ -34,16 +35,28 @@ public class CustomPopupwindow extends PopupWindow implements View.OnClickListen
     TextView search_all, search_add, search_name, search_scope, search_product, search_corporate;
     ListView popuplist;
     List<String> listdata;
+    List<DataManager.industryData> industryDataList;
+    List<String> industryName = new ArrayList<>();
+    List<String> industryCode = new ArrayList<>();
     ArrayAdapter adapter;
     TextView temp;
 
-    public CustomPopupwindow(Activity activity, List<String> listdata) {
+    public CustomPopupwindow(Activity activity, List<String> listdata, List<DataManager.industryData> industryDataList) {
         super(activity);
         this.activity = activity;
         this.listdata = listdata;
+
+        if (industryDataList != null) {
+            this.industryDataList = industryDataList;
+            for (DataManager.industryData temp : industryDataList) {
+                industryName.add(temp.EC_NAME);
+                industryCode.add(temp.EC_VALUE);
+            }
+        }
         this.initPopupWindow();
 
     }
+
 
     public CustomPopupwindow(Activity activity) {
         super(activity);
@@ -58,92 +71,30 @@ public class CustomPopupwindow extends PopupWindow implements View.OnClickListen
         this.contentView = inflater.inflate(R.layout.popupwindow_custom, null);
         this.setContentView(contentView);
         popuplist = (ListView) contentView.findViewById(R.id.popuplist);
-        adapter = new ArrayAdapter(activity, R.layout.search_select_twolistitem, listdata);
+
+        if (listdata != null) {
+            adapter = new ArrayAdapter(activity, R.layout.search_select_twolistitem, listdata);
+        } else {
+            adapter=new ArrayAdapter(activity,R.layout.search_select_twolistitem,industryName);
+        }
+
+
         popuplist.setAdapter(adapter);
         popuplist.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                temp = (TextView) view.findViewById(R.id.menu_two_tv);//textview
-                switch (temp.getText().toString()) {
-                    case "查全部":
-                        SearchFirmActivty.downButton.setText("按全部");
-                        SearchFirmActivty.searchEt.setHint("请输入公司名/地址/经营/商标");
-                        break;
-                    case "按名称查询":
-                        SearchFirmActivty.downButton.setText("按名称");
-                        SearchFirmActivty.searchEt.setHint("请输入公司名称");
-                        break;
-                    case "按地址查询":
-                        SearchFirmActivty.downButton.setText("按地址");
-                        SearchFirmActivty.searchEt.setHint("请输入公司地址");
-                        break;
-                    case "按经营范围查询":
-                        SearchFirmActivty.downButton.setText("按经营");
-                        SearchFirmActivty.searchEt.setHint("请输入经营项目");
-                        break;
-                    case "按品牌/产品查询":
-                        SearchFirmActivty.downButton.setText("按产品");
-                        SearchFirmActivty.searchEt.setHint("请输入品牌/产品名称");
-                        break;
-                    case "按法定代表人查询":
-                        SearchFirmActivty.downButton.setText("按法人");
-                        SearchFirmActivty.searchEt.setHint("请输入公司法定代表人名称");
-                        break;
-                    case "不限注册":
-                        SearchFirmActivty.capital.setText("不限注册");
-                        break;
-                    case "100万以内":
-                        SearchFirmActivty.capital.setText("100万以内");
-                        break;
-                    case "100万到200万":
-                        SearchFirmActivty.capital.setText("100万到200万");
-                        break;
-                    case "200万到500万":
-                        SearchFirmActivty.capital.setText("200万到500万");
-                        break;
-                    case "500万到1000万":
-                        SearchFirmActivty.capital.setText("500万到1000万");
-                        break;
-                    case "1000万以上":
-                        SearchFirmActivty.capital.setText("1000万以上");
-                        break;
-                    case "不限年限":
-                        SearchFirmActivty.time.setText("不限年限");
-                        break;
-                    case "1年内":
-                        SearchFirmActivty.time.setText("1年内");
-                        break;
-                    case "1-2年":
-                        SearchFirmActivty.time.setText("1-2年");
-                        break;
-                    case "2-3年":
-                        SearchFirmActivty.time.setText("2-3年");
-                        break;
-                    case "3-5年":
-                        SearchFirmActivty.time.setText("3-5年");
-                        break;
-                    case "5-10年":
-                        SearchFirmActivty.time.setText("5-10年");
-                        break;
-                    case "10年以上":
-                        SearchFirmActivty.time.setText("10年以上");
-                        break;
-                    case "1":
-                        break;
-                    case "0":
-                        break;
-
-                    default:
-                        break;
-
+                if (SearchFirmActivty.capital_check) {
+                    SearchFirmActivty.capital.setText(listdata.get(position));
                 }
+                if (SearchFirmActivty.time_check) {
+                    SearchFirmActivty.time.setText(listdata.get(position));
+                }
+                if (SearchFirmActivty.industry_check) {
+                    SearchFirmActivty.industry.setText(industryName.get(position));
+                }
+//
                 dismiss();
-                /*SearchFirmActivty.capital.setTextColor(activity.getResources().getColor(R.color.text_nocheck));
-                SearchFirmActivty.capital_arraow.setImageResource(R.mipmap.senior_arraow_down);
-                SearchFirmActivty.time.setTextColor(activity.getResources().getColor(R.color.text_nocheck));
-                SearchFirmActivty.time_arraow.setImageResource(R.mipmap.senior_arraow_down);
-                SearchFirmActivty.capital_check=false;
-                SearchFirmActivty.time_check=false;*/
+
             }
 
         });
@@ -188,8 +139,11 @@ public class CustomPopupwindow extends PopupWindow implements View.OnClickListen
         SearchFirmActivty.capital_arraow.setImageResource(R.mipmap.senior_arraow_down);
         SearchFirmActivty.time.setTextColor(activity.getResources().getColor(R.color.text_nocheck));
         SearchFirmActivty.time_arraow.setImageResource(R.mipmap.senior_arraow_down);
-        SearchFirmActivty.capital_check=false;
-        SearchFirmActivty.time_check=false;
+        SearchFirmActivty.industry.setTextColor(activity.getResources().getColor(R.color.text_nocheck));
+        SearchFirmActivty.industry_arraow.setImageResource(R.mipmap.senior_arraow_down);
+        SearchFirmActivty.capital_check = false;
+        SearchFirmActivty.time_check = false;
+        SearchFirmActivty.industry_check=false;
         super.dismiss();
     }
 

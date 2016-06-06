@@ -17,6 +17,11 @@
             android:layout_marginBottom="30dp"
             android:orientation="vertical">
 
+       <!--     <include
+                android:id="@+id/about_top"
+                layout="@layout/top_head"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />-->
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
@@ -333,7 +338,8 @@
                         android:layout_marginLeft="10dp"
                         android:layout_marginRight="10dp"
                         android:numColumns="2" />
-                 <!--   <LinearLayout
+                    <LinearLayout
+                        android:id="@+id/c_people"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
@@ -343,18 +349,18 @@
                         android:gravity="center"
                         android:orientation="vertical"
                         android:paddingBottom="10dp"
+                        android:visibility="gone"
                         android:paddingLeft="10dp"
                         android:paddingTop="10dp">
 
                         <TextView
-                            android:id="@+id/c_people"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="5dp"
                             android:text="该企业没有相关信息"
                             android:textColor="#57737D"
-                            android:textSize="18sp" />
-                    </LinearLayout>-->
+                            android:textSize="14sp" />
+                    </LinearLayout>
 
                     <TextView
                         android:id="@+id/c_tv3"
@@ -374,6 +380,29 @@
                         android:layout_marginLeft="10dp"
                         android:layout_marginRight="10dp"
                         android:numColumns="2" />
+                    <LinearLayout
+                        android:id="@+id/c_Cpeople"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/details_con_bg"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:paddingBottom="10dp"
+                        android:visibility="gone"
+                        android:paddingLeft="10dp"
+                        android:paddingTop="10dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:text="该企业没有相关信息"
+                            android:textColor="#57737D"
+                            android:textSize="14sp" />
+                    </LinearLayout>
 
                     <TextView
                         android:id="@+id/c_tv4"
@@ -396,7 +425,29 @@
                         android:onClick="@null"
                         android:divider="#00000000"
                         android:listSelector="#00000000" />
+                    <LinearLayout
+                        android:id="@+id/c_GS"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/details_con_bg"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:paddingBottom="10dp"
+                        android:visibility="gone"
+                        android:paddingLeft="10dp"
+                        android:paddingTop="10dp">
 
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:text="该企业没有相关信息"
+                            android:textColor="#57737D"
+                            android:textSize="14sp" />
+                    </LinearLayout>
                     <TextView
                         android:id="@+id/c_tv5"
                         android:layout_width="100dp"
@@ -408,8 +459,16 @@
                         android:textColor="#ffffff"
                         android:textSize="18sp" />
 
+                    <com.example.credit.Views.MyGridView
+                        android:id="@+id/myGridViewZYfz"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:numColumns="2" />
 
                     <LinearLayout
+                        android:id="@+id/c_fzjg"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
@@ -417,13 +476,12 @@
                         android:layout_marginTop="10dp"
                         android:background="@drawable/details_con_bg"
                         android:gravity="center"
+                        android:visibility="gone"
                         android:orientation="vertical"
                         android:paddingBottom="10dp"
                         android:paddingLeft="10dp"
                         android:paddingTop="10dp">
-
                         <TextView
-                            android:id="@+id/c_fzjg"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="5dp"

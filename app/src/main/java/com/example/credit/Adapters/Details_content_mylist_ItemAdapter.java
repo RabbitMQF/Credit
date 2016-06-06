@@ -8,7 +8,6 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.example.credit.Entitys.DataManager;
-import com.example.credit.Entitys.changeContent;
 import com.example.credit.R;
 
 import java.util.List;

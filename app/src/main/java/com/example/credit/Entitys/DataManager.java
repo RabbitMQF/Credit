@@ -143,29 +143,27 @@ public class DataManager {
     public static List<String> city = new ArrayList<>();//城市数据源
 
 
-    public static List<industryData> dataList;
+    public static List<industryData> industryDataList=new ArrayList<>();
 
     /**
      * 行业实体类
      */
-    public class industryData {
-        public String Code;
-        public String Name;
-        public String Desc;
-        public List<SubIndustryList> SubIndustryList;
+    public static class industryData {
+        public String EC_VALUE;
+        public String EC_NAME;
     }
 
 
-    public static List<SubIndustryList> SubyList;
-
-    /**
-     * 行业子类
-     */
-    public class SubIndustryList {
-        public String Code;
-        public String Name;
-        public String Desc;
-    }
+//    public static List<SubIndustryList> SubyList;
+//
+//    /**
+//     * 行业子类
+//     */
+//    public class SubIndustryList {
+//        public String Code;
+//        public String Name;
+//        public String Desc;
+//    }
 
     public static List<News> newsList;//新闻list
 
@@ -282,8 +280,12 @@ public class DataManager {
      */
     public class AnnualReports {//分支机构
         public String BRID;//分支机构ID
+        public String PPRIPID;//主体身份代码
         public String PRIPID;//分支机构主体身份代码
+        public String BRNAME;//分支机构名称
         public String REGNO;//注册号
+        public String UNISCID;//统一社会信用代码
+        public String REGORG_CN;//登记机关（中文名称）
         public String REGIDATE;//登记日期
     }
 

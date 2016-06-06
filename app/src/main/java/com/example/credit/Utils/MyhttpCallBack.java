@@ -5,18 +5,9 @@ import com.example.credit.Activitys.MainActivity;
 import com.example.credit.Activitys.SearchFirmActivty;
 import com.example.credit.Entitys.DataManager;
 import com.google.gson.Gson;
-
-
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
 import com.google.gson.internal.LinkedTreeMap;
 import com.google.gson.reflect.TypeToken;
-
 import com.yolanda.nohttp.rest.Response;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -144,8 +135,10 @@ public class MyhttpCallBack implements HttpCallBack {
                     DataManager.searchList.add(serchtemp);
                 }
                 if (DataManager.searchList != null && DataManager.searchList.size() > 0) {
-                SearchFirmActivty.handler.sendEmptyMessage(0);
-            }
+                    SearchFirmActivty.handler.sendEmptyMessage(0);
+                }else{
+                    SearchFirmActivty.handler.sendEmptyMessage(500);
+                }
                 break;
             case 0x023://预留获取行业
 //                gson = new Gson();
@@ -187,15 +180,29 @@ public class MyhttpCallBack implements HttpCallBack {
                 map=gson.fromJson(str3,new TypeToken<Map<String, Object>>(){
                 }.getType());
                 List<LinkedTreeMap> list4= (List<LinkedTreeMap>)((Map<String, Object>)map.get("data")).get("industry");
-                   list4.get(0).get("EC_NAME");
+                if (DataManager.industryDataList.size()!=0){
+                    DataManager.industryDataList.clear();
+                }
+                for(LinkedTreeMap tempTree:list4){
+                    DataManager.industryData industryData=new DataManager.industryData();
+                    industryData.EC_VALUE= (String) tempTree.get("EC_VALUE");
+                    industryData.EC_NAME= (String) tempTree.get("EC_NAME");
+                    DataManager.industryDataList.add(industryData);
+                }
                 break;
             case 0x000://工商信息
+                DataManager.Data0List.clear();
                 String jstring0 = (String) response.get();
                 DataManager.Root0 jsonRoot0 = gson.fromJson(jstring0, new TypeToken<DataManager.Root0>() {
                 }.getType());
                 DataManager.Data0 dt=jsonRoot0.data;
                 DataManager.Data0List.add(dt);
-                CompanyDetailsActivity.handler.sendEmptyMessage(0);
+                if (DataManager.Data0List!= null && DataManager.Data0List.size()>0) {
+                    CompanyDetailsActivity.handler.sendEmptyMessage(0);
+                }else{
+                    CompanyDetailsActivity.handler.sendEmptyMessage(500);
+                }
+
                 break;
             case 0x001://行政信息
 //                String jstring1 = (String) response.get();
