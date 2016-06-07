@@ -2,6 +2,8 @@ package com.example.credit.Utils;
 
 import android.content.Context;
 import android.content.DialogInterface;
+
+import com.example.credit.Activitys.SearchFirmActivty;
 import com.example.credit.Dialogs.WaitDialog;
 import com.yolanda.nohttp.error.NetworkError;
 import com.yolanda.nohttp.error.NotFoundCacheError;
@@ -55,18 +57,25 @@ public class ResponseListener<T> implements OnResponseListener<T> {
             /*if (exception instanceof ClientError) {
                 Toast.show("客户端发生错误");
             } else*/ if (exception instanceof ServerError) {
+                SearchFirmActivty.pd.dismiss();
                 Toast.show("服务器发生错误");
             } else if (exception instanceof NetworkError) {
+                SearchFirmActivty.pd.dismiss();
                 Toast.show("请检查网络");
             } else if (exception instanceof TimeoutError) {
+                SearchFirmActivty.pd.dismiss();
                 Toast.show("请求超时，网络不好或服务器不稳定");
             } else if (exception instanceof UnKnownHostError) {
+                SearchFirmActivty.pd.dismiss();
                 Toast.show("未发现指定服务器");
             } else if (exception instanceof URLError) {
+                SearchFirmActivty.pd.dismiss();
                 Toast.show("URL错误");
             } else if (exception instanceof NotFoundCacheError) {
+                SearchFirmActivty.pd.dismiss();
                 Toast.show("没有发现缓存");
             } else {
+                SearchFirmActivty.pd.dismiss();
                 Toast.show("未知错误");
             }
         }

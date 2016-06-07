@@ -1,6 +1,8 @@
 package com.example.credit.Activitys;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
@@ -76,7 +78,7 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
     ListView search_list;
     public static Handler handler;
     public static List<DataManager.search> listsea = new ArrayList<DataManager.search>();
-
+    public static String industryindex = null, provinceindex = null, cityindex = null, startDateindex = null, endDateindex = null, registCapiStartIndex = null, registCapiEndIndex = null;
     CreditSharePreferences csp;
     ImageView his_nullbt;
     TextView history_list_null;
@@ -93,7 +95,7 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
     private GestureDetector gDetector;
     private String[] keywords = {"安卓优化大师", "飞信", "赛车", "360", "短信", "文件管理",
             "拨号", "短信", "捕鱼达人", "日历", "hd", "视频播放器", "3D动态壁纸"};
-    ProgressDialog pd;
+    public static ProgressDialog pd;
     int falg = 0;
 
     @Override
@@ -108,29 +110,40 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
         handler = new Handler() {
             @Override
             public void handleMessage(Message msg) {
-                if (msg.what == 0) {
-                    falg = 2;//设置搜索结果时的默认值
-                    pd.dismiss();
-                    listsea = DataManager.searchList;
-                    his_sra.setVisibility(View.GONE);
-                    search_list.setVisibility(View.VISIBLE);
-                    SearchListAdapter2 adapter2 = new SearchListAdapter2(SearchFirmActivty.this, listsea);
-                    search_list.setAdapter(adapter2);
-                    adapter2.notifyDataSetChanged();
-                    search_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                        @Override
-                        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                            Intent i = new Intent(SearchFirmActivty.this, CompanyDetailsActivity.class);
-                            i.putExtra("position", position);
-                            i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                            startActivity(i);
-                            overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
-                        }
-                    });
-                } else if (msg.what == 500) {
-                    pd.dismiss();
-                    android.widget.Toast.makeText(SearchFirmActivty.this, "暂无数据！", android.widget.Toast.LENGTH_SHORT).show();
+                switch (msg.what) {
+                    case 0:
+                        falg = 2;//设置搜索结果时的默认值
+                        pd.dismiss();
+                        listsea = DataManager.searchList;
+                        his_sra.setVisibility(View.GONE);
+                        search_list.setVisibility(View.VISIBLE);
+                        SearchListAdapter2 adapter2 = new SearchListAdapter2(SearchFirmActivty.this, listsea);
+                        search_list.setAdapter(adapter2);
+                        adapter2.notifyDataSetChanged();
+                        android.widget.Toast.makeText(SearchFirmActivty.this,"搜索到"+MyhttpCallBack.baging.TotalRecords+"条数据", android.widget.Toast.LENGTH_SHORT).show();
+                        search_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                            @Override
+                            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                                Intent i = new Intent(SearchFirmActivty.this, CompanyDetailsActivity.class);
+                                i.putExtra("position", position);
+                                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                startActivity(i);
+                                overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
+                            }
+                        });
+                        break;
+                    case 110:
+                        GETsearch();
+                        break;
+                    case 500:
+                        pd.dismiss();
+                        android.widget.Toast.makeText(SearchFirmActivty.this, "暂无数据！", android.widget.Toast.LENGTH_SHORT).show();
+                        break;
+
+                    default:
+                        break;
                 }
+
             }
         };
         initAnimations();
@@ -146,16 +159,24 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
     private void initCityData() {
         citysList = DataManager.citysList;
         List<String> provincelist = new ArrayList<String>();
+        final List<String> provinceCode = new ArrayList<>();
+        final List<String> cityCoed = new ArrayList<>();
         if (provincelist.size() == 0) {
             provincelist.add("不限城市");
+            provinceCode.add(null);
             for (DataManager.citys temp : DataManager.citysList) {
                 provincelist.add(temp.c_name);
+                provinceCode.add(temp.c_code);
             }
-        }else {
+        } else {
             provincelist.clear();
+            provinceCode.clear();
             provincelist.add("不限城市");
+            provinceCode.add(null);
             for (DataManager.citys temp : DataManager.citysList) {
                 provincelist.add(temp.c_name);
+                provinceCode.add(temp.c_code);
+
             }
         }
 
@@ -179,12 +200,14 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 temp = (TextView) view.findViewById(R.id.item_tv);
                 tempprovince = (TextView) view.findViewById(R.id.item_tv);
+                provinceindex = provinceCode.get(position);
                 int pid = position;
                 if (twolist == null) {
                     twolist = new ArrayList<String>();
                     //twolist.add("全省");
                 } else {
                     twolist.clear();
+                    cityCoed.clear();
                     twolist = new ArrayList<String>();
                     //twolist.add("全省");
                 }
@@ -196,6 +219,7 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
                 try {
                     for (DataManager.citycode citycode : citysList.get(pid - 1).citycode) {
                         twolist.add(citycode.c_name);
+                        cityCoed.add(citycode.c_code);
                     }
                 } catch (ArrayIndexOutOfBoundsException e) {//捕获数组越界异常用于处理城市选择器的不限
                     select.setVisibility(View.GONE);
@@ -210,6 +234,7 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
                     city.setTextColor(getResources().getColor(R.color.text_nocheck));
                     city_arraow.setImageResource(R.mipmap.senior_arraow_down);
                     city_check = false;
+                    cityindex = null;
                     e.printStackTrace();
                 }
 
@@ -220,8 +245,11 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
                 menu_two.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                        cityindex = cityCoed.get(position);
                         temp = (TextView) view.findViewById(R.id.menu_two_tv);
                         select.setVisibility(View.GONE);
+                        //falg=2;
+                        GETsearch();//调用搜索请求方法
                         if (his_sra.getVisibility() == View.GONE) {//当历史界面隐藏
                             if (falg == 2) {//并且当前处于已经搜索结果时
                                 search_list.setVisibility(View.VISIBLE);//则显示搜索结果list
@@ -239,6 +267,9 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
                         city.setTextColor(getResources().getColor(R.color.text_nocheck));
                         city_arraow.setImageResource(R.mipmap.senior_arraow_down);
                         city_check = false;
+                        searchEt.setFocusable(true);//重新获取焦点
+                        searchEt.setFocusableInTouchMode(true);//重新获取焦点
+                        searchEt.requestFocus();//重新获取焦点
 
                     }
                 });
@@ -298,6 +329,11 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
         searchContent = (RelativeLayout) findViewById(R.id.searchContent);
         history_list_null = (TextView) findViewById(R.id.history_list_null);
         csp = CreditSharePreferences.getLifeSharedPreferences();
+        if(csp.getHistory().equals("")){//给历史记录赋初始值
+            String Tnameh = "江西,南昌,智容,李良,QQ,胡歌,南昌红谷滩,美年达,A,笔记本,联想,科技,China,";//历史字备用
+            csp.putHistory(Tnameh);
+        }
+
     }
 
     View.OnClickListener onClickListener = new View.OnClickListener() {
@@ -489,80 +525,7 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
                     break;
 
                 case R.id.search_bt://搜索按钮
-
-
-                    Build bd = new Build();
-                    String model = bd.MODEL;//设备ID
-                    //model = Settings.System.getString(getContentResolver(), Settings.System.ANDROID_ID);
-                    String Tname = searchEt.getText().toString();
-                    String Tks = MD5s(Tname + model);
-                    String str = "";
-                    try {
-                        str = URLEncoder.encode(Tname, "utf-8");
-                    } catch (UnsupportedEncodingException e) {
-                        e.printStackTrace();
-                    }
-
-                    //历史记录保存本地SP
-                    String Tnameh = Tname + ",";//历史字备用
-                    if (!Tname.equals("")) {
-                        if (csp.getHistory() != null && !(csp.getHistory()).equals("")) {
-                            String str1 = csp.getHistory();
-                            String[] strh = str1.split(",");
-                            List<String> listh = new ArrayList<String>(Arrays.asList(strh));
-                            if (listh != null && listh.size() < 13) {
-                                String temp = "";
-                                for (int i = 0; i < listh.size(); i++) {
-                                    if (Tname.equals(listh.get(i))) {
-                                        temp = listh.get(i);
-                                    }
-                                }
-                                if (temp.equals("")) {
-                                    csp.putHistory(str1 + Tnameh);
-                                }
-                            } else {
-                                String temp = "";
-                                for (int i = 0; i < listh.size(); i++) {
-                                    if (Tname.equals(listh.get(i))) {
-                                        temp = listh.get(i);
-                                    }
-                                }
-                                if (temp.equals("")) {
-                                    listh.remove(0);
-                                    String strlists = "";
-                                    for (int i = 0; i < listh.size(); i++) {
-                                        strlists = strlists + listh.get(i) + ",";
-                                    }
-                                    csp.putHistory(strlists + Tnameh);
-                                }
-                            }
-                        } else {
-                            csp.putHistory(Tnameh);
-                        }
-                    } else {
-                        android.widget.Toast.makeText(SearchFirmActivty.this, "搜索关键词不能为空!", android.widget.Toast.LENGTH_SHORT).show();
-                    }
-                    pd = new ProgressDialog(SearchFirmActivty.this);
-                    pd.setMessage("正在加载中...");
-                    pd.setCancelable(false);
-                    pd.show();
-                    GsonUtil request = new GsonUtil(URLconstant.URLINSER + URLconstant.SEARCHURL, RequestMethod.POST);
-                    //request.setConnectTimeout(50000);
-                    request.setReadTimeout(50000);
-                    request.add("token", Tks);//加密结果
-                    request.add("searchKey", Tname);//string搜索关键字
-                    request.add("deviceld", model);//设备ID
-                    //request.add("searchType", 0);//int 搜索类型 （企业、法人、失信、违法）默认为0企业,1是该法人名下企业,2失信企业,3违法企业
-                    //request.add("pageIndex", 0);//int 搜索请求页数
-                    //request.add("pageSize", 40);//int 搜索请求条数
-                    //request.add("industryCode", "I");//int/string(建议传string) 行业代码为空不做限制
-                    //request.add("startDateBegin", 0);//int 企业经营时间起 3（3至startDateEnd）
-                    //request.add("startDateEnd", 30);//int 企业经营时间止 5（startDateBegin至5） 为空不作限制，为空必须与startDateBegin一起为空
-                    //request.add("registCapiBegin", 20);//int 注册资金起 为空不做限制
-                    //request.add("registCapiEnd", 5000);//int 注册资金止 为空必须和registCapiEnd一起为空
-                    //request.add("province", "36");//int/string 省代码 为空不做限制 为空citicode必须为空
-                    //request.add("cityCode", 3601);//int 城市代码  为空为当前省所有城市
-                    CallServer.getInstance().add(SearchFirmActivty.this, request, MyhttpCallBack.getInstance(), NOHTTP_SEARCH, true, false, true);
+                    GETsearch();
                     break;
                 case R.id.auto_add:
                     SearchAutoData data = (SearchAutoData) v.getTag();
@@ -904,4 +867,94 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
             }
         }
     };
+
+    /**
+     * MD5加密+搜索历史+进度条+搜索请求方法
+     */
+    public void GETsearch() {
+
+        Build bd = new Build();
+        String model = bd.MODEL;//设备ID
+        //model = Settings.System.getString(getContentResolver(), Settings.System.ANDROID_ID);
+        String Tname = searchEt.getText().toString();
+        String Tks = MD5s(Tname + model);
+
+
+        //历史记录保存本地SP
+        String Tnameh = Tname + ",";//历史字备用
+        if (!Tname.equals("")) {
+            if (csp.getHistory() != null && !(csp.getHistory()).equals("")) {
+                String str1 = csp.getHistory();
+                String[] strh = str1.split(",");
+                List<String> listh = new ArrayList<String>(Arrays.asList(strh));
+                if (listh != null && listh.size() < 13) {
+                    String temp = "";
+                    for (int i = 0; i < listh.size(); i++) {
+                        if (Tname.equals(listh.get(i))) {
+                            temp = listh.get(i);
+                        }
+                    }
+                    if (temp.equals("")) {
+                        csp.putHistory(str1 + Tnameh);
+                    }
+                } else {
+                    String temp = "";
+                    for (int i = 0; i < listh.size(); i++) {
+                        if (Tname.equals(listh.get(i))) {
+                            temp = listh.get(i);
+                        }
+                    }
+                    if (temp.equals("")) {
+                        listh.remove(0);
+                        String strlists = "";
+                        for (int i = 0; i < listh.size(); i++) {
+                            strlists = strlists + listh.get(i) + ",";
+                        }
+                        csp.putHistory(strlists + Tnameh);
+                    }
+                }
+            } else {
+                csp.putHistory(Tnameh);
+            }
+
+            pd = new ProgressDialog(SearchFirmActivty.this);
+            pd.setMessage("正在加载中...");
+            pd.setCancelable(false);
+            pd.show();
+            GsonUtil request = new GsonUtil(URLconstant.URLINSER + URLconstant.SEARCHURL, RequestMethod.GET);
+            //request.setConnectTimeout(50000);
+            request.setReadTimeout(50000);
+            request.add("token", Tks);//加密结果
+            request.add("searchKey", Tname);//string搜索关键字
+            request.add("deviceld", model);//设备ID
+            //request.add("searchType", 0);//int 搜索类型 （企业、法人、失信、违法）默认为0企业,1是该法人名下企业,2失信企业,3违法企业
+            //request.add("pageIndex", 0);//int 搜索请求页数
+            //request.add("pageSize", 40);//int 搜索请求条数
+            if (industryindex != null && industryindex != "") {//int/string(建议传string) 行业代码为空不做限制
+                request.add("industryCode", industryindex);
+            }
+            if (startDateindex != null) {//int 企业经营时间起 3（3至startDateEnd）
+                request.add("startDateBegin", startDateindex);
+            }
+            if (endDateindex != null) {//int 企业经营时间止 5（startDateBegin至5） 为空不作限制，为空必须与startDateBegin一起为空
+                request.add("startDateEnd", endDateindex);
+            }
+            if (registCapiStartIndex != null) {//int 注册资金起 为空不做限制
+                request.add("registCapiBegin", registCapiStartIndex);
+            }
+            if (registCapiEndIndex != null) {//int 注册资金止 为空必须和registCapiEnd一起为空
+                request.add("registCapiEnd", registCapiEndIndex);
+            }
+            if (provinceindex != null) {//int/string 省代码 为空不做限制 为空citycode必须为空
+                request.add("province", provinceindex);
+            }
+            if (cityindex != null && provinceindex != null && cityindex != "") {//int 城市代码  为空为当前省所有城市
+                request.add("cityCode", cityindex);
+            }
+            CallServer.getInstance().add(SearchFirmActivty.this, request, MyhttpCallBack.getInstance(), NOHTTP_SEARCH, true, false, true);
+
+        } else {
+            android.widget.Toast.makeText(SearchFirmActivty.this, "搜索关键词不能为空!", android.widget.Toast.LENGTH_SHORT).show();
+        }
+    }
 }

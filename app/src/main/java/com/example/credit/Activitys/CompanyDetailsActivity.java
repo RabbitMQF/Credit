@@ -152,6 +152,7 @@ public class CompanyDetailsActivity extends BaseActivity {
                     case 0://工商信息
                         Intent i0 = new Intent(CompanyDetailsActivity.this, DetailsContentActivity.class);
                         i0.putExtra("position", position);
+                        i0.putExtra("Tname",arrays1[msg.what]);
                         startActivity(i0);
                         overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
                         break;
@@ -243,18 +244,20 @@ public class CompanyDetailsActivity extends BaseActivity {
                     CallServer.getInstance().add(CompanyDetailsActivity.this, request1, MyhttpCallBack.getInstance(), 0x001, true, false, true);
                     break;
                 case 2://荣誉信息
-                    //model = Settings.System.getString(getContentResolver(), Settings.System.ANDROID_ID);
-//                    GsonUtil request2 = new GsonUtil(URLconstant.HONORURL, RequestMethod.GET);
-//                    CallServer.getInstance().add(CompanyDetailsActivity.this, request2, MyhttpCallBack.getInstance(), 0x002, true, false, true);
+                    String KeyNoR = DataManager.searchList.get(position).REGNO;//注册号
+                    String tokenr = SearchFirmActivty.MD5s(KeyNoR + model);//token 由 设备ID+/注册号 MD5生成
                     GsonUtil request2 = new GsonUtil(URLconstant.URLINSER + URLconstant.HONORURL, RequestMethod.GET);
-                    request2.add("token", token);
+                    request2.add("token", tokenr);
                     request2.add("deviceld", model);
-                    request2.add("KeyNo", KeyNo);
+                    request2.add("KeyNo", KeyNoR);
                     CallServer.getInstance().add(CompanyDetailsActivity.this, request2, MyhttpCallBack.getInstance(), 0x002, true, false, true);
 
                     break;
                 case 3://扶持信息
-                    GsonUtil request3 = new GsonUtil(URLconstant.SUPPORTURL, RequestMethod.GET);
+                    GsonUtil request3 = new GsonUtil(URLconstant.URLINSER + URLconstant.SUPPORTURL, RequestMethod.GET);
+                    request3.add("token", token);
+                    request3.add("deviceld", model);
+                    request3.add("KeyNo", KeyNo);
                     CallServer.getInstance().add(CompanyDetailsActivity.this, request3, MyhttpCallBack.getInstance(), 0x003, true, false, true);
 
                     break;
@@ -263,7 +266,10 @@ public class CompanyDetailsActivity extends BaseActivity {
                     overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
                     break;
                 case 5://出质信息
-                    GsonUtil request5 = new GsonUtil(URLconstant.PLEDGEURL, RequestMethod.GET);
+                    GsonUtil request5 = new GsonUtil(URLconstant.URLINSER +URLconstant.PLEDGEURL, RequestMethod.GET);
+                    request5.add("token", token);
+                    request5.add("deviceld", model);
+                    request5.add("KeyNo", KeyNo);
                     CallServer.getInstance().add(CompanyDetailsActivity.this, request5, MyhttpCallBack.getInstance(), 0x005, true, false, true);
 
                     break;
@@ -346,7 +352,8 @@ public class CompanyDetailsActivity extends BaseActivity {
             lt.add(detailsList.get(position).OPFROM);
             lt.add(detailsList.get(position).OPFROM);
             lt.add(detailsList.get(position).REGNO);
-            lt.add(detailsList.get(position).INDUSTRYPHY);
+//            lt.add(detailsList.get(position).INDUSTRYPHY);
+            lt.add("暂无信息");
             int size = lt.size();
             arrays4 = (String[]) lt.toArray(new String[size]);
         }

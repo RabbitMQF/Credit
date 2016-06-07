@@ -75,7 +75,7 @@ public class CustomPopupwindow extends PopupWindow implements View.OnClickListen
         if (listdata != null) {
             adapter = new ArrayAdapter(activity, R.layout.search_select_twolistitem, listdata);
         } else {
-            adapter=new ArrayAdapter(activity,R.layout.search_select_twolistitem,industryName);
+            adapter = new ArrayAdapter(activity, R.layout.search_select_twolistitem, industryName);
         }
 
 
@@ -84,13 +84,75 @@ public class CustomPopupwindow extends PopupWindow implements View.OnClickListen
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 if (SearchFirmActivty.capital_check) {
+                    switch (position) {
+                        case 0:
+                            SearchFirmActivty.registCapiStartIndex = null;
+                            SearchFirmActivty.registCapiEndIndex = null;
+                            break;
+                        case 1:
+                            SearchFirmActivty.registCapiStartIndex = "0";
+                            SearchFirmActivty.registCapiEndIndex = "100";
+                            break;
+                        case 2:
+                            SearchFirmActivty.registCapiStartIndex = "100";
+                            SearchFirmActivty.registCapiEndIndex = "200";
+                            break;
+                        case 3:
+                            SearchFirmActivty.registCapiStartIndex = "200";
+                            SearchFirmActivty.registCapiEndIndex = "500";
+                            break;
+                        case 4:
+                            SearchFirmActivty.registCapiStartIndex = "500";
+                            SearchFirmActivty.registCapiEndIndex = "1000";
+                            break;
+                        case 5:
+                            SearchFirmActivty.registCapiStartIndex = "1000";
+                            SearchFirmActivty.registCapiEndIndex = null;
+                            break;
+                    }
                     SearchFirmActivty.capital.setText(listdata.get(position));
+                    SearchFirmActivty.handler.sendEmptyMessage(110);
                 }
                 if (SearchFirmActivty.time_check) {
+                    switch (position) {
+                        case 0:
+                            SearchFirmActivty.startDateindex = null;
+                            SearchFirmActivty.endDateindex = null;
+                            break;
+                        case 1:
+                            SearchFirmActivty.startDateindex = "0";
+                            SearchFirmActivty.endDateindex = "1";
+                            break;
+                        case 2:
+                            SearchFirmActivty.startDateindex = "1";
+                            SearchFirmActivty.endDateindex = "2";
+                            break;
+                        case 3:
+                            SearchFirmActivty.startDateindex = "2";
+                            SearchFirmActivty.endDateindex = "3";
+                            break;
+                        case 4:
+                            SearchFirmActivty.startDateindex = "3";
+                            SearchFirmActivty.endDateindex = "5";
+                            break;
+                        case 5:
+                            SearchFirmActivty.startDateindex = "5";
+                            SearchFirmActivty.endDateindex = "10";
+                            break;
+                        case 6:
+                            SearchFirmActivty.startDateindex = "10";
+                            SearchFirmActivty.endDateindex = null;
+                            break;
+
+                    }
                     SearchFirmActivty.time.setText(listdata.get(position));
+                    SearchFirmActivty.handler.sendEmptyMessage(110);
                 }
                 if (SearchFirmActivty.industry_check) {
                     SearchFirmActivty.industry.setText(industryName.get(position));
+                    SearchFirmActivty.industryindex = industryCode.get(position);
+                    SearchFirmActivty.handler.sendEmptyMessage(110);
+
                 }
 //
                 dismiss();
@@ -143,7 +205,7 @@ public class CustomPopupwindow extends PopupWindow implements View.OnClickListen
         SearchFirmActivty.industry_arraow.setImageResource(R.mipmap.senior_arraow_down);
         SearchFirmActivty.capital_check = false;
         SearchFirmActivty.time_check = false;
-        SearchFirmActivty.industry_check=false;
+        SearchFirmActivty.industry_check = false;
         super.dismiss();
     }
 

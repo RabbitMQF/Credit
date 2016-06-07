@@ -50,15 +50,15 @@ public class AdminActivity extends FragmentActivity implements View.OnClickListe
 
     private void initDatas() {
         DataManager.administraton an = new DataManager.administraton();
-        an.aname = "企业投资技术改造项目变更建设年限批复";
-        an.no = "赣环评函[2015]182号";
-        an.dates = "2015年1月30日-2017年1月29日";
-        an.office = "南昌市经开区管委会";
-        an.times = "2015年1月30日";
-        an.contents = "地球上的最后一滴水，就是人类的眼泪--这句辛酸的话，既道出了人类对于水资源的渴望，又隐含了对于水资源不合理利用与开发的事实。在水资源日益紧张的今天，如何高效地获取淡水，则成为了一项重要的课题。而空气中的水分，看似虚无缥缈，实则储量可观。最近…";
-        DataManager.ad_List.add(an);
-        DataManager.ad_List.add(an);
-        DataManager.ad_List.add(an);
+        an.LICNAME = "企业投资技术改造项目变更建设年限批复";
+        an.LICNO = "赣环评函[2015]182号";
+        an.VALFROM = "2015年1月30日";
+        an.LICANTH = "南昌市经开区管委会";
+        an.VALTO = "2017年1月30日";
+        an.PRIPID = "地球上的最后一滴水，就是人类的眼泪--这句辛酸的话，既道出了人类对于水资源的渴望，又隐含了对于水资源不合理利用与开发的事实。在水资源日益紧张的今天，如何高效地获取淡水，则成为了一项重要的课题。而空气中的水分，看似虚无缥缈，实则储量可观。最近…";
+        //DataManager.ad_List.add(an);
+        //DataManager.ad_List.add(an);
+        //DataManager.ad_List.add(an);
         Admin_Fragment fragment=Admin_Fragment.newInstance();
         fragment.setListData(DataManager.ad_List);
         Admin_Fragment fragment1=Admin_Fragment.newInstance();

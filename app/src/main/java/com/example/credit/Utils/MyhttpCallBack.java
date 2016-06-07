@@ -19,6 +19,7 @@ public class MyhttpCallBack implements HttpCallBack {
     Gson gson;
     static Map<String, Object> map;
     String jsonString;
+    public static DataManager.baging baging=new DataManager.baging();
 
     private static MyhttpCallBack instance;
 
@@ -109,6 +110,7 @@ public class MyhttpCallBack implements HttpCallBack {
 //                List<DataManager.search> searchstrlist2 = gson.fromJson(((Map<String, Object>) map.get("data")).get("Result").toString(), new TypeToken<List<DataManager.search>>() {
 //                }.getType());
 //                DataManager.searchList = searchstrlist2;
+                baging=gson.fromJson(((Map<String, Object>) map.get("data")).get("Paging").toString(),DataManager.baging.class);
                 List<LinkedTreeMap> searchstrlist2= (List<LinkedTreeMap>) ((Map<String, Object>) map.get("data")).get("Result");
                 if(DataManager.searchList.size()!=0){
                     DataManager.searchList.clear();
@@ -205,12 +207,12 @@ public class MyhttpCallBack implements HttpCallBack {
 
                 break;
             case 0x001://行政信息
-//                String jstring1 = (String) response.get();
-//                map = gson.fromJson(jstring1, new TypeToken<Map<String, Object>>() {
-//                }.getType());
-//                List<DataManager.honorInfo> list2 = gson.fromJson(((Map<String, Object>) map.get("data")).get("chattel").toString(), new TypeToken<List<DataManager.honorInfo>>() {
-//                }.getType());
-//                DataManager.honorInfoList = list2;
+                String jstring1 = (String) response.get();
+                map = gson.fromJson(jstring1, new TypeToken<Map<String, Object>>() {
+                }.getType());
+                List<DataManager.administraton> list5 = gson.fromJson(((Map<String, Object>) map.get("data")).get("administrative").toString(), new TypeToken<List<DataManager.administraton>>() {
+                }.getType());
+                DataManager.ad_List = list5;
                 CompanyDetailsActivity.handler.sendEmptyMessage(1);
                 break;
             case 0x002://荣誉信息
@@ -226,7 +228,7 @@ public class MyhttpCallBack implements HttpCallBack {
                 String jstring3 = (String) response.get();
                 map = gson.fromJson(jstring3, new TypeToken<Map<String, Object>>() {
                 }.getType());
-                List<DataManager.supportInfo> list3 = gson.fromJson(((Map<String, Object>) map.get("data")).get("support").toString(), new TypeToken<List<DataManager.supportInfo>>() {
+                List<DataManager.supportInfo> list3 = gson.fromJson(((Map<String, Object>) map.get("data")).get("advertising").toString(), new TypeToken<List<DataManager.supportInfo>>() {
                 }.getType());
                 DataManager.supportInfoList = list3;
                 CompanyDetailsActivity.handler.sendEmptyMessage(3);

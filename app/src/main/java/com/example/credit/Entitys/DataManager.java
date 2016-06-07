@@ -348,15 +348,15 @@ public class DataManager {
     /**
      * 行政许可实体类
      */
-    public static List<administraton> ad_List = new ArrayList<administraton>();
+    public static List<administraton> ad_List = new ArrayList<>();
 
     public static class administraton {
-        public String aname;//许可文件名称
-        public String no;//许可证号
-        public String dates;//有效期
-        public String office;//许可机关
-        public String times;//发证日期
-        public String contents;//许可内容
+        public String PRIPID;//主体身份代码
+        public String LICNAME;//许可文件名称
+        public String LICNO;//许可文件编号
+        public String VALFROM;//有效期自
+        public String LICANTH;//许可机关
+        public String VALTO;//有效期止
 
     }
 
@@ -368,12 +368,11 @@ public class DataManager {
     public static List<honorInfo> honorInfoList;
 
     public static class honorInfo {
-        public String No;
-        public String name;
-        public String type;
-        public String organs;
-        public String detail;
-
+        public String HONORID;//荣誉id
+        public String HONORNAME;//荣誉名称
+        public String HONORCONTENT;//荣誉内容（类型）
+        public String ORGAN;//机关
+        public String C_UNIQUE_CODE;//统一社会信用代码
 
     }
 
@@ -384,11 +383,11 @@ public class DataManager {
     public static List<supportInfo> supportInfoList;
 
     public static class supportInfo {
-        public String No;
-        public String supportNum;
-        public String content;
-        public String department;
-        public String supportDate;
+        public String PRIPID;//主体身份代码
+        public String ENJSPAMOUNT;//享受扶持政策的数额
+        public String ENJSPCONTENT;//享受扶持政策内容
+        public String IMPSPDEPART;//享受扶持政策的的部门
+        public String IMPSPDATE;//实施扶持政策日期
 
 
     }
@@ -755,5 +754,13 @@ public class DataManager {
         public int error_code;
     }
 
+    /**
+     * 搜索接口返回参数实体类
+     */
+    public static class baging{
+        public String PageSize;
+        public String PageIndex;
+        public String TotalRecords;
+    }
 
 }

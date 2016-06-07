@@ -42,29 +42,29 @@ public class Admin_Adapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        ViewHolder vh=null;
-        if(convertView==null){
-            convertView= LayoutInflater.from(context).inflate(R.layout.admin_list_item,null);
-            vh=new ViewHolder();
-            vh.title= (TextView) convertView.findViewById(R.id.title);
-            vh.aname= (TextView) convertView.findViewById(R.id.aname);
-            vh.no= (TextView) convertView.findViewById(R.id.no);
-            vh.dates= (TextView) convertView.findViewById(R.id.dates);
-            vh.office= (TextView) convertView.findViewById(R.id.office);
-            vh.times= (TextView) convertView.findViewById(R.id.times);
-            vh.contents= (TextView) convertView.findViewById(R.id.contetns);
+        ViewHolder vh = null;
+        if (convertView == null) {
+            convertView = LayoutInflater.from(context).inflate(R.layout.admin_list_item, null);
+            vh = new ViewHolder();
+            vh.title = (TextView) convertView.findViewById(R.id.title);
+            vh.aname = (TextView) convertView.findViewById(R.id.aname);
+            vh.ano = (TextView) convertView.findViewById(R.id.ano);
+            vh.adate = (TextView) convertView.findViewById(R.id.adate);
+            vh.aoffice = (TextView) convertView.findViewById(R.id.aoffice);
+            vh.atime = (TextView) convertView.findViewById(R.id.atime);
+            vh.apripid = (TextView) convertView.findViewById(R.id.apripid);
             convertView.setTag(vh);
-        }else {
-          vh= (ViewHolder) convertView.getTag();
+        } else {
+            vh = (ViewHolder) convertView.getTag();
         }
-        DataManager.administraton temp_admin =adminList.get(position);
+        DataManager.administraton temp_admin = adminList.get(position);
         vh.title.setText("行政许可信息");
-        vh.aname.setText(temp_admin.aname);
-        vh.no.setText(temp_admin.no);
-        vh.dates.setText(temp_admin.dates);
-        vh.office.setText(temp_admin.office);
-        vh.times.setText(temp_admin.times);
-        vh.contents.setText(temp_admin.contents);
+        vh.aname.setText(temp_admin.LICNAME);
+        vh.ano.setText(temp_admin.LICNO);
+        vh.atime.setText(temp_admin.VALFROM);
+        vh.aoffice.setText(temp_admin.LICANTH);
+        vh.adate.setText(temp_admin.VALTO);
+        vh.apripid.setText(temp_admin.PRIPID);
 
         return convertView;
     }
@@ -72,11 +72,11 @@ public class Admin_Adapter extends BaseAdapter {
     class ViewHolder {
         TextView title;
         TextView aname;
-        TextView no;
-        TextView dates;
-        TextView office;
-        TextView times;
-        TextView contents;
+        TextView ano;
+        TextView adate;
+        TextView aoffice;
+        TextView atime;
+        TextView apripid;
 
     }
 

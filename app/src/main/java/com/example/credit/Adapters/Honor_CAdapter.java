@@ -49,10 +49,10 @@ public class Honor_CAdapter extends BaseAdapter {
         } else {
             vh = (ViewHolder) view.getTag();
         }
-        vh.hitem_tv1C.setText(list.get(position).name);
-        vh.hitem_tv2C.setText(list.get(position).type);
-        vh.hitem_tv3C.setText(list.get(position).organs);
-        vh.hitem_tv4C.setText(list.get(position).detail);
+        vh.hitem_tv1C.setText(list.get(position).HONORNAME);
+        vh.hitem_tv2C.setText(list.get(position).HONORCONTENT);
+        vh.hitem_tv3C.setText(list.get(position).ORGAN);
+        vh.hitem_tv4C.setText(list.get(position).C_UNIQUE_CODE);
         return view;
     }
 

@@ -12,11 +12,11 @@ import com.example.credit.R;
 
 import java.util.List;
 
-public class Support_CAdapter extends BaseAdapter {
+public class FeiZhiAdapter extends BaseAdapter {
     private Context context;
-    private List<DataManager.supportInfo> list;
+    private List<DataManager.AnnualReports> list;
 
-    public Support_CAdapter(Context context, List<DataManager.supportInfo> list) {
+    public FeiZhiAdapter(Context context, List<DataManager.AnnualReports> list) {
         this.context = context;
         this.list = list;
     }
@@ -40,27 +40,24 @@ public class Support_CAdapter extends BaseAdapter {
     public View getView(int position, View view, ViewGroup parent) {
         ViewHolder vh = null;
         if (view == null) {
-            view = LayoutInflater.from(context).inflate(R.layout.activity_support_item, null);
+            view = LayoutInflater.from(context).inflate(R.layout.activity_c_details_fenzhijigou, null);
             vh = new ViewHolder();
-            vh.sitem_tv1C=(TextView) view.findViewById(R.id.sitem_tv1C);
-            vh.sitem_tv2C=(TextView) view.findViewById(R.id.sitem_tv2C);
-            vh.sitem_tv3C=(TextView) view.findViewById(R.id.sitem_tv3C);
-            vh.sitem_tv4C=(TextView) view.findViewById(R.id.sitem_tv4C);
+            vh.hitem_tv1C=(TextView) view.findViewById(R.id.fz_tv1C);
+            vh.hitem_tv2C=(TextView) view.findViewById(R.id.fz_tv2C);
+            vh.hitem_tv3C=(TextView) view.findViewById(R.id.fz_tv3C);
             view.setTag(vh);
         } else {
             vh = (ViewHolder) view.getTag();
         }
-        vh.sitem_tv1C.setText(list.get(position).ENJSPAMOUNT);
-        vh.sitem_tv2C.setText(list.get(position).ENJSPCONTENT);
-        vh.sitem_tv3C.setText(list.get(position).IMPSPDEPART);
-        vh.sitem_tv4C.setText(list.get(position).IMPSPDATE);
+        vh.hitem_tv1C.setText(list.get(position).PRIPID);
+        vh.hitem_tv2C.setText(list.get(position).BRNAME);
+        vh.hitem_tv3C.setText(list.get(position).REGIDATE);
         return view;
     }
 
     public class ViewHolder {
-        TextView sitem_tv1C;
-        TextView sitem_tv2C;
-        TextView sitem_tv3C;
-        TextView sitem_tv4C;
+        TextView hitem_tv1C;
+        TextView hitem_tv2C;
+        TextView hitem_tv3C;
     }
 }

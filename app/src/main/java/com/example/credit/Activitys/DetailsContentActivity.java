@@ -19,8 +19,10 @@ import android.widget.TextView;
 import android.view.ViewGroup.LayoutParams;
 
 import com.example.credit.Adapters.Details_content_mylistAdapter;
+import com.example.credit.Adapters.FeiZhiAdapter;
 import com.example.credit.Adapters.MyGridAdapter3;
 import com.example.credit.Adapters.MyGridZYAdapter;
+import com.example.credit.Adapters.Support_CAdapter;
 import com.example.credit.Entitys.DataManager;
 import com.example.credit.R;
 import com.example.credit.Views.MyGridView;
@@ -112,7 +114,7 @@ public class DetailsContentActivity extends BaseActivity {
     LinearLayout c_GS;//工商变更null
 
     @ViewInject(R.id.myGridViewZYfz)
-    MyGridView myGridViewZYfz;//分支机构
+    MyListView myGridViewZYfz;//分支机构
 
     @ViewInject(R.id.c_fzjg)
     LinearLayout c_impPeoc_fzjgple;//分支机构null
@@ -124,7 +126,7 @@ public class DetailsContentActivity extends BaseActivity {
     MyGridAdapter3 adapter2;
     MyGridZYAdapter adapterzy;
     int position;
-
+    String Tname;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -132,6 +134,7 @@ public class DetailsContentActivity extends BaseActivity {
         ViewUtils.inject(this);
         Intent i = getIntent();
         position = i.getIntExtra("position", 0);
+        Tname = i.getStringExtra("Tname");
         init();
         ScrIndex();
         GSchages();
@@ -336,14 +339,7 @@ public class DetailsContentActivity extends BaseActivity {
         myGridView3.setAdapter(adapter2);
         myGridView3.setSelector(new ColorDrawable(Color.TRANSPARENT));
 
-        /**
-         * 判断企业名称是否为空
-         */
-        if(!(dcList.get(0).ENTNAME).equals("")){
-            topname.setText(dcList.get(0).ENTNAME);//企业名称
-        }else{
-            topname.setText("暂无信息");
-        }
+        topname.setText(Tname);//标题
         /**
          * 判断企业类型是否为空
          */
@@ -444,20 +440,9 @@ public class DetailsContentActivity extends BaseActivity {
         /**
          * 分支机构
          */
-        List<String> fz1 = new ArrayList<String>();//日期list
-        List<String> fz2 = new ArrayList<String>();//名称list
         if((dcList.get(0).AnnualReports)!=null && (dcList.get(0).AnnualReports).size()>0){
-            for (DataManager.AnnualReports e : dcList.get(0).AnnualReports) {
-                fz1.add(e.REGIDATE);
-                fz2.add(e.BRNAME);
-            }
-            int size1 = fz1.size();
-            int size2 = fz2.size();
-            String[] arrayszys1 = (String[]) fz1.toArray(new String[size1]);
-            String[] arrayszys2 = (String[]) fz2.toArray(new String[size2]);
-            adapterzy = new MyGridZYAdapter(DetailsContentActivity.this, arrayszys1, arrayszys2);
-            myGridViewZYfz.setAdapter(adapterzy);
-            myGridViewZYfz.setSelector(new ColorDrawable(Color.TRANSPARENT));
+            FeiZhiAdapter hcadapter2=new FeiZhiAdapter(DetailsContentActivity.this, dcList.get(0).AnnualReports);
+            myGridViewZYfz.setAdapter(hcadapter2);
         }else{
             c_impPeoc_fzjgple.setVisibility(View.VISIBLE);
             myGridViewZYfz.setVisibility(View.GONE);
