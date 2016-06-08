@@ -51,11 +51,11 @@ public class AbnormalAdapter extends BaseAdapter {
         } else {
             vh = (ViewHolder) view.getTag();
         }
-        vh.a_tv1.setText(list.get(position).why);
-        vh.a_tv2.setText(list.get(position).date);
-        vh.a_tv3.setText(list.get(position).remove);
-        vh.a_tv4.setText(list.get(position).removeDate);
-        vh.a_tv5.setText(list.get(position).decision);
+        vh.a_tv1.setText(list.get(position).SPECAUSE_CN);
+        vh.a_tv2.setText(list.get(position).ABNTIME);
+        vh.a_tv3.setText(list.get(position).REMEXCPRES_CN);
+        vh.a_tv4.setText(list.get(position).REMDATE);
+        vh.a_tv5.setText(list.get(position).DECORG_CN);
         return view;
     }
 

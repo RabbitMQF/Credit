@@ -18,7 +18,6 @@ public class CC_List_itemAdapter extends BaseAdapter {
     private List<String> list;
     private String str;
     List<String> imgUrl;
-
     public CC_List_itemAdapter(Context context, List<String> list, String str,List<String> imgUrl) {
         this.context = context;
         this.list = list;

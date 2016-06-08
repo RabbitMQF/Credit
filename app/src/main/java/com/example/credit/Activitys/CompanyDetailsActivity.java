@@ -29,12 +29,15 @@ import com.example.credit.Utils.MyhttpCallBack;
 import com.example.credit.Utils.Toast;
 import com.example.credit.Utils.URLconstant;
 import com.example.credit.Views.MyGridView;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ViewInject;
 import com.yolanda.nohttp.RequestMethod;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 /**
  * 公司信息界面
@@ -172,6 +175,10 @@ public class CompanyDetailsActivity extends BaseActivity {
                         startActivity(i3);
                         overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
                         break;
+                    case 4://抵押信息
+                        startActivity(new Intent(CompanyDetailsActivity.this,Mortgage_detail_Activity.class));
+                        overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
+                        break;
                     case 5:
                         Intent i5 = new Intent(CompanyDetailsActivity.this, PledgeActivity.class);
                         startActivity(i5);
@@ -262,8 +269,17 @@ public class CompanyDetailsActivity extends BaseActivity {
 
                     break;
                 case 4://抵押信息
-                    startActivity(new Intent(CompanyDetailsActivity.this, Mortgage_detail_Activity.class));
-                    overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
+                    GsonUtil mortinfoRequest= new GsonUtil(URLconstant.URLINSER+URLconstant.MORTINFO,RequestMethod.GET);//动产request
+                    GsonUtil mortinfoBdcRequest= new GsonUtil(URLconstant.URLINSER+URLconstant.MORTINFOBDC,RequestMethod.GET);//不动产request
+                    mortinfoRequest.add("token", token);
+                    mortinfoRequest.add("deviceld", model);
+                    mortinfoRequest.add("KeyNo", KeyNo);
+                    mortinfoBdcRequest.add("token", token);
+                    mortinfoBdcRequest.add("deviceld", model);
+                    mortinfoBdcRequest.add("KeyNo", KeyNo);
+                    CallServer.getInstance().add(CompanyDetailsActivity.this,mortinfoRequest,MyhttpCallBack.getInstance(),0x004,true,false,true);
+                    CallServer.getInstance().add(CompanyDetailsActivity.this,mortinfoBdcRequest,MyhttpCallBack.getInstance(),0x0041,true,false,true);
+
                     break;
                 case 5://出质信息
                     GsonUtil request5 = new GsonUtil(URLconstant.URLINSER +URLconstant.PLEDGEURL, RequestMethod.GET);
@@ -285,22 +301,45 @@ public class CompanyDetailsActivity extends BaseActivity {
                     overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
                     break;
                 case 8://行政处罚
-                    GsonUtil request = new GsonUtil(URLconstant.PUNISHURL, RequestMethod.GET);
+                    GsonUtil request = new GsonUtil(URLconstant.URLINSER +URLconstant.PUNISHURL, RequestMethod.GET);
+                    request.add("token", token);
+                    request.add("deviceld", model);
+                    request.add("KeyNo", KeyNo);
                     CallServer.getInstance().add(CompanyDetailsActivity.this, request, MyhttpCallBack.getInstance(), 0X008, true, false, true);
 
                     break;
                 case 9://经营异常
-                    GsonUtil request9 = new GsonUtil(URLconstant.ABNORMALURL, RequestMethod.GET);
+                    GsonUtil request9 = new GsonUtil(URLconstant.URLINSER +URLconstant.ABNORMALURL, RequestMethod.GET);
+                    request9.add("token", token);
+                    request9.add("deviceld", model);
+                    request9.add("KeyNo", KeyNo);
                     CallServer.getInstance().add(CompanyDetailsActivity.this, request9, MyhttpCallBack.getInstance(), 0X009, true, false, true);
 
                     break;
                 case 10://专利信息
-                    GsonUtil request10 = new GsonUtil(URLconstant.PATENTURL, RequestMethod.GET);
+                    GsonUtil request10 = new GsonUtil(URLconstant.URLINSER +URLconstant.PATENTURL, RequestMethod.GET);
+                    request10.add("token", token);
+                    request10.add("deviceld", model);
+                    request10.add("KeyNo", KeyNo);
                     CallServer.getInstance().add(CompanyDetailsActivity.this, request10, MyhttpCallBack.getInstance(), 0X010, true, false, true);
-
+//                    Gson gson=new Gson();
+//                    String jstring10 = getResources().getString(R.string.test1);
+//                    Map<String, Object> map = gson.fromJson(jstring10, new TypeToken<Map<String, Object>>() {
+//                    }.getType());
+//                    List<DataManager.patentInfo> list10 = gson.fromJson(((Map<String, Object>) map.get("data")).get("patentInfo").toString(), new TypeToken<List<DataManager.patentInfo>>() {
+//                    }.getType());
+//                    DataManager.patentInfoList = list10;
+//                    if(DataManager.patentInfoList.size()>0 && DataManager.patentInfoList!=null){
+//                        CompanyDetailsActivity.handler.sendEmptyMessage(10);
+//                    }else{
+//                        CompanyDetailsActivity.handler.sendEmptyMessage(500);
+//                    }
                     break;
                 case 11://商标信息
-                    GsonUtil request11 = new GsonUtil(URLconstant.TRADEMARKURL, RequestMethod.GET);
+                    GsonUtil request11 = new GsonUtil(URLconstant.URLINSER +URLconstant.TRADEMARKURL, RequestMethod.GET);
+                    request11.add("token", token);
+                    request11.add("deviceld", model);
+                    request11.add("KeyNo", KeyNo);
                     CallServer.getInstance().add(CompanyDetailsActivity.this, request11, MyhttpCallBack.getInstance(), 0x011, true, false, true);
                     break;
                 case 12://著作权

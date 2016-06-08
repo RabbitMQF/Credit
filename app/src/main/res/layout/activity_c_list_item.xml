@@ -37,7 +37,7 @@
                 android:layout_height="wrap_content"
                 android:text="行政处罚决定书文号"
                 android:textColor="#000000"
-                android:visibility="gone" />
+                android:visibility="gone"/>
 
             <TextView
                 android:id="@+id/cl_tv2"
@@ -46,7 +46,7 @@
                 android:layout_marginTop="5dp"
                 android:text="跟鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼"
                 android:textColor="#B8B8B8"
-                android:visibility="gone" />
+                android:visibility="gone"/>
         </LinearLayout>
 
         <LinearLayout

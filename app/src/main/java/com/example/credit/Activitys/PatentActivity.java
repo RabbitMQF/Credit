@@ -49,7 +49,7 @@ public class PatentActivity extends BaseActivity {
         });
         List<String> list = new ArrayList<>();
         for(DataManager.patentInfo p:DataManager.patentInfoList){
-            list.add(p.patentName);
+            list.add(p.PATENTNAME);
         }
         CC_List_itemAdapter adapter = new CC_List_itemAdapter(PatentActivity.this, list, "patent",null);
         paListView1.setAdapter(adapter);

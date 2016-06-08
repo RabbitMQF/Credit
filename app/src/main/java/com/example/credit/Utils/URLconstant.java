@@ -22,6 +22,19 @@ public class URLconstant {
 
     public static final String PLEDGEURL ="espPledge/getespPledge.do";//获取出质Pledge
 
+    public static final String MORTINFO="mortreginfo/getquerymortinfo.do";//抵押信息  动产抵押
+
+    public static final String MORTINFOBDC="mortreginfo/getquerymortinfobdc.do";//抵押信息   不动产抵押
+
+
+    public static final String PUNISHURL ="zrvcasepubbaseinfo/getqueryzrvcasepubbaseinfo.do";//获取行政处罚Punish
+
+    public static final String ABNORMALURL ="zrvaoopanomaly/getqueryzrvaoopanomaly.do";//获取经营异常
+
+    public static final String PATENTURL ="tblPatent/getTblPatent.do";//获取专利
+
+    public static final String TRADEMARKURL = "trademark/getquerytrademark.do";//商标URLtrademark
+
 
 //===========企查查
 
@@ -30,9 +43,9 @@ public class URLconstant {
     //    public static final String SEARCHURL="http://168s.mobile.hc360.com/get168.cgi";//获取搜索列表
     //public static final String GETINDUSTRY = "http://app.qichacha.com/enterprises/new/getIndustryList";//获取行业接口
 
-    public static final String PATENTURL = "http://www.zhirong.applinzi.com/editor/attached/file/20160527/20160527092029_66150.txt";//专利URLpatent
+//    public static final String PATENTURL = "http://www.zhirong.applinzi.com/editor/attached/file/20160527/20160527092029_66150.txt";//专利URLpatent
 
-    public static final String PUNISHURL = "http://www.zhirong.applinzi.com/editor/attached/file/20160526/20160526112834_82136.txt";//处罚URLpunish
+//    public static final String PUNISHURL = "http://www.zhirong.applinzi.com/editor/attached/file/20160526/20160526112834_82136.txt";//处罚URLpunish
 
     public static final String COPYRIGHTURL = "http://www.zhirong.applinzi.com/editor/attached/file/20160527/20160527092102_82399.txt";//著作URLcopyright
 
@@ -42,7 +55,7 @@ public class URLconstant {
 
 //    public static final String SUPPORTURL = "http://www.zhirong.applinzi.com/editor/attached/file/20160527/20160527091814_22025.txt";//企业扶持URL
 
-    public static final String ABNORMALURL = "http://www.zhirong.applinzi.com/editor/attached/file/20160527/20160527092007_15820.txt";//经营异常URLAbnormal
+//    public static final String ABNORMALURL = "http://www.zhirong.applinzi.com/editor/attached/file/20160527/20160527092007_15820.txt";//经营异常URLAbnormal
 
     public static final String GETAUTONOMY = "http://www.zhirong.applinzi.com/editor/attached/file/20160530/20160530091322_24501.txt";//获取自主公示  test
 
@@ -55,7 +68,7 @@ public class URLconstant {
 
 
     //WebService测试专用
-    public static final String TRADEMARKURL = "http://119.29.181.170:8555/WebService.asmx/trademark";//商标URLtrademark
+//    public static final String TRADEMARKURL = "http://119.29.181.170:8555/WebService.asmx/trademark";//商标URLtrademark
 
     public static final String ADVERTISEMENTURL = "http://119.29.181.170:8555/WebService.asmx/AdvertisingQualifications";//广告信息URLAdvertisement
 

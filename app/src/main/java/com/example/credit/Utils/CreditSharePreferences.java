@@ -37,7 +37,10 @@ public class CreditSharePreferences {
     }
 
     public String getHistory() {
-        return sp.getString("listory", null);
+       if(sp!=null) {
+           return sp.getString("listory", null);
+       }
+        return null;
     }
 
 }

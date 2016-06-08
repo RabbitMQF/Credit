@@ -318,31 +318,31 @@ public class DataManager {
     /**
      * 抵押信息动产实体类
      */
-    public static List<mortgageMP> mortgageMP_List = new ArrayList<mortgageMP>();
+    public static List<mortgageMP> mortgageMP_List = new ArrayList<>();
 
     public static class mortgageMP {
-        public String no;//登记编号
-        public String register_date;//登记日期
-        public String public_date;//公示时间
-        public String debts;//被担保债权数额
-        public String office;//登记机关
-        public String detail;//详情
+        public String MORREG_ID;//抵押登记ID
+        public String MORREGCNO;//登记编号
+        public String REGIDATE ;//登记日期
+        public String PUBLICDATE;//公示日期
+        public String REGORG_CN;//登记机关
+        public String PRICLASECAM;//抵押数额 万元
 
     }
 
     /**
      * 抵押信息不动产实体类
      */
-    public static List<mortgageRE> mortgageRE_List = new ArrayList<mortgageRE>();
+    public static List<mortgageRE> mortgageRE_List = new ArrayList<>();
 
     public static class mortgageRE {
-        public String no;//登记编号
-        public String register_date;//登记日期
-        public String public_date;//公示时间
-        public String debts;//被担保债权数额
-        public String office;//登记机关
-        public String collateral;//抵押物
-        public String valuation;//抵押物估值
+        public String C_INFOID;//登记id
+        public String C_DYDJZH;//登记编号
+        public String D_DJRQ;//登记日期
+        public String D_SQRQ;//公示时间
+        public String C_DJJG;//登记机关
+        public String C_DBFW;//详情
+       // public String valuation;//抵押物估值
     }
 
     /**
@@ -404,18 +404,18 @@ public class DataManager {
     public static List<pledgeInfo> pledgeInfoList;
 
     public static class pledgeInfo {
-        public String No;
-        public String registerNum;
-        public String pledgor;
-        public String pledgorCertificateNum;
-        public String pledgedEquityNum;
-        public String pledgee;
-        public String pledgeeCertificateNum;
-        public String equityPledge;
-        public String setRegisterDate;
-        public String status;
-        public String registerAndChangeTime;
-        public String registerAndChangeContent;
+        public String REGNO;//股权所在公司注册号
+        public String EQUITYNO;//股权登记编号
+        public String PLEDGOR;//出质人
+        public String PLEDBLICNO ;//出质人证照号
+        public String PLEDBLICTYPE_CN;//出质人证件类型
+        public String IMPAM;//出质股权数额
+        public String IMPORG;//质权人
+        public String IMPORGBLICNO;//质权人证照号
+        public String ENTNAME;//股权所在公司名称
+        public String EQUPLEDATE;//股权出质登记日期
+        public String PUBLICDATE;//公示日期
+        //public String registerAndChangeContent;
 
 
     }
@@ -427,12 +427,13 @@ public class DataManager {
     public static List<abnormalInfo> abnormalInfoList;
 
     public static class abnormalInfo {
-        public String No;
-        public String why;
-        public String date;
-        public String remove;
-        public String removeDate;
-        public String decision;
+        public String BUSEXCLIST;//经营异常名录ID
+        public String SPECAUSE_CN;//列入经营异常名录原因类型（中文名称）
+        public String ABNTIME;//列入日期
+        public String DECORG_CN;//列入决定机关（中文名称）
+        public String REMEXCPRES_CN;//移出经营异常名录原因（中文名称）
+        public String REMDATE;//移出日期
+        public String REDECORG_CN;//移出决定机关（中文名称）
     }
 
     /**
@@ -442,17 +443,18 @@ public class DataManager {
     public static List<patentInfo> patentInfoList;
 
     public static class patentInfo {
-        public String No;
-        public String patentName;
-        public String applyNum;
-        public String applyDate;
-        public String applyPublishNum;
-        public String applyPublishDate;
-        public String inventor;
-        public String type;
-        public String patentAgency;
-        public String LegalStatus;
-        public String abstracts;
+        public String PRIPID;//企业ID
+        public String PATENTNAME;//专利名称
+        public String RCODE;//申请号
+        public String RDATE;//申请日期
+        public String ACODE;//授权公布号
+        public String ADATE;//授权公布日期
+        public String INVENTOR;//发明人
+        public String PATENTTYPE;//专利类型
+        public String AGENCY;//代理机构
+        public String LEGALSTATUS;//法律状态
+        public String DETAILINFO;//详细信息
+
     }
 
     /**
@@ -467,13 +469,13 @@ public class DataManager {
     public static List<punishInfo> punishInfoList;
 
     public static class punishInfo {
-        public String No;
-        public String type;
-        public String centent;
-        public String documentNumber;
-        public String organs;
-        public String time;
-        public String detail;
+        public String CASEID;//行政处罚ID
+        public String ILLEGACTTYPE;//违法行为类型
+        public String PENCONTENT;//处罚内容
+        public String PENDECNO;//处罚决定书文号
+        public String JUDAUTH;//作出行政处罚决定机关名称
+        public String PENDECISSDATE;//作出处罚决定书日期
+        public String Remark;//备注
     }
 
     /**
@@ -482,15 +484,20 @@ public class DataManager {
     public static List<trademarkInfo> trademarkInfoList = new ArrayList<>();
 
     public static class trademarkInfo {
-        public String No;
-        public String registeredName;
-        public String iconUrl;
-        public String applyNum;
-        public String applyDate;
-        public String RecognizedAuthority;
-        public String applyPublishDate;
-        public String identifiedDate;
-
+        public String ID;//商标id
+        public String PRIPID;//企业id
+        public String REGNO;//注册号
+        public String APPLICATIONDATE;//申请日期
+        public String APPLICANT;//申请人
+        public String BRANDSTAUTS;//商标状态
+        public String CLASSIFYID;//商标分类号
+        public String BRANDIMG;//商标图标链接
+        public String AGENCY;//代理机构
+        public String LIFESPAN;//使用期限
+        public String REGCORE;//商标注册号
+        public String BRANDNAME;//商标名称
+        public String ENTNAME;//企业名称
+        public String UNISCID;//社会统一信用代码
     }
 
     /**

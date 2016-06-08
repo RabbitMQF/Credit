@@ -48,7 +48,7 @@ public class PledgeActivity extends BaseActivity {
         });
         List<String> list = new ArrayList<>();
         for (DataManager.pledgeInfo p : DataManager.pledgeInfoList) {
-            list.add(p.registerNum);
+            list.add(p.EQUITYNO);
         }
         CC_List_itemAdapter adapter = new CC_List_itemAdapter(PledgeActivity.this, list, "pledge", null);
         pListView1.setAdapter(adapter);

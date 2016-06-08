@@ -48,7 +48,7 @@ public class PunishActivity extends BaseActivity {
         });
         List<String> list = new ArrayList<>();
         for (DataManager.punishInfo p : DataManager.punishInfoList) {
-            list.add(p.documentNumber);
+            list.add(p.PENDECNO);//
         }
         CC_List_itemAdapter adapter = new CC_List_itemAdapter(PunishActivity.this, list, "punish", null);
         puListView1.setAdapter(adapter);

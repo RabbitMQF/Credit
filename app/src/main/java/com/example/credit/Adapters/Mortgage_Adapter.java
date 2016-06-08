@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.example.credit.Entitys.DataManager;
 import com.example.credit.R;
@@ -55,17 +56,15 @@ public class Mortgage_Adapter extends BaseAdapter {
             vh = new ViewHolder();
             convertView = LayoutInflater.from(context).inflate(R.layout.mortgage_list_item, null);
             vh.ctv= (TextView) convertView.findViewById(R.id.title);
-            vh.no = (TextView) convertView.findViewById(R.id.no);
-            vh.register_date = (TextView) convertView.findViewById(R.id.register_date);
-            vh.public_date = (TextView) convertView.findViewById(R.id.public_date);
-            vh.debts = (TextView) convertView.findViewById(R.id.debts);
-            vh.office = (TextView) convertView.findViewById(R.id.office);
-            vh.detail = (TextView) convertView.findViewById(R.id.detail);
-            vh.detail1 = (TextView) convertView.findViewById(R.id.detail1);
-            vh.collateral = (TextView) convertView.findViewById(R.id.Collateral);
-            vh.collateral1 = (TextView) convertView.findViewById(R.id.Collateral1);
-            vh.valuation = (TextView) convertView.findViewById(R.id.Valuation);
-            vh.valuation1 = (TextView) convertView.findViewById(R.id.Valuation1);
+            vh.mort_id = (TextView) convertView.findViewById(R.id.mort_id);
+            vh.mort_no = (TextView) convertView.findViewById(R.id.mort_no);
+            vh.mort_time = (TextView) convertView.findViewById(R.id.mort_time);
+            vh.mort_date = (TextView) convertView.findViewById(R.id.mort_date);
+            vh.mort_office = (TextView) convertView.findViewById(R.id.mort_office);
+            vh.mort_val = (TextView) convertView.findViewById(R.id.mort_Val);
+            vh.mort_detail=(TextView) convertView.findViewById(R.id.mort_detail);
+            vh.ll_detail= (LinearLayout) convertView.findViewById(R.id.ll_detail);
+            vh.ll_val= (LinearLayout) convertView.findViewById(R.id.ll_val);
             convertView.setTag(vh);
         } else {
             vh = (ViewHolder) convertView.getTag();
@@ -77,43 +76,36 @@ public class Mortgage_Adapter extends BaseAdapter {
             tempMP = listMP.get(position);
         }
         if (listMP != null) {
-            vh.no.setText(tempMP.no);
-            vh.register_date.setText(tempMP.register_date);
-            vh.public_date.setText(tempMP.public_date);
-            vh.debts.setText(tempMP.debts);
-            vh.office.setText(tempMP.office);
-            vh.detail.setText(tempMP.detail);
+            vh.mort_id.setText(tempMP.MORREG_ID);
+            vh.mort_no.setText(tempMP.MORREGCNO);
+            vh.mort_time.setText(tempMP.REGIDATE);
+            vh.mort_date.setText(tempMP.PUBLICDATE);
+            vh.mort_office.setText(tempMP.REGORG_CN);
+            vh.mort_val.setText(tempMP.PRICLASECAM);
+            vh.ll_val.setVisibility(View.VISIBLE);
+            vh.ll_detail.setVisibility(View.GONE);
         } else {
             vh.ctv.setText("不动产抵押信息");
-            vh.no.setText(tempRE.no);
-            vh.register_date.setText(tempRE.register_date);
-            vh.public_date.setText(tempRE.public_date);
-            vh.debts.setText(tempRE.debts);
-            vh.office.setText(tempRE.office);
-            vh.detail.setVisibility(View.GONE);
-            vh.detail1.setVisibility(View.GONE);
-            vh.collateral.setText(tempRE.collateral);
-            vh.valuation.setText(tempRE.valuation);
-            vh.collateral.setVisibility(View.VISIBLE);
-            vh.collateral1.setVisibility(View.VISIBLE);
-            vh.valuation.setVisibility(View.VISIBLE);
-            vh.valuation1.setVisibility(View.VISIBLE);
+            vh.mort_id.setText(tempRE.C_INFOID);
+            vh.mort_no.setText(tempRE.C_DYDJZH);
+            vh.mort_time.setText(tempRE.D_DJRQ);
+            vh.mort_date.setText(tempRE.D_SQRQ);
+            vh.mort_office.setText(tempRE.C_DJJG);
+            vh.mort_detail.setText(tempRE.C_DBFW);
+            vh.ll_val.setVisibility(View.GONE);
+            vh.ll_detail.setVisibility(View.VISIBLE);
+
+
         }
         return convertView;
     }
 
     class ViewHolder {
         TextView ctv;
-        TextView no;
-        TextView register_date;
-        TextView public_date;
-        TextView debts;
-        TextView office;
-        TextView detail1;
-        TextView detail;
-        TextView collateral1;
-        TextView collateral;
-        TextView valuation1;
-        TextView valuation;
+        TextView mort_id,mort_no,mort_time,mort_date,mort_office,mort_val;
+        TextView mort_detail;
+        LinearLayout ll_detail,ll_val;
+
+
     }
 }

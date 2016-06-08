@@ -8,6 +8,7 @@ import com.google.gson.Gson;
 import com.google.gson.internal.LinkedTreeMap;
 import com.google.gson.reflect.TypeToken;
 import com.yolanda.nohttp.rest.Response;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -19,7 +20,7 @@ public class MyhttpCallBack implements HttpCallBack {
     Gson gson;
     static Map<String, Object> map;
     String jsonString;
-    public static DataManager.baging baging=new DataManager.baging();
+    public static DataManager.baging baging = new DataManager.baging();
 
     private static MyhttpCallBack instance;
 
@@ -34,7 +35,7 @@ public class MyhttpCallBack implements HttpCallBack {
     @Override
     public void onSucceed(int what, Response response) {
         //gson = new Gson();
-          gson=new Gson();
+        gson = new Gson();
         switch (what) {
             case 0x021://获取城市
 
@@ -110,35 +111,35 @@ public class MyhttpCallBack implements HttpCallBack {
 //                List<DataManager.search> searchstrlist2 = gson.fromJson(((Map<String, Object>) map.get("data")).get("Result").toString(), new TypeToken<List<DataManager.search>>() {
 //                }.getType());
 //                DataManager.searchList = searchstrlist2;
-                baging=gson.fromJson(((Map<String, Object>) map.get("data")).get("Paging").toString(),DataManager.baging.class);
-                List<LinkedTreeMap> searchstrlist2= (List<LinkedTreeMap>) ((Map<String, Object>) map.get("data")).get("Result");
-                if(DataManager.searchList.size()!=0){
+                baging = gson.fromJson(((Map<String, Object>) map.get("data")).get("Paging").toString(), DataManager.baging.class);
+                List<LinkedTreeMap> searchstrlist2 = (List<LinkedTreeMap>) ((Map<String, Object>) map.get("data")).get("Result");
+                if (DataManager.searchList.size() != 0) {
                     DataManager.searchList.clear();
                 }
-                for(LinkedTreeMap temp:searchstrlist2){
-                    DataManager.search serchtemp=new DataManager.search();
-                    serchtemp.PRIPID= (String) temp.get("PRIPID");
-                    serchtemp.entname= (String) temp.get("entname");
-                    serchtemp.REGNO= (String) temp.get("REGNO");
-                    serchtemp.REGORG_CN= (String) temp.get("REGORG_CN");
-                    serchtemp.NAME= (String) temp.get("NAME");
-                    serchtemp.OPFROM= (String) temp.get("OPFROM");
-                    serchtemp.OPTO= (String) temp.get("OPTO");
-                    serchtemp.REGSTATE_CN= (String) temp.get("REGSTATE_CN");
-                    serchtemp.C_PROVINCE= (String) temp.get("C_PROVINCE");
-                    serchtemp.D_ADDTIME= (String) temp.get("D_ADDTIME");
-                    serchtemp.C_STATE= (String) temp.get("C_STATE");
-                    serchtemp.REGCAP= (String) temp.get("REGCAP");
-                    serchtemp.ENTTYPE_CN= (String) temp.get("ENTTYPE_CN");
-                    serchtemp.DOM= (String) temp.get("DOM");
-                    serchtemp.INDUSTRYPHY= (String) temp.get("INDUSTRYPHY");
-                    serchtemp.INDUSTRYPHY_NAME= (String) temp.get("INDUSTRYPHY_NAME");
-                    serchtemp.OPSCOPE= (String) temp.get("OPSCOPE");
+                for (LinkedTreeMap temp : searchstrlist2) {
+                    DataManager.search serchtemp = new DataManager.search();
+                    serchtemp.PRIPID = (String) temp.get("PRIPID");
+                    serchtemp.entname = (String) temp.get("entname");
+                    serchtemp.REGNO = (String) temp.get("REGNO");
+                    serchtemp.REGORG_CN = (String) temp.get("REGORG_CN");
+                    serchtemp.NAME = (String) temp.get("NAME");
+                    serchtemp.OPFROM = (String) temp.get("OPFROM");
+                    serchtemp.OPTO = (String) temp.get("OPTO");
+                    serchtemp.REGSTATE_CN = (String) temp.get("REGSTATE_CN");
+                    serchtemp.C_PROVINCE = (String) temp.get("C_PROVINCE");
+                    serchtemp.D_ADDTIME = (String) temp.get("D_ADDTIME");
+                    serchtemp.C_STATE = (String) temp.get("C_STATE");
+                    serchtemp.REGCAP = (String) temp.get("REGCAP");
+                    serchtemp.ENTTYPE_CN = (String) temp.get("ENTTYPE_CN");
+                    serchtemp.DOM = (String) temp.get("DOM");
+                    serchtemp.INDUSTRYPHY = (String) temp.get("INDUSTRYPHY");
+                    serchtemp.INDUSTRYPHY_NAME = (String) temp.get("INDUSTRYPHY_NAME");
+                    serchtemp.OPSCOPE = (String) temp.get("OPSCOPE");
                     DataManager.searchList.add(serchtemp);
                 }
                 if (DataManager.searchList != null && DataManager.searchList.size() > 0) {
                     SearchFirmActivty.handler.sendEmptyMessage(0);
-                }else{
+                } else {
                     SearchFirmActivty.handler.sendEmptyMessage(500);
                 }
                 break;
@@ -179,16 +180,16 @@ public class MyhttpCallBack implements HttpCallBack {
                     e.printStackTrace();
                 }*/
                 String str3 = (String) response.get();
-                map=gson.fromJson(str3,new TypeToken<Map<String, Object>>(){
+                map = gson.fromJson(str3, new TypeToken<Map<String, Object>>() {
                 }.getType());
-                List<LinkedTreeMap> list4= (List<LinkedTreeMap>)((Map<String, Object>)map.get("data")).get("industry");
-                if (DataManager.industryDataList.size()!=0){
+                List<LinkedTreeMap> list4 = (List<LinkedTreeMap>) ((Map<String, Object>) map.get("data")).get("industry");
+                if (DataManager.industryDataList.size() != 0) {
                     DataManager.industryDataList.clear();
                 }
-                for(LinkedTreeMap tempTree:list4){
-                    DataManager.industryData industryData=new DataManager.industryData();
-                    industryData.EC_VALUE= (String) tempTree.get("EC_VALUE");
-                    industryData.EC_NAME= (String) tempTree.get("EC_NAME");
+                for (LinkedTreeMap tempTree : list4) {
+                    DataManager.industryData industryData = new DataManager.industryData();
+                    industryData.EC_VALUE = (String) tempTree.get("EC_VALUE");
+                    industryData.EC_NAME = (String) tempTree.get("EC_NAME");
                     DataManager.industryDataList.add(industryData);
                 }
                 break;
@@ -197,11 +198,11 @@ public class MyhttpCallBack implements HttpCallBack {
                 String jstring0 = (String) response.get();
                 DataManager.Root0 jsonRoot0 = gson.fromJson(jstring0, new TypeToken<DataManager.Root0>() {
                 }.getType());
-                DataManager.Data0 dt=jsonRoot0.data;
+                DataManager.Data0 dt = jsonRoot0.data;
                 DataManager.Data0List.add(dt);
-                if (DataManager.Data0List!= null && DataManager.Data0List.size()>0) {
+                if (DataManager.Data0List != null && DataManager.Data0List.size() > 0) {
                     CompanyDetailsActivity.handler.sendEmptyMessage(0);
-                }else{
+                } else {
                     CompanyDetailsActivity.handler.sendEmptyMessage(500);
                 }
 
@@ -233,6 +234,21 @@ public class MyhttpCallBack implements HttpCallBack {
                 DataManager.supportInfoList = list3;
                 CompanyDetailsActivity.handler.sendEmptyMessage(3);
                 break;
+            case 0x004://抵押信息/动产
+                jsonString = (String) response.get();
+                map = gson.fromJson(jsonString, new TypeToken<Map<String, Object>>() {
+                }.getType());
+                DataManager.mortgageMP_List = gson.fromJson(((Map<String, Object>) map.get("data")).get("chattel").toString(), new TypeToken<List<DataManager.mortgageMP>>() {
+                }.getType());
+                break;
+            case 0x0041://抵押信息/不动产
+                jsonString = (String) response.get();
+                map = gson.fromJson(jsonString, new TypeToken<Map<String, Object>>() {
+                }.getType());
+                    DataManager.mortgageRE_List = gson.fromJson(((Map<String, Object>) map.get("data")).get("realEstate").toString(), new TypeToken<List<DataManager.mortgageRE>>() {
+                    }.getType());
+                CompanyDetailsActivity.handler.sendEmptyMessage(4);
+                 break;
             case 0x005://出质信息
                 String jstring5 = (String) response.get();
                 DataManager.Root5 jsonRoot5 = gson.fromJson(jstring5, new TypeToken<DataManager.Root5>() {
@@ -302,7 +318,12 @@ public class MyhttpCallBack implements HttpCallBack {
                 DataManager.Root8 jsonRoot8 = gson.fromJson(jstring8, new TypeToken<DataManager.Root8>() {
                 }.getType());
                 DataManager.punishInfoList = jsonRoot8.data;
-                CompanyDetailsActivity.handler.sendEmptyMessage(8);
+                if(DataManager.punishInfoList.size()>0 && DataManager.punishInfoList!=null){
+                    CompanyDetailsActivity.handler.sendEmptyMessage(8);
+                }else{
+                    CompanyDetailsActivity.handler.sendEmptyMessage(500);
+                }
+
                 break;
             case 0x009://经营异常信息
                 String jstring9 = (String) response.get();
@@ -311,7 +332,12 @@ public class MyhttpCallBack implements HttpCallBack {
                 List<DataManager.abnormalInfo> list9 = gson.fromJson(((Map<String, Object>) map.get("data")).get("abNormal").toString(), new TypeToken<List<DataManager.abnormalInfo>>() {
                 }.getType());
                 DataManager.abnormalInfoList = list9;
-                CompanyDetailsActivity.handler.sendEmptyMessage(9);
+                if(DataManager.abnormalInfoList.size()>0 && DataManager.abnormalInfoList!=null){
+                    CompanyDetailsActivity.handler.sendEmptyMessage(9);
+                }else{
+                    CompanyDetailsActivity.handler.sendEmptyMessage(500);
+                }
+
                 break;
             case 0x010://专利信息
                 String jstring10 = (String) response.get();
@@ -320,7 +346,12 @@ public class MyhttpCallBack implements HttpCallBack {
                 List<DataManager.patentInfo> list10 = gson.fromJson(((Map<String, Object>) map.get("data")).get("patentInfo").toString(), new TypeToken<List<DataManager.patentInfo>>() {
                 }.getType());
                 DataManager.patentInfoList = list10;
-                CompanyDetailsActivity.handler.sendEmptyMessage(10);
+                if(DataManager.patentInfoList.size()>0 && DataManager.patentInfoList!=null){
+                    CompanyDetailsActivity.handler.sendEmptyMessage(10);
+                }else{
+                    CompanyDetailsActivity.handler.sendEmptyMessage(500);
+                }
+
                 break;
             case 0x011://商标信息
                 String jstring11 = (String) response.get();
@@ -336,16 +367,27 @@ public class MyhttpCallBack implements HttpCallBack {
                 }
                 for (LinkedTreeMap temp : list11) {
                     DataManager.trademarkInfo trademarkInfo = new DataManager.trademarkInfo();
-                    trademarkInfo.registeredName = (String) temp.get("registeredName");
-                    trademarkInfo.iconUrl = (String) temp.get("iconUrl");
-                    trademarkInfo.applyNum = (String) temp.get("applyNum");
-                    trademarkInfo.applyDate = (String) temp.get("applyDate");
-                    trademarkInfo.RecognizedAuthority = (String) temp.get("RecognizedAuthority");
-                    trademarkInfo.applyPublishDate = (String) temp.get("applyPublishDate");
-                    trademarkInfo.identifiedDate = (String) temp.get("identifiedDate");
+                    trademarkInfo.ID  = (String) temp.get("ID");
+                    trademarkInfo.REGNO = (String) temp.get("REGNO");
+                    trademarkInfo.PRIPID= (String) temp.get("PRIPID");
+                    trademarkInfo.APPLICATIONDATE = (String) temp.get("APPLICATIONDATE");
+                    trademarkInfo.APPLICANT = (String) temp.get("APPLICANT");
+                    trademarkInfo.BRANDSTAUTS = (String) temp.get("BRANDSTAUTS");
+                    trademarkInfo.CLASSIFYID = (String) temp.get("CLASSIFYID");
+                    trademarkInfo.BRANDIMG = (String) temp.get("BRANDIMG");
+                    trademarkInfo.AGENCY = (String) temp.get("AGENCY");
+                    trademarkInfo.LIFESPAN = (String) temp.get("LIFESPAN");
+                    trademarkInfo.REGCORE = (String) temp.get("REGCORE");
+                    trademarkInfo.BRANDNAME = (String) temp.get("BRANDNAME");
+                    trademarkInfo.ENTNAME = (String) temp.get("ENTNAME");
+                    trademarkInfo.UNISCID = (String) temp.get("UNISCID");
                     DataManager.trademarkInfoList.add(trademarkInfo);
                 }
-                CompanyDetailsActivity.handler.sendEmptyMessage(11);
+                if(DataManager.trademarkInfoList.size()>0 && DataManager.trademarkInfoList!=null){
+                    CompanyDetailsActivity.handler.sendEmptyMessage(11);
+                }else{
+                    CompanyDetailsActivity.handler.sendEmptyMessage(500);
+                }
                 break;
             case 0x012://著作信息
                 String jstring12 = (String) response.get();
