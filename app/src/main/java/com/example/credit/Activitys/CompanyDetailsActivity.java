@@ -189,6 +189,11 @@ public class CompanyDetailsActivity extends BaseActivity {
                         startActivity(i6);
                         overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
                         break;
+                    case 7://预警信息
+                        Intent i7 = new Intent(CompanyDetailsActivity.this, AlertActivity.class);
+                        startActivity(i7);
+                        overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
+                        break;
                     case 8:
                         Intent i8 = new Intent(CompanyDetailsActivity.this, PunishActivity.class);
                         startActivity(i8);
@@ -282,7 +287,7 @@ public class CompanyDetailsActivity extends BaseActivity {
 
                     break;
                 case 5://出质信息
-                    GsonUtil request5 = new GsonUtil(URLconstant.URLINSER +URLconstant.PLEDGEURL, RequestMethod.GET);
+                    GsonUtil request5 = new GsonUtil(URLconstant.URLINSER + URLconstant.PLEDGEURL, RequestMethod.GET);
                     request5.add("token", token);
                     request5.add("deviceld", model);
                     request5.add("KeyNo", KeyNo);
@@ -290,18 +295,22 @@ public class CompanyDetailsActivity extends BaseActivity {
 
                     break;
                 case 6://司法信息
-                    GsonUtil request8 = new GsonUtil(URLconstant.JUDICIALURL, RequestMethod.GET);
-                    CallServer.getInstance().add(CompanyDetailsActivity.this, request8, MyhttpCallBack.getInstance(), 0X006, true, false, true);
+                    GsonUtil request6 = new GsonUtil(URLconstant.URLINSER + URLconstant.JUDICIALURL, RequestMethod.GET);
+                    request6.add("token", token);
+                    request6.add("deviceld", model);
+                    request6.add("KeyNo", KeyNo);
+                    CallServer.getInstance().add(CompanyDetailsActivity.this, request6, MyhttpCallBack.getInstance(), 0X006, true, false, true);
 
                     break;
                 case 7://预警信息
-                    CallServer.getInstance().add(CompanyDetailsActivity.this, new GsonUtil(URLconstant.GETALERT, RequestMethod.GET), MyhttpCallBack.getInstance(), 0x007, true, false, true);
-                    Intent i7 = new Intent(CompanyDetailsActivity.this, AlertActivity.class);
-                    startActivity(i7);
-                    overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
+                    GsonUtil request7 = new GsonUtil(URLconstant.URLINSER + URLconstant.GETALERT, RequestMethod.GET);
+                    request7.add("token", token);
+                    request7.add("deviceld", model);
+                    request7.add("KeyNo", KeyNo);
+                    CallServer.getInstance().add(CompanyDetailsActivity.this, request7, MyhttpCallBack.getInstance(), 0x007, true, false, true);
                     break;
                 case 8://行政处罚
-                    GsonUtil request = new GsonUtil(URLconstant.URLINSER +URLconstant.PUNISHURL, RequestMethod.GET);
+                    GsonUtil request = new GsonUtil(URLconstant.URLINSER + URLconstant.PUNISHURL, RequestMethod.GET);
                     request.add("token", token);
                     request.add("deviceld", model);
                     request.add("KeyNo", KeyNo);
@@ -343,11 +352,17 @@ public class CompanyDetailsActivity extends BaseActivity {
                     CallServer.getInstance().add(CompanyDetailsActivity.this, request11, MyhttpCallBack.getInstance(), 0x011, true, false, true);
                     break;
                 case 12://著作权
-                    GsonUtil request12 = new GsonUtil(URLconstant.COPYRIGHTURL, RequestMethod.GET);
+                    GsonUtil request12 = new GsonUtil(URLconstant.URLINSER +URLconstant.COPYRIGHTURL, RequestMethod.GET);
+                    request12.add("token", token);
+                    request12.add("deviceld", model);
+                    request12.add("KeyNo", KeyNo);
                     CallServer.getInstance().add(CompanyDetailsActivity.this, request12, MyhttpCallBack.getInstance(), 0x012, true, false, true);
                     break;
                 case 13://广告资质
-                    GsonUtil request13 = new GsonUtil(URLconstant.ADVERTISEMENTURL, RequestMethod.GET);
+                    GsonUtil request13 = new GsonUtil(URLconstant.URLINSER +URLconstant.ADVERTISEMENTURL, RequestMethod.GET);
+                    request13.add("token", token);
+                    request13.add("deviceld", model);
+                    request13.add("KeyNo", KeyNo);
                     CallServer.getInstance().add(CompanyDetailsActivity.this, request13, MyhttpCallBack.getInstance(), 0x013, true, false, true);
                     break;
                 case 14://守合同重信用
@@ -355,7 +370,8 @@ public class CompanyDetailsActivity extends BaseActivity {
                     CallServer.getInstance().add(CompanyDetailsActivity.this, request14, MyhttpCallBack.getInstance(), 0x014, true, false, true);
                     break;
                 case 15://自主公示
-                    CallServer.getInstance().add(CompanyDetailsActivity.this, new GsonUtil(URLconstant.GETAUTONOMY, RequestMethod.GET), MyhttpCallBack.getInstance(), MSG, true, false, true);
+                    GsonUtil request15 =new GsonUtil(URLconstant.URLINSER+URLconstant.GETAUTO,RequestMethod.GET);
+                    CallServer.getInstance().add(CompanyDetailsActivity.this, request15, MyhttpCallBack.getInstance(), MSG, true, false, true);
                     startActivity(new Intent(CompanyDetailsActivity.this, AutonomyActivity.class));
                     overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
                     break;

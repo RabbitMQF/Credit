@@ -31,16 +31,19 @@ public class CreditSharePreferences {
 
     //保存历史记录
     public void putHistory(String listory) {
+        if(sp!=null){
         Editor editor = sp.edit();
         editor.putString("listory", listory);
-        editor.commit();
+        editor.commit();}
     }
 
     public String getHistory() {
        if(sp!=null) {
            return sp.getString("listory", null);
+       }else{
+           return "";
        }
-        return null;
+
     }
 
 }

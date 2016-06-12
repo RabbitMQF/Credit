@@ -99,12 +99,11 @@ public class JudicialAdapter extends BaseAdapter {
             listst.add(list3.get(position).detail);
         }
         if(list4!=null && list4.size()>0){
-            listst.add(list4.get(position).time);
-            listst.add(list4.get(position).term);
-            listst.add(list4.get(position).company);
-            listst.add(list4.get(position).shareholderName);
-            listst.add(list4.get(position).money);
-            listst.add(list4.get(position).detail);
+            listst.add(list4.get(position).FROFROM);
+            listst.add(list4.get(position).FROZDEADLINE);
+            listst.add(list4.get(position).FROAUTH);
+            listst.add(list4.get(position).INVTYPE_CN);
+            listst.add(list4.get(position).FROAM);
         }
         Judicial_cItemAdapter adapter=new Judicial_cItemAdapter(context,listst,lists);
         vh.jListView_item.setAdapter(adapter);

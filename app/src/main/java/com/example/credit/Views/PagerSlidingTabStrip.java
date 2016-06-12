@@ -43,7 +43,7 @@ import android.widget.TextView;
 import com.example.credit.R;
 
 import java.util.Locale;
-
+@SuppressWarnings("ResourceType")
 public class PagerSlidingTabStrip extends HorizontalScrollView {
 
 	public interface IconTabProvider {

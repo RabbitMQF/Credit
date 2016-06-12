@@ -209,7 +209,6 @@
         <item>冻结机关</item>
         <item>股东姓名（姓名）</item>
         <item>冻结股权数额</item>
-        <item>详情</item>
     </string-array>
 <!--===========================================-->
     <string-array name="advertisement"><!--广告信息-->

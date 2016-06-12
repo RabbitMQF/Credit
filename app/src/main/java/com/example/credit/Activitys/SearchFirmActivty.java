@@ -329,7 +329,7 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
         searchContent = (RelativeLayout) findViewById(R.id.searchContent);
         history_list_null = (TextView) findViewById(R.id.history_list_null);
         csp = CreditSharePreferences.getLifeSharedPreferences();
-        if(csp.getHistory().equals("")){//给历史记录赋初始值
+        if(csp.getHistory()==null||csp.getHistory().equals("")){//给历史记录赋初始值
             String Tnameh = "江西,南昌,智容,李良,QQ,胡歌,南昌红谷滩,美年达,A,笔记本,联想,科技,China,";//历史字备用
             csp.putHistory(Tnameh);
         }

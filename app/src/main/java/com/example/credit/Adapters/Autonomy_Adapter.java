@@ -18,20 +18,24 @@ import java.util.List;
  */
 public class Autonomy_Adapter extends BaseAdapter {
     Context context;
-    List<DataManager.report> reportList;
-    List<DataManager.funded> fundedList;
-    List<DataManager.stock> stockList;
-    List<DataManager.permit> permitList;
+    List<DataManager.report> reportList;//企业年报
+    List<DataManager.funded> fundedList;//股东出资
+    List<DataManager.stock> stockList;//股权变更
+    List<DataManager.permit> permitList;//行政许可信
+    List<DataManager.lore> loreList;//知识产权
+    List<DataManager.punish> punishList;//行政处罚
 
     public Autonomy_Adapter(Context context) {
         this.context = context;
     }
 
-    public void setData(List<DataManager.report> reportList, List<DataManager.funded> fundedList, List<DataManager.stock> stockList, List<DataManager.permit> permitList) {
+    public void setData(List<DataManager.report> reportList, List<DataManager.funded> fundedList, List<DataManager.stock> stockList, List<DataManager.permit> permitList,List<DataManager.lore> loreList,List<DataManager.punish> punishList) {
         this.reportList = reportList;
         this.fundedList = fundedList;
         this.stockList = stockList;
         this.permitList = permitList;
+        this.loreList=loreList;
+        this.punishList=punishList;
     }
 
     @Override
@@ -47,7 +51,14 @@ public class Autonomy_Adapter extends BaseAdapter {
         }
         if (permitList != null) {
             return permitList.size();
-        } else {
+        }
+        if(loreList!=null){
+            return loreList.size();
+        }
+        if (punishList!=null){
+            return punishList.size();
+        }
+        else {
             return 0;
         }
 
@@ -66,7 +77,14 @@ public class Autonomy_Adapter extends BaseAdapter {
         }
         if (permitList != null) {
             return permitList.get(position);
-        } else {
+        }
+        if(loreList!=null){
+            return loreList.get(position);
+        }
+        if (punishList!=null){
+            return punishList.get(position);
+        }
+        else {
             return null;
         }
     }
@@ -120,49 +138,47 @@ public class Autonomy_Adapter extends BaseAdapter {
                 vh.permit_content = (TextView) convertView.findViewById(R.id.permit_content);
             } else {
             }
-            if (reportList != null) {
-
-                DataManager.report report = reportList.get(position);
-                vh.report_year.setText(report.name);
-                vh.report_date.setText(report.time);
-            }
-            if (fundedList != null) {
-                DataManager.funded funded = fundedList.get(position);
-                vh.partenr.setText(funded.shareholdersName);
-                vh.money.setText(funded.subscribedNums);
-                vh.true_money.setText(funded.actuallyPaidNums);
-                vh.subscribed_type.setText(funded.subscribedWay);
-                vh.subscribed.setText(funded.subscribedNum);
-                vh.subscribed_time.setText(funded.subscribedDate);
-                vh.paid_type.setText(funded.actuallyPaidWay);
-                vh.paid.setText(funded.actuallyPaidNum);
-                vh.paid_time.setText(funded.actuallyPaidDate);
-                vh.funded_public_time.setText(funded.publishDate);
-            }
-            if (stockList != null) {
-                DataManager.stock stock = stockList.get(position);
-                vh.stock_time.setText(stock.changeDate);
-                vh.AfterContent.setText(stock.afterChange);
-                vh.BeforeContent.setText(stock.beforeChange);
-            }
-            if (permitList != null) {
-                DataManager.permit permit = permitList.get(position);
-                vh.permit_name.setText(permit.licenseName);
-                vh.permit_no.setText(permit.licenseNum);
-                vh.permit_date.setText(permit.invalidDate);
-                vh.permit_office.setText(permit.licenseDepart);
-                vh.permit_time.setText(permit.sendDate);
-                vh.permit_content.setText(permit.licensedContent);
-
-            } else {
-            }
-
-
             convertView.setTag(vh);
         } else {
             vh = (ViewHolder) convertView.getTag();
         }
 
+        if (reportList != null) {
+
+            DataManager.report report = reportList.get(position);
+            vh.report_year.setText(report.ANCHEYEAR);
+            vh.report_date.setText(report.ANCHEDATE);
+        }
+        if (fundedList != null) {
+            DataManager.funded funded = fundedList.get(position);
+            vh.partenr.setText(funded.INVNAME);
+            vh.money.setText(funded.LISUBCONAM);
+            vh.true_money.setText(funded.LIACCONAM);
+            vh.subscribed_type.setText(funded.SUBCONFORM);
+            vh.subscribed.setText(funded.LISUBCONAM);
+            vh.subscribed_time.setText(funded.SUBCONDATE);
+            vh.paid_type.setText(funded.ACCONFORM);
+            vh.paid.setText(funded.LIACCONAM);
+            vh.paid_time.setText(funded.ACCONDATE);
+            vh.funded_public_time.setText(funded.SUBCONDATE);
+        }
+        if (stockList != null) {
+            DataManager.stock stock = stockList.get(position);
+            vh.stock_time.setText(stock.ALTDATE);
+            vh.AfterContent.setText(stock.TRANSAMAFT);
+            vh.BeforeContent.setText(stock.TRANSAMPR);
+        }
+        if (permitList != null) {
+            DataManager.permit permit = permitList.get(position);
+            vh.permit_name.setText(permit.LICNAME_CN);
+            vh.permit_no.setText(permit.LICNO);
+            vh.permit_date.setText(permit.invalidDate);
+            vh.permit_office.setText(permit.LICANTH);
+            vh.permit_time.setText(permit.PUBLICDATE);
+            vh.permit_content.setText(permit.LICITEM);
+
+        } else {
+        }
 
         return convertView;
     }

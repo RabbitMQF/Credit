@@ -1,7 +1,5 @@
 package com.example.credit.Entitys;
 
-import android.widget.TextView;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -121,7 +119,8 @@ public class DataManager {
 //        public String CityCode;
 //    }
 
-    public static List<citys> citysList=new ArrayList<>();
+    public static List<citys> citysList = new ArrayList<>();
+
     /**
      * 省份实体类
      */
@@ -133,6 +132,7 @@ public class DataManager {
     }
 
     public static List<citycode> citycodeList = new ArrayList<>();
+
     /**
      * 城市实体类
      */
@@ -140,10 +140,11 @@ public class DataManager {
         public String c_code;
         public String c_name;
     }
+
     public static List<String> city = new ArrayList<>();//城市数据源
 
 
-    public static List<industryData> industryDataList=new ArrayList<>();
+    public static List<industryData> industryDataList = new ArrayList<>();
 
     /**
      * 行业实体类
@@ -267,6 +268,7 @@ public class DataManager {
         public String ALTDATE;//变更日期
         public List<ChangeData> changedata;//变更信息
     }
+
     public static class ChangeData {//临时仓库
         public String ALTDATE;//变更日期
         public String ALTITEM_CN;//变更事项
@@ -323,7 +325,7 @@ public class DataManager {
     public static class mortgageMP {
         public String MORREG_ID;//抵押登记ID
         public String MORREGCNO;//登记编号
-        public String REGIDATE ;//登记日期
+        public String REGIDATE;//登记日期
         public String PUBLICDATE;//公示日期
         public String REGORG_CN;//登记机关
         public String PRICLASECAM;//抵押数额 万元
@@ -342,7 +344,7 @@ public class DataManager {
         public String D_SQRQ;//公示时间
         public String C_DJJG;//登记机关
         public String C_DBFW;//详情
-       // public String valuation;//抵押物估值
+        // public String valuation;//抵押物估值
     }
 
     /**
@@ -373,7 +375,6 @@ public class DataManager {
         public String HONORCONTENT;//荣誉内容（类型）
         public String ORGAN;//机关
         public String C_UNIQUE_CODE;//统一社会信用代码
-
     }
 
     /**
@@ -407,7 +408,7 @@ public class DataManager {
         public String REGNO;//股权所在公司注册号
         public String EQUITYNO;//股权登记编号
         public String PLEDGOR;//出质人
-        public String PLEDBLICNO ;//出质人证照号
+        public String PLEDBLICNO;//出质人证照号
         public String PLEDBLICTYPE_CN;//出质人证件类型
         public String IMPAM;//出质股权数额
         public String IMPORG;//质权人
@@ -503,22 +504,17 @@ public class DataManager {
     /**
      * 著作信息实体类
      */
-    public class Root12 {
-        public String status;
-        public String message;
-        public List<copyrightInfo> data;
-    }
 
     public static List<copyrightInfo> copyrightInfoList;
 
     public static class copyrightInfo {
-        public String No;
-        public String literatureName;
-        public String registerDate;
-        public String registerNum;
-        public String category;
-        public String literatureCompleteData;
-        public String firstPublishDate;
+        public String ID;
+        public String WORKNAME;//作品名称
+        public String REGISTERDATA;//登记日期
+        public String REGISTERID;//登记号
+        public String WORKCLASS;//作品类别
+        public String FINISHDATE;//创作完成日期
+        public String FIRSTDATE;//首次发表日期
 
     }
 
@@ -526,12 +522,13 @@ public class DataManager {
     public static List<report> reportList = new ArrayList<>();
 
     /**
+     * 自主公示
      * 企业年报实体类
      */
     public static class report {
-        public String NO;//编号
-        public String name;//标题
-        public String time;//时间
+        public String ANCHEID;//年报id
+        public String ANCHEYEAR;//年度报告
+        public String ANCHEDATE;//年报时间
         public String url;//h5地址
 
     }
@@ -540,53 +537,103 @@ public class DataManager {
     public static List<funded> fundedList = new ArrayList<>();
 
     /**
+     * 自主公示
      * 股东出资
      */
     public static class funded {
-        public String shareholdersName;//股东
-        public String subscribedNums;//认缴额
-        public String actuallyPaidNums;//实缴额
-        public String subscribedWay;//认缴出资方式
-        public String subscribedNum;//认缴出资额
-        public String subscribedDate;//认缴出资日期
-        public String actuallyPaidWay;//实缴出资方式
-        public String actuallyPaidNum;//实缴出资额
-        public String actuallyPaidDate;//实缴出资日期
-        public String publishDate;//公示日期
+        public String INVNAME;//股东 发起人名字
+        public String LISUBCONAM;//认缴额=认缴出资额
+        public String LIACCONAM;//实缴额=实缴出资额
+        public String SUBCONFORM;//认缴出资方式
+        //public String subscribedNum;//认缴出资额
+        public String SUBCONDATE;//认缴出资日期=公示日期
+        public String ACCONFORM;//实缴出资方式
+        //public String actuallyPaidNum;//实缴出资额
+        public String ACCONDATE;//实缴出资日期
+        //public String publishDate;//公示日期
     }
 
 
     public static List<stock> stockList = new ArrayList<>();
 
     /**
+     * 自主公示
      * 股权变更
      */
     public static class stock {
-        public String changeDate;//时间
-        public String afterChange;//变更后
-        public String beforeChange;//变更前
+        public String ALTDATE;//时间
+        public String TRANSAMAFT;//变更后
+        public String TRANSAMPR;//变更前
     }
 
 
     public static List<permit> permitList = new ArrayList<>();
 
     /**
+     * 自主公示
      * 行政许可信息实体类
      */
     public static class permit {
-        public String licenseName;//许可文件名称
-        public String licenseNum;//许可证号
-        public String invalidDate;//有效期
-        public String licenseDepart;//许可机关
-        public String sendDate;//发证日期
-        public String licensedContent;//许可内容
+        public String LICNAME_CN;//许可文件名称
+        public String LICNO;//许可文件编号
+        public String VALFROM;//有效期起
+        public String VALTO;//有效期止
+        public String LICANTH;//许可机关
+        public String PUBLICDATE;//公示日期
+        public String LICITEM;//许可内容
+        public String invalidDate;//起止时间拼接
     }
 
+    public static List<lore> loreList = new ArrayList<>();
+
+    /**
+     * 自主公示
+     * 知识产权实体类
+     */
+    public static class lore {
+        /**
+         * PLEID : 1
+         * PRIPID : 111111
+         * ENTNAME : 大魔王
+         * REGNO : 2222
+         */
+        public String PLEID;//出质ID
+        public String PRIPID;//主体身份证代码
+        public String ENTNAME;//企业机构名称
+        public String REGNO;//注册号
+
+    }
+
+
+    public static List<punish> punishList=new ArrayList<>();
+    /**
+     * 自主公示
+     * 行政处罚信息
+     */
+    public static class punish {
+        public String CASEID;//行政处罚ID
+        public String PRIPID;//主体身份代码
+        public String ENTNAME;//企业(机构)名称
+        public String REGNO;//注册号
+        public String UNISCID;//统一社会信用代码
+        public String PENDECNO;//处罚决定书文号
+        public String ILLEGACTTYPE;//违法行为类型
+        public String PENTYPE;//处罚种类
+        public String PENTYPE_CN;//处罚种类（中文名称）
+        public String PENAM;//罚款金额
+        public String FORFAM;//没收金额
+        public String PENCONTENT;//处罚内容
+        public String JUDAUTH;//作出行政处罚决定机关名称
+        public String PENDECISSDATE;//作出处罚决定书日期
+        public String PUBLICDATE;//公示日期
+        public String REMARK;//备注
+    }
+
+
+    public static List<paperwork_expire> paperwork_expireList = new ArrayList<>();
     /**
      * 证照到期
      */
-    public static List<paperwork_expire> paperwork_expireList = new ArrayList<>();
-
     public static class paperwork_expire {
         public String No;//编号
         public String certificateName;//证件名
@@ -700,15 +747,14 @@ public class DataManager {
     public static List<FrozenInformation> FrozenInformationList;
 
     public static class FrozenInformation {//股权冻结信息
-        public String No;
-        public String time;
-        public String term;
-        public String company;
-        public String shareholderName;
-        public String money;
-        public String detail;
-
+        public String FROID;//冻结ID
+        public String FROFROM;//冻结期限自
+        public String FROZDEADLINE;//冻结期限
+        public String FROAUTH;//执行法院
+        public String INVTYPE_CN;//被执行人
+        public String FROAM;//股权数额
     }
+
     /**
      * 广告信息实体类
      */
@@ -764,7 +810,7 @@ public class DataManager {
     /**
      * 搜索接口返回参数实体类
      */
-    public static class baging{
+    public static class baging {
         public String PageSize;
         public String PageIndex;
         public String TotalRecords;

@@ -346,9 +346,9 @@ public class MyhttpCallBack implements HttpCallBack {
                 List<DataManager.patentInfo> list10 = gson.fromJson(((Map<String, Object>) map.get("data")).get("patentInfo").toString(), new TypeToken<List<DataManager.patentInfo>>() {
                 }.getType());
                 DataManager.patentInfoList = list10;
-                if(DataManager.patentInfoList.size()>0 && DataManager.patentInfoList!=null){
+                if (DataManager.patentInfoList.size() > 0 && DataManager.patentInfoList != null) {
                     CompanyDetailsActivity.handler.sendEmptyMessage(10);
-                }else{
+                } else {
                     CompanyDetailsActivity.handler.sendEmptyMessage(500);
                 }
 
@@ -367,9 +367,9 @@ public class MyhttpCallBack implements HttpCallBack {
                 }
                 for (LinkedTreeMap temp : list11) {
                     DataManager.trademarkInfo trademarkInfo = new DataManager.trademarkInfo();
-                    trademarkInfo.ID  = (String) temp.get("ID");
+                    trademarkInfo.ID = (String) temp.get("ID");
                     trademarkInfo.REGNO = (String) temp.get("REGNO");
-                    trademarkInfo.PRIPID= (String) temp.get("PRIPID");
+                    trademarkInfo.PRIPID = (String) temp.get("PRIPID");
                     trademarkInfo.APPLICATIONDATE = (String) temp.get("APPLICATIONDATE");
                     trademarkInfo.APPLICANT = (String) temp.get("APPLICANT");
                     trademarkInfo.BRANDSTAUTS = (String) temp.get("BRANDSTAUTS");
@@ -383,17 +383,23 @@ public class MyhttpCallBack implements HttpCallBack {
                     trademarkInfo.UNISCID = (String) temp.get("UNISCID");
                     DataManager.trademarkInfoList.add(trademarkInfo);
                 }
-                if(DataManager.trademarkInfoList.size()>0 && DataManager.trademarkInfoList!=null){
+                if (DataManager.trademarkInfoList.size() > 0 && DataManager.trademarkInfoList != null) {
                     CompanyDetailsActivity.handler.sendEmptyMessage(11);
-                }else{
+                } else {
                     CompanyDetailsActivity.handler.sendEmptyMessage(500);
                 }
                 break;
             case 0x012://著作信息
                 String jstring12 = (String) response.get();
-                DataManager.Root12 jsonRoot12 = gson.fromJson(jstring12, new TypeToken<DataManager.Root12>() {
+//                DataManager.Root12 jsonRoot12 = gson.fromJson(jstring12, new TypeToken<DataManager.Root12>() {
+//                }.getType());
+//                DataManager.copyrightInfoList = jsonRoot12.data;
+
+                map = gson.fromJson(jstring12, new TypeToken<Map<String, Object>>() {
                 }.getType());
-                DataManager.copyrightInfoList = jsonRoot12.data;
+                List<DataManager.copyrightInfo> list12 = gson.fromJson(((Map<String, Object>) map.get("data")).get("patentInfo").toString(), new TypeToken<List<DataManager.copyrightInfo>>() {
+                }.getType());
+                DataManager.copyrightInfoList = list12;
                 CompanyDetailsActivity.handler.sendEmptyMessage(12);
                 break;
             case 0x013://广告信息
@@ -419,6 +425,7 @@ public class MyhttpCallBack implements HttpCallBack {
                 map = gson.fromJson(jsonString, new TypeToken<Map<String, Object>>() {
                 }.getType());
                 List<LinkedTreeMap> listtemp = (List<LinkedTreeMap>) map.get("data");
+
                 for (int i = 0; i < listtemp.size(); i++) {
                     switch (listtemp.get(i).get("type").toString()) {
                         case "企业年报":
@@ -437,6 +444,14 @@ public class MyhttpCallBack implements HttpCallBack {
                             DataManager.permitList = gson.fromJson(listtemp.get(i).get("date").toString(), new TypeToken<List<DataManager.permit>>() {
                             }.getType());
                             break;
+                        case "知识产权登记信息":
+                            DataManager.loreList = gson.fromJson(listtemp.get(i).get("date").toString(), new TypeToken<List<DataManager.lore>>() {
+                            }.getType());
+                            break;
+                        case "行政处罚信息":
+                            DataManager.punishList = gson.fromJson(listtemp.get(i).get("date").toString(), new TypeToken<List<DataManager.punish>>() {
+                            }.getType());
+                            break;
                         default:
                             break;
                     }
@@ -452,6 +467,13 @@ public class MyhttpCallBack implements HttpCallBack {
 
     @Override
     public void onFailed(int what, String url, Object tag, Exception exception, int responseCode, long networkMillis) {
+        switch (what) {
+            case 0x022://搜索接口
+                SearchFirmActivty.pd.dismiss();
+                break;
+            default:
+                break;
 
+        }
     }
 }

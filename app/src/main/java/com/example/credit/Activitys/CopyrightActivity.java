@@ -43,7 +43,7 @@ public class CopyrightActivity extends BaseActivity {
         });
         List<String> list = new ArrayList<>();
         for(DataManager.copyrightInfo p:DataManager.copyrightInfoList){
-            list.add(p.literatureName);
+            list.add(p.WORKNAME);
         }
         CC_List_itemAdapter adapter = new CC_List_itemAdapter(CopyrightActivity.this, list,"copyright",null);
         ccListView1.setAdapter(adapter);

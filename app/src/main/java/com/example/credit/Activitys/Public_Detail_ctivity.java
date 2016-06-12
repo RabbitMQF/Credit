@@ -83,12 +83,12 @@ public class Public_Detail_ctivity extends BaseActivity {
             list2 = Arrays.asList(getResources().getStringArray(R.array.punish_c));
 
         } else if (state.equals("copyright")) {//著作
-            list1.add(DataManager.copyrightInfoList.get(position).literatureName);
-            list1.add(DataManager.copyrightInfoList.get(position).registerDate);
-            list1.add(DataManager.copyrightInfoList.get(position).registerNum);
-            list1.add(DataManager.copyrightInfoList.get(position).category);
-            list1.add(DataManager.copyrightInfoList.get(position).literatureCompleteData);
-            list1.add(DataManager.copyrightInfoList.get(position).firstPublishDate);
+            list1.add(DataManager.copyrightInfoList.get(position).WORKNAME);
+            list1.add(DataManager.copyrightInfoList.get(position).REGISTERDATA);
+            list1.add(DataManager.copyrightInfoList.get(position).REGISTERID);
+            list1.add(DataManager.copyrightInfoList.get(position).WORKCLASS);
+            list1.add(DataManager.copyrightInfoList.get(position).FINISHDATE);
+            list1.add(DataManager.copyrightInfoList.get(position).FIRSTDATE);
             list2 = Arrays.asList(getResources().getStringArray(R.array.copyright_c));
 
         } else if (state.equals("trademark")) {//商标
