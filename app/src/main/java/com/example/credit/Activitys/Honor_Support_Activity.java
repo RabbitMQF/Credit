@@ -19,10 +19,10 @@ import com.lidroid.xutils.view.annotation.ViewInject;
  *荣誉信息和企业扶持界面
  */
 public class Honor_Support_Activity extends BaseActivity {
-    @ViewInject(R.id.h_return)
-    ImageView h_return;
-    @ViewInject(R.id.h_topname)
-    TextView h_topname;
+    @ViewInject(R.id.b_return)
+    ImageView b_return;
+    @ViewInject(R.id.b_topname)
+    TextView b_topname;
     @ViewInject(R.id.sh_tit)
     TextView sh_tit;
 
@@ -38,7 +38,7 @@ public class Honor_Support_Activity extends BaseActivity {
         setContentView(R.layout.activity_honor_support);
         ViewUtils.inject(this);
         hs_sc.smoothScrollTo(0,20);
-        h_return.setOnClickListener(new View.OnClickListener() {
+        b_return.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
@@ -47,13 +47,16 @@ public class Honor_Support_Activity extends BaseActivity {
         });
         Intent i=getIntent();
         int st=i.getIntExtra("st",0);
+//        String Tname=i.getStringExtra("Tname");
         switch (st){
             case 1:
+                b_topname.setText("企业荣誉信息");
                 sh_tit.setText("荣誉信息");
                 Honor_CAdapter hcadapter1=new Honor_CAdapter(Honor_Support_Activity.this, DataManager.honorInfoList);
                 hListView1.setAdapter(hcadapter1);
                 break;
             case 2:
+                b_topname.setText("扶持信息");
                 sh_tit.setText("企业扶持");
                Support_CAdapter hcadapter2=new Support_CAdapter(Honor_Support_Activity.this, DataManager.supportInfoList);
                 hListView1.setAdapter(hcadapter2);

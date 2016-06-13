@@ -22,10 +22,10 @@ import java.util.List;
  * 商标信息主界面
  */
 public class TrademarkActivity extends BaseActivity {
-    @ViewInject(R.id.t_return)
-    ImageView t_return;
-    @ViewInject(R.id.t_topname)
-    TextView t_topname;
+    @ViewInject(R.id.b_return)
+    ImageView b_return;
+    @ViewInject(R.id.b_topname)
+    TextView b_topname;
 
     @ViewInject(R.id.tListView1)
     ListView tListView1;
@@ -34,7 +34,11 @@ public class TrademarkActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_trademark);
         ViewUtils.inject(this);
-        t_return.setOnClickListener(new View.OnClickListener() {
+        b_topname.setText("商标信息");
+//        Intent i=getIntent();
+//        String Tname=i.getStringExtra("Tname");
+//        t_topname.setText(Tname);
+        b_return.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();

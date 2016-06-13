@@ -40,11 +40,11 @@ public class DetailsContentActivity extends BaseActivity {
 //    @ViewInject(R.id.about_top)
 //    LinearLayout about_top;//返回
 
-    @ViewInject(R.id.c_return)
-    ImageView c_return;//返回
+    @ViewInject(R.id.b_return)
+    ImageView b_return;//返回
 
-    @ViewInject(R.id.topname)
-    TextView topname;//企业名称
+    @ViewInject(R.id.b_topname)
+    TextView b_topname;//企业名称
 
     @ViewInject(R.id.c_tab1)
     Button c_tab1;
@@ -314,7 +314,7 @@ public class DetailsContentActivity extends BaseActivity {
     }
 
     public void init() {
-        c_return.setOnClickListener(new View.OnClickListener() {
+        b_return.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
@@ -339,7 +339,8 @@ public class DetailsContentActivity extends BaseActivity {
         myGridView3.setAdapter(adapter2);
         myGridView3.setSelector(new ColorDrawable(Color.TRANSPARENT));
 
-        topname.setText(Tname);//标题
+        //b_topname.setText(Tname);//标题
+        b_topname.setText("企业工商信息");
         /**
          * 判断企业类型是否为空
          */

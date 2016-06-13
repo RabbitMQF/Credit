@@ -19,11 +19,14 @@ import com.lidroid.xutils.view.annotation.ViewInject;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * 司法信息详情页
+ */
 public class Judicial_CActivity extends Activity {
-    @ViewInject(R.id.jc_return)
-    ImageView j_return;
-    @ViewInject(R.id.jc_topname)
-    TextView p_topname;
+    @ViewInject(R.id.b_return)
+    ImageView b_return;
+    @ViewInject(R.id.b_topname)
+    TextView b_topname;
 
     @ViewInject(R.id.juh_tit)
     TextView juh_tit;
@@ -40,11 +43,12 @@ public class Judicial_CActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_judicial__c);
         ViewUtils.inject(this);
+        b_topname.setText("司法信息");
         js_sc.smoothScrollTo(0,20);
         Intent i = getIntent();
         position = i.getIntExtra("postion", 0);
         state = i.getStringExtra("state");
-        j_return.setOnClickListener(new View.OnClickListener() {
+        b_return.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();

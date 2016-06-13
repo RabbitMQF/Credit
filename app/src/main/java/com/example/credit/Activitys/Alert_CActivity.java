@@ -21,10 +21,10 @@ import com.lidroid.xutils.view.annotation.ViewInject;
  * 预警信息子项公用界面
  */
 public class Alert_CActivity extends BaseActivity {
-    @ViewInject(R.id.bc_return)
-    ImageView bc_return;
-    @ViewInject(R.id.bc_topname)
-    TextView bc_topname;
+    @ViewInject(R.id.b_return)
+    ImageView b_return;
+    @ViewInject(R.id.b_topname)
+    TextView b_topname;
 
     @ViewInject(R.id.alert_title)
     TextView alert_title;
@@ -40,10 +40,11 @@ public class Alert_CActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_alert__content);
         ViewUtils.inject(this);
+        b_topname.setText("预警信息");
         Intent i = getIntent();
         position = i.getIntExtra("position", 0);
         key= i.getStringExtra("key");
-        bc_return.setOnClickListener(new View.OnClickListener() {
+        b_return.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
@@ -59,32 +60,32 @@ public class Alert_CActivity extends BaseActivity {
         adapter=new Alert_Adapter(this);
         switch (key){
             case "证照到期":
-                adapter.setData(DataManager.paperwork_expireList,null,null,null,null,null);
+                adapter.setData(DataManager.pdateList_zzdq,null,null,null,null,null);
                 alert_lv.setAdapter(adapter);
                 adapter.notifyDataSetChanged();
                 break;
             case "证照过期":
-                adapter.setData(null,DataManager.paperwork_ExpiredList,null,null,null,null);
+                adapter.setData(null,DataManager.pdateList_zzgq,null,null,null,null);
                 alert_lv.setAdapter(adapter);
                 adapter.notifyDataSetChanged();
                 break;
             case "责令改正":
-                adapter.setData(null,null,DataManager.correctionList,null,null,null);
+                adapter.setData(null,null,DataManager.pdateList_zlgz,null,null,null);
                 alert_lv.setAdapter(adapter);
                 adapter.notifyDataSetChanged();
                 break;
             case "欠贷信息":
-                adapter.setData(null,null,null,DataManager.loanList,null,null);
+                adapter.setData(null,null,null,DataManager.pdateList_qdxx,null,null);
                 alert_lv.setAdapter(adapter);
                 adapter.notifyDataSetChanged();
                 break;
             case "欠税信息":
-                adapter.setData(null,null,null,null,DataManager.taxesList,null);
+                adapter.setData(null,null,null,null,DataManager.pdateList_qsxx,null);
                 alert_lv.setAdapter(adapter);
                 adapter.notifyDataSetChanged();
                 break;
             case "欠薪信息":
-                adapter.setData(null,null,null,null,null,DataManager.wagesList);
+                adapter.setData(null,null,null,null,null,DataManager.pdateList_qxxx);
                 alert_lv.setAdapter(adapter);
                 adapter.notifyDataSetChanged();
                 break;

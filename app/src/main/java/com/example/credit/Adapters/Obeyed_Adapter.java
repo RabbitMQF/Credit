@@ -52,10 +52,9 @@ public class Obeyed_Adapter extends BaseAdapter {
         }else {
             vh= (ViewHolder) convertView.getTag();
             DataManager.obeyedInfo temp=advertisementList.get(position);
-            vh.puc_tv1.setText(temp.publicName);
-            vh.puc_tv2.setText(temp.publicDate);
+            vh.puc_tv1.setText(temp.ENTNAME);
+            vh.puc_tv2.setText(temp.IDENTIFYDATE);
         }
-
         return convertView;
     }
 

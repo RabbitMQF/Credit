@@ -1,6 +1,7 @@
 package com.example.credit.Activitys;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -19,10 +20,10 @@ import com.lidroid.xutils.view.annotation.ViewInject;
  *守合同重信用界面
  */
 public class ObeyedActivity extends BaseActivity {
-    @ViewInject(R.id.o_return)
-    ImageView o_return;
-    @ViewInject(R.id.o_topname)
-    TextView o_topname;
+    @ViewInject(R.id.b_return)
+    ImageView b_return;
+    @ViewInject(R.id.b_topname)
+    TextView b_topname;
 
     @ViewInject(R.id.o_scs)
     ScrollView o_scs;
@@ -33,8 +34,12 @@ public class ObeyedActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_obeyed);
         ViewUtils.inject(this);
+        b_topname.setText("守合同重信");
         o_scs.smoothScrollTo(0,20);
-        o_return.setOnClickListener(new View.OnClickListener() {
+//        Intent i=getIntent();
+//        String Tname=i.getStringExtra("Tname");
+//        o_topname.setText(Tname);
+        b_return.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();

@@ -20,7 +20,7 @@ import com.example.credit.Views.MyListView;
 public class Autonomy_Detail_Activity extends BaseActivity{
    LinearLayout report,funded,stock,permit;
     MyListView report_lv,funded_lv,stock_lv,permit_lv;
-    TextView report_title;
+    TextView report_title,topBarTV;
     String value;
     Intent in;
     Autonomy_Adapter autoAdapter=new Autonomy_Adapter(this);
@@ -43,6 +43,7 @@ public class Autonomy_Detail_Activity extends BaseActivity{
     }
 
     private void initview() {
+        topBarTV= (TextView) findViewById(R.id.b_topname);
         report_title= (TextView) findViewById(R.id.report_title);
         report= (LinearLayout) findViewById(R.id.report_content);
         funded= (LinearLayout) findViewById(R.id.funded_content);
@@ -101,13 +102,14 @@ public class Autonomy_Detail_Activity extends BaseActivity{
 
 
 
-          findViewById(R.id.c_return).setOnClickListener(new View.OnClickListener() {
+          findViewById(R.id.b_return).setOnClickListener(new View.OnClickListener() {
               @Override
               public void onClick(View v) {
                   finish();
                   overridePendingTransition(R.anim.finish_tran_one, R.anim.finish_tran_two);
               }
           });
+        topBarTV.setText("企业自主公示");
     }
 
 

@@ -43,9 +43,13 @@ public class URLconstant {
     public static final String COPYRIGHTURL = "patentInfo/getquerypatentInfo.do";//著作URLcopyright
 
     public static final String ADVERTISEMENTURL = " advertising/getqueryadvertising.do";//广告信息URLAdvertisement
-//===========企查查
 
-    public static final String GETCITYLIST="http://app.qichacha.com/enterprises/new/GetCityList";//获取城市接口
+    public static final String OBEYEDURL = "lcPatent/getLcPatent.do";//守合同重信用信息URLObeyed
+
+
+
+
+//    public static final String GETCITYLIST="http://app.qichacha.com/enterprises/new/GetCityList";//获取城市接口
 
     //    public static final String SEARCHURL="http://168s.mobile.hc360.com/get168.cgi";//获取搜索列表
     //public static final String GETINDUSTRY = "http://app.qichacha.com/enterprises/new/getIndustryList";//获取行业接口
@@ -79,6 +83,6 @@ public class URLconstant {
 
 //    public static final String ADVERTISEMENTURL = "http://119.29.181.170:8555/WebService.asmx/AdvertisingQualifications";//广告信息URLAdvertisement
 
-    public static final String OBEYEDURL = "http://119.29.181.170:8555/WebService.asmx/creditData";//守合同重信用信息URLObeyed
+//    public static final String OBEYEDURL = "http://119.29.181.170:8555/WebService.asmx/creditData";//守合同重信用信息URLObeyed
 
 }

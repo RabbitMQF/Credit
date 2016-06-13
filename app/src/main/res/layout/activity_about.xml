@@ -8,15 +8,16 @@
     android:orientation="vertical"
     tools:context="com.example.credit.Activitys.AboutActivity">
 
-    <include
+    <!--<include
         android:id="@+id/about_head"
-        layout="@layout/head_top" />
+        layout="@layout/head_top" />-->
+    <include layout="@layout/public_top_bar"/>
 
     <ImageView
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_marginTop="50dp"
-        android:background="@mipmap/ic_launcher" />
+        android:background="@mipmap/my_icon" />
 
     <TextView
         android:id="@+id/about_banben"
@@ -32,7 +33,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
-        android:text="企业信用查询"
+        android:text="百信企业信用查询"
         android:textColor="#B8B8B8"
         android:textSize="24sp" />
 

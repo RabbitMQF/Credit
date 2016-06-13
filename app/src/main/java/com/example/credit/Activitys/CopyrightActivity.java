@@ -22,10 +22,10 @@ import java.util.List;
  *著作权主界面
  */
 public class CopyrightActivity extends BaseActivity {
-    @ViewInject(R.id.cc_return)
-    ImageView cc_return;
-    @ViewInject(R.id.cc_topname)
-    TextView cc_topname;
+    @ViewInject(R.id.b_return)
+    ImageView b_return;
+    @ViewInject(R.id.b_topname)
+    TextView b_topname;
 
     @ViewInject(R.id.ccListView1)
     ListView ccListView1;
@@ -34,7 +34,11 @@ public class CopyrightActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_copyright);
         ViewUtils.inject(this);
-        cc_return.setOnClickListener(new View.OnClickListener() {
+        b_topname.setText("企业著作权");
+//        Intent i=getIntent();
+//        String Tname=i.getStringExtra("Tname");
+//        cc_topname.setText(Tname);
+        b_return.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();

@@ -35,10 +35,14 @@ public class AlertActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_alert);
         ViewUtils.inject(this);
+//        Intent i=getIntent();
+//        String Tname=i.getStringExtra("Tname");
+//        b_topname.setText(Tname);
         init();
     }
 
     public void init() {
+        b_topname.setText("预警信息");
         b_return.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

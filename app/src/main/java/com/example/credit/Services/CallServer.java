@@ -41,7 +41,26 @@ public class CallServer {
     queue.add(what,request,new ResponseListener<T>(request,context,callback,isShowDialog,isCanCancel,isShowError));
     }
 
+    /**
+     * 取消这个sign标记的所有请求
+     */
+    public void cancelBySign(Object sign) {
+        queue.cancelBySign(sign);
+    }
 
+    /**
+     * 取消队列中所有请求
+     */
+    public void cancelAll() {
+        queue.cancelAll();
+    }
+
+    /**
+     * 退出app时停止所有请求
+     */
+    public void stopAll() {
+        queue.stop();
+    }
 }
 
 

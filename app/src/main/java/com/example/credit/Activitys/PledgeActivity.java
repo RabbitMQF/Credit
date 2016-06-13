@@ -24,10 +24,10 @@ import java.util.List;
  * 出质信息主界面
  */
 public class PledgeActivity extends BaseActivity {
-    @ViewInject(R.id.p_return)
-    ImageView p_return;
-    @ViewInject(R.id.p_topname)
-    TextView p_topname;
+    @ViewInject(R.id.b_return)
+    ImageView b_return;
+    @ViewInject(R.id.b_topname)
+    TextView b_topname;
     @ViewInject(R.id.pl_sc)
     ScrollView pl_sc;
     @ViewInject(R.id.pListView1)
@@ -38,8 +38,12 @@ public class PledgeActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pledge);
         ViewUtils.inject(this);
+        b_topname.setText("出质信息");
         pl_sc.smoothScrollTo(0, 20);
-        p_return.setOnClickListener(new View.OnClickListener() {
+//        Intent i=getIntent();
+//        String Tname=i.getStringExtra("Tname");
+//        p_topname.setText(Tname);
+        b_return.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();

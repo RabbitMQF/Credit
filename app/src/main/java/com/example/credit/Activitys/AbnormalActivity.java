@@ -1,6 +1,7 @@
 package com.example.credit.Activitys;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -36,7 +37,11 @@ public class AbnormalActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_abnormal);
         ViewUtils.inject(this);
+        a_topname.setText("企业经营异常");
         a_sc.smoothScrollTo(0, 20);
+//        Intent i=getIntent();
+//        String Tname=i.getStringExtra("Tname");
+//        a_topname.setText(Tname);
         a_return.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

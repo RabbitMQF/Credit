@@ -24,10 +24,10 @@ import java.util.List;
  * 行政处罚主界面
  */
 public class PunishActivity extends BaseActivity {
-    @ViewInject(R.id.pu_return)
-    ImageView pu_return;
-    @ViewInject(R.id.pu_topname)
-    TextView pu_topname;
+    @ViewInject(R.id.b_return)
+    ImageView b_return;
+    @ViewInject(R.id.b_topname)
+    TextView b_topname;
     @ViewInject(R.id.pu_sc)
     ScrollView pu_sc;
     @ViewInject(R.id.puListView1)
@@ -38,8 +38,12 @@ public class PunishActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_punish);
         ViewUtils.inject(this);
+        b_topname.setText("行政处罚");
         pu_sc.smoothScrollTo(0, 20);
-        pu_return.setOnClickListener(new View.OnClickListener() {
+//        Intent i=getIntent();
+//        String Tname=i.getStringExtra("Tname");
+//        pu_topname.setText(Tname);
+        b_return.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();

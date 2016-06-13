@@ -6,8 +6,8 @@
     android:background="#EEEEEE"
     android:orientation="vertical"
     tools:context="com.example.credit.Activitys.CopyrightActivity">
-
-    <RelativeLayout
+<include layout="@layout/public_top_bar"/>
+   <!-- <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:background="@mipmap/detail_top">
@@ -28,7 +28,7 @@
             android:text="江西科技有限公司"
             android:textColor="#ffffff"
             android:textSize="20sp" />
-    </RelativeLayout>
+    </RelativeLayout>-->
 
     <FrameLayout
         android:layout_width="match_parent"

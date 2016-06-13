@@ -6,7 +6,8 @@
     android:orientation="vertical"
     tools:context=".Activitys.Mortgage_detail_Activity"
     android:background="#EEEEEE">
-    <RelativeLayout
+    <include layout="@layout/public_top_bar"/>
+    <!--<RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:background="@mipmap/detail_top">
@@ -20,14 +21,14 @@
             android:background="@mipmap/arrow_left_back" />
 
         <TextView
-            android:id="@+id/topname"
+            android:id="@+id/dtopname"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:text="江西科技有限公司"
             android:textColor="#ffffff"
             android:textSize="20sp" />
-    </RelativeLayout>
+    </RelativeLayout>-->
 <com.example.credit.Views.ViewPagerIndicator
     android:id="@+id/id_indicator"
     android:layout_height="48dp"
@@ -61,7 +62,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="5dp"
-        android:background="#ffffff"/>
+        android:background="#EEEEEE"/>
     <android.support.v4.view.ViewPager
         android:id="@+id/viewpager"
         android:overScrollMode="never"

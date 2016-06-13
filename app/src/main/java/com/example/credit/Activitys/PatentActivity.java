@@ -24,10 +24,10 @@ import java.util.List;
  * 专利信息主界面
  */
 public class PatentActivity extends BaseActivity {
-    @ViewInject(R.id.pa_return)
-    ImageView pa_return;
-    @ViewInject(R.id.pa_topname)
-    TextView pa_topname;
+    @ViewInject(R.id.b_return)
+    ImageView b_return;
+    @ViewInject(R.id.b_topname)
+    TextView b_topname;
 
     @ViewInject(R.id.pa_sc)
     ScrollView pa_sc;
@@ -39,8 +39,12 @@ public class PatentActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_patent);
         ViewUtils.inject(this);
+        b_topname.setText("专利信息");
         pa_sc.smoothScrollTo(0,20);
-        pa_return.setOnClickListener(new View.OnClickListener() {
+//        Intent i=getIntent();
+//        String Tname=i.getStringExtra("Tname");
+//        pa_topname.setText(Tname);
+        b_return.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();

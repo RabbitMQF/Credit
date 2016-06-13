@@ -22,10 +22,10 @@ import java.util.List;
  *司法信息主界面
  */
 public class JudicialActivity extends BaseActivity {
-    @ViewInject(R.id.j_return)
-    ImageView j_return;
-    @ViewInject(R.id.j_topname)
-    TextView p_topname;
+    @ViewInject(R.id.b_return)
+    ImageView b_return;
+    @ViewInject(R.id.b_topname)
+    TextView b_topname;
 
     @ViewInject(R.id.jc_sc)
     ScrollView jc_sc;
@@ -36,8 +36,12 @@ public class JudicialActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_judicial);
         ViewUtils.inject(this);
+        b_topname.setText("司法信息");
         jc_sc.smoothScrollTo(0,20);
-        j_return.setOnClickListener(new View.OnClickListener() {
+//        Intent i=getIntent();
+//        String Tname=i.getStringExtra("Tname");
+//        p_topname.setText(Tname);
+        b_return.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();

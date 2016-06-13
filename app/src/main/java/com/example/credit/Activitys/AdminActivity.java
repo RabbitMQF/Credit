@@ -1,5 +1,6 @@
 package com.example.credit.Activitys;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -8,6 +9,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.credit.Entitys.DataManager;
 import com.example.credit.Fragments.Admin_Fragment;
@@ -26,14 +28,18 @@ public class AdminActivity extends FragmentActivity implements View.OnClickListe
     private ViewPagerIndicator mIndicator;
     private List<String> mTitles = Arrays.asList("行政许可信息", "其他信息");
     private List<Admin_Fragment> fragmentList = new ArrayList<>();
-    private ImageView c_return;
-
+    private ImageView b_return;
+    TextView topBarTV;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin);
+//        Intent i=getIntent();
+//        String Tname=i.getStringExtra("Tname");
         initViews();
         initDatas();
+//        TextView topname= (TextView) findViewById(R.id.xtopname);
+//        topname.setText(Tname);
         mViewPager.setAdapter(new FragmentPagerAdapter(getSupportFragmentManager()) {
             @Override
             public Fragment getItem(int position) {
@@ -68,16 +74,18 @@ public class AdminActivity extends FragmentActivity implements View.OnClickListe
     }
 
     private void initViews() {
+        topBarTV= (TextView) findViewById(R.id.b_topname);
         mViewPager = (ViewPager) findViewById(R.id.viewpager);
         mIndicator = (ViewPagerIndicator) findViewById(R.id.id_indicator);
-        c_return = (ImageView) findViewById(R.id.c_return);
-        c_return.setOnClickListener(this);
+        b_return = (ImageView) findViewById(R.id.b_return);
+        b_return.setOnClickListener(this);
+        topBarTV.setText("企业行政审批");
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.c_return:
+            case R.id.b_return:
                 finish();
                 overridePendingTransition(R.anim.finish_tran_one, R.anim.finish_tran_two);
                 break;

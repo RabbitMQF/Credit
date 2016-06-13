@@ -196,7 +196,7 @@
                         android:layout_marginRight="5dp"
                         android:layout_toLeftOf="@+id/state_iv"
                         android:text="展开"
-                        android:textColor="#C2C3C2"
+                        android:textColor="#3A3331"
                         android:textSize="18sp" />
 
                 </RelativeLayout>

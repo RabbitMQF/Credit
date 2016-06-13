@@ -160,11 +160,14 @@ public class CompanyDetailsActivity extends BaseActivity {
                         overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
                         break;
                     case 1://行政审批
-                        startActivity(new Intent(CompanyDetailsActivity.this, AdminActivity.class));
+                        Intent i1 = new Intent(CompanyDetailsActivity.this, AdminActivity.class);
+                        i1.putExtra("Tname",arrays1[msg.what]);
+                        startActivity(i1);
                         overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
                         break;
                     case 2://荣誉信息
                         Intent i2 = new Intent(CompanyDetailsActivity.this, Honor_Support_Activity.class);
+                        i2.putExtra("Tname",arrays1[msg.what]);
                         i2.putExtra("st", 1);
                         startActivity(i2);
                         overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
@@ -172,60 +175,73 @@ public class CompanyDetailsActivity extends BaseActivity {
                     case 3://扶持信息
                         Intent i3 = new Intent(CompanyDetailsActivity.this, Honor_Support_Activity.class);
                         i3.putExtra("st", 2);
+                        i3.putExtra("Tname",arrays1[msg.what]);
                         startActivity(i3);
                         overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
                         break;
                     case 4://抵押信息
-                        startActivity(new Intent(CompanyDetailsActivity.this,Mortgage_detail_Activity.class));
+                        Intent i4 =new Intent(CompanyDetailsActivity.this,Mortgage_detail_Activity.class);
+                        i4.putExtra("Tname",arrays1[msg.what]);
+                        startActivity(i4);
                         overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
                         break;
-                    case 5:
+                    case 5://出质信息
                         Intent i5 = new Intent(CompanyDetailsActivity.this, PledgeActivity.class);
+                        i5.putExtra("Tname",arrays1[msg.what]);
                         startActivity(i5);
                         overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
                         break;
                     case 6://司法信息
                         Intent i6 = new Intent(CompanyDetailsActivity.this, JudicialActivity.class);
+                        i6.putExtra("Tname",arrays1[msg.what]);
                         startActivity(i6);
                         overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
                         break;
                     case 7://预警信息
                         Intent i7 = new Intent(CompanyDetailsActivity.this, AlertActivity.class);
+                        i7.putExtra("Tname",arrays1[msg.what]);
                         startActivity(i7);
                         overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
                         break;
                     case 8:
                         Intent i8 = new Intent(CompanyDetailsActivity.this, PunishActivity.class);
+                        i8.putExtra("Tname",arrays1[msg.what]);
                         startActivity(i8);
                         overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
                         break;
                     case 9://经营异常
                         Intent i9 = new Intent(CompanyDetailsActivity.this, AbnormalActivity.class);
+                        i9.putExtra("Tname",arrays1[msg.what]);
                         startActivity(i9);
                         overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
                         break;
                     case 10:
                         Intent i10 = new Intent(CompanyDetailsActivity.this, PatentActivity.class);
+                        i10.putExtra("Tname",arrays1[msg.what]);
                         startActivity(i10);
                         overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
                         break;
                     case 11:
                         Intent i11 = new Intent(CompanyDetailsActivity.this, TrademarkActivity.class);
+                        i11.putExtra("Tname",arrays1[msg.what]);
                         startActivity(i11);
                         overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
                         break;
                     case 12:
                         Intent i12 = new Intent(CompanyDetailsActivity.this, CopyrightActivity.class);
+                        i12.putExtra("Tname",arrays1[msg.what]);
                         startActivity(i12);
                         overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
                         break;
                     case 13://广告资质
                         Intent i13 = new Intent(CompanyDetailsActivity.this, AdvertisementActivity.class);
+                        i13.putExtra("Tname",arrays1[msg.what]);
                         startActivity(i13);
                         overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
                         break;
                     case 14://守合同重信用
                         Intent i14 = new Intent(CompanyDetailsActivity.this, ObeyedActivity.class);
+                        i14.putExtra("Tname",arrays1[msg.what]);
                         startActivity(i14);
                         overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
                         break;
@@ -359,14 +375,17 @@ public class CompanyDetailsActivity extends BaseActivity {
                     CallServer.getInstance().add(CompanyDetailsActivity.this, request12, MyhttpCallBack.getInstance(), 0x012, true, false, true);
                     break;
                 case 13://广告资质
-                    GsonUtil request13 = new GsonUtil(URLconstant.URLINSER +URLconstant.ADVERTISEMENTURL, RequestMethod.GET);
+                    GsonUtil request13 = new GsonUtil(URLconstant.URLINSER + URLconstant.ADVERTISEMENTURL, RequestMethod.GET);
                     request13.add("token", token);
                     request13.add("deviceld", model);
                     request13.add("KeyNo", KeyNo);
                     CallServer.getInstance().add(CompanyDetailsActivity.this, request13, MyhttpCallBack.getInstance(), 0x013, true, false, true);
                     break;
                 case 14://守合同重信用
-                    GsonUtil request14 = new GsonUtil(URLconstant.OBEYEDURL, RequestMethod.GET);
+                    GsonUtil request14 = new GsonUtil(URLconstant.URLINSER + URLconstant.OBEYEDURL, RequestMethod.GET);
+                    request14.add("token", token);
+                    request14.add("deviceld", model);
+                    request14.add("KeyNo", KeyNo);
                     CallServer.getInstance().add(CompanyDetailsActivity.this, request14, MyhttpCallBack.getInstance(), 0x014, true, false, true);
                     break;
                 case 15://自主公示

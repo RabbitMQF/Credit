@@ -55,11 +55,11 @@ public class Advertisement_Adapter extends BaseAdapter {
         }else {
             vh= (ViewHolder) convertView.getTag();
             DataManager.advertisementInfo temp=advertisementList.get(position);
-            vh.level.setText(temp.level);
-            vh.type.setText(temp.type);
-            vh.dates.setText(temp.validity);
-            vh.times.setText(temp.identifiedDate);
-            vh.office.setText(temp.RecognizedAuthority);
+            vh.level.setText(temp.C_LEVEL);
+            vh.type.setText(temp.CATEGORY);
+            vh.dates.setText(temp.IDENTIFYDATE);
+            vh.times.setText(temp.VALFORM +"至"+ temp.VALFTO);
+            vh.office.setText(temp.IDENTIFYORGANS);
         }
 
         return convertView;

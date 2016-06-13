@@ -17,18 +17,18 @@ import java.util.List;
  */
 public class Alert_Adapter extends BaseAdapter {
     Context context;
-    List<DataManager.paperwork_expire> paperwork_expireList;
-    List<DataManager.paperwork_Expired> paperwork_ExpiredList;
-    List<DataManager.correction> correctionList;
-    List<DataManager.loan> loanList;
-    List<DataManager.Taxes> taxesList;
-    List<DataManager.Wages> wagesList;
+    List<DataManager.date> paperwork_expireList;
+    List<DataManager.date> paperwork_ExpiredList;
+    List<DataManager.date> correctionList;
+    List<DataManager.date> loanList;
+    List<DataManager.date> taxesList;
+    List<DataManager.date> wagesList;
 
     public Alert_Adapter(Context context) {
         this.context = context;
     }
 
-    public void setData(List<DataManager.paperwork_expire> paperwork_expireList, List<DataManager.paperwork_Expired> paperwork_ExpiredList, List<DataManager.correction> correctionList, List<DataManager.loan> loanList, List<DataManager.Taxes> taxesList, List<DataManager.Wages> wagesList) {
+    public void setData(List<DataManager.date> paperwork_expireList, List<DataManager.date> paperwork_ExpiredList, List<DataManager.date> correctionList, List<DataManager.date> loanList, List<DataManager.date> taxesList, List<DataManager.date> wagesList) {
         this.paperwork_expireList = paperwork_expireList;
         this.paperwork_ExpiredList = paperwork_ExpiredList;
         this.correctionList = correctionList;
@@ -138,42 +138,42 @@ public class Alert_Adapter extends BaseAdapter {
         vh = (ViewHolder) convertView.getTag();
     }
 
-        if (paperwork_expireList != null) {
-           DataManager.paperwork_expire pe=DataManager.paperwork_expireList.get(position);
-            vh.expire_time.setText(pe.deadline);
-            vh.expire_day.setText(pe.daysRemaining);
-        }
-        if (paperwork_ExpiredList != null) {
-            DataManager.paperwork_Expired ped=DataManager.paperwork_ExpiredList.get(position);
-            vh.Expired_time.setText(ped.deadline);
-            vh.Expired_status.setText(ped.state);
-        }
-        if (correctionList != null) {
-            DataManager.correction cor=DataManager.correctionList.get(position);
-            vh.correction_content.setText(cor.centent);
-        }
-        if (loanList != null) {
-            DataManager.loan loan=DataManager.loanList.get(position);
-            vh.loan_time.setText(loan.time);
-            vh.loan_money.setText(loan.money);
-            vh.loan_bank.setText(loan.bank);
-            vh.loan_status.setText(loan.status);
-        }
-        if (taxesList != null) {
-            DataManager.Taxes taxes=DataManager.taxesList.get(position);
-            vh.taxes_time.setText(taxes.time);
-            vh.taxes_money.setText(taxes.money);
-            vh.taxes_office.setText(taxes.organ);
-            vh.taxes_status.setText(taxes.status);
-
-        }
-        if (wagesList != null) {
-            DataManager.Wages wages=DataManager.wagesList.get(position);
-            vh.wages_time.setText(wages.time);
-            vh.wages_money.setText(wages.money);
-            vh.wages_status.setText(wages.status);
-            vh.wages_source.setText(wages.source);
-        } else {}
+//        if (paperwork_expireList != null) {
+//           DataManager.paperwork_expire pe=DataManager.paperwork_expireList.get(position);
+//            vh.expire_time.setText(pe.deadline);
+//            vh.expire_day.setText(pe.daysRemaining);
+//        }
+//        if (paperwork_ExpiredList != null) {
+//            DataManager.paperwork_Expired ped=DataManager.paperwork_ExpiredList.get(position);
+//            vh.Expired_time.setText(ped.deadline);
+//            vh.Expired_status.setText(ped.state);
+//        }
+//        if (correctionList != null) {
+//            DataManager.correction cor=DataManager.correctionList.get(position);
+//            vh.correction_content.setText(cor.centent);
+//        }
+//        if (loanList != null) {
+//            DataManager.loan loan=DataManager.loanList.get(position);
+//            vh.loan_time.setText(loan.time);
+//            vh.loan_money.setText(loan.money);
+//            vh.loan_bank.setText(loan.bank);
+//            vh.loan_status.setText(loan.status);
+//        }
+//        if (taxesList != null) {
+//            DataManager.Taxes taxes=DataManager.taxesList.get(position);
+//            vh.taxes_time.setText(taxes.time);
+//            vh.taxes_money.setText(taxes.money);
+//            vh.taxes_office.setText(taxes.organ);
+//            vh.taxes_status.setText(taxes.status);
+//
+//        }
+//        if (wagesList != null) {
+//            DataManager.Wages wages=DataManager.wagesList.get(position);
+//            vh.wages_time.setText(wages.time);
+//            vh.wages_money.setText(wages.money);
+//            vh.wages_status.setText(wages.status);
+//            vh.wages_source.setText(wages.source);
+//        } else {}
     return convertView;
 }
 

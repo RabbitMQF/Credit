@@ -24,10 +24,10 @@ import java.util.List;
  * 【专利】，【处罚】，【著作】，【商标】，【出质】详情界面
  */
 public class Public_Detail_ctivity extends BaseActivity {
-    @ViewInject(R.id.cd_return)
-    ImageView cd_return;
-    @ViewInject(R.id.cd_topname)
-    TextView cd_topname;
+    @ViewInject(R.id.b_return)
+    ImageView b_return;
+    @ViewInject(R.id.b_topname)
+    TextView b_topname;
 
     @ViewInject(R.id.cd_cs)
     ScrollView cd_cs;
@@ -47,7 +47,7 @@ public class Public_Detail_ctivity extends BaseActivity {
         Intent i = getIntent();
         position = i.getIntExtra("postion", 0);
         state = i.getStringExtra("state");
-        cd_return.setOnClickListener(new View.OnClickListener() {
+        b_return.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
@@ -61,6 +61,7 @@ public class Public_Detail_ctivity extends BaseActivity {
         List<String> list1 = new ArrayList<>();
         List<String> list2 = new ArrayList<>();
         if (state.equals("patent")) {//专利
+            b_topname.setText("专利信息");
             list1.add(DataManager.patentInfoList.get(position).PATENTNAME);
             list1.add(DataManager.patentInfoList.get(position).RCODE);
             list1.add(DataManager.patentInfoList.get(position).RDATE);
@@ -74,6 +75,7 @@ public class Public_Detail_ctivity extends BaseActivity {
             list2 = Arrays.asList(getResources().getStringArray(R.array.patent_c));
 
         } else if (state.equals("punish")) {//处罚
+            b_topname.setText("行政处罚");
             list1.add(DataManager.punishInfoList.get(position).ILLEGACTTYPE);
             list1.add(DataManager.punishInfoList.get(position).PENCONTENT);
             list1.add(DataManager.punishInfoList.get(position).PENDECNO);
@@ -83,6 +85,7 @@ public class Public_Detail_ctivity extends BaseActivity {
             list2 = Arrays.asList(getResources().getStringArray(R.array.punish_c));
 
         } else if (state.equals("copyright")) {//著作
+            b_topname.setText("著作权");
             list1.add(DataManager.copyrightInfoList.get(position).WORKNAME);
             list1.add(DataManager.copyrightInfoList.get(position).REGISTERDATA);
             list1.add(DataManager.copyrightInfoList.get(position).REGISTERID);
@@ -92,6 +95,7 @@ public class Public_Detail_ctivity extends BaseActivity {
             list2 = Arrays.asList(getResources().getStringArray(R.array.copyright_c));
 
         } else if (state.equals("trademark")) {//商标
+            b_topname.setText("商标信息");
             list1.add(DataManager.trademarkInfoList.get(position).REGCORE);
             list1.add(DataManager.trademarkInfoList.get(position).BRANDNAME);
             list1.add(DataManager.trademarkInfoList.get(position).APPLICATIONDATE);
@@ -102,6 +106,7 @@ public class Public_Detail_ctivity extends BaseActivity {
             list2 = Arrays.asList(getResources().getStringArray(R.array.trademark_c));
 
         } else if (state.equals("pledge")) {//出质
+            b_topname.setText("出质信息");
             list1.add(DataManager.pledgeInfoList.get(position).REGNO);//股权所在公司注册号
             list1.add(DataManager.pledgeInfoList.get(position).EQUITYNO);//股权登记编号
             list1.add(DataManager.pledgeInfoList.get(position).PLEDGOR);//出质人

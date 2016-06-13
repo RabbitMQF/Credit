@@ -1,5 +1,6 @@
 package com.example.credit.Activitys;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -8,6 +9,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.credit.Entitys.DataManager;
 import com.example.credit.Fragments.Mortgage_detail_Fragment;
@@ -35,14 +37,18 @@ public class Mortgage_detail_Activity extends FragmentActivity implements View.O
     private ViewPagerIndicator mIndicator;
     private List<String> mTitles = Arrays.asList("动产抵押信息", "不动产抵押信息");
     private List<Mortgage_detail_Fragment> fragmentList = new ArrayList<Mortgage_detail_Fragment>();
-    private ImageView c_return;
+    private ImageView b_return;
+    TextView topBarTV;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mortgage_detail);
         //getSupportActionBar().setDisplayShowHomeEnabled(false); //ActionBar不显示应用Icon
-
+//        Intent i=getIntent();
+//        String Tname=i.getStringExtra("Tname");
+//        TextView topname= (TextView) findViewById(R.id.dtopname);
+//        topname.setText(Tname);
         initViews();
         initDatas();
         mViewPager.setAdapter(new FragmentPagerAdapter(getSupportFragmentManager()) { //简单创建一个FragmentPagerAdapter
@@ -69,8 +75,10 @@ public class Mortgage_detail_Activity extends FragmentActivity implements View.O
     private void initViews() {
         mViewPager = (ViewPager) findViewById(R.id.viewpager);
         mIndicator = (ViewPagerIndicator) findViewById(R.id.id_indicator);
-        c_return = (ImageView) findViewById(R.id.c_return);
-        c_return.setOnClickListener(this);
+        b_return = (ImageView) findViewById(R.id.b_return);
+        b_return.setOnClickListener(this);
+        topBarTV= (TextView) findViewById(R.id.b_topname);
+        topBarTV.setText("抵押信息");
     }
 
     private void initDatas() {
@@ -121,7 +129,7 @@ public class Mortgage_detail_Activity extends FragmentActivity implements View.O
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.c_return:
+            case R.id.b_return:
                 finish();
                 overridePendingTransition(R.anim.finish_tran_one, R.anim.finish_tran_two);
                 break;

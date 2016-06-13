@@ -1,5 +1,6 @@
 package com.example.credit.Activitys;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -19,10 +20,10 @@ import com.lidroid.xutils.view.annotation.ViewInject;
  * 广告资质
  */
 public class AdvertisementActivity extends BaseActivity {
-    @ViewInject(R.id.aj_return)
-    ImageView aj_return;
-    @ViewInject(R.id.aj_topname)
-    TextView aj_topname;
+    @ViewInject(R.id.b_return)
+    ImageView b_return;
+    @ViewInject(R.id.b_topname)
+    TextView b_topname;
 
     @ViewInject(R.id.ajc_sc)
     ScrollView ajc_sc;
@@ -35,9 +36,12 @@ public class AdvertisementActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_advertisement);
         ViewUtils.inject(this);
-        ViewUtils.inject(this);
+        b_topname.setText("广告资质");
         ajc_sc.smoothScrollTo(0,20);
-        aj_return.setOnClickListener(new View.OnClickListener() {
+//        Intent i=getIntent();
+//        String Tname=i.getStringExtra("Tname");
+//        aj_topname.setText(Tname);
+        b_return.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
