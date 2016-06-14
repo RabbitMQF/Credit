@@ -142,6 +142,13 @@
         <item>创作完成日期</item>
         <item>创作发布日期</item>
     </string-array>
+    <string-array name="copyright_c1"><!--著作软件-->
+        <item>软件名称</item>
+        <item>登记日期</item>
+        <item>登记号</item>
+        <item>软件简称</item>
+        <item>首发日期</item>
+    </string-array>
     <string-array name="punish_c"><!--处罚-->
         <item>违法行为类型</item>
         <item>处罚内容</item>

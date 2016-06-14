@@ -34,11 +34,11 @@ public class ObeyedActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_obeyed);
         ViewUtils.inject(this);
-        b_topname.setText("守合同重信");
+
         o_scs.smoothScrollTo(0,20);
-//        Intent i=getIntent();
-//        String Tname=i.getStringExtra("Tname");
-//        o_topname.setText(Tname);
+        Intent i=getIntent();
+        String Tname=i.getStringExtra("Tname");
+        b_topname.setText(Tname);
         b_return.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

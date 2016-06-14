@@ -36,11 +36,10 @@ public class JudicialActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_judicial);
         ViewUtils.inject(this);
-        b_topname.setText("司法信息");
+        Intent i=getIntent();
+        String Tname=i.getStringExtra("Tname");
+        b_topname.setText(Tname);
         jc_sc.smoothScrollTo(0,20);
-//        Intent i=getIntent();
-//        String Tname=i.getStringExtra("Tname");
-//        p_topname.setText(Tname);
         b_return.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

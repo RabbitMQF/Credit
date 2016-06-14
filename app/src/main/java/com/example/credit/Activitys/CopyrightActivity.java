@@ -34,10 +34,10 @@ public class CopyrightActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_copyright);
         ViewUtils.inject(this);
-        b_topname.setText("企业著作权");
-//        Intent i=getIntent();
-//        String Tname=i.getStringExtra("Tname");
-//        cc_topname.setText(Tname);
+
+        Intent i=getIntent();
+        String Tname=i.getStringExtra("Tname");
+        b_topname.setText(Tname);
         b_return.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -45,9 +45,16 @@ public class CopyrightActivity extends BaseActivity {
                 overridePendingTransition(R.anim.finish_tran_one, R.anim.finish_tran_two);
             }
         });
-        List<String> list = new ArrayList<>();
-        for(DataManager.copyrightInfo p:DataManager.copyrightInfoList){
-            list.add(p.WORKNAME);
+        final List<String> list = new ArrayList<>();
+        if(DataManager.copyrightInfoeList!=null && DataManager.copyrightInfoeList.size()>0){
+            for(DataManager.copyrightInfo p:DataManager.copyrightInfoeList){
+                if(p.WORKNAME!=null){
+                    list.add(p.WORKNAME);
+                }
+                if(p.SOFTWARENAME!=null){
+                    list.add(p.SOFTWARENAME);//软件
+                }
+            }
         }
         CC_List_itemAdapter adapter = new CC_List_itemAdapter(CopyrightActivity.this, list,"copyright",null);
         ccListView1.setAdapter(adapter);
@@ -56,6 +63,7 @@ public class CopyrightActivity extends BaseActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent i = new Intent(CopyrightActivity.this, Public_Detail_ctivity.class);
                 i.putExtra("position",position);
+                i.putExtra("type",list.get(position));
                 i.putExtra("state","copyright");
                 startActivity(i);
                 overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);

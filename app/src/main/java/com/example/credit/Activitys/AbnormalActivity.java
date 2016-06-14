@@ -22,10 +22,10 @@ import com.lidroid.xutils.view.annotation.ViewInject;
  * 经营异常界面
  */
 public class AbnormalActivity extends BaseActivity {
-    @ViewInject(R.id.a_return)
-    ImageView a_return;
-    @ViewInject(R.id.a_topname)
-    TextView a_topname;
+    @ViewInject(R.id.b_return)
+    ImageView b_return;
+    @ViewInject(R.id.b_topname)
+    TextView b_topname;
 
     @ViewInject(R.id.a_sc)
     ScrollView a_sc;
@@ -37,12 +37,12 @@ public class AbnormalActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_abnormal);
         ViewUtils.inject(this);
-        a_topname.setText("企业经营异常");
+
         a_sc.smoothScrollTo(0, 20);
-//        Intent i=getIntent();
-//        String Tname=i.getStringExtra("Tname");
-//        a_topname.setText(Tname);
-        a_return.setOnClickListener(new View.OnClickListener() {
+        Intent i=getIntent();
+        String Tname=i.getStringExtra("Tname");
+        b_topname.setText(Tname);
+        b_return.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();

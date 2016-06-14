@@ -245,6 +245,9 @@ public class CompanyDetailsActivity extends BaseActivity {
                         startActivity(i14);
                         overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
                         break;
+                    case 500:
+                        android.widget.Toast.makeText(CompanyDetailsActivity.this, "暂无数据！", android.widget.Toast.LENGTH_SHORT).show();
+                        break;
                 }
             }
         };

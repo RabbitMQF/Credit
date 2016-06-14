@@ -39,11 +39,12 @@ public class PatentActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_patent);
         ViewUtils.inject(this);
-        b_topname.setText("专利信息");
+
         pa_sc.smoothScrollTo(0,20);
-//        Intent i=getIntent();
-//        String Tname=i.getStringExtra("Tname");
-//        pa_topname.setText(Tname);
+        Intent i=getIntent();
+        String Tname=i.getStringExtra("Tname");
+        b_topname.setText(Tname);
+        //b_topname.setText("专利信息");
         b_return.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

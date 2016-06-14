@@ -29,20 +29,19 @@ public class AlertActivity extends BaseActivity {
 
     @ViewInject(R.id.myGridView4)
     MyGridView myGridView4;
-
+    String Tname;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_alert);
         ViewUtils.inject(this);
-//        Intent i=getIntent();
-//        String Tname=i.getStringExtra("Tname");
-//        b_topname.setText(Tname);
+        Intent i=getIntent();
+         Tname=i.getStringExtra("Tname");
         init();
     }
 
     public void init() {
-        b_topname.setText("预警信息");
+        b_topname.setText(Tname);
         b_return.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

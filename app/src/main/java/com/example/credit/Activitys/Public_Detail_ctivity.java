@@ -36,7 +36,7 @@ public class Public_Detail_ctivity extends BaseActivity {
 
 
     int position;
-    String state;
+    String state,type;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +47,7 @@ public class Public_Detail_ctivity extends BaseActivity {
         Intent i = getIntent();
         position = i.getIntExtra("postion", 0);
         state = i.getStringExtra("state");
+        type = i.getStringExtra("type");
         b_return.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -86,13 +87,26 @@ public class Public_Detail_ctivity extends BaseActivity {
 
         } else if (state.equals("copyright")) {//著作
             b_topname.setText("著作权");
-            list1.add(DataManager.copyrightInfoList.get(position).WORKNAME);
-            list1.add(DataManager.copyrightInfoList.get(position).REGISTERDATA);
-            list1.add(DataManager.copyrightInfoList.get(position).REGISTERID);
-            list1.add(DataManager.copyrightInfoList.get(position).WORKCLASS);
-            list1.add(DataManager.copyrightInfoList.get(position).FINISHDATE);
-            list1.add(DataManager.copyrightInfoList.get(position).FIRSTDATE);
-            list2 = Arrays.asList(getResources().getStringArray(R.array.copyright_c));
+            String t=type.substring(1,3);
+            if(!t.equals("软件")){
+                list2 = Arrays.asList(getResources().getStringArray(R.array.copyright_c));
+                list1.add(DataManager.copyrightInfoeList.get(position).WORKNAME);
+                list1.add(DataManager.copyrightInfoeList.get(position).REGISTERDATA);
+                list1.add(DataManager.copyrightInfoeList.get(position).REGISTERID);
+                list1.add(DataManager.copyrightInfoeList.get(position).WORKCLASS);
+                list1.add(DataManager.copyrightInfoeList.get(position).FINISHDATE);
+                list1.add(DataManager.copyrightInfoeList.get(position).FIRSTDATE);
+
+            }else{
+                list2 = Arrays.asList(getResources().getStringArray(R.array.copyright_c1));
+                list1.add(DataManager.copyrightInfoeList.get(position).SOFTWARENAME);
+                list1.add(DataManager.copyrightInfoeList.get(position).REGISTERDATA);
+                list1.add(DataManager.copyrightInfoeList.get(position).REGISTERID);
+                list1.add(DataManager.copyrightInfoeList.get(position).SOFTWARESHORT);
+                list1.add(DataManager.copyrightInfoeList.get(position).STARTINGDATE);
+            }
+
+
 
         } else if (state.equals("trademark")) {//商标
             b_topname.setText("商标信息");

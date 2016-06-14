@@ -34,10 +34,10 @@ public class TrademarkActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_trademark);
         ViewUtils.inject(this);
-        b_topname.setText("商标信息");
-//        Intent i=getIntent();
-//        String Tname=i.getStringExtra("Tname");
-//        t_topname.setText(Tname);
+
+        Intent i=getIntent();
+        String Tname=i.getStringExtra("Tname");
+        b_topname.setText(Tname);
         b_return.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

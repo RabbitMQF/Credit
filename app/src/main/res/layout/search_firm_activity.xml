@@ -215,7 +215,7 @@
                 android:layout_weight="1"
 
                 android:gravity="center_horizontal|center_vertical"
-                android:text="海西蒙古族藏族自治州"
+                android:text="不限城市"
                 android:textColor="@color/text_nocheck" />
 
             <ImageView
@@ -240,7 +240,7 @@
                 android:layout_weight="1"
 
                 android:gravity="center_horizontal|center_vertical"
-                android:text="500万到1000万"
+                android:text="不限注册"
                 android:textColor="@color/text_nocheck" />
 
             <ImageView
@@ -265,7 +265,7 @@
                 android:layout_weight="1"
 
                 android:gravity="center_horizontal|center_vertical"
-                android:text="10年以上"
+                android:text="不限年限"
                 android:textColor="@color/text_nocheck" />
 
             <ImageView

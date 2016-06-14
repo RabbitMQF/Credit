@@ -387,28 +387,30 @@ public class MyhttpCallBack implements HttpCallBack {
 //                }.getType());
                 map = (Map<String, Object>) map.get("data");
                 List<LinkedTreeMap> list11 = (List<LinkedTreeMap>) map.get("trademark");
-
                 if (DataManager.trademarkInfoList.size() != 0) {
                     DataManager.trademarkInfoList.clear();
                 }
-                for (LinkedTreeMap temp : list11) {
-                    DataManager.trademarkInfo trademarkInfo = new DataManager.trademarkInfo();
-                    trademarkInfo.ID = (String) temp.get("ID");
-                    trademarkInfo.REGNO = (String) temp.get("REGNO");
-                    trademarkInfo.PRIPID = (String) temp.get("PRIPID");
-                    trademarkInfo.APPLICATIONDATE = (String) temp.get("APPLICATIONDATE");
-                    trademarkInfo.APPLICANT = (String) temp.get("APPLICANT");
-                    trademarkInfo.BRANDSTAUTS = (String) temp.get("BRANDSTAUTS");
-                    trademarkInfo.CLASSIFYID = (String) temp.get("CLASSIFYID");
-                    trademarkInfo.BRANDIMG = (String) temp.get("BRANDIMG");
-                    trademarkInfo.AGENCY = (String) temp.get("AGENCY");
-                    trademarkInfo.LIFESPAN = (String) temp.get("LIFESPAN");
-                    trademarkInfo.REGCORE = (String) temp.get("REGCORE");
-                    trademarkInfo.BRANDNAME = (String) temp.get("BRANDNAME");
-                    trademarkInfo.ENTNAME = (String) temp.get("ENTNAME");
-                    trademarkInfo.UNISCID = (String) temp.get("UNISCID");
-                    DataManager.trademarkInfoList.add(trademarkInfo);
+                if(list11!=null && list11.size()>0){
+                    for (LinkedTreeMap temp : list11) {
+                        DataManager.trademarkInfo trademarkInfo = new DataManager.trademarkInfo();
+                        trademarkInfo.ID = (String) temp.get("ID");
+                        trademarkInfo.REGNO = (String) temp.get("REGNO");
+                        trademarkInfo.PRIPID = (String) temp.get("PRIPID");
+                        trademarkInfo.APPLICATIONDATE = (String) temp.get("APPLICATIONDATE");
+                        trademarkInfo.APPLICANT = (String) temp.get("APPLICANT");
+                        trademarkInfo.BRANDSTAUTS = (String) temp.get("BRANDSTAUTS");
+                        trademarkInfo.CLASSIFYID = (String) temp.get("CLASSIFYID");
+                        trademarkInfo.BRANDIMG = (String) temp.get("BRANDIMG");
+                        trademarkInfo.AGENCY = (String) temp.get("AGENCY");
+                        trademarkInfo.LIFESPAN = (String) temp.get("LIFESPAN");
+                        trademarkInfo.REGCORE = (String) temp.get("REGCORE");
+                        trademarkInfo.BRANDNAME = (String) temp.get("BRANDNAME");
+                        trademarkInfo.ENTNAME = (String) temp.get("ENTNAME");
+                        trademarkInfo.UNISCID = (String) temp.get("UNISCID");
+                        DataManager.trademarkInfoList.add(trademarkInfo);
+                    }
                 }
+
                 if (DataManager.trademarkInfoList.size() > 0 && DataManager.trademarkInfoList != null) {
                     CompanyDetailsActivity.handler.sendEmptyMessage(11);
                 } else {
@@ -416,13 +418,46 @@ public class MyhttpCallBack implements HttpCallBack {
                 }
                 break;
             case 0x012://著作信息
-                String jstring12 = (String) response.get();
-                map = gson.fromJson(jstring12, new TypeToken<Map<String, Object>>() {
+                String jstrin12 = (String) response.get();
+                map = gson.fromJson(jstrin12, new TypeToken<Map<String, Object>>() {
                 }.getType());
-                List<DataManager.copyrightInfo> list12 = gson.fromJson(((Map<String, Object>) map.get("data")).get("patentInfo").toString(), new TypeToken<List<DataManager.copyrightInfo>>() {
-                }.getType());
-                DataManager.copyrightInfoList = list12;
-                if (DataManager.copyrightInfoList != null && DataManager.copyrightInfoList.size() > 0) {
+                List<LinkedTreeMap> list112 =(List<LinkedTreeMap>) ((Map<String, Object>) map.get("data")).get("patentInfo");
+                List<LinkedTreeMap> list112_1 =(List<LinkedTreeMap>) ((Map<String, Object>) map.get("data")).get("patentInfoSoftwore");;
+
+
+                if(DataManager.copyrightInfoeList !=null){
+                    DataManager.copyrightInfoeList.clear();
+                }
+
+                if(list112!=null && list112.size()>0){
+                    for (LinkedTreeMap temp : list112) {
+                        DataManager.copyrightInfo cfo = new DataManager.copyrightInfo();
+                        cfo.ID = (String) temp.get("ID");
+                        cfo.REGISTERDATA = (String) temp.get("REGISTERDATA");
+                        cfo.REGISTERID = (String) temp.get("REGISTERID");
+
+                        cfo.WORKNAME = (String) temp.get("WORKNAME");
+                        cfo.WORKCLASS = (String) temp.get("WORKCLASS");
+                        cfo.FINISHDATE = (String) temp.get("FINISHDATE");
+                        cfo.FIRSTDATE = (String) temp.get("FIRSTDATE");
+                        DataManager.copyrightInfoeList.add(cfo);
+                    }
+                }
+                if(list112_1!=null && list112_1.size()>0){
+                    for (LinkedTreeMap temp : list112_1) {
+                        DataManager.copyrightInfo cfo = new DataManager.copyrightInfo();
+                        cfo.ID = (String) temp.get("ID");
+                        cfo.REGISTERDATA = (String) temp.get("REGISTERDATA");
+                        cfo.REGISTERID = (String) temp.get("REGISTERID");
+
+                        cfo.SOFTWARENAME = "【软件】"+(String) temp.get("SOFTWARENAME");
+                        cfo.SOFTWARESHORT = (String) temp.get("SOFTWARESHORT");
+                        cfo.STARTINGDATE = (String) temp.get("STARTINGDATE");
+                        DataManager.copyrightInfoeList.add(cfo);
+                    }
+                }
+
+                if (DataManager.copyrightInfoeList != null && DataManager.copyrightInfoeList.size() > 0) {
                     CompanyDetailsActivity.handler.sendEmptyMessage(12);
                 } else {
                     CompanyDetailsActivity.handler.sendEmptyMessage(500);

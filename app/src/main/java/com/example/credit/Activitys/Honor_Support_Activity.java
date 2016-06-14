@@ -47,17 +47,17 @@ public class Honor_Support_Activity extends BaseActivity {
         });
         Intent i=getIntent();
         int st=i.getIntExtra("st",0);
-//        String Tname=i.getStringExtra("Tname");
+        String Tname=i.getStringExtra("Tname");
         switch (st){
             case 1:
-                b_topname.setText("企业荣誉信息");
-                sh_tit.setText("荣誉信息");
+                b_topname.setText(Tname);
+                sh_tit.setText(Tname);
                 Honor_CAdapter hcadapter1=new Honor_CAdapter(Honor_Support_Activity.this, DataManager.honorInfoList);
                 hListView1.setAdapter(hcadapter1);
                 break;
             case 2:
-                b_topname.setText("扶持信息");
-                sh_tit.setText("企业扶持");
+                b_topname.setText(Tname);
+                sh_tit.setText(Tname);
                Support_CAdapter hcadapter2=new Support_CAdapter(Honor_Support_Activity.this, DataManager.supportInfoList);
                 hListView1.setAdapter(hcadapter2);
                 break;

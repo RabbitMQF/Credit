@@ -38,11 +38,10 @@ public class PledgeActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pledge);
         ViewUtils.inject(this);
-        b_topname.setText("出质信息");
+        Intent i=getIntent();
+        String Tname=i.getStringExtra("Tname");
+        b_topname.setText(Tname);
         pl_sc.smoothScrollTo(0, 20);
-//        Intent i=getIntent();
-//        String Tname=i.getStringExtra("Tname");
-//        p_topname.setText(Tname);
         b_return.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

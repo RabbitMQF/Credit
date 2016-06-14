@@ -30,16 +30,15 @@ public class AdminActivity extends FragmentActivity implements View.OnClickListe
     private List<Admin_Fragment> fragmentList = new ArrayList<>();
     private ImageView b_return;
     TextView topBarTV;
+    String Tname;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin);
-//        Intent i=getIntent();
-//        String Tname=i.getStringExtra("Tname");
+        Intent i=getIntent();
+        Tname=i.getStringExtra("Tname");
         initViews();
         initDatas();
-//        TextView topname= (TextView) findViewById(R.id.xtopname);
-//        topname.setText(Tname);
         mViewPager.setAdapter(new FragmentPagerAdapter(getSupportFragmentManager()) {
             @Override
             public Fragment getItem(int position) {
@@ -79,7 +78,7 @@ public class AdminActivity extends FragmentActivity implements View.OnClickListe
         mIndicator = (ViewPagerIndicator) findViewById(R.id.id_indicator);
         b_return = (ImageView) findViewById(R.id.b_return);
         b_return.setOnClickListener(this);
-        topBarTV.setText("企业行政审批");
+        topBarTV.setText(Tname);
     }
 
     @Override

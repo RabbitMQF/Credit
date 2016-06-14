@@ -339,8 +339,7 @@ public class DetailsContentActivity extends BaseActivity {
         myGridView3.setAdapter(adapter2);
         myGridView3.setSelector(new ColorDrawable(Color.TRANSPARENT));
 
-        //b_topname.setText(Tname);//标题
-        b_topname.setText("企业工商信息");
+        b_topname.setText(Tname);
         /**
          * 判断企业类型是否为空
          */

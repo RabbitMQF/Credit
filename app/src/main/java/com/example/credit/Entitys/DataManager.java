@@ -501,13 +501,30 @@ public class DataManager {
         public String UNISCID;//社会统一信用代码
     }
 
+
+
     /**
      * 著作信息实体类
      */
 
-    public static List<copyrightInfo> copyrightInfoList;
+    public static List<copyrightInfo> copyrightInfoeList=new ArrayList<>();
 
     public static class copyrightInfo {
+        public String ID;
+        public String REGISTERDATA;//登记日期
+        public String REGISTERID;//登记号
+
+        public String WORKNAME;//作品名称
+        public String WORKCLASS;//作品类别
+        public String FINISHDATE;//创作完成日期
+        public String FIRSTDATE;//首次发表日期
+
+        public String SOFTWARENAME;//软件名称
+        public String SOFTWARESHORT;//软件简称
+        public String STARTINGDATE;//首发日期
+    }
+
+    public static class patentInfos {
         public String ID;
         public String WORKNAME;//作品名称
         public String REGISTERDATA;//登记日期
@@ -515,7 +532,14 @@ public class DataManager {
         public String WORKCLASS;//作品类别
         public String FINISHDATE;//创作完成日期
         public String FIRSTDATE;//首次发表日期
-
+    }
+    public static class patentInfoSoftwore {
+        public static String ID;
+        public static String SOFTWARENAME;//软件名称
+        public static String REGISTERDATA;//登记日期
+        public static String REGISTERID;//登记号
+        public static String SOFTWARESHORT;//软件简称
+        public static String STARTINGDATE;//首发日期
     }
 
 
@@ -852,7 +876,7 @@ public class DataManager {
     public static class baging {
         public String PageSize;
         public String PageIndex;
-        public String TotalRecords;
+        public int TotalRecords;
     }
 
 }

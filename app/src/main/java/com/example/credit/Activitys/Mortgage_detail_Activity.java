@@ -39,16 +39,14 @@ public class Mortgage_detail_Activity extends FragmentActivity implements View.O
     private List<Mortgage_detail_Fragment> fragmentList = new ArrayList<Mortgage_detail_Fragment>();
     private ImageView b_return;
     TextView topBarTV;
-
+    String Tname;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mortgage_detail);
         //getSupportActionBar().setDisplayShowHomeEnabled(false); //ActionBar不显示应用Icon
-//        Intent i=getIntent();
-//        String Tname=i.getStringExtra("Tname");
-//        TextView topname= (TextView) findViewById(R.id.dtopname);
-//        topname.setText(Tname);
+        Intent i=getIntent();
+         Tname=i.getStringExtra("Tname");
         initViews();
         initDatas();
         mViewPager.setAdapter(new FragmentPagerAdapter(getSupportFragmentManager()) { //简单创建一个FragmentPagerAdapter
@@ -78,7 +76,7 @@ public class Mortgage_detail_Activity extends FragmentActivity implements View.O
         b_return = (ImageView) findViewById(R.id.b_return);
         b_return.setOnClickListener(this);
         topBarTV= (TextView) findViewById(R.id.b_topname);
-        topBarTV.setText("抵押信息");
+        topBarTV.setText(Tname);
     }
 
     private void initDatas() {
