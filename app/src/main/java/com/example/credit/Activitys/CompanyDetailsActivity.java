@@ -245,6 +245,9 @@ public class CompanyDetailsActivity extends BaseActivity {
                         startActivity(i14);
                         overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
                         break;
+                    case 15://自主公示
+                        startActivity(new Intent(CompanyDetailsActivity.this, AutonomyActivity.class));
+                        overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
                     case 500:
                         android.widget.Toast.makeText(CompanyDetailsActivity.this, "暂无数据！", android.widget.Toast.LENGTH_SHORT).show();
                         break;
@@ -393,9 +396,11 @@ public class CompanyDetailsActivity extends BaseActivity {
                     break;
                 case 15://自主公示
                     GsonUtil request15 =new GsonUtil(URLconstant.URLINSER+URLconstant.GETAUTO,RequestMethod.GET);
+                    request15.add("token",token);
+                    request15.add("deviceld",model);
+                    request15.add("KeyNo",KeyNo);
                     CallServer.getInstance().add(CompanyDetailsActivity.this, request15, MyhttpCallBack.getInstance(), MSG, true, false, true);
-                    startActivity(new Intent(CompanyDetailsActivity.this, AutonomyActivity.class));
-                    overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
+
                     break;
                 case 500://没有数据时返回信息
                     android.widget.Toast.makeText(CompanyDetailsActivity.this, "暂无数据！", android.widget.Toast.LENGTH_SHORT).show();

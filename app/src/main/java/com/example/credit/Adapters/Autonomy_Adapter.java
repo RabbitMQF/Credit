@@ -29,13 +29,13 @@ public class Autonomy_Adapter extends BaseAdapter {
         this.context = context;
     }
 
-    public void setData(List<DataManager.report> reportList, List<DataManager.funded> fundedList, List<DataManager.stock> stockList, List<DataManager.permit> permitList,List<DataManager.lore> loreList,List<DataManager.punish> punishList) {
+    public void setData(List<DataManager.report> reportList, List<DataManager.funded> fundedList, List<DataManager.stock> stockList, List<DataManager.permit> permitList, List<DataManager.lore> loreList, List<DataManager.punish> punishList) {
         this.reportList = reportList;
         this.fundedList = fundedList;
         this.stockList = stockList;
         this.permitList = permitList;
-        this.loreList=loreList;
-        this.punishList=punishList;
+        this.loreList = loreList;
+        this.punishList = punishList;
     }
 
     @Override
@@ -52,13 +52,12 @@ public class Autonomy_Adapter extends BaseAdapter {
         if (permitList != null) {
             return permitList.size();
         }
-        if(loreList!=null){
+        if (loreList != null) {
             return loreList.size();
         }
-        if (punishList!=null){
+        if (punishList != null) {
             return punishList.size();
-        }
-        else {
+        } else {
             return 0;
         }
 
@@ -78,13 +77,12 @@ public class Autonomy_Adapter extends BaseAdapter {
         if (permitList != null) {
             return permitList.get(position);
         }
-        if(loreList!=null){
+        if (loreList != null) {
             return loreList.get(position);
         }
-        if (punishList!=null){
+        if (punishList != null) {
             return punishList.get(position);
-        }
-        else {
+        } else {
             return null;
         }
     }
@@ -136,6 +134,30 @@ public class Autonomy_Adapter extends BaseAdapter {
                 vh.permit_office = (TextView) convertView.findViewById(R.id.permit_office);
                 vh.permit_time = (TextView) convertView.findViewById(R.id.permit_time);
                 vh.permit_content = (TextView) convertView.findViewById(R.id.permit_content);
+            }
+            if (loreList != null) {
+                convertView = LayoutInflater.from(context).inflate(R.layout.autonomy_lore_item, null);
+                vh.lore_pripid = (TextView) convertView.findViewById(R.id.lore_pripid);
+                vh.lore_name = (TextView) convertView.findViewById(R.id.lore_name);
+                vh.lore_no = (TextView) convertView.findViewById(R.id.lore_no);
+
+            }
+            if (punishList != null) {
+                convertView = LayoutInflater.from(context).inflate(R.layout.autonomy_punish_item, null);
+                vh.punish_pripid = (TextView) convertView.findViewById(R.id.punish_pripid);
+                vh.punish_name = (TextView) convertView.findViewById(R.id.punish_name);
+                vh.punish_registerno = (TextView) convertView.findViewById(R.id.punish_registerno);
+                vh.punish_creditno = (TextView) convertView.findViewById(R.id.punish_creditno);
+                vh.punish_no = (TextView) convertView.findViewById(R.id.punish_no);
+                vh.punish_illtype = (TextView) convertView.findViewById(R.id.punish_illtype);
+                vh.punish_type_cn = (TextView) convertView.findViewById(R.id.punish_type_cn);
+                vh.punish_money = (TextView) convertView.findViewById(R.id.punish_money);
+                vh.punish_cash = (TextView) convertView.findViewById(R.id.punish_cash);
+                vh.punihs_context = (TextView) convertView.findViewById(R.id.punihs_context);
+                vh.punish_office = (TextView) convertView.findViewById(R.id.punish_office);
+                vh.punish_time = (TextView) convertView.findViewById(R.id.punish_time);
+                vh.punish_publicdate = (TextView) convertView.findViewById(R.id.punish_publicdate);
+                vh.punish_mark = (TextView) convertView.findViewById(R.id.punish_mark);
             } else {
             }
             convertView.setTag(vh);
@@ -177,6 +199,29 @@ public class Autonomy_Adapter extends BaseAdapter {
             vh.permit_time.setText(permit.PUBLICDATE);
             vh.permit_content.setText(permit.LICITEM);
 
+        }
+        if (loreList != null) {
+            DataManager.lore lore = loreList.get(position);
+            vh.lore_pripid.setText(lore.PRIPID);
+            vh.lore_name.setText(lore.ENTNAME);
+            vh.lore_no.setText(lore.REGNO);
+        }
+        if (punishList != null) {
+            DataManager.punish punish = punishList.get(position);
+            vh.punish_pripid.setText(punish.PRIPID);
+            vh.punish_name.setText(punish.ENTNAME);
+            vh.punish_registerno.setText(punish.REGNO);
+            vh.punish_creditno.setText(punish.UNISCID);
+            vh.punish_no.setText(punish.PENDECNO);
+            vh.punish_illtype.setText(punish.ILLEGACTTYPE);
+            vh.punish_type_cn.setText(punish.PENTYPE_CN);
+            vh.punish_money.setText(punish.PENAM);
+            vh.punish_cash.setText(punish.FORFAM);
+            vh.punihs_context.setText(punish.PENCONTENT);
+            vh.punish_office.setText(punish.JUDAUTH);
+            vh.punish_time.setText(punish.PENDECISSDATE);
+            vh.punish_publicdate.setText(punish.PUBLICDATE);
+            vh.punish_mark.setText(punish.REMARK);
         } else {
         }
 
@@ -188,6 +233,8 @@ public class Autonomy_Adapter extends BaseAdapter {
         TextView partenr, money, true_money, subscribed_type, subscribed, subscribed_time, paid_type, paid, paid_time, funded_public_time;
         TextView stock_time, BeforeContent, AfterContent;
         TextView permit_name, permit_no, permit_date, permit_office, permit_time, permit_content;
+        TextView lore_pripid, lore_name, lore_no;
+        TextView punish_pripid, punish_name, punish_registerno, punish_creditno, punish_no, punish_illtype, punish_type_cn, punish_money, punish_cash, punihs_context, punish_office, punish_time, punish_publicdate, punish_mark;
     }
 
 }

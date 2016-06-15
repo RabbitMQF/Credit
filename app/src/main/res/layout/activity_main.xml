@@ -33,7 +33,7 @@
 
                     <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="80dp"
+                        android:layout_height="56dp"
                         android:background="@mipmap/search_background">
 
                         <ImageView
@@ -44,10 +44,10 @@
                             android:onClick="toggleMenu"
                             android:layout_marginLeft="20dp"/>
                         <ImageView
-                            android:layout_width="178dp"
-                            android:layout_height="47dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
-                            android:background="@mipmap/yuchange_logo"
+                            android:background="@mipmap/title_logo"
                             />
                         <!--android:text="企信"
                             android:textColor="#FFFFFF"

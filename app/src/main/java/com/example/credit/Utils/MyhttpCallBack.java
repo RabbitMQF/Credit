@@ -436,7 +436,7 @@ public class MyhttpCallBack implements HttpCallBack {
                         cfo.REGISTERDATA = (String) temp.get("REGISTERDATA");
                         cfo.REGISTERID = (String) temp.get("REGISTERID");
 
-                        cfo.WORKNAME = (String) temp.get("WORKNAME");
+                        cfo.WORKNAME =  "【其他】"+(String) temp.get("WORKNAME");
                         cfo.WORKCLASS = (String) temp.get("WORKCLASS");
                         cfo.FINISHDATE = (String) temp.get("FINISHDATE");
                         cfo.FIRSTDATE = (String) temp.get("FIRSTDATE");
@@ -530,8 +530,9 @@ public class MyhttpCallBack implements HttpCallBack {
                         }
 
                     }
-                }
-
+                    CompanyDetailsActivity.handler.sendEmptyMessage(15);
+                }else {CompanyDetailsActivity.handler.sendEmptyMessage(500);}
+             break;
             default:
                 break;
         }

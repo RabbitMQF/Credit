@@ -5,19 +5,38 @@
     android:background="#ffffff"
     android:descendantFocusability="beforeDescendants">
 
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:background="@drawable/bg_gv">
-
-        <ImageView
-            android:id="@+id/iv_items"
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true"
+        >
+        <RelativeLayout
             android:layout_width="wrap_content"
-            android:layout_height="100dp"
-            android:layout_centerHorizontal="true"
-            android:background="@mipmap/infodetial_fun1_abled" />
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:background="@drawable/bg_gv">
 
-    </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:background="@drawable/bg_gv">
 
+                <ImageView
+                    android:id="@+id/iv_items"
+                    android:layout_width="wrap_content"
+                    android:layout_height="100dp"
+                    android:layout_centerHorizontal="true"
+                    android:background="@mipmap/infodetial_fun1_abled" />
+            </RelativeLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_margin="5dp"
+                android:textColor="#ff0000"
+                android:layout_alignParentTop="true"
+                android:text="+99"/>
+        </RelativeLayout>
+    </FrameLayout>
 </RelativeLayout>

@@ -8,11 +8,11 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1.5"
+        android:layout_height="56dp"
+
         android:background="@mipmap/search_background"
         android:orientation="horizontal">
-
+        <!--android:layout_weight="1.5"-->
         <ImageView
             android:id="@+id/arrow_back"
             android:layout_width="20dp"
@@ -60,7 +60,6 @@
             android:layout_weight="10"
             android:background="@drawable/edit_bg"
             android:hint="请输入企业名称"
-            android:maxLength="8"
             android:textSize="14sp" />
 
         <!--android:src="@mipmap/point3x"
@@ -332,7 +331,8 @@
         android:orientation="vertical"
         android:paddingLeft="10dp"
         android:paddingTop="10dp"
-        android:visibility="visible">
+        android:visibility="visible"
+        android:background="#2299cc33">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -381,7 +381,7 @@
             android:textSize="18sp"
             android:visibility="gone" />
 
-        <RelativeLayout
+        <LinearLayout
             android:id="@+id/searchContent"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
@@ -391,156 +391,141 @@
             <TextView
                 android:id="@+id/txt1"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="20dip"
-                android:text="安卓优化大师"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:layout_marginTop="10dip"
+                android:layout_marginLeft="25dip"
+                android:text="江西省科豪实业发展有限公司"
                 android:textColor="@color/t1"
-                android:textSize="20sp" />
+                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/txt2"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_below="@id/txt1"
-                android:layout_marginLeft="43dip"
-                android:layout_marginTop="15dip"
-                android:text="飞信"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:layout_gravity="right"
+                android:layout_marginRight="25dip"
+                android:text="信丰县小江镇平顺煤矿"
                 android:textColor="@color/t6"
-                android:textSize="18sp" />
+                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/txt3"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_below="@id/txt1"
-                android:layout_marginRight="43dip"
-                android:layout_marginTop="15dip"
-                android:text="赛车"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="25dip"
+                android:text="萍乡市烟草公司莲花分公司"
                 android:textColor="@color/t6"
-                android:textSize="18sp" />
+                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/txt4"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_below="@id/txt2"
-                android:layout_marginLeft="103dip"
-                android:layout_marginTop="25dip"
-                android:text="360"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:layout_gravity="right"
+                android:layout_marginRight="25dip"
+                android:text="贵溪市幸福树电器有限公司"
                 android:textColor="@color/t4"
                 android:textSize="16sp" />
-
             <TextView
                 android:id="@+id/txt5"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_below="@id/txt2"
-                android:layout_marginRight="103dip"
-                android:layout_marginTop="15dip"
-                android:text="短信"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="25dip"
+                android:text="南昌市东湖区海声听力服务中心"
                 android:textColor="@color/t4"
                 android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/txt6"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_below="@id/txt4"
-                android:layout_marginLeft="15dip"
-                android:layout_marginTop="15dip"
-                android:text="文件管理"
-                android:textColor="@color/t1"
-                android:textSize="20sp" />
-
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:layout_gravity="right"
+                android:layout_marginRight="25dip"
+                android:text="余江县龙溪养蜂专业合作社"
+                android:textColor="@color/t2"
+                android:textSize="16sp" />
             <TextView
                 android:id="@+id/txt7"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/txt4"
-                android:layout_centerHorizontal="true"
-                android:layout_marginRight="103dip"
-                android:layout_marginTop="17dip"
-                android:text="拨号"
-                android:textColor="@color/t2"
-                android:textSize="14sp" />
-
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="25dip"
+                android:text="江西南大图书代办站"
+                android:textColor="@color/t1"
+                android:textSize="16sp" />
             <TextView
                 android:id="@+id/txt8"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_below="@id/txt5"
-                android:layout_marginRight="23dip"
-                android:layout_marginTop="25dip"
-                android:text="短信"
-                android:textColor="@color/t1"
-                android:textSize="20sp" />
-
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:layout_gravity="right"
+                android:layout_marginRight="25dip"
+                android:text="赣州国光实业有限公司信丰店"
+                android:textColor="@color/t2"
+                android:textSize="16sp" />
             <TextView
                 android:id="@+id/txt9"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
                 android:layout_alignParentLeft="true"
-                android:layout_below="@id/txt6"
-                android:layout_marginLeft="93dip"
-                android:layout_marginTop="27dip"
-                android:text="捕鱼达人"
+                android:layout_marginLeft="25dip"
+                android:text="江西省华侨旅游经贸公司"
                 android:textColor="@color/t4"
                 android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/txt10"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_below="@id/txt8"
-                android:layout_marginRight="113dip"
-                android:layout_marginTop="27dip"
-                android:text="日历"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:layout_gravity="right"
+                android:layout_marginRight="25dip"
+                android:text="德兴市华清汽车销售服务有限公司"
                 android:textColor="@color/t4"
                 android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/txt11"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
                 android:layout_alignParentLeft="true"
-                android:layout_below="@id/txt9"
-                android:layout_marginLeft="58dip"
-                android:layout_marginTop="27dip"
-                android:text="hd"
+                android:layout_marginLeft="25dip"
+                android:text="江西省亿达置业有限公司"
                 android:textColor="@color/t6"
-                android:textSize="18sp" />
+                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/txt12"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_below="@id/txt10"
-                android:layout_marginRight="58dip"
-                android:layout_marginTop="27dip"
-                android:text="视频播放器"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:layout_gravity="right"
+                android:layout_marginRight="25dip"
+                android:text="江西梦娜袜业有限公司"
                 android:textColor="@color/t6"
-                android:textSize="18sp" />
+                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/txt13"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/txt11"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="17dip"
-                android:text="3D动态壁纸"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:layout_marginLeft="25dip"
+                android:text="中国江西国际经济技术合作公司"
                 android:textColor="@color/t1"
-                android:textSize="20sp" />
-        </RelativeLayout>
+                android:textSize="16sp" />
+        </LinearLayout>
     </LinearLayout>
 
     <!--搜索结果list-->
@@ -589,12 +574,11 @@
 
         </ListView>
     </LinearLayout>
-
+    <!--android:layout_weight="0.8"-->
     <LinearLayout
 
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.8"
+        android:layout_height="30dp"
         android:background="@mipmap/search_bottom">
 
     </LinearLayout>

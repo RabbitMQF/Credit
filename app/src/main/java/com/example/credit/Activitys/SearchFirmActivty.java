@@ -66,7 +66,7 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
     ImageView search_bt;
     public static boolean city_check = false, capital_check = false, time_check = false, industry_check = false, tab_frim_check = false, tab_illegal_check = false, tab_shareholder_check = false;
     LinearLayout his_sra, select;
-    RelativeLayout searchContent;
+    LinearLayout searchContent;
     ListView menu_one;
     public static ListView menu_two;
     ViewGroup.MarginLayoutParams oneLayoutParams;
@@ -326,11 +326,11 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
         twoLayoutParams = (ViewGroup.MarginLayoutParams) menu_two.getLayoutParams();
         search_list = (ListView) findViewById(R.id.search_list);
         his_sra = (LinearLayout) findViewById(R.id.his_sra);//历史记录view
-        searchContent = (RelativeLayout) findViewById(R.id.searchContent);
+        searchContent = (LinearLayout) findViewById(R.id.searchContent);
         history_list_null = (TextView) findViewById(R.id.history_list_null);
         csp = CreditSharePreferences.getLifeSharedPreferences();
         if(csp.getHistory()==null||csp.getHistory().equals("")){//给历史记录赋初始值
-            String Tnameh = "江西,南昌,智容,李良,QQ,胡歌,南昌红谷滩,美年达,A,笔记本,联想,科技,China,";//历史字备用
+            String Tnameh = "余江县龙溪养蜂专业合作社,江西圆融医疗器械有限公司,景德镇市第一炉面包房,江西梦娜袜业有限公司,江西工商联合投资有限公司,江西智容科技有限公司,南昌和平大厦实业发展公司,贵溪市幸福树电器有限公司,德兴市华清汽车销售服务有限公司,江西新星建筑装饰工程有限公司,江西省第三建筑有限责任公司,江西正隆园林建设工程有限公司,萍乡市烟草公司莲花分公司,";//历史字备用
             csp.putHistory(Tnameh);
         }
 
@@ -737,13 +737,13 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
         mTextView2.startAnimation(animation2);
         mTextView3.startAnimation(animation3);
         mTextView4.startAnimation(animation4);
-        mTextView5.startAnimation(animation4);
-        mTextView6.startAnimation(animation6);
-        mTextView7.startAnimation(animation7);
-        mTextView8.startAnimation(animation8);
-        mTextView9.startAnimation(animation9);
-        mTextView10.startAnimation(animation9);
-        mTextView11.startAnimation(animation11);
+        mTextView5.startAnimation(animation3);
+        mTextView6.startAnimation(animation7);
+        mTextView7.startAnimation(animation8);
+        mTextView8.startAnimation(animation9);
+        mTextView9.startAnimation(animation11);
+        mTextView10.startAnimation(animation12);
+        mTextView11.startAnimation(animation13);
         mTextView12.startAnimation(animation12);
         mTextView13.startAnimation(animation13);
     }
@@ -755,6 +755,9 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
         mTextView4.startAnimation(animation2_4);
         mTextView5.startAnimation(animation2_5);
         mTextView6.startAnimation(animation2_6);
+
+        mTextView7.startAnimation(animation2_6);
+
         mTextView8.startAnimation(animation2_8);
         mTextView9.startAnimation(animation2_9);
         mTextView10.startAnimation(animation2_10);
@@ -786,8 +789,24 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
 
     public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX,
                            float velocityY) {
+        randomText();
+        float minMove = 120;         //最小滑动距离
+        float minVelocity = 0;      //最小滑动速度
+        float beginX = e1.getX();
+        float endX = e2.getX();
+        float beginY = e1.getY();
+        float endY = e2.getY();
 
-        randomTanslate();
+        if(beginX-endX>minMove&&Math.abs(velocityX)>minVelocity){   //左滑
+            startAnimations1();
+        }else if(endX-beginX>minMove&&Math.abs(velocityX)>minVelocity){   //右滑
+            startAnimations1();
+        }else if(beginY-endY>minMove&&Math.abs(velocityY)>minVelocity){   //上滑
+            startAnimations2();
+        }else if(endY-beginY>minMove&&Math.abs(velocityY)>minVelocity){   //下滑
+            startAnimations2();
+        }
+//        randomTanslate();
         return false;
     }
 
