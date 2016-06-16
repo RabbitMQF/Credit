@@ -42,7 +42,7 @@ public class URLconstant {
 
     public static final String COPYRIGHTURL = "patentInfo/getquerypatentInfo.do";//著作URLcopyright
 
-    public static final String ADVERTISEMENTURL = " advertising/getqueryadvertising.do";//广告信息URLAdvertisement
+    public static final String ADVERTISEMENTURL = "advertising/getqueryadvertising.do";//广告信息URLAdvertisement
 
     public static final String OBEYEDURL = "lcPatent/getLcPatent.do";//守合同重信用信息URLObeyed
 

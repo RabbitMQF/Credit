@@ -19,6 +19,7 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.example.credit.Adapters.MyGridAdapters;
+import com.example.credit.Dialogs.WaitDialog;
 import com.example.credit.Entitys.DataManager;
 import com.example.credit.R;
 import com.example.credit.Adapters.MyGridAdapter1;
@@ -43,6 +44,7 @@ import java.util.Map;
  * 公司信息界面
  */
 public class CompanyDetailsActivity extends BaseActivity {
+    WaitDialog waitDialog;
     @ViewInject(R.id.sc)
     ScrollView mScrollView;
 
@@ -115,6 +117,7 @@ public class CompanyDetailsActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_company_details);
         ViewUtils.inject(this);
+        waitDialog=new WaitDialog(this);
         mScrollView.smoothScrollTo(0, 20);
         Intent i = getIntent();
         int s = i.getIntExtra("s", 0);
@@ -153,6 +156,8 @@ public class CompanyDetailsActivity extends BaseActivity {
             public void handleMessage(Message msg) {
                 switch (msg.what) {
                     case 0://工商信息
+                        waitDialog.dismiss();
+
                         Intent i0 = new Intent(CompanyDetailsActivity.this, DetailsContentActivity.class);
                         i0.putExtra("position", position);
                         i0.putExtra("Tname",arrays1[msg.what]);
@@ -160,12 +165,14 @@ public class CompanyDetailsActivity extends BaseActivity {
                         overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
                         break;
                     case 1://行政审批
+                        waitDialog.dismiss();
                         Intent i1 = new Intent(CompanyDetailsActivity.this, AdminActivity.class);
                         i1.putExtra("Tname",arrays1[msg.what]);
                         startActivity(i1);
                         overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
                         break;
                     case 2://荣誉信息
+                        waitDialog.dismiss();
                         Intent i2 = new Intent(CompanyDetailsActivity.this, Honor_Support_Activity.class);
                         i2.putExtra("Tname",arrays1[msg.what]);
                         i2.putExtra("st", 1);
@@ -173,6 +180,7 @@ public class CompanyDetailsActivity extends BaseActivity {
                         overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
                         break;
                     case 3://扶持信息
+                        waitDialog.dismiss();
                         Intent i3 = new Intent(CompanyDetailsActivity.this, Honor_Support_Activity.class);
                         i3.putExtra("st", 2);
                         i3.putExtra("Tname",arrays1[msg.what]);
@@ -180,75 +188,88 @@ public class CompanyDetailsActivity extends BaseActivity {
                         overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
                         break;
                     case 4://抵押信息
+                        waitDialog.dismiss();
                         Intent i4 =new Intent(CompanyDetailsActivity.this,Mortgage_detail_Activity.class);
                         i4.putExtra("Tname",arrays1[msg.what]);
                         startActivity(i4);
                         overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
                         break;
                     case 5://出质信息
+                        waitDialog.dismiss();
                         Intent i5 = new Intent(CompanyDetailsActivity.this, PledgeActivity.class);
                         i5.putExtra("Tname",arrays1[msg.what]);
                         startActivity(i5);
                         overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
                         break;
                     case 6://司法信息
+                        waitDialog.dismiss();
                         Intent i6 = new Intent(CompanyDetailsActivity.this, JudicialActivity.class);
                         i6.putExtra("Tname",arrays1[msg.what]);
                         startActivity(i6);
                         overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
                         break;
                     case 7://预警信息
+                        waitDialog.dismiss();
                         Intent i7 = new Intent(CompanyDetailsActivity.this, AlertActivity.class);
                         i7.putExtra("Tname",arrays1[msg.what]);
                         startActivity(i7);
                         overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
                         break;
                     case 8:
+                        waitDialog.dismiss();
                         Intent i8 = new Intent(CompanyDetailsActivity.this, PunishActivity.class);
                         i8.putExtra("Tname",arrays1[msg.what]);
                         startActivity(i8);
                         overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
                         break;
                     case 9://经营异常
+                        waitDialog.dismiss();
                         Intent i9 = new Intent(CompanyDetailsActivity.this, AbnormalActivity.class);
                         i9.putExtra("Tname",arrays1[msg.what]);
                         startActivity(i9);
                         overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
                         break;
                     case 10:
+                        waitDialog.dismiss();
                         Intent i10 = new Intent(CompanyDetailsActivity.this, PatentActivity.class);
                         i10.putExtra("Tname",arrays1[msg.what]);
                         startActivity(i10);
                         overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
                         break;
                     case 11:
+                        waitDialog.dismiss();
                         Intent i11 = new Intent(CompanyDetailsActivity.this, TrademarkActivity.class);
                         i11.putExtra("Tname",arrays1[msg.what]);
                         startActivity(i11);
                         overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
                         break;
                     case 12:
+                        waitDialog.dismiss();
                         Intent i12 = new Intent(CompanyDetailsActivity.this, CopyrightActivity.class);
                         i12.putExtra("Tname",arrays1[msg.what]);
                         startActivity(i12);
                         overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
                         break;
                     case 13://广告资质
+                        waitDialog.dismiss();
                         Intent i13 = new Intent(CompanyDetailsActivity.this, AdvertisementActivity.class);
                         i13.putExtra("Tname",arrays1[msg.what]);
                         startActivity(i13);
                         overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
                         break;
                     case 14://守合同重信用
+                        waitDialog.dismiss();
                         Intent i14 = new Intent(CompanyDetailsActivity.this, ObeyedActivity.class);
                         i14.putExtra("Tname",arrays1[msg.what]);
                         startActivity(i14);
                         overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
                         break;
                     case 15://自主公示
+                        waitDialog.dismiss();
                         startActivity(new Intent(CompanyDetailsActivity.this, AutonomyActivity.class));
                         overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
                     case 500:
+                        waitDialog.dismiss();
                         android.widget.Toast.makeText(CompanyDetailsActivity.this, "暂无数据！", android.widget.Toast.LENGTH_SHORT).show();
                         break;
                 }
@@ -264,6 +285,7 @@ public class CompanyDetailsActivity extends BaseActivity {
 //                    KeyNo = 360001000042005100900010;
 //                    deviceld = "5A955499-E1D8-4274-BD35-CE48EE917E54";
 //                    token = b6bd25f6a1c806f7c75bdcda0a0ec065;
+                    waitDialog.show();
                     GsonUtil request0 = new GsonUtil(URLconstant.URLINSER + URLconstant.DETAILSCINFOURL, RequestMethod.GET);
                     request0.add("token", token);
                     request0.add("deviceld", model);
@@ -271,6 +293,7 @@ public class CompanyDetailsActivity extends BaseActivity {
                     CallServer.getInstance().add(CompanyDetailsActivity.this, request0, MyhttpCallBack.getInstance(), 0x000, true, false, true);
                     break;
                 case 1://行政审批
+                    waitDialog.show();
                     GsonUtil request1 = new GsonUtil(URLconstant.URLINSER + URLconstant.ADMINURL, RequestMethod.GET);
                     request1.add("token", token);
                     request1.add("deviceld", model);
@@ -278,6 +301,7 @@ public class CompanyDetailsActivity extends BaseActivity {
                     CallServer.getInstance().add(CompanyDetailsActivity.this, request1, MyhttpCallBack.getInstance(), 0x001, true, false, true);
                     break;
                 case 2://荣誉信息
+                    waitDialog.show();
                     String KeyNoR = DataManager.searchList.get(position).REGNO;//注册号
                     String tokenr = SearchFirmActivty.MD5s(KeyNoR + model);//token 由 设备ID+/注册号 MD5生成
                     GsonUtil request2 = new GsonUtil(URLconstant.URLINSER + URLconstant.HONORURL, RequestMethod.GET);
@@ -288,6 +312,7 @@ public class CompanyDetailsActivity extends BaseActivity {
 
                     break;
                 case 3://扶持信息
+                    waitDialog.show();
                     GsonUtil request3 = new GsonUtil(URLconstant.URLINSER + URLconstant.SUPPORTURL, RequestMethod.GET);
                     request3.add("token", token);
                     request3.add("deviceld", model);
@@ -296,6 +321,7 @@ public class CompanyDetailsActivity extends BaseActivity {
 
                     break;
                 case 4://抵押信息
+                    waitDialog.show();
                     GsonUtil mortinfoRequest= new GsonUtil(URLconstant.URLINSER+URLconstant.MORTINFO,RequestMethod.GET);//动产request
                     GsonUtil mortinfoBdcRequest= new GsonUtil(URLconstant.URLINSER+URLconstant.MORTINFOBDC,RequestMethod.GET);//不动产request
                     mortinfoRequest.add("token", token);
@@ -309,6 +335,7 @@ public class CompanyDetailsActivity extends BaseActivity {
 
                     break;
                 case 5://出质信息
+                    waitDialog.show();
                     GsonUtil request5 = new GsonUtil(URLconstant.URLINSER + URLconstant.PLEDGEURL, RequestMethod.GET);
                     request5.add("token", token);
                     request5.add("deviceld", model);
@@ -317,6 +344,7 @@ public class CompanyDetailsActivity extends BaseActivity {
 
                     break;
                 case 6://司法信息
+                    waitDialog.show();
                     GsonUtil request6 = new GsonUtil(URLconstant.URLINSER + URLconstant.JUDICIALURL, RequestMethod.GET);
                     request6.add("token", token);
                     request6.add("deviceld", model);
@@ -325,6 +353,7 @@ public class CompanyDetailsActivity extends BaseActivity {
 
                     break;
                 case 7://预警信息
+                    waitDialog.show();
                     GsonUtil request7 = new GsonUtil(URLconstant.URLINSER + URLconstant.GETALERT, RequestMethod.GET);
                     request7.add("token", token);
                     request7.add("deviceld", model);
@@ -332,6 +361,7 @@ public class CompanyDetailsActivity extends BaseActivity {
                     CallServer.getInstance().add(CompanyDetailsActivity.this, request7, MyhttpCallBack.getInstance(), 0x007, true, false, true);
                     break;
                 case 8://行政处罚
+                    waitDialog.show();
                     GsonUtil request = new GsonUtil(URLconstant.URLINSER + URLconstant.PUNISHURL, RequestMethod.GET);
                     request.add("token", token);
                     request.add("deviceld", model);
@@ -340,6 +370,7 @@ public class CompanyDetailsActivity extends BaseActivity {
 
                     break;
                 case 9://经营异常
+                    waitDialog.show();
                     GsonUtil request9 = new GsonUtil(URLconstant.URLINSER +URLconstant.ABNORMALURL, RequestMethod.GET);
                     request9.add("token", token);
                     request9.add("deviceld", model);
@@ -348,6 +379,7 @@ public class CompanyDetailsActivity extends BaseActivity {
 
                     break;
                 case 10://专利信息
+                    waitDialog.show();
                     GsonUtil request10 = new GsonUtil(URLconstant.URLINSER +URLconstant.PATENTURL, RequestMethod.GET);
                     request10.add("token", token);
                     request10.add("deviceld", model);
@@ -367,6 +399,7 @@ public class CompanyDetailsActivity extends BaseActivity {
 //                    }
                     break;
                 case 11://商标信息
+                    waitDialog.show();
                     GsonUtil request11 = new GsonUtil(URLconstant.URLINSER +URLconstant.TRADEMARKURL, RequestMethod.GET);
                     request11.add("token", token);
                     request11.add("deviceld", model);
@@ -374,6 +407,7 @@ public class CompanyDetailsActivity extends BaseActivity {
                     CallServer.getInstance().add(CompanyDetailsActivity.this, request11, MyhttpCallBack.getInstance(), 0x011, true, false, true);
                     break;
                 case 12://著作权
+                    waitDialog.show();
                     GsonUtil request12 = new GsonUtil(URLconstant.URLINSER +URLconstant.COPYRIGHTURL, RequestMethod.GET);
                     request12.add("token", token);
                     request12.add("deviceld", model);
@@ -381,6 +415,7 @@ public class CompanyDetailsActivity extends BaseActivity {
                     CallServer.getInstance().add(CompanyDetailsActivity.this, request12, MyhttpCallBack.getInstance(), 0x012, true, false, true);
                     break;
                 case 13://广告资质
+                    waitDialog.show();
                     GsonUtil request13 = new GsonUtil(URLconstant.URLINSER + URLconstant.ADVERTISEMENTURL, RequestMethod.GET);
                     request13.add("token", token);
                     request13.add("deviceld", model);
@@ -388,6 +423,7 @@ public class CompanyDetailsActivity extends BaseActivity {
                     CallServer.getInstance().add(CompanyDetailsActivity.this, request13, MyhttpCallBack.getInstance(), 0x013, true, false, true);
                     break;
                 case 14://守合同重信用
+                    waitDialog.show();
                     GsonUtil request14 = new GsonUtil(URLconstant.URLINSER + URLconstant.OBEYEDURL, RequestMethod.GET);
                     request14.add("token", token);
                     request14.add("deviceld", model);
@@ -395,6 +431,7 @@ public class CompanyDetailsActivity extends BaseActivity {
                     CallServer.getInstance().add(CompanyDetailsActivity.this, request14, MyhttpCallBack.getInstance(), 0x014, true, false, true);
                     break;
                 case 15://自主公示
+                    waitDialog.show();
                     GsonUtil request15 =new GsonUtil(URLconstant.URLINSER+URLconstant.GETAUTO,RequestMethod.GET);
                     request15.add("token",token);
                     request15.add("deviceld",model);

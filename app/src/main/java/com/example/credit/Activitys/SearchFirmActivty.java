@@ -421,7 +421,6 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
                                 }
                             }
                             select.setVisibility(View.GONE);
-
                         }
                         popDataList = new ArrayList<>();
                         popDataList.add("不限注册");
@@ -789,22 +788,24 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
 
     public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX,
                            float velocityY) {
-        randomText();
         float minMove = 120;         //最小滑动距离
         float minVelocity = 0;      //最小滑动速度
         float beginX = e1.getX();
         float endX = e2.getX();
         float beginY = e1.getY();
         float endY = e2.getY();
-
         if(beginX-endX>minMove&&Math.abs(velocityX)>minVelocity){   //左滑
             startAnimations1();
+            randomText();
         }else if(endX-beginX>minMove&&Math.abs(velocityX)>minVelocity){   //右滑
             startAnimations1();
+            randomText();
         }else if(beginY-endY>minMove&&Math.abs(velocityY)>minVelocity){   //上滑
             startAnimations2();
+            randomText();
         }else if(endY-beginY>minMove&&Math.abs(velocityY)>minVelocity){   //下滑
             startAnimations2();
+            randomText();
         }
 //        randomTanslate();
         return false;

@@ -216,11 +216,13 @@
                     android:id="@+id/myGridView1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:numColumns="4" />
+                    android:numColumns="4"
+                    android:stretchMode="columnWidth"
+                    />
 
                 <View
                     android:layout_width="match_parent"
-                    android:layout_height="1dp"
+                    android:layout_height="0.5dp"
                     android:background="#B8B8B8" />
 
                 <!--android:layout_width="match_parent"-->

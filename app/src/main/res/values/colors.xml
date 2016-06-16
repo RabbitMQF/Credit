@@ -16,13 +16,13 @@
 
 
 
-    <color name="t1">#FF0000</color>
-    <color name="t2">#FF7F00</color>
-    <color name="t3">#FFFF00</color>
-    <color name="t4">#00FF00</color>
-    <color name="t5">#00FFFF</color>
-    <color name="t6">#0000FF</color>
-    <color name="t7">#8B00FF</color>
+    <color name="t1">#0ca7dd</color>
+    <color name="t2">#ff3030</color>
+    <color name="t3">#04bb87</color>
+    <color name="t4">#ffc900</color>
+    <color name="t5">#9b32ff</color>
+    <color name="t6">#ef7600</color>
+    <color name="t7">#0ca7dd</color>
 
 
 </resources>

@@ -1,9 +1,6 @@
 package com.example.credit.Adapters;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -61,7 +58,7 @@ public class NewsListAdapter extends BaseAdapter{
         if(tempNews.img!=""){
             Picasso.with(context).load(tempNews.img).into(vh.img);
         }else {
-            Picasso.with(context).load("http://zkres.myzaker.com/201606/574e83227f52e98f2700000c_320.jpg").into(vh.img);
+            Picasso.with(context).load(R.mipmap.nopicture).into(vh.img);
         }
 
         vh.title.setText(tempNews.title);

@@ -336,7 +336,11 @@ public class MyhttpCallBack implements HttpCallBack {
                             break;
                     }
                 }
-
+                if(listtemp2.size()>0 && listtemp2!=null){
+                    CompanyDetailsActivity.handler.sendEmptyMessage(7);
+                }else{
+                    CompanyDetailsActivity.handler.sendEmptyMessage(500);
+                }
 
                 break;
             case 0x008://行政处罚
@@ -464,7 +468,7 @@ public class MyhttpCallBack implements HttpCallBack {
                 }
 
                 break;
-            case 0x013://广告信息
+            case 0x013://广告资质
                 String jstring13 = (String) response.get();
                 map = gson.fromJson(jstring13, new TypeToken<Map<String, Object>>() {
                 }.getType());
