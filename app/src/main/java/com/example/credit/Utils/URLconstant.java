@@ -4,13 +4,14 @@ package com.example.credit.Utils;
  * Created by alucard on 2016-05-13.
  */
 public class URLconstant {
-    //真数据
+    //真数据Interface
     public static final String URLINSER="http://101.201.211.27:8282/esws.interface/";//所有接口前缀
+//    public static final String URLINSER="http://101.201.211.27:8282/zhirong.creditcard/Interface/";//所有接口前缀
 
     public static  final  String GETCITY="baseinfo/querycitys.do";//获取城市接口
     public static final String GETINDUSTRY= "baseinfo/queryindustry.do";//获取行业门类      没参    返回  data    industry：  EC_VALUE：行业门类代码   EC_NAME：行业门类名字
 
-    public static final String SEARCHURL ="baseinfo/querymodelbaseinfo.do";//搜索接口
+    public static final String SEARCHURL ="http://101.201.211.27:8282/zhirong.creditcard/Interface/baseinfo/querymodelbaseinfo.do";//搜索接口
 
     public static final String DETAILSCINFOURL ="info/queryinfomessage.do";//获取工商DetailsContent
 
@@ -45,6 +46,8 @@ public class URLconstant {
     public static final String ADVERTISEMENTURL = "advertising/getqueryadvertising.do";//广告信息URLAdvertisement
 
     public static final String OBEYEDURL = "lcPatent/getLcPatent.do";//守合同重信用信息URLObeyed
+
+    public static final String GETITEMNUM="http://101.201.211.27:8282/zhirong.creditcard/Interface/baseinfo/queryAllCountForEnterprise.do";//获取16个item右上角条数
 
 
 

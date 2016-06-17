@@ -27,17 +27,17 @@ public class WelcomeActivity extends Activity {
         setContentView(R.layout.activity_welcome);
         ViewUtils.inject(this);
         CreditSharePreferences.init(this);
-        esp=CreditSharePreferences.getLifeSharedPreferences();
+        esp = CreditSharePreferences.getLifeSharedPreferences();
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(WelcomeActivity.this,MainActivity.class);
+                Intent i = new Intent(WelcomeActivity.this, MainActivity.class);
                 startActivity(i);
                 finish();
-                overridePendingTransition(R.anim.start_tran_one,R.anim.start_tran_two);
+                overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
             }
         });
-        Animation a= AnimationUtils.loadAnimation(this, R.anim.welcome_tran);
+        Animation a= AnimationUtils.loadAnimation(this, R.anim.welcome_in);
         a.setAnimationListener(listener);
         iv.setAnimation(a);
     }
@@ -61,8 +61,7 @@ public class WelcomeActivity extends Activity {
             Intent i=new Intent(WelcomeActivity.this,MainActivity.class);
             startActivity(i);
             finish();
-            overridePendingTransition(R.anim.start_tran_one,R.anim.start_tran_two);
+//            overridePendingTransition(R.anim.welcome_out,R.anim.welcome_in);
         }
     };
-
 }

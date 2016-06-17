@@ -74,6 +74,8 @@ public class CompanyDetailsActivity extends BaseActivity {
     MyGridAdapter1 adapter1;
     MyGridAdapter2 adapter2;
     private final int MSG = 0x015;
+    int a1=0,a2=0,a3=0,a4=0,a5=0,a6=0,a7=0,a8=0,a9=0,a10=0,a11=0,a12=0,a13=0,a14=0,a15=0,a16=0;
+
     List<DataManager.search> detailsList = new ArrayList<DataManager.search>();
     public String[] arrays3 = {"注册资本", "法定代表", "发照日期", "成立日期",
             "工商注册号", "组织机构代码"};
@@ -89,6 +91,7 @@ public class CompanyDetailsActivity extends BaseActivity {
             "+1", "+1", "+1", "+1",
             "+1", "+1", "+1", "+1",
             "+1", "+1", "+1", "+1"};
+
     public int[] imgs = {R.mipmap.infodetial_fun1_abled, R.mipmap.infodetial_fun2_abled,
             R.mipmap.infodetial_fun3_abled, R.mipmap.infodetial_fun4_abled,
             R.mipmap.infodetial_fun5_abled, R.mipmap.infodetial_fun6_abled,
@@ -106,6 +109,7 @@ public class CompanyDetailsActivity extends BaseActivity {
             R.mipmap.icon11, R.mipmap.icon12,
             R.mipmap.icon13, R.mipmap.icon14,
             R.mipmap.icon15, R.mipmap.icon16};
+
     int position;
     public static Handler handler;
     String model;
@@ -157,7 +161,6 @@ public class CompanyDetailsActivity extends BaseActivity {
                 switch (msg.what) {
                     case 0://工商信息
                         waitDialog.dismiss();
-
                         Intent i0 = new Intent(CompanyDetailsActivity.this, DetailsContentActivity.class);
                         i0.putExtra("position", position);
                         i0.putExtra("Tname",arrays1[msg.what]);
@@ -282,109 +285,120 @@ public class CompanyDetailsActivity extends BaseActivity {
         public void onItemClick(AdapterView<?> parent, View view, int index, long id) {
             switch (index) {
                 case 0://工商信息
-//                    KeyNo = 360001000042005100900010;
-//                    deviceld = "5A955499-E1D8-4274-BD35-CE48EE917E54";
-//                    token = b6bd25f6a1c806f7c75bdcda0a0ec065;
-                    waitDialog.show();
-                    GsonUtil request0 = new GsonUtil(URLconstant.URLINSER + URLconstant.DETAILSCINFOURL, RequestMethod.GET);
-                    request0.add("token", token);
-                    request0.add("deviceld", model);
-                    request0.add("KeyNo", KeyNo);
-                    CallServer.getInstance().add(CompanyDetailsActivity.this, request0, MyhttpCallBack.getInstance(), 0x000, true, false, true);
+                    if(a1==0){
+                        waitDialog.show();
+                        GsonUtil request0 = new GsonUtil(URLconstant.URLINSER + URLconstant.DETAILSCINFOURL, RequestMethod.GET);
+                        request0.add("token", token);
+                        request0.add("deviceld", model);
+                        request0.add("KeyNo", KeyNo);
+                        CallServer.getInstance().add(CompanyDetailsActivity.this, request0, MyhttpCallBack.getInstance(), 0x000, true, false, true);
+                    }
                     break;
                 case 1://行政审批
-                    waitDialog.show();
-                    GsonUtil request1 = new GsonUtil(URLconstant.URLINSER + URLconstant.ADMINURL, RequestMethod.GET);
-                    request1.add("token", token);
-                    request1.add("deviceld", model);
-                    request1.add("KeyNo", KeyNo);
-                    CallServer.getInstance().add(CompanyDetailsActivity.this, request1, MyhttpCallBack.getInstance(), 0x001, true, false, true);
+                    if(a2==0) {
+                        waitDialog.show();
+                        GsonUtil request1 = new GsonUtil(URLconstant.URLINSER + URLconstant.ADMINURL, RequestMethod.GET);
+                        request1.add("token", token);
+                        request1.add("deviceld", model);
+                        request1.add("KeyNo", KeyNo);
+                        CallServer.getInstance().add(CompanyDetailsActivity.this, request1, MyhttpCallBack.getInstance(), 0x001, true, false, true);
+                    }
                     break;
                 case 2://荣誉信息
-                    waitDialog.show();
-                    String KeyNoR = DataManager.searchList.get(position).REGNO;//注册号
-                    String tokenr = SearchFirmActivty.MD5s(KeyNoR + model);//token 由 设备ID+/注册号 MD5生成
-                    GsonUtil request2 = new GsonUtil(URLconstant.URLINSER + URLconstant.HONORURL, RequestMethod.GET);
-                    request2.add("token", tokenr);
-                    request2.add("deviceld", model);
-                    request2.add("KeyNo", KeyNoR);
-                    CallServer.getInstance().add(CompanyDetailsActivity.this, request2, MyhttpCallBack.getInstance(), 0x002, true, false, true);
-
+                    if(a3==0) {
+                        waitDialog.show();
+                        String KeyNoR = DataManager.searchList.get(position).REGNO;//注册号
+                        String tokenr = SearchFirmActivty.MD5s(KeyNoR + model);//token 由 设备ID+/注册号 MD5生成
+                        GsonUtil request2 = new GsonUtil(URLconstant.URLINSER + URLconstant.HONORURL, RequestMethod.GET);
+                        request2.add("token", tokenr);
+                        request2.add("deviceld", model);
+                        request2.add("KeyNo", KeyNoR);
+                        CallServer.getInstance().add(CompanyDetailsActivity.this, request2, MyhttpCallBack.getInstance(), 0x002, true, false, true);
+                    }
                     break;
                 case 3://扶持信息
-                    waitDialog.show();
-                    GsonUtil request3 = new GsonUtil(URLconstant.URLINSER + URLconstant.SUPPORTURL, RequestMethod.GET);
-                    request3.add("token", token);
-                    request3.add("deviceld", model);
-                    request3.add("KeyNo", KeyNo);
-                    CallServer.getInstance().add(CompanyDetailsActivity.this, request3, MyhttpCallBack.getInstance(), 0x003, true, false, true);
-
+                    if(a4==0) {
+                        waitDialog.show();
+                        GsonUtil request3 = new GsonUtil(URLconstant.URLINSER + URLconstant.SUPPORTURL, RequestMethod.GET);
+                        request3.add("token", token);
+                        request3.add("deviceld", model);
+                        request3.add("KeyNo", KeyNo);
+                        CallServer.getInstance().add(CompanyDetailsActivity.this, request3, MyhttpCallBack.getInstance(), 0x003, true, false, true);
+                    }
                     break;
                 case 4://抵押信息
-                    waitDialog.show();
-                    GsonUtil mortinfoRequest= new GsonUtil(URLconstant.URLINSER+URLconstant.MORTINFO,RequestMethod.GET);//动产request
-                    GsonUtil mortinfoBdcRequest= new GsonUtil(URLconstant.URLINSER+URLconstant.MORTINFOBDC,RequestMethod.GET);//不动产request
-                    mortinfoRequest.add("token", token);
-                    mortinfoRequest.add("deviceld", model);
-                    mortinfoRequest.add("KeyNo", KeyNo);
-                    mortinfoBdcRequest.add("token", token);
-                    mortinfoBdcRequest.add("deviceld", model);
-                    mortinfoBdcRequest.add("KeyNo", KeyNo);
-                    CallServer.getInstance().add(CompanyDetailsActivity.this,mortinfoRequest,MyhttpCallBack.getInstance(),0x004,true,false,true);
-                    CallServer.getInstance().add(CompanyDetailsActivity.this,mortinfoBdcRequest,MyhttpCallBack.getInstance(),0x0041,true,false,true);
-
+                    if(a5==0) {
+                        waitDialog.show();
+                        GsonUtil mortinfoRequest = new GsonUtil(URLconstant.URLINSER + URLconstant.MORTINFO, RequestMethod.GET);//动产request
+                        GsonUtil mortinfoBdcRequest = new GsonUtil(URLconstant.URLINSER + URLconstant.MORTINFOBDC, RequestMethod.GET);//不动产request
+                        mortinfoRequest.add("token", token);
+                        mortinfoRequest.add("deviceld", model);
+                        mortinfoRequest.add("KeyNo", KeyNo);
+                        mortinfoBdcRequest.add("token", token);
+                        mortinfoBdcRequest.add("deviceld", model);
+                        mortinfoBdcRequest.add("KeyNo", KeyNo);
+                        CallServer.getInstance().add(CompanyDetailsActivity.this, mortinfoRequest, MyhttpCallBack.getInstance(), 0x004, true, false, true);
+                        CallServer.getInstance().add(CompanyDetailsActivity.this, mortinfoBdcRequest, MyhttpCallBack.getInstance(), 0x0041, true, false, true);
+                    }
                     break;
                 case 5://出质信息
-                    waitDialog.show();
-                    GsonUtil request5 = new GsonUtil(URLconstant.URLINSER + URLconstant.PLEDGEURL, RequestMethod.GET);
-                    request5.add("token", token);
-                    request5.add("deviceld", model);
-                    request5.add("KeyNo", KeyNo);
-                    CallServer.getInstance().add(CompanyDetailsActivity.this, request5, MyhttpCallBack.getInstance(), 0x005, true, false, true);
-
+                    if(a6==0) {
+                        waitDialog.show();
+                        GsonUtil request5 = new GsonUtil(URLconstant.URLINSER + URLconstant.PLEDGEURL, RequestMethod.GET);
+                        request5.add("token", token);
+                        request5.add("deviceld", model);
+                        request5.add("KeyNo", KeyNo);
+                        CallServer.getInstance().add(CompanyDetailsActivity.this, request5, MyhttpCallBack.getInstance(), 0x005, true, false, true);
+                    }
                     break;
                 case 6://司法信息
-                    waitDialog.show();
-                    GsonUtil request6 = new GsonUtil(URLconstant.URLINSER + URLconstant.JUDICIALURL, RequestMethod.GET);
-                    request6.add("token", token);
-                    request6.add("deviceld", model);
-                    request6.add("KeyNo", KeyNo);
-                    CallServer.getInstance().add(CompanyDetailsActivity.this, request6, MyhttpCallBack.getInstance(), 0X006, true, false, true);
-
+                    if(a7==0) {
+                        waitDialog.show();
+                        GsonUtil request6 = new GsonUtil(URLconstant.URLINSER + URLconstant.JUDICIALURL, RequestMethod.GET);
+                        request6.add("token", token);
+                        request6.add("deviceld", model);
+                        request6.add("KeyNo", KeyNo);
+                        CallServer.getInstance().add(CompanyDetailsActivity.this, request6, MyhttpCallBack.getInstance(), 0X006, true, false, true);
+                    }
                     break;
                 case 7://预警信息
-                    waitDialog.show();
-                    GsonUtil request7 = new GsonUtil(URLconstant.URLINSER + URLconstant.GETALERT, RequestMethod.GET);
-                    request7.add("token", token);
-                    request7.add("deviceld", model);
-                    request7.add("KeyNo", KeyNo);
-                    CallServer.getInstance().add(CompanyDetailsActivity.this, request7, MyhttpCallBack.getInstance(), 0x007, true, false, true);
+                    if(a8==0) {
+                        waitDialog.show();
+                        GsonUtil request7 = new GsonUtil(URLconstant.URLINSER + URLconstant.GETALERT, RequestMethod.GET);
+                        request7.add("token", token);
+                        request7.add("deviceld", model);
+                        request7.add("KeyNo", KeyNo);
+                        CallServer.getInstance().add(CompanyDetailsActivity.this, request7, MyhttpCallBack.getInstance(), 0x007, true, false, true);
+                    }
                     break;
                 case 8://行政处罚
-                    waitDialog.show();
-                    GsonUtil request = new GsonUtil(URLconstant.URLINSER + URLconstant.PUNISHURL, RequestMethod.GET);
-                    request.add("token", token);
-                    request.add("deviceld", model);
-                    request.add("KeyNo", KeyNo);
-                    CallServer.getInstance().add(CompanyDetailsActivity.this, request, MyhttpCallBack.getInstance(), 0X008, true, false, true);
-
+                    if(a9==0) {
+                        waitDialog.show();
+                        GsonUtil request = new GsonUtil(URLconstant.URLINSER + URLconstant.PUNISHURL, RequestMethod.GET);
+                        request.add("token", token);
+                        request.add("deviceld", model);
+                        request.add("KeyNo", KeyNo);
+                        CallServer.getInstance().add(CompanyDetailsActivity.this, request, MyhttpCallBack.getInstance(), 0X008, true, false, true);
+                    }
                     break;
                 case 9://经营异常
-                    waitDialog.show();
-                    GsonUtil request9 = new GsonUtil(URLconstant.URLINSER +URLconstant.ABNORMALURL, RequestMethod.GET);
-                    request9.add("token", token);
-                    request9.add("deviceld", model);
-                    request9.add("KeyNo", KeyNo);
-                    CallServer.getInstance().add(CompanyDetailsActivity.this, request9, MyhttpCallBack.getInstance(), 0X009, true, false, true);
-
+                    if(a10==0) {
+                        waitDialog.show();
+                        GsonUtil request9 = new GsonUtil(URLconstant.URLINSER + URLconstant.ABNORMALURL, RequestMethod.GET);
+                        request9.add("token", token);
+                        request9.add("deviceld", model);
+                        request9.add("KeyNo", KeyNo);
+                        CallServer.getInstance().add(CompanyDetailsActivity.this, request9, MyhttpCallBack.getInstance(), 0X009, true, false, true);
+                    }
                     break;
                 case 10://专利信息
-                    waitDialog.show();
-                    GsonUtil request10 = new GsonUtil(URLconstant.URLINSER +URLconstant.PATENTURL, RequestMethod.GET);
-                    request10.add("token", token);
-                    request10.add("deviceld", model);
-                    request10.add("KeyNo", KeyNo);
-                    CallServer.getInstance().add(CompanyDetailsActivity.this, request10, MyhttpCallBack.getInstance(), 0X010, true, false, true);
+                    if(a11==0) {
+                        waitDialog.show();
+                        GsonUtil request10 = new GsonUtil(URLconstant.URLINSER + URLconstant.PATENTURL, RequestMethod.GET);
+                        request10.add("token", token);
+                        request10.add("deviceld", model);
+                        request10.add("KeyNo", KeyNo);
+                        CallServer.getInstance().add(CompanyDetailsActivity.this, request10, MyhttpCallBack.getInstance(), 0X010, true, false, true);
 //                    Gson gson=new Gson();
 //                    String jstring10 = getResources().getString(R.string.test1);
 //                    Map<String, Object> map = gson.fromJson(jstring10, new TypeToken<Map<String, Object>>() {
@@ -397,47 +411,57 @@ public class CompanyDetailsActivity extends BaseActivity {
 //                    }else{
 //                        CompanyDetailsActivity.handler.sendEmptyMessage(500);
 //                    }
+                    }
                     break;
                 case 11://商标信息
-                    waitDialog.show();
-                    GsonUtil request11 = new GsonUtil(URLconstant.URLINSER +URLconstant.TRADEMARKURL, RequestMethod.GET);
-                    request11.add("token", token);
-                    request11.add("deviceld", model);
-                    request11.add("KeyNo", KeyNo);
-                    CallServer.getInstance().add(CompanyDetailsActivity.this, request11, MyhttpCallBack.getInstance(), 0x011, true, false, true);
+                    if(a12==0) {
+                        waitDialog.show();
+                        GsonUtil request11 = new GsonUtil(URLconstant.URLINSER + URLconstant.TRADEMARKURL, RequestMethod.GET);
+                        request11.add("token", token);
+                        request11.add("deviceld", model);
+                        request11.add("KeyNo", KeyNo);
+                        CallServer.getInstance().add(CompanyDetailsActivity.this, request11, MyhttpCallBack.getInstance(), 0x011, true, false, true);
+                    }
                     break;
                 case 12://著作权
-                    waitDialog.show();
-                    GsonUtil request12 = new GsonUtil(URLconstant.URLINSER +URLconstant.COPYRIGHTURL, RequestMethod.GET);
-                    request12.add("token", token);
-                    request12.add("deviceld", model);
-                    request12.add("KeyNo", KeyNo);
-                    CallServer.getInstance().add(CompanyDetailsActivity.this, request12, MyhttpCallBack.getInstance(), 0x012, true, false, true);
+                    if(a13==0) {
+                        waitDialog.show();
+                        GsonUtil request12 = new GsonUtil(URLconstant.URLINSER + URLconstant.COPYRIGHTURL, RequestMethod.GET);
+                        request12.add("token", token);
+                        request12.add("deviceld", model);
+                        request12.add("KeyNo", KeyNo);
+                        CallServer.getInstance().add(CompanyDetailsActivity.this, request12, MyhttpCallBack.getInstance(), 0x012, true, false, true);
+                    }
                     break;
                 case 13://广告资质
-                    waitDialog.show();
-                    GsonUtil request13 = new GsonUtil(URLconstant.URLINSER + URLconstant.ADVERTISEMENTURL, RequestMethod.GET);
-                    request13.add("token", token);
-                    request13.add("deviceld", model);
-                    request13.add("KeyNo", KeyNo);
-                    CallServer.getInstance().add(CompanyDetailsActivity.this, request13, MyhttpCallBack.getInstance(), 0x013, true, false, true);
+                    if(a14==0) {
+                        waitDialog.show();
+                        GsonUtil request13 = new GsonUtil(URLconstant.URLINSER + URLconstant.ADVERTISEMENTURL, RequestMethod.GET);
+                        request13.add("token", token);
+                        request13.add("deviceld", model);
+                        request13.add("KeyNo", KeyNo);
+                        CallServer.getInstance().add(CompanyDetailsActivity.this, request13, MyhttpCallBack.getInstance(), 0x013, true, false, true);
+                    }
                     break;
                 case 14://守合同重信用
-                    waitDialog.show();
-                    GsonUtil request14 = new GsonUtil(URLconstant.URLINSER + URLconstant.OBEYEDURL, RequestMethod.GET);
-                    request14.add("token", token);
-                    request14.add("deviceld", model);
-                    request14.add("KeyNo", KeyNo);
-                    CallServer.getInstance().add(CompanyDetailsActivity.this, request14, MyhttpCallBack.getInstance(), 0x014, true, false, true);
+                    if(a15==0) {
+                        waitDialog.show();
+                        GsonUtil request14 = new GsonUtil(URLconstant.URLINSER + URLconstant.OBEYEDURL, RequestMethod.GET);
+                        request14.add("token", token);
+                        request14.add("deviceld", model);
+                        request14.add("KeyNo", KeyNo);
+                        CallServer.getInstance().add(CompanyDetailsActivity.this, request14, MyhttpCallBack.getInstance(), 0x014, true, false, true);
+                    }
                     break;
                 case 15://自主公示
-                    waitDialog.show();
-                    GsonUtil request15 =new GsonUtil(URLconstant.URLINSER+URLconstant.GETAUTO,RequestMethod.GET);
-                    request15.add("token",token);
-                    request15.add("deviceld",model);
-                    request15.add("KeyNo",KeyNo);
-                    CallServer.getInstance().add(CompanyDetailsActivity.this, request15, MyhttpCallBack.getInstance(), MSG, true, false, true);
-
+                    if(a16==0) {
+                        waitDialog.show();
+                        GsonUtil request15 = new GsonUtil(URLconstant.URLINSER + URLconstant.GETAUTO, RequestMethod.GET);
+                        request15.add("token", token);
+                        request15.add("deviceld", model);
+                        request15.add("KeyNo", KeyNo);
+                        CallServer.getInstance().add(CompanyDetailsActivity.this, request15, MyhttpCallBack.getInstance(), MSG, true, false, true);
+                    }
                     break;
                 case 500://没有数据时返回信息
                     android.widget.Toast.makeText(CompanyDetailsActivity.this, "暂无数据！", android.widget.Toast.LENGTH_SHORT).show();
@@ -476,6 +500,71 @@ public class CompanyDetailsActivity extends BaseActivity {
             int size = lt.size();
             arrays4 = (String[]) lt.toArray(new String[size]);
         }
+        if(DataManager.allcounts.BaseInfoCount=="0"||DataManager.allcounts.BaseInfoCount.equals("0")){
+            a1=1;
+            imgs1[0]=R.mipmap.icon1_1;
+        }
+        if(DataManager.allcounts.ApprovalCount=="0"||DataManager.allcounts.ApprovalCount.equals("0")){
+            a2=1;
+            imgs1[1]=R.mipmap.icon2_1;
+        }
+        if(DataManager.allcounts.HonorCount=="0"||DataManager.allcounts.HonorCount.equals("0")){
+            a3=1;
+            imgs1[2]=R.mipmap.icon3_1;
+        }
+        if(DataManager.allcounts.SupportCount=="0"||DataManager.allcounts.SupportCount.equals("0")){
+            a4=1;
+            imgs1[3]=R.mipmap.icon4_1;
+        }
+        if(DataManager.allcounts.PledgeCount=="0"||DataManager.allcounts.PledgeCount.equals("0")){
+            a5=1;
+            imgs1[4]=R.mipmap.icon5_1;
+        }
+        if(DataManager.allcounts.MortgagorCount=="0"||DataManager.allcounts.MortgagorCount.equals("0")){
+            a6=1;
+            imgs1[5]=R.mipmap.icon6_1;
+        }
+        if(DataManager.allcounts.JudiciaryCount=="0"||DataManager.allcounts.JudiciaryCount.equals("0")){
+            a7=1;
+            imgs1[6]=R.mipmap.icon7_1;
+        }
+        if(DataManager.allcounts.WarningCount=="0"||DataManager.allcounts.WarningCount.equals("0")){
+            a8=1;
+            imgs1[7]=R.mipmap.icon8_1;
+        }
+        if(DataManager.allcounts.PunishCount=="0"||DataManager.allcounts.PunishCount.equals("0")){
+            a9=1;
+            imgs1[8]=R.mipmap.icon9_1;
+        }
+        if(DataManager.allcounts.AbnormityCount=="0"||DataManager.allcounts.AbnormityCount.equals("0")){
+            a10=1;
+            imgs1[9]=R.mipmap.icon10_1;
+        }
+        if(DataManager.allcounts.PatentCount=="0"||DataManager.allcounts.PatentCount.equals("0")){
+            a11=1;
+            imgs1[10]=R.mipmap.icon11_1;
+        }
+        if(DataManager.allcounts.TrademarkCount=="0"||DataManager.allcounts.TrademarkCount.equals("0")){
+            a12=1;
+            imgs1[11]=R.mipmap.icon12_1;
+        }
+        if(DataManager.allcounts.CopyrightCount=="0"||DataManager.allcounts.CopyrightCount.equals("0")){
+            a13=1;
+            imgs1[12]=R.mipmap.icon13_1;
+        }
+        if(DataManager.allcounts.AdvertisementCount=="0"||DataManager.allcounts.AdvertisementCount.equals("0")){
+            a14=1;
+            imgs1[13]=R.mipmap.icon14_1;
+        }
+        if(DataManager.allcounts.CreditCount=="0"||DataManager.allcounts.CreditCount.equals("0")){
+            a15=1;
+            imgs1[14]=R.mipmap.icon15_1;
+        }
+        if(DataManager.allcounts.AnnualCount=="0"||DataManager.allcounts.AnnualCount.equals("0")){
+            a16=1;
+            imgs1[15]=R.mipmap.icon16_1;
+        }
+
     }
 
     public void showPopupWindow(View view) {

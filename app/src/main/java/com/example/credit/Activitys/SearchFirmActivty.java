@@ -59,6 +59,7 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
     public static final String SEARCH_HISTORY = "search_history";
     public static final int NOHTTP_SEARCH = 0x022;
     public static EditText searchEt;
+    public static ImageView search_et_cc;
     public static TextView downButton, city, capital, time, industry, selectCity, tab_frim, tab_illegal, tab_shareholder;
     TextView temp, tempprovince;
     public static ImageView city_arraow, capital_arraow, time_arraow, industry_arraow, arrowBack;
@@ -85,7 +86,7 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
     //=================
     private TextView mTextView1, mTextView2, mTextView3, mTextView4,
             mTextView5, mTextView6, mTextView7, mTextView8, mTextView9,
-            mTextView10, mTextView11, mTextView12, mTextView13;
+            mTextView10;
     private Animation animation1, animation2, animation3, animation4,
             animation6, animation7, animation8, animation9, animation11,
             animation12, animation13, animation2_1, animation2_2, animation2_3,
@@ -93,11 +94,11 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
             animation2_9, animation2_10, animation2_11, animation2_12,
             animation2_13;
     private GestureDetector gDetector;
-    private String[] keywords = {"安卓优化大师", "飞信", "赛车", "360", "短信", "文件管理",
-            "拨号", "短信", "捕鱼达人", "日历", "hd", "视频播放器", "3D动态壁纸"};
     public static ProgressDialog pd;
     int falg = 0;
-
+    Build bd = new Build();
+    String model = bd.MODEL;//设备ID
+    int po;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -124,13 +125,27 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
                         search_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                             @Override
                             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                                Intent i = new Intent(SearchFirmActivty.this, CompanyDetailsActivity.class);
-                                i.putExtra("position", position);
-                                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                                startActivity(i);
-                                overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
+                                po=position;
+                                pd.show();
+                                String KeyNo=DataManager.searchList.get(position).PRIPID;//市场主体身份代码
+                                String token=MD5s(KeyNo+model);
+                                GsonUtil requst=new GsonUtil(URLconstant.GETITEMNUM,RequestMethod.GET);
+                                requst.add("KeyNo",KeyNo);
+                                requst.add("token",token);
+                                requst.add("deviceld",model);
+                                requst.add("regno",DataManager.searchList.get(position).REGNO);
+                                CallServer.getInstance().add(SearchFirmActivty.this,requst,MyhttpCallBack.getInstance(),0x024,true,false,true);
+
                             }
                         });
+                        break;
+                    case 5:
+                        pd.dismiss();
+                        Intent i = new Intent(SearchFirmActivty.this, CompanyDetailsActivity.class);
+                        i.putExtra("position", po);
+                        i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        startActivity(i);
+                        overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
                         break;
                     case 110:
                         GETsearch();
@@ -292,6 +307,7 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
      */
     private void initView() {
         searchEt = (EditText) findViewById(R.id.search_et);
+        search_et_cc = (ImageView) findViewById(R.id.search_et_cc);//叉叉
         //selectCity = (TextView) findViewById(R.id.selectCity);//旧版搜索城市
         //selectCity.setOnClickListener(this);////旧版搜索城市
         arrowBack = (ImageView) findViewById(R.id.arrow_back);
@@ -330,9 +346,39 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
         history_list_null = (TextView) findViewById(R.id.history_list_null);
         csp = CreditSharePreferences.getLifeSharedPreferences();
         if(csp.getHistory()==null||csp.getHistory().equals("")){//给历史记录赋初始值
-            String Tnameh = "余江县龙溪养蜂专业合作社,江西圆融医疗器械有限公司,景德镇市第一炉面包房,江西梦娜袜业有限公司,江西工商联合投资有限公司,江西智容科技有限公司,南昌和平大厦实业发展公司,贵溪市幸福树电器有限公司,德兴市华清汽车销售服务有限公司,江西新星建筑装饰工程有限公司,江西省第三建筑有限责任公司,江西正隆园林建设工程有限公司,萍乡市烟草公司莲花分公司,";//历史字备用
+            String Tnameh = "余江县龙溪养蜂专业合作社,江西圆融医疗器械有限公司,景德镇市第一炉面包房,江西梦娜袜业有限公司,江西工商联合投资有限公司,江西智容科技有限公司,南昌和平大厦实业发展公司,贵溪市幸福树电器有限公司,德兴市华清汽车销售服务有限公司,江西新星建筑装饰工程有限公司,";//历史字备用
             csp.putHistory(Tnameh);
         }
+        searchEt.addTextChangedListener(new TextWatcher() {//动态判断输入框中的字数并显示隐藏图标
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if(start>0){
+                    search_et_cc.setVisibility(View.VISIBLE);
+                }else{
+                    search_et_cc.setVisibility(View.GONE);
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable t) {
+                if(t.length()>0){
+                    search_et_cc.setVisibility(View.VISIBLE);
+                }else{
+                    search_et_cc.setVisibility(View.GONE);
+                }
+            }
+        });
+        search_et_cc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                searchEt.setText("");
+            }
+        });
 
     }
 
@@ -641,9 +687,6 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
         mTextView8 = (TextView) findViewById(R.id.txt8);
         mTextView9 = (TextView) findViewById(R.id.txt9);
         mTextView10 = (TextView) findViewById(R.id.txt10);
-        mTextView11 = (TextView) findViewById(R.id.txt11);
-        mTextView12 = (TextView) findViewById(R.id.txt12);
-        mTextView13 = (TextView) findViewById(R.id.txt13);
         mTextView1.setOnClickListener(textbt);
         mTextView2.setOnClickListener(textbt);
         mTextView3.setOnClickListener(textbt);
@@ -654,9 +697,6 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
         mTextView8.setOnClickListener(textbt);
         mTextView9.setOnClickListener(textbt);
         mTextView10.setOnClickListener(textbt);
-        mTextView11.setOnClickListener(textbt);
-        mTextView12.setOnClickListener(textbt);
-        mTextView13.setOnClickListener(textbt);
         his_nullbt = (ImageView) findViewById(R.id.his_nullbt);
         his_nullbt.setOnClickListener(textbt);
     }
@@ -673,7 +713,7 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
             List<String> listh = new ArrayList<String>(Arrays.asList(strh));
             if (listh != null && listh.size() > 0) {
                 his_nullbt.setVisibility(View.VISIBLE);
-                for (int i = R.id.txt1; i <= R.id.txt13; i++) {
+                for (int i = R.id.txt1; i <= R.id.txt10; i++) {
                     ((TextView) findViewById(i)).setText(getKeyword(listh));
                 }
             }
@@ -742,9 +782,6 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
         mTextView8.startAnimation(animation9);
         mTextView9.startAnimation(animation11);
         mTextView10.startAnimation(animation12);
-        mTextView11.startAnimation(animation13);
-        mTextView12.startAnimation(animation12);
-        mTextView13.startAnimation(animation13);
     }
 
     private void startAnimations2() {
@@ -760,11 +797,7 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
         mTextView8.startAnimation(animation2_8);
         mTextView9.startAnimation(animation2_9);
         mTextView10.startAnimation(animation2_10);
-        mTextView11.startAnimation(animation2_11);
-        mTextView12.startAnimation(animation2_12);
-        mTextView13.startAnimation(animation2_13);
     }
-
 
     public boolean onDown(MotionEvent e) {
         // TODO Auto-generated method stub
@@ -869,15 +902,6 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
                 case R.id.txt10:
                     searchEt.setText(mTextView10.getText().toString());
                     break;
-                case R.id.txt11:
-                    searchEt.setText(mTextView11.getText().toString());
-                    break;
-                case R.id.txt12:
-                    searchEt.setText(mTextView12.getText().toString());
-                    break;
-                case R.id.txt13:
-                    searchEt.setText(mTextView13.getText().toString());
-                    break;
                 case R.id.his_nullbt:
                     csp.putHistory("");
                     history_list_null.setVisibility(View.VISIBLE);
@@ -893,8 +917,6 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
      */
     public void GETsearch() {
 
-        Build bd = new Build();
-        String model = bd.MODEL;//设备ID
         //model = Settings.System.getString(getContentResolver(), Settings.System.ANDROID_ID);
         String Tname = searchEt.getText().toString();
         String Tks = MD5s(Tname + model);
@@ -907,7 +929,7 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
                 String str1 = csp.getHistory();
                 String[] strh = str1.split(",");
                 List<String> listh = new ArrayList<String>(Arrays.asList(strh));
-                if (listh != null && listh.size() < 13) {
+                if (listh != null && listh.size() < 10) {
                     String temp = "";
                     for (int i = 0; i < listh.size(); i++) {
                         if (Tname.equals(listh.get(i))) {
@@ -941,7 +963,7 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
             pd.setMessage("正在加载中...");
             pd.setCancelable(false);
             pd.show();
-            GsonUtil request = new GsonUtil(URLconstant.URLINSER + URLconstant.SEARCHURL, RequestMethod.GET);
+            GsonUtil request = new GsonUtil(URLconstant.SEARCHURL, RequestMethod.GET);
             //request.setConnectTimeout(50000);
             request.setReadTimeout(50000);
             request.add("token", Tks);//加密结果

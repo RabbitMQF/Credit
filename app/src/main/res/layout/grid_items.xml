@@ -32,6 +32,7 @@
                     android:background="@mipmap/infodetial_fun1_abled" />
             </RelativeLayout>
             <TextView
+                android:id="@+id/iv_num"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"

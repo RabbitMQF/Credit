@@ -387,10 +387,10 @@ public class DetailsContentActivity extends BaseActivity {
         /**
          * 判断登记机关是否为空
          */
-        if(!(dcList.get(0).REGORG_CN).equals("")){
-            c_djjg.setText(dcList.get(0).REGORG_CN);//登记机关
+        if((dcList.get(0).REGORG_CN).equals("")){
+             c_djjg.setText("暂无信息");
         }else{
-            c_djjg.setText("暂无信息");
+            c_djjg.setText(dcList.get(0).REGORG_CN);//登记机关
         }
 
 
@@ -507,6 +507,5 @@ public class DetailsContentActivity extends BaseActivity {
         }
 
     }
-
 
 }

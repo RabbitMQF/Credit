@@ -874,9 +874,36 @@ public class DataManager {
      * 搜索接口返回参数实体类
      */
     public static class baging {
-        public String PageSize;
+        public String TotalPage;
         public String PageIndex;
+        public String showCount;
         public int TotalRecords;
     }
+
+    /**
+     * 16个item条数实体类
+     */
+    public static class allcount{
+
+        public String HonorCount;//荣誉信息
+        public String JudiciaryCount;//司法信息
+        public String PledgeCount;//抵押
+        public String CopyrightCount;//著作权
+        public String AnnualCount;//自主公示
+        public String AdvertisementCount;//广告资质
+        public String BaseInfoCount;//基本信息 工商
+        public String ApprovalCount;//赞同  行政审批
+        public String PunishCount;//行政处罚
+        public String WarningCount;//预警信息
+        public String TrademarkCount;//商标
+        public String AbnormityCount;//经营异常
+        public String CreditCount;//守合同重信用
+        public String SupportCount;//扶持
+        public String MortgagorCount;//出质
+        public String PatentCount;//专利
+
+
+    }
+  public static allcount allcounts=new allcount();
 
 }
