@@ -56,10 +56,7 @@ public class Mortgage_detail_Fragment extends Fragment {
             content = bundle.getString(BUNDLE_TITLE);
         }
 
-//        TextView tv = new TextView(getActivity());
-//        tv.setGravity(Gravity.CENTER);
-//        tv.setTextSize(26.0f);
-//        tv.setText(this.content);
+
 
         return v;
     }

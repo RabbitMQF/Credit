@@ -133,6 +133,7 @@ public class CompanyDetailsActivity extends BaseActivity {
         token = SearchFirmActivty.MD5s(KeyNo + model);//token 由 设备ID+市场主体身份代码 MD5生成
         init();
         adapter1 = new MyGridAdapter1(CompanyDetailsActivity.this, arrays1, arrays2, imgs);
+
         MyGridAdapters adapters = new MyGridAdapters(CompanyDetailsActivity.this, imgs1);
         myGridView1.setAdapter(adapters);
         myGridView1.setSelector(new ColorDrawable(Color.TRANSPARENT));
@@ -218,7 +219,7 @@ public class CompanyDetailsActivity extends BaseActivity {
                         startActivity(i7);
                         overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
                         break;
-                    case 8:
+                    case 8://行政处罚
                         waitDialog.dismiss();
                         Intent i8 = new Intent(CompanyDetailsActivity.this, PunishActivity.class);
                         i8.putExtra("Tname",arrays1[msg.what]);
@@ -232,21 +233,21 @@ public class CompanyDetailsActivity extends BaseActivity {
                         startActivity(i9);
                         overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
                         break;
-                    case 10:
+                    case 10://专利
                         waitDialog.dismiss();
                         Intent i10 = new Intent(CompanyDetailsActivity.this, PatentActivity.class);
                         i10.putExtra("Tname",arrays1[msg.what]);
                         startActivity(i10);
                         overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
                         break;
-                    case 11:
+                    case 11://商标
                         waitDialog.dismiss();
                         Intent i11 = new Intent(CompanyDetailsActivity.this, TrademarkActivity.class);
                         i11.putExtra("Tname",arrays1[msg.what]);
                         startActivity(i11);
                         overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
                         break;
-                    case 12:
+                    case 12://著作权
                         waitDialog.dismiss();
                         Intent i12 = new Intent(CompanyDetailsActivity.this, CopyrightActivity.class);
                         i12.putExtra("Tname",arrays1[msg.what]);

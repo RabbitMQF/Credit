@@ -37,6 +37,21 @@ public class WelcomeActivity extends Activity {
                 overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
             }
         });
+//        new Thread() {
+//            @Override
+//            public void run() {
+//                super.run();
+//                try {
+//                    sleep(3000);
+//                } catch (InterruptedException e) {
+//                    e.printStackTrace();
+//                }
+//                Intent i=new Intent(WelcomeActivity.this,MainActivity.class);
+//                startActivity(i);
+//                overridePendingTransition(R.anim.welcome_in,R.anim.welcome_out);
+//                finish();
+//            }
+//        }.start();
         Animation a= AnimationUtils.loadAnimation(this, R.anim.welcome_in);
         a.setAnimationListener(listener);
         iv.setAnimation(a);
@@ -58,10 +73,22 @@ public class WelcomeActivity extends Activity {
         @Override
         public void onAnimationEnd(Animation arg0) {
             // TODO Auto-generated method stub
+            new Thread() {
+                @Override
+                public void run() {
+                    super.run();
+                    try {
+                        sleep(3000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }.start();
             Intent i=new Intent(WelcomeActivity.this,MainActivity.class);
             startActivity(i);
             finish();
-//            overridePendingTransition(R.anim.welcome_out,R.anim.welcome_in);
+            overridePendingTransition(R.anim.welcome_in,R.anim.welcome_out);
         }
     };
+//    }
 }

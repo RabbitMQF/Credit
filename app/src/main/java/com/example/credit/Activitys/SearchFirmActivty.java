@@ -13,15 +13,18 @@ import android.provider.Settings;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.GestureDetector;
+import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.view.inputmethod.EditorInfo;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -66,7 +69,8 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
     CustomPopupwindow popupwindow;
     ImageView search_bt;
     public static boolean city_check = false, capital_check = false, time_check = false, industry_check = false, tab_frim_check = false, tab_illegal_check = false, tab_shareholder_check = false;
-    LinearLayout his_sra, select;
+    FrameLayout his_sra;
+    LinearLayout  select;
     LinearLayout searchContent;
     ListView menu_one;
     public static ListView menu_two;
@@ -341,7 +345,7 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
         oneLayoutParams = (ViewGroup.MarginLayoutParams) menu_one.getLayoutParams();
         twoLayoutParams = (ViewGroup.MarginLayoutParams) menu_two.getLayoutParams();
         search_list = (ListView) findViewById(R.id.search_list);
-        his_sra = (LinearLayout) findViewById(R.id.his_sra);//历史记录view
+        his_sra = (FrameLayout) findViewById(R.id.his_sra);//历史记录view
         searchContent = (LinearLayout) findViewById(R.id.searchContent);
         history_list_null = (TextView) findViewById(R.id.history_list_null);
         csp = CreditSharePreferences.getLifeSharedPreferences();
@@ -349,6 +353,27 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
             String Tnameh = "余江县龙溪养蜂专业合作社,江西圆融医疗器械有限公司,景德镇市第一炉面包房,江西梦娜袜业有限公司,江西工商联合投资有限公司,江西智容科技有限公司,南昌和平大厦实业发展公司,贵溪市幸福树电器有限公司,德兴市华清汽车销售服务有限公司,江西新星建筑装饰工程有限公司,";//历史字备用
             csp.putHistory(Tnameh);
         }
+        /**
+         * 监听软键盘回车
+         */
+        searchEt.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                //当actionId == XX_SEND 或者 XX_DONE时都触发
+                //或者event.getKeyCode == ENTER 且 event.getAction == ACTION_DOWN时也触发
+                //注意，这是一定要判断event != null。因为在某些输入法上会返回null。
+                if (actionId == EditorInfo.IME_ACTION_SEND
+                        || actionId == EditorInfo.IME_ACTION_DONE
+                        || (event != null && KeyEvent.KEYCODE_ENTER == event.getKeyCode() && KeyEvent.ACTION_DOWN == event.getAction())) {
+                    //处理事件
+                    GETsearch();
+                  return true;
+                }
+                return false;
+            }
+        });
+
         searchEt.addTextChangedListener(new TextWatcher() {//动态判断输入框中的字数并显示隐藏图标
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {

@@ -347,11 +347,12 @@ public class DataManager {
         // public String valuation;//抵押物估值
     }
 
+
+    public static List<administraton> ad_List = new ArrayList<>();
     /**
+     * 行政审批
      * 行政许可实体类
      */
-    public static List<administraton> ad_List = new ArrayList<>();
-
     public static class administraton {
         public String PRIPID;//主体身份代码
         public String LICNAME;//许可文件名称
@@ -359,6 +360,15 @@ public class DataManager {
         public String VALFROM;//有效期自
         public String LICANTH;//许可机关
         public String VALTO;//有效期止
+
+    }
+
+    /**
+     * 行政审批
+     * 其它信息实体类
+     */
+    public static class admin_other{
+        public String OTHER;//暂无信息
 
     }
 

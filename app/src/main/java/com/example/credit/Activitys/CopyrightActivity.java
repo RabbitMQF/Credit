@@ -49,7 +49,12 @@ public class CopyrightActivity extends BaseActivity {
         if(DataManager.copyrightInfoeList!=null && DataManager.copyrightInfoeList.size()>0){
             for(DataManager.copyrightInfo p:DataManager.copyrightInfoeList){
                 if(p.WORKNAME!=null){
-                    list.add(p.WORKNAME);
+                    if(!p.WORKCLASS.equals("")){
+                        list.add("【"+p.WORKCLASS+"】"+p.WORKNAME);
+                    }else{
+                        list.add("【其他】"+p.WORKNAME);
+                    }
+
                 }
                 if(p.SOFTWARENAME!=null){
                     list.add(p.SOFTWARENAME);//软件

@@ -118,6 +118,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
             case R.id.top_search:
                 Intent in = new Intent(this, SearchFirmActivty.class);
                 startActivity(in);
+
                 overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
                 break;
             default:

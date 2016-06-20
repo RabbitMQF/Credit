@@ -18,21 +18,34 @@ import java.util.List;
  */
 public class Admin_Adapter extends BaseAdapter {
     Context context;
-    List<DataManager.administraton> adminList;
+    List<DataManager.administraton> adminList;//行政许可信息
+    List<Object> otherList;//空其它信息数据
 
-    public Admin_Adapter(Context context, List<DataManager.administraton> adminList) {
+    public Admin_Adapter(Context context, List<DataManager.administraton> adminList,List<Object> otherList) {
         this.context = context;
         this.adminList = adminList;
+        this.otherList=otherList;//空其它信息数据
     }
 
     @Override
     public int getCount() {
-        return adminList.size();
+        if(adminList!=null){
+            return adminList.size();
+        }else {
+            return otherList.size();
+        }
     }
 
     @Override
     public Object getItem(int position) {
-        return adminList.get(position);
+
+        if(adminList!=null){
+            return adminList.get(position);
+        }else {
+            return otherList.get(position);
+        }
+
+
     }
 
     @Override
@@ -57,15 +70,16 @@ public class Admin_Adapter extends BaseAdapter {
         } else {
             vh = (ViewHolder) convertView.getTag();
         }
-        DataManager.administraton temp_admin = adminList.get(position);
-        vh.title.setText("行政许可信息");
-        vh.aname.setText(temp_admin.LICNAME);
-        vh.ano.setText(temp_admin.LICNO);
-        vh.atime.setText(temp_admin.VALFROM);
-        vh.aoffice.setText(temp_admin.LICANTH);
-        vh.adate.setText(temp_admin.VALTO);
-        vh.apripid.setText(temp_admin.PRIPID);
-
+        if(adminList!=null) {
+            DataManager.administraton temp_admin = adminList.get(position);
+            vh.title.setText("行政许可信息");
+            vh.aname.setText(temp_admin.LICNAME);
+            vh.ano.setText(temp_admin.LICNO);
+            vh.atime.setText(temp_admin.VALFROM);
+            vh.aoffice.setText(temp_admin.LICANTH);
+            vh.adate.setText(temp_admin.VALTO);
+            vh.apripid.setText(temp_admin.PRIPID);
+        }else {}
         return convertView;
     }
 

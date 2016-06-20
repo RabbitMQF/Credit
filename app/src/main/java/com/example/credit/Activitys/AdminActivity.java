@@ -65,9 +65,9 @@ public class AdminActivity extends FragmentActivity implements View.OnClickListe
         //DataManager.ad_List.add(an);
         //DataManager.ad_List.add(an);
         Admin_Fragment fragment=Admin_Fragment.newInstance();
-        fragment.setListData(DataManager.ad_List);
+        fragment.setListData(DataManager.ad_List,null);
         Admin_Fragment fragment1=Admin_Fragment.newInstance();
-        fragment1.setListData(DataManager.ad_List);
+        fragment1.setListData(null,new ArrayList<Object>());//空其它信息数据
         fragmentList.add(fragment);
         fragmentList.add(fragment1);
     }
