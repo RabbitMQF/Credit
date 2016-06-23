@@ -5,8 +5,8 @@ package com.example.credit.Utils;
  */
 public class URLconstant {
     //真数据Interface
-    public static final String URLINSER="http://101.201.211.27:8282/esws.interface/";//所有接口前缀
-//    public static final String URLINSER="http://101.201.211.27:8282/zhirong.creditcard/Interface/";//所有接口前缀
+//    public static final String URLINSER="http://101.201.211.27:8282/esws.interface/";//所有接口前缀
+    public static final String URLINSER="http://101.201.211.27:8282/zhirong.creditcard/Interface/";//所有接口前缀
 
     public static  final  String GETCITY="baseinfo/querycitys.do";//获取城市接口
     public static final String GETINDUSTRY= "baseinfo/queryindustry.do";//获取行业门类      没参    返回  data    industry：  EC_VALUE：行业门类代码   EC_NAME：行业门类名字

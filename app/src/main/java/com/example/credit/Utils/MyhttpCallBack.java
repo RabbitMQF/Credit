@@ -220,7 +220,7 @@ public class MyhttpCallBack implements HttpCallBack {
                 String jstring1 = (String) response.get();
                 map = gson.fromJson(jstring1, new TypeToken<Map<String, Object>>() {
                 }.getType());
-                List<DataManager.administraton> list5 = gson.fromJson(((Map<String, Object>) map.get("data")).get("administrative").toString(), new TypeToken<List<DataManager.administraton>>() {
+                List<DataManager.administraton> list5 = gson.fromJson(((Map<String, Object>) map.get("data")).get("administrative").toString().trim(), new TypeToken<List<DataManager.administraton>>() {
                 }.getType());
                 DataManager.ad_List = list5;
                 if (DataManager.ad_List != null && DataManager.ad_List.size() > 0) {
@@ -232,11 +232,32 @@ public class MyhttpCallBack implements HttpCallBack {
                 break;
             case 0x002://荣誉信息
                 String jstring2 = (String) response.get();
+//                map = gson.fromJson(jstring2, new TypeToken<Map<String, Object>>() {
+//                }.getType());
+//                List<DataManager.honorInfo> list2 = gson.fromJson(((Map<String, Object>) map.get("data")).get("chattel").toString().trim(), new TypeToken<List<DataManager.honorInfo>>() {
+//                }.getType());
+//                DataManager.honorInfoList = list2;
+//                以下代码解决空格问题c
                 map = gson.fromJson(jstring2, new TypeToken<Map<String, Object>>() {
                 }.getType());
-                List<DataManager.honorInfo> list2 = gson.fromJson(((Map<String, Object>) map.get("data")).get("chattel").toString(), new TypeToken<List<DataManager.honorInfo>>() {
-                }.getType());
-                DataManager.honorInfoList = list2;
+                List<LinkedTreeMap> list2 = (List<LinkedTreeMap>) ((Map<String, Object>) map.get("data")).get("chattel");
+
+                if (DataManager.honorInfoList != null) {
+                    DataManager.honorInfoList.clear();
+                }
+                if (list2 != null && list2.size() > 0) {
+                    for (LinkedTreeMap temp : list2) {
+                        DataManager.honorInfo cfo = new DataManager.honorInfo();
+                        cfo.HONORID = (String) temp.get("HONORID");
+                        cfo.HONORNAME = (String) temp.get("HONORNAME");
+                        cfo.HONORCONTENT = (String) temp.get("HONORCONTENT");
+                        cfo.ORGAN =  (String) temp.get("ORGAN");
+                        cfo.C_UNIQUE_CODE = (String) temp.get("C_UNIQUE_CODE");
+
+                        DataManager.honorInfoList.add(cfo);
+                    }
+                }
+
                 if (DataManager.honorInfoList != null && DataManager.honorInfoList.size() > 0) {
                     CompanyDetailsActivity.handler.sendEmptyMessage(2);
                 } else {
@@ -248,7 +269,7 @@ public class MyhttpCallBack implements HttpCallBack {
                 String jstring3 = (String) response.get();
                 map = gson.fromJson(jstring3, new TypeToken<Map<String, Object>>() {
                 }.getType());
-                List<DataManager.supportInfo> list3 = gson.fromJson(((Map<String, Object>) map.get("data")).get("advertising").toString(), new TypeToken<List<DataManager.supportInfo>>() {
+                List<DataManager.supportInfo> list3 = gson.fromJson(((Map<String, Object>) map.get("data")).get("advertising").toString().trim(), new TypeToken<List<DataManager.supportInfo>>() {
                 }.getType());
                 DataManager.supportInfoList = list3;
                 if (DataManager.supportInfoList != null && DataManager.supportInfoList.size() > 0) {
@@ -262,14 +283,14 @@ public class MyhttpCallBack implements HttpCallBack {
                 jsonString = (String) response.get();
                 map = gson.fromJson(jsonString, new TypeToken<Map<String, Object>>() {
                 }.getType());
-                DataManager.mortgageMP_List = gson.fromJson(((Map<String, Object>) map.get("data")).get("chattel").toString(), new TypeToken<List<DataManager.mortgageMP>>() {
+                DataManager.mortgageMP_List = gson.fromJson(((Map<String, Object>) map.get("data")).get("chattel").toString().trim(), new TypeToken<List<DataManager.mortgageMP>>() {
                 }.getType());
                 break;
             case 0x0041://抵押信息/不动产
                 jsonString = (String) response.get();
                 map = gson.fromJson(jsonString, new TypeToken<Map<String, Object>>() {
                 }.getType());
-                DataManager.mortgageRE_List = gson.fromJson(((Map<String, Object>) map.get("data")).get("realEstate").toString(), new TypeToken<List<DataManager.mortgageRE>>() {
+                DataManager.mortgageRE_List = gson.fromJson(((Map<String, Object>) map.get("data")).get("realEstate").toString().trim(), new TypeToken<List<DataManager.mortgageRE>>() {
                 }.getType());
                 if (DataManager.mortgageRE_List != null && DataManager.mortgageRE_List.size() > 0) {
                     CompanyDetailsActivity.handler.sendEmptyMessage(4);
@@ -381,11 +402,39 @@ public class MyhttpCallBack implements HttpCallBack {
                 break;
             case 0x010://专利信息
                 String jstring10 = (String) response.get();
+//                map = gson.fromJson(jstring10, new TypeToken<Map<String, Object>>() {
+//                }.getType());
+//                List<DataManager.patentInfo> list10 = gson.fromJson(((Map<String, Object>) map.get("data")).get("patentInfo").toString().trim(), new TypeToken<List<DataManager.patentInfo>>() {
+//                }.getType());
+//                DataManager.patentInfoList = list10;
+
+                //以下代码解决空格问题
                 map = gson.fromJson(jstring10, new TypeToken<Map<String, Object>>() {
                 }.getType());
-                List<DataManager.patentInfo> list10 = gson.fromJson(((Map<String, Object>) map.get("data")).get("patentInfo").toString(), new TypeToken<List<DataManager.patentInfo>>() {
-                }.getType());
-                DataManager.patentInfoList = list10;
+                List<LinkedTreeMap> list10 = (List<LinkedTreeMap>) ((Map<String, Object>) map.get("data")).get("patentInfo");
+
+                if (DataManager.patentInfoList != null) {
+                    DataManager.patentInfoList.clear();
+                }
+                if (list10 != null && list10.size() > 0) {
+                    for (LinkedTreeMap temp : list10) {
+                        DataManager.patentInfo cfo = new DataManager.patentInfo();
+                        cfo.PRIPID = (String) temp.get("PRIPID");
+                        cfo.PATENTNAME = (String) temp.get("PATENTNAME");
+                        cfo.RCODE = (String) temp.get("RCODE");
+                        cfo.RDATE =  (String) temp.get("RDATE");
+                        cfo.ACODE = (String) temp.get("ACODE");
+                        cfo.ADATE = (String) temp.get("ADATE");
+                        cfo.PATENTTYPE = (String) temp.get("PATENTTYPE");
+                        cfo.INVENTOR = (String) temp.get("INVENTOR");
+                        cfo.AGENCY = (String) temp.get("AGENCY");
+                        cfo.LEGALSTATUS = (String) temp.get("LEGALSTATUS");
+                        cfo.DETAILINFO = (String) temp.get("DETAILINFO");
+                        DataManager.patentInfoList.add(cfo);
+                    }
+                }
+
+
                 if (DataManager.patentInfoList.size() > 0 && DataManager.patentInfoList != null) {
                     CompanyDetailsActivity.handler.sendEmptyMessage(10);
                 } else {

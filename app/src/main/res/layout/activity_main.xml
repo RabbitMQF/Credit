@@ -35,42 +35,47 @@
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:background="@mipmap/search_background">
-
-                        <ImageView
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:layout_centerVertical="true"
-                            android:background="@mipmap/toggle_menu"
+                        <LinearLayout
+                            android:layout_width="50dp"
+                            android:layout_height="match_parent"
                             android:onClick="toggleMenu"
-                            android:layout_marginLeft="20dp"/>
+                            android:gravity="center">
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:background="@mipmap/toggle_menu"
+                                />
+
+                        </LinearLayout>
+
                         <!--<ImageView-->
                         <!--android:layout_width="wrap_content"-->
                         <!--android:layout_height="wrap_content"-->
                         <!--android:layout_centerInParent="true"-->
                         <!--android:background="@mipmap/title_logo"-->
                         <!--/>-->
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"
-                        android:gravity="center"
-                        android:orientation="vertical">
-                        <TextView
+                        <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textColor="@color/white"
-                            android:textSize="22sp"
-                            android:text="百信企业查询系统"
-                            />
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textColor="@color/white"
-                            android:textSize="8sp"
-                            android:text="BAIXIN ENTERPRISE INFORMATION SYSTEM"
-                            />
+                            android:layout_centerInParent="true"
+                            android:gravity="center"
+                            android:orientation="vertical">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/white"
+                                android:textSize="22sp"
+                                android:text="百信企业查询系统"
+                                />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/white"
+                                android:textSize="8sp"
+                                android:text="BAIXIN ENTERPRISE INFORMATION SYSTEM"
+                                />
 
-                    </LinearLayout>
+                        </LinearLayout>
 
                         <!--android:text="企信"
                             android:textColor="#FFFFFF"
@@ -129,7 +134,7 @@
                             <ImageView
                                 android:layout_width="50dp"
                                 android:layout_height="50dp"
-                                android:background="@mipmap/frim" />
+                                android:background="@mipmap/frim_s" />
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -149,7 +154,7 @@
                             <ImageView
                                 android:layout_width="50dp"
                                 android:layout_height="50dp"
-                                android:background="@mipmap/copyright" />
+                                android:background="@mipmap/copyright_s" />
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -159,6 +164,7 @@
                         </LinearLayout>
 
                         <LinearLayout
+                            android:id="@+id/tab3"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -178,6 +184,7 @@
                         </LinearLayout>
 
                         <LinearLayout
+                            android:id="@+id/tab4"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -187,7 +194,7 @@
                             <ImageView
                                 android:layout_width="50dp"
                                 android:layout_height="50dp"
-                                android:background="@mipmap/shareholder" />
+                                android:background="@mipmap/shareholder_s" />
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -212,11 +219,17 @@
                         />
 
                 </LinearLayout>
+                <!--<include-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="30dp"-->
+                    <!--android:layout_gravity="bottom"-->
+                    <!--layout="@layout/public_bottom_bar"/>-->
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="30dp"
                     android:layout_gravity="bottom"
-                    android:background="@mipmap/search_bottom" />
+                    android:background="@mipmap/search_bottom"
+                    />
             </FrameLayout>
         </LinearLayout>
 

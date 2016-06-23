@@ -237,11 +237,11 @@
             </LinearLayout>
 
         </ScrollView>
-
-        <View
+        <include
             android:layout_width="match_parent"
             android:layout_height="30dp"
             android:layout_gravity="bottom"
-            android:background="@mipmap/detail_top" />
+            layout="@layout/public_bottom_bar"/>
+
     </FrameLayout>
 </LinearLayout>

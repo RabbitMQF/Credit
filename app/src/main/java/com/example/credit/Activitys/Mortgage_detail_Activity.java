@@ -9,6 +9,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.credit.Entitys.DataManager;
@@ -37,7 +38,7 @@ public class Mortgage_detail_Activity extends FragmentActivity implements View.O
     private ViewPagerIndicator mIndicator;
     private List<String> mTitles = Arrays.asList("动产抵押信息", "不动产抵押信息");
     private List<Mortgage_detail_Fragment> fragmentList = new ArrayList<Mortgage_detail_Fragment>();
-    private ImageView b_return;
+    private LinearLayout b_return;
     TextView topBarTV;
     String Tname;
     @Override
@@ -73,7 +74,7 @@ public class Mortgage_detail_Activity extends FragmentActivity implements View.O
     private void initViews() {
         mViewPager = (ViewPager) findViewById(R.id.viewpager);
         mIndicator = (ViewPagerIndicator) findViewById(R.id.id_indicator);
-        b_return = (ImageView) findViewById(R.id.b_return);
+        b_return = (LinearLayout) findViewById(R.id.b_return);
         b_return.setOnClickListener(this);
         topBarTV= (TextView) findViewById(R.id.b_topname);
         topBarTV.setText(Tname);

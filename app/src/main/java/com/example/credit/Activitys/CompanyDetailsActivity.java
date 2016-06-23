@@ -290,7 +290,7 @@ public class CompanyDetailsActivity extends BaseActivity {
                         waitDialog.show();
                         GsonUtil request0 = new GsonUtil(URLconstant.URLINSER + URLconstant.DETAILSCINFOURL, RequestMethod.GET);
                         request0.add("token", token);
-                        request0.add("deviceld", model);
+                        request0.add("deviceId", model);
                         request0.add("KeyNo", KeyNo);
                         CallServer.getInstance().add(CompanyDetailsActivity.this, request0, MyhttpCallBack.getInstance(), 0x000, true, false, true);
                     }
@@ -300,7 +300,7 @@ public class CompanyDetailsActivity extends BaseActivity {
                         waitDialog.show();
                         GsonUtil request1 = new GsonUtil(URLconstant.URLINSER + URLconstant.ADMINURL, RequestMethod.GET);
                         request1.add("token", token);
-                        request1.add("deviceld", model);
+                        request1.add("deviceId", model);
                         request1.add("KeyNo", KeyNo);
                         CallServer.getInstance().add(CompanyDetailsActivity.this, request1, MyhttpCallBack.getInstance(), 0x001, true, false, true);
                     }
@@ -312,7 +312,7 @@ public class CompanyDetailsActivity extends BaseActivity {
                         String tokenr = SearchFirmActivty.MD5s(KeyNoR + model);//token 由 设备ID+/注册号 MD5生成
                         GsonUtil request2 = new GsonUtil(URLconstant.URLINSER + URLconstant.HONORURL, RequestMethod.GET);
                         request2.add("token", tokenr);
-                        request2.add("deviceld", model);
+                        request2.add("deviceId", model);
                         request2.add("KeyNo", KeyNoR);
                         CallServer.getInstance().add(CompanyDetailsActivity.this, request2, MyhttpCallBack.getInstance(), 0x002, true, false, true);
                     }
@@ -322,7 +322,7 @@ public class CompanyDetailsActivity extends BaseActivity {
                         waitDialog.show();
                         GsonUtil request3 = new GsonUtil(URLconstant.URLINSER + URLconstant.SUPPORTURL, RequestMethod.GET);
                         request3.add("token", token);
-                        request3.add("deviceld", model);
+                        request3.add("deviceId", model);
                         request3.add("KeyNo", KeyNo);
                         CallServer.getInstance().add(CompanyDetailsActivity.this, request3, MyhttpCallBack.getInstance(), 0x003, true, false, true);
                     }
@@ -333,10 +333,10 @@ public class CompanyDetailsActivity extends BaseActivity {
                         GsonUtil mortinfoRequest = new GsonUtil(URLconstant.URLINSER + URLconstant.MORTINFO, RequestMethod.GET);//动产request
                         GsonUtil mortinfoBdcRequest = new GsonUtil(URLconstant.URLINSER + URLconstant.MORTINFOBDC, RequestMethod.GET);//不动产request
                         mortinfoRequest.add("token", token);
-                        mortinfoRequest.add("deviceld", model);
+                        mortinfoRequest.add("deviceId", model);
                         mortinfoRequest.add("KeyNo", KeyNo);
                         mortinfoBdcRequest.add("token", token);
-                        mortinfoBdcRequest.add("deviceld", model);
+                        mortinfoBdcRequest.add("deviceId", model);
                         mortinfoBdcRequest.add("KeyNo", KeyNo);
                         CallServer.getInstance().add(CompanyDetailsActivity.this, mortinfoRequest, MyhttpCallBack.getInstance(), 0x004, true, false, true);
                         CallServer.getInstance().add(CompanyDetailsActivity.this, mortinfoBdcRequest, MyhttpCallBack.getInstance(), 0x0041, true, false, true);
@@ -347,7 +347,7 @@ public class CompanyDetailsActivity extends BaseActivity {
                         waitDialog.show();
                         GsonUtil request5 = new GsonUtil(URLconstant.URLINSER + URLconstant.PLEDGEURL, RequestMethod.GET);
                         request5.add("token", token);
-                        request5.add("deviceld", model);
+                        request5.add("deviceId", model);
                         request5.add("KeyNo", KeyNo);
                         CallServer.getInstance().add(CompanyDetailsActivity.this, request5, MyhttpCallBack.getInstance(), 0x005, true, false, true);
                     }
@@ -357,7 +357,7 @@ public class CompanyDetailsActivity extends BaseActivity {
                         waitDialog.show();
                         GsonUtil request6 = new GsonUtil(URLconstant.URLINSER + URLconstant.JUDICIALURL, RequestMethod.GET);
                         request6.add("token", token);
-                        request6.add("deviceld", model);
+                        request6.add("deviceId", model);
                         request6.add("KeyNo", KeyNo);
                         CallServer.getInstance().add(CompanyDetailsActivity.this, request6, MyhttpCallBack.getInstance(), 0X006, true, false, true);
                     }
@@ -367,7 +367,7 @@ public class CompanyDetailsActivity extends BaseActivity {
                         waitDialog.show();
                         GsonUtil request7 = new GsonUtil(URLconstant.URLINSER + URLconstant.GETALERT, RequestMethod.GET);
                         request7.add("token", token);
-                        request7.add("deviceld", model);
+                        request7.add("deviceId", model);
                         request7.add("KeyNo", KeyNo);
                         CallServer.getInstance().add(CompanyDetailsActivity.this, request7, MyhttpCallBack.getInstance(), 0x007, true, false, true);
                     }
@@ -377,7 +377,7 @@ public class CompanyDetailsActivity extends BaseActivity {
                         waitDialog.show();
                         GsonUtil request = new GsonUtil(URLconstant.URLINSER + URLconstant.PUNISHURL, RequestMethod.GET);
                         request.add("token", token);
-                        request.add("deviceld", model);
+                        request.add("deviceId", model);
                         request.add("KeyNo", KeyNo);
                         CallServer.getInstance().add(CompanyDetailsActivity.this, request, MyhttpCallBack.getInstance(), 0X008, true, false, true);
                     }
@@ -387,7 +387,7 @@ public class CompanyDetailsActivity extends BaseActivity {
                         waitDialog.show();
                         GsonUtil request9 = new GsonUtil(URLconstant.URLINSER + URLconstant.ABNORMALURL, RequestMethod.GET);
                         request9.add("token", token);
-                        request9.add("deviceld", model);
+                        request9.add("deviceId", model);
                         request9.add("KeyNo", KeyNo);
                         CallServer.getInstance().add(CompanyDetailsActivity.this, request9, MyhttpCallBack.getInstance(), 0X009, true, false, true);
                     }
@@ -397,7 +397,7 @@ public class CompanyDetailsActivity extends BaseActivity {
                         waitDialog.show();
                         GsonUtil request10 = new GsonUtil(URLconstant.URLINSER + URLconstant.PATENTURL, RequestMethod.GET);
                         request10.add("token", token);
-                        request10.add("deviceld", model);
+                        request10.add("deviceId", model);
                         request10.add("KeyNo", KeyNo);
                         CallServer.getInstance().add(CompanyDetailsActivity.this, request10, MyhttpCallBack.getInstance(), 0X010, true, false, true);
 //                    Gson gson=new Gson();
@@ -419,7 +419,7 @@ public class CompanyDetailsActivity extends BaseActivity {
                         waitDialog.show();
                         GsonUtil request11 = new GsonUtil(URLconstant.URLINSER + URLconstant.TRADEMARKURL, RequestMethod.GET);
                         request11.add("token", token);
-                        request11.add("deviceld", model);
+                        request11.add("deviceId", model);
                         request11.add("KeyNo", KeyNo);
                         CallServer.getInstance().add(CompanyDetailsActivity.this, request11, MyhttpCallBack.getInstance(), 0x011, true, false, true);
                     }
@@ -429,7 +429,7 @@ public class CompanyDetailsActivity extends BaseActivity {
                         waitDialog.show();
                         GsonUtil request12 = new GsonUtil(URLconstant.URLINSER + URLconstant.COPYRIGHTURL, RequestMethod.GET);
                         request12.add("token", token);
-                        request12.add("deviceld", model);
+                        request12.add("deviceId", model);
                         request12.add("KeyNo", KeyNo);
                         CallServer.getInstance().add(CompanyDetailsActivity.this, request12, MyhttpCallBack.getInstance(), 0x012, true, false, true);
                     }
@@ -439,7 +439,7 @@ public class CompanyDetailsActivity extends BaseActivity {
                         waitDialog.show();
                         GsonUtil request13 = new GsonUtil(URLconstant.URLINSER + URLconstant.ADVERTISEMENTURL, RequestMethod.GET);
                         request13.add("token", token);
-                        request13.add("deviceld", model);
+                        request13.add("deviceId", model);
                         request13.add("KeyNo", KeyNo);
                         CallServer.getInstance().add(CompanyDetailsActivity.this, request13, MyhttpCallBack.getInstance(), 0x013, true, false, true);
                     }
@@ -449,7 +449,7 @@ public class CompanyDetailsActivity extends BaseActivity {
                         waitDialog.show();
                         GsonUtil request14 = new GsonUtil(URLconstant.URLINSER + URLconstant.OBEYEDURL, RequestMethod.GET);
                         request14.add("token", token);
-                        request14.add("deviceld", model);
+                        request14.add("deviceId", model);
                         request14.add("KeyNo", KeyNo);
                         CallServer.getInstance().add(CompanyDetailsActivity.this, request14, MyhttpCallBack.getInstance(), 0x014, true, false, true);
                     }
@@ -459,7 +459,7 @@ public class CompanyDetailsActivity extends BaseActivity {
                         waitDialog.show();
                         GsonUtil request15 = new GsonUtil(URLconstant.URLINSER + URLconstant.GETAUTO, RequestMethod.GET);
                         request15.add("token", token);
-                        request15.add("deviceld", model);
+                        request15.add("deviceId", model);
                         request15.add("KeyNo", KeyNo);
                         CallServer.getInstance().add(CompanyDetailsActivity.this, request15, MyhttpCallBack.getInstance(), MSG, true, false, true);
                     }

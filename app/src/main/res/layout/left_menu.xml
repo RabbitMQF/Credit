@@ -18,17 +18,19 @@
                 android:layout_width="match_parent"
                 android:layout_height="120dp">
 
-                <ImageView
+                <com.example.credit.Views.RoundImageView
+                    android:id="@+id/headimg"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_gravity="center_vertical"
                     android:layout_marginLeft="20dp"
                     android:background="@mipmap/me_icon02" />
 
-                <RelativeLayout
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="30dp"
+                    android:gravity="center_vertical"
+                    android:layout_marginLeft="20dp"
                     android:orientation="vertical">
 
                     <TextView
@@ -37,11 +39,10 @@
                         android:layout_above="@+id/textView"
                         android:layout_alignParentLeft="true"
                         android:layout_alignParentStart="true"
-                        android:layout_gravity="center_vertical"
                         android:layout_marginBottom="10dp"
-                        android:text="姓  名"
+                        android:text="用户"
                         android:textColor="@android:color/white"
-                        android:textSize="20sp" />
+                        android:textSize="24sp" />
 
                     <TextView
                         android:id="@+id/textView"
@@ -53,10 +54,11 @@
                         android:layout_gravity="center_vertical"
                         android:layout_marginBottom="34dp"
                         android:text="积  分"
+                        android:visibility="gone"
                         android:textColor="@android:color/white"
                         android:textSize="20sp" />
 
-                </RelativeLayout>
+                </LinearLayout>
             </LinearLayout>
 
             <LinearLayout
@@ -67,6 +69,7 @@
                 android:orientation="vertical">
 
                 <RelativeLayout
+                    android:id="@+id/Smenu_1"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content">
 
@@ -85,12 +88,13 @@
                         android:layout_centerVertical="true"
                         android:layout_marginLeft="20dp"
                         android:layout_toRightOf="@id/id_img1"
-                        android:text="企业查询"
+                        android:text="我的评价"
                         android:textColor="#ffffff"
                         android:textSize="20sp" />
                 </RelativeLayout>
 
                 <RelativeLayout
+                    android:id="@+id/Smenu_2"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content">
 
@@ -109,12 +113,13 @@
                         android:layout_centerVertical="true"
                         android:layout_marginLeft="20dp"
                         android:layout_toRightOf="@id/id_img2"
-                        android:text="推荐我们"
+                        android:text="我的投诉"
                         android:textColor="#ffffff"
                         android:textSize="20sp" />
                 </RelativeLayout>
 
                 <RelativeLayout
+                    android:id="@+id/Smenu_3"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content">
 
@@ -133,12 +138,13 @@
                         android:layout_centerVertical="true"
                         android:layout_marginLeft="20dp"
                         android:layout_toRightOf="@id/id_img3"
-                        android:text="消息通知"
+                        android:text="我的关注"
                         android:textColor="#ffffff"
                         android:textSize="20sp" />
                 </RelativeLayout>
 
                 <RelativeLayout
+                    android:id="@+id/Smenu_4"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content">
 
@@ -157,12 +163,13 @@
                         android:layout_centerVertical="true"
                         android:layout_marginLeft="20dp"
                         android:layout_toRightOf="@id/id_img4"
-                        android:text="聊天消息"
+                        android:text="我的认领"
                         android:textColor="#ffffff"
                         android:textSize="20sp" />
                 </RelativeLayout>
 
                 <RelativeLayout
+                    android:id="@+id/Smenu_5"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content">
 
@@ -181,12 +188,13 @@
                         android:layout_centerVertical="true"
                         android:layout_marginLeft="20dp"
                         android:layout_toRightOf="@id/id_img5"
-                        android:text="个人中心"
+                        android:text="服务协议"
                         android:textColor="#ffffff"
                         android:textSize="20sp" />
                 </RelativeLayout>
 
                 <RelativeLayout
+                    android:id="@+id/Smenu_6"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content">
 

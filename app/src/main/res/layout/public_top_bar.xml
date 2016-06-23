@@ -3,13 +3,22 @@
     android:layout_width="match_parent"
     android:layout_height="48dp"
     android:background="@mipmap/detail_top">
-    <ImageView
+    <LinearLayout
         android:id="@+id/b_return"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:paddingRight="10dp"
+        android:layout_centerVertical="true">
+    <ImageView
+
         android:layout_width="15dp"
         android:layout_height="20dp"
         android:layout_centerVertical="true"
         android:layout_marginLeft="10dp"
         android:background="@mipmap/arrow_left_back" />
+    </LinearLayout>
     <TextView
         android:id="@+id/b_topname"
         android:layout_width="wrap_content"

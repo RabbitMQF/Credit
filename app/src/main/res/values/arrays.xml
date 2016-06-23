@@ -198,8 +198,7 @@
         <item>执行案号</item>
         <item>执行依据文号</item>
         <item>履行情况</item>
-        <item>失信被执行人具体情形</item>
-        <item>详情</item>
+        <item>类型名称</item>
     </string-array>
     <string-array name="ShareholderInformationChange"><!--股东变更信息-->
         <item>司法股东变更登记信息</item>

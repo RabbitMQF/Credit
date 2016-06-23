@@ -13,9 +13,13 @@ android {
     }
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled false//混淆
+            //加载默认混淆
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+    }
+    lintOptions {
+        abortOnError false
     }
 }
 

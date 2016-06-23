@@ -9,6 +9,7 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.credit.Adapters.MyGridAdapter4;
@@ -22,7 +23,7 @@ import com.lidroid.xutils.view.annotation.ViewInject;
  */
 public class AlertActivity extends BaseActivity {
     @ViewInject(R.id.b_return)
-    ImageView b_return;
+    LinearLayout b_return;
     @ViewInject(R.id.b_topname)
     TextView b_topname;
 

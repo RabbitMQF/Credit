@@ -136,7 +136,7 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
                                 GsonUtil requst=new GsonUtil(URLconstant.GETITEMNUM,RequestMethod.GET);
                                 requst.add("KeyNo",KeyNo);
                                 requst.add("token",token);
-                                requst.add("deviceld",model);
+                                requst.add("deviceId",model);
                                 requst.add("regno",DataManager.searchList.get(position).REGNO);
                                 CallServer.getInstance().add(SearchFirmActivty.this,requst,MyhttpCallBack.getInstance(),0x024,true,false,true);
 
@@ -993,7 +993,7 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
             request.setReadTimeout(50000);
             request.add("token", Tks);//加密结果
             request.add("searchKey", Tname);//string搜索关键字
-            request.add("deviceld", model);//设备ID
+            request.add("deviceId", model);//设备ID
             //request.add("searchType", 0);//int 搜索类型 （企业、法人、失信、违法）默认为0企业,1是该法人名下企业,2失信企业,3违法企业
             //request.add("pageIndex", 0);//int 搜索请求页数
             //request.add("pageSize", 40);//int 搜索请求条数

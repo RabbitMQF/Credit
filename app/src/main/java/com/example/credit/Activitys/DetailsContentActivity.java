@@ -41,7 +41,7 @@ public class DetailsContentActivity extends BaseActivity {
 //    LinearLayout about_top;//返回
 
     @ViewInject(R.id.b_return)
-    ImageView b_return;//返回
+    LinearLayout b_return;//返回
 
     @ViewInject(R.id.b_topname)
     TextView b_topname;//企业名称

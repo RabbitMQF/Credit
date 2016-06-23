@@ -76,27 +76,26 @@ public class JudicialAdapter extends BaseAdapter {
         }
         List<String> listst=new ArrayList<>();
         if(list1!=null && list1.size()>0){
-            listst.add(list1.get(position).centent);
-            listst.add(list1.get(position).number);
-            listst.add(list1.get(position).unit);
-            listst.add(list1.get(position).decisiontime);
-            listst.add(list1.get(position).detail);
+            listst.add(list1.get(position).SENTENCECONMENT);
+            listst.add(list1.get(position).CASENUM);
+            listst.add(list1.get(position).SUPDEPARTMENT);
+            listst.add(list1.get(position).SENTENCEDATE);
+            listst.add(list1.get(position).REDECORG_CN);
         }
         if(list2!=null && list2.size()>0){
-            listst.add(list2.get(position).court);
-            listst.add(list2.get(position).jurisdictionTime);
-            listst.add(list2.get(position).caseNumber);
-            listst.add(list2.get(position).referenceNumber);
-            listst.add(list2.get(position).performCondition);
-            listst.add(list2.get(position).peopleCondition);
-            listst.add(list2.get(position).detail);
+            listst.add(list2.get(position).COURT_NAME);
+            listst.add(list2.get(position).REG_DATE);
+            listst.add(list2.get(position).COURTCASEID);
+            listst.add(list2.get(position).GIST_CID);
+            listst.add(list2.get(position).PERFORMANCE);
+            listst.add(list2.get(position).DISREPUT_TYPE_NAME);
         }
         if(list3!=null && list3.size()>0){
-            listst.add(list3.get(position).executedPerson);
-            listst.add(list3.get(position).equityAmount);
-            listst.add(list3.get(position).acceptPerson);
-            listst.add(list3.get(position).courtOfExecution);
-            listst.add(list3.get(position).detail);
+            listst.add(list3.get(position).INV);
+            listst.add(list3.get(position).FROAM);
+            listst.add(list3.get(position).ALIEN);
+            listst.add(list3.get(position).FROAUTH);
+            listst.add(list3.get(position).REGNO);
         }
         if(list4!=null && list4.size()>0){
             listst.add(list4.get(position).FROFROM);

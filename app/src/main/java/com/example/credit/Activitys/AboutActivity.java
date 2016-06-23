@@ -4,12 +4,13 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.credit.R;
 
 public class AboutActivity extends BaseActivity {
-    ImageView goback;
+    LinearLayout goback;
     TextView topTV;
 
     @Override
@@ -20,7 +21,7 @@ public class AboutActivity extends BaseActivity {
     }
 
     private void initView() {
-        goback= (ImageView) findViewById(R.id.b_return);
+        goback= (LinearLayout) findViewById(R.id.b_return);
         topTV= (TextView) findViewById(R.id.b_topname);
         topTV.setText("关于我们");
         goback.setOnClickListener(new View.OnClickListener() {

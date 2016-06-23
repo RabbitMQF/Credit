@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -24,7 +25,7 @@ import java.util.List;
  */
 public class Judicial_CActivity extends Activity {
     @ViewInject(R.id.b_return)
-    ImageView b_return;
+    LinearLayout b_return;
     @ViewInject(R.id.b_topname)
     TextView b_topname;
 

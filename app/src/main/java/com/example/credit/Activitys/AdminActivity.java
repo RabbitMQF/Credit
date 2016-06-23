@@ -8,7 +8,7 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.View;
-import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.credit.Entitys.DataManager;
@@ -21,6 +21,7 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
+ * 行政审批
  * Created by alucard on 2016-05-25.
  */
 public class AdminActivity extends FragmentActivity implements View.OnClickListener {
@@ -28,7 +29,7 @@ public class AdminActivity extends FragmentActivity implements View.OnClickListe
     private ViewPagerIndicator mIndicator;
     private List<String> mTitles = Arrays.asList("行政许可信息", "其他信息");
     private List<Admin_Fragment> fragmentList = new ArrayList<>();
-    private ImageView b_return;
+    private LinearLayout b_return;
     TextView topBarTV;
     String Tname;
     @Override
@@ -76,7 +77,7 @@ public class AdminActivity extends FragmentActivity implements View.OnClickListe
         topBarTV= (TextView) findViewById(R.id.b_topname);
         mViewPager = (ViewPager) findViewById(R.id.viewpager);
         mIndicator = (ViewPagerIndicator) findViewById(R.id.id_indicator);
-        b_return = (ImageView) findViewById(R.id.b_return);
+        b_return = (LinearLayout) findViewById(R.id.b_return);
         b_return.setOnClickListener(this);
         topBarTV.setText(Tname);
     }

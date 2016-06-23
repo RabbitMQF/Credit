@@ -21,5 +21,16 @@
         <attr name="pstsShouldExpand" format="boolean" />
         <attr name="pstsTextAllCaps" format="boolean" />
     </declare-styleable>
+    <declare-styleable name="roundedimageview">
+        <attr name="border_thickness" format="dimension" />
+        <attr name="border_inside_color" format="color" />
+        <attr name="border_outside_color" format="color"></attr>
+    </declare-styleable>
+    <declare-styleable name="AutoScalingLayout">
+        <attr name="designWidth" format="dimension" />
+        <attr name="designHeight" format="dimension" />
+        <attr name="autoScaleEnable" format="boolean" />
+        <attr name="autoScaleType" format="string" />
+    </declare-styleable>
 
 </resources>

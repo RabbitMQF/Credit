@@ -377,7 +377,7 @@ public class DataManager {
      * 荣誉信息实体类
      */
 
-    public static List<honorInfo> honorInfoList;
+    public static List<honorInfo> honorInfoList = new ArrayList<>();
 
     public static class honorInfo {
         public String HONORID;//荣誉id
@@ -399,7 +399,6 @@ public class DataManager {
         public String ENJSPCONTENT;//享受扶持政策内容
         public String IMPSPDEPART;//享受扶持政策的的部门
         public String IMPSPDATE;//实施扶持政策日期
-
 
     }
 
@@ -451,7 +450,7 @@ public class DataManager {
      * 专利信息实体类
      */
 
-    public static List<patentInfo> patentInfoList;
+    public static List<patentInfo> patentInfoList = new ArrayList<>();
 
     public static class patentInfo {
         public String PRIPID;//企业ID
@@ -780,36 +779,32 @@ public class DataManager {
     public static List<JudicialDocuments> JudicialDocumentsList;
 
     public static class JudicialDocuments {//司法文书信息
-        public String No;
-        public String centent;
-        public String number;
-        public String unit;
-        public String decisiontime;
-        public String detail;
+        public String CASENUM;//判决书文号
+        public String SENTENCECONMENT;//判决内容
+        public String SUPDEPARTMENT;//作出判决机关
+        public String SENTENCEDATE;//作出判决书日期
+        public String REDECORG_CN;//详情
     }
 
     public static List<CrackCredit> CrackCreditList;
 
     public static class CrackCredit {//失信被执行人信息
-        public String No;
-        public String court;
-        public String jurisdictionTime;
-        public String caseNumber;
-        public String referenceNumber;
-        public String performCondition;
-        public String peopleCondition;
-        public String detail;
+        public String COURT_NAME;//执行法院
+        public String REG_DATE;//立案时间
+        public String COURTCASEID;//法院案件表ID
+        public String GIST_CID;//执行依据文号
+        public String PERFORMANCE;//被执行人的履行情况
+        public String DISREPUT_TYPE_NAME;//类型名称（APP增加此项）
     }
 
     public static List<ShareholderInformationChange> ShareholderInformationChangeList;
 
     public static class ShareholderInformationChange {//股东变更信息
-        public String No;
-        public String executedPerson;
-        public String equityAmount;
-        public String acceptPerson;
-        public String courtOfExecution;
-        public String detail;
+        public String ALIEN;//受让人
+        public String REGNO;//注册号
+        public String FROAUTH;//执行法院
+        public String FROAM;//股权数额
+        public String INV;//被执行人
     }
 
     public static List<FrozenInformation> FrozenInformationList;
