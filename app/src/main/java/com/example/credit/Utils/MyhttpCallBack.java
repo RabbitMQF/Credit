@@ -93,6 +93,20 @@ public class MyhttpCallBack implements HttpCallBack {
                     MainActivity.handler.sendEmptyMessage(0);
                 }
                 break;
+            case 0x112://获取新闻内容
+                String jstring112 = (String) response.get();
+//                map = gson.fromJson(jstring111, new TypeToken<Map<String, Object>>() {
+//                }.getType());
+//                List<DataManager.Newss> list1s11 = gson.fromJson( map.get("result").toString(), new TypeToken<LinkedTreeMap>() {
+//                }.getType());
+//                DataManager.NewssList = list1s11;
+                DataManager.Root11 jsonRoot12 = gson.fromJson(jstring112, new TypeToken<DataManager.Root11>() {
+                }.getType());
+                DataManager.NewssList = jsonRoot12.result;
+                if (DataManager.NewssList != null && DataManager.NewssList.size() > 0) {
+                    MainActivity.handler.sendEmptyMessage(0);
+                }
+                break;
             case 0x022://搜索结果
 //                String searchstr = (String) response.get();
 //                Type type = new TypeToken<DataManager.Root>() {

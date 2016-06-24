@@ -43,7 +43,6 @@ public class CreditSharePreferences {
        }else{
            return "";
        }
-
     }
 
 }

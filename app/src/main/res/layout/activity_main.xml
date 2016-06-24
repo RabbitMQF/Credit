@@ -140,6 +140,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="企业查询"
+                                android:textColor="@color/huise"
                                 android:textSize="16sp" />
                         </LinearLayout>
 
@@ -159,7 +160,8 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="著作权查询"
+                                android:text="法人查询"
+                                android:textColor="@color/huise"
                                 android:textSize="16sp" />
                         </LinearLayout>
 
@@ -179,7 +181,8 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="违法查询"
+                                android:text="失信查询"
+                                android:textColor="@color/huise"
                                 android:textSize="16sp" />
                         </LinearLayout>
 
@@ -199,7 +202,8 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="股东查询"
+                                android:text="违法查询"
+                                android:textColor="@color/huise"
                                 android:textSize="16sp" />
                         </LinearLayout>
                     </LinearLayout>
@@ -209,6 +213,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:scrollbars="none"
+                        android:listSelector="@color/tou"
                         android:divider="@android:color/darker_gray"
                         android:dividerHeight="0.5dp"/>
 
@@ -220,10 +225,10 @@
 
                 </LinearLayout>
                 <!--<include-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="30dp"-->
-                    <!--android:layout_gravity="bottom"-->
-                    <!--layout="@layout/public_bottom_bar"/>-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="30dp"-->
+                <!--android:layout_gravity="bottom"-->
+                <!--layout="@layout/public_bottom_bar"/>-->
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="30dp"

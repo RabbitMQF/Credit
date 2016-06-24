@@ -3,7 +3,8 @@
     package="com.example.credit">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
     <application
         android:name=".Application"
         android:allowBackup="true"
@@ -41,7 +42,13 @@
         <activity android:name=".Activitys.AdvertisementActivity" />
         <activity android:name=".Activitys.AutonomyActivity" />
         <activity android:name=".Activitys.Autonomy_Detail_Activity" />
-        <activity android:name=".Activitys.Judicial_CActivity"></activity>
+        <activity android:name=".Activitys.Judicial_CActivity" />
+        <activity android:name=".Activitys.UserSetActivity" />
+        <activity android:name=".Activitys.NewsContentActivity" />
+        <activity android:name=".Activitys.ClaimActivity" />
+        <activity android:name=".Activitys.ClaimDetailsActivity" />
+        <activity android:name=".Activitys.ToComplaintActivity" />
+        <activity android:name=".Activitys.MyClaimActivity"></activity>
     </application>
 
 </manifest>

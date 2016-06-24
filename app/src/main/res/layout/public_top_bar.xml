@@ -11,13 +11,13 @@
         android:paddingBottom="10dp"
         android:paddingRight="10dp"
         android:layout_centerVertical="true">
-    <ImageView
+        <ImageView
 
-        android:layout_width="15dp"
-        android:layout_height="20dp"
-        android:layout_centerVertical="true"
-        android:layout_marginLeft="10dp"
-        android:background="@mipmap/arrow_left_back" />
+            android:layout_width="15dp"
+            android:layout_height="20dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:background="@mipmap/arrow_left_back" />
     </LinearLayout>
     <TextView
         android:id="@+id/b_topname"

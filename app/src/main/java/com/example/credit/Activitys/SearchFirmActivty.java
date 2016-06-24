@@ -103,11 +103,13 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
     Build bd = new Build();
     String model = bd.MODEL;//设备ID
     int po;
+    int type;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.search_firm_activity);
-
+        Intent i=getIntent();
+        type=i.getIntExtra("type",0);
         initView();
         initCityData();
         search_bt = (ImageView) findViewById(R.id.search_bt);
@@ -368,7 +370,7 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
                         || (event != null && KeyEvent.KEYCODE_ENTER == event.getKeyCode() && KeyEvent.ACTION_DOWN == event.getAction())) {
                     //处理事件
                     GETsearch();
-                  return true;
+                    return true;
                 }
                 return false;
             }
@@ -404,6 +406,22 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
                 searchEt.setText("");
             }
         });
+
+        //根据type判断查询类型
+        switch (type){
+            case 0:
+                searchEt.setHint("请输入企业名称");
+                break;
+            case 1:
+                searchEt.setHint("请输入法人名称");
+                break;
+            case 2:
+                searchEt.setHint("请输入失信名称");
+                break;
+            case 3:
+                searchEt.setHint("请输入违法名称");
+                break;
+        }
 
     }
 
@@ -994,7 +1012,21 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
             request.add("token", Tks);//加密结果
             request.add("searchKey", Tname);//string搜索关键字
             request.add("deviceId", model);//设备ID
-            //request.add("searchType", 0);//int 搜索类型 （企业、法人、失信、违法）默认为0企业,1是该法人名下企业,2失信企业,3违法企业
+            //根据type判断查询类型
+            switch (type){
+                case 0:
+                    request.add("searchType", 0);//int 搜索类型 （企业、法人、失信、违法）默认为0企业,1是该法人名下企业,2失信企业,3违法企业
+                    break;
+                case 1:
+                    request.add("searchType", 1);//int 搜索类型 （企业、法人、失信、违法）默认为0企业,1是该法人名下企业,2失信企业,3违法企业
+                    break;
+                case 2:
+                    request.add("searchType", 2);//int 搜索类型 （企业、法人、失信、违法）默认为0企业,1是该法人名下企业,2失信企业,3违法企业
+                    break;
+                case 3:
+                    request.add("searchType", 3);//int 搜索类型 （企业、法人、失信、违法）默认为0企业,1是该法人名下企业,2失信企业,3违法企业
+                    break;
+            }
             //request.add("pageIndex", 0);//int 搜索请求页数
             //request.add("pageSize", 40);//int 搜索请求条数
             if (industryindex != null && industryindex != "") {//int/string(建议传string) 行业代码为空不做限制

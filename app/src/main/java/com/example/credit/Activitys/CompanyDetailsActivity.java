@@ -115,7 +115,7 @@ public class CompanyDetailsActivity extends BaseActivity {
     String model;
     String KeyNo;
     String token;
-
+    String regnore;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -131,6 +131,7 @@ public class CompanyDetailsActivity extends BaseActivity {
         model = bd.MODEL;//设备ID
         KeyNo = DataManager.searchList.get(position).PRIPID;//市场主体身份代码
         token = SearchFirmActivty.MD5s(KeyNo + model);//token 由 设备ID+市场主体身份代码 MD5生成
+        regnore=DataManager.searchList.get(position).REGNO;//注册号
         init();
         adapter1 = new MyGridAdapter1(CompanyDetailsActivity.this, arrays1, arrays2, imgs);
 
@@ -359,6 +360,7 @@ public class CompanyDetailsActivity extends BaseActivity {
                         request6.add("token", token);
                         request6.add("deviceId", model);
                         request6.add("KeyNo", KeyNo);
+                        request6.add("regnore", regnore);//注册号
                         CallServer.getInstance().add(CompanyDetailsActivity.this, request6, MyhttpCallBack.getInstance(), 0X006, true, false, true);
                     }
                     break;

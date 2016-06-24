@@ -44,6 +44,7 @@
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 android:textSize="13sp"
+                android:textColor="@color/huise"
                 android:text="补偿400万，就不能当钉子户了？补偿400万，就不能当钉子户了？补偿400万，就不能当钉子户了？"
                 android:lines="2"
                 android:ellipsize="end"

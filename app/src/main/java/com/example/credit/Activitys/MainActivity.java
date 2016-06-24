@@ -16,15 +16,12 @@ import android.view.KeyEvent;
 import android.view.View;
 
 import android.widget.AdapterView;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.credit.Adapters.NewsListAdapter;
-import com.example.credit.Contacts.ContactsActivity;
 import com.example.credit.Entitys.DataManager;
 import com.example.credit.R;
 import com.example.credit.Services.CallServer;
@@ -35,13 +32,10 @@ import com.example.credit.Views.FileUtil;
 import com.example.credit.Views.RoundImageView;
 import com.example.credit.Views.SlidingMenu;
 import com.lidroid.xutils.ViewUtils;
-import com.lidroid.xutils.http.client.util.URLEncodedUtils;
 import com.lidroid.xutils.view.annotation.ViewInject;
 import com.yolanda.nohttp.RequestMethod;
 
 import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
 
 public class MainActivity extends Activity implements View.OnClickListener {
     private long exitTime = 0;
@@ -138,10 +132,12 @@ public class MainActivity extends Activity implements View.OnClickListener {
         NewsListview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(MainActivity.this, "此模块，程序猿正在赶点加工中...", Toast.LENGTH_SHORT).show();
+                Intent i=new Intent(MainActivity.this,NewsContentActivity.class);
+                i.putExtra("position",position);
+                startActivity(i);
+//                Toast.makeText(MainActivity.this, "此模块，正在赶点加工中...", Toast.LENGTH_SHORT).show();
             }
         });
-
 
         //获取本地图片路径
 //        if(esp.getLogin()==true){
@@ -196,35 +192,51 @@ public class MainActivity extends Activity implements View.OnClickListener {
         public void onClick(View v) {
             switch (v.getId()){
                 case R.id.Smenu_1://我的评价
-                    Toast.makeText(MainActivity.this, "此模块，程序猿正在赶点加工中...", Toast.LENGTH_SHORT).show();
+                    Intent i=new Intent(MainActivity.this,ClaimDetailsActivity.class);
+                    startActivity(i);
+//                    Toast.makeText(MainActivity.this, "此模块，正在赶点加工中...", Toast.LENGTH_SHORT).show();
                     break;
                 case R.id.Smenu_2://我的投诉
-                    Toast.makeText(MainActivity.this, "此模块，程序猿正在赶点加工中...", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "此模块，正在赶点加工中...", Toast.LENGTH_SHORT).show();
                     break;
                 case R.id.Smenu_3://我的关注
-                    Toast.makeText(MainActivity.this, "此模块，程序猿正在赶点加工中...", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "此模块，正在赶点加工中...", Toast.LENGTH_SHORT).show();
                     break;
                 case R.id.Smenu_4://我的认领
-                    Toast.makeText(MainActivity.this, "此模块，程序猿正在赶点加工中...", Toast.LENGTH_SHORT).show();
+                    Intent i1=new Intent(MainActivity.this,ClaimActivity.class);
+                    startActivity(i1);
+//                    Toast.makeText(MainActivity.this, "此模块，正在赶点加工中...", Toast.LENGTH_SHORT).show();
                     break;
                 case R.id.Smenu_5://服务协议
-                    Toast.makeText(MainActivity.this, "此模块，程序猿正在赶点加工中...", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "此模块，正在赶点加工中...", Toast.LENGTH_SHORT).show();
                     break;
                 case R.id.Smenu_6://关于我们
-                    Toast.makeText(MainActivity.this, "此模块，程序猿正在赶点加工中...", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "此模块，正在赶点加工中...", Toast.LENGTH_SHORT).show();
                     break;
 
                 case R.id.tab1://企业查询
-                    Toast.makeText(MainActivity.this, "此模块，程序猿正在赶点加工中...", Toast.LENGTH_SHORT).show();
+                    Intent in1 = new Intent(MainActivity.this, SearchFirmActivty.class);
+                    in1.putExtra("type",0);
+                    startActivity(in1);
+                    overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
                     break;
-                case R.id.tab2://著作权
-                    Toast.makeText(MainActivity.this, "此模块，程序猿正在赶点加工中...", Toast.LENGTH_SHORT).show();
+                case R.id.tab2://法人查询
+                    Intent in2 = new Intent(MainActivity.this, SearchFirmActivty.class);
+                    in2.putExtra("type",1);
+                    startActivity(in2);
+                    overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
                     break;
-                case R.id.tab3://违法查询
-                    Toast.makeText(MainActivity.this, "此模块，程序猿正在赶点加工中...", Toast.LENGTH_SHORT).show();
+                case R.id.tab3://失信查询
+                    Intent in3 = new Intent(MainActivity.this, SearchFirmActivty.class);
+                    in3.putExtra("type",2);
+                    startActivity(in3);
+                    overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
                     break;
-                case R.id.tab4://股东信息
-                    Toast.makeText(MainActivity.this, "此模块，程序猿正在赶点加工中...", Toast.LENGTH_SHORT).show();
+                case R.id.tab4://违法信息
+                    Intent in4 = new Intent(MainActivity.this, SearchFirmActivty.class);
+                    in4.putExtra("type",3);
+                    startActivity(in4);
+                    overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
                     break;
 
 //                case R.id.pb_4:
@@ -298,7 +310,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
             case R.id.top_search:
                 Intent in = new Intent(this, SearchFirmActivty.class);
                 startActivity(in);
-
                 overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
                 break;
             default:
