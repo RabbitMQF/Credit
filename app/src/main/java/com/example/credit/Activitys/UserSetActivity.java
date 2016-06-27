@@ -8,6 +8,9 @@ import com.example.credit.R;
 import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ViewInject;
 
+/**
+ * 用户设置界面
+ */
 public class UserSetActivity extends Activity {
     @ViewInject(R.id.b_topname)
     TextView b_topname;

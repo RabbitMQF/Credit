@@ -11,9 +11,9 @@ import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ViewInject;
 
 /**
- * 认领详情界面
+ * 投诉详情界面
  */
-public class ClaimDetailsActivity extends Activity {
+public class ComplaintDetailsActivity extends Activity {
     @ViewInject(R.id.b_topname)
     TextView b_topname;
     @ViewInject(R.id.b_return)
@@ -21,12 +21,12 @@ public class ClaimDetailsActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_claim_details);
+        setContentView(R.layout.activity_complaint_details);
         ViewUtils.inject(this);
         init();
     }
     public void init(){
-        b_topname.setText("认领详情");
+        b_topname.setText("投诉详情");
         b_return.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

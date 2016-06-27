@@ -19,6 +19,7 @@ import android.widget.AdapterView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.credit.Adapters.NewsListAdapter;
@@ -56,7 +57,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
 
     @ViewInject(R.id.headimg)
-    RoundImageView headimg;
+    RoundImageView headimg;//我的头像
     private static final String IMAGE_FILE_NAME = "avatarImage.jpg";// 头像文件名称
     private static String urlpath;			// 图片本地路径
     private static final int REQUESTCODE_PICK = 0;		// 相册选图标记
@@ -64,6 +65,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
     private static String newName ="UserImg.jpg";
     public static String photo;
 
+    @ViewInject(R.id.UserSz)
+    TextView UserSz;//用户
     @ViewInject(R.id.Smenu_1)
     RelativeLayout Smenu_1;//我的评价
     @ViewInject(R.id.Smenu_2)
@@ -163,16 +166,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
 //            }
         }
 
-        headimg.setOnClickListener(new View.OnClickListener() {//从相册选择头像图片
-            @Override
-            public void onClick(View v) {
-                Intent pickIntent = new Intent(Intent.ACTION_PICK, null);
-                // 如果朋友们要限制上传到服务器的图片类型时可以直接写如："image/jpeg 、 image/png等的类型"
-                pickIntent.setDataAndType(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, "image/*");
-                startActivityForResult(pickIntent, REQUESTCODE_PICK);
-            }
-        });
-
+        headimg.setOnClickListener(listener);
+        UserSz.setOnClickListener(listener);
         Smenu_1.setOnClickListener(listener);
         Smenu_2.setOnClickListener(listener);
         Smenu_3.setOnClickListener(listener);
@@ -191,20 +186,35 @@ public class MainActivity extends Activity implements View.OnClickListener {
         @Override
         public void onClick(View v) {
             switch (v.getId()){
-                case R.id.Smenu_1://我的评价
-                    Intent i=new Intent(MainActivity.this,ClaimDetailsActivity.class);
+                case R.id.UserSz://用户
+                    Intent i=new Intent(MainActivity.this,LoginActivity.class);
                     startActivity(i);
 //                    Toast.makeText(MainActivity.this, "此模块，正在赶点加工中...", Toast.LENGTH_SHORT).show();
                     break;
+                case R.id.headimg://我的头像
+                    Intent pickIntent = new Intent(Intent.ACTION_PICK, null);
+                    // 如果朋友们要限制上传到服务器的图片类型时可以直接写如："image/jpeg 、 image/png等的类型"
+                    pickIntent.setDataAndType(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, "image/*");
+                    startActivityForResult(pickIntent, REQUESTCODE_PICK);
+                    break;
+                case R.id.Smenu_1://我的评价
+                    Intent i1=new Intent(MainActivity.this,ClaimDetailsActivity.class);
+                    startActivity(i1);
+//                    Toast.makeText(MainActivity.this, "此模块，正在赶点加工中...", Toast.LENGTH_SHORT).show();
+                    break;
                 case R.id.Smenu_2://我的投诉
-                    Toast.makeText(MainActivity.this, "此模块，正在赶点加工中...", Toast.LENGTH_SHORT).show();
+                    Intent i2=new Intent(MainActivity.this,MycomplaintsListActivity.class);
+                    startActivity(i2);
+//                    Toast.makeText(MainActivity.this, "此模块，正在赶点加工中...", Toast.LENGTH_SHORT).show();
                     break;
                 case R.id.Smenu_3://我的关注
-                    Toast.makeText(MainActivity.this, "此模块，正在赶点加工中...", Toast.LENGTH_SHORT).show();
+                    Intent i3=new Intent(MainActivity.this,MyconcernActivity.class);
+                    startActivity(i3);
+//                    Toast.makeText(MainActivity.this, "此模块，正在赶点加工中...", Toast.LENGTH_SHORT).show();
                     break;
                 case R.id.Smenu_4://我的认领
-                    Intent i1=new Intent(MainActivity.this,ClaimActivity.class);
-                    startActivity(i1);
+                    Intent i4=new Intent(MainActivity.this,MyClaimActivity.class);
+                    startActivity(i4);
 //                    Toast.makeText(MainActivity.this, "此模块，正在赶点加工中...", Toast.LENGTH_SHORT).show();
                     break;
                 case R.id.Smenu_5://服务协议

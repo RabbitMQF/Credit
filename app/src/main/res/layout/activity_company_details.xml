@@ -37,12 +37,25 @@
 
                         <ImageView
                             android:id="@+id/d_return"
-                            android:layout_width="30dp"
-                            android:layout_height="35dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="30dp"
                             android:layout_marginLeft="10dp"
+                            android:layout_centerVertical="true"
                             android:layout_marginTop="20dp"
                             android:background="@mipmap/arrow_left_back" />
-
+                        <TextView
+                            android:id="@+id/details_tit"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:padding="5dp"
+                            android:layout_toRightOf="@+id/d_return"
+                            android:layout_marginLeft="40dp"
+                            android:background="@drawable/details_tit"
+                            android:gravity="center"
+                            android:text="在业"
+                            android:textColor="#ffffff"
+                            android:textSize="16sp" />
                         <LinearLayout
                             android:id="@+id/ll"
                             android:layout_width="wrap_content"
@@ -58,21 +71,16 @@
                                 android:background="@mipmap/error_logo" />
                         </LinearLayout>
 
-                        <TextView
-                            android:id="@+id/details_tit"
-                            android:layout_width="70dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="20dp"
-                            android:paddingTop="3dp"
-                            android:paddingBottom="3dp"
-                            android:layout_toRightOf="@+id/ll"
-                            android:layout_marginLeft="20dp"
-                            android:background="@drawable/details_tit"
-                            android:gravity="center"
-                            android:text="在业"
-                            android:textColor="#ffffff"
-                            android:textSize="16sp" />
 
+                        <ImageView
+                            android:id="@+id/d_more"
+                            android:layout_width="30dp"
+                            android:layout_height="5dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginRight="20dp"
+                            android:layout_alignParentRight="true"
+                            android:background="@mipmap/c_more" />
                     </RelativeLayout>
                     <TextView
                         android:id="@+id/cp_name"

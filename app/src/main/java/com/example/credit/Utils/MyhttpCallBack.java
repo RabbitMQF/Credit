@@ -133,7 +133,7 @@ public class MyhttpCallBack implements HttpCallBack {
                 for (LinkedTreeMap temp : searchstrlist2) {
                     DataManager.search serchtemp = new DataManager.search();
                     serchtemp.PRIPID = (String) temp.get("PRIPID");
-                    serchtemp.entname = (String) temp.get("entname");
+                    serchtemp.ENTNAME = (String) temp.get("ENTNAME");
                     serchtemp.REGNO = (String) temp.get("REGNO");
                     serchtemp.REGORG_CN = (String) temp.get("REGORG_CN");
                     serchtemp.NAME = (String) temp.get("NAME");

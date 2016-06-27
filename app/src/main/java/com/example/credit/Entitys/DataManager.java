@@ -46,7 +46,7 @@ public class DataManager {
      */
     public static class search {//搜索列表信息 Result
         public String PRIPID;//主体身份代码
-        public String entname;//企业(机构)名称
+        public String ENTNAME;//企业(机构)名称
         public String REGNO;//注册号
         public String REGORG_CN;//登记机关（中文名称）
         public String NAME;//法定代表人
@@ -906,9 +906,38 @@ public class DataManager {
         public String SupportCount;//扶持
         public String MortgagorCount;//出质
         public String PatentCount;//专利
+        public String EnterAddtionID;
 
 
     }
   public static allcount allcounts=new allcount();
 
+
+    public static List<Userreview> UserreviewList = new ArrayList<>();
+    /**
+     * 评论列表
+     */
+    public class Userreview {
+        public String ENTERID;//附加表的企业ID
+        public int FAILEDQTY;//点赞吐槽
+        public int replay2reviewCount;
+        public String MEMBERID;//本评论用户ID
+        public String CREATETIME;//评论时间
+        public String COMMENTID;//评论ID
+        public String CONTENT;//点评内容
+        public int SUCCESSQTY;//点赞数量
+        public int ISSUCCESS;//是否点赞 0为否，1为是
+        public List<Replay2review> replay2review ;
+        public String MEMBERNAME;//本评论用户名称
+        public int ISFAILED;//是否吐槽 0为否，1为是
+    }
+    /**
+     * 回复评论（楼中楼）
+     */
+    public class Replay2review {
+        public String CHILDMEMBERID;//用户ID
+        public String REPLAYCOMMENT;//回复评论内容
+        public String CHILDMEMBERNAME;//用户名称
+        public String REPLAYTIME;//回复评论时间
+    }
 }

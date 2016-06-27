@@ -1,18 +1,23 @@
 package com.example.credit.Activitys;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
@@ -37,6 +42,7 @@ import com.lidroid.xutils.view.annotation.ViewInject;
 import com.yolanda.nohttp.RequestMethod;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
@@ -116,6 +122,15 @@ public class CompanyDetailsActivity extends BaseActivity {
     String KeyNo;
     String token;
     String regnore;
+
+    @ViewInject(R.id.pb_1)
+    TextView pb_1;//首页
+    @ViewInject(R.id.pb_2)
+    TextView pb_2;//评论
+    @ViewInject(R.id.pb_3)
+    TextView pb_3;//投诉
+    @ViewInject(R.id.pb_4)
+    TextView pb_4;//我
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -491,7 +506,7 @@ public class CompanyDetailsActivity extends BaseActivity {
                     showPopupWindow(v);
                 }
             });
-            cp_name.setText(detailsList.get(position).entname);
+            cp_name.setText(detailsList.get(position).ENTNAME);
             List<String> lt = new ArrayList<String>();
             lt.add(detailsList.get(position).REGCAP + "万元");
             lt.add(detailsList.get(position).NAME);
@@ -568,19 +583,21 @@ public class CompanyDetailsActivity extends BaseActivity {
             imgs1[15]=R.mipmap.icon16_1;
         }
 
+        pb_1.setOnClickListener(onClickListener);
+        pb_2.setOnClickListener(onClickListener);
+        pb_3.setOnClickListener(onClickListener);
+        pb_4.setOnClickListener(onClickListener);
     }
 
     public void showPopupWindow(View view) {
         // 一个自定义的布局，作为显示的内容
         View contentView = LayoutInflater.from(CompanyDetailsActivity.this).inflate(
                 R.layout.popupwindow_state, null);
-
         final PopupWindow popupWindow = new PopupWindow(contentView,
                 ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT, true);
         TextView tv = (TextView) contentView.findViewById(R.id.tv_state);
         tv.setText(detailsList.get(position).REGSTATE_CN);
         popupWindow.setTouchable(true);
-
         popupWindow.setTouchInterceptor(new View.OnTouchListener() {
 
             @Override
@@ -598,7 +615,37 @@ public class CompanyDetailsActivity extends BaseActivity {
 
         // 设置好参数之后再show
         popupWindow.showAsDropDown(view);
-
     }
+    View.OnClickListener onClickListener=new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            switch (v.getId()){
+                case R.id.pb_1://首页
+                    Intent i1=new Intent(CompanyDetailsActivity.this,MainActivity.class);
+                    startActivity(i1);
+                    finish();
+                    break;
+                case R.id.pb_2://评论
+                    Gson gson=new Gson();
+                    String jstring10 = getResources().getString(R.string.test1);
+                    Map<String, Object> map = gson.fromJson(jstring10, new TypeToken<Map<String, Object>>() {
+                    }.getType());
+                    List<DataManager.Userreview> list10 = gson.fromJson(((Map<String, Object>) map.get("data")).get("userreview").toString(), new TypeToken<List<DataManager.Userreview>>() {
+                    }.getType());
+                    DataManager.UserreviewList = list10;
+                    Intent i2=new Intent(CompanyDetailsActivity.this,CommentListActivity.class);
+                    startActivity(i2);
+                    break;
+                case R.id.pb_3://投诉
+                    Intent i3=new Intent(CompanyDetailsActivity.this,ToComplaintActivity.class);
+                    startActivity(i3);
+                    break;
+                case R.id.pb_4://我
+                    Intent i4=new Intent(CompanyDetailsActivity.this,MainActivity.class);
+                    startActivity(i4);
+                    break;
+            }
+        }
+    };
 
 }

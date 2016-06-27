@@ -48,7 +48,13 @@
         <activity android:name=".Activitys.ClaimActivity" />
         <activity android:name=".Activitys.ClaimDetailsActivity" />
         <activity android:name=".Activitys.ToComplaintActivity" />
-        <activity android:name=".Activitys.MyClaimActivity"></activity>
+        <activity android:name=".Activitys.MyClaimActivity" />
+        <activity android:name=".Activitys.MyconcernActivity" />
+        <activity android:name=".Activitys.CommentListActivity" />
+        <activity android:name=".Activitys.LoginActivity" />
+        <activity android:name=".Activitys.MycomplaintsListActivity" />
+        <activity android:name=".Activitys.ComplaintDetailsActivity" />
+        <activity android:name=".Activitys.ToCommentActivity"></activity>
     </application>
 
 </manifest>

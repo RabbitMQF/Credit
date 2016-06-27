@@ -51,7 +51,7 @@ public class SearchListAdapter2 extends BaseAdapter {
 			vh=(ViewHolder) view.getTag();
 		}
 		search c=list.get(position);
-		vh.firm_name.setText(c.entname);
+		vh.firm_name.setText(c.ENTNAME);
 		vh.corporate.setText(c.NAME);
 		vh.funds.setText(c.REGCAP+"万元");
 		vh.status.setText(c.REGSTATE_CN);

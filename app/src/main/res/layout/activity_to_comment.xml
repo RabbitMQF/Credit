@@ -5,41 +5,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#EEEEEF"
-    tools:context="com.example.credit.Activitys.ToComplaintActivity">
+    tools:context="com.example.credit.Activitys.ToCommentActivity">
     <include layout="@layout/public_top_bar"/>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
-        android:orientation="horizontal"
-        android:background="@drawable/details_con_bg">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="18sp"
-            android:textColor="#757475"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="20dp"
-            android:focusable="true"
-            android:focusableInTouchMode="true"
-            android:layout_gravity="center_vertical"
-            android:text="主题"/>
-        <EditText
-            android:id="@+id/ec_phone"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:textSize="14sp"
-            android:textColor="#757475"
-            android:gravity="center_vertical"
-            android:hint="请输入主题"
-            android:background="@drawable/bg_edittext"
-            android:layout_gravity="center_vertical"
-            android:layout_margin="5dp"
-
-            />
-    </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -56,8 +23,10 @@
             android:layout_marginLeft="10dp"
             android:layout_marginRight="25dp"
             android:layout_marginTop="10dp"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
             android:layout_gravity="center_vertical"
-            android:text="内容"/>
+            android:text="评论内容"/>
         <EditText
             android:id="@+id/ec_details"
             android:layout_width="match_parent"
@@ -65,7 +34,7 @@
             android:textSize="14sp"
             android:textColor="#757475"
             android:gravity="top"
-            android:hint="请描述一下您的具体详情. . ."
+            android:hint=""
             android:padding="5dp"
             android:maxLength="300"
             android:background="@drawable/bg_edittext"
@@ -83,29 +52,6 @@
             android:layout_gravity="right"
             android:layout_margin="5dp"
             android:text="您还可以输入300个字"/>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
-        android:orientation="horizontal"
-        android:background="@drawable/details_con_bg">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="18sp"
-            android:textColor="#757475"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="20dp"
-            android:layout_gravity="center_vertical"
-            android:text="上传材料"/>
-        <ImageView
-            android:layout_width="80dp"
-            android:layout_height="60dp"
-            android:layout_gravity="center_vertical"
-            android:background="@mipmap/ec_photo"/>
     </LinearLayout>
 
     <LinearLayout

@@ -27,4 +27,17 @@
         android:text="江西科技有限公司"
         android:textColor="#ffffff"
         android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/b_topY"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:padding="5dp"
+        android:layout_alignParentRight="true"
+        android:text="发表"
+        android:visibility="gone"
+        android:layout_marginRight="5dp"
+        android:textColor="#ffffff"
+        android:textSize="20sp" />
 </RelativeLayout>
