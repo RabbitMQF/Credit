@@ -327,11 +327,31 @@ public class DetailsContentActivity extends BaseActivity {
         dcList = DataManager.Data0List;
 
         List<String> lt = new ArrayList<String>();
-        lt.add(dcList.get(0).REGCAP + "万元");
-        lt.add(dcList.get(0).NAME);
-        lt.add(dcList.get(0).APPRDATE);
-        lt.add(dcList.get(0).ESTDATE);
-        lt.add(dcList.get(0).REGNO);
+        if(!dcList.get(0).REGCAP.equals("")){
+            lt.add(dcList.get(0).REGCAP + "万元");
+        }else{
+            lt.add("暂无信息");
+        }
+        if(!dcList.get(0).NAME.equals("")){
+            lt.add(dcList.get(0).NAME);
+        }else{
+            lt.add("暂无信息");
+        }
+        if(!dcList.get(0).APPRDATE.equals("")){
+            lt.add(dcList.get(0).APPRDATE);
+        }else{
+            lt.add("暂无信息");
+        }
+        if(!dcList.get(0).ESTDATE.equals("")){
+            lt.add(dcList.get(0).ESTDATE);
+        }else{
+            lt.add("暂无信息");
+        }
+        if(!dcList.get(0).REGNO.equals("")){
+            lt.add(dcList.get(0).REGNO);
+        }else{
+            lt.add("暂无信息");
+        }
         lt.add("暂无信息");
         int size = lt.size();
         arrays4 = (String[]) lt.toArray(new String[size]);

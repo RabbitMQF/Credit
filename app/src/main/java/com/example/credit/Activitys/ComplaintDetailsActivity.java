@@ -13,7 +13,7 @@ import com.lidroid.xutils.view.annotation.ViewInject;
 /**
  * 投诉详情界面
  */
-public class ComplaintDetailsActivity extends Activity {
+public class ComplaintDetailsActivity extends BaseActivity {
     @ViewInject(R.id.b_topname)
     TextView b_topname;
     @ViewInject(R.id.b_return)

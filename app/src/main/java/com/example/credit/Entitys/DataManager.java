@@ -906,31 +906,31 @@ public class DataManager {
         public String SupportCount;//扶持
         public String MortgagorCount;//出质
         public String PatentCount;//专利
-        public String EnterAddtionID;
-
 
     }
-  public static allcount allcounts=new allcount();
-
+    //  public static allcount allcounts=new allcount();
+    public static List<allcount> allcountsList = new ArrayList<>();
 
     public static List<Userreview> UserreviewList = new ArrayList<>();
     /**
-     * 评论列表
+     * 我的点评列表
      */
-    public class Userreview {
+    public static class Userreview {
         public String ENTERID;//附加表的企业ID
-        public int FAILEDQTY;//点赞吐槽
-        public int replay2reviewCount;
+        public String FAILEDQTY;//点赞吐槽
+        public String replay2reviewCount;
         public String MEMBERID;//本评论用户ID
         public String CREATETIME;//评论时间
         public String COMMENTID;//评论ID
         public String CONTENT;//点评内容
-        public int SUCCESSQTY;//点赞数量
-        public int ISSUCCESS;//是否点赞 0为否，1为是
-        public List<Replay2review> replay2review ;
+        public String SUCCESSQTY;//点赞数量
+        public String ISSUCCESS;//是否点赞 0为否，1为是
+        public List<Replay2review> replay2review;
         public String MEMBERNAME;//本评论用户名称
-        public int ISFAILED;//是否吐槽 0为否，1为是
+        public String ISFAILED;//是否吐槽 0为否，1为是
     }
+    public static List<Replay2review> replay2reviewList = new ArrayList<>();
+
     /**
      * 回复评论（楼中楼）
      */
@@ -940,4 +940,14 @@ public class DataManager {
         public String CHILDMEMBERNAME;//用户名称
         public String REPLAYTIME;//回复评论时间
     }
-}
+    public class Data201 {
+        public List<Userreview> userreview;
+        public Paging Paging;
+    }
+    public class Root201 {
+        public String message;
+        public int status;
+        public Data201 data;
+        public String version;
+    }
+    }

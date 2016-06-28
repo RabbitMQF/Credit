@@ -4,6 +4,7 @@ import com.example.credit.Activitys.CompanyDetailsActivity;
 import com.example.credit.Activitys.MainActivity;
 import com.example.credit.Activitys.SearchFirmActivty;
 import com.example.credit.Entitys.DataManager;
+import com.example.credit.Entitys.DataManager.Replay2review;
 import com.google.gson.Gson;
 import com.google.gson.internal.LinkedTreeMap;
 import com.google.gson.reflect.TypeToken;
@@ -89,9 +90,9 @@ public class MyhttpCallBack implements HttpCallBack {
                 DataManager.Root11 jsonRoot11 = gson.fromJson(jstring111, new TypeToken<DataManager.Root11>() {
                 }.getType());
                 DataManager.NewssList = jsonRoot11.result;
-                if (DataManager.NewssList != null && DataManager.NewssList.size() > 0) {
+                /*if (DataManager.NewssList != null && DataManager.NewssList.size() > 0) {
                     MainActivity.handler.sendEmptyMessage(0);
-                }
+                }*/
                 break;
             case 0x112://获取新闻内容
                 String jstring112 = (String) response.get();
@@ -143,7 +144,7 @@ public class MyhttpCallBack implements HttpCallBack {
                     serchtemp.C_PROVINCE = (String) temp.get("C_PROVINCE");
                     serchtemp.D_ADDTIME = (String) temp.get("D_ADDTIME");
                     serchtemp.C_STATE = (String) temp.get("C_STATE");
-                    serchtemp.REGCAP = (String) temp.get("REGCAP");
+                    serchtemp.REGCAP = temp.get("REGCAP").toString();
                     serchtemp.ENTTYPE_CN = (String) temp.get("ENTTYPE_CN");
                     serchtemp.DOM = (String) temp.get("DOM");
                     serchtemp.INDUSTRYPHY = (String) temp.get("INDUSTRYPHY");
@@ -211,10 +212,42 @@ public class MyhttpCallBack implements HttpCallBack {
                 jsonString = (String) response.get();
                 map = gson.fromJson(jsonString, new TypeToken<Map<String, Object>>() {
                 }.getType());
-                DataManager.allcounts = gson.fromJson(((List<LinkedTreeMap>) ((Map<String, Object>) map.get("data")).get("allcount")).get(0).toString(), new TypeToken<DataManager.allcount>() {
-                }.getType());
-                //((List<DataManager.allcount>)((Map<String, Object>) map.get("data")).get("allcount")).get(0);
-                SearchFirmActivty.handler.sendEmptyMessage(5);
+                List<LinkedTreeMap> lists2 = (List<LinkedTreeMap>) ((Map<String, Object>) map.get("data")).get("allcount");
+
+                if (DataManager.allcountsList != null) {
+                    DataManager.allcountsList.clear();
+                }
+                if (lists2 != null && lists2.size() > 0) {
+                    for (LinkedTreeMap temp : lists2) {
+                        DataManager.allcount cfo = new DataManager.allcount();
+                        cfo.HonorCount =  temp.get("HonorCount").toString();
+                        cfo.JudiciaryCount =  temp.get("JudiciaryCount").toString();
+                        cfo.PledgeCount =  temp.get("PledgeCount").toString();
+                        cfo.CopyrightCount =   temp.get("CopyrightCount").toString();
+                        cfo.AnnualCount =  temp.get("AnnualCount").toString();
+                        cfo.AdvertisementCount =  temp.get("AdvertisementCount").toString();
+                        cfo.BaseInfoCount = temp.get("BaseInfoCount").toString();
+                        cfo.ApprovalCount =  temp.get("ApprovalCount").toString();
+                        cfo.PunishCount =  temp.get("PunishCount").toString();
+                        cfo.WarningCount =  temp.get("WarningCount").toString();
+                        cfo.TrademarkCount =  temp.get("TrademarkCount").toString();
+                        cfo.AbnormityCount =  temp.get("AbnormityCount").toString();
+                        cfo.CreditCount =  temp.get("CreditCount").toString();
+                        cfo.SupportCount =  temp.get("SupportCount").toString();
+                        cfo.MortgagorCount =  temp.get("MortgagorCount").toString();
+                        cfo.PatentCount =  temp.get("PatentCount").toString();
+                        DataManager.allcountsList.add(cfo);
+                    }
+                }
+
+                if (DataManager.allcountsList != null && DataManager.allcountsList.size() > 0) {
+                    SearchFirmActivty.handler.sendEmptyMessage(5);
+                } else {
+                    SearchFirmActivty.handler.sendEmptyMessage(500);
+                }
+
+
+
                 break;
             case 0x000://工商信息
                 DataManager.Data0List.clear();
@@ -612,6 +645,43 @@ public class MyhttpCallBack implements HttpCallBack {
                 } else {
                     CompanyDetailsActivity.handler.sendEmptyMessage(500);
                 }
+                break;
+            case 0x201:
+                String jstring201 = (String) response.get();
+//                map = gson.fromJson(jstring201, new TypeToken<Map<String, Object>>() {
+//                }.getType());
+//                List<LinkedTreeMap> list201 = (List<LinkedTreeMap>) ((Map<String, Object>) map.get("data")).get("userreview");
+//                if (DataManager.UserreviewList != null) {
+//                    DataManager.UserreviewList.clear();
+//                }
+//                if (list201 != null && list201.size() > 0) {
+//                    for (LinkedTreeMap temp : list201) {
+//                        DataManager.Userreview cfo = new DataManager.Userreview();
+//                        cfo.ENTERID = temp.get("ENTERID").toString();
+//                        cfo.FAILEDQTY = temp.get("FAILEDQTY").toString();
+//                        cfo.replay2reviewCount = temp.get("replay2reviewCount").toString();
+//                        cfo.MEMBERID = temp.get("MEMBERID").toString();
+//                        cfo.replay2review = (List<Replay2review>)temp.get("replay2review");
+//                        cfo.MEMBERNAME = temp.get("MEMBERNAME").toString();
+//                        cfo.CONTENT =  temp.get("CONTENT").toString();
+//                        cfo.CREATETIME =  temp.get("CREATETIME").toString();
+//                        cfo.COMMENTID = temp.get("COMMENTID").toString();
+//                        cfo.ISSUCCESS = temp.get("ISSUCCESS").toString();
+//                        cfo.SUCCESSQTY =  temp.get("SUCCESSQTY").toString();
+//                        cfo.ISFAILED = temp.get("ISFAILED").toString();
+//
+//                        DataManager.UserreviewList.add(cfo);
+//                    }
+//                }
+
+                DataManager.Root201 jsonRoot201 = gson.fromJson(jstring201, new TypeToken<DataManager.Root201>() {
+                }.getType());
+                DataManager.Data201 d2= jsonRoot201.data;
+                DataManager.UserreviewList=d2.userreview;
+                CompanyDetailsActivity.handler.sendEmptyMessage(21);
+                break;
+            case 0x999://登入
+                response.get();
                 break;
             default:
                 break;

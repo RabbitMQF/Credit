@@ -10,9 +10,14 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 import com.example.credit.R;
+import com.example.credit.Services.CallServer;
 import com.example.credit.Utils.CreditSharePreferences;
+import com.example.credit.Utils.GsonUtil;
+import com.example.credit.Utils.MyhttpCallBack;
+import com.example.credit.Utils.URLconstant;
 import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ViewInject;
+import com.yolanda.nohttp.RequestMethod;
 
 public class WelcomeActivity extends Activity {
     @ViewInject(R.id.welcom)
@@ -28,6 +33,7 @@ public class WelcomeActivity extends Activity {
         ViewUtils.inject(this);
         CreditSharePreferences.init(this);
         esp = CreditSharePreferences.getLifeSharedPreferences();
+        initData();
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -56,6 +62,14 @@ public class WelcomeActivity extends Activity {
         a.setAnimationListener(listener);
         iv.setAnimation(a);
     }
+
+    private void initData() {
+
+        GsonUtil NewsRequest=new GsonUtil(URLconstant.NEWSURL, RequestMethod.GET);//新闻数据
+        NewsRequest.setConnectTimeout(20000);
+        CallServer.getInstance().add(this,NewsRequest, MyhttpCallBack.getInstance(),0x111,true,false,true);
+    }
+
     Animation.AnimationListener listener=new Animation.AnimationListener() {
 
         @Override

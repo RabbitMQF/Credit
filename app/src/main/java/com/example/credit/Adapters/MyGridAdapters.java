@@ -68,100 +68,100 @@ public class MyGridAdapters extends BaseAdapter {
 
         switch (position) {
             case 0:
-                if(DataManager.allcounts.BaseInfoCount.equals("0")){
+                if(DataManager.allcountsList.get(0).BaseInfoCount.equals("0")){
                     tv.setTextColor(Color.parseColor("#B8B8B8"));
                 }
-                tv.setText(DataManager.allcounts.BaseInfoCount);
+                tv.setText((DataManager.allcountsList.get(0).BaseInfoCount)+"");
                 break;
             case 1:
-                if(DataManager.allcounts.ApprovalCount.equals("0")){
+                if(DataManager.allcountsList.get(0).ApprovalCount.equals("0")){
                     tv.setTextColor(Color.parseColor("#B8B8B8"));
                 }
-                tv.setText(DataManager.allcounts.ApprovalCount);
+                tv.setText((DataManager.allcountsList.get(0).ApprovalCount)+"");
                 break;
             case 2:
-                if(DataManager.allcounts.HonorCount.equals("0")){
+                if(DataManager.allcountsList.get(0).HonorCount.equals("0")){
                     tv.setTextColor(Color.parseColor("#B8B8B8"));
                 }
-                tv.setText(DataManager.allcounts.HonorCount);
+                tv.setText((DataManager.allcountsList.get(0).HonorCount)+"");
                 break;
             case 3:
-                if(DataManager.allcounts.SupportCount.equals("0")){
+                if(DataManager.allcountsList.get(0).SupportCount.equals("0")){
                     tv.setTextColor(Color.parseColor("#B8B8B8"));
                 }
-                tv.setText(DataManager.allcounts.SupportCount);
+                tv.setText((DataManager.allcountsList.get(0).SupportCount)+"");
                 break;
             case 4:
-                if(DataManager.allcounts.PledgeCount.equals("0")){
+                if(DataManager.allcountsList.get(0).PledgeCount.equals("0")){
                     tv.setTextColor(Color.parseColor("#B8B8B8"));
                 }
-                tv.setText(DataManager.allcounts.PledgeCount);
+                tv.setText((DataManager.allcountsList.get(0).PledgeCount)+"");
                 break;
             case 5:
-                if(DataManager.allcounts.MortgagorCount.equals("0")){
+                if(DataManager.allcountsList.get(0).MortgagorCount.equals("0")){
                     tv.setTextColor(Color.parseColor("#B8B8B8"));
                 }
-                tv.setText(DataManager.allcounts.MortgagorCount);
+                tv.setText((DataManager.allcountsList.get(0).MortgagorCount)+"");
                 break;
             case 6:
-                if(DataManager.allcounts.JudiciaryCount.equals("0")){
+                if(DataManager.allcountsList.get(0).JudiciaryCount.equals("0")){
                     tv.setTextColor(Color.parseColor("#B8B8B8"));
                 }
-                tv.setText(DataManager.allcounts.JudiciaryCount);
+                tv.setText((DataManager.allcountsList.get(0).JudiciaryCount)+"");
                 break;
             case 7:
-                if(DataManager.allcounts.WarningCount.equals("0")){
+                if(DataManager.allcountsList.get(0).WarningCount.equals("0")){
                     tv.setTextColor(Color.parseColor("#B8B8B8"));
                 }
-                tv.setText(DataManager.allcounts.WarningCount);
+                tv.setText((DataManager.allcountsList.get(0).WarningCount)+"");
                 break;
             case 8:
-                if(DataManager.allcounts.PunishCount.equals("0")){
+                if(DataManager.allcountsList.get(0).PunishCount.equals("0")){
                     tv.setTextColor(Color.parseColor("#B8B8B8"));
                 }
-                tv.setText(DataManager.allcounts.PunishCount);
+                tv.setText((DataManager.allcountsList.get(0).PunishCount)+"");
                 break;
             case 9:
-                if(DataManager.allcounts.AbnormityCount.equals("0")){
+                if(DataManager.allcountsList.get(0).AbnormityCount.equals("0")){
                     tv.setTextColor(Color.parseColor("#B8B8B8"));
                 }
-                tv.setText(DataManager.allcounts.AbnormityCount);
+                tv.setText((DataManager.allcountsList.get(0).AbnormityCount)+"");
                 break;
             case 10:
-                if(DataManager.allcounts.PatentCount.equals("0")){
+                if(DataManager.allcountsList.get(0).PatentCount.equals("0")){
                     tv.setTextColor(Color.parseColor("#B8B8B8"));
                 }
-                tv.setText(DataManager.allcounts.PatentCount);
+                tv.setText((DataManager.allcountsList.get(0).PatentCount)+"");
                 break;
             case 11:
-                if(DataManager.allcounts.TrademarkCount.equals("0")){
+                if(DataManager.allcountsList.get(0).TrademarkCount.equals("0")){
                     tv.setTextColor(Color.parseColor("#B8B8B8"));
                 }
-                tv.setText(DataManager.allcounts.TrademarkCount);
+                tv.setText((DataManager.allcountsList.get(0).TrademarkCount)+"");
                 break;
             case 12:
-                if(DataManager.allcounts.CopyrightCount.equals("0")){
+                if(DataManager.allcountsList.get(0).CopyrightCount.equals("0")){
                     tv.setTextColor(Color.parseColor("#B8B8B8"));
                 }
-                tv.setText(DataManager.allcounts.CopyrightCount);
+                tv.setText((DataManager.allcountsList.get(0).CopyrightCount)+"");
                 break;
             case 13:
-                if(DataManager.allcounts.AdvertisementCount.equals("0")){
+                if(DataManager.allcountsList.get(0).AdvertisementCount.equals("0")){
                     tv.setTextColor(Color.parseColor("#B8B8B8"));
                 }
-                tv.setText(DataManager.allcounts.AdvertisementCount);
+                tv.setText((DataManager.allcountsList.get(0).AdvertisementCount)+"");
                 break;
             case 14:
-                if(DataManager.allcounts.CreditCount.equals("0")){
+                if(DataManager.allcountsList.get(0).CreditCount.equals("0")){
                     tv.setTextColor(Color.parseColor("#B8B8B8"));
                 }
-                tv.setText(DataManager.allcounts.CreditCount);
+                tv.setText((DataManager.allcountsList.get(0).CreditCount)+"");
                 break;
             case 15:
-                if(DataManager.allcounts.AnnualCount.equals("0")){
+                if(DataManager.allcountsList.get(0).AnnualCount.equals("0")){
                     tv.setTextColor(Color.parseColor("#B8B8B8"));
                 }
-                tv.setText(DataManager.allcounts.AnnualCount);
+                tv.setText((DataManager.allcountsList.get(0).AnnualCount)+"");
                 break;
             default:
                 break;

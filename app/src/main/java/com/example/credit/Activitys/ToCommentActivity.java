@@ -13,7 +13,7 @@ import com.lidroid.xutils.view.annotation.ViewInject;
 /**
  * 提交评论界面
  */
-public class ToCommentActivity extends Activity {
+public class ToCommentActivity extends BaseActivity {
     @ViewInject(R.id.b_topname)
     TextView b_topname;
     @ViewInject(R.id.b_return)

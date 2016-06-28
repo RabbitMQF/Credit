@@ -1,6 +1,6 @@
 package com.example.credit.Activitys;
 
-import android.app.Activity;
+
 import android.os.Bundle;
 import android.widget.TextView;
 
@@ -11,7 +11,7 @@ import com.lidroid.xutils.view.annotation.ViewInject;
 /**
  * 用户设置界面
  */
-public class UserSetActivity extends Activity {
+public class UserSetActivity extends BaseActivity {
     @ViewInject(R.id.b_topname)
     TextView b_topname;
 

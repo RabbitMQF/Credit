@@ -13,7 +13,7 @@ import com.lidroid.xutils.view.annotation.ViewInject;
 /**
  * 我的认领界面
  */
-public class MyClaimActivity extends Activity {
+public class MyClaimActivity extends BaseActivity {
     @ViewInject(R.id.b_topname)
     TextView b_topname;
     @ViewInject(R.id.b_return)

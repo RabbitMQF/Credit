@@ -68,9 +68,11 @@
             android:textColor="#757475"
             android:gravity="center_vertical"
             android:hint="密码"
+            android:inputType="textWebPassword"
             android:background="@drawable/bg_edittext"
             android:layout_gravity="center_vertical"
             android:layout_margin="5dp"
+            android:maxLength="16"
             />
     </LinearLayout>
     <LinearLayout

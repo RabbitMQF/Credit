@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.credit.Adapters.CommmentAdapter;
@@ -19,16 +20,17 @@ import com.lidroid.xutils.view.annotation.ViewInject;
 /**
  * 评论列表界面
  */
-public class CommentListActivity extends Activity {
+public class CommentListActivity extends BaseActivity {
     @ViewInject(R.id.b_topname)
     TextView b_topname;
     @ViewInject(R.id.b_return)
     LinearLayout b_return;
-    @ViewInject(R.id.Ccomm_list)
-    MyListView Ccomm_list;
-
     @ViewInject(R.id.b_topY)
-    TextView b_topY;//评论列表
+    TextView b_topY;
+    @ViewInject(R.id.Ccomm_list)
+    ListView Ccomm_list;//评论列表
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

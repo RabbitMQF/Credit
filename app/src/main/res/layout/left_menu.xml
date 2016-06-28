@@ -221,13 +221,14 @@
             </LinearLayout>
 
             <Button
+                android:id="@+id/login"
                 android:layout_width="200dp"
                 android:layout_height="30dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="30dip"
                 android:background="@drawable/logout_bg"
                 android:gravity="center"
-                android:text="退  出  登  录"
+                android:text="登  录"
                 android:textColor="@android:color/white" />
         </LinearLayout>
 

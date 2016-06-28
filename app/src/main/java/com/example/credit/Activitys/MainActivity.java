@@ -16,6 +16,7 @@ import android.view.KeyEvent;
 import android.view.View;
 
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
@@ -79,6 +80,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
     RelativeLayout Smenu_5;//服务协议
     @ViewInject(R.id.Smenu_6)
     RelativeLayout Smenu_6;//关于我们
+    @ViewInject(R.id.login)
+    Button login;//登录
 
 //    @ViewInject(R.id.pb_1)
 //    TextView pb_1;//首页
@@ -97,7 +100,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         setContentView(R.layout.activity_main);
         ViewUtils.inject(this);
         initView();
-        initData();
+
         mLeftMenu = (SlidingMenu) findViewById(R.id.id_menu);
 
         /*FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -119,12 +122,16 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 adapter.notifyDataSetChanged();
             }
         };
+        initData();
     }
 
     private void initData() {
-        GsonUtil NewsRequest=new GsonUtil(URLconstant.NEWSURL,RequestMethod.GET);
+       /* GsonUtil NewsRequest=new GsonUtil(URLconstant.NEWSURL,RequestMethod.GET);
         NewsRequest.setConnectTimeout(20000);
-        CallServer.getInstance().add(this,NewsRequest,MyhttpCallBack.getInstance(),0x111,true,false,true);
+        CallServer.getInstance().add(this,NewsRequest,MyhttpCallBack.getInstance(),0x111,true,false,true);*/
+        if (DataManager.NewssList != null && DataManager.NewssList.size() > 0) {
+            handler.sendEmptyMessage(0);
+        }
     }
 
     private void initView() {
@@ -174,7 +181,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         Smenu_4.setOnClickListener(listener);
         Smenu_5.setOnClickListener(listener);
         Smenu_6.setOnClickListener(listener);
-
+        login.setOnClickListener(listener);
         tab1.setOnClickListener(listener);
         tab2.setOnClickListener(listener);
         tab3.setOnClickListener(listener);
@@ -222,6 +229,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
                     break;
                 case R.id.Smenu_6://关于我们
                     Toast.makeText(MainActivity.this, "此模块，正在赶点加工中...", Toast.LENGTH_SHORT).show();
+                    break;
+                case R.id.login://登录
+                    startActivity(new Intent(MainActivity.this,LoginActivity.class));
                     break;
 
                 case R.id.tab1://企业查询

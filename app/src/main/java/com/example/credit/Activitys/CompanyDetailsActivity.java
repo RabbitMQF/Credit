@@ -36,6 +36,7 @@ import com.example.credit.Utils.Toast;
 import com.example.credit.Utils.URLconstant;
 import com.example.credit.Views.MyGridView;
 import com.google.gson.Gson;
+import com.google.gson.internal.LinkedTreeMap;
 import com.google.gson.reflect.TypeToken;
 import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ViewInject;
@@ -288,6 +289,12 @@ public class CompanyDetailsActivity extends BaseActivity {
                         waitDialog.dismiss();
                         startActivity(new Intent(CompanyDetailsActivity.this, AutonomyActivity.class));
                         overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
+                        break;
+                    case 21://评论
+                        waitDialog.dismiss();
+                        Intent i21=new Intent(CompanyDetailsActivity.this,CommentListActivity.class);
+                        startActivity(i21);
+                        break;
                     case 500:
                         waitDialog.dismiss();
                         android.widget.Toast.makeText(CompanyDetailsActivity.this, "暂无数据！", android.widget.Toast.LENGTH_SHORT).show();
@@ -518,67 +525,67 @@ public class CompanyDetailsActivity extends BaseActivity {
             int size = lt.size();
             arrays4 = (String[]) lt.toArray(new String[size]);
         }
-        if(DataManager.allcounts.BaseInfoCount=="0"||DataManager.allcounts.BaseInfoCount.equals("0")){
+        if(DataManager.allcountsList.get(0).BaseInfoCount=="0"||DataManager.allcountsList.get(0).BaseInfoCount.equals("0")){
             a1=1;
             imgs1[0]=R.mipmap.icon1_1;
         }
-        if(DataManager.allcounts.ApprovalCount=="0"||DataManager.allcounts.ApprovalCount.equals("0")){
+        if(DataManager.allcountsList.get(0).ApprovalCount=="0"||DataManager.allcountsList.get(0).ApprovalCount.equals("0")){
             a2=1;
             imgs1[1]=R.mipmap.icon2_1;
         }
-        if(DataManager.allcounts.HonorCount=="0"||DataManager.allcounts.HonorCount.equals("0")){
+        if(DataManager.allcountsList.get(0).HonorCount=="0"||DataManager.allcountsList.get(0).HonorCount.equals("0")){
             a3=1;
             imgs1[2]=R.mipmap.icon3_1;
         }
-        if(DataManager.allcounts.SupportCount=="0"||DataManager.allcounts.SupportCount.equals("0")){
+        if(DataManager.allcountsList.get(0).SupportCount=="0"||DataManager.allcountsList.get(0).SupportCount.equals("0")){
             a4=1;
             imgs1[3]=R.mipmap.icon4_1;
         }
-        if(DataManager.allcounts.PledgeCount=="0"||DataManager.allcounts.PledgeCount.equals("0")){
+        if(DataManager.allcountsList.get(0).PledgeCount=="0"||DataManager.allcountsList.get(0).PledgeCount.equals("0")){
             a5=1;
             imgs1[4]=R.mipmap.icon5_1;
         }
-        if(DataManager.allcounts.MortgagorCount=="0"||DataManager.allcounts.MortgagorCount.equals("0")){
+        if(DataManager.allcountsList.get(0).MortgagorCount=="0"||DataManager.allcountsList.get(0).MortgagorCount.equals("0")){
             a6=1;
             imgs1[5]=R.mipmap.icon6_1;
         }
-        if(DataManager.allcounts.JudiciaryCount=="0"||DataManager.allcounts.JudiciaryCount.equals("0")){
+        if(DataManager.allcountsList.get(0).JudiciaryCount=="0"||DataManager.allcountsList.get(0).JudiciaryCount.equals("0")){
             a7=1;
             imgs1[6]=R.mipmap.icon7_1;
         }
-        if(DataManager.allcounts.WarningCount=="0"||DataManager.allcounts.WarningCount.equals("0")){
+        if(DataManager.allcountsList.get(0).WarningCount=="0"||DataManager.allcountsList.get(0).WarningCount.equals("0")){
             a8=1;
             imgs1[7]=R.mipmap.icon8_1;
         }
-        if(DataManager.allcounts.PunishCount=="0"||DataManager.allcounts.PunishCount.equals("0")){
+        if(DataManager.allcountsList.get(0).PunishCount=="0"||DataManager.allcountsList.get(0).PunishCount.equals("0")){
             a9=1;
             imgs1[8]=R.mipmap.icon9_1;
         }
-        if(DataManager.allcounts.AbnormityCount=="0"||DataManager.allcounts.AbnormityCount.equals("0")){
+        if(DataManager.allcountsList.get(0).AbnormityCount=="0"||DataManager.allcountsList.get(0).AbnormityCount.equals("0")){
             a10=1;
             imgs1[9]=R.mipmap.icon10_1;
         }
-        if(DataManager.allcounts.PatentCount=="0"||DataManager.allcounts.PatentCount.equals("0")){
+        if(DataManager.allcountsList.get(0).PatentCount=="0"||DataManager.allcountsList.get(0).PatentCount.equals("0")){
             a11=1;
             imgs1[10]=R.mipmap.icon11_1;
         }
-        if(DataManager.allcounts.TrademarkCount=="0"||DataManager.allcounts.TrademarkCount.equals("0")){
+        if(DataManager.allcountsList.get(0).TrademarkCount=="0"||DataManager.allcountsList.get(0).TrademarkCount.equals("0")){
             a12=1;
             imgs1[11]=R.mipmap.icon12_1;
         }
-        if(DataManager.allcounts.CopyrightCount=="0"||DataManager.allcounts.CopyrightCount.equals("0")){
+        if(DataManager.allcountsList.get(0).CopyrightCount=="0"||DataManager.allcountsList.get(0).CopyrightCount.equals("0")){
             a13=1;
             imgs1[12]=R.mipmap.icon13_1;
         }
-        if(DataManager.allcounts.AdvertisementCount=="0"||DataManager.allcounts.AdvertisementCount.equals("0")){
+        if(DataManager.allcountsList.get(0).AdvertisementCount=="0"||DataManager.allcountsList.get(0).AdvertisementCount.equals("0")){
             a14=1;
             imgs1[13]=R.mipmap.icon14_1;
         }
-        if(DataManager.allcounts.CreditCount=="0"||DataManager.allcounts.CreditCount.equals("0")){
+        if(DataManager.allcountsList.get(0).CreditCount=="0"||DataManager.allcountsList.get(0).CreditCount.equals("0")){
             a15=1;
             imgs1[14]=R.mipmap.icon15_1;
         }
-        if(DataManager.allcounts.AnnualCount=="0"||DataManager.allcounts.AnnualCount.equals("0")){
+        if(DataManager.allcountsList.get(0).AnnualCount=="0"||DataManager.allcountsList.get(0).AnnualCount.equals("0")){
             a16=1;
             imgs1[15]=R.mipmap.icon16_1;
         }
@@ -626,23 +633,21 @@ public class CompanyDetailsActivity extends BaseActivity {
                     finish();
                     break;
                 case R.id.pb_2://评论
-                    Gson gson=new Gson();
-                    String jstring10 = getResources().getString(R.string.test1);
-                    Map<String, Object> map = gson.fromJson(jstring10, new TypeToken<Map<String, Object>>() {
-                    }.getType());
-                    List<DataManager.Userreview> list10 = gson.fromJson(((Map<String, Object>) map.get("data")).get("userreview").toString(), new TypeToken<List<DataManager.Userreview>>() {
-                    }.getType());
-                    DataManager.UserreviewList = list10;
-                    Intent i2=new Intent(CompanyDetailsActivity.this,CommentListActivity.class);
-                    startActivity(i2);
+//                    android.widget.Toast.makeText(CompanyDetailsActivity.this, "此模块，正在抢修中。。。！", android.widget.Toast.LENGTH_SHORT).show();
+                    waitDialog.show();
+                    GsonUtil request14 = new GsonUtil(URLconstant.COMM, RequestMethod.GET);
+                    CallServer.getInstance().add(CompanyDetailsActivity.this, request14, MyhttpCallBack.getInstance(), 0x201, true, false, true);
+
                     break;
                 case R.id.pb_3://投诉
                     Intent i3=new Intent(CompanyDetailsActivity.this,ToComplaintActivity.class);
                     startActivity(i3);
                     break;
                 case R.id.pb_4://我
-                    Intent i4=new Intent(CompanyDetailsActivity.this,MainActivity.class);
-                    startActivity(i4);
+//                    Intent i4=new Intent(CompanyDetailsActivity.this,MainActivity.class);
+//                    startActivity(i4);
+                    android.widget.Toast.makeText(CompanyDetailsActivity.this, "此模块，正在抢修中。。。！", android.widget.Toast.LENGTH_SHORT).show();
+
                     break;
             }
         }
