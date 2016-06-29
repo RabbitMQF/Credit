@@ -54,7 +54,9 @@
         <activity android:name=".Activitys.LoginActivity" />
         <activity android:name=".Activitys.MycomplaintsListActivity" />
         <activity android:name=".Activitys.ComplaintDetailsActivity" />
-        <activity android:name=".Activitys.ToCommentActivity"></activity>
+        <activity android:name=".Activitys.ToCommentActivity" />
+        <activity android:name=".Activitys.CommentListDetailsActivity" />
+        <activity android:name=".Activitys.RegisterActivity"></activity>
     </application>
 
 </manifest>

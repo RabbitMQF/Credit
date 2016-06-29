@@ -27,6 +27,7 @@ import com.example.credit.Adapters.NewsListAdapter;
 import com.example.credit.Entitys.DataManager;
 import com.example.credit.R;
 import com.example.credit.Services.CallServer;
+import com.example.credit.Utils.CreditSharePreferences;
 import com.example.credit.Utils.GsonUtil;
 import com.example.credit.Utils.MyhttpCallBack;
 import com.example.credit.Utils.URLconstant;
@@ -60,10 +61,10 @@ public class MainActivity extends Activity implements View.OnClickListener {
     @ViewInject(R.id.headimg)
     RoundImageView headimg;//我的头像
     private static final String IMAGE_FILE_NAME = "avatarImage.jpg";// 头像文件名称
-    private static String urlpath;			// 图片本地路径
-    private static final int REQUESTCODE_PICK = 0;		// 相册选图标记
-    private static final int REQUESTCODE_CUTTING = 2;	// 图片裁切标记
-    private static String newName ="UserImg.jpg";
+    private static String urlpath;            // 图片本地路径
+    private static final int REQUESTCODE_PICK = 0;        // 相册选图标记
+    private static final int REQUESTCODE_CUTTING = 2;    // 图片裁切标记
+    private static String newName = "UserImg.jpg";
     public static String photo;
 
     @ViewInject(R.id.UserSz)
@@ -82,6 +83,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
     RelativeLayout Smenu_6;//关于我们
     @ViewInject(R.id.login)
     Button login;//登录
+    CreditSharePreferences csp;
+    Boolean LoginStatus;
 
 //    @ViewInject(R.id.pb_1)
 //    TextView pb_1;//首页
@@ -93,13 +96,15 @@ public class MainActivity extends Activity implements View.OnClickListener {
 //    TextView pb_4;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        csp= CreditSharePreferences.getLifeSharedPreferences();
+        LoginStatus=csp.getLoginStatus();
         ViewUtils.inject(this);
         initView();
+
 
         mLeftMenu = (SlidingMenu) findViewById(R.id.id_menu);
 
@@ -111,13 +116,13 @@ public class MainActivity extends Activity implements View.OnClickListener {
                         .setAction("Action", null).show();
             }
         });*/
-        GsonUtil request = new GsonUtil(URLconstant.URLINSER+URLconstant.GETCITY, RequestMethod.GET);
+        GsonUtil request = new GsonUtil(URLconstant.URLINSER + URLconstant.GETCITY, RequestMethod.GET);
         CallServer.getInstance().add(this, request, MyhttpCallBack.getInstance(), NOHTTP_CITY, true, false, true);//获取城市
-        CallServer.getInstance().add(this, new GsonUtil(URLconstant.URLINSER+URLconstant.GETINDUSTRY, RequestMethod.GET), MyhttpCallBack.getInstance(), NOHTTP_INDUSTRY, true, false, true);//获取行业
-        handler=new Handler(){
+        CallServer.getInstance().add(this, new GsonUtil(URLconstant.URLINSER + URLconstant.GETINDUSTRY, RequestMethod.GET), MyhttpCallBack.getInstance(), NOHTTP_INDUSTRY, true, false, true);//获取行业
+        handler = new Handler() {
             @Override
             public void handleMessage(Message msg) {
-                NewsListAdapter adapter= new NewsListAdapter(MainActivity.this,DataManager.NewssList);
+                NewsListAdapter adapter = new NewsListAdapter(MainActivity.this, DataManager.NewssList);
                 NewsListview.setAdapter(adapter);
                 adapter.notifyDataSetChanged();
             }
@@ -142,8 +147,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
         NewsListview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent i=new Intent(MainActivity.this,NewsContentActivity.class);
-                i.putExtra("position",position);
+                Intent i = new Intent(MainActivity.this, NewsContentActivity.class);
+                i.putExtra("position", position);
                 startActivity(i);
 //                Toast.makeText(MainActivity.this, "此模块，正在赶点加工中...", Toast.LENGTH_SHORT).show();
             }
@@ -152,7 +157,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         //获取本地图片路径
 //        if(esp.getLogin()==true){
 //            String imgpath =Environment.getExternalStorageDirectory() + "/Credit" + "/"+esp.getPhone()+"UserImg.jpg";
-        String imgpath =Environment.getExternalStorageDirectory() + "/Credit" + "/UserImg.jpg";
+        String imgpath = Environment.getExternalStorageDirectory() + "/Credit" + "/UserImg.jpg";
         File file = new File(imgpath);
         if (file.exists()) {//获取本地图片路径是否存在
             Bitmap bm = BitmapFactory.decodeFile(imgpath);
@@ -181,6 +186,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         Smenu_4.setOnClickListener(listener);
         Smenu_5.setOnClickListener(listener);
         Smenu_6.setOnClickListener(listener);
+        isLogin();
         login.setOnClickListener(listener);
         tab1.setOnClickListener(listener);
         tab2.setOnClickListener(listener);
@@ -189,14 +195,15 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
 //        pb_4.setOnClickListener(listener);
     }
-    View.OnClickListener listener=new View.OnClickListener() {
+
+    View.OnClickListener listener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            switch (v.getId()){
+            switch (v.getId()) {
                 case R.id.UserSz://用户
-                    Intent i=new Intent(MainActivity.this,LoginActivity.class);
-                    startActivity(i);
-//                    Toast.makeText(MainActivity.this, "此模块，正在赶点加工中...", Toast.LENGTH_SHORT).show();
+                   // Intent i = new Intent(MainActivity.this, LoginActivity.class);
+                    //startActivity(i);
+//                    Toa2st.makeText(MainActivity.this, "此模块，正在赶点加工中...", Toast.LENGTH_SHORT).show();
                     break;
                 case R.id.headimg://我的头像
                     Intent pickIntent = new Intent(Intent.ACTION_PICK, null);
@@ -205,22 +212,22 @@ public class MainActivity extends Activity implements View.OnClickListener {
                     startActivityForResult(pickIntent, REQUESTCODE_PICK);
                     break;
                 case R.id.Smenu_1://我的评价
-                    Intent i1=new Intent(MainActivity.this,ClaimDetailsActivity.class);
+                    Intent i1 = new Intent(MainActivity.this, ClaimDetailsActivity.class);
                     startActivity(i1);
 //                    Toast.makeText(MainActivity.this, "此模块，正在赶点加工中...", Toast.LENGTH_SHORT).show();
                     break;
                 case R.id.Smenu_2://我的投诉
-                    Intent i2=new Intent(MainActivity.this,MycomplaintsListActivity.class);
+                    Intent i2 = new Intent(MainActivity.this, MycomplaintsListActivity.class);
                     startActivity(i2);
 //                    Toast.makeText(MainActivity.this, "此模块，正在赶点加工中...", Toast.LENGTH_SHORT).show();
                     break;
                 case R.id.Smenu_3://我的关注
-                    Intent i3=new Intent(MainActivity.this,MyconcernActivity.class);
+                    Intent i3 = new Intent(MainActivity.this, MyconcernActivity.class);
                     startActivity(i3);
 //                    Toast.makeText(MainActivity.this, "此模块，正在赶点加工中...", Toast.LENGTH_SHORT).show();
                     break;
                 case R.id.Smenu_4://我的认领
-                    Intent i4=new Intent(MainActivity.this,MyClaimActivity.class);
+                    Intent i4 = new Intent(MainActivity.this, MyClaimActivity.class);
                     startActivity(i4);
 //                    Toast.makeText(MainActivity.this, "此模块，正在赶点加工中...", Toast.LENGTH_SHORT).show();
                     break;
@@ -231,30 +238,38 @@ public class MainActivity extends Activity implements View.OnClickListener {
                     Toast.makeText(MainActivity.this, "此模块，正在赶点加工中...", Toast.LENGTH_SHORT).show();
                     break;
                 case R.id.login://登录
-                    startActivity(new Intent(MainActivity.this,LoginActivity.class));
+                    if(!LoginStatus) {//如果当前状态未登录  点登录的跳转
+                        startActivity(new Intent(MainActivity.this, LoginActivity.class));
+                    }else {//如果当前状态已登录  点击退出登录的操作
+                        csp.putUser(null);
+                        com.example.credit.Utils.Toast.show("退出登录");
+                        csp.putLoginStatus(false);
+                        isLogin();
+
+                    }
                     break;
 
                 case R.id.tab1://企业查询
                     Intent in1 = new Intent(MainActivity.this, SearchFirmActivty.class);
-                    in1.putExtra("type",0);
+                    in1.putExtra("type", 0);
                     startActivity(in1);
                     overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
                     break;
                 case R.id.tab2://法人查询
                     Intent in2 = new Intent(MainActivity.this, SearchFirmActivty.class);
-                    in2.putExtra("type",1);
+                    in2.putExtra("type", 1);
                     startActivity(in2);
                     overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
                     break;
                 case R.id.tab3://失信查询
                     Intent in3 = new Intent(MainActivity.this, SearchFirmActivty.class);
-                    in3.putExtra("type",2);
+                    in3.putExtra("type", 2);
                     startActivity(in3);
                     overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
                     break;
                 case R.id.tab4://违法信息
                     Intent in4 = new Intent(MainActivity.this, SearchFirmActivty.class);
-                    in4.putExtra("type",3);
+                    in4.putExtra("type", 3);
                     startActivity(in4);
                     overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
                     break;
@@ -264,10 +279,10 @@ public class MainActivity extends Activity implements View.OnClickListener {
 //                    break;
 
 
-
             }
         }
     };
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         switch (requestCode) {
@@ -286,8 +301,10 @@ public class MainActivity extends Activity implements View.OnClickListener {
         }
         super.onActivityResult(requestCode, resultCode, data);
     }
+
     /**
      * 裁剪图片方法实现
+     *
      * @param uri
      */
     public void startPhotoZoom(Uri uri) {
@@ -307,6 +324,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
     /**
      * 保存裁剪之后的图片数据
+     *
      * @param picdata
      */
     private void setPicToView(Intent picdata) {
@@ -347,6 +365,22 @@ public class MainActivity extends Activity implements View.OnClickListener {
             super.onBackPressed();
         }
     }*/
+
+    private void isLogin(){
+        LoginStatus=csp.getLoginStatus();
+        if(LoginStatus){//若当前状态为登录
+            login.setText("退出登录");
+        }else {//若当前状态未未登录
+            login.setText("登录");
+        }
+    }
+
+    @Override
+    protected void onRestart() {
+        isLogin();
+        super.onRestart();
+    }
+
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK

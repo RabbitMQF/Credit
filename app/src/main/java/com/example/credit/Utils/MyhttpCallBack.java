@@ -1,6 +1,7 @@
 package com.example.credit.Utils;
 
 import com.example.credit.Activitys.CompanyDetailsActivity;
+import com.example.credit.Activitys.LoginActivity;
 import com.example.credit.Activitys.MainActivity;
 import com.example.credit.Activitys.SearchFirmActivty;
 import com.example.credit.Entitys.DataManager;
@@ -24,6 +25,7 @@ public class MyhttpCallBack implements HttpCallBack {
     public static DataManager.baging baging = new DataManager.baging();
     public static DataManager.allcount allcount = new DataManager.allcount();
     private static MyhttpCallBack instance;
+    CreditSharePreferences csp=CreditSharePreferences.getLifeSharedPreferences();
 
     public static MyhttpCallBack getInstance() {
         if (instance == null) {
@@ -133,6 +135,9 @@ public class MyhttpCallBack implements HttpCallBack {
                 }
                 for (LinkedTreeMap temp : searchstrlist2) {
                     DataManager.search serchtemp = new DataManager.search();
+
+                    serchtemp.ENTTYPE = (String) temp.get("ENTTYPE");
+
                     serchtemp.PRIPID = (String) temp.get("PRIPID");
                     serchtemp.ENTNAME = (String) temp.get("ENTNAME");
                     serchtemp.REGNO = (String) temp.get("REGNO");
@@ -681,7 +686,19 @@ public class MyhttpCallBack implements HttpCallBack {
                 CompanyDetailsActivity.handler.sendEmptyMessage(21);
                 break;
             case 0x999://登入
-                response.get();
+               jsonString= (String) response.get();
+                map=gson.fromJson(jsonString,new TypeToken<Map<String,Object>>(){}.getType());
+
+                if(! String.valueOf(map.get("status")).equals("1.0")){//登入失败
+                    Toast.show(map.get("message").toString());
+                }else {//登入成功
+                   DataManager.user =gson.fromJson(jsonString,DataManager.User.class);
+                    csp.putUser(DataManager.user);
+                    csp.putLoginStatus(true);
+                    Toast.show("登录成功");
+                    LoginActivity.handler.sendEmptyMessage(0);
+                }
+
                 break;
             default:
                 break;

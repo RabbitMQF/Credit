@@ -312,6 +312,7 @@ public class CompanyDetailsActivity extends BaseActivity {
                     if(a1==0){
                         waitDialog.show();
                         GsonUtil request0 = new GsonUtil(URLconstant.URLINSER + URLconstant.DETAILSCINFOURL, RequestMethod.GET);
+                        request0.add("priptype", detailsList.get(position).ENTTYPE);
                         request0.add("token", token);
                         request0.add("deviceId", model);
                         request0.add("KeyNo", KeyNo);

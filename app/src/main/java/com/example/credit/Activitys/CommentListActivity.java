@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -28,7 +29,7 @@ public class CommentListActivity extends BaseActivity {
     @ViewInject(R.id.b_topY)
     TextView b_topY;
     @ViewInject(R.id.Ccomm_list)
-    ListView Ccomm_list;//评论列表
+    MyListView Ccomm_list;//评论列表
 
 
     @Override
@@ -46,6 +47,14 @@ public class CommentListActivity extends BaseActivity {
 
         CommmentAdapter adapter=new CommmentAdapter(CommentListActivity.this, DataManager.UserreviewList);
         Ccomm_list.setAdapter(adapter);
+        Ccomm_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent i=new Intent(CommentListActivity.this,CommentListDetailsActivity.class);
+                i.putExtra("position",position);
+                startActivity(i);
+            }
+        });
     }
 
     View.OnClickListener listener= new View.OnClickListener() {

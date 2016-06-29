@@ -23,9 +23,11 @@ public class CommmentAdapter extends BaseAdapter {
     private Context context;
     private List<DataManager.Userreview> list;
     ViewHolder vh = null;
+    int sum=0;
     public CommmentAdapter(Context context, List<DataManager.Userreview> list) {
         this.context = context;
         this.list = list;
+        notifyDataSetChanged();
     }
 
     @Override
@@ -56,9 +58,10 @@ public class CommmentAdapter extends BaseAdapter {
             vh.pl_good=(ImageView) view.findViewById(R.id.pl_good);
             vh.pl_good_num=(TextView) view.findViewById(R.id.pl_good_num);
             vh.nogood=(ImageView) view.findViewById(R.id.nogood);
+            vh.alreadynogood=(ImageView) view.findViewById(R.id.alreadynogood);
             vh.nogood_num=(TextView) view.findViewById(R.id.nogood_num);
             vh.liuyan=(ImageView) view.findViewById(R.id.liuyan);
-            vh.liuyan_num=(TextView) view.findViewById(R.id.a_tv1);
+            vh.liuyan_num=(TextView) view.findViewById(R.id.liuyan_num);
             vh.huifu=(LinearLayout) view.findViewById(R.id.huifu);
             vh.huifu_con=(EditText) view.findViewById(R.id.huifu_con);
             vh.commpl_list=(MyListView) view.findViewById(R.id.commpl_list);
@@ -70,43 +73,52 @@ public class CommmentAdapter extends BaseAdapter {
         vh.comm_time.setText(list.get(position).CREATETIME);
         vh.comm_cont.setText(list.get(position).CONTENT);
         vh.nogood_num.setText(list.get(position).FAILEDQTY);
-        if(list.get(position).ISSUCCESS=="0"){//是否点赞
+        vh.pl_good_num.setText(list.get(position).SUCCESSQTY);
+
+String s=list.get(position).ISSUCCESS;
+        String s2=list.get(position).ISFAILED;
+
+        if(list.get(position).ISSUCCESS.equals("0")){//是否点赞
             vh.pl_good.setVisibility(View.VISIBLE);
             vh.pl_alreadgood.setVisibility(View.GONE);
         }else{
             vh.pl_good.setVisibility(View.GONE);
             vh.pl_alreadgood.setVisibility(View.VISIBLE);
-
         }
-        vh.liuyan.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(vh.huifu.getVisibility()==View.VISIBLE){
-                    vh.huifu.setVisibility(View.GONE);
-                }else{
-                    vh.huifu.setVisibility(View.VISIBLE);
-                }
-            }
-        });
-
-        vh.pl_alreadgood.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                vh.pl_alreadgood.setVisibility(View.GONE);
-                vh.pl_good.setVisibility(View.VISIBLE);
-                vh.pl_good_num.setText(Integer.parseInt(list.get(position).SUCCESSQTY.trim())-1+"");
-            }
-        });
-        vh.pl_good.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                vh.pl_good.setVisibility(View.GONE);
-                vh.pl_alreadgood.setVisibility(View.VISIBLE);
-                vh.pl_good_num.setText(Integer.parseInt(list.get(position).SUCCESSQTY.trim())+1+"");
-            }
-        });
+        if(list.get(position).ISFAILED.equals("0")){//是否吐槽
+            vh.nogood.setVisibility(View.VISIBLE);
+            vh.alreadynogood.setVisibility(View.GONE);
+        }else{
+            vh.nogood.setVisibility(View.GONE);
+            vh.alreadynogood.setVisibility(View.VISIBLE);
+        }
+//        vh.liuyan.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                if(vh.huifu.getVisibility()==View.VISIBLE){
+//                    vh.huifu.setVisibility(View.GONE);
+//                }else{
+//                    vh.huifu.setVisibility(View.VISIBLE);
+//                }
+//            }
+//        });
+//        vh.pl_alreadgood.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                vh.pl_alreadgood.setVisibility(View.GONE);
+//                vh.pl_good.setVisibility(View.VISIBLE);
+//            }
+//        });
+//        vh.pl_good.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                vh.pl_good.setVisibility(View.GONE);
+//                vh.pl_alreadgood.setVisibility(View.VISIBLE);
+//            }
+//        });
         DataManager.replay2reviewList=list.get(position).replay2review;
         if(DataManager.replay2reviewList!=null){
+            vh.liuyan_num.setText(DataManager.replay2reviewList.size()+"");
             Commment_ItemlistAdapter adapter=new Commment_ItemlistAdapter(context,DataManager.replay2reviewList);
             vh.commpl_list.setAdapter(adapter);
         }
@@ -129,7 +141,8 @@ public class CommmentAdapter extends BaseAdapter {
         ImageView pl_alreadgood;//已赞icon
         ImageView pl_good;//未赞icon
         TextView pl_good_num;//已赞size
-        ImageView nogood;//差评
+        ImageView alreadynogood;//差评黑
+        ImageView nogood;//差评灰
         TextView nogood_num;//差评size
         ImageView liuyan;//留言
         TextView liuyan_num;//留言size

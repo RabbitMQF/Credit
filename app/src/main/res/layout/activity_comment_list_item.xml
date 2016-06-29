@@ -9,6 +9,7 @@
         android:layout_marginBottom="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:descendantFocusability="blocksDescendants"
         android:background="@drawable/details_con_bg"
         android:orientation="vertical">
         <LinearLayout
@@ -74,7 +75,7 @@
                         android:id="@+id/pl_good_num"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="5"
+                        android:text="0"
                         android:layout_marginLeft="5dp"
                         android:textSize="18sp"
                         android:textColor="#757475"/>
@@ -84,11 +85,18 @@
                         android:layout_height="20dp"
                         android:layout_marginLeft="10dp"
                         android:background="@mipmap/nogood"/>
+                    <ImageView
+                        android:id="@+id/alreadynogood"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_marginLeft="10dp"
+                        android:visibility="gone"
+                        android:background="@mipmap/alreadynogood"/>
                     <TextView
                         android:id="@+id/nogood_num"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="5"
+                        android:text="0"
                         android:layout_marginLeft="5dp"
                         android:textSize="18sp"
                         android:textColor="#757475"/>
@@ -102,7 +110,7 @@
                         android:id="@+id/liuyan_num"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="5"
+                        android:text="0"
                         android:layout_marginLeft="5dp"
                         android:textSize="18sp"
                         android:textColor="#757475"/>
@@ -113,6 +121,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:divider="#00000000"
+                    android:focusable="false"
                     android:scrollbars="none"
                     android:listSelector="#00000000"/>
             </LinearLayout>

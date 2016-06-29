@@ -45,6 +45,8 @@ public class DataManager {
      * 搜索实体类
      */
     public static class search {//搜索列表信息 Result
+
+        public String ENTTYPE;
         public String PRIPID;//主体身份代码
         public String ENTNAME;//企业(机构)名称
         public String REGNO;//注册号
@@ -950,4 +952,71 @@ public class DataManager {
         public Data201 data;
         public String version;
     }
+
+
+
+
+
+    /**
+     * 用户信息实体类
+     */
+    public static class User{
+
+        /**
+         * message : true
+         * status : 1
+         * data : {"memberList":[{"STATUS":"0","AMOUNT":"","INDUSTRY":"","MOBILE":"","INDUSTRYID":"","USERTYPE":"","SEX":"","EDUCATIONID":"","ISDELETE":"0","ID":"26235a38bad44b4190abfa64bd8b50b5","EDUCATION":"","ICONSTEAM":"","USERNAME":"gzq12321@152.com","EMAIL":"gzq12321@152.com","ALIASNAME":"","PASSWORD":"61278de2e31a5c72860f8b5ef8101c0f0d92bb92","USERTYPEID":""}]}
+         * version : v1.0
+         */
+        public String message;
+        public int status;
+        public DataBean data;
+        public String version;
+
+        public static class DataBean {
+            /**
+             * STATUS : 状态：激活1、未激活0 对应数字默认0
+             * AMOUNT :余额
+             * INDUSTRY :行业
+             * MOBILE :移动电话
+             * INDUSTRYID :行业ID
+             * USERTYPE :用户类型
+             * SEX :性别
+             * EDUCATIONID :教育ID
+             * ISDELETE : 账户是否删除 默认0未删除，1已删除
+             * ID : 26235a38bad44b4190abfa64bd8b50b5  用户ID
+             * EDUCATION :教育
+             * ICONSTEAM :头像base64位图
+             * USERNAME : gzq12321@152.com  用户名
+             * EMAIL : gzq12321@152.com
+             * ALIASNAME :别名
+             * PASSWORD : 61278de2e31a5c72860f8b5ef8101c0f0d92bb92 密码
+             * USERTYPEID :用户类型ID
+             */
+
+            public List<MemberListBean> memberList;
+
+            public static class MemberListBean {
+                public String STATUS;//状态：激活1、未激活0 对应数字默认0
+                public String AMOUNT;//余额
+                public String INDUSTRY;//行业
+                public String MOBILE;//移动电话
+                public String INDUSTRYID;//行业ID
+                public String USERTYPE;//用户类型
+                public String SEX;//性别
+                public String EDUCATIONID;//教育ID
+                public String ISDELETE;//账户是否删除 默认0未删除，1已删除
+                public String ID;//用户ID
+                public String EDUCATION;//教育
+                public String ICONSTEAM;//头像base64位图
+                public String USERNAME;//用户名
+                public String EMAIL;
+                public String ALIASNAME;//别名
+                public String PASSWORD;//密码
+                public String USERTYPEID;//用户类型ID
+            }
+        }
+    }
+    public static User user=new User();
+
     }
