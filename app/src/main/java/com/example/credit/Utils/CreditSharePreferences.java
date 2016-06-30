@@ -58,8 +58,11 @@ public class CreditSharePreferences {
             editor.commit();}
     }
    public Boolean getLoginStatus(){
-       return sp.getBoolean("LoginStatus",false);
-   }
+       if(sp!=null) {
+           return sp.getBoolean("LoginStatus", false);
+       }
+       return false;
+       }
 
     /**
      * 保存用户信息

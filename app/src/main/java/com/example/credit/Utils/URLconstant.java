@@ -51,11 +51,15 @@ public class URLconstant {
 
     public static final String USERLOGIN="userMemberController/userLogin.do";//登录接口
 
+    public static final String USERSET="userMemberController/userRegister.do";//用户注册或修改资料接口  openType=0注册  openType=1 修改
 
+    public static final String NNOMM="http://101.201.211.27:8282/zhirong.creditcard/Interface/businessController/savePraiseFailedqty.do";//接口
 
-    public static final String ZZOMM="http://101.201.211.27:8282/zhirong.creditcard/Interface/businessController/savePraiseSuccessqty.do?KeyNo=72b1b5d481d748089d3cf3aafb6eadb7&token=592a14c188bfd294503984d634417a60&deviceId=333&memberId=86D9D7F53FCA45DD93E2D83DFCA0CB42&opeType=0";//点赞接口
+    public static final String ZZOMM="http://101.201.211.27:8282/zhirong.creditcard/Interface/businessController/savePraiseSuccessqty.do";//点赞接口
 
-    public static final  String COMM="http://101.201.211.27:8282/zhirong.creditcard/Interface/businessController/getCommentlistPage.do?KeyNo=5ef0b06f381d11e6860200163e160363&deviceId=123&token=d6109004f9d658ddcb03c82bf12a7910&regnore=360000210004352&memberId=86D9D7F53FCA45DD93E2D83DFCA0CB42";//评论
+    public static final  String COMM="http://101.201.211.27:8282/zhirong.creditcard/Interface/businessController/getCommentlistPage.do";//评论
+
+    public static final  String HHOMM="http://101.201.211.27:8282/zhirong.creditcard/Interface/businessController/SaveComment.do";//评论发表+回复
 
 //    public static final String GETCITYLIST="http://app.qichacha.com/enterprises/new/GetCityList";//获取城市接口
 

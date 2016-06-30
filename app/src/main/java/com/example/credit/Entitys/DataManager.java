@@ -886,12 +886,29 @@ public class DataManager {
         public String showCount;
         public int TotalRecords;
     }
-
+    /**
+     * 参数数据
+     */
+    public static class Baseinfo {
+        public String REGSTATE;
+        public String EnterAddtionID;
+        public String REGNO;
+        public boolean IsFavorite;
+        public String NAME;
+        public int REGCAP;
+        public String ESTDATE;
+        public String ENTTYPE_CN;
+        public String ENTNAME;
+        public String REGSTATE_CN;
+        public String UNISCID;
+        public String PRIPID;
+        public String ENTTYPE;
+    }
+    public static List<Baseinfo> BaseinfoList = new ArrayList<>();
     /**
      * 16个item条数实体类
      */
     public static class allcount{
-
         public String HonorCount;//荣誉信息
         public String JudiciaryCount;//司法信息
         public String PledgeCount;//抵押
@@ -910,7 +927,6 @@ public class DataManager {
         public String PatentCount;//专利
 
     }
-    //  public static allcount allcounts=new allcount();
     public static List<allcount> allcountsList = new ArrayList<>();
 
     public static List<Userreview> UserreviewList = new ArrayList<>();
@@ -936,7 +952,7 @@ public class DataManager {
     /**
      * 回复评论（楼中楼）
      */
-    public class Replay2review {
+    public static  class Replay2review {
         public String CHILDMEMBERID;//用户ID
         public String REPLAYCOMMENT;//回复评论内容
         public String CHILDMEMBERNAME;//用户名称
@@ -952,6 +968,21 @@ public class DataManager {
         public Data201 data;
         public String version;
     }
+    /**
+     * 点赞 and 差评  and 发表 and 回复
+     */
+    public class Root202 {
+        public String message;
+        public int status;
+        public Data202 data;
+        public String version;
+    }
+    public class Data202 {
+        public String result;
+    }
+    public static String Result ="";
+
+
 
 
 

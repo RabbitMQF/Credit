@@ -10,7 +10,7 @@
         android:id="@+id/id_menu"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        alucard:rightPadding="100dp"
+        alucard:rightPadding="125dp"
         android:background="@mipmap/slidingmenu_backiamge">
 
         <LinearLayout

@@ -1,7 +1,11 @@
 package com.example.credit.Activitys;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -13,10 +17,18 @@ import com.example.credit.Adapters.CommmentAdapter;
 import com.example.credit.Adapters.Commment_ItemlistAdapter;
 import com.example.credit.Entitys.DataManager;
 import com.example.credit.R;
+import com.example.credit.Services.CallServer;
+import com.example.credit.Utils.GsonUtil;
+import com.example.credit.Utils.MyhttpCallBack;
+import com.example.credit.Utils.Toast;
+import com.example.credit.Utils.URLconstant;
 import com.example.credit.Views.MyListView;
 import com.lidroid.xutils.ViewUtils;
+import com.lidroid.xutils.db.annotation.Table;
 import com.lidroid.xutils.view.annotation.ViewInject;
+import com.yolanda.nohttp.RequestMethod;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -66,16 +78,77 @@ public class CommentListDetailsActivity extends BaseActivity {
     EditText huifu_con;//回复内容
     @ViewInject(R.id.Dhuifu_btn)
     TextView huifu_btn;//回复按钮
-
+    ProgressDialog pd;
     int position;//下标
-    public static List<DataManager.Userreview> UserreviewListItem= new ArrayList<>();
+    public static Handler handler;
+    String deviceId,uid,pid;
+    int S,N,So,No;
+    public static List<DataManager.Replay2review> replay2reviewListSS = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_comment_list_details);
         ViewUtils.inject(this);
+        Build bd = new Build();
+        deviceId=bd.MODEL;//设备ID
         Intent i=getIntent();
         position=i.getIntExtra("position",0);
+        uid=i.getStringExtra("uid");
+        pid=i.getStringExtra("pid");
+        handler=new Handler(){
+            @Override
+            public void handleMessage(Message msg) {
+                switch (msg.what){
+                    case 0:
+
+                        break;
+                    case 1:
+
+                        SimpleDateFormat sDateFormat=new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+                        String  date =sDateFormat.format(new java.util.Date());
+                        DataManager.Replay2review r2=new DataManager.Replay2review();
+                        r2.CHILDMEMBERNAME=DataManager.UserreviewList.get(position).MEMBERNAME;
+                        r2.REPLAYCOMMENT=huifu_con.getText().toString();
+                        r2.REPLAYTIME=date;
+                        huifu_con.setText("");
+                        DataManager.replay2reviewList.add(r2);
+                        Dliuyan_num.setText(DataManager.UserreviewList.get(position).replay2review.size()+"");
+                        Rinit();
+                        break;
+                    case 2:
+                        /**
+                         * 重新查一遍评论
+                         */
+                        String KeyNos=DataManager.BaseinfoList.get(0).EnterAddtionID;
+                        String tokens= SearchFirmActivty.MD5s(KeyNos + deviceId);
+                        GsonUtil request14 = new GsonUtil(URLconstant.COMM, RequestMethod.GET);
+                        request14.add("deviceId",deviceId);
+                        request14.add("token",tokens);
+                        request14.add("KeyNo",KeyNos);
+                        request14.add("memberId","86D9D7F53FCA45DD93E2D83DFCA0CB42");
+                        CallServer.getInstance().add(CommentListDetailsActivity.this, request14, MyhttpCallBack.getInstance(), 0x20111, true, false, true);
+                        break;
+                    case 3:
+                        pd.dismiss();
+                        android.widget.Toast.makeText(CommentListDetailsActivity.this, "点赞失败!", android.widget.Toast.LENGTH_SHORT).show();
+                        break;
+                    case 4:
+                        pd.dismiss();
+                        android.widget.Toast.makeText(CommentListDetailsActivity.this, "差评失败!", android.widget.Toast.LENGTH_SHORT).show();
+                        break;
+                    case 5:
+                        android.widget.Toast.makeText(CommentListDetailsActivity.this, "回复失败!", android.widget.Toast.LENGTH_SHORT).show();
+                        break;
+                    case 21://评论
+                        pd.dismiss();
+                        CommentListActivity.RUserreviewList= DataManager.UserreviewList;
+                        finish();
+//                        Intent i21=new Intent(CommentListDetailsActivity.this,CommentListActivity.class);
+//                        startActivity(i21);
+                        break;
+                }
+            }
+        };
         init();
     }
     public void init(){
@@ -103,9 +176,9 @@ public class CommentListDetailsActivity extends BaseActivity {
             Dnogood.setVisibility(View.GONE);
             Dalreadynogood.setVisibility(View.VISIBLE);
         }
-     /**
-       * 好评icon点击事件
-       */
+        /**
+         * 好评icon点击事件
+         */
         if(plD_alreadgood.getVisibility()==View.VISIBLE){
             plD_alreadgood.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -183,25 +256,94 @@ public class CommentListDetailsActivity extends BaseActivity {
 
 
         DataManager.replay2reviewList=DataManager.UserreviewList.get(position).replay2review;//子回复list
-        if(DataManager.replay2reviewList!=null){
-            Commment_ItemlistAdapter adapter=new Commment_ItemlistAdapter(CommentListDetailsActivity.this,DataManager.replay2reviewList);
-            commplD_list.setAdapter(adapter);
-        }
+        Rinit();
 
         huifu_btn.setOnClickListener(listener);
         b_return.setOnClickListener(listener);
     }
-
+    public void Rinit(){
+        if(DataManager.replay2reviewList!=null){
+            Commment_ItemlistAdapter adapter=new Commment_ItemlistAdapter(CommentListDetailsActivity.this,DataManager.replay2reviewList);
+            commplD_list.setAdapter(adapter);
+        }
+    }
     View.OnClickListener listener= new View.OnClickListener() {
         @Override
         public void onClick(View v) {
             switch (v.getId()){
                 case R.id.b_return://返回键
-                    finish();
+                    HttpInit();
                     break;
                 case R.id.Dhuifu_btn://发送键
+                    if(!huifu_con.getText().toString().equals("")){
+                        String KeyNo= DataManager.BaseinfoList.get(0).EnterAddtionID;
+                        String token = SearchFirmActivty.MD5s(KeyNo + deviceId);
+                        GsonUtil request14 = new GsonUtil(URLconstant.HHOMM, RequestMethod.GET);
+                        request14.add("KeyNo",KeyNo);
+                        request14.add("token",token);
+                        request14.add("deviceId",deviceId);
+                        request14.add("content",huifu_con.getText().toString());
+                        request14.add("memberPid",uid);//点评其他评论,父评论用户ID
+                        request14.add("pid",pid);//点评其他评论,父评论ID
+                        request14.add("memberId","86D9D7F53FCA45DD93E2D83DFCA0CB42");
+                        CallServer.getInstance().add(CommentListDetailsActivity.this, request14, MyhttpCallBack.getInstance(), 0x205, true, false, true);
+                    }else{
+                        android.widget.Toast.makeText(CommentListDetailsActivity.this, "回复内容不能为空", android.widget.Toast.LENGTH_SHORT).show();
+
+                    }
                     break;
             }
         }
     };
+
+    public void HttpInit(){
+        pd=new ProgressDialog(CommentListDetailsActivity.this);
+        pd.setMessage("正在加载中...");
+        pd.setCancelable(false);
+        pd.show();
+        S=Integer.parseInt(DataManager.UserreviewList.get(position).SUCCESSQTY.trim());//原来点赞数值
+        N=Integer.parseInt(plD_good_num.getText().toString());//当前点赞数值
+        So=Integer.parseInt(DataManager.UserreviewList.get(position).FAILEDQTY.trim());//原来差评数值
+        No=Integer.parseInt(Dnogood_num.getText().toString());//当前差评数值
+        if(N!=S){//当当前点赞数值等于原来所赋值的数值，则点赞数量不变，不发送请求
+            goodhttp();
+        }
+        if(No!=So) {//当当前差评数值等于原来所赋值的数值，则差评数量不变，不发送请求
+            nogoodhttp();
+        }
+        handler.sendEmptyMessage(2);
+    }
+    public void goodhttp(){
+        String KeyNo=DataManager.UserreviewList.get(position).COMMENTID;
+        String token = SearchFirmActivty.MD5s(KeyNo + deviceId);
+
+        GsonUtil request14 = new GsonUtil(URLconstant.ZZOMM, RequestMethod.GET);
+        request14.add("KeyNo",KeyNo);
+        request14.add("token",token);
+        request14.add("deviceId",deviceId);
+        request14.add("memberId","86D9D7F53FCA45DD93E2D83DFCA0CB42");
+        if(N>S){//当当前点赞数值大于原来所赋值的数值，则为点赞+1
+            request14.add("opeType","0");
+        }else{
+            request14.add("opeType","1");
+        }
+        CallServer.getInstance().add(CommentListDetailsActivity.this, request14, MyhttpCallBack.getInstance(), 0x202, true, false, true);
+
+    }
+    public void nogoodhttp(){
+        String KeyNo=DataManager.UserreviewList.get(position).COMMENTID;
+        String token = SearchFirmActivty.MD5s(KeyNo + deviceId);
+
+            GsonUtil request14 = new GsonUtil(URLconstant.NNOMM, RequestMethod.GET);
+            request14.add("KeyNo",KeyNo);
+            request14.add("token",token);
+            request14.add("deviceId",deviceId);
+            request14.add("memberId","86D9D7F53FCA45DD93E2D83DFCA0CB42");
+            if(No>So){//当当前差评数值大于原来所赋值的数值，则为差评+1
+                request14.add("opeType","0");
+            }else{
+                request14.add("opeType","1");
+            }
+            CallServer.getInstance().add(CommentListDetailsActivity.this, request14, MyhttpCallBack.getInstance(), 0x203, true, false, true);
+    }
 }

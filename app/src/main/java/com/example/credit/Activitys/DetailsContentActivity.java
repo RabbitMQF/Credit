@@ -327,7 +327,7 @@ public class DetailsContentActivity extends BaseActivity {
         dcList = DataManager.Data0List;
 
         List<String> lt = new ArrayList<String>();
-        if(!dcList.get(0).REGCAP.equals("")){
+        if(!dcList.get(0).REGCAP.equals("") && dcList.get(0).REGCAP.length()>0){
             lt.add(dcList.get(0).REGCAP + "万元");
         }else{
             lt.add("暂无信息");

@@ -18,6 +18,9 @@ import com.example.credit.Views.MyListView;
 import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ViewInject;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * 评论列表界面
  */
@@ -30,8 +33,9 @@ public class CommentListActivity extends BaseActivity {
     TextView b_topY;
     @ViewInject(R.id.Ccomm_list)
     MyListView Ccomm_list;//评论列表
+    CommmentAdapter adapter;
 
-
+    public static List<DataManager.Userreview> RUserreviewList = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,13 +48,14 @@ public class CommentListActivity extends BaseActivity {
         b_topname.setText("评论");
         b_return.setOnClickListener(listener);
         b_topY.setOnClickListener(listener);
-
-        CommmentAdapter adapter=new CommmentAdapter(CommentListActivity.this, DataManager.UserreviewList);
-        Ccomm_list.setAdapter(adapter);
+        Rit();
+        
         Ccomm_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent i=new Intent(CommentListActivity.this,CommentListDetailsActivity.class);
+                i.putExtra("uid",RUserreviewList.get(position).MEMBERID);
+                i.putExtra("pid",RUserreviewList.get(position).COMMENTID);
                 i.putExtra("position",position);
                 startActivity(i);
             }
@@ -71,4 +76,15 @@ public class CommentListActivity extends BaseActivity {
             }
         }
     };
+
+    @Override
+    protected void onRestart() {
+        Rit();
+        super.onRestart();
+    }
+
+    public  void Rit(){
+        adapter=new CommmentAdapter(CommentListActivity.this,RUserreviewList);
+        Ccomm_list.setAdapter(adapter);
+    }
 }

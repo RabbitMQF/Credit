@@ -1,5 +1,6 @@
 package com.example.credit.Activitys;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
@@ -132,6 +133,8 @@ public class CompanyDetailsActivity extends BaseActivity {
     TextView pb_3;//投诉
     @ViewInject(R.id.pb_4)
     TextView pb_4;//我
+
+    ProgressDialog pd;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -291,7 +294,9 @@ public class CompanyDetailsActivity extends BaseActivity {
                         overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
                         break;
                     case 21://评论
-                        waitDialog.dismiss();
+//                        waitDialog.dismiss();
+                        pd.dismiss();
+                        CommentListActivity.RUserreviewList= DataManager.UserreviewList;
                         Intent i21=new Intent(CompanyDetailsActivity.this,CommentListActivity.class);
                         startActivity(i21);
                         break;
@@ -635,10 +640,20 @@ public class CompanyDetailsActivity extends BaseActivity {
                     break;
                 case R.id.pb_2://评论
 //                    android.widget.Toast.makeText(CompanyDetailsActivity.this, "此模块，正在抢修中。。。！", android.widget.Toast.LENGTH_SHORT).show();
-                    waitDialog.show();
-                    GsonUtil request14 = new GsonUtil(URLconstant.COMM, RequestMethod.GET);
-                    CallServer.getInstance().add(CompanyDetailsActivity.this, request14, MyhttpCallBack.getInstance(), 0x201, true, false, true);
+//                    waitDialog.show();
+                    pd=new ProgressDialog(CompanyDetailsActivity.this);
+                    pd.setMessage("正在加载中...");
+                    pd.setCancelable(false);
+                    pd.show();
+                    String KeyNos=DataManager.BaseinfoList.get(0).EnterAddtionID;
+                    String tokens= SearchFirmActivty.MD5s(KeyNos + model);
 
+                    GsonUtil request14 = new GsonUtil(URLconstant.COMM, RequestMethod.GET);
+                    request14.add("deviceId",model);
+                    request14.add("token",tokens);
+                    request14.add("KeyNo",KeyNos);
+                    request14.add("memberId","86D9D7F53FCA45DD93E2D83DFCA0CB42");
+                    CallServer.getInstance().add(CompanyDetailsActivity.this, request14, MyhttpCallBack.getInstance(), 0x201, true, false, true);
                     break;
                 case R.id.pb_3://投诉
                     Intent i3=new Intent(CompanyDetailsActivity.this,ToComplaintActivity.class);

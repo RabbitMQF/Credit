@@ -1004,6 +1004,7 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
 
             pd = new ProgressDialog(SearchFirmActivty.this);
             pd.setMessage("正在加载中...");
+
             pd.setCancelable(false);
             pd.show();
             GsonUtil request = new GsonUtil(URLconstant.SEARCHURL, RequestMethod.GET);

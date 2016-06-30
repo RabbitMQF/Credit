@@ -35,4 +35,6 @@ dependencies {
     compile 'com.yolanda.nohttp:nohttp:+'
     compile 'com.google.code.gson:gson:+'
     compile 'co.roverlabs:picasso:2.5.2'
+
+
 }

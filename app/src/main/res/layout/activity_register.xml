@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ffffff"
+
     android:orientation="vertical"
     tools:context="com.example.credit.Activitys.RegisterActivity">
     <include layout="@layout/public_top_bar"/>
@@ -29,16 +29,31 @@
             android:text="邮箱"/>
         <EditText
             android:id="@+id/Ruser"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
+            android:layout_weight="15"
             android:layout_height="match_parent"
             android:textSize="16sp"
             android:textColor="#757475"
             android:gravity="center_vertical"
             android:hint="请输入邮箱"
+            android:maxLines="1"
+            android:lines="1"
+            android:singleLine="true"
+            android:imeOptions="actionNext"
             android:background="@drawable/bg_edittext"
             android:layout_gravity="center_vertical"
             android:layout_margin="5dp"
             />
+        <ImageView
+            android:id="@+id/Ruser_c"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1.4"
+            android:src="@mipmap/www"
+            android:visibility="gone"/>
+
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -61,16 +76,31 @@
             android:text="密码"/>
         <EditText
             android:id="@+id/Rpwd"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
+            android:layout_weight="15"
             android:layout_height="match_parent"
             android:textSize="16sp"
             android:textColor="#757475"
             android:gravity="center_vertical"
             android:hint="请输入密码"
+            android:maxLines="1"
+            android:lines="1"
+            android:singleLine="true"
+            android:imeOptions="actionNext"
+            android:inputType="textPassword"
             android:background="@drawable/bg_edittext"
             android:layout_gravity="center_vertical"
             android:layout_margin="5dp"
             />
+        <ImageView
+            android:id="@+id/Rpwd_c"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1.4"
+            android:src="@mipmap/www"
+            android:visibility="gone"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -90,19 +120,34 @@
             android:layout_gravity="center_vertical"
             android:focusable="true"
             android:focusableInTouchMode="true"
-            android:text="确认密码"/>
+            android:text="密码"/>
         <EditText
             android:id="@+id/Rrpwds"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
+            android:layout_weight="15"
             android:layout_height="match_parent"
             android:textSize="16sp"
             android:textColor="#757475"
             android:gravity="center_vertical"
-            android:hint="请输入确认密码"
+            android:hint="请再次输入密码确认"
+            android:maxLines="1"
+            android:lines="1"
+            android:singleLine="true"
+            android:imeOptions="actionDone"
+            android:inputType="textPassword"
             android:background="@drawable/bg_edittext"
             android:layout_gravity="center_vertical"
             android:layout_margin="5dp"
             />
+        <ImageView
+            android:id="@+id/Rrpwds_c"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1.4"
+            android:src="@mipmap/www"
+            android:visibility="gone"/>
     </LinearLayout>
     <TextView
         android:layout_width="wrap_content"
@@ -133,4 +178,6 @@
             android:textColor="#ffffff"
             android:text="立即注册"/>
     </LinearLayout>
+
+
 </LinearLayout>
