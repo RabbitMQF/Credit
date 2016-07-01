@@ -8,7 +8,9 @@ public class URLconstant {
 //    public static final String URLINSER="http://101.201.211.27:8282/esws.interface/";//所有接口前缀
     public static final String URLINSER="http://101.201.211.27:8282/zhirong.creditcard/Interface/";//所有接口前缀
 
-    public static  final  String GETCITY="baseinfo/querycitys.do";//获取城市接口
+    //public static  final  String GETCITY="baseinfo/querycitys.do";//获取城市接口
+    public static  final  String GETCITY="baseinfo/queryArea.do";//获取城市接口
+
     public static final String GETINDUSTRY= "baseinfo/queryindustry.do";//获取行业门类      没参    返回  data    industry：  EC_VALUE：行业门类代码   EC_NAME：行业门类名字
 
     public static final String SEARCHURL ="http://101.201.211.27:8282/zhirong.creditcard/Interface/baseinfo/querymodelbaseinfo.do";//搜索接口
@@ -53,7 +55,7 @@ public class URLconstant {
 
     public static final String USERSET="userMemberController/userRegister.do";//用户注册或修改资料接口  openType=0注册  openType=1 修改
 
-    public static final String NNOMM="http://101.201.211.27:8282/zhirong.creditcard/Interface/businessController/savePraiseFailedqty.do";//接口
+    public static final String NNOMM="http://101.201.211.27:8282/zhirong.creditcard/Interface/businessController/savePraiseFailedqty.do";//差评接口
 
     public static final String ZZOMM="http://101.201.211.27:8282/zhirong.creditcard/Interface/businessController/savePraiseSuccessqty.do";//点赞接口
 
@@ -61,6 +63,11 @@ public class URLconstant {
 
     public static final  String HHOMM="http://101.201.211.27:8282/zhirong.creditcard/Interface/businessController/SaveComment.do";//评论发表+回复
 
+    public static final  String MMOMM="http://101.201.211.27:8282/zhirong.creditcard/Interface/businessController/queryMyCommentList.do";//我的评价
+
+    public static final String GETCOMPLAIN="businessController/getCompanyComplainList.do";//获取投诉列表接口
+
+    public static final String GETCOMPLAIND="businessController/getComplainDetail.do";//获取投诉详情接口
 //    public static final String GETCITYLIST="http://app.qichacha.com/enterprises/new/GetCityList";//获取城市接口
 
     //    public static final String SEARCHURL="http://168s.mobile.hc360.com/get168.cgi";//获取搜索列表

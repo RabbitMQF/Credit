@@ -5,6 +5,7 @@ import android.util.AttributeSet;
 import android.widget.RelativeLayout;
 
 /**
+ * 16宫格Item自定义Layout
  * Created by alucard on 2016-06-16.
  */
 public class SquareLayout extends RelativeLayout {

@@ -234,6 +234,7 @@ public class RegisterActivity extends BaseActivity {
     private String isTrue(String pwd, String pwd2) {
         String password = null;
         if (!pwd.equals(pwd2)) {
+            pd.dismiss();
             Toast.show("两次输入密码不一致,请重新输入");
         }
         if (pwd.equals(pwd2)) {

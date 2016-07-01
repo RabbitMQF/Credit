@@ -8,7 +8,34 @@ import java.util.List;
  */
 public class DataManager {
 
+    public static MyComm MyComms=new MyComm();
 
+    /**
+     *我的评价
+     */
+    public static class MyComm {
+        public String message;
+        public String status;
+        public DataBean data;
+        public static class DataBean {
+            public List<CommentListBean> commentList;
+
+            public static class CommentListBean {
+                public String FAILEDQTY;
+                public String ENTERID;//附加表的企业ID
+                public String REGNORE;
+                public String CONTENT;//点评内容
+                public String ENTNAME;
+                public String CREATETIME;//评论时间
+                public String PRIPID;
+                public String COMMENTID;//评论ID
+                public String ISSUCCESS;
+                public String SUCCESSQTY;
+                public String ENTTYPE;
+                public String ISFAILED;
+            }
+        }
+    }
     public class ContatUser {//联系人信息
         public Integer user_id;
         public Integer corps_id;
@@ -188,83 +215,125 @@ public class DataManager {
 
     }
 
-    public static List<Data0> Data0List = new ArrayList<>();
 
-    public class Root0 {
-        public String message;
-        public int status;
-        public Data0 data;
-    }
+    public static GSXX gsxx = new GSXX();
 
     /**
      * 工商信息类
      */
+    public static class GSXX {
+        public String message;
+        public String status;
+        public DataBean data;
 
-    public class Data0 {
-        public String APPRDATE;//发照日期
-        public String ESTDATE;//成立日期
-        public String D_ADDTIME;//更新时间
-        public String ENTNAME;//企业(机构)名称
-        public String REGNO;//注册号
-        public String REGORG_CN;//登记机关（中文名称）
-        public String NAME;//法定代表人
-        public String OPFROM;//经营(驻在)期限自
-        public String OPTO;//经营(驻在)期限到
-        public String REGSTATE_CN;//登记状态（中文名称）
-        public String C_PROVINCE;//省
-        public String C_STATE;//经营状态 （1 存续（在营，开业，在册）  2 吊销，未注销    3吊销，已注销  4，注销  5，撤销  6，迁出   9，其他 ）
-        public String UNISCID;
-        public String REGCAP;//注册资本
-        public String ENTTYPE_CN;//市场主体类型（中文名称）
-        public String DOM;//住所
-        public String INDUSTRYPHY;//行业门类
-        public String OPSCOPE;//经营范围
-        public String PRIPID;//主体身份代码
-        public List<Partners> Partners;//自然人信息
-        public List<Employees> Employees;//主要人员信息
-        public List<ChangeRecords> ChangeRecords;//工商变更
-        public List<AnnualReports> AnnualReports;//分支机构
-        public Area Area;//公司所在省市区
-        public Company Company;
+        public static class DataBean {
+            public AreaBean Area;
+            public CompanyBean Company;
+            public BaseInfoBean BaseInfo;
+            public List<AnnualReports> AnnualReports;
+            public List<PartnersBean> Partners;
+            public List<ChangeRecordsBean> ChangeRecords;
+            public List<EmployeesBean> Employees;
+
+            /**
+             * 公司所在省市区
+             */
+            public static class AreaBean {
+                public String C_COUNTY;//县/区
+                public String C_CITY;//市
+                public String C_PROVINCE;//省
+            }
+
+            public static class CompanyBean {
+                public CountInfoBean CountInfo;
+
+                public static class CountInfoBean {
+                    public int sbxx;
+                    public int xzsp;
+                    public int xyxx;
+                    public int xzcf;
+                    public int zlxx;
+                    public int dyxx;
+                    public int ggzz;
+                    public int ryxx;
+                    public int czxx;
+                    public int zzq;
+                    public int fcxx;
+                    public int jyyc;
+                }
+            }
+
+            public static class BaseInfoBean {
+                public String D_ADDTIME;
+                public int REGCAP;
+                public String NAME;
+                public String ESTDATE;
+                public String REGSTATE_CN;
+                public String OPTO;
+                public String ENTTYPE;
+                public String INDUSTRYPHY;
+                public String REGNO;
+                public String DOM;
+                public String REGORG_CN;
+                public String APPRDATE;
+                public String ENTTYPE_CN;
+                public String ENTNAME;
+                public String OPSCOPE;
+                public String PRIPID;
+                public String C_STATE;
+                public String OPFROM;
+                public String C_PROVINCE;
+            }
+
+            /**
+             * 自然人信息
+             */
+            public static class PartnersBean {
+                public String INV;//姓名
+                public String PRIPID;//主体身份代码
+                public String INVTYPE_CN;//股东类型
+            }
+
+            /**
+             * 工商变更
+             */
+            public static class ChangeRecordsBean {
+                public String ALTITEM_CN;
+                public String ALTAF;
+                public String ALTDATE;
+                public String ALTBE;
+            }
+
+            /**
+             * 主要人员信息
+             */
+            public static class EmployeesBean {
+                public String NAME;//姓名
+                public String CERNO;//件号码/代表证编号（DB320）
+                public String POSITION_CN;//职务（中文名称）
+                public String PERSONID;//主要人员id
+            }
+
+            /**
+             * 分支机构
+             */
+            public class AnnualReports {//分支机构
+                public String BRID;//分支机构ID
+                public String PPRIPID;//主体身份代码
+                public String PRIPID;//分支机构主体身份代码
+                public String BRNAME;//分支机构名称
+                public String REGNO;//注册号
+                public String UNISCID;//统一社会信用代码
+                public String REGORG_CN;//登记机关（中文名称）
+                public String REGIDATE;//登记日期
+            }
+        }
     }
+
 
     /**
-     * 自然人信息
+     * 工商变更临时
      */
-    public class Partners {
-        public String PRIPID;//主体身份代码
-        public String INV;//姓名
-        public String INVTYPE_CN;//股东类型
-    }
-
-    /**
-     * 主要人员信息
-     */
-    public class Employees {
-        public String PERSONID;//主要人员id
-        public String NAME;//姓名
-        public String POSITION_CN;//职务（中文名称）
-        public String CERNO;//件号码/代表证编号（DB320）
-    }
-
-    /**
-     * 公司所在省市区
-     */
-    public class Area {
-        private String C_PROVINCE;//省
-        private String C_CITY;//市
-        private String C_COUNTY;//县/区
-    }
-
-    /**
-     * 工商变更
-     */
-    public class ChangeRecords {
-        public String ALTITEM_CN;//变更事项
-        public String ALTBE;//变更前
-        public String ALTAF;//变更后
-        public String ALTDATE;//变更日期
-    }
 
     public static class ChangeTime {
         public String ALTDATE;//变更日期
@@ -277,45 +346,6 @@ public class DataManager {
         public String ALTBE;//变更前
         public String ALTAF;//变更后
 
-    }
-
-    /**
-     * 分支机构
-     */
-    public class AnnualReports {//分支机构
-        public String BRID;//分支机构ID
-        public String PPRIPID;//主体身份代码
-        public String PRIPID;//分支机构主体身份代码
-        public String BRNAME;//分支机构名称
-        public String REGNO;//注册号
-        public String UNISCID;//统一社会信用代码
-        public String REGORG_CN;//登记机关（中文名称）
-        public String REGIDATE;//登记日期
-    }
-
-    /**
-     *
-     */
-    public class Company {
-        public CountInfo CountInfo;
-    }
-
-    /**
-     *
-     */
-    public class CountInfo {
-        public int sbxx;//商标信息
-        public int xzsp;//行政审批
-        public int xyxx;//信用信息
-        public int xzcf;//行政处罚
-        public int zlxx;//专利信息
-        public int dyxx;//抵押信息
-        public int ggzz;//广告资质
-        public int ryxx;//荣誉信息
-        public int czxx;//出资信息
-        public int zzq;//著作权
-        public int fcxx;//扶持信息
-        public int jyyc;//经营异常
     }
 
 
@@ -351,6 +381,7 @@ public class DataManager {
 
 
     public static List<administraton> ad_List = new ArrayList<>();
+
     /**
      * 行政审批
      * 行政许可实体类
@@ -369,7 +400,7 @@ public class DataManager {
      * 行政审批
      * 其它信息实体类
      */
-    public static class admin_other{
+    public static class admin_other {
         public String OTHER;//暂无信息
 
     }
@@ -513,12 +544,11 @@ public class DataManager {
     }
 
 
-
     /**
      * 著作信息实体类
      */
 
-    public static List<copyrightInfo> copyrightInfoeList=new ArrayList<>();
+    public static List<copyrightInfo> copyrightInfoeList = new ArrayList<>();
 
     public static class copyrightInfo {
         public String ID;
@@ -544,6 +574,7 @@ public class DataManager {
         public String FINISHDATE;//创作完成日期
         public String FIRSTDATE;//首次发表日期
     }
+
     public static class patentInfoSoftwore {
         public static String ID;
         public static String SOFTWARENAME;//软件名称
@@ -684,8 +715,9 @@ public class DataManager {
     public static List<date> pdateList_qdxx = new ArrayList<>();
     public static List<date> pdateList_qsxx = new ArrayList<>();
     public static List<date> pdateList_qxxx = new ArrayList<>();
+
     /**
-     * 	Date[]： 6个type返回字段一样
+     * Date[]： 6个type返回字段一样
      */
     public static class date {
         public String WARNID;//数据id
@@ -886,6 +918,7 @@ public class DataManager {
         public String showCount;
         public int TotalRecords;
     }
+
     /**
      * 参数数据
      */
@@ -904,11 +937,13 @@ public class DataManager {
         public String PRIPID;
         public String ENTTYPE;
     }
+
     public static List<Baseinfo> BaseinfoList = new ArrayList<>();
+
     /**
      * 16个item条数实体类
      */
-    public static class allcount{
+    public static class allcount {
         public String HonorCount;//荣誉信息
         public String JudiciaryCount;//司法信息
         public String PledgeCount;//抵押
@@ -927,9 +962,11 @@ public class DataManager {
         public String PatentCount;//专利
 
     }
+
     public static List<allcount> allcountsList = new ArrayList<>();
 
     public static List<Userreview> UserreviewList = new ArrayList<>();
+
     /**
      * 我的点评列表
      */
@@ -947,27 +984,31 @@ public class DataManager {
         public String MEMBERNAME;//本评论用户名称
         public String ISFAILED;//是否吐槽 0为否，1为是
     }
+
     public static List<Replay2review> replay2reviewList = new ArrayList<>();
 
     /**
      * 回复评论（楼中楼）
      */
-    public static  class Replay2review {
+    public static class Replay2review {
         public String CHILDMEMBERID;//用户ID
         public String REPLAYCOMMENT;//回复评论内容
         public String CHILDMEMBERNAME;//用户名称
         public String REPLAYTIME;//回复评论时间
     }
+
     public class Data201 {
         public List<Userreview> userreview;
         public Paging Paging;
     }
+
     public class Root201 {
         public String message;
         public int status;
         public Data201 data;
         public String version;
     }
+
     /**
      * 点赞 and 差评  and 发表 and 回复
      */
@@ -977,21 +1018,20 @@ public class DataManager {
         public Data202 data;
         public String version;
     }
+
     public class Data202 {
         public String result;
     }
-    public static String Result ="";
+
+    public static String Result = "";
 
 
-
-
-
-
+    public static User user = new User();
 
     /**
      * 用户信息实体类
      */
-    public static class User{
+    public static class User {
 
         /**
          * message : true
@@ -1044,10 +1084,75 @@ public class DataManager {
                 public String EMAIL;
                 public String ALIASNAME;//别名
                 public String PASSWORD;//密码
-                public String USERTYPEID;//用户类型ID
+                public String USERTYPEID;//用户类型ID86D9D7F53FCA45DD93E2D83DFCA0CB43
             }
         }
     }
-    public static User user=new User();
 
+    public static MyComplaint myComplaint = new MyComplaint();
+    /**
+     * 我的投诉列表实体类
+     */
+    public static class MyComplaint {
+
+
+        /**
+         * message : true
+         * status : 1
+         * data : 数据源
+         * version : v1.0
+         */
+
+        public String message;
+        public String status;
+        /**
+         * Paging : 页信息
+         * commentList :投诉列表
+         */
+        public DataBean data;
+        public String version;
+
+        public static class DataBean {
+            /**
+             * TotalPage : 总页数
+             * ShowCount : 每页显示总页数
+             * TotalResult : 总记录数
+             * CurrentResult : 当前记录启示索引
+             * CurrentPage : 当前页
+             */
+
+            public PagingBean Paging;
+            /**
+             * COMPLAINTIME : 2016-06-28 15:58:47  *投诉时间
+             * COMPLAINTID : 7a710d65c0c54571bb3903d4a9227b4c  *投诉ID
+             * ENTERNAME : 南昌市青山湖区小美小百货店    *投诉企业
+             * AttachmentList : []   附件集合
+             * COMPLAINTITLE : 哀伤的风格 *投诉标题
+             * COMPLAINSTATUS : 0 投诉状态
+             */
+
+            public List<CommentListBean> commentList;
+
+            public static class PagingBean {
+                public int TotalPage;
+                public int ShowCount;
+                public int TotalResult;
+                public int CurrentResult;
+                public int CurrentPage;
+            }
+
+            public static class CommentListBean {
+                public String COMPLAINTIME;
+                public String COMPLAINTID;
+                public String ENTERNAME;
+                public String COMPLAINTITLE;
+                public String COMPLAINSTATUS;
+                public List<?> AttachmentList;
+            }
+        }
     }
+
+
+
+}
+

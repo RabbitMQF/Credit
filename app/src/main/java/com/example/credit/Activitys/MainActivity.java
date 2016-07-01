@@ -7,6 +7,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
@@ -17,6 +18,7 @@ import android.view.View;
 
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
@@ -29,6 +31,7 @@ import com.example.credit.R;
 import com.example.credit.Services.CallServer;
 import com.example.credit.Utils.CreditSharePreferences;
 import com.example.credit.Utils.GsonUtil;
+import com.example.credit.Utils.MD5;
 import com.example.credit.Utils.MyhttpCallBack;
 import com.example.credit.Utils.URLconstant;
 import com.example.credit.Views.FileUtil;
@@ -69,6 +72,11 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
     @ViewInject(R.id.UserSz)
     TextView UserSz;//用户
+
+    @ViewInject(R.id.set)
+    ImageView set;//设置
+
+
     @ViewInject(R.id.Smenu_1)
     RelativeLayout Smenu_1;//我的评价
     @ViewInject(R.id.Smenu_2)
@@ -100,8 +108,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        csp= CreditSharePreferences.getLifeSharedPreferences();
-        LoginStatus=csp.getLoginStatus();
+        csp = CreditSharePreferences.getLifeSharedPreferences();
+        LoginStatus = csp.getLoginStatus();
         ViewUtils.inject(this);
         initView();
 
@@ -122,9 +130,23 @@ public class MainActivity extends Activity implements View.OnClickListener {
         handler = new Handler() {
             @Override
             public void handleMessage(Message msg) {
-                NewsListAdapter adapter = new NewsListAdapter(MainActivity.this, DataManager.NewssList);
-                NewsListview.setAdapter(adapter);
-                adapter.notifyDataSetChanged();
+                switch (msg.what){
+                    case 0:
+                        NewsListAdapter adapter = new NewsListAdapter(MainActivity.this, DataManager.NewssList);
+                        NewsListview.setAdapter(adapter);
+                        adapter.notifyDataSetChanged();
+                        break;
+                    case 1://我的评价
+                        Intent i1 = new Intent(MainActivity.this, MyCommentlistActivity.class);
+                        startActivity(i1);
+                        break;
+                    case 2://跳我的投诉
+                        startActivity(new Intent(MainActivity.this, MycomplaintsListActivity.class));
+                        break;
+                    default:
+                        break;
+                }
+
             }
         };
         initData();
@@ -193,6 +215,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
         tab3.setOnClickListener(listener);
         tab4.setOnClickListener(listener);
 
+        set.setOnClickListener(listener);
+
 //        pb_4.setOnClickListener(listener);
     }
 
@@ -201,7 +225,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         public void onClick(View v) {
             switch (v.getId()) {
                 case R.id.UserSz://用户
-                   // Intent i = new Intent(MainActivity.this, LoginActivity.class);
+                    // Intent i = new Intent(MainActivity.this, LoginActivity.class);
                     //startActivity(i);
 //                    Toa2st.makeText(MainActivity.this, "此模块，正在赶点加工中...", Toast.LENGTH_SHORT).show();
                     break;
@@ -212,13 +236,25 @@ public class MainActivity extends Activity implements View.OnClickListener {
                     startActivityForResult(pickIntent, REQUESTCODE_PICK);
                     break;
                 case R.id.Smenu_1://我的评价
-                    Intent i1 = new Intent(MainActivity.this, ClaimDetailsActivity.class);
-                    startActivity(i1);
+                    Build bd = new Build();
+                    String model = bd.MODEL;//设备ID
+                    String KeyNos="62d076b3cbd74e68ae8f1f089507c779";
+                    String tokens= SearchFirmActivty.MD5s(KeyNos + model);
+                    GsonUtil request14 = new GsonUtil(URLconstant.MMOMM, RequestMethod.GET);
+                    request14.add("deviceId",model);
+                    request14.add("token",tokens);
+                    request14.add("KeyNo",KeyNos);
+                    CallServer.getInstance().add(MainActivity.this, request14, MyhttpCallBack.getInstance(), 0x206, true, false, true);
+
+
 //                    Toast.makeText(MainActivity.this, "此模块，正在赶点加工中...", Toast.LENGTH_SHORT).show();
                     break;
                 case R.id.Smenu_2://我的投诉
-                    Intent i2 = new Intent(MainActivity.this, MycomplaintsListActivity.class);
-                    startActivity(i2);
+                    GsonUtil ComplaintsRuerst = new GsonUtil(URLconstant.URLINSER + URLconstant.GETCOMPLAIN, RequestMethod.GET);
+                    ComplaintsRuerst.add("token", MD5.MD5s("86D9D7F53FCA45DD93E2D83DFCA0CB43" + new Build().MODEL));//csp.getID()
+                    ComplaintsRuerst.add("KeyNo","86D9D7F53FCA45DD93E2D83DFCA0CB43");//csp.getID()
+                    ComplaintsRuerst.add("deviceId", new Build().MODEL);
+                    CallServer.getInstance().add(MainActivity.this,ComplaintsRuerst,MyhttpCallBack.getInstance(),0x997,true,false,true);
 //                    Toast.makeText(MainActivity.this, "此模块，正在赶点加工中...", Toast.LENGTH_SHORT).show();
                     break;
                 case R.id.Smenu_3://我的关注
@@ -238,9 +274,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
                     Toast.makeText(MainActivity.this, "此模块，正在赶点加工中...", Toast.LENGTH_SHORT).show();
                     break;
                 case R.id.login://登录
-                    if(!LoginStatus) {//如果当前状态未登录  点登录的跳转
+                    if (!LoginStatus) {//如果当前状态未登录  点登录的跳转
                         startActivity(new Intent(MainActivity.this, LoginActivity.class));
-                    }else {//如果当前状态已登录  点击退出登录的操作
+                    } else {//如果当前状态已登录  点击退出登录的操作
                         csp.putUser(null);
                         com.example.credit.Utils.Toast.show("退出登录");
                         csp.putLoginStatus(false);
@@ -274,9 +310,10 @@ public class MainActivity extends Activity implements View.OnClickListener {
                     overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
                     break;
 
-//                case R.id.pb_4:
-//                    mLeftMenu.toggle();
-//                    break;
+                case R.id.set:
+                    Intent is=new Intent(MainActivity.this,UserSetActivity.class);
+                    startActivity(is);
+                    break;
 
 
             }
@@ -366,11 +403,11 @@ public class MainActivity extends Activity implements View.OnClickListener {
         }
     }*/
 
-    private void isLogin(){
-        LoginStatus=csp.getLoginStatus();
-        if(LoginStatus){//若当前状态为登录
+    private void isLogin() {
+        LoginStatus = csp.getLoginStatus();
+        if (LoginStatus) {//若当前状态为登录
             login.setText("退出登录");
-        }else {//若当前状态未未登录
+        } else {//若当前状态未未登录
             login.setText("登录");
         }
     }

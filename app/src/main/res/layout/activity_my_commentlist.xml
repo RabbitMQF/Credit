@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#EEEEEF"
+    android:orientation="vertical"
+    tools:context="com.example.credit.Activitys.MyCommentlistActivity">
+
+    <include layout="@layout/public_top_bar"/>
+
+    <ListView
+        android:id="@+id/Mycomm_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:onClick="@null"
+        android:divider="#00000000"
+        android:focusable="true"
+        android:scrollbars="none"
+        android:focusableInTouchMode="true"
+        android:listSelector="#00000000" />
+
+</LinearLayout>

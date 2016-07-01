@@ -37,6 +37,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
     TextView b_topname;
     @ViewInject(R.id.b_return)
     LinearLayout b_return;
+
     @ViewInject(R.id.login_user)
     EditText login_user;//用户名
     @ViewInject(R.id.login_pwd)

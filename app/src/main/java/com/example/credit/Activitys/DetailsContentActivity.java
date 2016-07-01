@@ -119,7 +119,6 @@ public class DetailsContentActivity extends BaseActivity {
     @ViewInject(R.id.c_fzjg)
     LinearLayout c_impPeoc_fzjgple;//分支机构null
 
-    List<DataManager.Data0> dcList = new ArrayList<DataManager.Data0>();
     public String[] arrays3 = {"注册资本", "法定代表", "发照日期", "成立日期",
             "工商注册号", "组织机构代码"};
     public String[] arrays4;
@@ -324,31 +323,28 @@ public class DetailsContentActivity extends BaseActivity {
         /**
          * 基本信息
          */
-        dcList = DataManager.Data0List;
 
         List<String> lt = new ArrayList<String>();
-        if(!dcList.get(0).REGCAP.equals("") && dcList.get(0).REGCAP.length()>0){
-            lt.add(dcList.get(0).REGCAP + "万元");
+
+        lt.add(DataManager.gsxx.data.BaseInfo.REGCAP + "万元");
+
+        if(!DataManager.gsxx.data.BaseInfo.NAME.equals("")){
+            lt.add(DataManager.gsxx.data.BaseInfo.NAME);
         }else{
             lt.add("暂无信息");
         }
-        if(!dcList.get(0).NAME.equals("")){
-            lt.add(dcList.get(0).NAME);
+        if(!DataManager.gsxx.data.BaseInfo.APPRDATE.equals("")){
+            lt.add(DataManager.gsxx.data.BaseInfo.APPRDATE);
         }else{
             lt.add("暂无信息");
         }
-        if(!dcList.get(0).APPRDATE.equals("")){
-            lt.add(dcList.get(0).APPRDATE);
+        if(!DataManager.gsxx.data.BaseInfo.ESTDATE.equals("")){
+            lt.add(DataManager.gsxx.data.BaseInfo.ESTDATE);
         }else{
             lt.add("暂无信息");
         }
-        if(!dcList.get(0).ESTDATE.equals("")){
-            lt.add(dcList.get(0).ESTDATE);
-        }else{
-            lt.add("暂无信息");
-        }
-        if(!dcList.get(0).REGNO.equals("")){
-            lt.add(dcList.get(0).REGNO);
+        if(!DataManager.gsxx.data.BaseInfo.REGNO.equals("")){
+            lt.add(DataManager.gsxx.data.BaseInfo.REGNO);
         }else{
             lt.add("暂无信息");
         }
@@ -363,54 +359,55 @@ public class DetailsContentActivity extends BaseActivity {
         /**
          * 判断企业类型是否为空
          */
-        if(!(dcList.get(0).ENTTYPE_CN).equals("")){
-            c_type.setText(dcList.get(0).ENTTYPE_CN);//企业类型
+        if(!(DataManager.gsxx.data.BaseInfo.ENTTYPE_CN).equals("")){
+            c_type.setText(DataManager.gsxx.data.BaseInfo.ENTTYPE_CN);//企业类型
         }else{
             c_type.setText("暂无信息");
         }
         /**
          * 判断经营状态是否为空
          */
-        if(!(dcList.get(0).REGSTATE_CN).equals("")){
-            c_state.setText(dcList.get(0).REGSTATE_CN);//经营状态/
+        if(!(DataManager.gsxx.data.BaseInfo.REGSTATE_CN).equals("")){
+            c_state.setText(DataManager.gsxx.data.BaseInfo.REGSTATE_CN);//经营状态/
         }else{
             c_state.setText("暂无信息");
         }
         /**
          * 判断经营范围是否为空
          */
-        if(!(dcList.get(0).OPSCOPE).equals("")){
-            c_fangwei.setText(dcList.get(0).OPSCOPE);//经营范围
+        if(!(DataManager.gsxx.data.BaseInfo.OPSCOPE).equals("")){
+            c_fangwei.setText(DataManager.gsxx.data.BaseInfo.OPSCOPE);//经营范围
         }else{
             c_fangwei.setText("暂无信息");
         }
         /**
          * 判断企业地址是否为空
          */
-        if(!(dcList.get(0).DOM).equals("")){
-            c_address.setText(dcList.get(0).DOM);//企业地址
+        if(!(DataManager.gsxx.data.BaseInfo.DOM).equals("")){
+            c_address.setText(DataManager.gsxx.data.BaseInfo.DOM);//企业地址
         }else{
             c_address.setText("暂无信息");
         }
         /**
          * 判断经营期限是否为空
          */
-        if((dcList.get(0).OPFROM).equals("")){
-            c_datetiem.setText("**** 至" + dcList.get(0).OPTO);
-        }else if((dcList.get(0).OPTO).equals("")){
-            c_datetiem.setText(dcList.get(0).OPFROM + "至 ****" );
-        }else if(!(dcList.get(0).OPFROM).equals("") && !(dcList.get(0).OPTO).equals("")){
-            c_datetiem.setText(dcList.get(0).OPFROM + "至" + dcList.get(0).OPTO);//经营期限
+//        if((DataManager.gsxx.data.BaseInfo.OPFROM).equals("")){
+//            c_datetiem.setText("**** 至" + DataManager.gsxx.data.BaseInfo.OPTO);
+//        }else if((DataManager.gsxx.data.BaseInfo.OPTO).equals("")){
+//            c_datetiem.setText(DataManager.gsxx.data.BaseInfo.OPFROM + "至 ****" );
+//        }else
+        if(!(DataManager.gsxx.data.BaseInfo.OPFROM).equals("") && !(DataManager.gsxx.data.BaseInfo.OPTO).equals("")){
+            c_datetiem.setText(DataManager.gsxx.data.BaseInfo.OPFROM + "至" + DataManager.gsxx.data.BaseInfo.OPTO);//经营期限
         }else{
             c_datetiem.setText("暂无信息");
         }
         /**
          * 判断登记机关是否为空
          */
-        if((dcList.get(0).REGORG_CN).equals("")){
-             c_djjg.setText("暂无信息");
+        if((DataManager.gsxx.data.BaseInfo.REGORG_CN).equals("")){
+            c_djjg.setText("暂无信息");
         }else{
-            c_djjg.setText(dcList.get(0).REGORG_CN);//登记机关
+            c_djjg.setText(DataManager.gsxx.data.BaseInfo.REGORG_CN);//登记机关
         }
 
 
@@ -419,8 +416,8 @@ public class DetailsContentActivity extends BaseActivity {
          */
         List<String> p1 = new ArrayList<String>();//股东类型list
         List<String> p2 = new ArrayList<String>();//人员list
-        if((dcList.get(0).Partners)!=null && (dcList.get(0).Partners).size()>0){
-            for (DataManager.Partners p : dcList.get(0).Partners) {
+        if((DataManager.gsxx.data.Partners)!=null && (DataManager.gsxx.data.Partners).size()>0){
+            for (DataManager.GSXX.DataBean.PartnersBean p: DataManager.gsxx.data.Partners) {
                 p1.add(p.INVTYPE_CN);
                 p2.add(p.INV);
             }
@@ -441,8 +438,8 @@ public class DetailsContentActivity extends BaseActivity {
          */
         List<String> zy1 = new ArrayList<String>();//职位list
         List<String> zy2 = new ArrayList<String>();//人员list
-        if((dcList.get(0).Employees)!=null && (dcList.get(0).Employees).size()>0){
-            for (DataManager.Employees e : dcList.get(0).Employees) {
+        if((DataManager.gsxx.data.Employees)!=null && (DataManager.gsxx.data.Employees).size()>0){
+            for (DataManager.GSXX.DataBean.EmployeesBean e : DataManager.gsxx.data.Employees) {
                 zy1.add(e.POSITION_CN);
                 zy2.add(e.NAME);
             }
@@ -460,8 +457,8 @@ public class DetailsContentActivity extends BaseActivity {
         /**
          * 分支机构
          */
-        if((dcList.get(0).AnnualReports)!=null && (dcList.get(0).AnnualReports).size()>0){
-            FeiZhiAdapter hcadapter2=new FeiZhiAdapter(DetailsContentActivity.this, dcList.get(0).AnnualReports);
+        if((DataManager.gsxx.data.AnnualReports)!=null && (DataManager.gsxx.data.AnnualReports).size()>0){
+            FeiZhiAdapter hcadapter2=new FeiZhiAdapter(DetailsContentActivity.this, DataManager.gsxx.data.AnnualReports);
             myGridViewZYfz.setAdapter(hcadapter2);
         }else{
             c_impPeoc_fzjgple.setVisibility(View.VISIBLE);
@@ -477,8 +474,8 @@ public class DetailsContentActivity extends BaseActivity {
         List<DataManager.ChangeTime> clisttimeD = new ArrayList<>();//变更集合
         List<DataManager.ChangeData> clistd1 = new ArrayList<>();//变更信息临时仓库
 
-        List<DataManager.ChangeRecords> clistc = DataManager.Data0List.get(0).ChangeRecords;//工商变更信息
-        if((DataManager.Data0List.get(0).ChangeRecords)!=null && (DataManager.Data0List.get(0).ChangeRecords).size()>0){//判断数据是否为空
+        List<DataManager.GSXX.DataBean.ChangeRecordsBean> clistc = DataManager.gsxx.data.ChangeRecords;//工商变更信息
+        if(( DataManager.gsxx.data.ChangeRecords)!=null && ( DataManager.gsxx.data.ChangeRecords).size()>0){//判断数据是否为空
             for (int i = 0; i <clistc.size(); i++) {//数据打乱并按时间重新分组
                 if (i > 0) {
                     if (clistc.get(i).ALTDATE.equals(clistc.get(i - 1).ALTDATE)) {//当下标为i的日期与下标为i-1的日期 相等 时

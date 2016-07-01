@@ -14,9 +14,9 @@ import java.util.List;
 
 public class FeiZhiAdapter extends BaseAdapter {
     private Context context;
-    private List<DataManager.AnnualReports> list;
+    private List<DataManager.GSXX.DataBean.AnnualReports> list;
 
-    public FeiZhiAdapter(Context context, List<DataManager.AnnualReports> list) {
+    public FeiZhiAdapter(Context context, List<DataManager.GSXX.DataBean.AnnualReports> list) {
         this.context = context;
         this.list = list;
     }
