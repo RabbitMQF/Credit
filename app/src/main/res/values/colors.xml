@@ -12,8 +12,9 @@
     <color name="huise">#B8B8B8</color>
     <color name="background_tab_pressed">#6633B5E5</color>
     <color name="tou">#00000000</color>
-
-
+    <color name="orange">#ec7e17</color>
+    <color name="green">#03700e</color>
+    <color name="red">#b70303</color>
 
 
     <color name="t1">#0ca7dd</color>

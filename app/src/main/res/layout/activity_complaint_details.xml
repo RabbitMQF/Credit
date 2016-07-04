@@ -38,6 +38,7 @@
                     android:textSize="18sp" />
 
                 <TextView
+                    android:id="@+id/com_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
@@ -69,6 +70,7 @@
                     android:textSize="18sp" />
 
                 <TextView
+                    android:id="@+id/complain_er"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
@@ -103,6 +105,7 @@
                     android:textSize="18sp" />
 
                 <TextView
+                    android:id="@+id/complain_detail"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"

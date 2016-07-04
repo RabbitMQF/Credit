@@ -135,10 +135,11 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
                                 pd.show();
                                 String KeyNo=DataManager.searchList.get(position).PRIPID;//市场主体身份代码
                                 String token=MD5s(KeyNo+model);
-                                GsonUtil requst=new GsonUtil(URLconstant.GETITEMNUM,RequestMethod.GET);
+                                GsonUtil requst=new GsonUtil(URLconstant.URLINSER + URLconstant.GETITEMNUM,RequestMethod.GET);
                                 requst.add("KeyNo",KeyNo);
                                 requst.add("token",token);
                                 requst.add("deviceId",model);
+//                                requst.add("memberId","86D9D7F53FCA45DD93E2D83DFCA0CB42");
                                 requst.add("regno",DataManager.searchList.get(position).REGNO);
                                 CallServer.getInstance().add(SearchFirmActivty.this,requst,MyhttpCallBack.getInstance(),0x024,true,false,true);
 
@@ -1007,7 +1008,7 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
 
             pd.setCancelable(false);
             pd.show();
-            GsonUtil request = new GsonUtil(URLconstant.SEARCHURL, RequestMethod.GET);
+            GsonUtil request = new GsonUtil(URLconstant.URLINSER + URLconstant.SEARCHURL, RequestMethod.GET);
             //request.setConnectTimeout(50000);
             request.setReadTimeout(50000);
             request.add("token", Tks);//加密结果

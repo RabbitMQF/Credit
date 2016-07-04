@@ -36,6 +36,7 @@ public class DataManager {
             }
         }
     }
+
     public class ContatUser {//联系人信息
         public Integer user_id;
         public Integer corps_id;
@@ -944,6 +945,8 @@ public class DataManager {
      * 16个item条数实体类
      */
     public static class allcount {
+        public String IsFavorite;//关注信息
+
         public String HonorCount;//荣誉信息
         public String JudiciaryCount;//司法信息
         public String PledgeCount;//抵押
@@ -1090,6 +1093,7 @@ public class DataManager {
     }
 
     public static MyComplaint myComplaint = new MyComplaint();
+
     /**
      * 我的投诉列表实体类
      */
@@ -1152,6 +1156,138 @@ public class DataManager {
         }
     }
 
+    /**
+     * 关注 and 取消关注
+     */
+    public static Favotite FavotiteS=new Favotite();
+    public static class Favotite {
+        public String message;
+        public String status;
+        /**
+         * result : success
+         */
+        public DataBean data;
+        public static class DataBean {
+            public String result;//结果
+        }
+    }
+    /**
+     * 我的关注列表
+     */
+    public static FavotiteList FavotiteListS=new FavotiteList();
+    public static class FavotiteList {
+        public String message;
+        public String status;
+        public DataBean data;
+
+        public static class DataBean {
+            /**
+             * ENTERID : 29cf69863e6a11e6b90f00163e160363
+             * REGNORE : 360103210025958
+             * ATTENTIONTIME : 2016-07-01 19:41:26
+             * NAME : 万杏娥
+             * ENTTYPE_CN : 有限责任公司(自然人投资或控股)
+             * ENTERNAME : 江西智容科技有限公司
+             * ATTENTIONID : 63ddaceb1f7d439eb10b6a9002f327f7
+             * ATTENTIONTYPE : 南昌
+             * PRIPID : 3601032011041300098564
+             * ENTTYPE : 1130
+             */
+            public List<AttentionListBean> AttentionList=new ArrayList<>();
+            public static class AttentionListBean {
+                public String ENTERID;//附加表的企业ID
+                public String REGNORE;//注册号
+                public String ATTENTIONTIME;//关注时间
+                public String NAME;//法人名字
+                public String ENTTYPE_CN;//公司类型
+                public String ENTERNAME;//企业名称
+                public String ATTENTIONID;//关注ID
+                public String ATTENTIONTYPE;//关注类型
+                public String PRIPID;//企业主体ID
+                public String ENTTYPE;//市场主体类型代码
+
+            }
+        }
+    }
+
+
+    public static ComplaintDetail complaintDetail = new ComplaintDetail();
+
+    /**
+     * 投诉详情实体类
+     */
+    public static class ComplaintDetail {
+
+        /**
+         * message : true
+         * status : 1
+         * data : {"AttachmentCount":"1","AttachmentList":[{"ATTACHMENTDESC":"my_icon","ATTACHMENTNAME":"73287324ae494a5799e842e8c5f6df901467366492379.jpg","ATTACHMENTID":"15126d98fb9a450fb0e9c149ee4b3e62","ATTACHMENTPATH":"/9j/4AAQSkZJRgABAQEBLAEsAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcU\r\nFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgo\r\nKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAC0ALQDASIA\r\nAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQA\r\nAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3\r\nODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWm\r\np6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEA\r\nAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSEx\r\nBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElK\r\nU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3\r\nuLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwBrM25v\r\nmP50m5vU/nQ/3m+tJX6KfjVxdzep/Ojc3qfzpKKYXF3N6n86Nzep/OkooC4u5vU/nRub1P50lFAX\r\nF3N6n86Nzep/OkooC4u5vU/nRub1P50lFAXF3N6n86Nzep/OkooC4u5vU/nRub1P50lFAXF3N6n8\r\n6Nzep/OkooC4u5vU/nRub1P50lFAXF3N6n86Nzep/OkooC5NESV+8fzop1v9w/WikMgf7zfWkpX+\r\n831pKYjR0PRr7XLt7XTY1kmRN5DMF4yB3+tb3/CufEv/AD5Rf9/1q/8ABX/karn/AK9W/wDQ1r22\r\nvn8wzOthqzpwSt/XmfW5RkmHxuGVWo3e72/4Y8D/AOFc+Jf+fKL/AL/rWPr/AId1LQPIGqwrEZs7\r\n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","ATTACHMENTTYPE":"投诉类型","ATTACHMENTTIME":"2016-07-01 17:48:12"}],"UserComplain":{"COMPLAINTYPE":"","COMPLAINTIME":"2016-07-01 17:48:11","COMPLAINCOMMENT":"是的风格和健康巨化股份但是法国红酒看11111111111111111","ENTERCOMMENT":"","REFUSEREASON":"","GOVCOMMENT":"","COMPLAINTTITLE":"啊当事人同意就很快乐","MEMBERID":"b2d794b453664657af61b373c1d00e7c","ENTERNAME":"江西智容科技有限公司","COMPLAINSTATUS":"0","MEMBERNAME":"林恒56"}}
+         * version : v1.0
+         */
+
+        public String message;
+        public String status;
+        /**
+         * AttachmentCount : 1 附件条数
+         * AttachmentList :用户投诉时附件
+         * UserComplain : 用户对企业的投诉列表
+         */
+
+        public DataBean data;
+        public String version;
+
+        public static class DataBean {
+            public String AttachmentCount;
+            /**
+             * COMPLAINTYPE :投诉类型
+             * COMPLAINTIME : 2016-07-01 17:48:11：投诉时间
+             * COMPLAINCOMMENT : 是的风格和健康巨化股份：投诉内容
+             * ENTERCOMMENT :  企业处理回复
+             * REFUSEREASON :拒绝原因
+             * GOVCOMMENT : 政府回复
+             * COMPLAINTTITLE : 啊当事人同意就很快乐：投诉标题
+             * MEMBERID : b2d794b453664657af61b373c1d00e7c ：用户ID
+             * ENTERNAME : 江西智容科技有限公司：企业名称
+             * COMPLAINSTATUS : 0 ：投诉处理状态 0未处理 1已处理 2已拒绝
+             * MEMBERNAME : 林恒56：用户名称
+             */
+
+            public UserComplainBean UserComplain;
+            /**
+             * ATTACHMENTDESC : my_icon：附件描述
+             * ATTACHMENTNAME : 73287324ae494a5799e842e8c5f6df901467366492379.jpg：文件名？
+             * ATTACHMENTID : 15126d98fb9a450fb0e9c149ee4b3e62 ：附件ID
+             * ATTACHMENTPATH : Base64图片
+             * ATTACHMENTTYPE : 附件类型，如身份证等
+             * ATTACHMENTTIME : 2016-07-01 17:48:12
+             */
+
+            public List<AttachmentListBean> AttachmentList;
+
+            public static class UserComplainBean {
+                public String COMPLAINTYPE;
+                public String COMPLAINTIME;
+                public String COMPLAINCOMMENT;
+                public String ENTERCOMMENT;
+                public String REFUSEREASON;
+                public String GOVCOMMENT;
+                public String COMPLAINTTITLE;
+                public String MEMBERID;
+                public String ENTERNAME;
+                public String COMPLAINSTATUS;
+                public String MEMBERNAME;
+            }
+
+            public static class AttachmentListBean {
+                public String ATTACHMENTDESC;
+                public String ATTACHMENTNAME;
+                public String ATTACHMENTID;
+                public String ATTACHMENTPATH;
+                public String ATTACHMENTTYPE;
+                public String ATTACHMENTTIME;
+            }
+        }
+    }
 
 
 }

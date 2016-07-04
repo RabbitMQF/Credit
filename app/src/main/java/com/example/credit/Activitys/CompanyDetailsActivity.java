@@ -18,6 +18,7 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
@@ -67,6 +68,13 @@ public class CompanyDetailsActivity extends BaseActivity {
     TextView cp_name;
     @ViewInject(R.id.details_tit1)//浏览量
             TextView details_tit1;
+
+    @ViewInject(R.id.saveG)//关注layout
+            LinearLayout saveG;
+    @ViewInject(R.id.details_tit3)//关注text
+            TextView details_tit3;
+
+
 
     @ViewInject(R.id.vg)
     RelativeLayout vg;
@@ -120,10 +128,7 @@ public class CompanyDetailsActivity extends BaseActivity {
 
     int position;
     public static Handler handler;
-    String model;
-    String KeyNo;
-    String token;
-    String regnore;
+    String model,KeyNo,token,regnore;
 
     @ViewInject(R.id.pb_1)
     TextView pb_1;//首页
@@ -135,6 +140,7 @@ public class CompanyDetailsActivity extends BaseActivity {
     TextView pb_4;//我
 
     ProgressDialog pd;
+    String KeyNos,tokens;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -151,6 +157,9 @@ public class CompanyDetailsActivity extends BaseActivity {
         KeyNo = DataManager.searchList.get(position).PRIPID;//市场主体身份代码
         token = SearchFirmActivty.MD5s(KeyNo + model);//token 由 设备ID+市场主体身份代码 MD5生成
         regnore=DataManager.searchList.get(position).REGNO;//注册号
+
+        KeyNos=DataManager.BaseinfoList.get(0).EnterAddtionID;//企业附加信息主键ID
+        tokens= SearchFirmActivty.MD5s(KeyNos + model);
         init();
         adapter1 = new MyGridAdapter1(CompanyDetailsActivity.this, arrays1, arrays2, imgs);
 
@@ -299,6 +308,25 @@ public class CompanyDetailsActivity extends BaseActivity {
                         CommentListActivity.RUserreviewList= DataManager.UserreviewList;
                         Intent i21=new Intent(CompanyDetailsActivity.this,CommentListActivity.class);
                         startActivity(i21);
+                        break;
+                    case 22://关注
+                        if(DataManager.FavotiteS.data.result.equals("success")){
+                            saveG.setBackgroundResource(R.drawable.details_toplogo_s);
+                            details_tit3.setText("已关注");
+                            android.widget.Toast.makeText(CompanyDetailsActivity.this, "关注成功！", android.widget.Toast.LENGTH_SHORT).show();
+                        }else{
+                            android.widget.Toast.makeText(CompanyDetailsActivity.this, "关注失败！", android.widget.Toast.LENGTH_SHORT).show();
+                        }
+                        break;
+                    case 23://取消关注
+                        if(DataManager.FavotiteS.data.result.equals("success")){
+                            saveG.setBackgroundResource(R.drawable.details_toplogo);
+                            details_tit3.setText("关注");
+                            android.widget.Toast.makeText(CompanyDetailsActivity.this, "取消关注成功！", android.widget.Toast.LENGTH_SHORT).show();
+                        }else{
+                            android.widget.Toast.makeText(CompanyDetailsActivity.this, "取消关注失败！", android.widget.Toast.LENGTH_SHORT).show();
+
+                        }
                         break;
                     case 500:
                         waitDialog.dismiss();
@@ -596,10 +624,22 @@ public class CompanyDetailsActivity extends BaseActivity {
             imgs1[15]=R.mipmap.icon16_1;
         }
 
+        if(DataManager.allcountsList.get(0).IsFavorite.equals("false")) {//当前状态为未关注，所以点击是关注
+            saveG.setBackgroundResource(R.drawable.details_toplogo);
+            details_tit3.setText("关注");
+        }else{
+            saveG.setBackgroundResource(R.drawable.details_toplogo_s);
+            details_tit3.setText("已关注");
+        }
+
+
+
+
         pb_1.setOnClickListener(onClickListener);
         pb_2.setOnClickListener(onClickListener);
         pb_3.setOnClickListener(onClickListener);
         pb_4.setOnClickListener(onClickListener);
+        saveG.setOnClickListener(onClickListener);
     }
 
     public void showPopupWindow(View view) {
@@ -645,10 +685,7 @@ public class CompanyDetailsActivity extends BaseActivity {
                     pd.setMessage("正在加载中...");
                     pd.setCancelable(false);
                     pd.show();
-                    String KeyNos=DataManager.BaseinfoList.get(0).EnterAddtionID;
-                    String tokens= SearchFirmActivty.MD5s(KeyNos + model);
-
-                    GsonUtil request14 = new GsonUtil(URLconstant.COMM, RequestMethod.GET);
+                    GsonUtil request14 = new GsonUtil(URLconstant.URLINSER + URLconstant.COMM, RequestMethod.GET);
                     request14.add("deviceId",model);
                     request14.add("token",tokens);
                     request14.add("KeyNo",KeyNos);
@@ -663,6 +700,27 @@ public class CompanyDetailsActivity extends BaseActivity {
 //                    Intent i4=new Intent(CompanyDetailsActivity.this,MainActivity.class);
 //                    startActivity(i4);
                     android.widget.Toast.makeText(CompanyDetailsActivity.this, "此模块，正在抢修中。。。！", android.widget.Toast.LENGTH_SHORT).show();
+
+                    break;
+
+                case R.id.saveG://关注
+                    if(DataManager.allcountsList.get(0).IsFavorite.equals("false")){//当前状态为未关注，所以点击是关注
+                        GsonUtil requestG = new GsonUtil(URLconstant.URLINSER + URLconstant.YESFAVORITE, RequestMethod.GET);
+                        requestG.add("deviceId",model);
+                        requestG.add("token",tokens);
+                        requestG.add("KeyNo",KeyNos);
+                        requestG.add("memberId","86D9D7F53FCA45DD93E2D83DFCA0CB42");
+                        requestG.add("attentionTypeId","11");
+                        CallServer.getInstance().add(CompanyDetailsActivity.this, requestG, MyhttpCallBack.getInstance(), 0x101, true, false, true);
+                    }else{//当前状态为已关注，所以点击是取消关注
+                        GsonUtil requestN = new GsonUtil(URLconstant.URLINSER + URLconstant.NOFAVORITE, RequestMethod.GET);
+                        requestN.add("deviceId",model);
+                        requestN.add("token",tokens);
+                        requestN.add("KeyNo",KeyNos);
+                        requestN.add("memberId","86D9D7F53FCA45DD93E2D83DFCA0CB42");
+                        CallServer.getInstance().add(CompanyDetailsActivity.this, requestN, MyhttpCallBack.getInstance(), 0x102, true, false, true);
+                    }
+//                    android.widget.Toast.makeText(CompanyDetailsActivity.this, "此模块，正在抢修中。。。！", android.widget.Toast.LENGTH_SHORT).show();
 
                     break;
             }

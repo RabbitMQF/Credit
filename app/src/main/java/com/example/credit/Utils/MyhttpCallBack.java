@@ -4,6 +4,7 @@ import com.example.credit.Activitys.CommentListDetailsActivity;
 import com.example.credit.Activitys.CompanyDetailsActivity;
 import com.example.credit.Activitys.LoginActivity;
 import com.example.credit.Activitys.MainActivity;
+import com.example.credit.Activitys.MycomplaintsListActivity;
 import com.example.credit.Activitys.RegisterActivity;
 import com.example.credit.Activitys.SearchFirmActivty;
 import com.example.credit.Activitys.ToCommentActivity;
@@ -26,7 +27,7 @@ public class MyhttpCallBack implements HttpCallBack {
     static Map<String, Object> map;
     String jsonString;
     public static DataManager.baging baging = new DataManager.baging();
-    public static DataManager.allcount allcount = new DataManager.allcount();
+
     private static MyhttpCallBack instance;
     CreditSharePreferences csp = CreditSharePreferences.getLifeSharedPreferences();
 
@@ -55,11 +56,12 @@ public class MyhttpCallBack implements HttpCallBack {
 
                 //真实城市数据解法————zlh手解json
                 String jstring = (String) response.get();
-                map = gson.fromJson(jstring, new TypeToken<Map<String, Object>>() { }.getType());
+                map = gson.fromJson(jstring, new TypeToken<Map<String, Object>>() {
+                }.getType());
                 //JsonReader reader = new JsonReader(new StringReader(((Map<String, Object>) map.get("data")).get("city").toString()));
                 //reader.setLenient(true);
                 //List<DataManager.citys> list =gson.fromJson(((Map<String, Object>) map.get("data")).get("city").toString(),new TypeToken<List<DataManager.citys>>(){}.getType());//((Map<String, Object>) map.get("data")).get("city").toString()
-                if (((LinkedTreeMap)map.get("data")).size()!=0  ) {
+                if (((LinkedTreeMap) map.get("data")).size() != 0) {
                     List<LinkedTreeMap> list = (List<LinkedTreeMap>) ((Map<String, Object>) map.get("data")).get("city");
                     //DataManager.citysList=gson.fromJson(list.toString(),new TypeToken<List<DataManager.citys>>(){}.getType());
                     for (int i = 0; i < list.size(); i++) {
@@ -205,7 +207,7 @@ public class MyhttpCallBack implements HttpCallBack {
                 String str3 = (String) response.get();
                 map = gson.fromJson(str3, new TypeToken<Map<String, Object>>() {
                 }.getType());
-                if (((LinkedTreeMap)map.get("data")).size()!=0  ) {
+                if (((LinkedTreeMap) map.get("data")).size() != 0) {
                     List<LinkedTreeMap> list4 = (List<LinkedTreeMap>) ((Map<String, Object>) map.get("data")).get("industry");
                     if (DataManager.industryDataList.size() != 0) {
                         DataManager.industryDataList.clear();
@@ -234,6 +236,7 @@ public class MyhttpCallBack implements HttpCallBack {
                 if (lists2 != null && lists2.size() > 0) {
                     for (LinkedTreeMap temp : lists2) {
                         DataManager.allcount cfo = new DataManager.allcount();
+                        cfo.IsFavorite = temp.get("IsFavorite").toString();
                         cfo.HonorCount = temp.get("HonorCount").toString();
                         cfo.JudiciaryCount = temp.get("JudiciaryCount").toString();
                         cfo.PledgeCount = temp.get("PledgeCount").toString();
@@ -820,6 +823,20 @@ public class MyhttpCallBack implements HttpCallBack {
                     CompanyDetailsActivity.handler.sendEmptyMessage(500);
                 }
                 break;
+            case 0x101://关注企业
+                jsonString = (String) response.get();
+                DataManager.FavotiteS = gson.fromJson(jsonString, DataManager.Favotite.class);
+                CompanyDetailsActivity.handler.sendEmptyMessage(22);
+                break;
+            case 0x102://取消关注企业
+                jsonString = (String) response.get();
+                DataManager.FavotiteS = gson.fromJson(jsonString, DataManager.Favotite.class);
+                CompanyDetailsActivity.handler.sendEmptyMessage(23);
+            case 0x103://我的关注列表
+                jsonString = (String) response.get();
+                DataManager.FavotiteListS = gson.fromJson(jsonString, DataManager.FavotiteList.class);
+                MainActivity.handler.sendEmptyMessage(3);
+                break;
             case 0x201://评论
                 String jstring201 = (String) response.get();
                 DataManager.Root201 jsonRoot201 = gson.fromJson(jstring201, new TypeToken<DataManager.Root201>() {
@@ -893,8 +910,8 @@ public class MyhttpCallBack implements HttpCallBack {
                 }
                 break;
             case 0x206://我的评价
-                jsonString= (String) response.get();
-                DataManager.MyComms=gson.fromJson(jsonString,DataManager.MyComm.class);
+                jsonString = (String) response.get();
+                DataManager.MyComms = gson.fromJson(jsonString, DataManager.MyComm.class);
                 MainActivity.handler.sendEmptyMessage(1);
                 break;
 
@@ -903,7 +920,7 @@ public class MyhttpCallBack implements HttpCallBack {
                 map = gson.fromJson(jsonString, new TypeToken<Map<String, Object>>() {
                 }.getType());
 
-                if (!String.valueOf(map.get("status")).equals("1.0")) {//登入失败
+                if (!map.get("status").equals("1")) {//登入失败
                     Toast.show(map.get("message").toString());
                 } else {//登入成功
                     DataManager.user = gson.fromJson(jsonString, DataManager.User.class);
@@ -925,10 +942,27 @@ public class MyhttpCallBack implements HttpCallBack {
                     RegisterActivity.handler.sendEmptyMessage(0);
                 }
                 break;
-            case 0x997://获取投诉列表
+            case 0x997://个人中心获取投诉列表
                 jsonString = (String) response.get();
                 DataManager.myComplaint = gson.fromJson(jsonString, DataManager.MyComplaint.class);
                 MainActivity.handler.sendEmptyMessage(2);
+
+                break;
+            case 0x996://个人中心取消投诉请求
+                jsonString = (String) response.get();
+                map = gson.fromJson(jsonString, new TypeToken<Map<String, Object>>() {
+                }.getType());
+                if (!map.get("status").equals("1")) {//注册失败
+                    MycomplaintsListActivity.pd.dismiss();
+                    Toast.show("取消失败" + map.get("message").toString());
+                } else {//取消成功
+                    MycomplaintsListActivity.handler.sendEmptyMessage(1);
+                }
+                break;
+            case 0x995://获取投诉详情
+                jsonString = (String) response.get();
+                DataManager.complaintDetail=gson.fromJson(jsonString,DataManager.ComplaintDetail.class);
+                MycomplaintsListActivity.handler.sendEmptyMessage(3);
                 break;
             default:
                 break;

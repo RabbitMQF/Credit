@@ -11,6 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="10dp"
+        android:layout_marginBottom="20dp"
         android:background="@drawable/details_con_bg"
         android:orientation="horizontal">
         <com.example.credit.Views.RoundImageView
@@ -29,14 +30,14 @@
                 android:layout_height="wrap_content"
                 android:text="2016-05-02"
                 android:textColor="#757475"
-                android:textSize="18sp" />
+                android:textSize="16sp" />
             <TextView
                 android:id="@+id/mycomm_conn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="时间sssssssss事实上事实上事实上事实上事实上事实上："
                 android:textColor="#757475"
-                android:textSize="16sp" />
+                android:textSize="14sp" />
         </LinearLayout>
     </LinearLayout>
 

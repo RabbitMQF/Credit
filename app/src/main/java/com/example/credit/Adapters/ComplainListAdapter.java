@@ -1,6 +1,7 @@
 package com.example.credit.Adapters;
 
 import android.content.Context;
+import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,9 +10,17 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.credit.Activitys.MycomplaintsListActivity;
 import com.example.credit.Entitys.DataManager;
 import com.example.credit.R;
+import com.example.credit.Services.CallServer;
+import com.example.credit.Utils.GsonUtil;
+import com.example.credit.Utils.MD5;
+import com.example.credit.Utils.MyhttpCallBack;
+import com.example.credit.Utils.Toast;
+import com.example.credit.Utils.URLconstant;
 import com.squareup.picasso.Picasso;
+import com.yolanda.nohttp.RequestMethod;
 
 import java.util.List;
 
@@ -22,9 +31,17 @@ public class ComplainListAdapter extends BaseAdapter {
     private Context context;
     private List<DataManager.MyComplaint.DataBean.CommentListBean> ComplainList;
 
+    public ComplainListAdapter(Context context) {
+        this.context = context;
+    }
+
     public ComplainListAdapter(Context context, List<DataManager.MyComplaint.DataBean.CommentListBean> ComplainList) {
         this.context = context;
         this.ComplainList = ComplainList;
+    }
+
+    public void setDataList(List<DataManager.MyComplaint.DataBean.CommentListBean> ComplainList){
+        this.ComplainList=ComplainList;
     }
 
     @Override
@@ -43,7 +60,7 @@ public class ComplainListAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
         ViewHolder vh = null;
         if (convertView == null) {
             convertView = LayoutInflater.from(context).inflate(R.layout.activity_mycomplaints_list_item, null);
@@ -62,11 +79,45 @@ public class ComplainListAdapter extends BaseAdapter {
         vh.complain_firm.setText(ComplainList.get(position).ENTERNAME);
         vh.complain_title.setText(ComplainList.get(position).COMPLAINTITLE);
         vh.complain_time.setText(ComplainList.get(position).COMPLAINTIME);
-        vh.complain_status.setText(ComplainList.get(position).COMPLAINSTATUS);
+        switch (ComplainList.get(position).COMPLAINSTATUS){
+            case "0"://未处理
+
+                vh.complain_status.setTextColor(context.getResources().getColor(R.color.orange));
+                vh.complain_status.setText("未处理");
+                break;
+            case "1"://已处理
+
+                vh.complain_status.setTextColor(context.getResources().getColor(R.color.green));
+                vh.complain_status.setText("已处理");
+                break;
+            case "2"://已拒绝
+
+                vh.complain_status.setTextColor(context.getResources().getColor(R.color.red));
+                vh.complain_status.setText("已拒绝");
+                break;
+            default:break;
+        }
+        //vh.complain_status.setText(ComplainList.get(position).COMPLAINSTATUS);
         vh.complain_cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                GsonUtil cancelRuerst =new GsonUtil(URLconstant.URLINSER+URLconstant.CANCELCOM, RequestMethod.GET);
+                cancelRuerst.add("token", MD5.MD5s(ComplainList.get(position).COMPLAINTID+new Build().MODEL));
+                cancelRuerst.add("KeyNo",ComplainList.get(position).COMPLAINTID);
+                cancelRuerst.add("deviceId",new Build().MODEL);
+                CallServer.getInstance().add(context,cancelRuerst, MyhttpCallBack.getInstance(),0x996,true,false,true);
+                MycomplaintsListActivity.pd.show();
+            }
+        });
+        convertView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MycomplaintsListActivity.pd.show();
+                GsonUtil DetailQuerst=new GsonUtil(URLconstant.URLINSER+URLconstant.GETCOMDETAIL, RequestMethod.GET);
+                DetailQuerst.add("token", MD5.MD5s(DataManager.myComplaint.data.commentList.get(position).COMPLAINTID+new Build().MODEL));
+                DetailQuerst.add("KeyNo",DataManager.myComplaint.data.commentList.get(position).COMPLAINTID);
+                DetailQuerst.add("deviceId",new Build().MODEL);
+                CallServer.getInstance().add(context,DetailQuerst, MyhttpCallBack.getInstance(),0x995,true,false,true);
             }
         });
         return convertView;

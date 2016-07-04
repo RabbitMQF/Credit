@@ -121,7 +121,7 @@ public class CommentListDetailsActivity extends BaseActivity {
                          */
                         String KeyNos=DataManager.BaseinfoList.get(0).EnterAddtionID;
                         String tokens= SearchFirmActivty.MD5s(KeyNos + deviceId);
-                        GsonUtil request14 = new GsonUtil(URLconstant.COMM, RequestMethod.GET);
+                        GsonUtil request14 = new GsonUtil(URLconstant.URLINSER + URLconstant.COMM, RequestMethod.GET);
                         request14.add("deviceId",deviceId);
                         request14.add("token",tokens);
                         request14.add("KeyNo",KeyNos);
@@ -278,7 +278,7 @@ public class CommentListDetailsActivity extends BaseActivity {
                     if(!huifu_con.getText().toString().equals("")){
                         String KeyNo= DataManager.BaseinfoList.get(0).EnterAddtionID;
                         String token = SearchFirmActivty.MD5s(KeyNo + deviceId);
-                        GsonUtil request14 = new GsonUtil(URLconstant.HHOMM, RequestMethod.GET);
+                        GsonUtil request14 = new GsonUtil(URLconstant.URLINSER + URLconstant.HHOMM, RequestMethod.GET);
                         request14.add("KeyNo",KeyNo);
                         request14.add("token",token);
                         request14.add("deviceId",deviceId);
@@ -317,7 +317,7 @@ public class CommentListDetailsActivity extends BaseActivity {
         String KeyNo=DataManager.UserreviewList.get(position).COMMENTID;
         String token = SearchFirmActivty.MD5s(KeyNo + deviceId);
 
-        GsonUtil request14 = new GsonUtil(URLconstant.ZZOMM, RequestMethod.GET);
+        GsonUtil request14 = new GsonUtil(URLconstant.URLINSER + URLconstant.ZZOMM, RequestMethod.GET);
         request14.add("KeyNo",KeyNo);
         request14.add("token",token);
         request14.add("deviceId",deviceId);
@@ -334,7 +334,7 @@ public class CommentListDetailsActivity extends BaseActivity {
         String KeyNo=DataManager.UserreviewList.get(position).COMMENTID;
         String token = SearchFirmActivty.MD5s(KeyNo + deviceId);
 
-            GsonUtil request14 = new GsonUtil(URLconstant.NNOMM, RequestMethod.GET);
+            GsonUtil request14 = new GsonUtil(URLconstant.URLINSER + URLconstant.NNOMM, RequestMethod.GET);
             request14.add("KeyNo",KeyNo);
             request14.add("token",token);
             request14.add("deviceId",deviceId);

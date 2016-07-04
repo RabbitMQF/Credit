@@ -60,7 +60,7 @@ public class ToCommentActivity extends BaseActivity {
                          */
                         String KeyNos=DataManager.BaseinfoList.get(0).EnterAddtionID;
                         String tokens= SearchFirmActivty.MD5s(KeyNos + deviceId);
-                        GsonUtil request14 = new GsonUtil(URLconstant.COMM, RequestMethod.GET);
+                        GsonUtil request14 = new GsonUtil(URLconstant.URLINSER + URLconstant.COMM, RequestMethod.GET);
                         request14.add("deviceId",deviceId);
                         request14.add("token",tokens);
                         request14.add("KeyNo",KeyNos);

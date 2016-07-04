@@ -3,9 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ffffff"
+    android:background="#EEEEEF"
     android:orientation="vertical"
     tools:context="com.example.credit.Activitys.MyconcernActivity">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -23,20 +24,12 @@
             android:orientation="horizontal">
 
             <TextView
+                android:id="@+id/mycon_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="这里是企业名称"
                 android:textColor="#757475"
-                android:textSize="16sp" />
-            <TextView
-                android:id="@+id/details_tit"
-                android:layout_width="70dp"
-                android:layout_height="wrap_content"
-                android:background="@drawable/details_tit"
-                android:gravity="center"
-                android:layout_gravity="right"
-                android:text="在业"
-                android:textColor="#ffffff"
+                android:layout_marginLeft="10dp"
                 android:textSize="16sp" />
         </LinearLayout>
 
@@ -65,11 +58,13 @@
                     android:textColor="#757475"
                     android:textSize="16sp" />
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:id="@+id/mycon_Faname"
+                    android:layout_width="match_parent"
+                    android:gravity="center"
                     android:layout_height="wrap_content"
                     android:text="李志"
                     android:textColor="#757475"
-                    android:textSize="16sp" />
+                    android:textSize="14sp" />
             </LinearLayout>
 
             <View
@@ -88,15 +83,17 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="法人代表"
+                    android:text="注册资金"
                     android:textColor="#757475"
                     android:textSize="16sp" />
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:id="@+id/mycon_zcmoney"
+                    android:layout_width="match_parent"
+                    android:gravity="center"
                     android:layout_height="wrap_content"
                     android:text="李志"
                     android:textColor="#757475"
-                    android:textSize="16sp" />
+                    android:textSize="14sp" />
             </LinearLayout>
             <View
                 android:layout_width="0dp"
@@ -114,15 +111,17 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="法人代表"
+                    android:text="成立日期"
                     android:textColor="#757475"
                     android:textSize="16sp" />
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:id="@+id/mycon_zcdate"
+                    android:layout_width="match_parent"
+                    android:gravity="center"
                     android:layout_height="wrap_content"
                     android:text="李志"
                     android:textColor="#757475"
-                    android:textSize="16sp" />
+                    android:textSize="14sp" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

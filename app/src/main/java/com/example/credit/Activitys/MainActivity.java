@@ -1,6 +1,9 @@
 package com.example.credit.Activitys;
 
 import android.app.Activity;
+import android.app.ActivityManager;
+import android.app.ProgressDialog;
+import android.content.ComponentName;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -93,6 +96,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     Button login;//登录
     CreditSharePreferences csp;
     Boolean LoginStatus;
+    public static ProgressDialog pd;
 
 //    @ViewInject(R.id.pb_1)
 //    TextView pb_1;//首页
@@ -141,8 +145,19 @@ public class MainActivity extends Activity implements View.OnClickListener {
                         startActivity(i1);
                         break;
                     case 2://跳我的投诉
-                        startActivity(new Intent(MainActivity.this, MycomplaintsListActivity.class));
+                        ActivityManager am = (ActivityManager) getSystemService(ACTIVITY_SERVICE);
+                        ComponentName cn = am.getRunningTasks(1).get(0).topActivity;
+                        if(!cn.getClassName().equals(MycomplaintsListActivity.class.getName())) {
+                            pd.dismiss();
+                            startActivity(new Intent(MainActivity.this, MycomplaintsListActivity.class));
+                        }else {MycomplaintsListActivity.handler.sendEmptyMessage(2);}
+                            break;
+                    case 3://跳我的关注
+                        Intent i3 = new Intent(MainActivity.this, MyconcernActivity.class);
+                        startActivity(i3);
                         break;
+
+
                     default:
                         break;
                 }
@@ -166,6 +181,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
         topSearch = (RelativeLayout) findViewById(R.id.top_search);
         topSearch.setOnClickListener(this);
         NewsListview = (ListView) findViewById(R.id.news_list);
+        pd=new ProgressDialog(MainActivity.this);
+        pd.setMessage("请稍后...");
+        pd.setCancelable(false);
         NewsListview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -236,30 +254,28 @@ public class MainActivity extends Activity implements View.OnClickListener {
                     startActivityForResult(pickIntent, REQUESTCODE_PICK);
                     break;
                 case R.id.Smenu_1://我的评价
-                    Build bd = new Build();
-                    String model = bd.MODEL;//设备ID
-                    String KeyNos="62d076b3cbd74e68ae8f1f089507c779";
-                    String tokens= SearchFirmActivty.MD5s(KeyNos + model);
-                    GsonUtil request14 = new GsonUtil(URLconstant.MMOMM, RequestMethod.GET);
-                    request14.add("deviceId",model);
-                    request14.add("token",tokens);
-                    request14.add("KeyNo",KeyNos);
+                    GsonUtil request14 = new GsonUtil(URLconstant.URLINSER + URLconstant.MMOMM, RequestMethod.GET);
+                    request14.add("deviceId",(new Build()).MODEL);
+                    request14.add("token",SearchFirmActivty.MD5s("86D9D7F53FCA45DD93E2D83DFCA0CB42" + (new Build()).MODEL));
+                    request14.add("KeyNo","86D9D7F53FCA45DD93E2D83DFCA0CB42");
                     CallServer.getInstance().add(MainActivity.this, request14, MyhttpCallBack.getInstance(), 0x206, true, false, true);
 
 
 //                    Toast.makeText(MainActivity.this, "此模块，正在赶点加工中...", Toast.LENGTH_SHORT).show();
                     break;
                 case R.id.Smenu_2://我的投诉
-                    GsonUtil ComplaintsRuerst = new GsonUtil(URLconstant.URLINSER + URLconstant.GETCOMPLAIN, RequestMethod.GET);
-                    ComplaintsRuerst.add("token", MD5.MD5s("86D9D7F53FCA45DD93E2D83DFCA0CB43" + new Build().MODEL));//csp.getID()
-                    ComplaintsRuerst.add("KeyNo","86D9D7F53FCA45DD93E2D83DFCA0CB43");//csp.getID()
-                    ComplaintsRuerst.add("deviceId", new Build().MODEL);
-                    CallServer.getInstance().add(MainActivity.this,ComplaintsRuerst,MyhttpCallBack.getInstance(),0x997,true,false,true);
+                    pd.show();
+                    getComplaint(MainActivity.this);
+
 //                    Toast.makeText(MainActivity.this, "此模块，正在赶点加工中...", Toast.LENGTH_SHORT).show();
                     break;
                 case R.id.Smenu_3://我的关注
-                    Intent i3 = new Intent(MainActivity.this, MyconcernActivity.class);
-                    startActivity(i3);
+                    GsonUtil  MyconcernRuerst = new GsonUtil(URLconstant.URLINSER + URLconstant.MYFAVORITE, RequestMethod.GET);
+                    MyconcernRuerst.add("deviceId",(new Build()).MODEL);
+                    MyconcernRuerst.add("token",SearchFirmActivty.MD5s("86D9D7F53FCA45DD93E2D83DFCA0CB42" + (new Build()).MODEL));
+                    MyconcernRuerst.add("KeyNo","86D9D7F53FCA45DD93E2D83DFCA0CB42");
+                    CallServer.getInstance().add(MainActivity.this,MyconcernRuerst,MyhttpCallBack.getInstance(),0x103,true,false,true);
+
 //                    Toast.makeText(MainActivity.this, "此模块，正在赶点加工中...", Toast.LENGTH_SHORT).show();
                     break;
                 case R.id.Smenu_4://我的认领
@@ -319,6 +335,17 @@ public class MainActivity extends Activity implements View.OnClickListener {
             }
         }
     };
+
+    /**
+     * 获取我的投诉列表方法
+     */
+    public static void getComplaint(Activity activity) {
+        GsonUtil ComplaintsRuerst = new GsonUtil(URLconstant.URLINSER + URLconstant.GETCOMPLAIN, RequestMethod.GET);
+        ComplaintsRuerst.add("token", MD5.MD5s("b2d794b453664657af61b373c1d00e7c" + new Build().MODEL));//csp.getID()
+        ComplaintsRuerst.add("KeyNo","b2d794b453664657af61b373c1d00e7c");//csp.getID()
+        ComplaintsRuerst.add("deviceId", new Build().MODEL);
+        CallServer.getInstance().add(activity,ComplaintsRuerst,MyhttpCallBack.getInstance(),0x997,true,false,true);
+    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
