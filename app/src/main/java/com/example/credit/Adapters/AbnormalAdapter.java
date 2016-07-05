@@ -14,9 +14,9 @@ import java.util.List;
 
 public class AbnormalAdapter extends BaseAdapter {
     private Context context;
-    private List<DataManager.abnormalInfo> list;
+    private List<DataManager.abnormalInfo.DataBean.AbNormalBean> list;
 
-    public AbnormalAdapter(Context context, List<DataManager.abnormalInfo> list) {
+    public AbnormalAdapter(Context context, List<DataManager.abnormalInfo.DataBean.AbNormalBean> list) {
         this.context = context;
         this.list = list;
     }

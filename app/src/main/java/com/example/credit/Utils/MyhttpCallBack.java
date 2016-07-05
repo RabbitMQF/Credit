@@ -5,6 +5,7 @@ import com.example.credit.Activitys.CompanyDetailsActivity;
 import com.example.credit.Activitys.LoginActivity;
 import com.example.credit.Activitys.MainActivity;
 import com.example.credit.Activitys.MycomplaintsListActivity;
+import com.example.credit.Activitys.MyconcernActivity;
 import com.example.credit.Activitys.RegisterActivity;
 import com.example.credit.Activitys.SearchFirmActivty;
 import com.example.credit.Activitys.ToCommentActivity;
@@ -221,7 +222,7 @@ public class MyhttpCallBack implements HttpCallBack {
                 }
 
                 break;
-            case 0x024:
+            case 0x024://获取企业详情16宫格等
                 jsonString = (String) response.get();
                 map = gson.fromJson(jsonString, new TypeToken<Map<String, Object>>() {
                 }.getType());
@@ -256,21 +257,90 @@ public class MyhttpCallBack implements HttpCallBack {
                         DataManager.allcountsList.add(cfo);
                     }
                 }
-                if (lists2 != null && lists2.size() > 0) {
+                if (lists3 != null && lists3.size() > 0) {
                     for (LinkedTreeMap temp : lists3) {
                         DataManager.Baseinfo cfo = new DataManager.Baseinfo();
                         cfo.EnterAddtionID = temp.get("EnterAddtionID").toString();
+                        cfo.REGSTATE = temp.get("REGSTATE").toString();
+                        cfo.REGNO = temp.get("REGNO").toString();
+                        cfo.IsFavorite = temp.get("IsFavorite").toString();
+                        cfo.NAME = temp.get("NAME").toString();
+                        cfo.REGCAP = temp.get("REGCAP").toString();
+                        cfo.ESTDATE = temp.get("ESTDATE").toString();
+                        cfo.ENTTYPE_CN = temp.get("ENTTYPE_CN").toString();
+                        cfo.ENTNAME = temp.get("ENTNAME").toString();
+                        cfo.REGSTATE_CN = temp.get("REGSTATE_CN").toString();
+                        cfo.UNISCID = temp.get("UNISCID").toString();
+                        cfo.PRIPID = temp.get("PRIPID").toString();
+                        cfo.ENTTYPE = temp.get("ENTTYPE").toString();
                         DataManager.BaseinfoList.add(cfo);
                     }
                 }
-
                 if (DataManager.allcountsList != null && DataManager.allcountsList.size() > 0) {
                     SearchFirmActivty.handler.sendEmptyMessage(5);
                 } else {
                     SearchFirmActivty.handler.sendEmptyMessage(500);
                 }
-
-
+                break;
+            case 0x025:
+                jsonString = (String) response.get();
+                map = gson.fromJson(jsonString, new TypeToken<Map<String, Object>>() {
+                }.getType());
+                List<LinkedTreeMap> lists25 = (List<LinkedTreeMap>) ((Map<String, Object>) map.get("data")).get("allcount");
+                List<LinkedTreeMap> lists35 = (List<LinkedTreeMap>) ((Map<String, Object>) map.get("data")).get("baseinfo");
+                if (DataManager.allcountsList != null) {
+                    DataManager.allcountsList.clear();
+                }
+                if (DataManager.BaseinfoList != null) {
+                    DataManager.BaseinfoList.clear();
+                }
+                if (lists25 != null && lists25.size() > 0) {
+                    for (LinkedTreeMap temp : lists25) {
+                        DataManager.allcount cfo = new DataManager.allcount();
+                        cfo.IsFavorite = temp.get("IsFavorite").toString();
+                        cfo.HonorCount = temp.get("HonorCount").toString();
+                        cfo.JudiciaryCount = temp.get("JudiciaryCount").toString();
+                        cfo.PledgeCount = temp.get("PledgeCount").toString();
+                        cfo.CopyrightCount = temp.get("CopyrightCount").toString();
+                        cfo.AnnualCount = temp.get("AnnualCount").toString();
+                        cfo.AdvertisementCount = temp.get("AdvertisementCount").toString();
+                        cfo.BaseInfoCount = temp.get("BaseInfoCount").toString();
+                        cfo.ApprovalCount = temp.get("ApprovalCount").toString();
+                        cfo.PunishCount = temp.get("PunishCount").toString();
+                        cfo.WarningCount = temp.get("WarningCount").toString();
+                        cfo.TrademarkCount = temp.get("TrademarkCount").toString();
+                        cfo.AbnormityCount = temp.get("AbnormityCount").toString();
+                        cfo.CreditCount = temp.get("CreditCount").toString();
+                        cfo.SupportCount = temp.get("SupportCount").toString();
+                        cfo.MortgagorCount = temp.get("MortgagorCount").toString();
+                        cfo.PatentCount = temp.get("PatentCount").toString();
+                        DataManager.allcountsList.add(cfo);
+                    }
+                }
+                if (lists35 != null && lists35.size() > 0) {
+                    for (LinkedTreeMap temp : lists35) {
+                        DataManager.Baseinfo cfo = new DataManager.Baseinfo();
+                        cfo.EnterAddtionID = temp.get("EnterAddtionID").toString();
+                        cfo.REGSTATE = temp.get("REGSTATE").toString();
+                        cfo.REGNO = temp.get("REGNO").toString();
+                        cfo.IsFavorite = temp.get("IsFavorite").toString();
+                        cfo.NAME = temp.get("NAME").toString();
+                        cfo.REGCAP = temp.get("REGCAP").toString();
+                        cfo.ESTDATE = temp.get("ESTDATE").toString();
+                        cfo.ENTTYPE_CN = temp.get("ENTTYPE_CN").toString();
+                        cfo.ENTNAME = temp.get("ENTNAME").toString();
+                        cfo.REGSTATE_CN = temp.get("REGSTATE_CN").toString();
+                        cfo.UNISCID = temp.get("UNISCID").toString();
+                        cfo.PRIPID = temp.get("PRIPID").toString();
+                        cfo.ENTTYPE = temp.get("ENTTYPE").toString();
+                        DataManager.BaseinfoList.add(cfo);
+                    }
+                }
+                if (DataManager.allcountsList != null && DataManager.allcountsList.size() > 0) {
+                    MyconcernActivity.handler.sendEmptyMessage(1);
+                } else {
+                    SearchFirmActivty.handler.sendEmptyMessage(500);
+                }
                 break;
             case 0x000://工商信息
                 /*DataManager.Data0List.clear();
@@ -549,36 +619,33 @@ public class MyhttpCallBack implements HttpCallBack {
 
                 break;
             case 0x009://经营异常信息
-                String jstring9 = (String) response.get();
+                jsonString = (String) response.get();
 //                map = gson.fromJson(jstring9, new TypeToken<Map<String, Object>>() {
 //                }.getType());
 //                List<DataManager.abnormalInfo> list9 = gson.fromJson(((Map<String, Object>) map.get("data")).get("abNormal").toString(), new TypeToken<List<DataManager.abnormalInfo>>() {
 //                }.getType());
-                map = gson.fromJson(jstring9, new TypeToken<Map<String, Object>>() {
-                }.getType());
-                List<LinkedTreeMap> list9 = (List<LinkedTreeMap>) ((Map<String, Object>) map.get("data")).get("abNormal");
+//                map = gson.fromJson(jstring9, new TypeToken<Map<String, Object>>() {
+//                }.getType());
+//                List<LinkedTreeMap> list9 = (List<LinkedTreeMap>) ((Map<String, Object>) map.get("data")).get("abNormal");
+//
+//                if (DataManager.abnormalInfoList != null) {
+//                    DataManager.abnormalInfoList.clear();
+//                }
+//                if (list9 != null && list9.size() > 0) {
+//                    for (LinkedTreeMap temp : list9) {
+//                        DataManager.abnormalInfo cfo = new DataManager.abnormalInfo();
+//                        cfo.BUSEXCLIST = (String) temp.get("BUSEXCLIST");
+//                        cfo.SPECAUSE_CN = (String) temp.get("SPECAUSE_CN");
+//                        cfo.ABNTIME = (String) temp.get("ABNTIME");
+//                        cfo.DECORG_CN = (String) temp.get("DECORG_CN");
+//                        cfo.REMEXCPRES_CN = (String) temp.get("REMEXCPRES_CN");
+//                        cfo.REMDATE = (String) temp.get("REMDATE");
+//                        cfo.REDECORG_CN = (String) temp.get("REDECORG_CN");
+//                        DataManager.abnormalInfoList.add(cfo);
+//                    }
 
-                if (DataManager.abnormalInfoList != null) {
-                    DataManager.abnormalInfoList.clear();
-                }
-                if (list9 != null && list9.size() > 0) {
-                    for (LinkedTreeMap temp : list9) {
-                        DataManager.abnormalInfo cfo = new DataManager.abnormalInfo();
-                        cfo.BUSEXCLIST = (String) temp.get("BUSEXCLIST");
-                        cfo.SPECAUSE_CN = (String) temp.get("SPECAUSE_CN");
-                        cfo.ABNTIME = (String) temp.get("ABNTIME");
-                        cfo.DECORG_CN = (String) temp.get("DECORG_CN");
-                        cfo.REMEXCPRES_CN = (String) temp.get("REMEXCPRES_CN");
-                        cfo.REMDATE = (String) temp.get("REMDATE");
-                        cfo.REDECORG_CN = (String) temp.get("REDECORG_CN");
-                        DataManager.abnormalInfoList.add(cfo);
-                    }
-                }
-                if (DataManager.abnormalInfoList.size() > 0 && DataManager.abnormalInfoList != null) {
-                    CompanyDetailsActivity.handler.sendEmptyMessage(9);
-                } else {
-                    CompanyDetailsActivity.handler.sendEmptyMessage(500);
-                }
+                DataManager.abnormalInfoS = gson.fromJson(jsonString, DataManager.abnormalInfo.class);
+                CompanyDetailsActivity.handler.sendEmptyMessage(9);
 
                 break;
             case 0x010://专利信息
@@ -790,28 +857,34 @@ public class MyhttpCallBack implements HttpCallBack {
                     for (int i = 0; i < listtemp.size(); i++) {
                         switch (listtemp.get(i).get("type").toString()) {
                             case "企业年报":
+                                if(listtemp.get(i).get("date")!=null){
                                 DataManager.reportList = gson.fromJson(listtemp.get(i).get("date").toString(), new TypeToken<List<DataManager.report>>() {
-                                }.getType());
+                                }.getType());}
                                 break;
                             case "股东及出资信息":
+                                if(listtemp.get(i).get("date")!=null){
                                 DataManager.fundedList = gson.fromJson(listtemp.get(i).get("date").toString(), new TypeToken<List<DataManager.funded>>() {
-                                }.getType());
+                                }.getType());}
                                 break;
                             case "股权变更信息":
+                                if(listtemp.get(i).get("date")!=null){
                                 DataManager.stockList = gson.fromJson(listtemp.get(i).get("date").toString(), new TypeToken<List<DataManager.stock>>() {
-                                }.getType());
+                                }.getType());}
                                 break;
                             case "行政许可信息":
+                                if(listtemp.get(i).get("date")!=null){
                                 DataManager.permitList = gson.fromJson(listtemp.get(i).get("date").toString(), new TypeToken<List<DataManager.permit>>() {
-                                }.getType());
+                                }.getType());}
                                 break;
                             case "知识产权登记信息":
+                                if(listtemp.get(i).get("date")!=null){
                                 DataManager.loreList = gson.fromJson(listtemp.get(i).get("date").toString(), new TypeToken<List<DataManager.lore>>() {
-                                }.getType());
+                                }.getType());}
                                 break;
                             case "行政处罚信息":
+                                if(listtemp.get(i).get("date")!=null){
                                 DataManager.punishList = gson.fromJson(listtemp.get(i).get("date").toString(), new TypeToken<List<DataManager.punish>>() {
-                                }.getType());
+                                }.getType());}
                                 break;
                             default:
                                 break;
@@ -868,7 +941,7 @@ public class MyhttpCallBack implements HttpCallBack {
                 DataManager.Data202 d202 = jsonRoot202.data;
                 DataManager.Result = d202.result;
                 if (DataManager.Result.equals("1")) {
-//                    CommentListDetailsActivity.handler.sendEmptyMessage(1);
+                    CommentListDetailsActivity.handler.sendEmptyMessage(2);
                 } else {
                     CommentListDetailsActivity.handler.sendEmptyMessage(3);
                 }
@@ -880,7 +953,31 @@ public class MyhttpCallBack implements HttpCallBack {
                 DataManager.Data202 d203 = jsonRoot203.data;
                 DataManager.Result = d203.result;
                 if (DataManager.Result.equals("1")) {
-//                    CommentListDetailsActivity.handler.sendEmptyMessage(2);
+                    CommentListDetailsActivity.handler.sendEmptyMessage(2);
+                } else {
+                    CommentListDetailsActivity.handler.sendEmptyMessage(4);
+                }
+                break;
+            case 0x2021://点赞(先走)
+                jsonString= (String) response.get();
+                DataManager.Root202 jsonRoot2021 = gson.fromJson(jsonString, new TypeToken<DataManager.Root202>() {
+                }.getType());
+                DataManager.Data202 d2021 = jsonRoot2021.data;
+                DataManager.Result = d2021.result;
+                if (DataManager.Result.equals("1")) {
+                    CommentListDetailsActivity.handler.sendEmptyMessage(0);
+                } else {
+                    CommentListDetailsActivity.handler.sendEmptyMessage(3);
+                }
+                break;
+            case 0x2031://差评（后走）
+                jsonString = (String) response.get();
+                DataManager.Root202 jsonRoot2031 = gson.fromJson(jsonString, new TypeToken<DataManager.Root202>() {
+                }.getType());
+                DataManager.Data202 d2031 = jsonRoot2031.data;
+                DataManager.Result = d2031.result;
+                if (DataManager.Result.equals("1")) {
+                    CommentListDetailsActivity.handler.sendEmptyMessage(2);
                 } else {
                     CommentListDetailsActivity.handler.sendEmptyMessage(4);
                 }
@@ -914,7 +1011,11 @@ public class MyhttpCallBack implements HttpCallBack {
                 DataManager.MyComms = gson.fromJson(jsonString, DataManager.MyComm.class);
                 MainActivity.handler.sendEmptyMessage(1);
                 break;
-
+            case 0x301://提交认领
+                jsonString = (String) response.get();
+                DataManager.FavotiteListS = gson.fromJson(jsonString, DataManager.FavotiteList.class);
+                MainActivity.handler.sendEmptyMessage(3);
+                break;
             case 0x999://登入
                 jsonString = (String) response.get();
                 map = gson.fromJson(jsonString, new TypeToken<Map<String, Object>>() {

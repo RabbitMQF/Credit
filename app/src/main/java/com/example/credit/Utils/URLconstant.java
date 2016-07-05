@@ -71,8 +71,12 @@ public class URLconstant {
 
     public static final  String MYFAVORITE="businessController/getMyAttentionlistPage.do";//我的关注列表接口
 
+    public static final  String CLAIMURL="  businessController/saveClaimCompany.do";//提交认领 and 修改认领 接口
+
     public static final String GETCOMPLAIN = "businessController/getCompanyComplainList.do";//获取投诉列表接口
+
     public static final String GETCOMDETAIL = "businessController/getComplainDetail.do";//获取投诉详情接口
+
     public static final String CANCELCOM = "businessController/cancelComplain.do";//取消投诉接口
 
     public static final String GETCOMPLAIND="businessController/getComplainDetail.do";//获取投诉详情接口

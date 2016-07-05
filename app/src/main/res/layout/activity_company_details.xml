@@ -78,6 +78,7 @@
                             android:layout_height="5dp"
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="20dp"
+                            android:onClick="popupmenu"
                             android:layout_marginRight="20dp"
                             android:layout_alignParentRight="true"
                             android:background="@mipmap/c_more" />

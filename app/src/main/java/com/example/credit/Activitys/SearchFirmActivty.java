@@ -139,17 +139,17 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
                                 requst.add("KeyNo",KeyNo);
                                 requst.add("token",token);
                                 requst.add("deviceId",model);
-//                                requst.add("memberId","86D9D7F53FCA45DD93E2D83DFCA0CB42");
-                                requst.add("regno",DataManager.searchList.get(position).REGNO);
+                                requst.add("memberId","86D9D7F53FCA45DD93E2D83DFCA0CB42");
+                                requst.add("regnore",DataManager.searchList.get(position).REGNO);
+                                requst.add("priptype",DataManager.searchList.get(position).ENTTYPE);
+                                requst.add("memberId","");
                                 CallServer.getInstance().add(SearchFirmActivty.this,requst,MyhttpCallBack.getInstance(),0x024,true,false,true);
-
                             }
                         });
                         break;
                     case 5:
                         pd.dismiss();
                         Intent i = new Intent(SearchFirmActivty.this, CompanyDetailsActivity.class);
-                        i.putExtra("position", po);
                         i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(i);
                         overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);

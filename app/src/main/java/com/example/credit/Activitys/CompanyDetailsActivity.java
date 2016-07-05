@@ -12,6 +12,9 @@ import android.os.Handler;
 import android.os.Message;
 import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,6 +23,7 @@ import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.PopupMenu;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
@@ -74,7 +78,8 @@ public class CompanyDetailsActivity extends BaseActivity {
     @ViewInject(R.id.details_tit3)//关注text
             TextView details_tit3;
 
-
+    PopupMenu popupMenu;
+    Menu menu;
 
     @ViewInject(R.id.vg)
     RelativeLayout vg;
@@ -92,7 +97,7 @@ public class CompanyDetailsActivity extends BaseActivity {
     private final int MSG = 0x015;
     int a1=0,a2=0,a3=0,a4=0,a5=0,a6=0,a7=0,a8=0,a9=0,a10=0,a11=0,a12=0,a13=0,a14=0,a15=0,a16=0;
 
-    List<DataManager.search> detailsList = new ArrayList<DataManager.search>();
+//    List<DataManager.search> detailsList = new ArrayList<DataManager.search>();
     public String[] arrays3 = {"注册资本", "法定代表", "发照日期", "成立日期",
             "工商注册号", "组织机构代码"};
 
@@ -126,7 +131,6 @@ public class CompanyDetailsActivity extends BaseActivity {
             R.mipmap.icon13, R.mipmap.icon14,
             R.mipmap.icon15, R.mipmap.icon16};
 
-    int position;
     public static Handler handler;
     String model,KeyNo,token,regnore;
 
@@ -150,13 +154,12 @@ public class CompanyDetailsActivity extends BaseActivity {
         mScrollView.smoothScrollTo(0, 20);
         Intent i = getIntent();
         int s = i.getIntExtra("s", 0);
-        position = i.getIntExtra("position", 0);
-        detailsList = DataManager.searchList;
+//        detailsList = DataManager.searchList;
         Build bd = new Build();
         model = bd.MODEL;//设备ID
-        KeyNo = DataManager.searchList.get(position).PRIPID;//市场主体身份代码
+        KeyNo = DataManager.BaseinfoList.get(0).PRIPID;//市场主体身份代码
         token = SearchFirmActivty.MD5s(KeyNo + model);//token 由 设备ID+市场主体身份代码 MD5生成
-        regnore=DataManager.searchList.get(position).REGNO;//注册号
+        regnore=DataManager.BaseinfoList.get(0).REGNO;//注册号
 
         KeyNos=DataManager.BaseinfoList.get(0).EnterAddtionID;//企业附加信息主键ID
         tokens= SearchFirmActivty.MD5s(KeyNos + model);
@@ -192,7 +195,6 @@ public class CompanyDetailsActivity extends BaseActivity {
                     case 0://工商信息
                         waitDialog.dismiss();
                         Intent i0 = new Intent(CompanyDetailsActivity.this, DetailsContentActivity.class);
-                        i0.putExtra("position", position);
                         i0.putExtra("Tname",arrays1[msg.what]);
                         startActivity(i0);
                         overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
@@ -345,7 +347,7 @@ public class CompanyDetailsActivity extends BaseActivity {
                     if(a1==0){
                         waitDialog.show();
                         GsonUtil request0 = new GsonUtil(URLconstant.URLINSER + URLconstant.DETAILSCINFOURL, RequestMethod.GET);
-                        request0.add("priptype", detailsList.get(position).ENTTYPE);
+                        request0.add("priptype", DataManager.BaseinfoList.get(0).ENTTYPE);
                         request0.add("token", token);
                         request0.add("deviceId", model);
                         request0.add("KeyNo", KeyNo);
@@ -359,18 +361,20 @@ public class CompanyDetailsActivity extends BaseActivity {
                         request1.add("token", token);
                         request1.add("deviceId", model);
                         request1.add("KeyNo", KeyNo);
+                        request1.add("priptype", DataManager.BaseinfoList.get(0).ENTTYPE);
                         CallServer.getInstance().add(CompanyDetailsActivity.this, request1, MyhttpCallBack.getInstance(), 0x001, true, false, true);
                     }
                     break;
                 case 2://荣誉信息
                     if(a3==0) {
                         waitDialog.show();
-                        String KeyNoR = DataManager.searchList.get(position).REGNO;//注册号
+                        String KeyNoR = DataManager.BaseinfoList.get(0).REGNO;//注册号
                         String tokenr = SearchFirmActivty.MD5s(KeyNoR + model);//token 由 设备ID+/注册号 MD5生成
                         GsonUtil request2 = new GsonUtil(URLconstant.URLINSER + URLconstant.HONORURL, RequestMethod.GET);
                         request2.add("token", tokenr);
                         request2.add("deviceId", model);
                         request2.add("KeyNo", KeyNoR);
+                        request2.add("priptype", DataManager.BaseinfoList.get(0).ENTTYPE);
                         CallServer.getInstance().add(CompanyDetailsActivity.this, request2, MyhttpCallBack.getInstance(), 0x002, true, false, true);
                     }
                     break;
@@ -381,6 +385,7 @@ public class CompanyDetailsActivity extends BaseActivity {
                         request3.add("token", token);
                         request3.add("deviceId", model);
                         request3.add("KeyNo", KeyNo);
+                        request3.add("priptype", DataManager.BaseinfoList.get(0).ENTTYPE);
                         CallServer.getInstance().add(CompanyDetailsActivity.this, request3, MyhttpCallBack.getInstance(), 0x003, true, false, true);
                     }
                     break;
@@ -392,9 +397,11 @@ public class CompanyDetailsActivity extends BaseActivity {
                         mortinfoRequest.add("token", token);
                         mortinfoRequest.add("deviceId", model);
                         mortinfoRequest.add("KeyNo", KeyNo);
+                        mortinfoRequest.add("priptype", DataManager.BaseinfoList.get(0).ENTTYPE);
                         mortinfoBdcRequest.add("token", token);
                         mortinfoBdcRequest.add("deviceId", model);
                         mortinfoBdcRequest.add("KeyNo", KeyNo);
+                        mortinfoBdcRequest.add("priptype", DataManager.BaseinfoList.get(0).ENTTYPE);
                         CallServer.getInstance().add(CompanyDetailsActivity.this, mortinfoRequest, MyhttpCallBack.getInstance(), 0x004, true, false, true);
                         CallServer.getInstance().add(CompanyDetailsActivity.this, mortinfoBdcRequest, MyhttpCallBack.getInstance(), 0x0041, true, false, true);
                     }
@@ -406,6 +413,7 @@ public class CompanyDetailsActivity extends BaseActivity {
                         request5.add("token", token);
                         request5.add("deviceId", model);
                         request5.add("KeyNo", KeyNo);
+                        request5.add("priptype", DataManager.BaseinfoList.get(0).ENTTYPE);
                         CallServer.getInstance().add(CompanyDetailsActivity.this, request5, MyhttpCallBack.getInstance(), 0x005, true, false, true);
                     }
                     break;
@@ -417,6 +425,7 @@ public class CompanyDetailsActivity extends BaseActivity {
                         request6.add("deviceId", model);
                         request6.add("KeyNo", KeyNo);
                         request6.add("regnore", regnore);//注册号
+                        request6.add("priptype", DataManager.BaseinfoList.get(0).ENTTYPE);
                         CallServer.getInstance().add(CompanyDetailsActivity.this, request6, MyhttpCallBack.getInstance(), 0X006, true, false, true);
                     }
                     break;
@@ -427,6 +436,7 @@ public class CompanyDetailsActivity extends BaseActivity {
                         request7.add("token", token);
                         request7.add("deviceId", model);
                         request7.add("KeyNo", KeyNo);
+                        request7.add("priptype", DataManager.BaseinfoList.get(0).ENTTYPE);
                         CallServer.getInstance().add(CompanyDetailsActivity.this, request7, MyhttpCallBack.getInstance(), 0x007, true, false, true);
                     }
                     break;
@@ -437,6 +447,7 @@ public class CompanyDetailsActivity extends BaseActivity {
                         request.add("token", token);
                         request.add("deviceId", model);
                         request.add("KeyNo", KeyNo);
+                        request.add("priptype", DataManager.BaseinfoList.get(0).ENTTYPE);
                         CallServer.getInstance().add(CompanyDetailsActivity.this, request, MyhttpCallBack.getInstance(), 0X008, true, false, true);
                     }
                     break;
@@ -447,6 +458,7 @@ public class CompanyDetailsActivity extends BaseActivity {
                         request9.add("token", token);
                         request9.add("deviceId", model);
                         request9.add("KeyNo", KeyNo);
+                        request9.add("priptype", DataManager.BaseinfoList.get(0).ENTTYPE);
                         CallServer.getInstance().add(CompanyDetailsActivity.this, request9, MyhttpCallBack.getInstance(), 0X009, true, false, true);
                     }
                     break;
@@ -457,6 +469,7 @@ public class CompanyDetailsActivity extends BaseActivity {
                         request10.add("token", token);
                         request10.add("deviceId", model);
                         request10.add("KeyNo", KeyNo);
+                        request10.add("priptype", DataManager.BaseinfoList.get(0).ENTTYPE);
                         CallServer.getInstance().add(CompanyDetailsActivity.this, request10, MyhttpCallBack.getInstance(), 0X010, true, false, true);
 //                    Gson gson=new Gson();
 //                    String jstring10 = getResources().getString(R.string.test1);
@@ -479,6 +492,7 @@ public class CompanyDetailsActivity extends BaseActivity {
                         request11.add("token", token);
                         request11.add("deviceId", model);
                         request11.add("KeyNo", KeyNo);
+                        request11.add("priptype", DataManager.BaseinfoList.get(0).ENTTYPE);
                         CallServer.getInstance().add(CompanyDetailsActivity.this, request11, MyhttpCallBack.getInstance(), 0x011, true, false, true);
                     }
                     break;
@@ -489,6 +503,7 @@ public class CompanyDetailsActivity extends BaseActivity {
                         request12.add("token", token);
                         request12.add("deviceId", model);
                         request12.add("KeyNo", KeyNo);
+                        request12.add("priptype", DataManager.BaseinfoList.get(0).ENTTYPE);
                         CallServer.getInstance().add(CompanyDetailsActivity.this, request12, MyhttpCallBack.getInstance(), 0x012, true, false, true);
                     }
                     break;
@@ -499,6 +514,7 @@ public class CompanyDetailsActivity extends BaseActivity {
                         request13.add("token", token);
                         request13.add("deviceId", model);
                         request13.add("KeyNo", KeyNo);
+                        request13.add("priptype", DataManager.BaseinfoList.get(0).ENTTYPE);
                         CallServer.getInstance().add(CompanyDetailsActivity.this, request13, MyhttpCallBack.getInstance(), 0x013, true, false, true);
                     }
                     break;
@@ -509,6 +525,7 @@ public class CompanyDetailsActivity extends BaseActivity {
                         request14.add("token", token);
                         request14.add("deviceId", model);
                         request14.add("KeyNo", KeyNo);
+                        request14.add("priptype", DataManager.BaseinfoList.get(0).ENTTYPE);
                         CallServer.getInstance().add(CompanyDetailsActivity.this, request14, MyhttpCallBack.getInstance(), 0x014, true, false, true);
                     }
                     break;
@@ -519,6 +536,7 @@ public class CompanyDetailsActivity extends BaseActivity {
                         request15.add("token", token);
                         request15.add("deviceId", model);
                         request15.add("KeyNo", KeyNo);
+                        request15.add("priptype", DataManager.BaseinfoList.get(0).ENTTYPE);
                         CallServer.getInstance().add(CompanyDetailsActivity.this, request15, MyhttpCallBack.getInstance(), MSG, true, false, true);
                     }
                     break;
@@ -538,8 +556,8 @@ public class CompanyDetailsActivity extends BaseActivity {
 
             }
         });
-        if (detailsList != null && detailsList.size() > 0) {
-            String stra = (detailsList.get(position).REGSTATE_CN).substring(0, 2);
+        if (DataManager.BaseinfoList != null && DataManager.BaseinfoList.size() > 0) {
+            String stra = (DataManager.BaseinfoList.get(0).REGSTATE_CN).substring(0, 2);
             details_tit.setText(stra);//状态
             details_tit.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -547,13 +565,13 @@ public class CompanyDetailsActivity extends BaseActivity {
                     showPopupWindow(v);
                 }
             });
-            cp_name.setText(detailsList.get(position).ENTNAME);
+            cp_name.setText(DataManager.BaseinfoList.get(0).ENTNAME);
             List<String> lt = new ArrayList<String>();
-            lt.add(detailsList.get(position).REGCAP + "万元");
-            lt.add(detailsList.get(position).NAME);
-            lt.add(detailsList.get(position).OPFROM);
-            lt.add(detailsList.get(position).OPFROM);
-            lt.add(detailsList.get(position).REGNO);
+            lt.add(DataManager.BaseinfoList.get(0).REGCAP + "万元");
+            lt.add(DataManager.BaseinfoList.get(0).NAME);
+            lt.add(DataManager.BaseinfoList.get(0).ESTDATE);
+            lt.add(DataManager.BaseinfoList.get(0).ESTDATE);
+            lt.add(DataManager.BaseinfoList.get(0).REGNO);
 //            lt.add(detailsList.get(position).INDUSTRYPHY);
             lt.add("暂无信息");
             int size = lt.size();
@@ -632,16 +650,41 @@ public class CompanyDetailsActivity extends BaseActivity {
             details_tit3.setText("已关注");
         }
 
-
-
-
         pb_1.setOnClickListener(onClickListener);
         pb_2.setOnClickListener(onClickListener);
         pb_3.setOnClickListener(onClickListener);
         pb_4.setOnClickListener(onClickListener);
         saveG.setOnClickListener(onClickListener);
-    }
 
+        popupMenu = new PopupMenu(this, findViewById(R.id.d_more));
+        menu = popupMenu.getMenu();
+        // 通过代码添加菜单项
+//        menu.add(Menu.NONE, Menu.FIRST + 0, 0, "复制");
+//        menu.add(Menu.NONE, Menu.FIRST + 1, 1, "粘贴");
+
+        // 通过XML文件添加菜单项
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.menu_list, menu);
+
+        // 监听事件
+        popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.claim:
+                        Toast.show("我的认领");
+                        Intent i=new Intent(CompanyDetailsActivity.this,ToClaimActivity.class);
+                        startActivity(i);
+                        break;
+                }
+                return false;
+            }
+        });
+    }
+    public void popupmenu(View v) {
+        popupMenu.show();
+    }
     public void showPopupWindow(View view) {
         // 一个自定义的布局，作为显示的内容
         View contentView = LayoutInflater.from(CompanyDetailsActivity.this).inflate(
@@ -649,7 +692,7 @@ public class CompanyDetailsActivity extends BaseActivity {
         final PopupWindow popupWindow = new PopupWindow(contentView,
                 ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT, true);
         TextView tv = (TextView) contentView.findViewById(R.id.tv_state);
-        tv.setText(detailsList.get(position).REGSTATE_CN);
+        tv.setText(DataManager.BaseinfoList.get(0).REGSTATE_CN);
         popupWindow.setTouchable(true);
         popupWindow.setTouchInterceptor(new View.OnTouchListener() {
 
@@ -704,7 +747,7 @@ public class CompanyDetailsActivity extends BaseActivity {
                     break;
 
                 case R.id.saveG://关注
-                    if(DataManager.allcountsList.get(0).IsFavorite.equals("false")){//当前状态为未关注，所以点击是关注
+                    if(details_tit3.getText().toString().equals("关注")){//当前状态为未关注，所以点击是关注
                         GsonUtil requestG = new GsonUtil(URLconstant.URLINSER + URLconstant.YESFAVORITE, RequestMethod.GET);
                         requestG.add("deviceId",model);
                         requestG.add("token",tokens);

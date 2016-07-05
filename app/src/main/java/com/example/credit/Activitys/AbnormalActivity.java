@@ -50,7 +50,7 @@ public class AbnormalActivity extends BaseActivity {
                 overridePendingTransition(R.anim.finish_tran_one, R.anim.finish_tran_two);
             }
         });
-        AbnormalAdapter hcadapter2 = new AbnormalAdapter(AbnormalActivity.this, DataManager.abnormalInfoList);
+        AbnormalAdapter hcadapter2 = new AbnormalAdapter(AbnormalActivity.this,DataManager.abnormalInfoS.data.abNormal);
         aListView1.setAdapter(hcadapter2);
     }
 }

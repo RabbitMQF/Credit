@@ -124,7 +124,6 @@ public class DetailsContentActivity extends BaseActivity {
     public String[] arrays4;
     MyGridAdapter3 adapter2;
     MyGridZYAdapter adapterzy;
-    int position;
     String Tname;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -132,7 +131,6 @@ public class DetailsContentActivity extends BaseActivity {
         setContentView(R.layout.activity_details_content);
         ViewUtils.inject(this);
         Intent i = getIntent();
-        position = i.getIntExtra("position", 0);
         Tname = i.getStringExtra("Tname");
         init();
         ScrIndex();

@@ -81,7 +81,7 @@ public class CommentListDetailsActivity extends BaseActivity {
     ProgressDialog pd;
     int position;//下标
     public static Handler handler;
-    String deviceId,uid,pid;
+    String deviceId,uid,pid,KeyNo,token;
     int S,N,So,No;
     public static List<DataManager.Replay2review> replay2reviewListSS = new ArrayList<>();
     @Override
@@ -91,6 +91,8 @@ public class CommentListDetailsActivity extends BaseActivity {
         ViewUtils.inject(this);
         Build bd = new Build();
         deviceId=bd.MODEL;//设备ID
+        KeyNo=DataManager.UserreviewList.get(position).COMMENTID;
+        token = SearchFirmActivty.MD5s(KeyNo + deviceId);
         Intent i=getIntent();
         position=i.getIntExtra("position",0);
         uid=i.getStringExtra("uid");
@@ -100,10 +102,9 @@ public class CommentListDetailsActivity extends BaseActivity {
             public void handleMessage(Message msg) {
                 switch (msg.what){
                     case 0:
-
+                        nogoodhttp(0x2031);
                         break;
                     case 1:
-
                         SimpleDateFormat sDateFormat=new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
                         String  date =sDateFormat.format(new java.util.Date());
                         DataManager.Replay2review r2=new DataManager.Replay2review();
@@ -305,18 +306,15 @@ public class CommentListDetailsActivity extends BaseActivity {
         N=Integer.parseInt(plD_good_num.getText().toString());//当前点赞数值
         So=Integer.parseInt(DataManager.UserreviewList.get(position).FAILEDQTY.trim());//原来差评数值
         No=Integer.parseInt(Dnogood_num.getText().toString());//当前差评数值
-        if(N!=S){//当当前点赞数值等于原来所赋值的数值，则点赞数量不变，不发送请求
-            goodhttp();
+        if(N!=S && No==So){//当当前点赞数值等于原来所赋值的数值，差评数量不变，则只执行点赞请求
+            goodhttp(0x202);
+        }else if(No!=So && N==S) {//当当前差评数值等于原来所赋值的数值，好评数量不变，则只执行差评请求
+            nogoodhttp(0x203);
+        }else if(N!=S && No!=So){//当当前差评数值等于原来所赋值的数值，当前点赞数值等于原来所赋值的数值，则先执行好评，后执行差评请求
+            goodhttp(0x2021);
         }
-        if(No!=So) {//当当前差评数值等于原来所赋值的数值，则差评数量不变，不发送请求
-            nogoodhttp();
-        }
-        handler.sendEmptyMessage(2);
     }
-    public void goodhttp(){
-        String KeyNo=DataManager.UserreviewList.get(position).COMMENTID;
-        String token = SearchFirmActivty.MD5s(KeyNo + deviceId);
-
+    public void goodhttp(int good){
         GsonUtil request14 = new GsonUtil(URLconstant.URLINSER + URLconstant.ZZOMM, RequestMethod.GET);
         request14.add("KeyNo",KeyNo);
         request14.add("token",token);
@@ -327,23 +325,20 @@ public class CommentListDetailsActivity extends BaseActivity {
         }else{
             request14.add("opeType","1");
         }
-        CallServer.getInstance().add(CommentListDetailsActivity.this, request14, MyhttpCallBack.getInstance(), 0x202, true, false, true);
+        CallServer.getInstance().add(CommentListDetailsActivity.this, request14, MyhttpCallBack.getInstance(), good, true, false, true);
 
     }
-    public void nogoodhttp(){
-        String KeyNo=DataManager.UserreviewList.get(position).COMMENTID;
-        String token = SearchFirmActivty.MD5s(KeyNo + deviceId);
-
-            GsonUtil request14 = new GsonUtil(URLconstant.URLINSER + URLconstant.NNOMM, RequestMethod.GET);
-            request14.add("KeyNo",KeyNo);
-            request14.add("token",token);
-            request14.add("deviceId",deviceId);
-            request14.add("memberId","86D9D7F53FCA45DD93E2D83DFCA0CB42");
-            if(No>So){//当当前差评数值大于原来所赋值的数值，则为差评+1
-                request14.add("opeType","0");
-            }else{
-                request14.add("opeType","1");
-            }
-            CallServer.getInstance().add(CommentListDetailsActivity.this, request14, MyhttpCallBack.getInstance(), 0x203, true, false, true);
+    public void nogoodhttp(int no){
+        GsonUtil request14 = new GsonUtil(URLconstant.URLINSER + URLconstant.NNOMM, RequestMethod.GET);
+        request14.add("KeyNo",KeyNo);
+        request14.add("token",token);
+        request14.add("deviceId",deviceId);
+        request14.add("memberId","86D9D7F53FCA45DD93E2D83DFCA0CB42");
+        if(No>So){//当当前差评数值大于原来所赋值的数值，则为差评+1
+            request14.add("opeType","0");
+        }else{
+            request14.add("opeType","1");
+        }
+        CallServer.getInstance().add(CommentListDetailsActivity.this, request14, MyhttpCallBack.getInstance(), no, true, false, true);
     }
 }

@@ -95,7 +95,7 @@
             android:name=".Activitys.NewsContentActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
-            android:name=".Activitys.ClaimActivity"
+            android:name=".Activitys.ToClaimActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".Activitys.ClaimDetailsActivity"

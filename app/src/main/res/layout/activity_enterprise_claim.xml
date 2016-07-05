@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#EEEEEF"
-    tools:context=".Activitys.ClaimActivity">
+    tools:context=".Activitys.ToClaimActivity">
 
     <include layout="@layout/public_top_bar"/>
 
@@ -29,13 +29,14 @@
             android:focusableInTouchMode="true"
             android:text="邮箱"/>
         <EditText
-            android:id="@+id/ec_emils"
+            android:id="@+id/claim_emils"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:textSize="14sp"
             android:textColor="#757475"
             android:gravity="center_vertical"
             android:hint="请输入邮箱"
+            android:maxLines="1"
             android:background="@drawable/bg_edittext"
             android:layout_gravity="center_vertical"
             android:layout_margin="5dp"
@@ -60,11 +61,12 @@
             android:layout_gravity="center_vertical"
             android:text="手机号"/>
         <EditText
-            android:id="@+id/ec_phone"
+            android:id="@+id/claim_phone"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:textSize="14sp"
             android:textColor="#757475"
+            android:maxLines="1"
             android:gravity="center_vertical"
             android:hint="请输入手机号"
             android:background="@drawable/bg_edittext"
@@ -92,7 +94,7 @@
             android:layout_gravity="center_vertical"
             android:text="描述详情"/>
         <EditText
-            android:id="@+id/ec_details"
+            android:id="@+id/claim_details"
             android:layout_width="match_parent"
             android:layout_height="150dp"
             android:textSize="14sp"
@@ -105,7 +107,7 @@
             android:layout_margin="5dp"
             />
         <TextView
-            android:id="@+id/ec_details_num"
+            android:id="@+id/claim_details_num"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="14sp"
@@ -135,6 +137,7 @@
             android:layout_gravity="center_vertical"
             android:text="上传附件"/>
         <ImageView
+            android:id="@+id/claim_fj"
             android:layout_width="80dp"
             android:layout_height="60dp"
             android:layout_gravity="center_vertical"
@@ -142,6 +145,7 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/claim_btn"
         android:layout_width="match_parent"
         android:layout_height="35dp"
         android:layout_marginRight="10dp"

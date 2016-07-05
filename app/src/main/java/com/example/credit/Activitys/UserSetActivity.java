@@ -25,6 +25,7 @@ public class UserSetActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_set);
         ViewUtils.inject(this);
+        init();
     }
 
     public void init(){

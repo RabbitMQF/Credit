@@ -468,17 +468,28 @@ public class DataManager {
      * 经营异常信息实体类
      */
 
-    public static List<abnormalInfo> abnormalInfoList;
+    public static abnormalInfo abnormalInfoS=new abnormalInfo();
 
     public static class abnormalInfo {
-        public String BUSEXCLIST;//经营异常名录ID
-        public String SPECAUSE_CN;//列入经营异常名录原因类型（中文名称）
-        public String ABNTIME;//列入日期
-        public String DECORG_CN;//列入决定机关（中文名称）
-        public String REMEXCPRES_CN;//移出经营异常名录原因（中文名称）
-        public String REMDATE;//移出日期
-        public String REDECORG_CN;//移出决定机关（中文名称）
+        public String message;
+        public String status;
+        public DataBean data;
+        public static class DataBean {
+            public  List<AbNormalBean> abNormal;
+            public  class AbNormalBean {
+                public String BUSEXCLIST;//经营异常名录ID
+                public String SPECAUSE_CN;//列入经营异常名录原因类型（中文名称）
+                public String ABNTIME;//列入日期
+                public String DECORG_CN;//列入决定机关（中文名称）
+                public String REMEXCPRES_CN;//移出经营异常名录原因（中文名称）
+                public String REMDATE;//移出日期
+                public String REDECORG_CN;//移出决定机关（中文名称）
+            }
+        }
     }
+
+
+
 
     /**
      * 专利信息实体类
@@ -927,13 +938,13 @@ public class DataManager {
         public String REGSTATE;
         public String EnterAddtionID;
         public String REGNO;
-        public boolean IsFavorite;
-        public String NAME;
-        public int REGCAP;
-        public String ESTDATE;
-        public String ENTTYPE_CN;
-        public String ENTNAME;
-        public String REGSTATE_CN;
+        public String IsFavorite;
+        public String NAME;//法人
+        public String REGCAP;//注册资金
+        public String ESTDATE;//日期
+        public String ENTTYPE_CN;//公司类型
+        public String ENTNAME;//公司名字
+        public String REGSTATE_CN;//经营状态
         public String UNISCID;
         public String PRIPID;
         public String ENTTYPE;
