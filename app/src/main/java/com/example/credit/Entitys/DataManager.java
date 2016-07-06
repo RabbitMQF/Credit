@@ -935,19 +935,19 @@ public class DataManager {
      * 参数数据
      */
     public static class Baseinfo {
-        public String REGSTATE;
-        public String EnterAddtionID;
-        public String REGNO;
-        public String IsFavorite;
+        public String REGSTATE;//登记状态
+        public String EnterAddtionID;//企业附加表ID
+        public String REGNO;//企业注册号
+        public String IsFavorite;//是否关注
         public String NAME;//法人
         public String REGCAP;//注册资金
-        public String ESTDATE;//日期
-        public String ENTTYPE_CN;//公司类型
+        public String ESTDATE;//成立日期
+        public String ENTTYPE_CN;//公司类型（市场主体类型中文）
         public String ENTNAME;//公司名字
-        public String REGSTATE_CN;//经营状态
-        public String UNISCID;
-        public String PRIPID;
-        public String ENTTYPE;
+        public String REGSTATE_CN;//经营状态（中文）
+        public String UNISCID;//统一社会信用代码
+        public String PRIPID;//主体身份代码
+        public String ENTTYPE;//市场主体类型
     }
 
     public static List<Baseinfo> BaseinfoList = new ArrayList<>();
@@ -1299,7 +1299,91 @@ public class DataManager {
             }
         }
     }
+    public static ClaimUtils ClaimUtilsModel = new ClaimUtils();
+    /**
+     * 提交认领实体类 + 提交认领附件实体类
+     */
+    public static class ClaimUtils {
+        public String message;
+        public String status;
+        /**
+         * result : success
+         * CLAIMID : 0ba157faf37d47a1adba808b95e00ab0
+         */
+        public DataBean data;
+        public static class DataBean {
+            public String result;
+            public String CLAIMID;
+        }
+    }
 
+    public static MyClaimUtils MyClaimUtilsModel = new MyClaimUtils();
+    /**
+     * 我的认领列表实体类
+     */
+    public static class MyClaimUtils {
+        public String message;
+        public String status;
+        public DataBean data;
+        public String version;//版本号
 
+        public static class DataBean {
+
+            public PagingBean Paging;
+            /**
+             * ENTERID : 29cf69863e6a11e6b90f00163e160363
+             * CLAIMID : 3e8657395f804e07b70020add0ef1844
+             * DESCRIPTION : 123123123123123
+             * CLAIMTIME : 2016-07-06 14:45:25
+             * STATUS : 0
+             * TELPHONE : 1231231231231
+             * STATUSNAME : 审核中
+             * REGNORE : 360103210025958
+             * REFUSEREASON :
+             * ENTTYPE_CN : 有限责任公司(自然人投资或控股)
+             * ENTERNAME : 江西智容科技有限公司
+             * EMAIL : 1231232@qq.com
+             * AttachmentList : [{"ATTACHMENTDESC":"pic","ATTACHMENTNAME":"d75bb0be5bb74b6e81e1ef06b8a5b39d1467787553609.jpg","ATTACHMENTID":"da13ee17e44f4f8d9632233bc8ec3228","ATTACHMENTPATH":"iVBORw0KGgoAAAANSUhEUgAAAKcAAACoCAIAAAAKImluAAAAA3NCSVQ/gAAAgAElEQVR4\nnKy8aZRlV3UmuPc+59zpzTFHZERG5KhMZSqVKSmRBJqQQBgEMsJtKNyGbrBpt92rjV1Q7eoCTNn\n7lpd5cZgU27XMrSpLlxlA7KEDWhMzUIIZSol5TxGZmRExhzxxjuec3b/uBGRoQkPq896K+K++967\nw9nTt7+9z8VzjZiZmRkALAIA8MpfsW4bAMACAICxGSJmDIhohcPMGkBK2e60yuWSCSPP82wcpmla\ndN3Lly+ff/nwRz7yEV8JAOBUO44\nP3Bob6dPyMZ7tIqYRrgNInFe72VR1n1REheGSYNRFDDBkABI8DHSS6Qh+MQYL7q7tZnPNJuZDSJp\nnaQfnBUF8MZgdKO9P3DgwJNPPlkUxbvvvttqtUIIjUZjFI/UURARh6AmsEUbXOBib/vSRfZ7vbKw\nGW98tUreToDxvnDFfebK9yVv4+N/3eOoYemdBUYAAAAASUVORK5CYII=\n","ATTACHMENTTYPE":"认领企业","ATTACHMENTTIME":"2016-07-06 14:45:53"}]
+             * PRIPID : 3601032011041300098564
+             */
+            public List<ClaimlistBean> Claimlist;
+
+            public static class PagingBean {
+                public int TotalPage;
+                public int ShowCount;
+                public int TotalResult;
+                public int CurrentResult;
+                public int CurrentPage;
+
+            }
+
+            public static class ClaimlistBean {
+                public String ENTERID;//附加表的企业ID
+                public String CLAIMID;//认领ID
+                public String DESCRIPTION;//认领申明
+                public String CLAIMTIME;//认领时间
+                public String STATUS;//认领状态
+                public String TELPHONE;//电话号码
+                public String STATUSNAME;//认领状态中文
+                public String REGNORE;//注册号
+                public String REFUSEREASON;//拒审原因
+                public String ENTTYPE_CN;//市场主体类型代码
+                public String ENTERNAME;//企业名称
+                public String EMAIL;//邮件地址
+                public String PRIPID;//企业主体ID
+
+                public List<AttachmentListBean> AttachmentList;
+
+                public static class AttachmentListBean {
+                    public String ATTACHMENTDESC;//图片备注内容
+                    public String ATTACHMENTNAME;//图片名字
+                    public String ATTACHMENTID;//图片ID
+                    public String ATTACHMENTPATH;//图片base64位码
+                    public String ATTACHMENTTYPE;//图片类型
+                    public String ATTACHMENTTIME;//图片时间
+                }
+            }
+        }
+    }
 }
 

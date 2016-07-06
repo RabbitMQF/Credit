@@ -50,19 +50,19 @@ public class MyconcernActivity extends BaseActivity {
         handler=new Handler(){
             @Override
             public void handleMessage(Message msg) {
-               switch (msg.what){
-                   case 1:
-                       wd.dismiss();
-                       Intent i = new Intent(MyconcernActivity.this, CompanyDetailsActivity.class);
-                       i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                       startActivity(i);
-                       overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
-                       break;
-                   case 500:
-                       wd.dismiss();
-                       android.widget.Toast.makeText(MyconcernActivity.this, "暂无数据！", android.widget.Toast.LENGTH_SHORT).show();
-                       break;
-               }
+                switch (msg.what){
+                    case 1:
+                        wd.dismiss();
+                        Intent i = new Intent(MyconcernActivity.this, CompanyDetailsActivity.class);
+                        i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        startActivity(i);
+                        overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
+                        break;
+                    case 500:
+                        wd.dismiss();
+                        android.widget.Toast.makeText(MyconcernActivity.this, "暂无数据！", android.widget.Toast.LENGTH_SHORT).show();
+                        break;
+                }
             }
         };
     }
@@ -82,7 +82,8 @@ public class MyconcernActivity extends BaseActivity {
                 requst.add("token",token);
                 requst.add("deviceId",(new Build()).MODEL);
                 requst.add("memberId","86D9D7F53FCA45DD93E2D83DFCA0CB42");
-//              requst.add("regno",DataManager.FavotiteListS.data.AttentionList.get(position).REGNO);
+                requst.add("regnore",DataManager.FavotiteListS.data.AttentionList.get(position).REGNORE);
+                requst.add("priptype",DataManager.FavotiteListS.data.AttentionList.get(position).ENTTYPE);
                 CallServer.getInstance().add(MyconcernActivity.this,requst, MyhttpCallBack.getInstance(),0x025,true,false,true);
             }
         });

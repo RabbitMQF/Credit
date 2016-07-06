@@ -142,7 +142,6 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
                                 requst.add("memberId","86D9D7F53FCA45DD93E2D83DFCA0CB42");
                                 requst.add("regnore",DataManager.searchList.get(position).REGNO);
                                 requst.add("priptype",DataManager.searchList.get(position).ENTTYPE);
-                                requst.add("memberId","");
                                 CallServer.getInstance().add(SearchFirmActivty.this,requst,MyhttpCallBack.getInstance(),0x024,true,false,true);
                             }
                         });

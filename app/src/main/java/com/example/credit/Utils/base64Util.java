@@ -11,7 +11,6 @@ import java.io.ByteArrayOutputStream;
 public class base64Util {
     /**
      * 将bitmap转换成base64字符串
-     *
      * @param bitmap
      * @return base64 字符串
      */
@@ -28,7 +27,6 @@ public class base64Util {
 
     /**
      * 将base64转换成bitmap图片
-     *
      * @param string base64字符串
      * @return bitmap
      */

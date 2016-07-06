@@ -4,8 +4,11 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.TextView;
 
+import com.example.credit.Adapters.MyClaim_listAdapter;
+import com.example.credit.Entitys.DataManager;
 import com.example.credit.R;
 import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ViewInject;
@@ -18,6 +21,9 @@ public class MyClaimActivity extends BaseActivity {
     TextView b_topname;
     @ViewInject(R.id.b_return)
     LinearLayout b_return;
+
+    @ViewInject(R.id.Myclaim_list)
+    ListView Myclaim_list;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,5 +39,7 @@ public class MyClaimActivity extends BaseActivity {
                 finish();
             }
         });
+        MyClaim_listAdapter adapter=new MyClaim_listAdapter(MyClaimActivity.this, DataManager.MyClaimUtilsModel.data.Claimlist);
+        Myclaim_list.setAdapter(adapter);
     }
 }

@@ -29,6 +29,9 @@ import java.util.List;
  */
 public class ComplainListAdapter extends BaseAdapter {
     private Context context;
+    ViewHolder vh = null;
+    boolean Tag=false;
+
     private List<DataManager.MyComplaint.DataBean.CommentListBean> ComplainList;
 
     public ComplainListAdapter(Context context) {
@@ -40,6 +43,9 @@ public class ComplainListAdapter extends BaseAdapter {
         this.ComplainList = ComplainList;
     }
 
+   public void setTag(){
+       this.Tag=true;
+   }
     public void setDataList(List<DataManager.MyComplaint.DataBean.CommentListBean> ComplainList){
         this.ComplainList=ComplainList;
     }
@@ -59,9 +65,11 @@ public class ComplainListAdapter extends BaseAdapter {
         return position;
     }
 
+
+
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
-        ViewHolder vh = null;
+
         if (convertView == null) {
             convertView = LayoutInflater.from(context).inflate(R.layout.activity_mycomplaints_list_item, null);
             vh = new ViewHolder();
@@ -98,6 +106,12 @@ public class ComplainListAdapter extends BaseAdapter {
             default:break;
         }
         //vh.complain_status.setText(ComplainList.get(position).COMPLAINSTATUS);
+        if(Tag){
+            vh.complain_cancel.setVisibility(View.GONE);
+        }
+        /**
+         * 取消投诉
+         */
         vh.complain_cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -109,6 +123,9 @@ public class ComplainListAdapter extends BaseAdapter {
                 MycomplaintsListActivity.pd.show();
             }
         });
+        /**
+         * Item点击事件
+         */
         convertView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

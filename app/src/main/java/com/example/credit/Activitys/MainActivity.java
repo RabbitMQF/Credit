@@ -29,6 +29,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.credit.Adapters.NewsListAdapter;
+import com.example.credit.Dialogs.WaitDialog;
 import com.example.credit.Entitys.DataManager;
 import com.example.credit.R;
 import com.example.credit.Services.CallServer;
@@ -94,10 +95,10 @@ public class MainActivity extends Activity implements View.OnClickListener {
     RelativeLayout Smenu_6;//关于我们
     @ViewInject(R.id.login)
     Button login;//登录
-    CreditSharePreferences csp;
+    static CreditSharePreferences csp;
     Boolean LoginStatus;
     public static ProgressDialog pd;
-
+    WaitDialog ad;
 //    @ViewInject(R.id.pb_1)
 //    TextView pb_1;//首页
 //    @ViewInject(R.id.pb_2)
@@ -115,6 +116,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         csp = CreditSharePreferences.getLifeSharedPreferences();
         LoginStatus = csp.getLoginStatus();
         ViewUtils.inject(this);
+        ad=new WaitDialog(this);
         initView();
 
 
@@ -141,6 +143,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                         adapter.notifyDataSetChanged();
                         break;
                     case 1://我的评价
+                        ad.dismiss();
                         Intent i1 = new Intent(MainActivity.this, MyCommentlistActivity.class);
                         startActivity(i1);
                         break;
@@ -152,12 +155,16 @@ public class MainActivity extends Activity implements View.OnClickListener {
                             startActivity(new Intent(MainActivity.this, MycomplaintsListActivity.class));
                         }else {MycomplaintsListActivity.handler.sendEmptyMessage(2);}
                             break;
-                    case 3://跳我的关注
+                    case 5://跳我的关注
+                        ad.dismiss();
                         Intent i3 = new Intent(MainActivity.this, MyconcernActivity.class);
                         startActivity(i3);
                         break;
-
-
+                    case 6://跳我的认领
+                        ad.dismiss();
+                        Intent i6= new Intent(MainActivity.this, MyClaimActivity.class);
+                        startActivity(i6);
+                        break;
                     default:
                         break;
                 }
@@ -254,6 +261,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                     startActivityForResult(pickIntent, REQUESTCODE_PICK);
                     break;
                 case R.id.Smenu_1://我的评价
+                    ad.show();
                     GsonUtil request14 = new GsonUtil(URLconstant.URLINSER + URLconstant.MMOMM, RequestMethod.GET);
                     request14.add("deviceId",(new Build()).MODEL);
                     request14.add("token",SearchFirmActivty.MD5s("86D9D7F53FCA45DD93E2D83DFCA0CB42" + (new Build()).MODEL));
@@ -270,6 +278,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 //                    Toast.makeText(MainActivity.this, "此模块，正在赶点加工中...", Toast.LENGTH_SHORT).show();
                     break;
                 case R.id.Smenu_3://我的关注
+                    ad.show();
                     GsonUtil  MyconcernRuerst = new GsonUtil(URLconstant.URLINSER + URLconstant.MYFAVORITE, RequestMethod.GET);
                     MyconcernRuerst.add("deviceId",(new Build()).MODEL);
                     MyconcernRuerst.add("token",SearchFirmActivty.MD5s("86D9D7F53FCA45DD93E2D83DFCA0CB42" + (new Build()).MODEL));
@@ -279,8 +288,12 @@ public class MainActivity extends Activity implements View.OnClickListener {
 //                    Toast.makeText(MainActivity.this, "此模块，正在赶点加工中...", Toast.LENGTH_SHORT).show();
                     break;
                 case R.id.Smenu_4://我的认领
-                    Intent i4 = new Intent(MainActivity.this, MyClaimActivity.class);
-                    startActivity(i4);
+                    ad.show();
+                    GsonUtil  MyClaimRuerst = new GsonUtil(URLconstant.URLINSER + URLconstant.MYCLAIMURL, RequestMethod.GET);
+                    MyClaimRuerst.add("deviceId",(new Build()).MODEL);
+                    MyClaimRuerst.add("token",SearchFirmActivty.MD5s("86D9D7F53FCA45DD93E2D83DFCA0CB42" + (new Build()).MODEL));
+                    MyClaimRuerst.add("KeyNo","86D9D7F53FCA45DD93E2D83DFCA0CB42");
+                    CallServer.getInstance().add(MainActivity.this,MyClaimRuerst,MyhttpCallBack.getInstance(),0x303,true,false,true);
 //                    Toast.makeText(MainActivity.this, "此模块，正在赶点加工中...", Toast.LENGTH_SHORT).show();
                     break;
                 case R.id.Smenu_5://服务协议
@@ -341,8 +354,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
      */
     public static void getComplaint(Activity activity) {
         GsonUtil ComplaintsRuerst = new GsonUtil(URLconstant.URLINSER + URLconstant.GETCOMPLAIN, RequestMethod.GET);
-        ComplaintsRuerst.add("token", MD5.MD5s("b2d794b453664657af61b373c1d00e7c" + new Build().MODEL));//csp.getID()
-        ComplaintsRuerst.add("KeyNo","b2d794b453664657af61b373c1d00e7c");//csp.getID()
+        ComplaintsRuerst.add("token", MD5.MD5s(csp.getID()+ new Build().MODEL));//csp.getID()
+        ComplaintsRuerst.add("KeyNo",csp.getID());// b2d794b453664657af61b373c1d00e7c
         ComplaintsRuerst.add("deviceId", new Build().MODEL);
         CallServer.getInstance().add(activity,ComplaintsRuerst,MyhttpCallBack.getInstance(),0x997,true,false,true);
     }

@@ -8,6 +8,7 @@ import com.example.credit.Activitys.MycomplaintsListActivity;
 import com.example.credit.Activitys.MyconcernActivity;
 import com.example.credit.Activitys.RegisterActivity;
 import com.example.credit.Activitys.SearchFirmActivty;
+import com.example.credit.Activitys.ToClaimActivity;
 import com.example.credit.Activitys.ToCommentActivity;
 import com.example.credit.Entitys.DataManager;
 import com.example.credit.Entitys.DataManager.Replay2review;
@@ -858,33 +859,33 @@ public class MyhttpCallBack implements HttpCallBack {
                         switch (listtemp.get(i).get("type").toString()) {
                             case "企业年报":
                                 if(listtemp.get(i).get("date")!=null){
-                                DataManager.reportList = gson.fromJson(listtemp.get(i).get("date").toString(), new TypeToken<List<DataManager.report>>() {
-                                }.getType());}
+                                    DataManager.reportList = gson.fromJson(listtemp.get(i).get("date").toString(), new TypeToken<List<DataManager.report>>() {
+                                    }.getType());}
                                 break;
                             case "股东及出资信息":
                                 if(listtemp.get(i).get("date")!=null){
-                                DataManager.fundedList = gson.fromJson(listtemp.get(i).get("date").toString(), new TypeToken<List<DataManager.funded>>() {
-                                }.getType());}
+                                    DataManager.fundedList = gson.fromJson(listtemp.get(i).get("date").toString(), new TypeToken<List<DataManager.funded>>() {
+                                    }.getType());}
                                 break;
                             case "股权变更信息":
                                 if(listtemp.get(i).get("date")!=null){
-                                DataManager.stockList = gson.fromJson(listtemp.get(i).get("date").toString(), new TypeToken<List<DataManager.stock>>() {
-                                }.getType());}
+                                    DataManager.stockList = gson.fromJson(listtemp.get(i).get("date").toString(), new TypeToken<List<DataManager.stock>>() {
+                                    }.getType());}
                                 break;
                             case "行政许可信息":
                                 if(listtemp.get(i).get("date")!=null){
-                                DataManager.permitList = gson.fromJson(listtemp.get(i).get("date").toString(), new TypeToken<List<DataManager.permit>>() {
-                                }.getType());}
+                                    DataManager.permitList = gson.fromJson(listtemp.get(i).get("date").toString(), new TypeToken<List<DataManager.permit>>() {
+                                    }.getType());}
                                 break;
                             case "知识产权登记信息":
                                 if(listtemp.get(i).get("date")!=null){
-                                DataManager.loreList = gson.fromJson(listtemp.get(i).get("date").toString(), new TypeToken<List<DataManager.lore>>() {
-                                }.getType());}
+                                    DataManager.loreList = gson.fromJson(listtemp.get(i).get("date").toString(), new TypeToken<List<DataManager.lore>>() {
+                                    }.getType());}
                                 break;
                             case "行政处罚信息":
                                 if(listtemp.get(i).get("date")!=null){
-                                DataManager.punishList = gson.fromJson(listtemp.get(i).get("date").toString(), new TypeToken<List<DataManager.punish>>() {
-                                }.getType());}
+                                    DataManager.punishList = gson.fromJson(listtemp.get(i).get("date").toString(), new TypeToken<List<DataManager.punish>>() {
+                                    }.getType());}
                                 break;
                             default:
                                 break;
@@ -905,10 +906,11 @@ public class MyhttpCallBack implements HttpCallBack {
                 jsonString = (String) response.get();
                 DataManager.FavotiteS = gson.fromJson(jsonString, DataManager.Favotite.class);
                 CompanyDetailsActivity.handler.sendEmptyMessage(23);
+                break;
             case 0x103://我的关注列表
                 jsonString = (String) response.get();
                 DataManager.FavotiteListS = gson.fromJson(jsonString, DataManager.FavotiteList.class);
-                MainActivity.handler.sendEmptyMessage(3);
+                MainActivity.handler.sendEmptyMessage(5);
                 break;
             case 0x201://评论
                 String jstring201 = (String) response.get();
@@ -1013,8 +1015,26 @@ public class MyhttpCallBack implements HttpCallBack {
                 break;
             case 0x301://提交认领
                 jsonString = (String) response.get();
-                DataManager.FavotiteListS = gson.fromJson(jsonString, DataManager.FavotiteList.class);
-                MainActivity.handler.sendEmptyMessage(3);
+                DataManager.ClaimUtilsModel = gson.fromJson(jsonString, DataManager.ClaimUtils.class);
+                if(DataManager.ClaimUtilsModel.data.result.equals("success")){
+                    ToClaimActivity.handler.sendEmptyMessage(1);
+                }else{
+                    ToClaimActivity.handler.sendEmptyMessage(500);
+                }
+                break;
+            case 0x302://提交认领附件
+                jsonString = (String) response.get();
+                DataManager.ClaimUtilsModel = gson.fromJson(jsonString, DataManager.ClaimUtils.class);
+                if(DataManager.ClaimUtilsModel.data.result.equals("success")){
+                    ToClaimActivity.handler.sendEmptyMessage(2);
+                }else{
+                    ToClaimActivity.handler.sendEmptyMessage(500);
+                }
+                break;
+            case 0x303://我的认领列表
+                jsonString = (String) response.get();
+                DataManager.MyClaimUtilsModel = gson.fromJson(jsonString, DataManager.MyClaimUtils.class);
+                MainActivity.handler.sendEmptyMessage(6);
                 break;
             case 0x999://登入
                 jsonString = (String) response.get();
@@ -1065,6 +1085,11 @@ public class MyhttpCallBack implements HttpCallBack {
                 DataManager.complaintDetail=gson.fromJson(jsonString,DataManager.ComplaintDetail.class);
                 MycomplaintsListActivity.handler.sendEmptyMessage(3);
                 break;
+            case 0x994://获取企业投诉列表
+                jsonString = (String) response.get();
+                DataManager.myComplaint = gson.fromJson(jsonString, DataManager.MyComplaint.class);
+                CompanyDetailsActivity.pd.dismiss();
+                CompanyDetailsActivity.handler.sendEmptyMessage(24);
             default:
                 break;
         }

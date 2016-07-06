@@ -37,6 +37,7 @@ import com.example.credit.Adapters.MyGridAdapter1;
 import com.example.credit.Adapters.MyGridAdapter2;
 import com.example.credit.Services.CallServer;
 import com.example.credit.Utils.GsonUtil;
+import com.example.credit.Utils.MD5;
 import com.example.credit.Utils.MyhttpCallBack;
 import com.example.credit.Utils.Toast;
 import com.example.credit.Utils.URLconstant;
@@ -132,7 +133,7 @@ public class CompanyDetailsActivity extends BaseActivity {
             R.mipmap.icon15, R.mipmap.icon16};
 
     public static Handler handler;
-    String model,KeyNo,token,regnore;
+    String model,KeyNo,token,regnore,enterId;
 
     @ViewInject(R.id.pb_1)
     TextView pb_1;//首页
@@ -143,7 +144,7 @@ public class CompanyDetailsActivity extends BaseActivity {
     @ViewInject(R.id.pb_4)
     TextView pb_4;//我
 
-    ProgressDialog pd;
+    public static ProgressDialog pd;
     String KeyNos,tokens;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -158,6 +159,7 @@ public class CompanyDetailsActivity extends BaseActivity {
         Build bd = new Build();
         model = bd.MODEL;//设备ID
         KeyNo = DataManager.BaseinfoList.get(0).PRIPID;//市场主体身份代码
+        enterId=DataManager.BaseinfoList.get(0).EnterAddtionID;//企业附加表ID
         token = SearchFirmActivty.MD5s(KeyNo + model);//token 由 设备ID+市场主体身份代码 MD5生成
         regnore=DataManager.BaseinfoList.get(0).REGNO;//注册号
 
@@ -329,6 +331,9 @@ public class CompanyDetailsActivity extends BaseActivity {
                             android.widget.Toast.makeText(CompanyDetailsActivity.this, "取消关注失败！", android.widget.Toast.LENGTH_SHORT).show();
 
                         }
+                        break;
+                    case 24://投诉跳转列表
+                        startActivity(new Intent(CompanyDetailsActivity.this,MycomplaintsListActivity.class).putExtra("key",1));
                         break;
                     case 500:
                         waitDialog.dismiss();
@@ -548,6 +553,9 @@ public class CompanyDetailsActivity extends BaseActivity {
     };
 
     public void init() {
+        pd=new ProgressDialog(CompanyDetailsActivity.this);
+        pd.setMessage("正在加载中...");
+        pd.setCancelable(false);
         d_return.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -724,9 +732,6 @@ public class CompanyDetailsActivity extends BaseActivity {
                 case R.id.pb_2://评论
 //                    android.widget.Toast.makeText(CompanyDetailsActivity.this, "此模块，正在抢修中。。。！", android.widget.Toast.LENGTH_SHORT).show();
 //                    waitDialog.show();
-                    pd=new ProgressDialog(CompanyDetailsActivity.this);
-                    pd.setMessage("正在加载中...");
-                    pd.setCancelable(false);
                     pd.show();
                     GsonUtil request14 = new GsonUtil(URLconstant.URLINSER + URLconstant.COMM, RequestMethod.GET);
                     request14.add("deviceId",model);
@@ -736,8 +741,16 @@ public class CompanyDetailsActivity extends BaseActivity {
                     CallServer.getInstance().add(CompanyDetailsActivity.this, request14, MyhttpCallBack.getInstance(), 0x201, true, false, true);
                     break;
                 case R.id.pb_3://投诉
-                    Intent i3=new Intent(CompanyDetailsActivity.this,ToComplaintActivity.class);
-                    startActivity(i3);
+                    pd.show();
+                    GsonUtil ComplaintsRuerst = new GsonUtil(URLconstant.URLINSER + URLconstant.GETCOMPLAIN, RequestMethod.GET);
+                    ComplaintsRuerst.add("token", MD5.MD5s("" + new Build().MODEL));//csp.getID()
+                    ComplaintsRuerst.add("KeyNo","");//csp.getID()
+                    ComplaintsRuerst.add("deviceId", new Build().MODEL);
+                    ComplaintsRuerst.add("enterId",enterId);
+                    CallServer.getInstance().add(CompanyDetailsActivity.this,ComplaintsRuerst,MyhttpCallBack.getInstance(),0x994,true,false,true);
+//                    Intent i3=new Intent(CompanyDetailsActivity.this,MycomplaintsListActivity.class);
+//                    i3.putExtra("key",1);
+//                    startActivity(i3);
                     break;
                 case R.id.pb_4://我
 //                    Intent i4=new Intent(CompanyDetailsActivity.this,MainActivity.class);

@@ -54,13 +54,13 @@ public class ComplaintDetailsActivity extends BaseActivity {
 //        Bitmap b=bd.getBitmap();
 //
 //        mlgb.setImageBitmap(b);
-       String[] t= temps.split("=");
-        byte[] imageByte=Base64.decode(t[0],Base64.DEFAULT);
-        Bitmap b=BitmapFactory.decodeByteArray(imageByte,0,imageByte.length);
+       //String[] t= temps.split("=");
+////        byte[] imageByte=Base64.decode(temps,Base64.DEFAULT);
+////        Bitmap b=BitmapFactory.decodeByteArray(imageByte,0,imageByte.length);
     //    BitmapDrawable bd= new BitmapDrawable(b);
        /* Uri u=Uri.parse(temps);
         Picasso.with(this).load(u).into(mlgb);*/
-        mlgb.setImageBitmap(b);
+       // mlgb.setImageBitmap(b);
     }
 
     public void init() {

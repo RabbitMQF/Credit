@@ -1,16 +1,11 @@
 package com.example.credit.Activitys;
 
-import android.app.Activity;
-import android.app.ActivityManager;
 import android.app.ProgressDialog;
-import android.content.ComponentName;
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -18,17 +13,11 @@ import android.widget.TextView;
 import com.example.credit.Adapters.ComplainListAdapter;
 import com.example.credit.Entitys.DataManager;
 import com.example.credit.R;
-import com.example.credit.Services.CallServer;
-import com.example.credit.Utils.GsonUtil;
-import com.example.credit.Utils.MD5;
-import com.example.credit.Utils.MyhttpCallBack;
+import com.example.credit.Utils.CreditSharePreferences;
 import com.example.credit.Utils.Toast;
-import com.example.credit.Utils.URLconstant;
 import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ViewInject;
-import com.yolanda.nohttp.RequestMethod;
 
-import java.util.List;
 
 /**
  * 我的投诉
@@ -40,14 +29,18 @@ public class MycomplaintsListActivity extends BaseActivity {
     LinearLayout b_return;
     @ViewInject(R.id.complain_lv)
     ListView complain_lv;
+    @ViewInject(R.id.b_topY)
+    TextView b_topY;
     ComplainListAdapter Cadapter;
     public static Handler handler;
     public static ProgressDialog pd;
+    CreditSharePreferences csp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mycomplaints_list);
+        csp=CreditSharePreferences.getLifeSharedPreferences();
         ViewUtils.inject(this);
         init();
         handler = new Handler() {
@@ -61,13 +54,12 @@ public class MycomplaintsListActivity extends BaseActivity {
                     case 2://数据源更新后更新UI
                         Cadapter.setDataList(DataManager.myComplaint.data.commentList);
                         Cadapter.notifyDataSetChanged();
-                        //complain_lv.setAdapter(Cadapter);
                         pd.dismiss();
                         Toast.show("取消成功");
                         break;
                     case 3://点击item获取详情数据结束后跳转详情页
                         pd.dismiss();
-                    startActivity(new Intent(MycomplaintsListActivity.this, ComplaintDetailsActivity.class));
+                        startActivity(new Intent(MycomplaintsListActivity.this, ComplaintDetailsActivity.class));
                     default:
                         break;
                 }
@@ -77,10 +69,22 @@ public class MycomplaintsListActivity extends BaseActivity {
     }
 
     public void init() {
+        if(csp.getLoginStatus()) {
         Cadapter = new ComplainListAdapter(this);
-        Cadapter.setDataList(DataManager.myComplaint.data.commentList);
+
+            Cadapter.setDataList(DataManager.myComplaint.data.commentList);
+        }
+        Intent i = getIntent();
+        if (i.getIntExtra("key", 0) == 1) {
+            b_topY.setText("提交投诉");
+            b_topY.setVisibility(View.VISIBLE);
+           Cadapter.setTag();
+
+        }
         complain_lv.setAdapter(Cadapter);
-        Cadapter.notifyDataSetChanged();
+        if(csp.getLoginStatus()) {
+            Cadapter.notifyDataSetChanged();
+        }
         b_topname.setText("我的投诉");
         b_return.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -93,5 +97,19 @@ public class MycomplaintsListActivity extends BaseActivity {
         pd.setCancelable(false);
 
 
+
+
+
+        b_topY.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MycomplaintsListActivity.this, ToComplaintActivity.class));
+            }
+        });
+
+
     }
+
+
+
 }
