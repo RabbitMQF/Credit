@@ -10,6 +10,7 @@ import com.example.credit.Activitys.RegisterActivity;
 import com.example.credit.Activitys.SearchFirmActivty;
 import com.example.credit.Activitys.ToClaimActivity;
 import com.example.credit.Activitys.ToCommentActivity;
+import com.example.credit.Activitys.ToComplaintActivity;
 import com.example.credit.Entitys.DataManager;
 import com.example.credit.Entitys.DataManager.Replay2review;
 import com.google.gson.Gson;
@@ -858,34 +859,40 @@ public class MyhttpCallBack implements HttpCallBack {
                     for (int i = 0; i < listtemp.size(); i++) {
                         switch (listtemp.get(i).get("type").toString()) {
                             case "企业年报":
-                                if(listtemp.get(i).get("date")!=null){
+                                if (listtemp.get(i).get("date") != null) {
                                     DataManager.reportList = gson.fromJson(listtemp.get(i).get("date").toString(), new TypeToken<List<DataManager.report>>() {
-                                    }.getType());}
+                                    }.getType());
+                                }
                                 break;
                             case "股东及出资信息":
-                                if(listtemp.get(i).get("date")!=null){
+                                if (listtemp.get(i).get("date") != null) {
                                     DataManager.fundedList = gson.fromJson(listtemp.get(i).get("date").toString(), new TypeToken<List<DataManager.funded>>() {
-                                    }.getType());}
+                                    }.getType());
+                                }
                                 break;
                             case "股权变更信息":
-                                if(listtemp.get(i).get("date")!=null){
+                                if (listtemp.get(i).get("date") != null) {
                                     DataManager.stockList = gson.fromJson(listtemp.get(i).get("date").toString(), new TypeToken<List<DataManager.stock>>() {
-                                    }.getType());}
+                                    }.getType());
+                                }
                                 break;
                             case "行政许可信息":
-                                if(listtemp.get(i).get("date")!=null){
+                                if (listtemp.get(i).get("date") != null) {
                                     DataManager.permitList = gson.fromJson(listtemp.get(i).get("date").toString(), new TypeToken<List<DataManager.permit>>() {
-                                    }.getType());}
+                                    }.getType());
+                                }
                                 break;
                             case "知识产权登记信息":
-                                if(listtemp.get(i).get("date")!=null){
+                                if (listtemp.get(i).get("date") != null) {
                                     DataManager.loreList = gson.fromJson(listtemp.get(i).get("date").toString(), new TypeToken<List<DataManager.lore>>() {
-                                    }.getType());}
+                                    }.getType());
+                                }
                                 break;
                             case "行政处罚信息":
-                                if(listtemp.get(i).get("date")!=null){
+                                if (listtemp.get(i).get("date") != null) {
                                     DataManager.punishList = gson.fromJson(listtemp.get(i).get("date").toString(), new TypeToken<List<DataManager.punish>>() {
-                                    }.getType());}
+                                    }.getType());
+                                }
                                 break;
                             default:
                                 break;
@@ -961,7 +968,7 @@ public class MyhttpCallBack implements HttpCallBack {
                 }
                 break;
             case 0x2021://点赞(先走)
-                jsonString= (String) response.get();
+                jsonString = (String) response.get();
                 DataManager.Root202 jsonRoot2021 = gson.fromJson(jsonString, new TypeToken<DataManager.Root202>() {
                 }.getType());
                 DataManager.Data202 d2021 = jsonRoot2021.data;
@@ -1016,22 +1023,27 @@ public class MyhttpCallBack implements HttpCallBack {
             case 0x301://提交认领
                 jsonString = (String) response.get();
                 DataManager.ClaimUtilsModel = gson.fromJson(jsonString, DataManager.ClaimUtils.class);
-                if(DataManager.ClaimUtilsModel.data.result.equals("success")){
+                if (DataManager.ClaimUtilsModel.data.result.equals("success")) {
                     ToClaimActivity.handler.sendEmptyMessage(1);
-                }else{
+                } else {
                     ToClaimActivity.handler.sendEmptyMessage(500);
                 }
                 break;
             case 0x302://提交认领附件
                 jsonString = (String) response.get();
                 DataManager.ClaimUtilsModel = gson.fromJson(jsonString, DataManager.ClaimUtils.class);
-                if(DataManager.ClaimUtilsModel.data.result.equals("success")){
+                if (DataManager.ClaimUtilsModel.data.result.equals("success")) {
                     ToClaimActivity.handler.sendEmptyMessage(2);
-                }else{
+                } else {
                     ToClaimActivity.handler.sendEmptyMessage(500);
                 }
                 break;
             case 0x303://我的认领列表
+                jsonString = (String) response.get();
+                DataManager.MyClaimUtilsModel = gson.fromJson(jsonString, DataManager.MyClaimUtils.class);
+                MainActivity.handler.sendEmptyMessage(6);
+                break;
+            case 0x304://我的认领详情
                 jsonString = (String) response.get();
                 DataManager.MyClaimUtilsModel = gson.fromJson(jsonString, DataManager.MyClaimUtils.class);
                 MainActivity.handler.sendEmptyMessage(6);
@@ -1048,6 +1060,8 @@ public class MyhttpCallBack implements HttpCallBack {
                     csp.putUser(DataManager.user);
                     csp.putLoginStatus(true);
                     Toast.show("登录成功");
+                    MainActivity.UserSz.setText(csp.getALIASNAME());
+
                     LoginActivity.handler.sendEmptyMessage(0);
                 }
                 break;
@@ -1082,7 +1096,7 @@ public class MyhttpCallBack implements HttpCallBack {
                 break;
             case 0x995://获取投诉详情
                 jsonString = (String) response.get();
-                DataManager.complaintDetail=gson.fromJson(jsonString,DataManager.ComplaintDetail.class);
+                DataManager.complaintDetail = gson.fromJson(jsonString, DataManager.ComplaintDetail.class);
                 MycomplaintsListActivity.handler.sendEmptyMessage(3);
                 break;
             case 0x994://获取企业投诉列表
@@ -1090,6 +1104,30 @@ public class MyhttpCallBack implements HttpCallBack {
                 DataManager.myComplaint = gson.fromJson(jsonString, DataManager.MyComplaint.class);
                 CompanyDetailsActivity.pd.dismiss();
                 CompanyDetailsActivity.handler.sendEmptyMessage(24);
+                break;
+            case 0x993://提交企业投诉
+                jsonString = (String) response.get();
+                DataManager.toComplain=gson.fromJson(jsonString,DataManager.ToComplain.class);
+                /*map=gson.fromJson(jsonString,new TypeToken<Map<String, Object>>() {
+                }.getType());*/
+                if (!DataManager.toComplain.status.equals("1")) {//返回提交投诉失败
+                   Toast.show("提交投诉失败"+map.get("message"));
+                }else {//成功
+                    ToComplaintActivity.handler.sendEmptyMessage(1);
+
+                }
+                break;
+            case 0x992://提交投诉附件
+                jsonString = (String) response.get();
+                map=gson.fromJson(jsonString,new TypeToken<Map<String, Object>>() {
+                }.getType());
+                if (!map.get("status").equals("1")) {//返回提交投诉失败
+                    Toast.show("提交投诉图片失败"+map.get("message"));
+                }else {//成功
+                    ToComplaintActivity.handler.sendEmptyMessage(0);
+
+                }
+                break;
             default:
                 break;
         }

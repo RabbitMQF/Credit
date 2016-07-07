@@ -1,6 +1,8 @@
 package com.example.credit.Activitys;
 
+import android.app.ActivityManager;
 import android.app.ProgressDialog;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
@@ -67,16 +69,14 @@ public class CompanyDetailsActivity extends BaseActivity {
 
     @ViewInject(R.id.details_logo)
     ImageView details_logo;
-    @ViewInject(R.id.details_tit)
-    TextView details_tit;
     @ViewInject(R.id.cp_name)
     TextView cp_name;
     @ViewInject(R.id.details_tit1)//浏览量
             TextView details_tit1;
 
-    @ViewInject(R.id.saveG)//关注layout
+    @ViewInject(R.id.saveG)
             LinearLayout saveG;
-    @ViewInject(R.id.details_tit3)//关注text
+    @ViewInject(R.id.details_tit3)
             TextView details_tit3;
 
     PopupMenu popupMenu;
@@ -136,13 +136,18 @@ public class CompanyDetailsActivity extends BaseActivity {
     String model,KeyNo,token,regnore,enterId;
 
     @ViewInject(R.id.pb_1)
-    TextView pb_1;//首页
+    LinearLayout pb_1;//首页
     @ViewInject(R.id.pb_2)
-    TextView pb_2;//评论
+    LinearLayout pb_2;//评论
     @ViewInject(R.id.pb_3)
-    TextView pb_3;//投诉
+    LinearLayout pb_3;//投诉
     @ViewInject(R.id.pb_4)
-    TextView pb_4;//我
+    LinearLayout pb_4;//关注
+    @ViewInject(R.id.pb_4_img)
+    ImageView pb_4_img;//关注图标
+    @ViewInject(R.id.pb_4_txt)
+    TextView pb_4_txt;//关注文字
+
 
     public static ProgressDialog pd;
     String KeyNos,tokens;
@@ -315,8 +320,8 @@ public class CompanyDetailsActivity extends BaseActivity {
                         break;
                     case 22://关注
                         if(DataManager.FavotiteS.data.result.equals("success")){
-                            saveG.setBackgroundResource(R.drawable.details_toplogo_s);
-                            details_tit3.setText("已关注");
+                            pb_4_img.setBackgroundResource(R.mipmap.btm_4_s);
+                            pb_4_txt.setText("已关注");
                             android.widget.Toast.makeText(CompanyDetailsActivity.this, "关注成功！", android.widget.Toast.LENGTH_SHORT).show();
                         }else{
                             android.widget.Toast.makeText(CompanyDetailsActivity.this, "关注失败！", android.widget.Toast.LENGTH_SHORT).show();
@@ -324,17 +329,21 @@ public class CompanyDetailsActivity extends BaseActivity {
                         break;
                     case 23://取消关注
                         if(DataManager.FavotiteS.data.result.equals("success")){
-                            saveG.setBackgroundResource(R.drawable.details_toplogo);
-                            details_tit3.setText("关注");
+                            pb_4_img.setBackgroundResource(R.mipmap.btm_4_n);
+                            pb_4_txt.setText("关注");
                             android.widget.Toast.makeText(CompanyDetailsActivity.this, "取消关注成功！", android.widget.Toast.LENGTH_SHORT).show();
                         }else{
                             android.widget.Toast.makeText(CompanyDetailsActivity.this, "取消关注失败！", android.widget.Toast.LENGTH_SHORT).show();
-
                         }
                         break;
                     case 24://投诉跳转列表
-                        startActivity(new Intent(CompanyDetailsActivity.this,MycomplaintsListActivity.class).putExtra("key",1));
-                        break;
+                        ActivityManager am = (ActivityManager) getSystemService(ACTIVITY_SERVICE);
+                        ComponentName cn = am.getRunningTasks(1).get(0).topActivity;
+                        if(!cn.getClassName().equals(MycomplaintsListActivity.class.getName())) {
+                            startActivity(new Intent(CompanyDetailsActivity.this, MycomplaintsListActivity.class).putExtra("key", 1));
+                        }else {//用于判定是否更新数据，是否跳转
+                            MycomplaintsListActivity.handler.sendEmptyMessage(5);//通知企业投诉ListView更新数据源刷新UI
+                        }break;
                     case 500:
                         waitDialog.dismiss();
                         android.widget.Toast.makeText(CompanyDetailsActivity.this, "暂无数据！", android.widget.Toast.LENGTH_SHORT).show();
@@ -566,8 +575,8 @@ public class CompanyDetailsActivity extends BaseActivity {
         });
         if (DataManager.BaseinfoList != null && DataManager.BaseinfoList.size() > 0) {
             String stra = (DataManager.BaseinfoList.get(0).REGSTATE_CN).substring(0, 2);
-            details_tit.setText(stra);//状态
-            details_tit.setOnClickListener(new View.OnClickListener() {
+            details_tit3.setText(stra);//状态
+            details_tit3.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     showPopupWindow(v);
@@ -651,11 +660,11 @@ public class CompanyDetailsActivity extends BaseActivity {
         }
 
         if(DataManager.allcountsList.get(0).IsFavorite.equals("false")) {//当前状态为未关注，所以点击是关注
-            saveG.setBackgroundResource(R.drawable.details_toplogo);
-            details_tit3.setText("关注");
+            pb_4_img.setBackgroundResource(R.mipmap.btm_4_n);
+            pb_4_txt.setText("关注");
         }else{
-            saveG.setBackgroundResource(R.drawable.details_toplogo_s);
-            details_tit3.setText("已关注");
+            pb_4_img.setBackgroundResource(R.mipmap.btm_4_s);
+            pb_4_txt.setText("已关注");
         }
 
         pb_1.setOnClickListener(onClickListener);
@@ -740,7 +749,7 @@ public class CompanyDetailsActivity extends BaseActivity {
                     request14.add("memberId","86D9D7F53FCA45DD93E2D83DFCA0CB42");
                     CallServer.getInstance().add(CompanyDetailsActivity.this, request14, MyhttpCallBack.getInstance(), 0x201, true, false, true);
                     break;
-                case R.id.pb_3://投诉
+                case R.id.pb_3://企业投诉
                     pd.show();
                     GsonUtil ComplaintsRuerst = new GsonUtil(URLconstant.URLINSER + URLconstant.GETCOMPLAIN, RequestMethod.GET);
                     ComplaintsRuerst.add("token", MD5.MD5s("" + new Build().MODEL));//csp.getID()
@@ -748,19 +757,11 @@ public class CompanyDetailsActivity extends BaseActivity {
                     ComplaintsRuerst.add("deviceId", new Build().MODEL);
                     ComplaintsRuerst.add("enterId",enterId);
                     CallServer.getInstance().add(CompanyDetailsActivity.this,ComplaintsRuerst,MyhttpCallBack.getInstance(),0x994,true,false,true);
-//                    Intent i3=new Intent(CompanyDetailsActivity.this,MycomplaintsListActivity.class);
-//                    i3.putExtra("key",1);
-//                    startActivity(i3);
-                    break;
-                case R.id.pb_4://我
-//                    Intent i4=new Intent(CompanyDetailsActivity.this,MainActivity.class);
-//                    startActivity(i4);
-                    android.widget.Toast.makeText(CompanyDetailsActivity.this, "此模块，正在抢修中。。。！", android.widget.Toast.LENGTH_SHORT).show();
 
                     break;
 
-                case R.id.saveG://关注
-                    if(details_tit3.getText().toString().equals("关注")){//当前状态为未关注，所以点击是关注
+                case R.id.pb_4://关注
+                    if(pb_4_txt.getText().toString().equals("关注")){//当前状态为未关注，所以点击是关注
                         GsonUtil requestG = new GsonUtil(URLconstant.URLINSER + URLconstant.YESFAVORITE, RequestMethod.GET);
                         requestG.add("deviceId",model);
                         requestG.add("token",tokens);

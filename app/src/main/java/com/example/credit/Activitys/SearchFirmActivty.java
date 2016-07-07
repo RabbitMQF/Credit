@@ -70,7 +70,7 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
     ImageView search_bt;
     public static boolean city_check = false, capital_check = false, time_check = false, industry_check = false, tab_frim_check = false, tab_illegal_check = false, tab_shareholder_check = false;
     FrameLayout his_sra;
-    LinearLayout  select;
+    LinearLayout select;
     LinearLayout searchContent;
     ListView menu_one;
     public static ListView menu_two;
@@ -80,7 +80,7 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
     private ArrayList<String> onelist, twolist, popDataList;
     ArrayAdapter<String> adapter2;
     List<DataManager.citys> citysList;
-    ListView search_list;
+    ListView search_list;//搜索结果
     public static Handler handler;
     public static List<DataManager.search> listsea = new ArrayList<DataManager.search>();
     public static String industryindex = null, provinceindex = null, cityindex = null, startDateindex = null, endDateindex = null, registCapiStartIndex = null, registCapiEndIndex = null;
@@ -104,12 +104,13 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
     String model = bd.MODEL;//设备ID
     int po;
     int type;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.search_firm_activity);
-        Intent i=getIntent();
-        type=i.getIntExtra("type",0);
+        Intent i = getIntent();
+        type = i.getIntExtra("type", 0);
         initView();
         initCityData();
         search_bt = (ImageView) findViewById(R.id.search_bt);
@@ -127,22 +128,26 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
                         SearchListAdapter2 adapter2 = new SearchListAdapter2(SearchFirmActivty.this, listsea);
                         search_list.setAdapter(adapter2);
                         adapter2.notifyDataSetChanged();
-                        android.widget.Toast.makeText(SearchFirmActivty.this,"搜索到"+MyhttpCallBack.baging.TotalRecords+"条数据", android.widget.Toast.LENGTH_SHORT).show();
+                        android.widget.Toast.makeText(SearchFirmActivty.this, "搜索到" + MyhttpCallBack.baging.TotalRecords + "条数据", android.widget.Toast.LENGTH_SHORT).show();
                         search_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                             @Override
                             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                                po=position;
-                                pd.show();
-                                String KeyNo=DataManager.searchList.get(position).PRIPID;//市场主体身份代码
-                                String token=MD5s(KeyNo+model);
-                                GsonUtil requst=new GsonUtil(URLconstant.URLINSER + URLconstant.GETITEMNUM,RequestMethod.GET);
-                                requst.add("KeyNo",KeyNo);
-                                requst.add("token",token);
-                                requst.add("deviceId",model);
-                                requst.add("memberId","86D9D7F53FCA45DD93E2D83DFCA0CB42");
-                                requst.add("regnore",DataManager.searchList.get(position).REGNO);
-                                requst.add("priptype",DataManager.searchList.get(position).ENTTYPE);
-                                CallServer.getInstance().add(SearchFirmActivty.this,requst,MyhttpCallBack.getInstance(),0x024,true,false,true);
+                                if (!csp.getLoginStatus()) {//判定是否登录
+                                   Toast.show("请先登录账号");
+                                } else {
+                                    po = position;
+                                    pd.show();
+                                    String KeyNo = DataManager.searchList.get(position).PRIPID;//市场主体身份代码
+                                    String token = MD5s(KeyNo + model);
+                                    GsonUtil requst = new GsonUtil(URLconstant.URLINSER + URLconstant.GETITEMNUM, RequestMethod.GET);
+                                    requst.add("KeyNo", KeyNo);
+                                    requst.add("token", token);
+                                    requst.add("deviceId", model);
+                                    requst.add("memberId", csp.getID());//86D9D7F53FCA45DD93E2D83DFCA0CB42
+                                    requst.add("regnore", DataManager.searchList.get(position).REGNO);
+                                    requst.add("priptype", DataManager.searchList.get(position).ENTTYPE);
+                                    CallServer.getInstance().add(SearchFirmActivty.this, requst, MyhttpCallBack.getInstance(), 0x024, true, false, true);
+                                }
                             }
                         });
                         break;
@@ -351,7 +356,7 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
         searchContent = (LinearLayout) findViewById(R.id.searchContent);
         history_list_null = (TextView) findViewById(R.id.history_list_null);
         csp = CreditSharePreferences.getLifeSharedPreferences();
-        if(csp.getHistory()==null||csp.getHistory().equals("")){//给历史记录赋初始值
+        if (csp.getHistory() == null || csp.getHistory().equals("")) {//给历史记录赋初始值
             String Tnameh = "余江县龙溪养蜂专业合作社,江西圆融医疗器械有限公司,景德镇市第一炉面包房,江西梦娜袜业有限公司,江西工商联合投资有限公司,江西智容科技有限公司,南昌和平大厦实业发展公司,贵溪市幸福树电器有限公司,德兴市华清汽车销售服务有限公司,江西新星建筑装饰工程有限公司,";//历史字备用
             csp.putHistory(Tnameh);
         }
@@ -384,18 +389,18 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if(start>0){
+                if (start > 0) {
                     search_et_cc.setVisibility(View.VISIBLE);
-                }else{
+                } else {
                     search_et_cc.setVisibility(View.GONE);
                 }
             }
 
             @Override
             public void afterTextChanged(Editable t) {
-                if(t.length()>0){
+                if (t.length() > 0) {
                     search_et_cc.setVisibility(View.VISIBLE);
-                }else{
+                } else {
                     search_et_cc.setVisibility(View.GONE);
                 }
             }
@@ -408,7 +413,7 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
         });
 
         //根据type判断查询类型
-        switch (type){
+        switch (type) {
             case 0:
                 searchEt.setHint("请输入企业名称");
                 break;
@@ -518,7 +523,7 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
                         popDataList.add("200万到500万");
                         popDataList.add("500万到1000万");
                         popDataList.add("1000万以上");
-                        popupwindow = new CustomPopupwindow(SearchFirmActivty.this, popDataList,null);
+                        popupwindow = new CustomPopupwindow(SearchFirmActivty.this, popDataList, null);
                         popupwindow.setWidth(ViewGroup.LayoutParams.MATCH_PARENT);
                         popupwindow.showAtDropDownLeft(v);
                         city_check = false;
@@ -564,7 +569,7 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
                         popDataList.add("3-5年");
                         popDataList.add("5-10年");
                         popDataList.add("10年以上");
-                        popupwindow = new CustomPopupwindow(SearchFirmActivty.this, popDataList,null);
+                        popupwindow = new CustomPopupwindow(SearchFirmActivty.this, popDataList, null);
                         popupwindow.setWidth(ViewGroup.LayoutParams.MATCH_PARENT);
                         popupwindow.showAtDropDownLeft(v);
                         time_check = true;
@@ -601,7 +606,7 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
                             select.setVisibility(View.GONE);
 
                         }
-                        popupwindow = new CustomPopupwindow(SearchFirmActivty.this,null, DataManager.industryDataList);
+                        popupwindow = new CustomPopupwindow(SearchFirmActivty.this, null, DataManager.industryDataList);
                         popupwindow.setWidth(ViewGroup.LayoutParams.MATCH_PARENT);
                         popupwindow.setHeight(350);
                         popupwindow.showAtDropDownLeft(v);
@@ -687,6 +692,7 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
 
     /**
      * MD5加密
+     *
      * @param s
      * @return
      */
@@ -713,12 +719,14 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
 
     /**
      * 历史记录悬浮动画效果监听手势滑动如果滑动就随机乱序
+     *
      * @param event
      * @return
      */
     public boolean onTouchEvent(MotionEvent event) {
         return gDetector.onTouchEvent(event);
     }
+
     private void initViews() {
         mTextView1 = (TextView) findViewById(R.id.txt1);
         mTextView2 = (TextView) findViewById(R.id.txt2);
@@ -771,6 +779,7 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
 
     /**
      * 随机乱序方法
+     *
      * @param list 数据源
      * @return
      */
@@ -870,16 +879,16 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
         float endX = e2.getX();
         float beginY = e1.getY();
         float endY = e2.getY();
-        if(beginX-endX>minMove&&Math.abs(velocityX)>minVelocity){   //左滑
+        if (beginX - endX > minMove && Math.abs(velocityX) > minVelocity) {   //左滑
             startAnimations1();
             randomText();
-        }else if(endX-beginX>minMove&&Math.abs(velocityX)>minVelocity){   //右滑
+        } else if (endX - beginX > minMove && Math.abs(velocityX) > minVelocity) {   //右滑
             startAnimations1();
             randomText();
-        }else if(beginY-endY>minMove&&Math.abs(velocityY)>minVelocity){   //上滑
+        } else if (beginY - endY > minMove && Math.abs(velocityY) > minVelocity) {   //上滑
             startAnimations2();
             randomText();
-        }else if(endY-beginY>minMove&&Math.abs(velocityY)>minVelocity){   //下滑
+        } else if (endY - beginY > minMove && Math.abs(velocityY) > minVelocity) {   //下滑
             startAnimations2();
             randomText();
         }
@@ -1013,8 +1022,9 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
             request.add("token", Tks);//加密结果
             request.add("searchKey", Tname);//string搜索关键字
             request.add("deviceId", model);//设备ID
+            request.add("memberId", csp.getID());//86D9D7F53FCA45DD93E2D83DFCA0CB42  记录用户搜索关键字
             //根据type判断查询类型
-            switch (type){
+            switch (type) {
                 case 0:
                     request.add("searchType", 0);//int 搜索类型 （企业、法人、失信、违法）默认为0企业,1是该法人名下企业,2失信企业,3违法企业
                     break;

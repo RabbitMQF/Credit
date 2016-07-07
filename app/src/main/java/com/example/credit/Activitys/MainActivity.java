@@ -75,7 +75,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     public static String photo;
 
     @ViewInject(R.id.UserSz)
-    TextView UserSz;//用户
+    public static TextView UserSz;//用户名
 
     @ViewInject(R.id.set)
     ImageView set;//设置
@@ -95,6 +95,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     RelativeLayout Smenu_6;//关于我们
     @ViewInject(R.id.login)
     Button login;//登录
+
     static CreditSharePreferences csp;
     Boolean LoginStatus;
     public static ProgressDialog pd;
@@ -116,7 +117,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         csp = CreditSharePreferences.getLifeSharedPreferences();
         LoginStatus = csp.getLoginStatus();
         ViewUtils.inject(this);
-        ad=new WaitDialog(this);
+        ad = new WaitDialog(this);
         initView();
 
 
@@ -136,7 +137,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         handler = new Handler() {
             @Override
             public void handleMessage(Message msg) {
-                switch (msg.what){
+                switch (msg.what) {
                     case 0:
                         NewsListAdapter adapter = new NewsListAdapter(MainActivity.this, DataManager.NewssList);
                         NewsListview.setAdapter(adapter);
@@ -150,11 +151,13 @@ public class MainActivity extends Activity implements View.OnClickListener {
                     case 2://跳我的投诉
                         ActivityManager am = (ActivityManager) getSystemService(ACTIVITY_SERVICE);
                         ComponentName cn = am.getRunningTasks(1).get(0).topActivity;
-                        if(!cn.getClassName().equals(MycomplaintsListActivity.class.getName())) {
+                        if (!cn.getClassName().equals(MycomplaintsListActivity.class.getName())) {
                             pd.dismiss();
                             startActivity(new Intent(MainActivity.this, MycomplaintsListActivity.class));
-                        }else {MycomplaintsListActivity.handler.sendEmptyMessage(2);}
-                            break;
+                        } else {
+                            MycomplaintsListActivity.handler.sendEmptyMessage(2);
+                        }
+                        break;
                     case 5://跳我的关注
                         ad.dismiss();
                         Intent i3 = new Intent(MainActivity.this, MyconcernActivity.class);
@@ -162,7 +165,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                         break;
                     case 6://跳我的认领
                         ad.dismiss();
-                        Intent i6= new Intent(MainActivity.this, MyClaimActivity.class);
+                        Intent i6 = new Intent(MainActivity.this, MyClaimActivity.class);
                         startActivity(i6);
                         break;
                     default:
@@ -188,7 +191,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         topSearch = (RelativeLayout) findViewById(R.id.top_search);
         topSearch.setOnClickListener(this);
         NewsListview = (ListView) findViewById(R.id.news_list);
-        pd=new ProgressDialog(MainActivity.this);
+        pd = new ProgressDialog(MainActivity.this);
         pd.setMessage("请稍后...");
         pd.setCancelable(false);
         NewsListview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -263,37 +266,40 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 case R.id.Smenu_1://我的评价
                     ad.show();
                     GsonUtil request14 = new GsonUtil(URLconstant.URLINSER + URLconstant.MMOMM, RequestMethod.GET);
-                    request14.add("deviceId",(new Build()).MODEL);
-                    request14.add("token",SearchFirmActivty.MD5s("86D9D7F53FCA45DD93E2D83DFCA0CB42" + (new Build()).MODEL));
-                    request14.add("KeyNo","86D9D7F53FCA45DD93E2D83DFCA0CB42");
+                    request14.add("deviceId", (new Build()).MODEL);
+                    request14.add("token", SearchFirmActivty.MD5s("86D9D7F53FCA45DD93E2D83DFCA0CB42" + (new Build()).MODEL));
+                    request14.add("KeyNo", "86D9D7F53FCA45DD93E2D83DFCA0CB42");
                     CallServer.getInstance().add(MainActivity.this, request14, MyhttpCallBack.getInstance(), 0x206, true, false, true);
 
 
 //                    Toast.makeText(MainActivity.this, "此模块，正在赶点加工中...", Toast.LENGTH_SHORT).show();
                     break;
                 case R.id.Smenu_2://我的投诉
+                    /*if (!csp.getLoginStatus()) {
+                        com.example.credit.Utils.Toast.show("请先登录");
+                    } else {*/
                     pd.show();
                     getComplaint(MainActivity.this);
-
+                    /*}*/
 //                    Toast.makeText(MainActivity.this, "此模块，正在赶点加工中...", Toast.LENGTH_SHORT).show();
                     break;
                 case R.id.Smenu_3://我的关注
                     ad.show();
-                    GsonUtil  MyconcernRuerst = new GsonUtil(URLconstant.URLINSER + URLconstant.MYFAVORITE, RequestMethod.GET);
-                    MyconcernRuerst.add("deviceId",(new Build()).MODEL);
-                    MyconcernRuerst.add("token",SearchFirmActivty.MD5s("86D9D7F53FCA45DD93E2D83DFCA0CB42" + (new Build()).MODEL));
-                    MyconcernRuerst.add("KeyNo","86D9D7F53FCA45DD93E2D83DFCA0CB42");
-                    CallServer.getInstance().add(MainActivity.this,MyconcernRuerst,MyhttpCallBack.getInstance(),0x103,true,false,true);
+                    GsonUtil MyconcernRuerst = new GsonUtil(URLconstant.URLINSER + URLconstant.MYFAVORITE, RequestMethod.GET);
+                    MyconcernRuerst.add("deviceId", (new Build()).MODEL);
+                    MyconcernRuerst.add("token", SearchFirmActivty.MD5s("86D9D7F53FCA45DD93E2D83DFCA0CB42" + (new Build()).MODEL));
+                    MyconcernRuerst.add("KeyNo", "86D9D7F53FCA45DD93E2D83DFCA0CB42");
+                    CallServer.getInstance().add(MainActivity.this, MyconcernRuerst, MyhttpCallBack.getInstance(), 0x103, true, false, true);
 
 //                    Toast.makeText(MainActivity.this, "此模块，正在赶点加工中...", Toast.LENGTH_SHORT).show();
                     break;
                 case R.id.Smenu_4://我的认领
                     ad.show();
-                    GsonUtil  MyClaimRuerst = new GsonUtil(URLconstant.URLINSER + URLconstant.MYCLAIMURL, RequestMethod.GET);
-                    MyClaimRuerst.add("deviceId",(new Build()).MODEL);
-                    MyClaimRuerst.add("token",SearchFirmActivty.MD5s("86D9D7F53FCA45DD93E2D83DFCA0CB42" + (new Build()).MODEL));
-                    MyClaimRuerst.add("KeyNo","86D9D7F53FCA45DD93E2D83DFCA0CB42");
-                    CallServer.getInstance().add(MainActivity.this,MyClaimRuerst,MyhttpCallBack.getInstance(),0x303,true,false,true);
+                    GsonUtil MyClaimRuerst = new GsonUtil(URLconstant.URLINSER + URLconstant.MYCLAIMURL, RequestMethod.GET);
+                    MyClaimRuerst.add("deviceId", (new Build()).MODEL);
+                    MyClaimRuerst.add("token", SearchFirmActivty.MD5s("86D9D7F53FCA45DD93E2D83DFCA0CB42" + (new Build()).MODEL));
+                    MyClaimRuerst.add("KeyNo", "86D9D7F53FCA45DD93E2D83DFCA0CB42");
+                    CallServer.getInstance().add(MainActivity.this, MyClaimRuerst, MyhttpCallBack.getInstance(), 0x303, true, false, true);
 //                    Toast.makeText(MainActivity.this, "此模块，正在赶点加工中...", Toast.LENGTH_SHORT).show();
                     break;
                 case R.id.Smenu_5://服务协议
@@ -310,7 +316,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                         com.example.credit.Utils.Toast.show("退出登录");
                         csp.putLoginStatus(false);
                         isLogin();
-
+                        UserSz.setText("游客");//用户名
                     }
                     break;
 
@@ -340,7 +346,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                     break;
 
                 case R.id.set:
-                    Intent is=new Intent(MainActivity.this,UserSetActivity.class);
+                    Intent is = new Intent(MainActivity.this, UserSetActivity.class);
                     startActivity(is);
                     break;
 
@@ -354,10 +360,10 @@ public class MainActivity extends Activity implements View.OnClickListener {
      */
     public static void getComplaint(Activity activity) {
         GsonUtil ComplaintsRuerst = new GsonUtil(URLconstant.URLINSER + URLconstant.GETCOMPLAIN, RequestMethod.GET);
-        ComplaintsRuerst.add("token", MD5.MD5s(csp.getID()+ new Build().MODEL));//csp.getID()
-        ComplaintsRuerst.add("KeyNo",csp.getID());// b2d794b453664657af61b373c1d00e7c
+        ComplaintsRuerst.add("token", MD5.MD5s(csp.getID() + new Build().MODEL));//csp.getID()
+        ComplaintsRuerst.add("KeyNo", csp.getID());// b2d794b453664657af61b373c1d00e7c
         ComplaintsRuerst.add("deviceId", new Build().MODEL);
-        CallServer.getInstance().add(activity,ComplaintsRuerst,MyhttpCallBack.getInstance(),0x997,true,false,true);
+        CallServer.getInstance().add(activity, ComplaintsRuerst, MyhttpCallBack.getInstance(), 0x997, true, false, true);
     }
 
     @Override
@@ -446,9 +452,11 @@ public class MainActivity extends Activity implements View.OnClickListener {
     private void isLogin() {
         LoginStatus = csp.getLoginStatus();
         if (LoginStatus) {//若当前状态为登录
+            UserSz.setText(csp.getALIASNAME());
             login.setText("退出登录");
         } else {//若当前状态未未登录
             login.setText("登录");
+            UserSz.setText("游客");
         }
     }
 

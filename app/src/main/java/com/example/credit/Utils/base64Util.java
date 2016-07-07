@@ -43,4 +43,16 @@ public class base64Util {
         }
         return bitmap;
     }
+
+    public static Bitmap getBitmap(String imgBase64Str){
+        try {
+            byte[] bitmapArray;
+            bitmapArray = Base64.decode(imgBase64Str, Base64.DEFAULT);
+            return BitmapFactory.decodeByteArray(bitmapArray, 0, bitmapArray.length);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+
+    }
 }

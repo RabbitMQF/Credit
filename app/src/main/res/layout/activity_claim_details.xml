@@ -39,6 +39,7 @@
                     android:textSize="18sp" />
 
                 <TextView
+                    android:id="@+id/cm_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
@@ -70,6 +71,7 @@
                     android:textSize="18sp" />
 
                 <TextView
+                    android:id="@+id/cm_sm"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
@@ -101,6 +103,7 @@
                     android:textSize="18sp" />
 
                 <TextView
+                    android:id="@+id/cm_time"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
@@ -132,6 +135,7 @@
                     android:textSize="18sp" />
 
                 <TextView
+                    android:id="@+id/cm_state"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
@@ -163,6 +167,7 @@
                     android:textSize="18sp" />
 
                 <TextView
+                    android:id="@+id/cm_emall"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
@@ -194,6 +199,7 @@
                     android:textSize="18sp" />
 
                 <TextView
+                    android:id="@+id/cm_phone"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
@@ -225,6 +231,7 @@
                     android:textSize="18sp" />
 
                 <TextView
+                    android:id="@+id/cm_details"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
@@ -253,62 +260,16 @@
                     android:text="材料"
                     android:textColor="#757475"
                     android:textSize="18sp" />
-
-                <LinearLayout
+                <com.example.credit.Views.MyGridView
+                    android:id="@+id/myGridViewtcDD"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:background="@mipmap/nullpic" />
-                    <ImageView
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:background="@mipmap/nullpic" />
-                    <ImageView
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:background="@mipmap/nullpic" />
-                    <ImageView
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:background="@mipmap/nullpic" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-                    <ImageView
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:background="@mipmap/nullpic" />
-                    <ImageView
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:background="@mipmap/nullpic" />
-                    <ImageView
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:background="@mipmap/nullpic" />
-                    <ImageView
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:background="@mipmap/nullpic" />
-
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-                    <ImageView
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:background="@mipmap/nullpic" />
-
-                </LinearLayout>
+                    android:numColumns="4"
+                    android:horizontalSpacing="5dp"
+                    android:verticalSpacing="5dp"
+                    android:layout_margin="10dp"
+                    android:stretchMode="columnWidth"
+                    />
             </LinearLayout>
         </LinearLayout>
 

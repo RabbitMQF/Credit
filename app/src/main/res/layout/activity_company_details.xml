@@ -43,19 +43,6 @@
                             android:layout_centerVertical="true"
                             android:layout_marginTop="20dp"
                             android:background="@mipmap/arrow_left_back" />
-                        <TextView
-                            android:id="@+id/details_tit"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerVertical="true"
-                            android:padding="5dp"
-                            android:layout_toRightOf="@+id/d_return"
-                            android:layout_marginLeft="40dp"
-                            android:background="@drawable/details_tit"
-                            android:gravity="center"
-                            android:text="在业"
-                            android:textColor="#ffffff"
-                            android:textSize="16sp" />
                         <LinearLayout
                             android:id="@+id/ll"
                             android:layout_width="wrap_content"
@@ -249,7 +236,7 @@
         </ScrollView>
         <include
             android:layout_width="match_parent"
-            android:layout_height="30dp"
+            android:layout_height="40dp"
             android:layout_gravity="bottom"
             layout="@layout/public_bottom_bar"/>
 

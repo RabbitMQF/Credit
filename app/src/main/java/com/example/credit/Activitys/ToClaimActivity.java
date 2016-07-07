@@ -24,6 +24,7 @@ import android.widget.TextView;
 
 import com.example.credit.Adapters.MyGridAdapterClaim;
 import com.example.credit.Adapters.MyGridAdapters;
+import com.example.credit.Dialogs.WaitDialog;
 import com.example.credit.Dialogs.enclosure_dialog;
 import com.example.credit.Entitys.DataManager;
 import com.example.credit.R;
@@ -86,20 +87,24 @@ public class ToClaimActivity extends Activity {
     private static final int REQUESTCODE_CUTTING = 2;	// 图片裁切标记
 
     enclosure_dialog ed;
-    public Drawable[] imgs1 =new Drawable[9];
+    public Drawable [] imgs1 =new Drawable[9];
     List<String> listStirng=new ArrayList<>();
     int i=0;
+
+    WaitDialog wd;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_enterprise_claim);
         ViewUtils.inject(this);
+        wd=new WaitDialog(this);
         init();
         handler=new Handler(){
             @Override
             public void handleMessage(Message msg) {
                 switch (msg.what){
                     case 1:
+                        wd.dismiss();
                         if(imgs1.length>0){
                             String attchmentDescS="";
                             String attchmentSteamS="";
@@ -126,10 +131,12 @@ public class ToClaimActivity extends Activity {
                         }
                         break;
                     case 2:
+                        wd.dismiss();
                         finish();
                         Toast.show("企业认领提交成功，请等待验证!");
                         break;
                     case 500:
+                        wd.dismiss();
                         Toast.show("数据提交失败!");
                         break;
                 }
@@ -185,6 +192,7 @@ public class ToClaimActivity extends Activity {
                     }else if((claim_phone.getText().toString()).length()>13){
                         Toast.show("手机号码格式错误!");
                     }else{
+                        wd.show();
                         GsonUtil request14 = new GsonUtil(URLconstant.URLINSER + URLconstant.CLAIMURL, RequestMethod.GET);
                         request14.add("deviceId",(new Build()).MODEL);
                         request14.add("token",SearchFirmActivty.MD5s(DataManager.BaseinfoList.get(0).EnterAddtionID + (new Build()).MODEL));

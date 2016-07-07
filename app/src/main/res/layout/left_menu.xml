@@ -41,7 +41,7 @@
                         android:layout_alignParentLeft="true"
                         android:layout_alignParentStart="true"
                         android:layout_marginBottom="10dp"
-                        android:text="用户"
+                        android:text="游客"
                         android:textColor="@android:color/white"
                         android:textSize="24sp" />
 

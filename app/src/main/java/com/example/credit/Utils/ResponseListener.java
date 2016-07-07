@@ -34,7 +34,7 @@ public class ResponseListener<T> implements OnResponseListener<T> {
             mDialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
                 @Override
                 public void onCancel(DialogInterface dialog) {
-                    mRequest.cancel(true);
+                    mRequest.cancel();
                 }
             });
         }
