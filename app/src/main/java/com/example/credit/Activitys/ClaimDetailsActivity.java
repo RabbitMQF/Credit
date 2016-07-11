@@ -42,8 +42,6 @@ public class ClaimDetailsActivity extends Activity {
 
     @ViewInject(R.id.cm_name)
     TextView cm_name;//企业名称
-    @ViewInject(R.id.cm_sm)
-    TextView cm_sm;//认证申明
     @ViewInject(R.id.cm_time)
     TextView cm_time;//认领时间
     @ViewInject(R.id.cm_state)
@@ -78,8 +76,6 @@ public class ClaimDetailsActivity extends Activity {
         });
         cm_name.setText(DataManager.MyClaimUtilsModel.data.Claimlist.get(position).ENTERNAME);
 
-        cm_sm.setText(DataManager.MyClaimUtilsModel.data.Claimlist.get(position).DESCRIPTION);
-
         cm_time.setText(DataManager.MyClaimUtilsModel.data.Claimlist.get(position).CLAIMTIME);
 
         cm_state.setText(DataManager.MyClaimUtilsModel.data.Claimlist.get(position).STATUS);
@@ -88,7 +84,7 @@ public class ClaimDetailsActivity extends Activity {
 
         cm_phone.setText(DataManager.MyClaimUtilsModel.data.Claimlist.get(position).TELPHONE);
 
-        cm_details.setText(DataManager.MyClaimUtilsModel.data.Claimlist.get(position).REFUSEREASON);
+        cm_details.setText(DataManager.MyClaimUtilsModel.data.Claimlist.get(position).DESCRIPTION);
 
         imgS=new Drawable[DataManager.MyClaimUtilsModel.data.Claimlist.get(position).AttachmentList.size()];
         for(int i=0;i<DataManager.MyClaimUtilsModel.data.Claimlist.get(position).AttachmentList.size();i++){
@@ -105,7 +101,9 @@ public class ClaimDetailsActivity extends Activity {
                 for (byte bs : b) {
                     str.append(Integer.toBinaryString(bs));//转换为二进制
                 }
-                String imgpath =Environment.getExternalStorageDirectory() + "/ELife" + "/pag"+i+".jpg";
+
+                String imgpath =Environment.getExternalStorageDirectory() + "/Credit" + "/pag"+i+".jpg";
+
                 //把字节数组的图片写到另一个地方
                 File apple = new File(imgpath);
                 FileOutputStream fos = new FileOutputStream(apple);

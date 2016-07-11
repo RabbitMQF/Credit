@@ -53,7 +53,7 @@ public class Myconcer_listAdapter extends BaseAdapter {
         DataManager.FavotiteList.DataBean.AttentionListBean ab=list.get(position);
         vh.mycon_name.setText(ab.ENTERNAME+"");
         vh.mycon_Faname.setText(ab.NAME+"");
-        vh.mycon_zcmoney.setText(ab.ATTENTIONTYPE+"");
+        vh.mycon_zcmoney.setText(ab.REGNORE+"");
         vh.mycon_zcdate.setText(ab.ATTENTIONTIME+"");
         return view;
     }

@@ -3,6 +3,7 @@ package com.example.credit.Activitys;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
@@ -42,11 +43,14 @@ import com.yolanda.nohttp.RequestMethod;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import Decoder.BASE64Decoder;
 
 /**
  * 企业认领界面
@@ -92,19 +96,22 @@ public class ToClaimActivity extends Activity {
     int i=0;
 
     WaitDialog wd;
+    int position,type;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_enterprise_claim);
         ViewUtils.inject(this);
         wd=new WaitDialog(this);
+        Intent is=getIntent();
+        position=is.getIntExtra("position",0);
+        type=is.getIntExtra("type",0);
         init();
         handler=new Handler(){
             @Override
             public void handleMessage(Message msg) {
                 switch (msg.what){
                     case 1:
-                        wd.dismiss();
                         if(imgs1.length>0){
                             String attchmentDescS="";
                             String attchmentSteamS="";
@@ -118,15 +125,23 @@ public class ToClaimActivity extends Activity {
                             String b=SearchFirmActivty.MD5s(DataManager.ClaimUtilsModel.data.CLAIMID + (new Build()).MODEL);
                             String d=DataManager.ClaimUtilsModel.data.CLAIMID;
                             GsonUtil request14 = new GsonUtil(URLconstant.URLINSER + URLconstant.ENCLOSUREURL, RequestMethod.POST);
+                            request14.setReadTimeout(40000);
+                            request14.setConnectTimeout(40000);
                             request14.add("deviceId",(new Build()).MODEL);
-                            request14.add("token",SearchFirmActivty.MD5s(DataManager.ClaimUtilsModel.data.CLAIMID + (new Build()).MODEL));
-                            request14.add("KeyNo",DataManager.ClaimUtilsModel.data.CLAIMID);
+                            if(type!=1){
+                                request14.add("token",SearchFirmActivty.MD5s(DataManager.ClaimUtilsModel.data.CLAIMID + (new Build()).MODEL));
+                                request14.add("KeyNo",DataManager.ClaimUtilsModel.data.CLAIMID);
+                            }else{
+                                request14.add("token",SearchFirmActivty.MD5s(DataManager.MyClaimUtilsModel.data.Claimlist.get(position).CLAIMID + (new Build()).MODEL));
+                                request14.add("KeyNo",DataManager.MyClaimUtilsModel.data.Claimlist.get(position).CLAIMID);
+                            }
                             request14.add("memberId","86D9D7F53FCA45DD93E2D83DFCA0CB42");
                             request14.add("Type","认领企业");
                             request14.add("attchmentDesc",attchmentDescS);//图片描述内容，多文件以@符号分割
                             request14.add("attchmentSteam",attchmentSteamS);//base64码内容，多文件以@符号分割
                             CallServer.getInstance().add(ToClaimActivity.this, request14, MyhttpCallBack.getInstance(), 0x302, true, false, true);
                         }else{
+                            wd.dismiss();
                             Toast.show("附件不能为空!!");
                         }
                         break;
@@ -145,7 +160,49 @@ public class ToClaimActivity extends Activity {
 
     }
     public void init(){
-        b_topname.setText("企业认领");
+        if(type!=1){
+            b_topname.setText("企业认领");
+        }else{
+            b_topname.setText("企业认领信息修改");
+            claim_emils.setText(DataManager.MyClaimUtilsModel.data.Claimlist.get(position).EMAIL);
+            claim_phone.setText(DataManager.MyClaimUtilsModel.data.Claimlist.get(position).TELPHONE);
+            claim_details.setText(DataManager.MyClaimUtilsModel.data.Claimlist.get(position).DESCRIPTION);
+            /**
+             * 附件图片赋值
+             */
+            i=DataManager.MyClaimUtilsModel.data.Claimlist.get(position).AttachmentList.size();//当前size，并作为当前下边
+            for(int j=0;j<DataManager.MyClaimUtilsModel.data.Claimlist.get(position).AttachmentList.size();j++){
+                String base64String=DataManager.MyClaimUtilsModel.data.Claimlist.get(position).AttachmentList.get(j).ATTACHMENTPATH;
+                try {
+                    BASE64Decoder decode = new BASE64Decoder();
+                    byte[] b = decode.decodeBuffer(base64String);
+                    System.out.println(new String(b));
+                    StringBuilder str = new StringBuilder();//不建议用String
+                    for (byte bs : b) {
+                        str.append(Integer.toBinaryString(bs));//转换为二进制
+                    }
+                    String imgpath =Environment.getExternalStorageDirectory() + "/Credit" + "/pag"+i+".jpg";
+                    //把字节数组的图片写到另一个地方
+                    File apple = new File(imgpath);
+                    FileOutputStream fos = new FileOutputStream(apple);
+                    fos.write(b);
+                    fos.flush();
+                    fos.close();
+                    //==============
+                    File file = new File(imgpath);
+                    if (file.exists()) {//获取本地图片路径是否存在
+                        Bitmap bm = BitmapFactory.decodeFile(imgpath);
+                        Drawable drawable = new BitmapDrawable(null, bm);
+                        imgs1[j]=drawable;
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            MyGridAdapterClaim adapters = new MyGridAdapterClaim(ToClaimActivity.this, imgs1);
+            myGridViewtc.setAdapter(adapters);
+        }
+
         b_return.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -195,41 +252,51 @@ public class ToClaimActivity extends Activity {
                         wd.show();
                         GsonUtil request14 = new GsonUtil(URLconstant.URLINSER + URLconstant.CLAIMURL, RequestMethod.GET);
                         request14.add("deviceId",(new Build()).MODEL);
-                        request14.add("token",SearchFirmActivty.MD5s(DataManager.BaseinfoList.get(0).EnterAddtionID + (new Build()).MODEL));
-                        request14.add("KeyNo",DataManager.BaseinfoList.get(0).EnterAddtionID);
                         request14.add("memberId","86D9D7F53FCA45DD93E2D83DFCA0CB42");
                         request14.add("email",claim_emils.getText().toString());
                         request14.add("description",claim_details.getText().toString());
                         request14.add("telphone",claim_phone.getText().toString());
-                        request14.add("openType","0");//0为添加，1为修改
+                        if(type!=1){//id为空则是添加，否则是修改
+                            request14.add("KeyNo",DataManager.BaseinfoList.get(0).EnterAddtionID);
+                            request14.add("token",SearchFirmActivty.MD5s(DataManager.BaseinfoList.get(0).EnterAddtionID + (new Build()).MODEL));
+                            request14.add("openType","0");//0为添加，1为修改
+                        }else{
+                            request14.add("KeyNo",DataManager.MyClaimUtilsModel.data.Claimlist.get(position).CLAIMID);
+                            request14.add("token",SearchFirmActivty.MD5s(DataManager.MyClaimUtilsModel.data.Claimlist.get(position).CLAIMID + (new Build()).MODEL));
+                            request14.add("openType","1");//0为添加，1为修改
+                        }
                         CallServer.getInstance().add(ToClaimActivity.this, request14, MyhttpCallBack.getInstance(), 0x301, true, false, true);
                     }
                     break;
                 case R.id.claim_fj:
-                    ed = new enclosure_dialog(ToClaimActivity.this, new View.OnClickListener() {
-                        @Override
-                        public void onClick(View arg0) {
-                            ed.dismiss();
-                            switch (arg0.getId()){
-                                case R.id.dialog_bd://本地选取附件
-                                    Intent pickIntent = new Intent(Intent.ACTION_PICK, null);
-                                    // 如果朋友们要限制上传到服务器的图片类型时可以直接写如："image/jpeg 、 image/png等的类型"
-                                    pickIntent.setDataAndType(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, "image/*");
-                                    startActivityForResult(pickIntent, REQUESTCODE_PICK);
-                                    Toast.show("本地附件");
-                                    break;
-                                case R.id.dialog_zx://照相选取附件
-                                    Intent takeIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                                    //下面这句指定调用相机拍照后的照片存储的路径
-                                    takeIntent.putExtra(MediaStore.EXTRA_OUTPUT,
-                                            Uri.fromFile(new File(Environment.getExternalStorageDirectory(), IMAGE_FILE_NAME)));
-                                    startActivityForResult(takeIntent, REQUESTCODE_TAKE);
-                                    Toast.show("实时附件");
-                                    break;
+                    if(i<9){
+                        ed = new enclosure_dialog(ToClaimActivity.this, new View.OnClickListener() {
+                            @Override
+                            public void onClick(View arg0) {
+                                ed.dismiss();
+                                switch (arg0.getId()){
+                                    case R.id.dialog_bd://本地选取附件
+                                        Intent pickIntent = new Intent(Intent.ACTION_PICK, null);
+                                        // 如果朋友们要限制上传到服务器的图片类型时可以直接写如："image/jpeg 、 image/png等的类型"
+                                        pickIntent.setDataAndType(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, "image/*");
+                                        startActivityForResult(pickIntent, REQUESTCODE_PICK);
+                                        Toast.show("本地附件");
+                                        break;
+                                    case R.id.dialog_zx://照相选取附件
+                                        Intent takeIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                                        //下面这句指定调用相机拍照后的照片存储的路径
+                                        takeIntent.putExtra(MediaStore.EXTRA_OUTPUT,
+                                                Uri.fromFile(new File(Environment.getExternalStorageDirectory(), IMAGE_FILE_NAME)));
+                                        startActivityForResult(takeIntent, REQUESTCODE_TAKE);
+                                        Toast.show("实时附件");
+                                        break;
+                                }
                             }
-                        }
-                    });
-                    ed.showAtLocation(ToClaimActivity.this.findViewById(R.id.cl), Gravity.CENTER | Gravity.CENTER_HORIZONTAL, 0, 0);
+                        });
+                        ed.showAtLocation(ToClaimActivity.this.findViewById(R.id.cl), Gravity.CENTER | Gravity.CENTER_HORIZONTAL, 0, 0);
+                    }else{
+                        Toast.show("已达到附件上传最大限制");
+                    }
                     break;
             }
         }

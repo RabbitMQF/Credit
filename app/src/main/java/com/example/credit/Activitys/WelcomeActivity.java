@@ -3,6 +3,7 @@ package com.example.credit.Activitys;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Environment;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -19,6 +20,8 @@ import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ViewInject;
 import com.yolanda.nohttp.RequestMethod;
 
+import java.io.File;
+
 public class WelcomeActivity extends Activity {
     @ViewInject(R.id.welcom)
     ImageView iv;
@@ -33,6 +36,11 @@ public class WelcomeActivity extends Activity {
         ViewUtils.inject(this);
         CreditSharePreferences.init(this);
         esp = CreditSharePreferences.getLifeSharedPreferences();
+
+        File destDir = new File(Environment.getExternalStorageDirectory() + "/Credit");
+        if (!destDir.exists()) {
+            destDir.mkdirs();
+        }
         initData();
         next.setOnClickListener(new View.OnClickListener() {
             @Override

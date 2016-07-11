@@ -1392,61 +1392,24 @@ public class DataManager {
      * 提交投诉成功后返回数据实体类
      */
     public static class ToComplain{
-
         /**
          * message : true
          * status : 1
-         * data :
+         * data : {"result":"success","COMPLAINID":"0fb01a8e74fc4338aea42197dcb8fd5f"}
          * version : v1.0
          */
-
         public String message;
         public String status;
         /**
-         * Paging : {"TotalPage":0,"ShowCount":10,"TotalResult":0,"CurrentResult":0,"CurrentPage":0}
-         * commentList :
+         * result : success
+         * COMPLAINID : 0fb01a8e74fc4338aea42197dcb8fd5f： 事件ID
          */
-
         public DataBean data;
         public String version;
 
         public static class DataBean {
-            /**
-             * TotalPage : 0
-             * ShowCount : 10
-             * TotalResult : 0
-             * CurrentResult : 0
-             * CurrentPage : 0
-             */
-
-            public PagingBean Paging;
-            /**
-             * COMPLAINTIME : 2016-07-07 10:57:39 ：投诉时间
-             * COMPLAINTID : 0751eb65228644fa88f85d0ae2033672 ：投诉ID
-             * ENTERNAME : 江西智容科技有限公司 ：投诉企业名称
-             * AttachmentList : []
-             * COMPLAINTITLE : 江西  ：投诉标题
-             * COMPLAINSTATUS : 0  ：投诉处理状态
-             */
-
-            public List<CommentListBean> commentList;
-
-            public static class PagingBean {
-                public int TotalPage;
-                public int ShowCount;
-                public int TotalResult;
-                public int CurrentResult;
-                public int CurrentPage;
-            }
-
-            public static class CommentListBean {
-                public String COMPLAINTIME;
-                public String COMPLAINTID;
-                public String ENTERNAME;
-                public String COMPLAINTITLE;
-                public String COMPLAINSTATUS;
-                public List<?> AttachmentList;
-            }
+            public String result;
+            public String COMPLAINID;
         }
     }
 }

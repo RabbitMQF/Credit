@@ -3,13 +3,16 @@ package com.example.credit.Activitys;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.provider.Settings;
+import android.support.v7.app.AlertDialog;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.GestureDetector;
@@ -104,6 +107,8 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
     String model = bd.MODEL;//设备ID
     int po;
     int type;
+    AlertDialog.Builder builder;
+    AlertDialog dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -134,6 +139,8 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
                             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                                 if (!csp.getLoginStatus()) {//判定是否登录
                                    Toast.show("请先登录账号");
+                                    dialog.show();
+
                                 } else {
                                     po = position;
                                     pd.show();
@@ -317,6 +324,26 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
      * 初始化UI组建
      */
     private void initView() {
+
+        builder = new AlertDialog.Builder(this);
+        builder.setTitle("是否登录");
+        builder.setMessage("浏览企业详情，请先登录账号。");
+        builder.setPositiveButton("去登陆", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                finish();
+                startActivity(new Intent(SearchFirmActivty.this,LoginActivity.class));
+            }
+        });
+        builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+//                finish();
+//                startActivity(new Intent(SearchFirmActivty.this, MainActivity.class));
+            }
+        });
+        dialog = builder.create();
+        dialog.setCanceledOnTouchOutside(false);// 设置点击屏幕Dialog不消失
         searchEt = (EditText) findViewById(R.id.search_et);
         search_et_cc = (ImageView) findViewById(R.id.search_et_cc);//叉叉
         //selectCity = (TextView) findViewById(R.id.selectCity);//旧版搜索城市

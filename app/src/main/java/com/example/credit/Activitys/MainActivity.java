@@ -99,15 +99,35 @@ public class MainActivity extends Activity implements View.OnClickListener {
     static CreditSharePreferences csp;
     Boolean LoginStatus;
     public static ProgressDialog pd;
-    WaitDialog ad;
+    public static WaitDialog ad;
+
 //    @ViewInject(R.id.pb_1)
-//    TextView pb_1;//首页
+//    LinearLayout pb_1;//首页
+//    @ViewInject(R.id.pb_1i)
+//    ImageView pb_1i;//登录
+//    @ViewInject(R.id.pb_1t)
+//    TextView pb_1t;//登录
+//
 //    @ViewInject(R.id.pb_2)
-//    TextView pb_2;
+//    LinearLayout pb_2;//关注
+//    @ViewInject(R.id.pb_4_img)
+//    ImageView pb_4_img;//登录
+//    @ViewInject(R.id.pb_4_txt)
+//    TextView pb_4_txt;//登录
+//
 //    @ViewInject(R.id.pb_3)
-//    TextView pb_3;
+//    LinearLayout pb_3;//历史
+//    @ViewInject(R.id.pb_4_img)
+//    ImageView pb_4_img;//登录
+//    @ViewInject(R.id.pb_4_txt)
+//    TextView pb_4_txt;//登录
+//
 //    @ViewInject(R.id.pb_4)
-//    TextView pb_4;
+//    LinearLayout pb_4;//我
+//    @ViewInject(R.id.pb_4_img)
+//    ImageView pb_4_img;//登录
+//    @ViewInject(R.id.pb_4_txt)
+//    TextView pb_4_txt;//登录
 
 
     @Override
@@ -131,9 +151,11 @@ public class MainActivity extends Activity implements View.OnClickListener {
                         .setAction("Action", null).show();
             }
         });*/
-        GsonUtil request = new GsonUtil(URLconstant.URLINSER + URLconstant.GETCITY, RequestMethod.GET);
-        CallServer.getInstance().add(this, request, MyhttpCallBack.getInstance(), NOHTTP_CITY, true, false, true);//获取城市
-        CallServer.getInstance().add(this, new GsonUtil(URLconstant.URLINSER + URLconstant.GETINDUSTRY, RequestMethod.GET), MyhttpCallBack.getInstance(), NOHTTP_INDUSTRY, true, false, true);//获取行业
+        if(DataManager.citysList.size()==0||DataManager.citysList==null) {
+            GsonUtil request = new GsonUtil(URLconstant.URLINSER + URLconstant.GETCITY, RequestMethod.GET);
+            CallServer.getInstance().add(this, request, MyhttpCallBack.getInstance(), NOHTTP_CITY, true, false, true);//获取城市
+        }
+            CallServer.getInstance().add(this, new GsonUtil(URLconstant.URLINSER + URLconstant.GETINDUSTRY, RequestMethod.GET), MyhttpCallBack.getInstance(), NOHTTP_INDUSTRY, true, false, true);//获取行业
         handler = new Handler() {
             @Override
             public void handleMessage(Message msg) {
@@ -144,7 +166,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
                         adapter.notifyDataSetChanged();
                         break;
                     case 1://我的评价
-                        ad.dismiss();
                         Intent i1 = new Intent(MainActivity.this, MyCommentlistActivity.class);
                         startActivity(i1);
                         break;
@@ -159,12 +180,10 @@ public class MainActivity extends Activity implements View.OnClickListener {
                         }
                         break;
                     case 5://跳我的关注
-                        ad.dismiss();
                         Intent i3 = new Intent(MainActivity.this, MyconcernActivity.class);
                         startActivity(i3);
                         break;
                     case 6://跳我的认领
-                        ad.dismiss();
                         Intent i6 = new Intent(MainActivity.this, MyClaimActivity.class);
                         startActivity(i6);
                         break;
@@ -258,48 +277,63 @@ public class MainActivity extends Activity implements View.OnClickListener {
 //                    Toa2st.makeText(MainActivity.this, "此模块，正在赶点加工中...", Toast.LENGTH_SHORT).show();
                     break;
                 case R.id.headimg://我的头像
-                    Intent pickIntent = new Intent(Intent.ACTION_PICK, null);
-                    // 如果朋友们要限制上传到服务器的图片类型时可以直接写如："image/jpeg 、 image/png等的类型"
-                    pickIntent.setDataAndType(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, "image/*");
-                    startActivityForResult(pickIntent, REQUESTCODE_PICK);
+                    if (!csp.getLoginStatus()) {//判定是否登录
+                        com.example.credit.Utils.Toast.show("请先登录账号");
+                    }else{
+                        Intent pickIntent = new Intent(Intent.ACTION_PICK, null);
+                        // 如果朋友们要限制上传到服务器的图片类型时可以直接写如："image/jpeg 、 image/png等的类型"
+                        pickIntent.setDataAndType(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, "image/*");
+                        startActivityForResult(pickIntent, REQUESTCODE_PICK);
+                    }
+
                     break;
                 case R.id.Smenu_1://我的评价
-                    ad.show();
-                    GsonUtil request14 = new GsonUtil(URLconstant.URLINSER + URLconstant.MMOMM, RequestMethod.GET);
-                    request14.add("deviceId", (new Build()).MODEL);
-                    request14.add("token", SearchFirmActivty.MD5s("86D9D7F53FCA45DD93E2D83DFCA0CB42" + (new Build()).MODEL));
-                    request14.add("KeyNo", "86D9D7F53FCA45DD93E2D83DFCA0CB42");
-                    CallServer.getInstance().add(MainActivity.this, request14, MyhttpCallBack.getInstance(), 0x206, true, false, true);
-
+                    if (!csp.getLoginStatus()) {//判定是否登录
+                        com.example.credit.Utils.Toast.show("请先登录账号");
+                    }else {
+                        ad.show();
+                        GsonUtil request14 = new GsonUtil(URLconstant.URLINSER + URLconstant.MMOMM, RequestMethod.GET);
+                        request14.add("deviceId", (new Build()).MODEL);
+                        request14.add("token", SearchFirmActivty.MD5s("86D9D7F53FCA45DD93E2D83DFCA0CB42" + (new Build()).MODEL));
+                        request14.add("KeyNo", "86D9D7F53FCA45DD93E2D83DFCA0CB42");
+                        CallServer.getInstance().add(MainActivity.this, request14, MyhttpCallBack.getInstance(), 0x206, true, false, true);
+                    }
 
 //                    Toast.makeText(MainActivity.this, "此模块，正在赶点加工中...", Toast.LENGTH_SHORT).show();
                     break;
                 case R.id.Smenu_2://我的投诉
-                    /*if (!csp.getLoginStatus()) {
-                        com.example.credit.Utils.Toast.show("请先登录");
-                    } else {*/
-                    pd.show();
-                    getComplaint(MainActivity.this);
-                    /*}*/
+                    if (!csp.getLoginStatus()) {//判定是否登录
+                        com.example.credit.Utils.Toast.show("请先登录账号");
+                    }else {
+                        pd.show();
+                        getComplaint(MainActivity.this);
+                    }
 //                    Toast.makeText(MainActivity.this, "此模块，正在赶点加工中...", Toast.LENGTH_SHORT).show();
                     break;
                 case R.id.Smenu_3://我的关注
-                    ad.show();
-                    GsonUtil MyconcernRuerst = new GsonUtil(URLconstant.URLINSER + URLconstant.MYFAVORITE, RequestMethod.GET);
-                    MyconcernRuerst.add("deviceId", (new Build()).MODEL);
-                    MyconcernRuerst.add("token", SearchFirmActivty.MD5s("86D9D7F53FCA45DD93E2D83DFCA0CB42" + (new Build()).MODEL));
-                    MyconcernRuerst.add("KeyNo", "86D9D7F53FCA45DD93E2D83DFCA0CB42");
-                    CallServer.getInstance().add(MainActivity.this, MyconcernRuerst, MyhttpCallBack.getInstance(), 0x103, true, false, true);
-
+                    if (!csp.getLoginStatus()) {//判定是否登录
+                        com.example.credit.Utils.Toast.show("请先登录账号");
+                    }else {
+                        ad.show();
+                        GsonUtil MyconcernRuerst = new GsonUtil(URLconstant.URLINSER + URLconstant.MYFAVORITE, RequestMethod.GET);
+                        MyconcernRuerst.add("deviceId", (new Build()).MODEL);
+                        MyconcernRuerst.add("token", SearchFirmActivty.MD5s("86D9D7F53FCA45DD93E2D83DFCA0CB42" + (new Build()).MODEL));
+                        MyconcernRuerst.add("KeyNo", "86D9D7F53FCA45DD93E2D83DFCA0CB42");
+                        CallServer.getInstance().add(MainActivity.this, MyconcernRuerst, MyhttpCallBack.getInstance(), 0x103, true, false, true);
+                    }
 //                    Toast.makeText(MainActivity.this, "此模块，正在赶点加工中...", Toast.LENGTH_SHORT).show();
                     break;
                 case R.id.Smenu_4://我的认领
-                    ad.show();
-                    GsonUtil MyClaimRuerst = new GsonUtil(URLconstant.URLINSER + URLconstant.MYCLAIMURL, RequestMethod.GET);
-                    MyClaimRuerst.add("deviceId", (new Build()).MODEL);
-                    MyClaimRuerst.add("token", SearchFirmActivty.MD5s("86D9D7F53FCA45DD93E2D83DFCA0CB42" + (new Build()).MODEL));
-                    MyClaimRuerst.add("KeyNo", "86D9D7F53FCA45DD93E2D83DFCA0CB42");
-                    CallServer.getInstance().add(MainActivity.this, MyClaimRuerst, MyhttpCallBack.getInstance(), 0x303, true, false, true);
+                    if (!csp.getLoginStatus()) {//判定是否登录
+                        com.example.credit.Utils.Toast.show("请先登录账号");
+                    }else {
+                        ad.show();
+                        GsonUtil MyClaimRuerst = new GsonUtil(URLconstant.URLINSER + URLconstant.MYCLAIMURL, RequestMethod.GET);
+                        MyClaimRuerst.add("deviceId", (new Build()).MODEL);
+                        MyClaimRuerst.add("token", SearchFirmActivty.MD5s("86D9D7F53FCA45DD93E2D83DFCA0CB42" + (new Build()).MODEL));
+                        MyClaimRuerst.add("KeyNo", "86D9D7F53FCA45DD93E2D83DFCA0CB42");
+                        CallServer.getInstance().add(MainActivity.this, MyClaimRuerst, MyhttpCallBack.getInstance(), 0x303, true, false, true);
+                    }
 //                    Toast.makeText(MainActivity.this, "此模块，正在赶点加工中...", Toast.LENGTH_SHORT).show();
                     break;
                 case R.id.Smenu_5://服务协议
@@ -345,9 +379,10 @@ public class MainActivity extends Activity implements View.OnClickListener {
                     overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
                     break;
 
-                case R.id.set:
-                    Intent is = new Intent(MainActivity.this, UserSetActivity.class);
-                    startActivity(is);
+                case R.id.set://个人信息设置
+                    com.example.credit.Utils.Toast.show("此模块，正在赶点加工中...");
+//                    Intent is = new Intent(MainActivity.this, UserSetActivity.class);
+//                    startActivity(is);
                     break;
 
 

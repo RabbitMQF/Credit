@@ -71,6 +71,7 @@ public class MyconcernActivity extends BaseActivity {
         b_return.setOnClickListener(listener);
         adapter=new Myconcer_listAdapter(MyconcernActivity.this, DataManager.FavotiteListS.data.AttentionList);
         mycconn.setAdapter(adapter);
+        MainActivity.ad.dismiss();
         mycconn.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {

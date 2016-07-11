@@ -60,7 +60,7 @@ import java.util.Map;
  * 公司信息界面
  */
 public class CompanyDetailsActivity extends BaseActivity {
-    WaitDialog waitDialog;
+    public static WaitDialog waitDialog;
     @ViewInject(R.id.sc)
     ScrollView mScrollView;
 

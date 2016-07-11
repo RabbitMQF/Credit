@@ -37,6 +37,7 @@ public class MyCommentlistActivity extends Activity {
             b_return.setOnClickListener(listener);
             adapter=new MyCommment_listAdapter(MyCommentlistActivity.this, DataManager.MyComms.data.commentList);
             Mycomm_list.setAdapter(adapter);
+            MainActivity.ad.dismiss();
         }
 
         View.OnClickListener listener= new View.OnClickListener() {

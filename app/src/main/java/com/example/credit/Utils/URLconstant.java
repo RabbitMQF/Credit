@@ -77,6 +77,8 @@ public class URLconstant {
 
     public static final  String MYCLAIMURL="businessController/getMyClaimlistPage.do";//我的认领列表接口
 
+    public static final  String DISSCLAIMURL="businessController/cancelClaimCompany.do";//取消认领接口
+
     public static final String GETCOMPLAIN = "businessController/getCompanyComplainList.do";//获取投诉列表接口
 
     public static final String GETCOMDETAIL = "businessController/getComplainDetail.do";//获取投诉详情接口

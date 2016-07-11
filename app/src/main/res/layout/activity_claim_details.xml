@@ -35,7 +35,7 @@
                     android:focusable="true"
                     android:focusableInTouchMode="true"
                     android:text="企业名称："
-                    android:textColor="#757475"
+                    android:textColor="#000000"
                     android:textSize="18sp" />
 
                 <TextView
@@ -50,37 +50,6 @@
                     android:textSize="18sp" />
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/details_con_bg"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginLeft="10dp"
-                    android:focusable="true"
-                    android:focusableInTouchMode="true"
-                    android:text="认领申明："
-                    android:textColor="#757475"
-                    android:textSize="18sp" />
-
-                <TextView
-                    android:id="@+id/cm_sm"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:focusable="true"
-                    android:focusableInTouchMode="true"
-                    android:text="这里是企业名称"
-                    android:textColor="#757475"
-                    android:textSize="18sp" />
-            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -99,7 +68,7 @@
                     android:focusable="true"
                     android:focusableInTouchMode="true"
                     android:text="认领时间："
-                    android:textColor="#757475"
+                    android:textColor="#000000"
                     android:textSize="18sp" />
 
                 <TextView
@@ -131,7 +100,7 @@
                     android:focusable="true"
                     android:focusableInTouchMode="true"
                     android:text="认领状态："
-                    android:textColor="#757475"
+                    android:textColor="#000000"
                     android:textSize="18sp" />
 
                 <TextView
@@ -163,7 +132,7 @@
                     android:focusable="true"
                     android:focusableInTouchMode="true"
                     android:text="邮箱地址："
-                    android:textColor="#757475"
+                    android:textColor="#000000"
                     android:textSize="18sp" />
 
                 <TextView
@@ -195,7 +164,7 @@
                     android:focusable="true"
                     android:focusableInTouchMode="true"
                     android:text="电话号码："
-                    android:textColor="#757475"
+                    android:textColor="#000000"
                     android:textSize="18sp" />
 
                 <TextView
@@ -227,7 +196,7 @@
                     android:layout_marginRight="25dp"
                     android:layout_marginTop="10dp"
                     android:text="描述详情"
-                    android:textColor="#757475"
+                    android:textColor="#000000"
                     android:textSize="18sp" />
 
                 <TextView
@@ -258,7 +227,7 @@
                     android:layout_marginRight="25dp"
                     android:layout_marginTop="10dp"
                     android:text="材料"
-                    android:textColor="#757475"
+                    android:textColor="#000000"
                     android:textSize="18sp" />
                 <com.example.credit.Views.MyGridView
                     android:id="@+id/myGridViewtcDD"

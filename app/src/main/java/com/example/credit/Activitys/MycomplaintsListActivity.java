@@ -10,7 +10,6 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
-
 import com.example.credit.Adapters.ComplainListAdapter;
 import com.example.credit.Entitys.DataManager;
 import com.example.credit.R;
@@ -67,19 +66,21 @@ public class MycomplaintsListActivity extends BaseActivity {
                     case 3://点击item获取详情数据结束后跳转详情页
                         pd.dismiss();
                         startActivity(new Intent(MycomplaintsListActivity.this, ComplaintDetailsActivity.class));
-                    case 4://重新请求获取企业投诉数据源
+                        break;
+                    case 4://提交投诉后重新请求获取企业投诉数据源
                        pd.show();
                         GsonUtil ComplaintsRuerst = new GsonUtil(URLconstant.URLINSER + URLconstant.GETCOMPLAIN, RequestMethod.GET);
                         ComplaintsRuerst.add("token", MD5.MD5s("" + new Build().MODEL));//csp.getID()
                         ComplaintsRuerst.add("KeyNo","");//csp.getID()
                         ComplaintsRuerst.add("deviceId", new Build().MODEL);
                         ComplaintsRuerst.add("enterId",DataManager.BaseinfoList.get(0).EnterAddtionID);
-                        CallServer.getInstance().add(MycomplaintsListActivity.this,ComplaintsRuerst, MyhttpCallBack.getInstance(),0x994,true,false,true);
+                        CallServer.getInstance().add(MycomplaintsListActivity.this,ComplaintsRuerst, MyhttpCallBack.getInstance(),0x991,true,false,true);
                         break;
                     case 5://提交投诉后数据源更新后刷新UI
                         Cadapter.setDataList(DataManager.myComplaint.data.commentList);
                         Cadapter.notifyDataSetChanged();
                         pd.dismiss();
+                        break;
                     default:
                         break;
                 }

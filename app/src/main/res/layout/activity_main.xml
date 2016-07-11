@@ -223,11 +223,6 @@
                         />
 
                 </LinearLayout>
-                <!--<include-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="30dp"-->
-                <!--android:layout_gravity="bottom"-->
-                <!--layout="@layout/public_bottom_bar"/>-->
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="30dp"

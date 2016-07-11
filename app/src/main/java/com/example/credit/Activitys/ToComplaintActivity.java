@@ -64,7 +64,7 @@ public class ToComplaintActivity extends BaseActivity {
     @ViewInject(R.id.com_photo)
     ImageView com_photo;//投诉图片
     @ViewInject(R.id.com_submit)
-    TextView com_submit;//提交按钮
+    LinearLayout com_submit;//提交按钮
     @ViewInject(R.id.myGridViewtc)
     MyGridView myGridViewtc;//照片控件
     CreditSharePreferences csp;
@@ -78,8 +78,7 @@ public class ToComplaintActivity extends BaseActivity {
     int i=0;
     List<String> listStirng=new ArrayList<>();
     public static Handler handler;
-    ProgressDialog pd;
-
+    public static ProgressDialog pd;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -115,8 +114,8 @@ public class ToComplaintActivity extends BaseActivity {
 
                             GsonUtil request14 = new GsonUtil(URLconstant.URLINSER + URLconstant.ENCLOSUREURL, RequestMethod.POST);
                             request14.add("deviceId",(new Build()).MODEL);
-                            request14.add("token",MD5.MD5s(DataManager.toComplain.data.commentList.get(0).COMPLAINTID+ (new Build()).MODEL));
-                            request14.add("KeyNo",DataManager.toComplain.data.commentList.get(0).COMPLAINTID);
+                            request14.add("token",MD5.MD5s(DataManager.toComplain.data.COMPLAINID+ (new Build()).MODEL));
+                            request14.add("KeyNo",DataManager.toComplain.data.COMPLAINID);
                             request14.add("memberId",csp.getID());
                             request14.add("Type","投诉");
                             request14.add("attchmentDesc",attchmentDescS);//图片描述内容，多文件以@符号分割
@@ -125,6 +124,7 @@ public class ToComplaintActivity extends BaseActivity {
                         }else{
                             pd.dismiss();
                             Toast.show("提交投诉成功");
+                            MycomplaintsListActivity.handler.sendEmptyMessage(4);//通知投诉listview更新数据源重新适配UI
                             finish();
                         }
 

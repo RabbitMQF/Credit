@@ -4,6 +4,7 @@ import com.example.credit.Activitys.CommentListDetailsActivity;
 import com.example.credit.Activitys.CompanyDetailsActivity;
 import com.example.credit.Activitys.LoginActivity;
 import com.example.credit.Activitys.MainActivity;
+import com.example.credit.Activitys.MyClaimActivity;
 import com.example.credit.Activitys.MycomplaintsListActivity;
 import com.example.credit.Activitys.MyconcernActivity;
 import com.example.credit.Activitys.RegisterActivity;
@@ -284,7 +285,7 @@ public class MyhttpCallBack implements HttpCallBack {
                     SearchFirmActivty.handler.sendEmptyMessage(500);
                 }
                 break;
-            case 0x025:
+            case 0x025://????
                 jsonString = (String) response.get();
                 map = gson.fromJson(jsonString, new TypeToken<Map<String, Object>>() {
                 }.getType());
@@ -1043,10 +1044,24 @@ public class MyhttpCallBack implements HttpCallBack {
                 DataManager.MyClaimUtilsModel = gson.fromJson(jsonString, DataManager.MyClaimUtils.class);
                 MainActivity.handler.sendEmptyMessage(6);
                 break;
+            case 0x3031://我的认领列表{副}
+                jsonString = (String) response.get();
+                DataManager.MyClaimUtilsModel = gson.fromJson(jsonString, DataManager.MyClaimUtils.class);
+                MyClaimActivity.handler.sendEmptyMessage(2);
+                break;
             case 0x304://我的认领详情
                 jsonString = (String) response.get();
                 DataManager.MyClaimUtilsModel = gson.fromJson(jsonString, DataManager.MyClaimUtils.class);
                 MainActivity.handler.sendEmptyMessage(6);
+                break;
+            case 0x305://取消认领
+                jsonString = (String) response.get();
+                DataManager.ClaimUtilsModel = gson.fromJson(jsonString, DataManager.ClaimUtils.class);
+                if (DataManager.ClaimUtilsModel.data.result.equals("success") || DataManager.ClaimUtilsModel.data.result.equals("fail")) {
+                    MyClaimActivity.handler.sendEmptyMessage(1);
+                } else {
+                    MyClaimActivity.handler.sendEmptyMessage(500);
+                }
                 break;
             case 0x999://登入
                 jsonString = (String) response.get();
@@ -1107,26 +1122,31 @@ public class MyhttpCallBack implements HttpCallBack {
                 break;
             case 0x993://提交企业投诉
                 jsonString = (String) response.get();
-                DataManager.toComplain=gson.fromJson(jsonString,DataManager.ToComplain.class);
+                DataManager.toComplain = gson.fromJson(jsonString, DataManager.ToComplain.class);
                 /*map=gson.fromJson(jsonString,new TypeToken<Map<String, Object>>() {
                 }.getType());*/
                 if (!DataManager.toComplain.status.equals("1")) {//返回提交投诉失败
-                   Toast.show("提交投诉失败"+map.get("message"));
-                }else {//成功
+                    Toast.show("提交投诉失败" + map.get("message"));
+                } else {//成功
                     ToComplaintActivity.handler.sendEmptyMessage(1);
 
                 }
                 break;
             case 0x992://提交投诉附件
                 jsonString = (String) response.get();
-                map=gson.fromJson(jsonString,new TypeToken<Map<String, Object>>() {
+                map = gson.fromJson(jsonString, new TypeToken<Map<String, Object>>() {
                 }.getType());
                 if (!map.get("status").equals("1")) {//返回提交投诉失败
-                    Toast.show("提交投诉图片失败"+map.get("message"));
-                }else {//成功
+                    Toast.show("提交投诉图片失败" + map.get("message"));
+                } else {//成功
                     ToComplaintActivity.handler.sendEmptyMessage(0);
 
                 }
+                break;
+            case 0x991://提交投诉后刷新企业投诉
+                jsonString = (String) response.get();
+                DataManager.myComplaint = gson.fromJson(jsonString, DataManager.MyComplaint.class);
+                MycomplaintsListActivity.handler.sendEmptyMessage(5);
                 break;
             default:
                 break;
@@ -1138,6 +1158,40 @@ public class MyhttpCallBack implements HttpCallBack {
         switch (what) {
             case 0x022://搜索接口
                 SearchFirmActivty.pd.dismiss();
+                break;
+            case 0x024://获取企业详情16宫格
+                SearchFirmActivty.pd.dismiss();
+                break;
+            case 0x000://工商信息
+            case 0x001://行政审批
+            case 0x002://荣誉信息
+            case 0x003://扶持信息
+            case 0x004://抵押信息
+            case 0x005://出质信息
+            case 0x006://司法信息
+            case 0x007://预警信息
+            case 0x008://行政处罚
+            case 0x009://经营异常
+            case 0x010://专利信息
+            case 0x011://商标信息
+            case 0x012://著作权
+            case 0x013://广告资质
+            case 0x014://守合同重信用
+            case 0x015://企业自主公示
+                CompanyDetailsActivity.waitDialog.dismiss();
+                break;
+            case 0x996://个人中心取消投诉请求
+                MycomplaintsListActivity.pd.dismiss();
+                break;
+            case 0x997://个人中心获取投诉列表
+                MainActivity.pd.dismiss();
+                break;
+            case 0x994://获取企业投诉列表
+            case 0x993://提交企业投诉
+            case 0x992://提交投诉附件
+            case 0x991://提交投诉后刷新企业投诉
+                ToComplaintActivity.pd.dismiss();
+                MycomplaintsListActivity.pd.dismiss();
                 break;
             default:
                 break;
