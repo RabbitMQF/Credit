@@ -140,7 +140,6 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
                                 if (!csp.getLoginStatus()) {//判定是否登录
                                    Toast.show("请先登录账号");
                                     dialog.show();
-
                                 } else {
                                     po = position;
                                     pd.show();
@@ -635,7 +634,7 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
                         }
                         popupwindow = new CustomPopupwindow(SearchFirmActivty.this, null, DataManager.industryDataList);
                         popupwindow.setWidth(ViewGroup.LayoutParams.MATCH_PARENT);
-                        popupwindow.setHeight(350);
+                        popupwindow.setHeight(getWindowManager().getDefaultDisplay().getHeight()/2);
                         popupwindow.showAtDropDownLeft(v);
                         time_check = false;
                         city_check = false;

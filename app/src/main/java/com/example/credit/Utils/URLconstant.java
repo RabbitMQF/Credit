@@ -86,6 +86,9 @@ public class URLconstant {
     public static final String CANCELCOM = "businessController/cancelComplain.do";//取消投诉接口
 
     public static final String SEVECOM="businessController/saveComplainCompany.do";//投诉企业接口
+
+    public static final String REVISEUSER="userMemberController/userModify.do";//修改个人资料接口revise
+
 //    public static final String GETCITYLIST="http://app.qichacha.com/enterprises/new/GetCityList";//获取城市接口
 
     //    public static final String SEARCHURL="http://168s.mobile.hc360.com/get168.cgi";//获取搜索列表

@@ -357,57 +357,80 @@ public class DetailsContentActivity extends BaseActivity {
         /**
          * 判断企业类型是否为空
          */
-        if(!(DataManager.gsxx.data.BaseInfo.ENTTYPE_CN).equals("")){
-            c_type.setText(DataManager.gsxx.data.BaseInfo.ENTTYPE_CN);//企业类型
-        }else{
-            c_type.setText("暂无信息");
+        try{
+            if(!(DataManager.gsxx.data.BaseInfo.ENTTYPE_CN).equals("")){
+                c_type.setText(DataManager.gsxx.data.BaseInfo.ENTTYPE_CN);//企业类型
+            }else{
+                c_type.setText("暂无信息");
+            }
+        }catch(Exception e){
+            e.printStackTrace();
         }
         /**
          * 判断经营状态是否为空
          */
-        if(!(DataManager.gsxx.data.BaseInfo.REGSTATE_CN).equals("")){
-            c_state.setText(DataManager.gsxx.data.BaseInfo.REGSTATE_CN);//经营状态/
-        }else{
-            c_state.setText("暂无信息");
+        try{
+            if(!(DataManager.gsxx.data.BaseInfo.REGSTATE_CN).equals("")){
+                c_state.setText(DataManager.gsxx.data.BaseInfo.REGSTATE_CN);//经营状态/
+            }else{
+                c_state.setText("暂无信息");
+            }
+        }catch(Exception e){
+            e.printStackTrace();
         }
         /**
          * 判断经营范围是否为空
          */
-        if(!(DataManager.gsxx.data.BaseInfo.OPSCOPE).equals("")){
-            c_fangwei.setText(DataManager.gsxx.data.BaseInfo.OPSCOPE);//经营范围
-        }else{
-            c_fangwei.setText("暂无信息");
+        try{
+            if(!(DataManager.gsxx.data.BaseInfo.OPSCOPE).equals("")){
+                c_fangwei.setText(DataManager.gsxx.data.BaseInfo.OPSCOPE);//经营范围
+            }else{
+                c_fangwei.setText("暂无信息");
+            }
+        }catch(Exception e){
+            e.printStackTrace();
         }
         /**
          * 判断企业地址是否为空
          */
-        if(!(DataManager.gsxx.data.BaseInfo.DOM).equals("")){
-            c_address.setText(DataManager.gsxx.data.BaseInfo.DOM);//企业地址
-        }else{
-            c_address.setText("暂无信息");
+        try{
+            if(!(DataManager.gsxx.data.BaseInfo.DOM).equals("")){
+                c_address.setText(DataManager.gsxx.data.BaseInfo.DOM);//企业地址
+            }else{
+                c_address.setText("暂无信息");
+            }
+        }catch(Exception e){
+            e.printStackTrace();
         }
         /**
          * 判断经营期限是否为空
          */
+        try{
 //        if((DataManager.gsxx.data.BaseInfo.OPFROM).equals("")){
 //            c_datetiem.setText("**** 至" + DataManager.gsxx.data.BaseInfo.OPTO);
 //        }else if((DataManager.gsxx.data.BaseInfo.OPTO).equals("")){
 //            c_datetiem.setText(DataManager.gsxx.data.BaseInfo.OPFROM + "至 ****" );
 //        }else
-        if(!(DataManager.gsxx.data.BaseInfo.OPFROM).equals("") && !(DataManager.gsxx.data.BaseInfo.OPTO).equals("")){
+        if(DataManager.gsxx.data.BaseInfo.OPTO!=null&&DataManager.gsxx.data.BaseInfo.OPFROM!=null&&!(DataManager.gsxx.data.BaseInfo.OPFROM).equals("") && !(DataManager.gsxx.data.BaseInfo.OPTO).equals("")){
             c_datetiem.setText(DataManager.gsxx.data.BaseInfo.OPFROM + "至" + DataManager.gsxx.data.BaseInfo.OPTO);//经营期限
         }else{
             c_datetiem.setText("暂无信息");
         }
+        }catch(Exception e){
+            e.printStackTrace();
+        }
         /**
          * 判断登记机关是否为空
          */
-        if((DataManager.gsxx.data.BaseInfo.REGORG_CN).equals("")){
+        try{
+        if(DataManager.gsxx.data.BaseInfo.REGORG_CN==null||DataManager.gsxx.data.BaseInfo.REGORG_CN.equals(null)||(DataManager.gsxx.data.BaseInfo.REGORG_CN).equals("")){
             c_djjg.setText("暂无信息");
         }else{
             c_djjg.setText(DataManager.gsxx.data.BaseInfo.REGORG_CN);//登记机关
         }
-
+        }catch(Exception e){
+            e.printStackTrace();
+        }
 
         /**
          * 投资人员

@@ -149,6 +149,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
             case R.id.login:
                 if (login_user.getText().length() == 0 || login_pwd.getText().length() == 0) {
                     Toast.show("账号密码不能为空...");
+
                 } else if (login_pwd.getText().length() < 6) {
                     Toast.show("密码长度至少6位...");
 

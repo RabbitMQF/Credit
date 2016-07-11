@@ -46,6 +46,10 @@ import com.lidroid.xutils.view.annotation.ViewInject;
 import com.yolanda.nohttp.RequestMethod;
 
 import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+import Decoder.BASE64Decoder;
 
 public class MainActivity extends Activity implements View.OnClickListener {
     private long exitTime = 0;
@@ -64,16 +68,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
     ListView NewsListview;
     public static Handler handler;
 
-
     @ViewInject(R.id.headimg)
     RoundImageView headimg;//我的头像
-    private static final String IMAGE_FILE_NAME = "avatarImage.jpg";// 头像文件名称
-    private static String urlpath;            // 图片本地路径
-    private static final int REQUESTCODE_PICK = 0;        // 相册选图标记
-    private static final int REQUESTCODE_CUTTING = 2;    // 图片裁切标记
-    private static String newName = "UserImg.jpg";
-    public static String photo;
-
     @ViewInject(R.id.UserSz)
     public static TextView UserSz;//用户名
 
@@ -139,7 +135,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         ViewUtils.inject(this);
         ad = new WaitDialog(this);
         initView();
-
+        loginImg();
 
         mLeftMenu = (SlidingMenu) findViewById(R.id.id_menu);
 
@@ -155,7 +151,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
             GsonUtil request = new GsonUtil(URLconstant.URLINSER + URLconstant.GETCITY, RequestMethod.GET);
             CallServer.getInstance().add(this, request, MyhttpCallBack.getInstance(), NOHTTP_CITY, true, false, true);//获取城市
         }
-            CallServer.getInstance().add(this, new GsonUtil(URLconstant.URLINSER + URLconstant.GETINDUSTRY, RequestMethod.GET), MyhttpCallBack.getInstance(), NOHTTP_INDUSTRY, true, false, true);//获取行业
+        CallServer.getInstance().add(this, new GsonUtil(URLconstant.URLINSER + URLconstant.GETINDUSTRY, RequestMethod.GET), MyhttpCallBack.getInstance(), NOHTTP_INDUSTRY, true, false, true);//获取行业
         handler = new Handler() {
             @Override
             public void handleMessage(Message msg) {
@@ -222,31 +218,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
 //                Toast.makeText(MainActivity.this, "此模块，正在赶点加工中...", Toast.LENGTH_SHORT).show();
             }
         });
-
-        //获取本地图片路径
-//        if(esp.getLogin()==true){
-//            String imgpath =Environment.getExternalStorageDirectory() + "/Credit" + "/"+esp.getPhone()+"UserImg.jpg";
-        String imgpath = Environment.getExternalStorageDirectory() + "/Credit" + "/UserImg.jpg";
-        File file = new File(imgpath);
-        if (file.exists()) {//获取本地图片路径是否存在
-            Bitmap bm = BitmapFactory.decodeFile(imgpath);
-            //将图片显示到ImageView中
-            headimg.setImageBitmap(bm);
-//            }
-//            else{
-//                options=new DisplayImageOptions.Builder()
-//                        .showImageForEmptyUri(R.drawable.plugin_imagebrowser_friends_sends_pictures_no)
-//                        // 默认图片
-//                        .showImageOnLoading(R.drawable.plugin_imagebrowser_friends_sends_pictures_no)
-//                        // 加载中的图片
-//                        .showImageOnFail(R.drawable.plugin_imagebrowser_friends_sends_pictures_no)
-//                        .cacheInMemory(true)// 是否缓存在内中
-//                        .cacheOnDisk(true)// 是否缓存在磁盘中
-//                        .build();
-//                ImageLoader.getInstance().displayImage(URLProtocol.USERIMGURL+esp.getImage(), iamge, options);
-//            }
-        }
-
         headimg.setOnClickListener(listener);
         UserSz.setOnClickListener(listener);
         Smenu_1.setOnClickListener(listener);
@@ -277,14 +248,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
 //                    Toa2st.makeText(MainActivity.this, "此模块，正在赶点加工中...", Toast.LENGTH_SHORT).show();
                     break;
                 case R.id.headimg://我的头像
-                    if (!csp.getLoginStatus()) {//判定是否登录
-                        com.example.credit.Utils.Toast.show("请先登录账号");
-                    }else{
-                        Intent pickIntent = new Intent(Intent.ACTION_PICK, null);
-                        // 如果朋友们要限制上传到服务器的图片类型时可以直接写如："image/jpeg 、 image/png等的类型"
-                        pickIntent.setDataAndType(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, "image/*");
-                        startActivityForResult(pickIntent, REQUESTCODE_PICK);
-                    }
 
                     break;
                 case R.id.Smenu_1://我的评价
@@ -380,9 +343,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
                     break;
 
                 case R.id.set://个人信息设置
-                    com.example.credit.Utils.Toast.show("此模块，正在赶点加工中...");
-//                    Intent is = new Intent(MainActivity.this, UserSetActivity.class);
-//                    startActivity(is);
+//                    com.example.credit.Utils.Toast.show("此模块，正在赶点加工中...");
+                    Intent is = new Intent(MainActivity.this, UserSetActivity.class);
+                    startActivity(is);
                     break;
 
 
@@ -401,60 +364,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
         CallServer.getInstance().add(activity, ComplaintsRuerst, MyhttpCallBack.getInstance(), 0x997, true, false, true);
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        switch (requestCode) {
-            case REQUESTCODE_PICK:// 直接从相册获取
-                try {
-                    startPhotoZoom(data.getData());
-                } catch (NullPointerException e) {
-                    e.printStackTrace();// 用户点击取消操作
-                }
-                break;
-            case REQUESTCODE_CUTTING:// 取得裁剪后的图片
-                if (data != null) {
-                    setPicToView(data);
-                }
-                break;
-        }
-        super.onActivityResult(requestCode, resultCode, data);
-    }
-
-    /**
-     * 裁剪图片方法实现
-     *
-     * @param uri
-     */
-    public void startPhotoZoom(Uri uri) {
-        Intent intent = new Intent("com.android.camera.action.CROP");
-        intent.setDataAndType(uri, "image/*");
-        // crop=true是设置在开启的Intent中设置显示的VIEW可裁剪
-        intent.putExtra("crop", "true");
-        // aspectX aspectY 是宽高的比例
-        intent.putExtra("aspectX", 1);
-        intent.putExtra("aspectY", 1);
-        // outputX outputY 是裁剪图片宽高
-        intent.putExtra("outputX", 300);
-        intent.putExtra("outputY", 300);
-        intent.putExtra("return-data", true);
-        startActivityForResult(intent, REQUESTCODE_CUTTING);
-    }
-
-    /**
-     * 保存裁剪之后的图片数据
-     *
-     * @param picdata
-     */
-    private void setPicToView(Intent picdata) {
-        Bundle extras = picdata.getExtras();
-        if (extras != null) {
-            // 取得SDCard图片路径做显示
-            Bitmap photo = extras.getParcelable("data");
-            Drawable drawable = new BitmapDrawable(null, photo);
-            urlpath = FileUtil.saveFile(MainActivity.this, newName, photo);
-            headimg.setImageDrawable(drawable);
-        }
-    }
 
     public void toggleMenu(View view) {
         mLeftMenu.toggle();
@@ -489,16 +398,66 @@ public class MainActivity extends Activity implements View.OnClickListener {
         if (LoginStatus) {//若当前状态为登录
             UserSz.setText(csp.getALIASNAME());
             login.setText("退出登录");
+            File file = new File(Environment.getExternalStorageDirectory() + "/Credit/loginImg.jpg");
+            if (file.exists()) {//获取本地图片路径是否存在
+                Bitmap bm = BitmapFactory.decodeFile(Environment.getExternalStorageDirectory() + "/Credit/loginImg.jpg");
+                headimg.setImageBitmap(bm);
+            }
+
         } else {//若当前状态未未登录
             login.setText("登录");
             UserSz.setText("游客");
+            headimg.setImageResource(R.mipmap.me_icon02);
         }
+    }
+
+    public void loginImg(){
+        try {
+            BASE64Decoder decode = new BASE64Decoder();
+            byte[] b = decode.decodeBuffer(csp.getICONSTEAM());
+            System.out.println(new String(b));
+            StringBuilder str = new StringBuilder();//不建议用String
+            for (byte bs : b) {
+                str.append(Integer.toBinaryString(bs));//转换为二进制
+            }
+            //把字节数组的图片写到另一个地方
+            File apple = new File(Environment.getExternalStorageDirectory() + "/Credit/loginImg.jpg");
+            FileOutputStream fos = new FileOutputStream(apple);
+
+            fos.write(b);
+            fos.flush();
+            fos.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 
     @Override
     protected void onRestart() {
         isLogin();
         super.onRestart();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        loginImg();
+        LoginStatus = csp.getLoginStatus();
+        if (LoginStatus) {//若当前状态为登录
+            UserSz.setText(csp.getALIASNAME());
+            login.setText("退出登录");
+            File file = new File(Environment.getExternalStorageDirectory() + "/Credit/loginImg.jpg");
+            if (file.exists()) {//获取本地图片路径是否存在
+                Bitmap bm = BitmapFactory.decodeFile(Environment.getExternalStorageDirectory() + "/Credit/loginImg.jpg");
+                headimg.setImageBitmap(bm);
+            }
+        } else {//若当前状态未未登录
+            login.setText("登录");
+            UserSz.setText("游客");
+            headimg.setImageResource(R.mipmap.me_icon02);
+        }
     }
 
     @Override

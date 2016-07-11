@@ -1,6 +1,9 @@
 package com.example.credit.Adapters;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.Environment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +14,7 @@ import com.example.credit.Entitys.DataManager;
 import com.example.credit.R;
 import com.example.credit.Views.RoundImageView;
 
+import java.io.File;
 import java.util.List;
 
 public class MyCommment_listAdapter extends BaseAdapter {
@@ -48,6 +52,11 @@ public class MyCommment_listAdapter extends BaseAdapter {
             view.setTag(vh);
         } else {
             vh = (ViewHolder) view.getTag();
+        }
+        File file = new File(Environment.getExternalStorageDirectory() + "/Credit/loginImg.jpg");
+        if (file.exists()) {//获取本地图片路径是否存在
+            Bitmap bm = BitmapFactory.decodeFile(Environment.getExternalStorageDirectory() + "/Credit/loginImg.jpg");
+            vh.mycomm_img.setImageBitmap(bm);
         }
         vh.mycomm_time.setText(list.get(position).CREATETIME);
         vh.mycomm_conn.setText(list.get(position).CONTENT);

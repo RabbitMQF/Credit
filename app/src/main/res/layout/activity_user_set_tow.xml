@@ -3,8 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     android:orientation="vertical"
-    tools:context="com.example.credit.Activitys.RegisterActivity">
+    tools:context="com.example.credit.Activitys.UserSetTowActivity">
     <include layout="@layout/public_top_bar"/>
 
     <LinearLayout
@@ -12,10 +13,11 @@
         android:layout_height="50dp"
         android:layout_marginRight="10dp"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="30dp"
         android:orientation="horizontal"
         android:background="@drawable/login_et_bg">
         <TextView
+            android:id="@+id/ust1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="18sp"
@@ -27,7 +29,7 @@
             android:focusableInTouchMode="true"
             android:text="邮箱"/>
         <EditText
-            android:id="@+id/Ruser"
+            android:id="@+id/ust1_et"
             android:layout_width="0dp"
             android:layout_weight="15"
             android:layout_height="match_parent"
@@ -44,7 +46,7 @@
             android:layout_margin="5dp"
             />
         <ImageView
-            android:id="@+id/Ruser_c"
+            android:id="@+id/ust1_cc"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
@@ -63,6 +65,7 @@
         android:orientation="horizontal"
         android:background="@drawable/login_et_bg">
         <TextView
+            android:id="@+id/ust2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="18sp"
@@ -74,7 +77,7 @@
             android:focusableInTouchMode="true"
             android:text="密码"/>
         <EditText
-            android:id="@+id/Rpwd"
+            android:id="@+id/ust2_et"
             android:layout_width="0dp"
             android:layout_weight="15"
             android:layout_height="match_parent"
@@ -92,7 +95,7 @@
             android:layout_margin="5dp"
             />
         <ImageView
-            android:id="@+id/Rpwd_c"
+            android:id="@+id/ust2_cc"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
@@ -110,6 +113,7 @@
         android:orientation="horizontal"
         android:background="@drawable/login_et_bg">
         <TextView
+            android:id="@+id/ust3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="18sp"
@@ -121,14 +125,14 @@
             android:focusableInTouchMode="true"
             android:text="密码"/>
         <EditText
-            android:id="@+id/Rrpwds"
+            android:id="@+id/ust3_et"
             android:layout_width="0dp"
             android:layout_weight="15"
             android:layout_height="match_parent"
             android:textSize="16sp"
             android:textColor="#757475"
             android:gravity="center_vertical"
-            android:hint="请再次输入密码确认"
+            android:hint="请输入密码"
             android:maxLines="1"
             android:lines="1"
             android:singleLine="true"
@@ -139,7 +143,7 @@
             android:layout_margin="5dp"
             />
         <ImageView
-            android:id="@+id/Rrpwds_c"
+            android:id="@+id/ust3_cc"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
@@ -148,25 +152,13 @@
             android:src="@mipmap/www"
             android:visibility="gone"/>
     </LinearLayout>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="14sp"
-        android:textColor="#B8B8B8"
-        android:layout_marginRight="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_gravity="center_vertical"
-        android:focusable="true"
-        android:focusableInTouchMode="true"
-        android:text="我已阅读并同意《用户协议》"/>
     <LinearLayout
         android:id="@+id/regiest_ing"
         android:layout_width="match_parent"
         android:layout_height="35dp"
         android:layout_marginRight="10dp"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="30dp"
         android:gravity="center"
         android:orientation="horizontal"
         android:background="@color/blue1">
@@ -175,8 +167,7 @@
             android:layout_height="wrap_content"
             android:textSize="18sp"
             android:textColor="#ffffff"
-            android:text="立即注册"/>
+            android:text="确认修改"/>
     </LinearLayout>
-
 
 </LinearLayout>

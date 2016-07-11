@@ -34,17 +34,17 @@ public class CreditSharePreferences {
     //保存历史记录
     public void putHistory(String listory) {
         if(sp!=null){
-        Editor editor = sp.edit();
-        editor.putString("listory", listory);
-        editor.commit();}
+            Editor editor = sp.edit();
+            editor.putString("listory", listory);
+            editor.commit();}
     }
 
     public String getHistory() {
-       if(sp!=null) {
-           return sp.getString("listory", null);
-       }else{
-           return "";
-       }
+        if(sp!=null) {
+            return sp.getString("listory", null);
+        }else{
+            return "";
+        }
     }
 
     /**
@@ -57,12 +57,12 @@ public class CreditSharePreferences {
             editor.putBoolean("LoginStatus", b);
             editor.commit();}
     }
-   public Boolean getLoginStatus(){
-       if(sp!=null) {
-           return sp.getBoolean("LoginStatus", false);
-       }
-       return false;
-       }
+    public Boolean getLoginStatus(){
+        if(sp!=null) {
+            return sp.getBoolean("LoginStatus", false);
+        }
+        return false;
+    }
 
     /**
      * 保存用户信息
@@ -244,6 +244,11 @@ public class CreditSharePreferences {
             return "";
         }
     }
+    public void putICONSTEAM(String ICONSTEAM) {
+        Editor editor = sp.edit();
+        editor.putString("ICONSTEAM", ICONSTEAM);
+        editor.commit();
+    }
     /**
      * 获取用户名
      * @return
@@ -276,6 +281,11 @@ public class CreditSharePreferences {
         }else{
             return "";
         }
+    }
+    public void putALIASNAME(String ALIASNAME) {
+        Editor editor = sp.edit();
+        editor.putString("ALIASNAME", ALIASNAME);
+        editor.commit();
     }
     /**
      * 获取密码

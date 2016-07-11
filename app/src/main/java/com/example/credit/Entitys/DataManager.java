@@ -8,8 +8,21 @@ import java.util.List;
  */
 public class DataManager {
 
+    public static Myuserlike MyuserlikeSS=new Myuserlike();
+    /**
+     * 修改个人资料
+     */
+    public static class Myuserlike {
+        /**
+         * message : Success
+         * status : 1
+         * version : v1.0
+         */
+        public String message;
+        public String status;
+        public String version;
+    }
     public static MyComm MyComms=new MyComm();
-
     /**
      *我的评价
      */
@@ -266,7 +279,7 @@ public class DataManager {
 
             public static class BaseInfoBean {
                 public String D_ADDTIME;
-                public int REGCAP;
+                public String REGCAP;
                 public String NAME;
                 public String ESTDATE;
                 public String REGSTATE_CN;
@@ -619,13 +632,13 @@ public class DataManager {
      * 股东出资
      */
     public static class funded {
-        public String INVNAME;//股东 发起人名字
-        public String LISUBCONAM;//认缴额=认缴出资额
-        public String LIACCONAM;//实缴额=实缴出资额
-        public String SUBCONFORM;//认缴出资方式
+        public String INV;//股东 发起人名字
+        public String SUBCONAM;//认缴额=认缴出资额
+        public String ACCONAM;//实缴额=实缴出资额
+        public String CONFORM_CN;//认缴出资方式
         //public String subscribedNum;//认缴出资额
-        public String SUBCONDATE;//认缴出资日期=公示日期
-        public String ACCONFORM;//实缴出资方式
+        public String PUBLICDATE;//认缴出资日期=公示日期
+        public String ACCONFORM_CN;//实缴出资方式
         //public String actuallyPaidNum;//实缴出资额
         public String ACCONDATE;//实缴出资日期
         //public String publishDate;//公示日期
@@ -679,6 +692,24 @@ public class DataManager {
         public String PRIPID;//主体身份证代码
         public String ENTNAME;//企业机构名称
         public String REGNO;//注册号
+        public String UNISCID;//统一社会信用代码
+        public String TMREGNO;//商品注册号
+        public String TMNAME;//名称
+        public String KINDS;//种类代码
+        public String PLEDGOR;//知识产权出质人名称
+        public String IMPORG ;//知识产权质权人名称
+        public String PLEREGPERFROM;//知识产权质权登记期限自
+        public String PLEREGPERTO;//知识产权质权登记期限止
+        public String TYPE;//状态
+        public String TYPENAME;//状态名称
+        public String CANDATE;//注销日期
+        public String EQUPLECANREA;//注销原因
+        public String INVALIDDATE;//其他无效日期
+        public String INVALIDREA;//其他无效原因
+        public String PUBLICDATE;//公示日期
+
+
+
 
     }
 
@@ -1412,5 +1443,6 @@ public class DataManager {
             public String COMPLAINID;
         }
     }
+
 }
 

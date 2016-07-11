@@ -12,9 +12,11 @@ import com.example.credit.Activitys.SearchFirmActivty;
 import com.example.credit.Activitys.ToClaimActivity;
 import com.example.credit.Activitys.ToCommentActivity;
 import com.example.credit.Activitys.ToComplaintActivity;
+import com.example.credit.Activitys.UserSetActivity;
 import com.example.credit.Entitys.DataManager;
 import com.example.credit.Entitys.DataManager.Replay2review;
 import com.google.gson.Gson;
+import com.google.gson.JsonSyntaxException;
 import com.google.gson.internal.LinkedTreeMap;
 import com.google.gson.reflect.TypeToken;
 import com.yolanda.nohttp.rest.Response;
@@ -227,62 +229,72 @@ public class MyhttpCallBack implements HttpCallBack {
                 break;
             case 0x024://获取企业详情16宫格等
                 jsonString = (String) response.get();
-                map = gson.fromJson(jsonString, new TypeToken<Map<String, Object>>() {
-                }.getType());
-                List<LinkedTreeMap> lists2 = (List<LinkedTreeMap>) ((Map<String, Object>) map.get("data")).get("allcount");
-                List<LinkedTreeMap> lists3 = (List<LinkedTreeMap>) ((Map<String, Object>) map.get("data")).get("baseinfo");
-                if (DataManager.allcountsList != null) {
-                    DataManager.allcountsList.clear();
-                }
-                if (DataManager.BaseinfoList != null) {
-                    DataManager.BaseinfoList.clear();
-                }
-                if (lists2 != null && lists2.size() > 0) {
-                    for (LinkedTreeMap temp : lists2) {
-                        DataManager.allcount cfo = new DataManager.allcount();
-                        cfo.IsFavorite = temp.get("IsFavorite").toString();
-                        cfo.HonorCount = temp.get("HonorCount").toString();
-                        cfo.JudiciaryCount = temp.get("JudiciaryCount").toString();
-                        cfo.PledgeCount = temp.get("PledgeCount").toString();
-                        cfo.CopyrightCount = temp.get("CopyrightCount").toString();
-                        cfo.AnnualCount = temp.get("AnnualCount").toString();
-                        cfo.AdvertisementCount = temp.get("AdvertisementCount").toString();
-                        cfo.BaseInfoCount = temp.get("BaseInfoCount").toString();
-                        cfo.ApprovalCount = temp.get("ApprovalCount").toString();
-                        cfo.PunishCount = temp.get("PunishCount").toString();
-                        cfo.WarningCount = temp.get("WarningCount").toString();
-                        cfo.TrademarkCount = temp.get("TrademarkCount").toString();
-                        cfo.AbnormityCount = temp.get("AbnormityCount").toString();
-                        cfo.CreditCount = temp.get("CreditCount").toString();
-                        cfo.SupportCount = temp.get("SupportCount").toString();
-                        cfo.MortgagorCount = temp.get("MortgagorCount").toString();
-                        cfo.PatentCount = temp.get("PatentCount").toString();
-                        DataManager.allcountsList.add(cfo);
+                try {
+                    map = gson.fromJson(jsonString, new TypeToken<Map<String, Object>>() {
+                    }.getType());
+                    List<LinkedTreeMap> lists2 = null;
+                    if (map.get("data")!=null&&!map.get("data").equals(null)&&((Map<String, Object>) map.get("data")).get("allcount") != null && !((Map<String, Object>) map.get("data")).get("allcount").equals(null)) {
+                        lists2 = (List<LinkedTreeMap>) ((Map<String, Object>) map.get("data")).get("allcount");
                     }
-                }
-                if (lists3 != null && lists3.size() > 0) {
-                    for (LinkedTreeMap temp : lists3) {
-                        DataManager.Baseinfo cfo = new DataManager.Baseinfo();
-                        cfo.EnterAddtionID = temp.get("EnterAddtionID").toString();
-                        cfo.REGSTATE = temp.get("REGSTATE").toString();
-                        cfo.REGNO = temp.get("REGNO").toString();
-                        cfo.IsFavorite = temp.get("IsFavorite").toString();
-                        cfo.NAME = temp.get("NAME").toString();
-                        cfo.REGCAP = temp.get("REGCAP").toString();
-                        cfo.ESTDATE = temp.get("ESTDATE").toString();
-                        cfo.ENTTYPE_CN = temp.get("ENTTYPE_CN").toString();
-                        cfo.ENTNAME = temp.get("ENTNAME").toString();
-                        cfo.REGSTATE_CN = temp.get("REGSTATE_CN").toString();
-                        cfo.UNISCID = temp.get("UNISCID").toString();
-                        cfo.PRIPID = temp.get("PRIPID").toString();
-                        cfo.ENTTYPE = temp.get("ENTTYPE").toString();
-                        DataManager.BaseinfoList.add(cfo);
+                    List<LinkedTreeMap> lists3 = (List<LinkedTreeMap>) ((Map<String, Object>) map.get("data")).get("baseinfo");
+                    if (DataManager.allcountsList != null) {
+                        DataManager.allcountsList.clear();
                     }
-                }
-                if (DataManager.allcountsList != null && DataManager.allcountsList.size() > 0) {
-                    SearchFirmActivty.handler.sendEmptyMessage(5);
-                } else {
-                    SearchFirmActivty.handler.sendEmptyMessage(500);
+                    if (DataManager.BaseinfoList != null) {
+                        DataManager.BaseinfoList.clear();
+                    }
+
+                    if (lists2 != null && lists2.size() > 0) {
+                        for (LinkedTreeMap temp : lists2) {
+                            DataManager.allcount cfo = new DataManager.allcount();
+                            cfo.IsFavorite = temp.get("IsFavorite").toString();
+                            cfo.HonorCount = temp.get("HonorCount").toString();
+                            cfo.JudiciaryCount = temp.get("JudiciaryCount").toString();
+                            cfo.PledgeCount = temp.get("PledgeCount").toString();
+                            cfo.CopyrightCount = temp.get("CopyrightCount").toString();
+                            cfo.AnnualCount = temp.get("AnnualCount").toString();
+                            cfo.AdvertisementCount = temp.get("AdvertisementCount").toString();
+                            cfo.BaseInfoCount = temp.get("BaseInfoCount").toString();
+                            cfo.ApprovalCount = temp.get("ApprovalCount").toString();
+                            cfo.PunishCount = temp.get("PunishCount").toString();
+                            cfo.WarningCount = temp.get("WarningCount").toString();
+                            cfo.TrademarkCount = temp.get("TrademarkCount").toString();
+                            cfo.AbnormityCount = temp.get("AbnormityCount").toString();
+                            cfo.CreditCount = temp.get("CreditCount").toString();
+                            cfo.SupportCount = temp.get("SupportCount").toString();
+                            cfo.MortgagorCount = temp.get("MortgagorCount").toString();
+                            cfo.PatentCount = temp.get("PatentCount").toString();
+                            DataManager.allcountsList.add(cfo);
+                        }
+                    }
+                    if (lists3 != null && lists3.size() > 0) {
+                        for (LinkedTreeMap temp : lists3) {
+                            DataManager.Baseinfo cfo = new DataManager.Baseinfo();
+                            cfo.EnterAddtionID = temp.get("EnterAddtionID").toString();
+                            cfo.REGSTATE = temp.get("REGSTATE").toString();
+                            cfo.REGNO = temp.get("REGNO").toString();
+                            cfo.IsFavorite = temp.get("IsFavorite").toString();
+                            cfo.NAME = temp.get("NAME").toString();
+                            cfo.REGCAP = temp.get("REGCAP").toString();
+                            cfo.ESTDATE = temp.get("ESTDATE").toString();
+                            cfo.ENTTYPE_CN = temp.get("ENTTYPE_CN").toString();
+                            cfo.ENTNAME = temp.get("ENTNAME").toString();
+                            cfo.REGSTATE_CN = temp.get("REGSTATE_CN").toString();
+                            cfo.UNISCID = temp.get("UNISCID").toString();
+                            cfo.PRIPID = temp.get("PRIPID").toString();
+                            cfo.ENTTYPE = temp.get("ENTTYPE").toString();
+                            DataManager.BaseinfoList.add(cfo);
+                        }
+                    }
+                    if (DataManager.allcountsList != null && DataManager.allcountsList.size() > 0) {
+                        SearchFirmActivty.handler.sendEmptyMessage(5);
+                    } else {
+                        SearchFirmActivty.handler.sendEmptyMessage(500);
+                    }
+                } catch (NullPointerException e) {
+                    e.printStackTrace();
+                    Toast.show("该企业暂无数据");
+                    SearchFirmActivty.pd.dismiss();
                 }
                 break;
             case 0x025://????
@@ -573,33 +585,35 @@ public class MyhttpCallBack implements HttpCallBack {
 
                 List<LinkedTreeMap> listtemp2 = (List<LinkedTreeMap>) map.get("data");
                 for (int i = 0; i < listtemp2.size(); i++) {
-                    switch (listtemp2.get(i).get("type").toString()) {
-                        case "zzdq"://zzdq(证照到期)
-                            DataManager.pdateList_zzdq = gson.fromJson(listtemp2.get(i).get("date").toString(), new TypeToken<List<DataManager.date>>() {
-                            }.getType());
-                            break;
-                        case "zzgq"://zzgq(证照过期)
-                            DataManager.pdateList_zzgq = gson.fromJson(listtemp2.get(i).get("date").toString(), new TypeToken<List<DataManager.date>>() {
-                            }.getType());
-                            break;
-                        case "zlgz"://zlgz（责令改正）
-                            DataManager.pdateList_zlgz = gson.fromJson(listtemp2.get(i).get("date").toString(), new TypeToken<List<DataManager.date>>() {
-                            }.getType());
-                            break;
-                        case "qdxx"://qdxx(欠贷信息)
-                            DataManager.pdateList_qdxx = gson.fromJson(listtemp2.get(i).get("date").toString(), new TypeToken<List<DataManager.date>>() {
-                            }.getType());
-                            break;
-                        case "qsxx"://qsxx(欠税信息)
-                            DataManager.pdateList_qsxx = gson.fromJson(listtemp2.get(i).get("date").toString(), new TypeToken<List<DataManager.date>>() {
-                            }.getType());
-                            break;
-                        case "qxxx"://qxxx(欠薪信息)
-                            DataManager.pdateList_qxxx = gson.fromJson(listtemp2.get(i).get("date").toString(), new TypeToken<List<DataManager.date>>() {
-                            }.getType());
-                            break;
-                        default:
-                            break;
+                    if (listtemp2.get(i).get("date") != null && !listtemp2.get(i).get("date").equals(null)) {
+                        switch (listtemp2.get(i).get("type").toString()) {
+                            case "zzdq"://zzdq(证照到期)
+                                DataManager.pdateList_zzdq = gson.fromJson(listtemp2.get(i).get("date").toString(), new TypeToken<List<DataManager.date>>() {
+                                }.getType());
+                                break;
+                            case "zzgq"://zzgq(证照过期)
+                                DataManager.pdateList_zzgq = gson.fromJson(listtemp2.get(i).get("date").toString(), new TypeToken<List<DataManager.date>>() {
+                                }.getType());
+                                break;
+                            case "zlgz"://zlgz（责令改正）
+                                DataManager.pdateList_zlgz = gson.fromJson(listtemp2.get(i).get("date").toString(), new TypeToken<List<DataManager.date>>() {
+                                }.getType());
+                                break;
+                            case "qdxx"://qdxx(欠贷信息)
+                                DataManager.pdateList_qdxx = gson.fromJson(listtemp2.get(i).get("date").toString(), new TypeToken<List<DataManager.date>>() {
+                                }.getType());
+                                break;
+                            case "qsxx"://qsxx(欠税信息)
+                                DataManager.pdateList_qsxx = gson.fromJson(listtemp2.get(i).get("date").toString(), new TypeToken<List<DataManager.date>>() {
+                                }.getType());
+                                break;
+                            case "qxxx"://qxxx(欠薪信息)
+                                DataManager.pdateList_qxxx = gson.fromJson(listtemp2.get(i).get("date").toString(), new TypeToken<List<DataManager.date>>() {
+                                }.getType());
+                                break;
+                            default:
+                                break;
+                        }
                     }
                 }
                 if (listtemp2.size() > 0 && listtemp2 != null) {
@@ -860,38 +874,38 @@ public class MyhttpCallBack implements HttpCallBack {
                     for (int i = 0; i < listtemp.size(); i++) {
                         switch (listtemp.get(i).get("type").toString()) {
                             case "企业年报":
-                                if (listtemp.get(i).get("date") != null) {
-                                    DataManager.reportList = gson.fromJson(listtemp.get(i).get("date").toString(), new TypeToken<List<DataManager.report>>() {
+                                if (listtemp.get(i).get("data") != null) {
+                                    DataManager.reportList = gson.fromJson(listtemp.get(i).get("data").toString(), new TypeToken<List<DataManager.report>>() {
                                     }.getType());
                                 }
                                 break;
                             case "股东及出资信息":
-                                if (listtemp.get(i).get("date") != null) {
-                                    DataManager.fundedList = gson.fromJson(listtemp.get(i).get("date").toString(), new TypeToken<List<DataManager.funded>>() {
+                                if (listtemp.get(i).get("data") != null) {
+                                    DataManager.fundedList = gson.fromJson(listtemp.get(i).get("data").toString(), new TypeToken<List<DataManager.funded>>() {
                                     }.getType());
                                 }
                                 break;
                             case "股权变更信息":
-                                if (listtemp.get(i).get("date") != null) {
-                                    DataManager.stockList = gson.fromJson(listtemp.get(i).get("date").toString(), new TypeToken<List<DataManager.stock>>() {
+                                if (listtemp.get(i).get("data") != null) {
+                                    DataManager.stockList = gson.fromJson(listtemp.get(i).get("data").toString(), new TypeToken<List<DataManager.stock>>() {
                                     }.getType());
                                 }
                                 break;
                             case "行政许可信息":
-                                if (listtemp.get(i).get("date") != null) {
-                                    DataManager.permitList = gson.fromJson(listtemp.get(i).get("date").toString(), new TypeToken<List<DataManager.permit>>() {
+                                if (listtemp.get(i).get("data") != null) {
+                                    DataManager.permitList = gson.fromJson(listtemp.get(i).get("data").toString(), new TypeToken<List<DataManager.permit>>() {
                                     }.getType());
                                 }
                                 break;
                             case "知识产权登记信息":
-                                if (listtemp.get(i).get("date") != null) {
-                                    DataManager.loreList = gson.fromJson(listtemp.get(i).get("date").toString(), new TypeToken<List<DataManager.lore>>() {
+                                if (listtemp.get(i).get("data") != null) {
+                                    DataManager.loreList = gson.fromJson(listtemp.get(i).get("data").toString(), new TypeToken<List<DataManager.lore>>() {
                                     }.getType());
                                 }
                                 break;
                             case "行政处罚信息":
-                                if (listtemp.get(i).get("date") != null) {
-                                    DataManager.punishList = gson.fromJson(listtemp.get(i).get("date").toString(), new TypeToken<List<DataManager.punish>>() {
+                                if (listtemp.get(i).get("data") != null) {
+                                    DataManager.punishList = gson.fromJson(listtemp.get(i).get("data").toString(), new TypeToken<List<DataManager.punish>>() {
                                     }.getType());
                                 }
                                 break;
@@ -1021,8 +1035,7 @@ public class MyhttpCallBack implements HttpCallBack {
                 DataManager.MyComms = gson.fromJson(jsonString, DataManager.MyComm.class);
                 MainActivity.handler.sendEmptyMessage(1);
                 break;
-            case 0x301://提交认领
-                jsonString = (String) response.get();
+            case 0x301://提交认领s                jsonString = (String) response.get();
                 DataManager.ClaimUtilsModel = gson.fromJson(jsonString, DataManager.ClaimUtils.class);
                 if (DataManager.ClaimUtilsModel.data.result.equals("success")) {
                     ToClaimActivity.handler.sendEmptyMessage(1);
@@ -1062,6 +1075,16 @@ public class MyhttpCallBack implements HttpCallBack {
                 } else {
                     MyClaimActivity.handler.sendEmptyMessage(500);
                 }
+                break;
+            case 0x401://修改个人资料{"message":"Success","status":"1","version":"v1.0"}
+                jsonString = (String) response.get();
+                DataManager.MyuserlikeSS = gson.fromJson(jsonString, DataManager.Myuserlike.class);
+                if(DataManager.MyuserlikeSS.message.equals("Success")){
+                    UserSetActivity.handler.sendEmptyMessage(1);
+                }else{
+                    UserSetActivity.handler.sendEmptyMessage(2);
+                }
+
                 break;
             case 0x999://登入
                 jsonString = (String) response.get();

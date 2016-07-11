@@ -173,16 +173,16 @@ public class Autonomy_Adapter extends BaseAdapter {
         }
         if (fundedList != null) {
             DataManager.funded funded = fundedList.get(position);
-            vh.partenr.setText(funded.INVNAME);
-            vh.money.setText(funded.LISUBCONAM);
-            vh.true_money.setText(funded.LIACCONAM);
-            vh.subscribed_type.setText(funded.SUBCONFORM);
-            vh.subscribed.setText(funded.LISUBCONAM);
-            vh.subscribed_time.setText(funded.SUBCONDATE);
-            vh.paid_type.setText(funded.ACCONFORM);
-            vh.paid.setText(funded.LIACCONAM);
+            vh.partenr.setText(funded.INV);
+            vh.money.setText(funded.SUBCONAM);
+            vh.true_money.setText(funded.ACCONAM);
+            vh.subscribed_type.setText(funded.CONFORM_CN);
+            vh.subscribed.setText(funded.SUBCONAM);
+            vh.subscribed_time.setText(funded.PUBLICDATE);
+            vh.paid_type.setText(funded.ACCONDATE);
+            vh.paid.setText(funded.ACCONAM);
             vh.paid_time.setText(funded.ACCONDATE);
-            vh.funded_public_time.setText(funded.SUBCONDATE);
+            vh.funded_public_time.setText(funded.PUBLICDATE);
         }
         if (stockList != null) {
             DataManager.stock stock = stockList.get(position);
