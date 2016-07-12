@@ -236,7 +236,7 @@
         </ScrollView>
         <include
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="48dp"
             android:layout_gravity="bottom"
             layout="@layout/public_bottom_bar"/>
 

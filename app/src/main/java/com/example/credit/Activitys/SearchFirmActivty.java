@@ -146,6 +146,8 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
                                     String KeyNo = DataManager.searchList.get(position).PRIPID;//市场主体身份代码
                                     String token = MD5s(KeyNo + model);
                                     GsonUtil requst = new GsonUtil(URLconstant.URLINSER + URLconstant.GETITEMNUM, RequestMethod.GET);
+                                    requst.setReadTimeout(30000);
+                                    requst.setConnectTimeout(30000);
                                     requst.add("KeyNo", KeyNo);
                                     requst.add("token", token);
                                     requst.add("deviceId", model);

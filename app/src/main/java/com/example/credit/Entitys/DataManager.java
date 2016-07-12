@@ -8,20 +8,6 @@ import java.util.List;
  */
 public class DataManager {
 
-    public static Myuserlike MyuserlikeSS=new Myuserlike();
-    /**
-     * 修改个人资料
-     */
-    public static class Myuserlike {
-        /**
-         * message : Success
-         * status : 1
-         * version : v1.0
-         */
-        public String message;
-        public String status;
-        public String version;
-    }
     public static MyComm MyComms=new MyComm();
     /**
      *我的评价
@@ -609,7 +595,12 @@ public class DataManager {
         public static String STARTINGDATE;//首发日期
     }
 
+  /*  *//**
+     * 新自主公示
+     *//*
+    public static class autonomy{
 
+    }*/
     public static List<report> reportList = new ArrayList<>();
 
     /**
@@ -617,10 +608,14 @@ public class DataManager {
      * 企业年报实体类
      */
     public static class report {
-        public String ANCHEID;//年报id
-        public String ANCHEYEAR;//年度报告
+        /**
+         * ANCHEDATE : 2016-06-15
+         * ANCHEYEAR : 2015
+         * ANCHEID : 7dde62bb16ba427c99f19f127e67163a
+         */
         public String ANCHEDATE;//年报时间
-        public String url;//h5地址
+        public String ANCHEYEAR;//年度报告
+        public String ANCHEID;//年报id
 
     }
 
@@ -632,16 +627,43 @@ public class DataManager {
      * 股东出资
      */
     public static class funded {
-        public String INV;//股东 发起人名字
-        public String SUBCONAM;//认缴额=认缴出资额
-        public String ACCONAM;//实缴额=实缴出资额
-        public String CONFORM_CN;//认缴出资方式
-        //public String subscribedNum;//认缴出资额
-        public String PUBLICDATE;//认缴出资日期=公示日期
-        public String ACCONFORM_CN;//实缴出资方式
-        //public String actuallyPaidNum;//实缴出资额
+        /**
+         * ACCONFORM_CN : 股权
+         * ACCONDATE : 2016-06-28 00:00:00
+         * ACCONFORM : 5
+         * CONDATE : 2016-06-28 00:00:00
+         * CONFORM : 3
+         * SUBCONAM : 300
+         * ACCONAM : 200
+         * CONFORM_CN : 知识产权
+         * INV : 他们
+         * PUBLICDATE : 2016-06-28 00:00:00
+         * ACPUBLICDATE : 2016-06-28 00:00:00
+         */
+
+        public String ACCONFORM_CN;//实缴出资方式CN
         public String ACCONDATE;//实缴出资日期
-        //public String publishDate;//公示日期
+        public String ACCONFORM;//实缴出资方式
+        public String CONDATE;
+        public String CONFORM;//认缴出资方式
+        public double SUBCONAM;//认缴额=认缴出资额
+        public double ACCONAM;//实缴额=实缴出资额
+        public String CONFORM_CN;//认缴出资方式CN
+        public String INV;//股东 发起人名字
+        public String PUBLICDATE;//认缴出资日期=公示日期
+        public String ACPUBLICDATE;//实缴公示日期
+
+
+//        public String INV;//股东 发起人名字
+//        public String SUBCONAM;//认缴额=认缴出资额
+//        public String ACCONAM;//实缴额=实缴出资额
+//        public String CONFORM_CN;//认缴出资方式
+//        //public String subscribedNum;//认缴出资额
+//        public String PUBLICDATE;//认缴出资日期=公示日期
+//        public String ACCONFORM_CN;//实缴出资方式
+//        //public String actuallyPaidNum;//实缴出资额
+//        public String ACCONDATE;//实缴出资日期
+//        //public String publishDate;//公示日期
     }
 
 
@@ -683,30 +705,66 @@ public class DataManager {
      */
     public static class lore {
         /**
-         * PLEID : 1
-         * PRIPID : 111111
-         * ENTNAME : 大魔王
-         * REGNO : 2222
+         * TYPENAME : 有效
+         * TMNAME :
+         * INVALIDDATE :
+         * PLEREGPERFROM : 2016-06-14
+         * EQUPLECANREA :
+         * CANDATE :
+         * UNISCID :
+         * KINDS : 3
+         * PLEREGPERTO : 2016-07-04
+         * REGNO : 360103210025958
+         * TMREGNO :
+         * PLEDGOR : lkjl
+         * PLEID : f4584e3689ad43ef8a016cd40f0bd935
+         * ENTNAME : 江西智容科技有限公司
+         * INVALIDREA :
+         * PRIPID : 3601032011041300098564
+         * PUBLICDATE : 2016-06-22
+         * IMPORG : mjhk
+         * TYPE : 1
          */
-        public String PLEID;//出质ID
-        public String PRIPID;//主体身份证代码
-        public String ENTNAME;//企业机构名称
-        public String REGNO;//注册号
-        public String UNISCID;//统一社会信用代码
-        public String TMREGNO;//商品注册号
-        public String TMNAME;//名称
-        public String KINDS;//种类代码
-        public String PLEDGOR;//知识产权出质人名称
-        public String IMPORG ;//知识产权质权人名称
-        public String PLEREGPERFROM;//知识产权质权登记期限自
-        public String PLEREGPERTO;//知识产权质权登记期限止
-        public String TYPE;//状态
-        public String TYPENAME;//状态名称
-        public String CANDATE;//注销日期
-        public String EQUPLECANREA;//注销原因
-        public String INVALIDDATE;//其他无效日期
-        public String INVALIDREA;//其他无效原因
-        public String PUBLICDATE;//公示日期
+
+        public String TYPENAME;      //状态名称
+        public String TMNAME;        //名称
+        public String INVALIDDATE;     //其他无效日期
+        public String PLEREGPERFROM;      //知识产权质权登记期限自
+        public String EQUPLECANREA;      //注销原因
+        public String CANDATE;       //注销日期
+        public String UNISCID;      //统一社会信用代码
+        public String KINDS;         //种类代码
+        public String PLEREGPERTO;    //知识产权质权登记期限止
+        public String REGNO;          //注册号
+        public String TMREGNO;        //商品注册号
+        public String PLEDGOR;       //知识产权出质人名称
+        public String PLEID;           //出质ID
+        public String ENTNAME;          //企业机构名称
+        public String INVALIDREA;       //其他无效原因
+        public String PRIPID;          //主体身份证代码
+        public String PUBLICDATE;          //公示日期
+        public String IMPORG;          //知识产权质权人名称
+        public String TYPE;            //状态
+
+//        public String PLEID;//出质ID
+//        public String PRIPID;//主体身份证代码
+//        public String ENTNAME;//企业机构名称
+//        public String REGNO;//注册号
+//        public String UNISCID;//统一社会信用代码
+//        public String TMREGNO;//商品注册号
+//        public String TMNAME;//名称
+//        public String KINDS;//种类代码
+//        public String PLEDGOR;//知识产权出质人名称
+//        public String IMPORG ;//知识产权质权人名称
+//        public String PLEREGPERFROM;//知识产权质权登记期限自
+//        public String PLEREGPERTO;//知识产权质权登记期限止
+//        public String TYPE;//状态
+//        public String TYPENAME;//状态名称
+//        public String CANDATE;//注销日期
+//        public String EQUPLECANREA;//注销原因
+//        public String INVALIDDATE;//其他无效日期
+//        public String INVALIDREA;//其他无效原因
+//        public String PUBLICDATE;//公示日期
 
 
 
@@ -721,22 +779,58 @@ public class DataManager {
      * 行政处罚信息
      */
     public static class punish {
-        public String CASEID;//行政处罚ID
-        public String PRIPID;//主体身份代码
-        public String ENTNAME;//企业(机构)名称
-        public String REGNO;//注册号
-        public String UNISCID;//统一社会信用代码
-        public String PENDECNO;//处罚决定书文号
-        public String ILLEGACTTYPE;//违法行为类型
-        public String PENTYPE;//处罚种类
-        public String PENTYPE_CN;//处罚种类（中文名称）
-        public String PENAM;//罚款金额
-        public String FORFAM;//没收金额
-        public String PENCONTENT;//处罚内容
-        public String JUDAUTH;//作出行政处罚决定机关名称
-        public String PENDECISSDATE;//作出处罚决定书日期
-        public String PUBLICDATE;//公示日期
-        public String REMARK;//备注
+        /**
+         * PENTYPE_CN : 责令停业整顿
+         * REMARK : 啊实打实的
+         * UNISCID :
+         * PENDECISSDATE : 2016-06-14
+         * PENAM :
+         * CASEID : 83e5c4d5236049b9a693aae7015cb9f2
+         * REGNO : 360103210025958
+         * JUDAUTH : 省工商局
+         * ENTNAME : 江西智容科技有限公司
+         * PENDECNO : 呵呵呵
+         * PENTYPE : 4
+         * FORFAM :
+         * ILLEGACTTYPE : 呃呃呃
+         * PENCONTENT :
+         * PRIPID : 3601032011041300098564
+         * PUBLICDATE : 2016-06-22
+         */
+
+        public String PENTYPE_CN;       //处罚种类（中文名称）
+        public String REMARK;            //备注
+        public String UNISCID;          //统一社会信用代码
+        public String PENDECISSDATE;    //作出处罚决定书日期
+        public String PENAM;            //罚款金额
+        public String CASEID;         //行政处罚ID
+        public String REGNO;           //注册号
+        public String JUDAUTH;        //作出行政处罚决定机关名称
+        public String ENTNAME;        //企业(机构)名称
+        public String PENDECNO;         //处罚决定书文号
+        public String PENTYPE;        //处罚种类
+        public String FORFAM;         //没收金额
+        public String ILLEGACTTYPE;    //违法行为类型
+        public String PENCONTENT;       //处罚内容
+        public String PRIPID;          //主体身份代码
+        public String PUBLICDATE;      //公示日期
+
+//        public String CASEID;//行政处罚ID
+//        public String PRIPID;//主体身份代码
+//        public String ENTNAME;//企业(机构)名称
+//        public String REGNO;//注册号
+//        public String UNISCID;//统一社会信用代码
+//        public String PENDECNO;//处罚决定书文号
+//        public String ILLEGACTTYPE;//违法行为类型
+//        public String PENTYPE;//处罚种类
+//        public String PENTYPE_CN;//处罚种类（中文名称）
+//        public String PENAM;//罚款金额
+//        public String FORFAM;//没收金额
+//        public String PENCONTENT;//处罚内容
+//        public String JUDAUTH;//作出行政处罚决定机关名称
+//        public String PENDECISSDATE;//作出处罚决定书日期
+//        public String PUBLICDATE;//公示日期
+//        public String REMARK;//备注
     }
 
 
@@ -1074,7 +1168,7 @@ public class DataManager {
     public static User user = new User();
 
     /**
-     * 用户信息实体类
+     * 用户信息 + 修改个人资料  实体类
      */
     public static class User {
 
@@ -1113,6 +1207,7 @@ public class DataManager {
             public List<MemberListBean> memberList;
 
             public static class MemberListBean {
+
                 public String STATUS;//状态：激活1、未激活0 对应数字默认0
                 public String AMOUNT;//余额
                 public String INDUSTRY;//行业

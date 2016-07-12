@@ -174,13 +174,13 @@ public class Autonomy_Adapter extends BaseAdapter {
         if (fundedList != null) {
             DataManager.funded funded = fundedList.get(position);
             vh.partenr.setText(funded.INV);
-            vh.money.setText(funded.SUBCONAM);
-            vh.true_money.setText(funded.ACCONAM);
+            vh.money.setText(String.valueOf(funded.SUBCONAM));
+            vh.true_money.setText(String.valueOf(funded.ACCONAM));
             vh.subscribed_type.setText(funded.CONFORM_CN);
-            vh.subscribed.setText(funded.SUBCONAM);
+            vh.subscribed.setText(String.valueOf( funded.SUBCONAM));
             vh.subscribed_time.setText(funded.PUBLICDATE);
             vh.paid_type.setText(funded.ACCONDATE);
-            vh.paid.setText(funded.ACCONAM);
+            vh.paid.setText(String.valueOf(funded.ACCONAM));
             vh.paid_time.setText(funded.ACCONDATE);
             vh.funded_public_time.setText(funded.PUBLICDATE);
         }

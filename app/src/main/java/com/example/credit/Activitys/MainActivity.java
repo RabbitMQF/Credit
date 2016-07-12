@@ -343,9 +343,13 @@ public class MainActivity extends Activity implements View.OnClickListener {
                     break;
 
                 case R.id.set://个人信息设置
+                    if (!csp.getLoginStatus()) {//判定是否登录
+                        com.example.credit.Utils.Toast.show("请先登录账号");
+                    }else {
 //                    com.example.credit.Utils.Toast.show("此模块，正在赶点加工中...");
-                    Intent is = new Intent(MainActivity.this, UserSetActivity.class);
-                    startActivity(is);
+                        Intent is = new Intent(MainActivity.this, UserSetActivity.class);
+                        startActivity(is);
+                    }
                     break;
 
 
@@ -412,26 +416,28 @@ public class MainActivity extends Activity implements View.OnClickListener {
     }
 
     public void loginImg(){
-        try {
-            BASE64Decoder decode = new BASE64Decoder();
-            byte[] b = decode.decodeBuffer(csp.getICONSTEAM());
-            System.out.println(new String(b));
-            StringBuilder str = new StringBuilder();//不建议用String
-            for (byte bs : b) {
-                str.append(Integer.toBinaryString(bs));//转换为二进制
+        String s=csp.getICONSTEAM();
+        if(csp.getICONSTEAM()!=null){
+            try {
+                BASE64Decoder decode = new BASE64Decoder();
+                byte[] b = decode.decodeBuffer(csp.getICONSTEAM());
+                System.out.println(new String(b));
+                StringBuilder str = new StringBuilder();//不建议用String
+                for (byte bs : b) {
+                    str.append(Integer.toBinaryString(bs));//转换为二进制
+                }
+                //把字节数组的图片写到另一个地方
+                File apple = new File(Environment.getExternalStorageDirectory() + "/Credit/loginImg.jpg");
+                FileOutputStream fos = new FileOutputStream(apple);
+
+                fos.write(b);
+                fos.flush();
+                fos.close();
+
+            } catch (IOException e) {
+                e.printStackTrace();
             }
-            //把字节数组的图片写到另一个地方
-            File apple = new File(Environment.getExternalStorageDirectory() + "/Credit/loginImg.jpg");
-            FileOutputStream fos = new FileOutputStream(apple);
-
-            fos.write(b);
-            fos.flush();
-            fos.close();
-
-        } catch (IOException e) {
-            e.printStackTrace();
         }
-
     }
 
     @Override
@@ -444,20 +450,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     protected void onResume() {
         super.onResume();
         loginImg();
-        LoginStatus = csp.getLoginStatus();
-        if (LoginStatus) {//若当前状态为登录
-            UserSz.setText(csp.getALIASNAME());
-            login.setText("退出登录");
-            File file = new File(Environment.getExternalStorageDirectory() + "/Credit/loginImg.jpg");
-            if (file.exists()) {//获取本地图片路径是否存在
-                Bitmap bm = BitmapFactory.decodeFile(Environment.getExternalStorageDirectory() + "/Credit/loginImg.jpg");
-                headimg.setImageBitmap(bm);
-            }
-        } else {//若当前状态未未登录
-            login.setText("登录");
-            UserSz.setText("游客");
-            headimg.setImageResource(R.mipmap.me_icon02);
-        }
+        isLogin();
     }
 
     @Override

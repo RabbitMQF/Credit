@@ -22,6 +22,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.credit.Dialogs.WaitDialog;
+import com.example.credit.Entitys.DataManager;
 import com.example.credit.R;
 import com.example.credit.Services.CallServer;
 import com.example.credit.Utils.CreditSharePreferences;
@@ -88,6 +89,8 @@ public class UserSetActivity extends BaseActivity {
     CreditSharePreferences csf;
     public static Handler handler;
     WaitDialog wd;
+    String a,b,c,d,e,f,g;
+    Intent i;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -100,16 +103,15 @@ public class UserSetActivity extends BaseActivity {
             @Override
             public void handleMessage(Message msg) {
                 wd.dismiss();
-               switch (msg.what){
-                   case 1:
-                       Toast.show("修改信息成功！");
-                       csf.putICONSTEAM(pic);//保存图片
-                       finish();
-                       break;
-                   case 2:
-                       Toast.show("修改信息失败！");
-                       break;
-               }
+                switch (msg.what){
+                    case 1:
+                        Toast.show("修改信息成功！");
+                        finish();
+                        break;
+                    case 2:
+                        Toast.show("修改信息失败！");
+                        break;
+                }
             }
         };
     }
@@ -130,94 +132,144 @@ public class UserSetActivity extends BaseActivity {
          * 获取用户昵称
          */
         us_name.setText(csf.getALIASNAME());
+        us2.setOnClickListener(listener);
         /**
          * 获取用户性别
          */
         if(csf.getSEX().equals("0")){
             us_sex.setText("女");
-            sexs="0";
         }else{
             us_sex.setText("男");
-            sexs="1";
         }
-
+        us3.setOnClickListener(listener);
         /**
          * 获取用户邮箱
          */
         us_emils.setText(csf.getEMAIL());
+        us4.setOnClickListener(listener);
         /**
          * 获取用户行业
          */
         us_hangye.setText(csf.getINDUSTRY());
+        us5.setOnClickListener(listener);
         /**
          * 获取用户学历
          */
         us_xueli.setText(csf.getEDUCATION());
+        us6.setOnClickListener(listener);
         /**
          * 获取用户手机
          */
         us_phone.setText(csf.getMOBILE());
+        us7.setOnClickListener(listener);
     }
     View.OnClickListener listener=new View.OnClickListener() {
         @Override
         public void onClick(View v) {
             switch (v.getId()){
                 case R.id.b_return:
-                    wd.show();
-                    GsonUtil MyClaimRuerst = new GsonUtil(URLconstant.URLINSER + URLconstant.REVISEUSER, RequestMethod.POST);
-                    MyClaimRuerst.add("deviceId", (new Build()).MODEL);
-                    MyClaimRuerst.add("token", SearchFirmActivty.MD5s(csf.getID() + (new Build()).MODEL));
-                    MyClaimRuerst.add("KeyNo", csf.getID());
-                    if(!us_emils.getText().toString().equals(csf.getEMAIL())){
-                        MyClaimRuerst.add("Email", us_emils.getText().toString());//邮箱
-                    }
-                    if(!us_name.getText().toString().equals(csf.getALIASNAME())) {
-                        MyClaimRuerst.add("aliasName", us_name.getText().toString());//别名
-                    }
-                    if(!sexs.equals(csf.getSEX())) {
-                        MyClaimRuerst.add("sex", sexs);//性别
-                    }
-                    if(!us_hangye.getText().toString().equals(csf.getINDUSTRY())) {
-                        MyClaimRuerst.add("industryId", us_hangye.getText().toString());//行业
-                    }
-                    if(!us_xueli.getText().toString().equals(csf.getEDUCATION())) {
-                        MyClaimRuerst.add("educationId", us_xueli.getText().toString());//教育
-                    }
-                    if(!pic.equals(csf.getICONSTEAM())) {
-                        MyClaimRuerst.add("iconSteam", pic);//头像base64位图
-                    }
-                    if(!us_phone.getText().toString().equals(csf.getMOBILE())) {
-                        MyClaimRuerst.add("mobile",us_phone.getText().toString());//移动电话
-                    }
+                    if(a==null && b==null && c==null && d==null && e==null && f==null && g==null){
+                        finish();
+                    }else{
+                        wd.show();
+                        GsonUtil MyClaimRuerst = new GsonUtil(URLconstant.URLINSER + URLconstant.REVISEUSER, RequestMethod.POST);
+                        MyClaimRuerst.add("deviceId", (new Build()).MODEL);
+                        MyClaimRuerst.add("token", SearchFirmActivty.MD5s(csf.getID() + (new Build()).MODEL));
+                        MyClaimRuerst.add("KeyNo", csf.getID());
+                        if(!us_emils.getText().toString().equals(csf.getEMAIL())){
+                            MyClaimRuerst.add("Email", us_emils.getText().toString());//邮箱
+                        }
+                        if(!us_name.getText().toString().equals(csf.getALIASNAME())) {
+                            MyClaimRuerst.add("aliasname", us_name.getText().toString());//别名
+                        }
+                        if(us_sex.getText().toString().equals("男")){
+                            sexs="1";
+                        }else{
+                            sexs="0";
+                        }
+                        if(!sexs.equals(csf.getSEX())) {
+                            MyClaimRuerst.add("sex", sexs);//性别
+                        }
+                        if(!us_hangye.getText().toString().equals(csf.getINDUSTRY())) {
+                            MyClaimRuerst.add("industryId", us_hangye.getText().toString());//行业
+                        }
+                        if(!us_xueli.getText().toString().equals(csf.getEDUCATION())) {
+                            MyClaimRuerst.add("educationId", us_xueli.getText().toString());//教育
+                        }
+                        if(pic!=null){
+                            if(!csf.getICONSTEAM().equals("")){
+                                if(!pic.equals(csf.getICONSTEAM())) {
+                                    MyClaimRuerst.add("iconSteam", pic);//头像base64位图
+                                }
+                            }else{
+                                MyClaimRuerst.add("iconSteam", pic);//头像base64位图
+                            }
+                        }
+                        if(!us_phone.getText().toString().equals(csf.getMOBILE())) {
+                            MyClaimRuerst.add("mobile",us_phone.getText().toString());//移动电话
+                        }
 
-                    MyClaimRuerst.add("openType", "1");//0：注册  1：修改(必须)
+                        MyClaimRuerst.add("openType", "1");//0：注册  1：修改(必须)
 
-                    //                    MyClaimRuerst.add("password", "86D9D7F53FCA45DD93E2D83DFCA0CB42");//用户密码
-                    CallServer.getInstance().add(UserSetActivity.this, MyClaimRuerst, MyhttpCallBack.getInstance(), 0x401, true, false, true);
+                        //                    MyClaimRuerst.add("password", "86D9D7F53FCA45DD93E2D83DFCA0CB42");//用户密码
+                        CallServer.getInstance().add(UserSetActivity.this, MyClaimRuerst, MyhttpCallBack.getInstance(), 0x401, true, false, true);
+                    }
                     break;
                 case R.id.us1:
+                    a="1";
                     Intent pickIntent = new Intent(Intent.ACTION_PICK, null);
                     // 如果朋友们要限制上传到服务器的图片类型时可以直接写如："image/jpeg 、 image/png等的类型"
                     pickIntent.setDataAndType(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, "image/*");
                     startActivityForResult(pickIntent, REQUESTCODE_PICK);
                     break;
                 case R.id.us2:
+                    b="1";
+                    i =new Intent(UserSetActivity.this,UserSetTowActivity.class);
+                    i.putExtra("type",2);
+                    i.putExtra("txt",us_name.getText().toString());
+                    startActivityForResult(i,22);
                     break;
                 case R.id.us3:
+                    i =new Intent(UserSetActivity.this,UserSetTowActivity.class);
+                    i.putExtra("type",3);
+                    i.putExtra("txt",us_sex.getText().toString());
+                    startActivityForResult(i,33);
+                    c="1";
                     break;
                 case R.id.us4:
+                    i =new Intent(UserSetActivity.this,UserSetTowActivity.class);
+                    i.putExtra("type",4);
+                    i.putExtra("txt",us_emils.getText().toString());
+                    startActivityForResult(i,44);
+                    d="1";
                     break;
                 case R.id.us5:
+                    i =new Intent(UserSetActivity.this,UserSetTowActivity.class);
+                    i.putExtra("type",5);
+                    i.putExtra("txt",us_hangye.getText().toString());
+                    startActivityForResult(i,55);
+                    e="1";
                     break;
                 case R.id.us6:
+                    i =new Intent(UserSetActivity.this,UserSetTowActivity.class);
+                    i.putExtra("type",6);
+                    i.putExtra("txt",us_xueli.getText().toString());
+                    startActivityForResult(i,66);
+                    f="1";
                     break;
                 case R.id.us7:
+                    i =new Intent(UserSetActivity.this,UserSetTowActivity.class);
+                    i.putExtra("type",7);
+                    i.putExtra("txt",us_phone.getText().toString());
+                    startActivityForResult(i,77);
+                    g="1";
                     break;
             }
         }
     };
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        String text = data.getStringExtra("text");
         switch (requestCode) {
             case REQUESTCODE_PICK:// 直接从相册获取
                 try {
@@ -230,6 +282,24 @@ public class UserSetActivity extends BaseActivity {
                 if (data != null) {
                     setPicToView(data);
                 }
+                break;
+            case 22:
+                us_name.setText(text);
+                break;
+            case 33:
+                us_sex.setText(text);
+                break;
+            case 44:
+                us_emils.setText(text);
+                break;
+            case 55:
+                us_hangye.setText(text);
+                break;
+            case 66:
+                us_xueli.setText(text);
+                break;
+            case 77:
+                us_phone.setText(text);
                 break;
         }
         super.onActivityResult(requestCode, resultCode, data);
@@ -264,7 +334,6 @@ public class UserSetActivity extends BaseActivity {
         if (extras != null) {
             // 取得SDCard图片路径做显示
             Bitmap photo = extras.getParcelable("data");
-//            Drawable drawable = new BitmapDrawable(null, photo);
             us_headimg.setImageBitmap(photo);
             try {
                 ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -279,4 +348,5 @@ public class UserSetActivity extends BaseActivity {
             }
         }
     }
+
 }

@@ -9,19 +9,20 @@
     <include layout="@layout/public_top_bar"/>
 
     <LinearLayout
+        android:id="@+id/ll1"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginRight="10dp"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         android:orientation="horizontal"
         android:background="@drawable/login_et_bg">
-        <TextView
-            android:id="@+id/ust1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
             android:textSize="18sp"
-            android:textColor="#000000"
+            android:textColor="#757475"
+            android:background="@mipmap/user"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:layout_gravity="center_vertical"
@@ -29,14 +30,14 @@
             android:focusableInTouchMode="true"
             android:text="邮箱"/>
         <EditText
-            android:id="@+id/ust1_et"
+            android:id="@+id/ustC_et"
             android:layout_width="0dp"
             android:layout_weight="15"
             android:layout_height="match_parent"
             android:textSize="16sp"
             android:textColor="#757475"
             android:gravity="center_vertical"
-            android:hint="请输入邮箱"
+            android:hint="请输入修改信息"
             android:maxLines="1"
             android:lines="1"
             android:singleLine="true"
@@ -57,117 +58,37 @@
 
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/ll2"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginRight="10dp"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:orientation="horizontal"
-        android:background="@drawable/login_et_bg">
-        <TextView
-            android:id="@+id/ust2"
-            android:layout_width="wrap_content"
+        android:background="@drawable/login_et_bg"
+        android:visibility="gone">
+        <RadioGroup
+            android:id="@+id/rg"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="18sp"
-            android:textColor="#000000"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_gravity="center_vertical"
-            android:focusable="true"
-            android:focusableInTouchMode="true"
-            android:text="密码"/>
-        <EditText
-            android:id="@+id/ust2_et"
-            android:layout_width="0dp"
-            android:layout_weight="15"
-            android:layout_height="match_parent"
-            android:textSize="16sp"
-            android:textColor="#757475"
-            android:gravity="center_vertical"
-            android:hint="请输入密码"
-            android:maxLines="1"
-            android:lines="1"
-            android:singleLine="true"
-            android:imeOptions="actionNext"
-            android:inputType="textPassword"
-            android:background="@drawable/bg_edittext"
-            android:layout_gravity="center_vertical"
-            android:layout_margin="5dp"
-            />
-        <ImageView
-            android:id="@+id/ust2_cc"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginRight="5dp"
-            android:layout_weight="1.4"
-            android:src="@mipmap/www"
-            android:visibility="gone"/>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
-        android:orientation="horizontal"
-        android:background="@drawable/login_et_bg">
-        <TextView
-            android:id="@+id/ust3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="18sp"
-            android:textColor="#000000"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_gravity="center_vertical"
-            android:focusable="true"
-            android:focusableInTouchMode="true"
-            android:text="密码"/>
-        <EditText
-            android:id="@+id/ust3_et"
-            android:layout_width="0dp"
-            android:layout_weight="15"
-            android:layout_height="match_parent"
-            android:textSize="16sp"
-            android:textColor="#757475"
-            android:gravity="center_vertical"
-            android:hint="请输入密码"
-            android:maxLines="1"
-            android:lines="1"
-            android:singleLine="true"
-            android:imeOptions="actionDone"
-            android:inputType="textPassword"
-            android:background="@drawable/bg_edittext"
-            android:layout_gravity="center_vertical"
-            android:layout_margin="5dp"
-            />
-        <ImageView
-            android:id="@+id/ust3_cc"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginRight="5dp"
-            android:layout_weight="1.4"
-            android:src="@mipmap/www"
-            android:visibility="gone"/>
-    </LinearLayout>
-    <LinearLayout
-        android:id="@+id/regiest_ing"
-        android:layout_width="match_parent"
-        android:layout_height="35dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="30dp"
-        android:gravity="center"
-        android:orientation="horizontal"
-        android:background="@color/blue1">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="18sp"
-            android:textColor="#ffffff"
-            android:text="确认修改"/>
+            android:gravity="center"
+            android:orientation="horizontal">
+            <RadioButton
+                android:id="@+id/rb1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:textSize="24sp"
+                android:text="男"/>
+            <RadioButton
+                android:id="@+id/rb2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="60dp"
+                android:textColor="@color/black"
+                android:textSize="24sp"
+                android:text="女"/>
+        </RadioGroup>
     </LinearLayout>
 
 </LinearLayout>
