@@ -59,7 +59,7 @@ public class MyClaimActivity extends BaseActivity {
                         wd.dismiss();
                         adapter.setDataList(DataManager.MyClaimUtilsModel.data.Claimlist);
                         adapter.notifyDataSetChanged();
-                        Toast.show("数据更新成功~！");
+//                        Toast.show("数据更新成功~！");
                         break;
                     case 500://
                         wd.dismiss();

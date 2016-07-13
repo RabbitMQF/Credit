@@ -75,6 +75,7 @@ public class WelcomeActivity extends Activity {
 
         GsonUtil NewsRequest=new GsonUtil(URLconstant.NEWSURL, RequestMethod.GET);//新闻数据
         NewsRequest.setConnectTimeout(20000);
+        NewsRequest.setReadTimeout(20000);
         CallServer.getInstance().add(this,NewsRequest, MyhttpCallBack.getInstance(),0x111,true,false,true);
     }
 

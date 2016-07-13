@@ -157,6 +157,7 @@ public class MyClaim_listAdapter extends BaseAdapter {
         vh.myclaim_text.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                MyClaimActivity.wd.show();
                 Intent i=new Intent(context, ToClaimActivity.class);
                 i.putExtra("position",position);
                 i.putExtra("type",1);

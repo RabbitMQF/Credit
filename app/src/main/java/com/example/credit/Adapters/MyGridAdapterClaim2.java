@@ -2,16 +2,13 @@ package com.example.credit.Adapters;
 
 import android.app.Dialog;
 import android.content.Context;
-import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
-import android.widget.TextView;
 
-import com.example.credit.Entitys.DataManager;
 import com.example.credit.R;
 import com.example.credit.Views.BaseViewHolder;
 
@@ -22,22 +19,23 @@ import java.util.HashMap;
  * @author http://blog.csdn.net/finddreams
  * @Description:gridview的Adapter
  */
-public class MyGridAdapterClaim extends BaseAdapter {
+public class MyGridAdapterClaim2 extends BaseAdapter {
     private Context mContext;
-    private Drawable[] imgs;
-    public MyGridAdapterClaim(Context context, Drawable[] imgs1) {
+    ArrayList<Drawable> myList;
+    private boolean isShowDelete;//判断是否显示删除图标
+    public MyGridAdapterClaim2(Context context,  ArrayList<Drawable> myList1) {
         super();
         this.mContext = context;
-        imgs = imgs1;
+        this.myList = myList1;
+    }
+    public void setIsShowDelete(boolean isShowDelete){
+        this.isShowDelete=isShowDelete;
+        notifyDataSetChanged();
     }
     @Override
     public int getCount() {
         // TODO Auto-generated method stub
-        if (imgs.length % 4 == 0) {
-            return imgs.length;
-        } else {
-            return (4 - imgs.length % 4) + imgs.length;
-        }
+        return myList.size();
     }
 
     @Override
@@ -59,21 +57,22 @@ public class MyGridAdapterClaim extends BaseAdapter {
                     R.layout.grid_items_claim, parent, false);
 
         }
-        if (imgs.length % 4 != 0) {
-            if ((imgs.length - 1) < position) {
-                return convertView;
-            }
-        }
         final ImageView bg= (ImageView) convertView.findViewById(R.id.ivc_items);
+        final ImageView imgdelete= (ImageView) convertView.findViewById(R.id.imgdelete);
         final ImageView iv = BaseViewHolder.get(convertView, R.id.ivc_items);
-        iv.setImageDrawable(imgs[position]);
+        iv.setImageDrawable(myList.get(position));
         if (bg.getDrawable() != null){
-            iv.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    onThumbnailClick(bg);
-                }
-            });
+            if(isShowDelete){
+                imgdelete.setVisibility(View.VISIBLE);
+            }else{
+                imgdelete.setVisibility(View.GONE);
+//                iv.setOnClickListener(new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View v) {
+//                        onThumbnailClick(bg);
+//                    }
+//                });
+            }
         }
         return convertView;
     }
@@ -99,4 +98,5 @@ public class MyGridAdapterClaim extends BaseAdapter {
         imgView.setImageDrawable(img.getDrawable());
         return imgView;
     }
+
 }

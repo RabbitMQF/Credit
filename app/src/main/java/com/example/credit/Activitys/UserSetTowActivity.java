@@ -4,16 +4,21 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.example.credit.R;
 import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ViewInject;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class UserSetTowActivity extends Activity {
     @ViewInject(R.id.b_topname)
@@ -27,6 +32,10 @@ public class UserSetTowActivity extends Activity {
     LinearLayout ll1;
     @ViewInject(R.id.ll2)
     LinearLayout ll2;
+    @ViewInject(R.id.ll3)
+    LinearLayout ll3;
+    @ViewInject(R.id.spinner2)
+    Spinner spinner2;
 
     @ViewInject(R.id.rg)
     RadioGroup rg;
@@ -44,6 +53,8 @@ public class UserSetTowActivity extends Activity {
     String text;
     Intent i;
     String content;
+    private List<String> data_list;
+    private ArrayAdapter<String> arr_adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -92,10 +103,30 @@ public class UserSetTowActivity extends Activity {
                 b_topname.setText("邮箱修改");
                 break;
             case 5:
+                ll1.setVisibility(View.GONE);
+                ll3.setVisibility(View.VISIBLE);
                 b_topname.setText("行业修改");
+                data_list = new ArrayList<String>();
+                data_list.add("金融");
+                data_list.add("通信");
+                data_list.add("运输");
+                arr_adapter= new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, data_list);
+                arr_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                spinner2.setAdapter(arr_adapter);
                 break;
             case 6:
+                ll1.setVisibility(View.GONE);
+                spinner2.setVisibility(View.VISIBLE);
                 b_topname.setText("学历修改");
+                data_list = new ArrayList<String>();
+                data_list.add("本科");
+                data_list.add("专科");
+                data_list.add("硕士");
+                data_list.add("博士");
+                data_list.add("高中");
+                arr_adapter= new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, data_list);
+                arr_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                spinner2.setAdapter(arr_adapter);
                 break;
             case 7:
                 b_topname.setText("手机号码修改");

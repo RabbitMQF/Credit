@@ -15,6 +15,7 @@ import android.os.Message;
 import android.provider.MediaStore;
 import android.util.Base64;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -48,6 +49,8 @@ public class UserSetActivity extends BaseActivity {
     @ViewInject(R.id.b_return)
     LinearLayout b_return;
 
+    @ViewInject(R.id.user_set_submit)
+    Button user_set_submit;//提交按钮
     @ViewInject(R.id.us1)
     RelativeLayout us1;
     @ViewInject(R.id.us_headimg)
@@ -119,6 +122,7 @@ public class UserSetActivity extends BaseActivity {
     public void init(){
         b_topname.setText("用户设置");
         b_return.setOnClickListener(listener);
+        user_set_submit.setOnClickListener(listener);
         /**
          * 获取用户头像
          */
@@ -167,7 +171,7 @@ public class UserSetActivity extends BaseActivity {
         @Override
         public void onClick(View v) {
             switch (v.getId()){
-                case R.id.b_return:
+                case R.id.user_set_submit://提交按钮
                     if(a==null && b==null && c==null && d==null && e==null && f==null && g==null){
                         finish();
                     }else{
@@ -214,6 +218,9 @@ public class UserSetActivity extends BaseActivity {
                         //                    MyClaimRuerst.add("password", "86D9D7F53FCA45DD93E2D83DFCA0CB42");//用户密码
                         CallServer.getInstance().add(UserSetActivity.this, MyClaimRuerst, MyhttpCallBack.getInstance(), 0x401, true, false, true);
                     }
+                    break;
+                case R.id.b_return:
+                   finish();
                     break;
                 case R.id.us1:
                     a="1";

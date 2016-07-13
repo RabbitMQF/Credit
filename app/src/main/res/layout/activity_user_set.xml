@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="#ffffff"
     android:orientation="vertical"
-    tools:context="com.example.credit.Activitys.UserSetActivity">
+    tools:context=".Activitys.UserSetActivity">
 
     <include layout="@layout/public_top_bar"/>
     <ScrollView
@@ -251,6 +251,17 @@
                     />
             </RelativeLayout>
 
+
+            <android.support.v7.widget.AppCompatButton
+                android:id="@+id/user_set_submit"
+                android:layout_marginTop="30dp"
+                android:layout_width="200dp"
+                android:layout_height="30dp"
+                android:text="提交保存"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/details_con_bg1"
+                android:textColor="@color/white"/>
+
             <RelativeLayout
                 android:id="@+id/us9"
                 android:layout_width="match_parent"
@@ -258,6 +269,7 @@
                 android:layout_marginRight="10dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="50dp"
+                android:visibility="gone"
                 android:background="@drawable/login_et_bg">
                 <TextView
                     android:layout_width="wrap_content"

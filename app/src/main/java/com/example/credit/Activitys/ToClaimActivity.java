@@ -1,6 +1,7 @@
 package com.example.credit.Activitys;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -17,14 +18,18 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Base64;
 import android.view.Gravity;
+import android.view.KeyEvent;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.example.credit.Adapters.MyGridAdapterClaim;
-import com.example.credit.Adapters.MyGridAdapters;
+import com.example.credit.Adapters.MyGridAdapterClaim2;
+import android.widget.AdapterView.OnItemLongClickListener;
 import com.example.credit.Dialogs.WaitDialog;
 import com.example.credit.Dialogs.enclosure_dialog;
 import com.example.credit.Entitys.DataManager;
@@ -34,8 +39,6 @@ import com.example.credit.Utils.GsonUtil;
 import com.example.credit.Utils.MyhttpCallBack;
 import com.example.credit.Utils.Toast;
 import com.example.credit.Utils.URLconstant;
-import com.example.credit.Utils.base64Util;
-import com.example.credit.Views.FileUtil;
 import com.example.credit.Views.MyGridView;
 import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ViewInject;
@@ -55,7 +58,7 @@ import Decoder.BASE64Decoder;
 /**
  * 企业认领界面
  */
-public class ToClaimActivity extends Activity {
+public class ToClaimActivity extends Activity implements OnItemLongClickListener{
     @ViewInject(R.id.b_topname)
     TextView b_topname;
     @ViewInject(R.id.b_return)
@@ -93,16 +96,22 @@ public class ToClaimActivity extends Activity {
     enclosure_dialog ed;
     public Drawable [] imgs1 =new Drawable[9];
     List<String> listStirng=new ArrayList<>();
-    int i=0;
 
     WaitDialog wd;
     int position,type;
+
+    MyGridAdapterClaim2 mAdapter;
+    boolean isShowDelete=false;
+    Boolean isExit=false;
+    KeyEvent backKey;
+    ArrayList<Drawable> myList=new ArrayList<Drawable>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_enterprise_claim);
         ViewUtils.inject(this);
         wd=new WaitDialog(this);
+        myGridViewtc.setOnItemLongClickListener(this);
         Intent is=getIntent();
         position=is.getIntExtra("position",0);
         type=is.getIntExtra("type",0);
@@ -112,13 +121,28 @@ public class ToClaimActivity extends Activity {
             public void handleMessage(Message msg) {
                 switch (msg.what){
                     case 1:
-                        if(imgs1.length>0){
+                        for(int i=0;i<myList.size();i++){
+                            BitmapDrawable bd = (BitmapDrawable) myList.get(i);
+                            Bitmap bitmap = bd.getBitmap();
+                            try {
+                                ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                                //将bitmap一字节流输出 Bitmap.CompressFormat.PNG 压缩格式，100：压缩率，baos：字节流
+                                bitmap.compress(Bitmap.CompressFormat.PNG, 100, baos);
+                                baos.close();
+                                byte[] buffer = baos.toByteArray();
+                                //将图片的字节流数据加密成base64字符输出
+                                String pic=Base64.encodeToString(buffer, 0, buffer.length,Base64.DEFAULT);
+                                listStirng.add(pic);
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                        }
+
+                        if(listStirng.size()>0){
                             String attchmentDescS="";
                             String attchmentSteamS="";
-                            for(int j=0;j<i;j++){
-                                attchmentDescS=attchmentDescS+"pic@";
-                            }
                             for(int c=0;c<listStirng.size();c++){
+                                attchmentDescS=attchmentDescS+"pic@";
                                 attchmentSteamS=attchmentSteamS+listStirng.get(c)+"@";
                             }
                             String a=(new Build()).MODEL;
@@ -170,7 +194,6 @@ public class ToClaimActivity extends Activity {
             /**
              * 附件图片赋值
              */
-            i=DataManager.MyClaimUtilsModel.data.Claimlist.get(position).AttachmentList.size();//当前size，并作为当前下边
             for(int j=0;j<DataManager.MyClaimUtilsModel.data.Claimlist.get(position).AttachmentList.size();j++){
                 String base64String=DataManager.MyClaimUtilsModel.data.Claimlist.get(position).AttachmentList.get(j).ATTACHMENTPATH;
                 try {
@@ -181,7 +204,7 @@ public class ToClaimActivity extends Activity {
                     for (byte bs : b) {
                         str.append(Integer.toBinaryString(bs));//转换为二进制
                     }
-                    String imgpath =Environment.getExternalStorageDirectory() + "/Credit" + "/pag"+i+".jpg";
+                    String imgpath =Environment.getExternalStorageDirectory() + "/Credit" + "/pag"+j+".jpg";
                     //把字节数组的图片写到另一个地方
                     File apple = new File(imgpath);
                     FileOutputStream fos = new FileOutputStream(apple);
@@ -193,16 +216,34 @@ public class ToClaimActivity extends Activity {
                     if (file.exists()) {//获取本地图片路径是否存在
                         Bitmap bm = BitmapFactory.decodeFile(imgpath);
                         Drawable drawable = new BitmapDrawable(null, bm);
-                        imgs1[j]=drawable;
+                        myList.add(drawable);
                     }
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
             }
-            MyGridAdapterClaim adapters = new MyGridAdapterClaim(ToClaimActivity.this, imgs1);
-            myGridViewtc.setAdapter(adapters);
+            mAdapter = new MyGridAdapterClaim2(ToClaimActivity.this, myList);
+            myGridViewtc.setAdapter(mAdapter);
         }
+        MyClaimActivity.wd.dismiss();
+        myGridViewtc.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view,
+                                    int position, long id) {
+                // TODO Auto-generated method stub
+                ImageView bg= (ImageView)view.findViewById(R.id.ivc_items);
+                if(!isShowDelete){
+                    onThumbnailClick(bg);
+                }else{
+                    delete(position);
+                    mAdapter=new MyGridAdapterClaim2(ToClaimActivity.this,myList);
+                    mAdapter.setIsShowDelete(isShowDelete);
+                    myGridViewtc.setAdapter(mAdapter);
+                    mAdapter.notifyDataSetChanged();
+                }
 
+            }
+        });
         b_return.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -235,6 +276,31 @@ public class ToClaimActivity extends Activity {
         claim_btn.setOnClickListener(listener);
         claim_fj.setOnClickListener(listener);
     }
+
+    //---------------显示大图
+    public void onThumbnailClick(ImageView img) {
+        final Dialog dialog = new Dialog(ToClaimActivity.this, android.R.style.Theme_Black_NoTitleBar);
+        ImageView imgView = getView(img);
+        dialog.setContentView(imgView);
+        dialog.show();
+        // 点击图片消失
+        imgView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // TODO Auto-generated method stub
+                dialog.dismiss();
+            }
+        });
+    }
+
+    private ImageView getView(ImageView img) {
+        ImageView imgView = new ImageView(ToClaimActivity.this);
+        imgView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+        imgView.setImageDrawable(img.getDrawable());
+        return imgView;
+    }
+
+
     View.OnClickListener listener=new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -242,6 +308,8 @@ public class ToClaimActivity extends Activity {
                 case R.id.claim_btn:
                     if(claim_emils.getText().toString().equals("")){
                         Toast.show("邮箱地址不能为空!");
+                    }else if(isEmail(claim_emils.getText().toString())){
+                        Toast.show("邮箱地址格式不正确!");
                     }else if(claim_phone.getText().toString().equals("")){
                         Toast.show("手机号码不能为空!");
                     }else if(claim_details.getText().toString().equals("")){
@@ -269,7 +337,7 @@ public class ToClaimActivity extends Activity {
                     }
                     break;
                 case R.id.claim_fj:
-                    if(i<9){
+                    if(myList.size()<=9){
                         ed = new enclosure_dialog(ToClaimActivity.this, new View.OnClickListener() {
                             @Override
                             public void onClick(View arg0) {
@@ -355,22 +423,9 @@ public class ToClaimActivity extends Activity {
             // 取得SDCard图片路径做显示
             Bitmap photo = extras.getParcelable("data");
             Drawable drawable = new BitmapDrawable(null, photo);
-            imgs1[i]=drawable;
-            MyGridAdapterClaim adapters = new MyGridAdapterClaim(ToClaimActivity.this, imgs1);
-            myGridViewtc.setAdapter(adapters);
-            i++;
-            try {
-                ByteArrayOutputStream baos = new ByteArrayOutputStream();
-                //将bitmap一字节流输出 Bitmap.CompressFormat.PNG 压缩格式，100：压缩率，baos：字节流
-                photo.compress(Bitmap.CompressFormat.PNG, 100, baos);
-                baos.close();
-                byte[] buffer = baos.toByteArray();
-                //将图片的字节流数据加密成base64字符输出
-                String pic=Base64.encodeToString(buffer, 0, buffer.length,Base64.DEFAULT);
-                listStirng.add(pic);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            myList.add(drawable);;
+            mAdapter = new MyGridAdapterClaim2(ToClaimActivity.this, myList);
+            myGridViewtc.setAdapter(mAdapter);
         }
     }
     //判断email格式是否正确
@@ -380,5 +435,44 @@ public class ToClaimActivity extends Activity {
         Matcher m = p.matcher(email);
 
         return m.matches();
+    }
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        // TODO Auto-generated method stub
+        if (keyCode == KeyEvent.KEYCODE_BACK && event.getAction() == KeyEvent.ACTION_DOWN) {
+            if(isShowDelete){
+                isShowDelete=false;
+                mAdapter.setIsShowDelete(isShowDelete);
+                return false;
+            }else{
+                finish();
+                overridePendingTransition(R.anim.finish_tran_one, R.anim.finish_tran_two);
+            }
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+    /**
+     * 执行删除方法
+     * @param position
+     */
+    private void delete(int position) {
+        ArrayList<Drawable> newList = new ArrayList<Drawable>();
+        if(isShowDelete){
+            myList.remove(position);
+        }
+        newList.addAll(myList);
+        myList.clear();
+        myList.addAll(newList);
+    }
+
+    @Override
+    public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+        if (isShowDelete) {
+            isShowDelete = false;
+        } else {
+            isShowDelete=true;
+            mAdapter.setIsShowDelete(isShowDelete);
+        }
+        mAdapter.setIsShowDelete(isShowDelete);
+        return true;
     }
 }

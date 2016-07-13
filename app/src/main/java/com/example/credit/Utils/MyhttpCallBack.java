@@ -1293,20 +1293,35 @@ public class MyhttpCallBack implements HttpCallBack {
                 SearchFirmActivty.pd.dismiss();
                 break;
             case 0x000://工商信息
+                CompanyDetailsActivity.waitDialog.dismiss();
             case 0x001://行政审批
+                CompanyDetailsActivity.waitDialog.dismiss();
             case 0x002://荣誉信息
+                CompanyDetailsActivity.waitDialog.dismiss();
             case 0x003://扶持信息
+                CompanyDetailsActivity.waitDialog.dismiss();
             case 0x004://抵押信息
+                CompanyDetailsActivity.waitDialog.dismiss();
             case 0x005://出质信息
+                CompanyDetailsActivity.waitDialog.dismiss();
             case 0x006://司法信息
+                CompanyDetailsActivity.waitDialog.dismiss();
             case 0x007://预警信息
+                CompanyDetailsActivity.waitDialog.dismiss();
             case 0x008://行政处罚
+                CompanyDetailsActivity.waitDialog.dismiss();
             case 0x009://经营异常
+                CompanyDetailsActivity.waitDialog.dismiss();
             case 0x010://专利信息
+                CompanyDetailsActivity.waitDialog.dismiss();
             case 0x011://商标信息
+                CompanyDetailsActivity.waitDialog.dismiss();
             case 0x012://著作权
+                CompanyDetailsActivity.waitDialog.dismiss();
             case 0x013://广告资质
+                CompanyDetailsActivity.waitDialog.dismiss();
             case 0x014://守合同重信用
+                CompanyDetailsActivity.waitDialog.dismiss();
             case 0x015://企业自主公示
                 CompanyDetailsActivity.waitDialog.dismiss();
                 break;
