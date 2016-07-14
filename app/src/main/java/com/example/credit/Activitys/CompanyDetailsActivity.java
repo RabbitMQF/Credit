@@ -38,12 +38,15 @@ import com.example.credit.R;
 import com.example.credit.Adapters.MyGridAdapter1;
 import com.example.credit.Adapters.MyGridAdapter2;
 import com.example.credit.Services.CallServer;
+import com.example.credit.Utils.CreditSharePreferences;
 import com.example.credit.Utils.GsonUtil;
 import com.example.credit.Utils.MD5;
 import com.example.credit.Utils.MyhttpCallBack;
 import com.example.credit.Utils.Toast;
 import com.example.credit.Utils.URLconstant;
+import com.example.credit.Views.ActionItem;
 import com.example.credit.Views.MyGridView;
+import com.example.credit.Views.TitlePopup;
 import com.google.gson.Gson;
 import com.google.gson.internal.LinkedTreeMap;
 import com.google.gson.reflect.TypeToken;
@@ -78,9 +81,6 @@ public class CompanyDetailsActivity extends BaseActivity {
             LinearLayout saveG;
     @ViewInject(R.id.details_tit3)
             TextView details_tit3;
-
-    PopupMenu popupMenu;
-    Menu menu;
 
     @ViewInject(R.id.vg)
     RelativeLayout vg;
@@ -148,14 +148,16 @@ public class CompanyDetailsActivity extends BaseActivity {
     @ViewInject(R.id.pb_4_txt)
     TextView pb_4_txt;//关注文字
 
-
+    TitlePopup titlePopup;
     public static ProgressDialog pd;
     String KeyNos,tokens;
+    CreditSharePreferences csp;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_company_details);
         ViewUtils.inject(this);
+        csp=CreditSharePreferences.getLifeSharedPreferences();
         waitDialog=new WaitDialog(this);
         mScrollView.smoothScrollTo(0, 20);
         Intent i = getIntent();
@@ -576,12 +578,6 @@ public class CompanyDetailsActivity extends BaseActivity {
         if (DataManager.BaseinfoList != null && DataManager.BaseinfoList.size() > 0) {
             String stra = (DataManager.BaseinfoList.get(0).REGSTATE_CN).substring(0, 2);
             details_tit3.setText(stra);//状态
-            details_tit3.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    showPopupWindow(v);
-                }
-            });
             cp_name.setText(DataManager.BaseinfoList.get(0).ENTNAME);
             List<String> lt = new ArrayList<String>();
             lt.add(DataManager.BaseinfoList.get(0).REGCAP + "万元");
@@ -673,62 +669,38 @@ public class CompanyDetailsActivity extends BaseActivity {
         pb_4.setOnClickListener(onClickListener);
         saveG.setOnClickListener(onClickListener);
 
-        popupMenu = new PopupMenu(this, findViewById(R.id.d_more));
-        menu = popupMenu.getMenu();
-        // 通过代码添加菜单项
-//        menu.add(Menu.NONE, Menu.FIRST + 0, 0, "复制");
-//        menu.add(Menu.NONE, Menu.FIRST + 1, 1, "粘贴");
-
-        // 通过XML文件添加菜单项
-        MenuInflater menuInflater = getMenuInflater();
-        menuInflater.inflate(R.menu.menu_list, menu);
-
-        // 监听事件
-        popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-
-            @Override
-            public boolean onMenuItemClick(MenuItem item) {
-                switch (item.getItemId()) {
-                    case R.id.claim:
-                        Toast.show("我的认领");
-                        Intent i=new Intent(CompanyDetailsActivity.this,ToClaimActivity.class);
-                        startActivity(i);
-                        break;
-                }
-                return false;
-            }
-        });
+        // 实例化标题栏弹窗
+        titlePopup = new TitlePopup(this, ViewGroup.LayoutParams.WRAP_CONTENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT);
+        titlePopup.setItemOnClickListener(onitemClick);
+        // 给标题栏弹窗添加子类
+        titlePopup.addAction(new ActionItem(this, "认领企业",
+                R.mipmap.icon_menu_group));
+        titlePopup.addAction(new ActionItem(this,"认领企业",
+                R.mipmap.icon_menu_addfriend));
+        titlePopup.addAction(new ActionItem(this, "认领企业",
+                R.mipmap.icon_menu_sao));
+        titlePopup.addAction(new ActionItem(this,"认领企业",
+                R.mipmap.abv));
     }
     public void popupmenu(View v) {
-        popupMenu.show();
+        titlePopup.show(findViewById(R.id.d_more));
     }
-    public void showPopupWindow(View view) {
-        // 一个自定义的布局，作为显示的内容
-        View contentView = LayoutInflater.from(CompanyDetailsActivity.this).inflate(
-                R.layout.popupwindow_state, null);
-        final PopupWindow popupWindow = new PopupWindow(contentView,
-                ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT, true);
-        TextView tv = (TextView) contentView.findViewById(R.id.tv_state);
-        tv.setText(DataManager.BaseinfoList.get(0).REGSTATE_CN);
-        popupWindow.setTouchable(true);
-        popupWindow.setTouchInterceptor(new View.OnTouchListener() {
+    private TitlePopup.OnItemOnClickListener onitemClick = new TitlePopup.OnItemOnClickListener() {
 
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                return false;
-                // 这里如果返回true的话，touch事件将被拦截
-                // 拦截后 PopupWindow的onTouchEvent不被调用，这样点击外部区域无法dismiss
+        @Override
+        public void onItemClick(ActionItem item, int position) {
+            switch (position) {
+                case 0://认领企业
+                    Intent i=new Intent(CompanyDetailsActivity.this,ToClaimActivity.class);
+                    startActivity(i);
+                    break;
+                default:
+                    break;
             }
-        });
+        }
+    };
 
-        // 如果不设置PopupWindow的背景，无论是点击外部区域还是Back键都无法dismiss弹框
-        // 我觉得这里是API的一个bug
-        popupWindow.setBackgroundDrawable(getResources().getDrawable(
-                R.mipmap.menu_bg));
-
-        // 设置好参数之后再show
-        popupWindow.showAsDropDown(view);
-    }
     View.OnClickListener onClickListener=new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -739,14 +711,12 @@ public class CompanyDetailsActivity extends BaseActivity {
                     finish();
                     break;
                 case R.id.pb_2://评论
-//                    android.widget.Toast.makeText(CompanyDetailsActivity.this, "此模块，正在抢修中。。。！", android.widget.Toast.LENGTH_SHORT).show();
-//                    waitDialog.show();
                     pd.show();
                     GsonUtil request14 = new GsonUtil(URLconstant.URLINSER + URLconstant.COMM, RequestMethod.GET);
                     request14.add("deviceId",model);
                     request14.add("token",tokens);
                     request14.add("KeyNo",KeyNos);
-                    request14.add("memberId","86D9D7F53FCA45DD93E2D83DFCA0CB42");
+                    request14.add("memberId",csp.getID());
                     CallServer.getInstance().add(CompanyDetailsActivity.this, request14, MyhttpCallBack.getInstance(), 0x201, true, false, true);
                     break;
                 case R.id.pb_3://企业投诉
@@ -766,7 +736,7 @@ public class CompanyDetailsActivity extends BaseActivity {
                         requestG.add("deviceId",model);
                         requestG.add("token",tokens);
                         requestG.add("KeyNo",KeyNos);
-                        requestG.add("memberId","86D9D7F53FCA45DD93E2D83DFCA0CB42");
+                        requestG.add("memberId",csp.getID());
                         requestG.add("attentionTypeId","11");
                         CallServer.getInstance().add(CompanyDetailsActivity.this, requestG, MyhttpCallBack.getInstance(), 0x101, true, false, true);
                     }else{//当前状态为已关注，所以点击是取消关注
@@ -774,7 +744,7 @@ public class CompanyDetailsActivity extends BaseActivity {
                         requestN.add("deviceId",model);
                         requestN.add("token",tokens);
                         requestN.add("KeyNo",KeyNos);
-                        requestN.add("memberId","86D9D7F53FCA45DD93E2D83DFCA0CB42");
+                        requestN.add("memberId",csp.getID());
                         CallServer.getInstance().add(CompanyDetailsActivity.this, requestN, MyhttpCallBack.getInstance(), 0x102, true, false, true);
                     }
 //                    android.widget.Toast.makeText(CompanyDetailsActivity.this, "此模块，正在抢修中。。。！", android.widget.Toast.LENGTH_SHORT).show();

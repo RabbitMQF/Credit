@@ -18,6 +18,7 @@ import com.example.credit.Adapters.Commment_ItemlistAdapter;
 import com.example.credit.Entitys.DataManager;
 import com.example.credit.R;
 import com.example.credit.Services.CallServer;
+import com.example.credit.Utils.CreditSharePreferences;
 import com.example.credit.Utils.GsonUtil;
 import com.example.credit.Utils.MyhttpCallBack;
 import com.example.credit.Utils.Toast;
@@ -83,12 +84,14 @@ public class CommentListDetailsActivity extends BaseActivity {
     public static Handler handler;
     String deviceId,uid,pid,KeyNo,token;
     int S,N,So,No;
+    CreditSharePreferences csp;
     public static List<DataManager.Replay2review> replay2reviewListSS = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_comment_list_details);
         ViewUtils.inject(this);
+        csp=CreditSharePreferences.getLifeSharedPreferences();
         Build bd = new Build();
         deviceId=bd.MODEL;//设备ID
         KeyNo=DataManager.UserreviewList.get(position).COMMENTID;
@@ -126,7 +129,7 @@ public class CommentListDetailsActivity extends BaseActivity {
                         request14.add("deviceId",deviceId);
                         request14.add("token",tokens);
                         request14.add("KeyNo",KeyNos);
-                        request14.add("memberId","86D9D7F53FCA45DD93E2D83DFCA0CB42");
+                        request14.add("memberId",csp.getID());
                         CallServer.getInstance().add(CommentListDetailsActivity.this, request14, MyhttpCallBack.getInstance(), 0x20111, true, false, true);
                         break;
                     case 3:
@@ -286,7 +289,7 @@ public class CommentListDetailsActivity extends BaseActivity {
                         request14.add("content",huifu_con.getText().toString());
                         request14.add("memberPid",uid);//点评其他评论,父评论用户ID
                         request14.add("pid",pid);//点评其他评论,父评论ID
-                        request14.add("memberId","86D9D7F53FCA45DD93E2D83DFCA0CB42");
+                        request14.add("memberId",csp.getID());
                         CallServer.getInstance().add(CommentListDetailsActivity.this, request14, MyhttpCallBack.getInstance(), 0x205, true, false, true);
                     }else{
                         android.widget.Toast.makeText(CommentListDetailsActivity.this, "回复内容不能为空", android.widget.Toast.LENGTH_SHORT).show();
@@ -319,7 +322,7 @@ public class CommentListDetailsActivity extends BaseActivity {
         request14.add("KeyNo",KeyNo);
         request14.add("token",token);
         request14.add("deviceId",deviceId);
-        request14.add("memberId","86D9D7F53FCA45DD93E2D83DFCA0CB42");
+        request14.add("memberId",csp.getID());
         if(N>S){//当当前点赞数值大于原来所赋值的数值，则为点赞+1
             request14.add("opeType","0");
         }else{
@@ -333,7 +336,7 @@ public class CommentListDetailsActivity extends BaseActivity {
         request14.add("KeyNo",KeyNo);
         request14.add("token",token);
         request14.add("deviceId",deviceId);
-        request14.add("memberId","86D9D7F53FCA45DD93E2D83DFCA0CB42");
+        request14.add("memberId",csp.getID());
         if(No>So){//当当前差评数值大于原来所赋值的数值，则为差评+1
             request14.add("opeType","0");
         }else{

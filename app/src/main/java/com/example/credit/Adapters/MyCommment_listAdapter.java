@@ -13,6 +13,7 @@ import android.widget.TextView;
 import com.example.credit.Entitys.DataManager;
 import com.example.credit.R;
 import com.example.credit.Views.RoundImageView;
+import com.squareup.picasso.Picasso;
 
 import java.io.File;
 import java.util.List;
@@ -55,8 +56,9 @@ public class MyCommment_listAdapter extends BaseAdapter {
         }
         File file = new File(Environment.getExternalStorageDirectory() + "/Credit/loginImg.jpg");
         if (file.exists()) {//获取本地图片路径是否存在
-            Bitmap bm = BitmapFactory.decodeFile(Environment.getExternalStorageDirectory() + "/Credit/loginImg.jpg");
-            vh.mycomm_img.setImageBitmap(bm);
+//            Bitmap bm = BitmapFactory.decodeFile(Environment.getExternalStorageDirectory() + "/Credit/loginImg.jpg");
+//            vh.mycomm_img.setImageBitmap(bm);
+            Picasso.with(context).load(file).into(vh.mycomm_img);
         }
         vh.mycomm_time.setText(list.get(position).CREATETIME);
         vh.mycomm_conn.setText(list.get(position).CONTENT);

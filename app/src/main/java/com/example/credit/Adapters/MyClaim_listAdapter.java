@@ -22,6 +22,7 @@ import com.example.credit.Activitys.ToClaimActivity;
 import com.example.credit.Entitys.DataManager;
 import com.example.credit.R;
 import com.example.credit.Services.CallServer;
+import com.example.credit.Utils.CreditSharePreferences;
 import com.example.credit.Utils.GsonUtil;
 import com.example.credit.Utils.MyhttpCallBack;
 import com.example.credit.Utils.URLconstant;
@@ -39,6 +40,7 @@ public class MyClaim_listAdapter extends BaseAdapter {
     private List<DataManager.MyClaimUtils.DataBean.ClaimlistBean> list;
     ViewHolder vh = null;
     String ImgString="";
+    CreditSharePreferences csp=CreditSharePreferences.getLifeSharedPreferences();
     public MyClaim_listAdapter(Context context) {
         this.context = context;
     }
@@ -144,8 +146,8 @@ public class MyClaim_listAdapter extends BaseAdapter {
                 MyClaimActivity.wd.show();
                 GsonUtil MyClaimRuerst = new GsonUtil(URLconstant.URLINSER + URLconstant.DISSCLAIMURL, RequestMethod.GET);
                 MyClaimRuerst.add("deviceId",(new Build()).MODEL);
-                MyClaimRuerst.add("token", SearchFirmActivty.MD5s("86D9D7F53FCA45DD93E2D83DFCA0CB42" + (new Build()).MODEL));
-                MyClaimRuerst.add("KeyNo","86D9D7F53FCA45DD93E2D83DFCA0CB42");
+                MyClaimRuerst.add("token", SearchFirmActivty.MD5s(csp.getID() + (new Build()).MODEL));
+                MyClaimRuerst.add("KeyNo",csp.getID());
                 MyClaimRuerst.add("enterId",list.get(position).ENTERID);
                 CallServer.getInstance().add(context,MyClaimRuerst, MyhttpCallBack.getInstance(),0x305,true,false,true);
 

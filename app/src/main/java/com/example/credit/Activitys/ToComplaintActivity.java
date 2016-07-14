@@ -79,6 +79,8 @@ public class ToComplaintActivity extends BaseActivity {
     List<String> listStirng=new ArrayList<>();
     public static Handler handler;
     public static ProgressDialog pd;
+    MyGridAdapterClaim adapters;
+    ArrayList<Drawable> myList=new ArrayList<Drawable>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -306,7 +308,7 @@ public class ToComplaintActivity extends BaseActivity {
             Drawable drawable = new BitmapDrawable(null, photo);
 
             imgs1[i]=drawable;
-            MyGridAdapterClaim adapters = new MyGridAdapterClaim(ToComplaintActivity.this, imgs1);
+            adapters= new MyGridAdapterClaim(ToComplaintActivity.this, imgs1);
             myGridViewtc.setAdapter(adapters);
             i++;
             try {

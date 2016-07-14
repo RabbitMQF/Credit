@@ -35,6 +35,7 @@ import com.example.credit.Dialogs.enclosure_dialog;
 import com.example.credit.Entitys.DataManager;
 import com.example.credit.R;
 import com.example.credit.Services.CallServer;
+import com.example.credit.Utils.CreditSharePreferences;
 import com.example.credit.Utils.GsonUtil;
 import com.example.credit.Utils.MyhttpCallBack;
 import com.example.credit.Utils.Toast;
@@ -100,6 +101,7 @@ public class ToClaimActivity extends Activity implements OnItemLongClickListener
     WaitDialog wd;
     int position,type;
 
+    CreditSharePreferences csp;
     MyGridAdapterClaim2 mAdapter;
     boolean isShowDelete=false;
     Boolean isExit=false;
@@ -110,6 +112,7 @@ public class ToClaimActivity extends Activity implements OnItemLongClickListener
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_enterprise_claim);
         ViewUtils.inject(this);
+        csp=CreditSharePreferences.getLifeSharedPreferences();
         wd=new WaitDialog(this);
         myGridViewtc.setOnItemLongClickListener(this);
         Intent is=getIntent();
@@ -159,7 +162,7 @@ public class ToClaimActivity extends Activity implements OnItemLongClickListener
                                 request14.add("token",SearchFirmActivty.MD5s(DataManager.MyClaimUtilsModel.data.Claimlist.get(position).CLAIMID + (new Build()).MODEL));
                                 request14.add("KeyNo",DataManager.MyClaimUtilsModel.data.Claimlist.get(position).CLAIMID);
                             }
-                            request14.add("memberId","86D9D7F53FCA45DD93E2D83DFCA0CB42");
+                            request14.add("memberId",csp.getID());
                             request14.add("Type","认领企业");
                             request14.add("attchmentDesc",attchmentDescS);//图片描述内容，多文件以@符号分割
                             request14.add("attchmentSteam",attchmentSteamS);//base64码内容，多文件以@符号分割
@@ -225,7 +228,9 @@ public class ToClaimActivity extends Activity implements OnItemLongClickListener
             mAdapter = new MyGridAdapterClaim2(ToClaimActivity.this, myList);
             myGridViewtc.setAdapter(mAdapter);
         }
-        MyClaimActivity.wd.dismiss();
+        if(type==1){//修改时
+            MyClaimActivity.wd.dismiss();
+        }
         myGridViewtc.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view,
@@ -320,7 +325,7 @@ public class ToClaimActivity extends Activity implements OnItemLongClickListener
                         wd.show();
                         GsonUtil request14 = new GsonUtil(URLconstant.URLINSER + URLconstant.CLAIMURL, RequestMethod.GET);
                         request14.add("deviceId",(new Build()).MODEL);
-                        request14.add("memberId","86D9D7F53FCA45DD93E2D83DFCA0CB42");
+                        request14.add("memberId",csp.getID());
                         request14.add("email",claim_emils.getText().toString());
                         request14.add("description",claim_details.getText().toString());
                         request14.add("telphone",claim_phone.getText().toString());

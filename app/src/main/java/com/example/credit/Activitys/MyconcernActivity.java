@@ -18,6 +18,7 @@ import com.example.credit.Dialogs.WaitDialog;
 import com.example.credit.Entitys.DataManager;
 import com.example.credit.R;
 import com.example.credit.Services.CallServer;
+import com.example.credit.Utils.CreditSharePreferences;
 import com.example.credit.Utils.GsonUtil;
 import com.example.credit.Utils.MyhttpCallBack;
 import com.example.credit.Utils.URLconstant;
@@ -40,11 +41,14 @@ public class MyconcernActivity extends BaseActivity {
     Myconcer_listAdapter adapter;
 
     public static Handler handler;
+
+    CreditSharePreferences csp;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_myconcern);
         ViewUtils.inject(this);
+        csp=CreditSharePreferences.getLifeSharedPreferences();
         wd=new WaitDialog(this);
         init();
         handler=new Handler(){
@@ -82,7 +86,7 @@ public class MyconcernActivity extends BaseActivity {
                 requst.add("KeyNo",KeyNo);
                 requst.add("token",token);
                 requst.add("deviceId",(new Build()).MODEL);
-                requst.add("memberId","86D9D7F53FCA45DD93E2D83DFCA0CB42");
+                requst.add("memberId",csp.getID());
                 requst.add("regnore",DataManager.FavotiteListS.data.AttentionList.get(position).REGNORE);
                 requst.add("priptype",DataManager.FavotiteListS.data.AttentionList.get(position).ENTTYPE);
                 CallServer.getInstance().add(MyconcernActivity.this,requst, MyhttpCallBack.getInstance(),0x025,true,false,true);

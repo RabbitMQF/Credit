@@ -134,7 +134,10 @@
             android:name=".Activitys.RegisterActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity android:name=".Activitys.MyCommentlistActivity" />
-        <activity android:name=".Activitys.UserSetTowActivity"></activity>
+        <activity android:name=".Activitys.UserSetTowActivity" />
+        <activity android:name=".Activitys.AgreementActivity"/>
+        <activity android:name=".Activitys.AboutActivity"/>
+        <activity android:name=".Activitys.PassWordActivity"/>
     </application>
 
 </manifest>

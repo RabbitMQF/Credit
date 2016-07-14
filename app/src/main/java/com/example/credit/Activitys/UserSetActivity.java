@@ -34,6 +34,7 @@ import com.example.credit.Utils.URLconstant;
 import com.example.credit.Views.FileUtil;
 import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ViewInject;
+import com.squareup.picasso.Picasso;
 import com.yolanda.nohttp.RequestMethod;
 
 import java.io.ByteArrayOutputStream;
@@ -89,6 +90,9 @@ public class UserSetActivity extends BaseActivity {
     RelativeLayout us7;
     @ViewInject(R.id.us_phone)
     TextView us_phone;
+
+    @ViewInject(R.id.us8)
+    RelativeLayout us8;
     CreditSharePreferences csf;
     public static Handler handler;
     WaitDialog wd;
@@ -128,8 +132,7 @@ public class UserSetActivity extends BaseActivity {
          */
         File file = new File(Environment.getExternalStorageDirectory() + "/Credit/loginImg.jpg");
         if (file.exists()) {//获取本地图片路径是否存在
-            Bitmap bm = BitmapFactory.decodeFile(Environment.getExternalStorageDirectory() + "/Credit/loginImg.jpg");
-            us_headimg.setImageBitmap(bm);
+            Picasso.with(UserSetActivity.this).load(file).into(us_headimg);
         }
         us1.setOnClickListener(listener);
         /**
@@ -166,6 +169,10 @@ public class UserSetActivity extends BaseActivity {
          */
         us_phone.setText(csf.getMOBILE());
         us7.setOnClickListener(listener);
+        /**
+         * 修改密码
+         */
+        us8.setOnClickListener(listener);
     }
     View.OnClickListener listener=new View.OnClickListener() {
         @Override
@@ -271,12 +278,19 @@ public class UserSetActivity extends BaseActivity {
                     startActivityForResult(i,77);
                     g="1";
                     break;
+                case R.id.us8:
+                    i =new Intent(UserSetActivity.this,PassWordActivity.class);
+                    startActivity(i);
+                    break;
             }
         }
     };
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        String text = data.getStringExtra("text");
+        String text="";
+        if (data != null) {
+            text = data.getStringExtra("text");
+        }
         switch (requestCode) {
             case REQUESTCODE_PICK:// 直接从相册获取
                 try {

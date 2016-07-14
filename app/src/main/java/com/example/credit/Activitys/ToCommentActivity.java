@@ -17,6 +17,7 @@ import com.example.credit.Dialogs.WaitDialog;
 import com.example.credit.Entitys.DataManager;
 import com.example.credit.R;
 import com.example.credit.Services.CallServer;
+import com.example.credit.Utils.CreditSharePreferences;
 import com.example.credit.Utils.GsonUtil;
 import com.example.credit.Utils.MyhttpCallBack;
 import com.example.credit.Utils.URLconstant;
@@ -40,12 +41,14 @@ public class ToCommentActivity extends BaseActivity {
     @ViewInject(R.id.To_btn)
     LinearLayout To_btn;
     String deviceId;
+    CreditSharePreferences csp;
     public static Handler handler;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_to_comment);
         ViewUtils.inject(this);
+        csp=CreditSharePreferences.getLifeSharedPreferences();
         Build bd = new Build();
         deviceId=bd.MODEL;//设备ID
         init();
@@ -64,7 +67,7 @@ public class ToCommentActivity extends BaseActivity {
                         request14.add("deviceId",deviceId);
                         request14.add("token",tokens);
                         request14.add("KeyNo",KeyNos);
-                        request14.add("memberId","86D9D7F53FCA45DD93E2D83DFCA0CB42");
+                        request14.add("memberId",csp.getID());
                         CallServer.getInstance().add(ToCommentActivity.this, request14, MyhttpCallBack.getInstance(), 0x2011, true, false, true);
                         break;
                     case 2:
@@ -127,7 +130,7 @@ public class ToCommentActivity extends BaseActivity {
                         request14.add("token",token);
                         request14.add("deviceId",deviceId);
                         request14.add("content",To_details.getText().toString());
-                        request14.add("memberId","86D9D7F53FCA45DD93E2D83DFCA0CB42");
+                        request14.add("memberId",csp.getID());
                         CallServer.getInstance().add(ToCommentActivity.this, request14, MyhttpCallBack.getInstance(), 0x204, true, false, true);
                     }else{
                         android.widget.Toast.makeText(ToCommentActivity.this, "发表内容不能为空", android.widget.Toast.LENGTH_SHORT).show();

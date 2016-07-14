@@ -17,6 +17,7 @@ import com.example.credit.Dialogs.WaitDialog;
 import com.example.credit.Entitys.DataManager;
 import com.example.credit.R;
 import com.example.credit.Services.CallServer;
+import com.example.credit.Utils.CreditSharePreferences;
 import com.example.credit.Utils.GsonUtil;
 import com.example.credit.Utils.MD5;
 import com.example.credit.Utils.MyhttpCallBack;
@@ -40,11 +41,13 @@ public class MyClaimActivity extends BaseActivity {
     public static Handler handler;
     MyClaim_listAdapter adapter;
     public static WaitDialog wd;
+    CreditSharePreferences csp;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_claim);
         ViewUtils.inject(this);
+        csp=CreditSharePreferences.getLifeSharedPreferences();
         wd=new WaitDialog(this);
         init();
         handler = new Handler() {
@@ -95,8 +98,8 @@ public class MyClaimActivity extends BaseActivity {
     public void UInit(){
         GsonUtil MyClaimRuerst = new GsonUtil(URLconstant.URLINSER + URLconstant.MYCLAIMURL, RequestMethod.GET);
         MyClaimRuerst.add("deviceId", (new Build()).MODEL);
-        MyClaimRuerst.add("token", SearchFirmActivty.MD5s("86D9D7F53FCA45DD93E2D83DFCA0CB42" + (new Build()).MODEL));
-        MyClaimRuerst.add("KeyNo", "86D9D7F53FCA45DD93E2D83DFCA0CB42");
+        MyClaimRuerst.add("token", SearchFirmActivty.MD5s(csp.getID() + (new Build()).MODEL));
+        MyClaimRuerst.add("KeyNo", csp.getID());
         CallServer.getInstance().add(MyClaimActivity.this, MyClaimRuerst, MyhttpCallBack.getInstance(), 0x3031, true, false, true);
 
     }

@@ -250,14 +250,46 @@
                     android:layout_centerVertical="true"
                     />
             </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/us8"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/login_et_bg">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:textColor="@color/black"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="20dp"
+                    android:text="密码"/>
+                <ImageView
+                    android:id="@+id/u_tv8"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center_vertical"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="5dp"
+                    android:background="@mipmap/icon_back_act"/>
+            </RelativeLayout>
 
-
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="8sp"
+                android:layout_margin="10dp"
+                android:text="Tip:提交保存只相对于'头像','昵称','性别','邮箱','行业','学历','手机'"/>
             <android.support.v7.widget.AppCompatButton
                 android:id="@+id/user_set_submit"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="20dp"
                 android:layout_width="200dp"
                 android:layout_height="30dp"
                 android:text="提交保存"
+                android:gravity="center"
                 android:layout_gravity="center_horizontal"
                 android:background="@drawable/details_con_bg1"
                 android:textColor="@color/white"/>

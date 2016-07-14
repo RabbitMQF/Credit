@@ -43,6 +43,7 @@ import com.example.credit.Views.RoundImageView;
 import com.example.credit.Views.SlidingMenu;
 import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ViewInject;
+import com.squareup.picasso.Picasso;
 import com.yolanda.nohttp.RequestMethod;
 
 import java.io.File;
@@ -257,8 +258,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
                         ad.show();
                         GsonUtil request14 = new GsonUtil(URLconstant.URLINSER + URLconstant.MMOMM, RequestMethod.GET);
                         request14.add("deviceId", (new Build()).MODEL);
-                        request14.add("token", SearchFirmActivty.MD5s("86D9D7F53FCA45DD93E2D83DFCA0CB42" + (new Build()).MODEL));
-                        request14.add("KeyNo", "86D9D7F53FCA45DD93E2D83DFCA0CB42");
+                        request14.add("token", SearchFirmActivty.MD5s(csp.getID() + (new Build()).MODEL));
+                        request14.add("KeyNo", csp.getID());
                         CallServer.getInstance().add(MainActivity.this, request14, MyhttpCallBack.getInstance(), 0x206, true, false, true);
                     }
 
@@ -280,8 +281,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
                         ad.show();
                         GsonUtil MyconcernRuerst = new GsonUtil(URLconstant.URLINSER + URLconstant.MYFAVORITE, RequestMethod.GET);
                         MyconcernRuerst.add("deviceId", (new Build()).MODEL);
-                        MyconcernRuerst.add("token", SearchFirmActivty.MD5s("86D9D7F53FCA45DD93E2D83DFCA0CB42" + (new Build()).MODEL));
-                        MyconcernRuerst.add("KeyNo", "86D9D7F53FCA45DD93E2D83DFCA0CB42");
+                        MyconcernRuerst.add("token", SearchFirmActivty.MD5s(csp.getID() + (new Build()).MODEL));
+                        MyconcernRuerst.add("KeyNo", csp.getID());
                         CallServer.getInstance().add(MainActivity.this, MyconcernRuerst, MyhttpCallBack.getInstance(), 0x103, true, false, true);
                     }
 //                    Toast.makeText(MainActivity.this, "此模块，正在赶点加工中...", Toast.LENGTH_SHORT).show();
@@ -293,17 +294,21 @@ public class MainActivity extends Activity implements View.OnClickListener {
                         ad.show();
                         GsonUtil MyClaimRuerst = new GsonUtil(URLconstant.URLINSER + URLconstant.MYCLAIMURL, RequestMethod.GET);
                         MyClaimRuerst.add("deviceId", (new Build()).MODEL);
-                        MyClaimRuerst.add("token", SearchFirmActivty.MD5s("86D9D7F53FCA45DD93E2D83DFCA0CB42" + (new Build()).MODEL));
-                        MyClaimRuerst.add("KeyNo", "86D9D7F53FCA45DD93E2D83DFCA0CB42");
+                        MyClaimRuerst.add("token", SearchFirmActivty.MD5s(csp.getID() + (new Build()).MODEL));
+                        MyClaimRuerst.add("KeyNo",csp.getID());
                         CallServer.getInstance().add(MainActivity.this, MyClaimRuerst, MyhttpCallBack.getInstance(), 0x303, true, false, true);
                     }
 //                    Toast.makeText(MainActivity.this, "此模块，正在赶点加工中...", Toast.LENGTH_SHORT).show();
                     break;
                 case R.id.Smenu_5://服务协议
-                    Toast.makeText(MainActivity.this, "此模块，正在赶点加工中...", Toast.LENGTH_SHORT).show();
+                    Intent in12 = new Intent(MainActivity.this, AgreementActivity.class);
+                    startActivity(in12);
+//                    Toast.makeText(MainActivity.this, "此模块，正在赶点加工中...", Toast.LENGTH_SHORT).show();
                     break;
                 case R.id.Smenu_6://关于我们
-                    Toast.makeText(MainActivity.this, "此模块，正在赶点加工中...", Toast.LENGTH_SHORT).show();
+                    Intent in13 = new Intent(MainActivity.this, AboutActivity.class);
+                    startActivity(in13);
+//                    Toast.makeText(MainActivity.this, "此模块，正在赶点加工中...", Toast.LENGTH_SHORT).show();
                     break;
                 case R.id.login://登录
                     if (!LoginStatus) {//如果当前状态未登录  点登录的跳转
@@ -356,7 +361,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
             }
         }
     };
-
     /**
      * 获取我的投诉列表方法
      */
@@ -404,8 +408,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
             login.setText("退出登录");
             File file = new File(Environment.getExternalStorageDirectory() + "/Credit/loginImg.jpg");
             if (file.exists()) {//获取本地图片路径是否存在
-                Bitmap bm = BitmapFactory.decodeFile(Environment.getExternalStorageDirectory() + "/Credit/loginImg.jpg");
-                headimg.setImageBitmap(bm);
+//                Bitmap bm = BitmapFactory.decodeFile(Environment.getExternalStorageDirectory() + "/Credit/loginImg.jpg");
+//                headimg.setImageBitmap(bm);
+                Picasso.with(MainActivity.this).load(file).into(headimg);
             }
 
         } else {//若当前状态未未登录

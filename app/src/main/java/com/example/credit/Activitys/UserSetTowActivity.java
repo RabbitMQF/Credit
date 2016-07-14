@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -110,13 +111,31 @@ public class UserSetTowActivity extends Activity {
                 data_list.add("金融");
                 data_list.add("通信");
                 data_list.add("运输");
+
                 arr_adapter= new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, data_list);
                 arr_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 spinner2.setAdapter(arr_adapter);
+
+                for(int i=0;i<data_list.size();i++){
+                    if(data_list.get(i).equals(txt)){
+                        spinner2.setSelection(i);
+                    }
+                }
+                spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                    @Override
+                    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                        ustC_et.setText(data_list.get(position));
+                    }
+
+                    @Override
+                    public void onNothingSelected(AdapterView<?> parent) {
+
+                    }
+                });
                 break;
             case 6:
                 ll1.setVisibility(View.GONE);
-                spinner2.setVisibility(View.VISIBLE);
+                ll3.setVisibility(View.VISIBLE);
                 b_topname.setText("学历修改");
                 data_list = new ArrayList<String>();
                 data_list.add("本科");
@@ -127,9 +146,27 @@ public class UserSetTowActivity extends Activity {
                 arr_adapter= new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, data_list);
                 arr_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 spinner2.setAdapter(arr_adapter);
+
+                for(int i=0;i<data_list.size();i++){
+                    if(data_list.get(i).equals(txt)){
+                        spinner2.setSelection(i);
+                    }
+                }
+
+                spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                    @Override
+                    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                        ustC_et.setText(data_list.get(position));
+                    }
+
+                    @Override
+                    public void onNothingSelected(AdapterView<?> parent) {
+
+                    }
+                });
                 break;
             case 7:
-                b_topname.setText("手机号码修改");
+                b_topname.setText("手机号码修改");//
                 break;
         }
     }

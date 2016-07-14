@@ -7,6 +7,7 @@ import com.example.credit.Activitys.MainActivity;
 import com.example.credit.Activitys.MyClaimActivity;
 import com.example.credit.Activitys.MycomplaintsListActivity;
 import com.example.credit.Activitys.MyconcernActivity;
+import com.example.credit.Activitys.PassWordActivity;
 import com.example.credit.Activitys.RegisterActivity;
 import com.example.credit.Activitys.SearchFirmActivty;
 import com.example.credit.Activitys.ToClaimActivity;
@@ -1191,6 +1192,15 @@ public class MyhttpCallBack implements HttpCallBack {
                 }else{
                     UserSetActivity.handler.sendEmptyMessage(2);
                 }
+                break;
+            case 0x501://修改密码
+                jsonString = (String) response.get();
+                DataManager.user = gson.fromJson(jsonString, DataManager.User.class);
+                if(DataManager.user.message.equals("Successs")){
+                    PassWordActivity.handler.sendEmptyMessage(1);
+                }else{
+                    PassWordActivity.handler.sendEmptyMessage(2);
+                }
 
                 break;
             case 0x999://登入
@@ -1198,7 +1208,7 @@ public class MyhttpCallBack implements HttpCallBack {
                 map = gson.fromJson(jsonString, new TypeToken<Map<String, Object>>() {
                 }.getType());
 
-                if (!map.get("status").equals("1")) {//登入失败
+                if (!map.get("status").equals("1")) {//登入失败谁动了我的账号，给我站出来
                     Toast.show(map.get("message").toString());
                 } else {//登入成功
                     DataManager.user = gson.fromJson(jsonString, DataManager.User.class);

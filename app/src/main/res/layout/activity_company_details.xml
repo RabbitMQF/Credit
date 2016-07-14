@@ -58,17 +58,21 @@
                                 android:background="@mipmap/error_logo" />
                         </LinearLayout>
 
-
-                        <ImageView
+                        <LinearLayout
                             android:id="@+id/d_more"
-                            android:layout_width="30dp"
-                            android:layout_height="5dp"
-                            android:layout_marginLeft="10dp"
-                            android:layout_marginTop="20dp"
-                            android:onClick="popupmenu"
-                            android:layout_marginRight="20dp"
                             android:layout_alignParentRight="true"
-                            android:background="@mipmap/c_more" />
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <ImageView
+                                android:layout_width="30dp"
+                                android:layout_height="5dp"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginTop="20dp"
+                                android:onClick="popupmenu"
+                                android:layout_marginRight="20dp"
+                                android:background="@mipmap/c_more" />
+                        </LinearLayout>
                     </RelativeLayout>
                     <TextView
                         android:id="@+id/cp_name"
