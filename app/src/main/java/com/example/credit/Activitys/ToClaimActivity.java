@@ -59,7 +59,7 @@ import Decoder.BASE64Decoder;
 /**
  * 企业认领界面
  */
-public class ToClaimActivity extends Activity implements OnItemLongClickListener{
+public class ToClaimActivity extends BaseActivity implements OnItemLongClickListener{
     @ViewInject(R.id.b_topname)
     TextView b_topname;
     @ViewInject(R.id.b_return)
@@ -207,7 +207,7 @@ public class ToClaimActivity extends Activity implements OnItemLongClickListener
                     for (byte bs : b) {
                         str.append(Integer.toBinaryString(bs));//转换为二进制
                     }
-                    String imgpath =Environment.getExternalStorageDirectory() + "/Credit" + "/pag"+j+".jpg";
+                    String imgpath =Environment.getExternalStorageDirectory() + "/Credit/cache" + "/pag"+j+".jpg";
                     //把字节数组的图片写到另一个地方
                     File apple = new File(imgpath);
                     FileOutputStream fos = new FileOutputStream(apple);
@@ -463,6 +463,7 @@ public class ToClaimActivity extends Activity implements OnItemLongClickListener
         ArrayList<Drawable> newList = new ArrayList<Drawable>();
         if(isShowDelete){
             myList.remove(position);
+            isShowDelete=false;
         }
         newList.addAll(myList);
         myList.clear();

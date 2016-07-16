@@ -34,6 +34,7 @@ public class ToCommentActivity extends BaseActivity {
     @ViewInject(R.id.b_return)
     LinearLayout b_return;
 
+    WaitDialog wd;
     @ViewInject(R.id.To_details)
     EditText To_details;
     @ViewInject(R.id.To_details_num)
@@ -48,6 +49,7 @@ public class ToCommentActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_to_comment);
         ViewUtils.inject(this);
+        wd=new WaitDialog(this);
         csp=CreditSharePreferences.getLifeSharedPreferences();
         Build bd = new Build();
         deviceId=bd.MODEL;//设备ID
@@ -74,6 +76,7 @@ public class ToCommentActivity extends BaseActivity {
                         android.widget.Toast.makeText(ToCommentActivity.this, "发表评论失败!", android.widget.Toast.LENGTH_SHORT).show();
                         break;
                     case 21://评论
+                        wd.dismiss();
                         CommentListActivity.RUserreviewList= DataManager.UserreviewList;
                         finish();
 //                        Intent i21=new Intent(ToCommentActivity.this,CommentListActivity.class);
@@ -123,6 +126,7 @@ public class ToCommentActivity extends BaseActivity {
             switch (v.getId()){
                 case R.id.To_btn:
                     if(!To_details.getText().toString().equals("")){
+                        wd.show();
                         String KeyNo= DataManager.BaseinfoList.get(0).EnterAddtionID;
                         String token = SearchFirmActivty.MD5s(KeyNo + deviceId);
                         GsonUtil request14 = new GsonUtil(URLconstant.URLINSER + URLconstant.HHOMM, RequestMethod.GET);
@@ -134,7 +138,6 @@ public class ToCommentActivity extends BaseActivity {
                         CallServer.getInstance().add(ToCommentActivity.this, request14, MyhttpCallBack.getInstance(), 0x204, true, false, true);
                     }else{
                         android.widget.Toast.makeText(ToCommentActivity.this, "发表内容不能为空", android.widget.Toast.LENGTH_SHORT).show();
-
                     }
                     break;
             }

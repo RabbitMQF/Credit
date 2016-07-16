@@ -18,6 +18,8 @@ import com.squareup.picasso.Picasso;
 import java.io.File;
 import java.util.List;
 
+import static com.example.credit.Views.FileUtil.decodeBitmap;
+
 public class MyCommment_listAdapter extends BaseAdapter {
     private Context context;
     private List<DataManager.MyComm.DataBean.CommentListBean> list;
@@ -54,11 +56,10 @@ public class MyCommment_listAdapter extends BaseAdapter {
         } else {
             vh = (ViewHolder) view.getTag();
         }
-        File file = new File(Environment.getExternalStorageDirectory() + "/Credit/loginImg.jpg");
+        File file = new File(Environment.getExternalStorageDirectory() + "/Credit/cache/loginImg.jpg");
         if (file.exists()) {//获取本地图片路径是否存在
-//            Bitmap bm = BitmapFactory.decodeFile(Environment.getExternalStorageDirectory() + "/Credit/loginImg.jpg");
-//            vh.mycomm_img.setImageBitmap(bm);
-            Picasso.with(context).load(file).into(vh.mycomm_img);
+            vh.mycomm_img.setImageBitmap(decodeBitmap(Environment.getExternalStorageDirectory() + "/Credit/cache/loginImg.jpg",35,35));
+//            Picasso.with(context).load(file).into(vh.mycomm_img);
         }
         vh.mycomm_time.setText(list.get(position).CREATETIME);
         vh.mycomm_conn.setText(list.get(position).CONTENT);

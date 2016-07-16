@@ -102,7 +102,7 @@ public class ClaimDetailsActivity extends Activity {
                     str.append(Integer.toBinaryString(bs));//转换为二进制
                 }
 
-                String imgpath =Environment.getExternalStorageDirectory() + "/Credit" + "/pag"+i+".jpg";
+                String imgpath =Environment.getExternalStorageDirectory() + "/Credit/cache" + "/pag"+i+".jpg";
 
                 //把字节数组的图片写到另一个地方
                 File apple = new File(imgpath);

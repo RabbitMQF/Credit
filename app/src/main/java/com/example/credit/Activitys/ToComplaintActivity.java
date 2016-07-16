@@ -1,11 +1,13 @@
 package com.example.credit.Activitys;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
@@ -19,14 +21,18 @@ import android.support.v7.app.AlertDialog;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Base64;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Switch;
 import android.widget.TextView;
-
+import android.widget.AdapterView.OnItemLongClickListener;
 import com.example.credit.Adapters.MyGridAdapterClaim;
+import com.example.credit.Adapters.MyGridAdapterClaim2;
 import com.example.credit.Entitys.DataManager;
 import com.example.credit.R;
 import com.example.credit.Services.CallServer;
@@ -43,14 +49,17 @@ import com.yolanda.nohttp.RequestMethod;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import Decoder.BASE64Decoder;
+
 /**
  * 提交投诉界面
  */
-public class ToComplaintActivity extends BaseActivity {
+public class ToComplaintActivity extends BaseActivity implements OnItemLongClickListener {
     @ViewInject(R.id.b_topname)
     TextView b_topname;//顶栏
     @ViewInject(R.id.b_return)
@@ -76,11 +85,13 @@ public class ToComplaintActivity extends BaseActivity {
     AlertDialog.Builder builder;
     public Drawable[] imgs1; //九张图片数组
     int i=0;
+    int position,type;
     List<String> listStirng=new ArrayList<>();
     public static Handler handler;
     public static ProgressDialog pd;
-    MyGridAdapterClaim adapters;
+    MyGridAdapterClaim2 adapters;
     ArrayList<Drawable> myList=new ArrayList<Drawable>();
+    boolean isShowDelete=false;//是否长按状态
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -104,13 +115,43 @@ public class ToComplaintActivity extends BaseActivity {
                         MycomplaintsListActivity.handler.sendEmptyMessage(4);//通知投诉listview更新数据源重新适配UI
                         break;
                     case 1://提交文字成功
-                        if(imgs1!=null){
+
+                        /**
+                         * 删除图片改容器
+                         */
+                        for(int i=0;i<myList.size();i++){
+                            BitmapDrawable bd = (BitmapDrawable) myList.get(i);
+                            Bitmap bitmap = bd.getBitmap();
+                            try {
+                                ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                                //将bitmap一字节流输出 Bitmap.CompressFormat.PNG 压缩格式，100：压缩率，baos：字节流
+                                bitmap.compress(Bitmap.CompressFormat.PNG, 100, baos);
+                                baos.close();
+                                byte[] buffer = baos.toByteArray();
+                                //将图片的字节流数据加密成base64字符输出
+                                String pic=Base64.encodeToString(buffer, 0, buffer.length,Base64.DEFAULT);
+                                listStirng.add(pic);
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                        }
+
+
+
+
+
+
+
+
+
+                        if(imgs1!=null||listStirng.size()>0){
                             String attchmentDescS="";
                             String attchmentSteamS="";
-                            for(int j=0;j<i;j++){
+                            /*for(int j=0;j<i;j++){
                                 attchmentDescS=attchmentDescS+"pic@";
-                            }
+                            }*/
                             for(int c=0;c<listStirng.size();c++){
+                                attchmentDescS=attchmentDescS+"pic@";//
                                 attchmentSteamS=attchmentSteamS+listStirng.get(c)+"@";
                             }
 
@@ -143,6 +184,7 @@ public class ToComplaintActivity extends BaseActivity {
         pd.setMessage("提交数据中，请稍后...");
         pd.setCancelable(false);
         b_topname.setText("我要投诉");
+        myGridViewtc.setOnItemLongClickListener(this);
         b_return.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -204,8 +246,72 @@ public class ToComplaintActivity extends BaseActivity {
                 }
             }
         });
+        myGridViewtc.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view,
+                                    int position, long id) {
+                // TODO Auto-generated method stub
+                ImageView bg= (ImageView)view.findViewById(R.id.ivc_items);
+                if(!isShowDelete){
+                    onThumbnailClick(bg);
+                }else{
+                    delete(position);
+                    adapters=new MyGridAdapterClaim2(ToComplaintActivity.this,myList);
+                    adapters.setIsShowDelete(isShowDelete);
+                    myGridViewtc.setAdapter(adapters);
+                    adapters.notifyDataSetChanged();
+                }
+
+            }
+        });
+
+
+
+
+
+//        /**
+//         * 附件图片赋值
+//         */
+//        for(int j=0;j<DataManager.MyClaimUtilsModel.data.Claimlist.get(position).AttachmentList.size();j++){
+//            String base64String=DataManager.MyClaimUtilsModel.data.Claimlist.get(position).AttachmentList.get(j).ATTACHMENTPATH;
+//            try {
+//                BASE64Decoder decode = new BASE64Decoder();
+//                byte[] b = decode.decodeBuffer(base64String);
+//                System.out.println(new String(b));
+//                StringBuilder str = new StringBuilder();//不建议用String
+//                for (byte bs : b) {
+//                    str.append(Integer.toBinaryString(bs));//转换为二进制
+//                }
+//                String imgpath =Environment.getExternalStorageDirectory() + "/Credit" + "/pag"+j+".jpg";
+//                //把字节数组的图片写到另一个地方
+//                File apple = new File(imgpath);
+//                FileOutputStream fos = new FileOutputStream(apple);
+//                fos.write(b);
+//                fos.flush();
+//                fos.close();
+//                //==============
+//                File file = new File(imgpath);
+//                if (file.exists()) {//获取本地图片路径是否存在
+//                    Bitmap bm = BitmapFactory.decodeFile(imgpath);
+//                    Drawable drawable = new BitmapDrawable(null, bm);
+//                    myList.add(drawable);
+//                }
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
+//        }
+
+
+
+
+
         com_submit.setOnClickListener(listener);
         com_photo.setOnClickListener(listener);
+
+
+
+
+
 
     }
 
@@ -306,6 +412,18 @@ public class ToComplaintActivity extends BaseActivity {
             // 取得SDCard图片路径做显示
             Bitmap photo = extras.getParcelable("data");
             Drawable drawable = new BitmapDrawable(null, photo);
+            myList.add(drawable);;
+            adapters = new MyGridAdapterClaim2(ToComplaintActivity.this, myList);
+            myGridViewtc.setAdapter(adapters);
+        }
+
+
+
+        /*Bundle extras = picdata.getExtras();
+        if (extras != null) {
+            // 取得SDCard图片路径做显示
+            Bitmap photo = extras.getParcelable("data");
+            Drawable drawable = new BitmapDrawable(null, photo);
 
             imgs1[i]=drawable;
             adapters= new MyGridAdapterClaim(ToComplaintActivity.this, imgs1);
@@ -323,7 +441,83 @@ public class ToComplaintActivity extends BaseActivity {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+        }*/
+    }
+
+    /**
+     * 执行删除方法
+     * @param position
+     */
+    private void delete(int position) {
+        ArrayList<Drawable> newList = new ArrayList<Drawable>();
+        if(isShowDelete){
+            myList.remove(position);
+            isShowDelete=false;
         }
+        newList.addAll(myList);
+        myList.clear();
+        myList.addAll(newList);
+    }
+
+
+    @Override
+    public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+        if (isShowDelete) {
+            isShowDelete = false;
+        } else {
+            isShowDelete=true;
+            adapters.setIsShowDelete(isShowDelete);
+        }
+        adapters.setIsShowDelete(isShowDelete);
+        return true;
+    }
+
+
+    /**
+     * 显示大图
+     * @param img
+     */
+    public void onThumbnailClick(ImageView img) {
+        final Dialog dialog = new Dialog(ToComplaintActivity.this, android.R.style.Theme_Black_NoTitleBar);
+        ImageView imgView = getView(img);
+        dialog.setContentView(imgView);
+        dialog.show();
+        // 点击图片消失
+        imgView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // TODO Auto-generated method stub
+                dialog.dismiss();
+            }
+        });
+    }
+
+
+    /**
+     * 获取图片
+     * @param img
+     * @return
+     */
+    private ImageView getView(ImageView img) {
+        ImageView imgView = new ImageView(ToComplaintActivity.this);
+        imgView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+        imgView.setImageDrawable(img.getDrawable());
+        return imgView;
+    }
+
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        // TODO Auto-generated method stub
+        if (keyCode == KeyEvent.KEYCODE_BACK && event.getAction() == KeyEvent.ACTION_DOWN) {
+            if(isShowDelete){
+                isShowDelete=false;
+                adapters.setIsShowDelete(isShowDelete);
+                return false;
+            }else{
+                finish();
+                overridePendingTransition(R.anim.finish_tran_one, R.anim.finish_tran_two);
+            }
+        }
+        return super.onKeyDown(keyCode, event);
     }
 
 }

@@ -14,9 +14,9 @@ import java.util.List;
 
 public class Support_CAdapter extends BaseAdapter {
     private Context context;
-    private List<DataManager.supportInfo> list;
+    private List<DataManager.supportInfo.DataBean.AdvertisingBean> list;
 
-    public Support_CAdapter(Context context, List<DataManager.supportInfo> list) {
+    public Support_CAdapter(Context context, List<DataManager.supportInfo.DataBean.AdvertisingBean> list) {
         this.context = context;
         this.list = list;
     }
@@ -50,7 +50,7 @@ public class Support_CAdapter extends BaseAdapter {
         } else {
             vh = (ViewHolder) view.getTag();
         }
-        vh.sitem_tv1C.setText(list.get(position).ENJSPAMOUNT);
+        vh.sitem_tv1C.setText(list.get(position).ENJSPAMOUNT+"");
         vh.sitem_tv2C.setText(list.get(position).ENJSPCONTENT);
         vh.sitem_tv3C.setText(list.get(position).IMPSPDEPART);
         vh.sitem_tv4C.setText(list.get(position).IMPSPDATE);

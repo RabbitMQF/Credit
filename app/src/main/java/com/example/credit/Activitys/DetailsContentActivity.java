@@ -326,22 +326,22 @@ public class DetailsContentActivity extends BaseActivity {
 
         lt.add(DataManager.gsxx.data.BaseInfo.REGCAP + "万元");
 
-        if(!DataManager.gsxx.data.BaseInfo.NAME.equals("")){
+        if(DataManager.gsxx.data.BaseInfo.NAME!=null&&!DataManager.gsxx.data.BaseInfo.NAME.equals("")&&!DataManager.gsxx.data.BaseInfo.NAME.equals(null)){
             lt.add(DataManager.gsxx.data.BaseInfo.NAME);
         }else{
             lt.add("暂无信息");
         }
-        if(!DataManager.gsxx.data.BaseInfo.APPRDATE.equals("")){
+        if(DataManager.gsxx.data.BaseInfo.APPRDATE!=null&&!DataManager.gsxx.data.BaseInfo.APPRDATE.equals(null)&&!DataManager.gsxx.data.BaseInfo.APPRDATE.equals("")){
             lt.add(DataManager.gsxx.data.BaseInfo.APPRDATE);
         }else{
             lt.add("暂无信息");
         }
-        if(!DataManager.gsxx.data.BaseInfo.ESTDATE.equals("")){
+        if(DataManager.gsxx.data.BaseInfo.ESTDATE!=null&&!DataManager.gsxx.data.BaseInfo.ESTDATE.equals(null)&&!DataManager.gsxx.data.BaseInfo.ESTDATE.equals("")){
             lt.add(DataManager.gsxx.data.BaseInfo.ESTDATE);
         }else{
             lt.add("暂无信息");
         }
-        if(!DataManager.gsxx.data.BaseInfo.REGNO.equals("")){
+        if(DataManager.gsxx.data.BaseInfo.REGNO!=null&&!DataManager.gsxx.data.BaseInfo.REGNO.equals(null)&&!DataManager.gsxx.data.BaseInfo.REGNO.equals("")){
             lt.add(DataManager.gsxx.data.BaseInfo.REGNO);
         }else{
             lt.add("暂无信息");
@@ -358,7 +358,7 @@ public class DetailsContentActivity extends BaseActivity {
          * 判断企业类型是否为空
          */
         try{
-            if(!(DataManager.gsxx.data.BaseInfo.ENTTYPE_CN).equals("")){
+            if(DataManager.gsxx.data.BaseInfo.ENTTYPE_CN!=null&&!DataManager.gsxx.data.BaseInfo.ENTTYPE_CN.equals(null)&&!(DataManager.gsxx.data.BaseInfo.ENTTYPE_CN).equals("")){
                 c_type.setText(DataManager.gsxx.data.BaseInfo.ENTTYPE_CN);//企业类型
             }else{
                 c_type.setText("暂无信息");
@@ -370,7 +370,7 @@ public class DetailsContentActivity extends BaseActivity {
          * 判断经营状态是否为空
          */
         try{
-            if(!(DataManager.gsxx.data.BaseInfo.REGSTATE_CN).equals("")){
+            if(DataManager.gsxx.data.BaseInfo.REGSTATE_CN!=null&&!DataManager.gsxx.data.BaseInfo.REGSTATE_CN.equals(null)&&!(DataManager.gsxx.data.BaseInfo.REGSTATE_CN).equals("")){
                 c_state.setText(DataManager.gsxx.data.BaseInfo.REGSTATE_CN);//经营状态/
             }else{
                 c_state.setText("暂无信息");
@@ -382,7 +382,7 @@ public class DetailsContentActivity extends BaseActivity {
          * 判断经营范围是否为空
          */
         try{
-            if(!(DataManager.gsxx.data.BaseInfo.OPSCOPE).equals("")){
+            if(DataManager.gsxx.data.BaseInfo.OPSCOPE!=null&&!DataManager.gsxx.data.BaseInfo.OPSCOPE.equals(null)&&!(DataManager.gsxx.data.BaseInfo.OPSCOPE).equals("")){
                 c_fangwei.setText(DataManager.gsxx.data.BaseInfo.OPSCOPE);//经营范围
             }else{
                 c_fangwei.setText("暂无信息");
@@ -394,7 +394,7 @@ public class DetailsContentActivity extends BaseActivity {
          * 判断企业地址是否为空
          */
         try{
-            if(!(DataManager.gsxx.data.BaseInfo.DOM).equals("")){
+            if(DataManager.gsxx.data.BaseInfo.DOM!=null&&!DataManager.gsxx.data.BaseInfo.DOM.equals(null)&&!(DataManager.gsxx.data.BaseInfo.DOM).equals("")){
                 c_address.setText(DataManager.gsxx.data.BaseInfo.DOM);//企业地址
             }else{
                 c_address.setText("暂无信息");

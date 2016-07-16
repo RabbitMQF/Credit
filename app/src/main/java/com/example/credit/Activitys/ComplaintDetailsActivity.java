@@ -99,8 +99,8 @@ public class ComplaintDetailsActivity extends BaseActivity {
                 for (byte bs : b) {
                     str.append(Integer.toBinaryString(bs));//转换为二进制
                 }
-                String path=Environment.getExternalStorageDirectory() + "/Credit/";
-                String imgpath = Environment.getExternalStorageDirectory() + "/Credit" + "/pag" + i + ".jpg";
+                String path=Environment.getExternalStorageDirectory() + "/Credit/cache/";
+                String imgpath = Environment.getExternalStorageDirectory() + "/Credit/cache" + "/pag" + i + ".jpg";
                 //把字节数组的图片写到另一个地方
                 File apple2=new File(path);
 

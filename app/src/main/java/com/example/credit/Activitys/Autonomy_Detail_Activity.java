@@ -3,6 +3,7 @@ package com.example.credit.Activitys;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ScrollView;
@@ -71,6 +72,12 @@ public class Autonomy_Detail_Activity extends BaseActivity{
                 autoAdapter.setData(DataManager.reportList,null,null,null,null,null);
                 report_lv.setAdapter(autoAdapter);
                 autoAdapter.notifyDataSetChanged();
+                report_lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                        startActivity(new Intent(Autonomy_Detail_Activity.this,WebAutonomy.class).putExtra("KeyNo", DataManager.reportList.get(position).ANCHEID));
+                    }
+                });
                 break;
             case "股东及出资信息":
                 report.setVisibility(View.GONE);

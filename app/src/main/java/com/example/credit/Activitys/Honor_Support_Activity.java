@@ -59,7 +59,7 @@ public class Honor_Support_Activity extends BaseActivity {
             case 2:
                 b_topname.setText(Tname);
                 sh_tit.setText(Tname);
-               Support_CAdapter hcadapter2=new Support_CAdapter(Honor_Support_Activity.this, DataManager.supportInfoList);
+               Support_CAdapter hcadapter2=new Support_CAdapter(Honor_Support_Activity.this, DataManager.supportInfoS.data.advertising);
                 hListView1.setAdapter(hcadapter2);
                 break;
         }

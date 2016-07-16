@@ -96,7 +96,8 @@ public class MycomplaintsListActivity extends BaseActivity {
 
         Intent i = getIntent();
         if (i.getIntExtra("key", 0) == 1) {
-            b_topY.setText("提交投诉");
+            b_topY.setText("我要投诉");
+            b_topY.setTextSize(16);
             b_topY.setVisibility(View.VISIBLE);
             Cadapter.setTag();
 

@@ -46,7 +46,7 @@ public class AbnormalAdapter extends BaseAdapter {
             vh.a_tv2=(TextView) view.findViewById(R.id.a_tv2);
             vh.a_tv3=(TextView) view.findViewById(R.id.a_tv3);
             vh.a_tv4=(TextView) view.findViewById(R.id.a_tv4);
-            vh.a_tv5=(TextView) view.findViewById(R.id.a_tv4);
+            vh.a_tv5=(TextView) view.findViewById(R.id.a_tv5);
             view.setTag(vh);
         } else {
             vh = (ViewHolder) view.getTag();

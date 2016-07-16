@@ -9,6 +9,7 @@ import java.util.List;
 public class DataManager {
 
     public static MyComm MyComms=new MyComm();
+
     /**
      *我的评价
      */
@@ -424,14 +425,34 @@ public class DataManager {
      * 企业扶持信息实体类
      */
 
-    public static List<supportInfo> supportInfoList;
+
+
+
+    public static supportInfo supportInfoS=new supportInfo();
 
     public static class supportInfo {
-        public String PRIPID;//主体身份代码
-        public String ENJSPAMOUNT;//享受扶持政策的数额
-        public String ENJSPCONTENT;//享受扶持政策内容
-        public String IMPSPDEPART;//享受扶持政策的的部门
-        public String IMPSPDATE;//实施扶持政策日期
+        public String message;
+        public String status;
+        public DataBean data;
+        public String version;
+        public static class DataBean {
+            /**
+             * IMPSPDEPART : 工商局
+             * ENJSPCONTENT : 新开企业补贴
+             * ENJSPAMOUNT : 100
+             * IMPSPDATE : 2015-06-08
+             * PRIPID : 3606222010112300036792
+             */
+            public List<AdvertisingBean> advertising;
+            public static class AdvertisingBean {
+                public String PRIPID;//主体身份代码
+                public int ENJSPAMOUNT;//享受扶持政策的数额
+                public String ENJSPCONTENT;//享受扶持政策内容
+                public String IMPSPDEPART;//享受扶持政策的的部门
+                public String IMPSPDATE;//实施扶持政策日期
+
+            }
+        }
 
     }
 
@@ -947,7 +968,7 @@ public class DataManager {
      * 司法信息实体类
      */
 
-    public static List<JudicialDocuments> JudicialDocumentsList;
+    public static List<JudicialDocuments> JudicialDocumentsList=new ArrayList<>();
 
     public static class JudicialDocuments {//司法文书信息
         public String CASENUM;//判决书文号
@@ -957,7 +978,7 @@ public class DataManager {
         public String REDECORG_CN;//详情
     }
 
-    public static List<CrackCredit> CrackCreditList;
+    public static List<CrackCredit> CrackCreditList=new ArrayList<>();
 
     public static class CrackCredit {//失信被执行人信息
         public String COURT_NAME;//执行法院
@@ -968,7 +989,7 @@ public class DataManager {
         public String DISREPUT_TYPE_NAME;//类型名称（APP增加此项）
     }
 
-    public static List<ShareholderInformationChange> ShareholderInformationChangeList;
+    public static List<ShareholderInformationChange> ShareholderInformationChangeList=new ArrayList<>();
 
     public static class ShareholderInformationChange {//股东变更信息
         public String ALIEN;//受让人
@@ -978,7 +999,7 @@ public class DataManager {
         public String INV;//被执行人
     }
 
-    public static List<FrozenInformation> FrozenInformationList;
+    public static List<FrozenInformation> FrozenInformationList=new ArrayList<>();
 
     public static class FrozenInformation {//股权冻结信息
         public String FROID;//冻结ID
@@ -992,7 +1013,7 @@ public class DataManager {
     /**
      * 广告信息实体类
      */
-    public static List<advertisementInfo> advertisementInfoList;
+    public static List<advertisementInfo> advertisementInfoList=new ArrayList<>();
 
     public static class advertisementInfo {
         public String ADVERTID;//ID
@@ -1007,7 +1028,7 @@ public class DataManager {
     /**
      * 守合同重信用信息实体类
      */
-    public static List<obeyedInfo> obeyedInfoList;
+    public static List<obeyedInfo> obeyedInfoList=new ArrayList<>();
 
     public static class obeyedInfo {
         public String PRIPID;//企业id
@@ -1111,6 +1132,7 @@ public class DataManager {
      */
     public static class Userreview {
         public String ENTERID;//附加表的企业ID
+        public String ICONPATH;//头像
         public String FAILEDQTY;//点赞吐槽
         public String replay2reviewCount;
         public String MEMBERID;//本评论用户ID
@@ -1539,5 +1561,16 @@ public class DataManager {
         }
     }
 
+    public  static TwoDim TwoDimSli=new TwoDim();
+
+    public static class TwoDim {
+        public String message;
+        public String status;
+        public DataBean data;
+        public String version;
+        public static class DataBean {
+            public String result;
+        }
+    }
 }
 

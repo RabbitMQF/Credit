@@ -2,6 +2,7 @@ package com.example.credit.Adapters;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Environment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,7 +18,14 @@ import com.example.credit.R;
 import com.example.credit.Views.MyListView;
 import com.example.credit.Views.RoundImageView;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.List;
+
+import Decoder.BASE64Decoder;
+
+import static com.example.credit.Views.FileUtil.decodeBitmap;
 
 public class CommmentAdapter extends BaseAdapter {
     private Context context;
@@ -69,13 +77,15 @@ public class CommmentAdapter extends BaseAdapter {
         } else {
             vh = (ViewHolder) view.getTag();
         }
+
+        vh.comm_img.setImageBitmap(decodeBitmap(Environment.getExternalStorageDirectory() + "/Credit/cache/"+list.get(position).COMMENTID+".jpg",35,35));
         vh.comm_name.setText(list.get(position).MEMBERNAME);
         vh.comm_time.setText(list.get(position).CREATETIME);
         vh.comm_cont.setText(list.get(position).CONTENT);
         vh.nogood_num.setText(list.get(position).FAILEDQTY);
         vh.pl_good_num.setText(list.get(position).SUCCESSQTY);
 
-String s=list.get(position).ISSUCCESS;
+        String s=list.get(position).ISSUCCESS;
         String s2=list.get(position).ISFAILED;
 
         if(list.get(position).ISSUCCESS.equals("0")){//是否点赞
@@ -132,6 +142,8 @@ String s=list.get(position).ISSUCCESS;
 //        }
         return view;
     }
+
+
 
     public class ViewHolder {
         RoundImageView comm_img;//用户头像

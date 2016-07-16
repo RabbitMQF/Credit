@@ -10,7 +10,9 @@ import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
 import com.example.credit.Adapters.MyGridAdapter4;
+import com.example.credit.Entitys.DataManager;
 import com.example.credit.R;
 import com.example.credit.Views.MyGridView;
 
@@ -19,7 +21,7 @@ import com.example.credit.Views.MyGridView;
  * 自主公示
  */
 public class AutonomyActivity extends BaseActivity {
-    TextView auto_title,topBar;
+    TextView auto_title, topBar;
     MyGridView auto_mgv;
     MyGridAdapter4 autoAdapter;
 
@@ -36,10 +38,10 @@ public class AutonomyActivity extends BaseActivity {
         auto_title = (TextView) findViewById(R.id.menu_title);
         auto_title.setText("企业自主公示");
         auto_mgv = (MyGridView) findViewById(R.id.myGridView4);
-        topBar= (TextView) findViewById(R.id.b_topname);
+        topBar = (TextView) findViewById(R.id.b_topname);
         autoAdapter = new MyGridAdapter4(this, getResources().getStringArray(R.array.autonomy));
-        LinearLayout.LayoutParams layoutParam = new LinearLayout.LayoutParams( ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        layoutParam.setMargins(10,10,0,10);
+        LinearLayout.LayoutParams layoutParam = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        layoutParam.setMargins(10, 10, 0, 10);
         auto_mgv.setLayoutParams(layoutParam);
         autoAdapter.setmargin(layoutParam);
         auto_mgv.setAdapter(autoAdapter);
@@ -49,10 +51,14 @@ public class AutonomyActivity extends BaseActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 TextView tbv = (TextView) view.findViewById(R.id.tbv);
-                Intent in = new Intent(AutonomyActivity.this, Autonomy_Detail_Activity.class);
-                in.putExtra("key", tbv.getText());
-                startActivity(in);
-                overridePendingTransition(R.anim.start_tran_one,R.anim.start_tran_two);
+//                if (tbv.getText() == "企业年报") {
+//                   startActivity(new Intent(AutonomyActivity.this,WebAutonomy.class).putExtra("KeyNo", DataManager.reportList.get(position).ANCHEID));
+//                } else {
+                    Intent in = new Intent(AutonomyActivity.this, Autonomy_Detail_Activity.class);
+                    in.putExtra("key", tbv.getText());
+                    startActivity(in);
+                    overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
+//                }
             }
         });
         findViewById(R.id.b_return).setOnClickListener(new View.OnClickListener() {

@@ -91,6 +91,7 @@ public class URLconstant {
 
     public static final String RPASSWORD="userMemberController/passwordModify.do";//修改密码接口revise
 
+    public static final String TWODIM="businessController/createTwoDimensionCode.do";//修改密码接口revise
 
 //    public static final String GETCITYLIST="http://app.qichacha.com/enterprises/new/GetCityList";//获取城市接口
 

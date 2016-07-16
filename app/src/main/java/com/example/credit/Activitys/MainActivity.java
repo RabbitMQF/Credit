@@ -16,6 +16,7 @@ import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
 import android.provider.MediaStore;
+import android.view.Display;
 import android.view.KeyEvent;
 import android.view.View;
 
@@ -51,6 +52,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 import Decoder.BASE64Decoder;
+
+import static com.example.credit.Views.FileUtil.decodeBitmap;
 
 public class MainActivity extends Activity implements View.OnClickListener {
     private long exitTime = 0;
@@ -136,7 +139,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
         ViewUtils.inject(this);
         ad = new WaitDialog(this);
         initView();
-        loginImg();
 
         mLeftMenu = (SlidingMenu) findViewById(R.id.id_menu);
 
@@ -406,13 +408,11 @@ public class MainActivity extends Activity implements View.OnClickListener {
         if (LoginStatus) {//若当前状态为登录
             UserSz.setText(csp.getALIASNAME());
             login.setText("退出登录");
-            File file = new File(Environment.getExternalStorageDirectory() + "/Credit/loginImg.jpg");
+            File file = new File(Environment.getExternalStorageDirectory() + "/Credit/cache/loginImg.jpg");
             if (file.exists()) {//获取本地图片路径是否存在
-//                Bitmap bm = BitmapFactory.decodeFile(Environment.getExternalStorageDirectory() + "/Credit/loginImg.jpg");
-//                headimg.setImageBitmap(bm);
-                Picasso.with(MainActivity.this).load(file).into(headimg);
+                headimg.setImageBitmap(decodeBitmap(Environment.getExternalStorageDirectory() + "/Credit/cache/loginImg.jpg",80,80));
+//                Picasso.with(MainActivity.this).load(file).into(headimg);
             }
-
         } else {//若当前状态未未登录
             login.setText("登录");
             UserSz.setText("游客");
@@ -420,25 +420,22 @@ public class MainActivity extends Activity implements View.OnClickListener {
         }
     }
 
-    public void loginImg(){
-        String s=csp.getICONSTEAM();
-        if(csp.getICONSTEAM()!=null){
+    public static void loginImg(String base64){
+        if(base64!=null){
             try {
                 BASE64Decoder decode = new BASE64Decoder();
-                byte[] b = decode.decodeBuffer(csp.getICONSTEAM());
+                byte[] b = decode.decodeBuffer(base64);
                 System.out.println(new String(b));
                 StringBuilder str = new StringBuilder();//不建议用String
                 for (byte bs : b) {
                     str.append(Integer.toBinaryString(bs));//转换为二进制
                 }
                 //把字节数组的图片写到另一个地方
-                File apple = new File(Environment.getExternalStorageDirectory() + "/Credit/loginImg.jpg");
+                File apple = new File(Environment.getExternalStorageDirectory() + "/Credit/cache/loginImg.jpg");
                 FileOutputStream fos = new FileOutputStream(apple);
-
                 fos.write(b);
                 fos.flush();
                 fos.close();
-
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -454,7 +451,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
     @Override
     protected void onResume() {
         super.onResume();
-        loginImg();
         isLogin();
     }
 
@@ -473,6 +469,4 @@ public class MainActivity extends Activity implements View.OnClickListener {
         }
         return super.onKeyDown(keyCode, event);
     }
-
-
 }

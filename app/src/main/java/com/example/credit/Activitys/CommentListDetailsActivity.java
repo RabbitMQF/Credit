@@ -79,7 +79,7 @@ public class CommentListDetailsActivity extends BaseActivity {
     EditText huifu_con;//回复内容
     @ViewInject(R.id.Dhuifu_btn)
     TextView huifu_btn;//回复按钮
-    ProgressDialog pd;
+    public static ProgressDialog pd;
     int position;//下标
     public static Handler handler;
     String deviceId,uid,pid,KeyNo,token;
@@ -92,23 +92,23 @@ public class CommentListDetailsActivity extends BaseActivity {
         setContentView(R.layout.activity_comment_list_details);
         ViewUtils.inject(this);
         csp=CreditSharePreferences.getLifeSharedPreferences();
-        Build bd = new Build();
-        deviceId=bd.MODEL;//设备ID
-        KeyNo=DataManager.UserreviewList.get(position).COMMENTID;
-        token = SearchFirmActivty.MD5s(KeyNo + deviceId);
         Intent i=getIntent();
         position=i.getIntExtra("position",0);
         uid=i.getStringExtra("uid");
         pid=i.getStringExtra("pid");
+        Build bd = new Build();
+        deviceId=bd.MODEL;//设备ID
+        KeyNo=DataManager.UserreviewList.get(position).COMMENTID;
+        token = SearchFirmActivty.MD5s(KeyNo + deviceId);
         handler=new Handler(){
             @Override
             public void handleMessage(Message msg) {
                 switch (msg.what){
                     case 0:
-                        nogoodhttp(0x2031);
+//                        nogoodhttp(0x2031);
                         break;
                     case 1:
-                        SimpleDateFormat sDateFormat=new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+                        SimpleDateFormat sDateFormat=new SimpleDateFormat("yyyy-MM-dd");
                         String  date =sDateFormat.format(new java.util.Date());
                         DataManager.Replay2review r2=new DataManager.Replay2review();
                         r2.CHILDMEMBERNAME=DataManager.UserreviewList.get(position).MEMBERNAME;
@@ -123,13 +123,11 @@ public class CommentListDetailsActivity extends BaseActivity {
                         /**
                          * 重新查一遍评论
                          */
-                        String KeyNos=DataManager.BaseinfoList.get(0).EnterAddtionID;
-                        String tokens= SearchFirmActivty.MD5s(KeyNos + deviceId);
                         GsonUtil request14 = new GsonUtil(URLconstant.URLINSER + URLconstant.COMM, RequestMethod.GET);
-                        request14.add("deviceId",deviceId);
-                        request14.add("token",tokens);
-                        request14.add("KeyNo",KeyNos);
-                        request14.add("memberId",csp.getID());
+                        request14.add("deviceId", (new Build()).MODEL);
+                        request14.add("token", SearchFirmActivty.MD5s(DataManager.BaseinfoList.get(0).EnterAddtionID + (new Build()).MODEL));
+                        request14.add("KeyNo", DataManager.BaseinfoList.get(0).EnterAddtionID);
+                        request14.add("memberId", csp.getID());
                         CallServer.getInstance().add(CommentListDetailsActivity.this, request14, MyhttpCallBack.getInstance(), 0x20111, true, false, true);
                         break;
                     case 3:
@@ -144,7 +142,6 @@ public class CommentListDetailsActivity extends BaseActivity {
                         android.widget.Toast.makeText(CommentListDetailsActivity.this, "回复失败!", android.widget.Toast.LENGTH_SHORT).show();
                         break;
                     case 21://评论
-                        pd.dismiss();
                         CommentListActivity.RUserreviewList= DataManager.UserreviewList;
                         finish();
 //                        Intent i21=new Intent(CommentListDetailsActivity.this,CommentListActivity.class);
@@ -304,44 +301,42 @@ public class CommentListDetailsActivity extends BaseActivity {
         pd=new ProgressDialog(CommentListDetailsActivity.this);
         pd.setMessage("正在加载中...");
         pd.setCancelable(false);
-        pd.show();
         S=Integer.parseInt(DataManager.UserreviewList.get(position).SUCCESSQTY.trim());//原来点赞数值
         N=Integer.parseInt(plD_good_num.getText().toString());//当前点赞数值
         So=Integer.parseInt(DataManager.UserreviewList.get(position).FAILEDQTY.trim());//原来差评数值
         No=Integer.parseInt(Dnogood_num.getText().toString());//当前差评数值
-        if(N!=S && No==So){//当当前点赞数值等于原来所赋值的数值，差评数量不变，则只执行点赞请求
-            goodhttp(0x202);
-        }else if(No!=So && N==S) {//当当前差评数值等于原来所赋值的数值，好评数量不变，则只执行差评请求
-            nogoodhttp(0x203);
-        }else if(N!=S && No!=So){//当当前差评数值等于原来所赋值的数值，当前点赞数值等于原来所赋值的数值，则先执行好评，后执行差评请求
-            goodhttp(0x2021);
+        if(N!=S){//当当前点赞数值等于原来所赋值的数值，差评数量不变，则只执行点赞请求
+            pd.show();
+            GsonUtil request14 = new GsonUtil(URLconstant.URLINSER + URLconstant.ZZOMM, RequestMethod.GET);
+            request14.add("KeyNo",KeyNo);
+            request14.add("token",token);
+            request14.add("deviceId",deviceId);
+            request14.add("memberId",csp.getID());
+            if(N>S){//当当前点赞数值大于原来所赋值的数值，则为点赞+1
+                request14.add("opeType","0");
+            }else{
+                request14.add("opeType","1");
+            }
+            CallServer.getInstance().add(CommentListDetailsActivity.this, request14, MyhttpCallBack.getInstance(), 0x202, true, false, true);
         }
-    }
-    public void goodhttp(int good){
-        GsonUtil request14 = new GsonUtil(URLconstant.URLINSER + URLconstant.ZZOMM, RequestMethod.GET);
-        request14.add("KeyNo",KeyNo);
-        request14.add("token",token);
-        request14.add("deviceId",deviceId);
-        request14.add("memberId",csp.getID());
-        if(N>S){//当当前点赞数值大于原来所赋值的数值，则为点赞+1
-            request14.add("opeType","0");
+        if(No!=So) {//当当前差评数值等于原来所赋值的数值，好评数量不变，则只执行差评请求
+            pd.show();
+            GsonUtil request14 = new GsonUtil(URLconstant.URLINSER + URLconstant.NNOMM, RequestMethod.GET);
+            request14.add("KeyNo",KeyNo);
+            request14.add("token",token);
+            request14.add("deviceId",deviceId);
+            request14.add("memberId",csp.getID());
+            if(No>So){//当当前差评数值大于原来所赋值的数值，则为差评+1
+                request14.add("opeType","0");
+            }else{
+                request14.add("opeType","1");
+            }
+            CallServer.getInstance().add(CommentListDetailsActivity.this, request14, MyhttpCallBack.getInstance(), 0x203, true, false, true);
+        }
+        if(N==S && No==So){
+            CommentListDetailsActivity.this.finish();
         }else{
-            request14.add("opeType","1");
+            CommentListDetailsActivity.handler.sendEmptyMessage(2);
         }
-        CallServer.getInstance().add(CommentListDetailsActivity.this, request14, MyhttpCallBack.getInstance(), good, true, false, true);
-
-    }
-    public void nogoodhttp(int no){
-        GsonUtil request14 = new GsonUtil(URLconstant.URLINSER + URLconstant.NNOMM, RequestMethod.GET);
-        request14.add("KeyNo",KeyNo);
-        request14.add("token",token);
-        request14.add("deviceId",deviceId);
-        request14.add("memberId",csp.getID());
-        if(No>So){//当当前差评数值大于原来所赋值的数值，则为差评+1
-            request14.add("opeType","0");
-        }else{
-            request14.add("opeType","1");
-        }
-        CallServer.getInstance().add(CommentListDetailsActivity.this, request14, MyhttpCallBack.getInstance(), no, true, false, true);
     }
 }

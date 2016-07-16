@@ -10,6 +10,7 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
 import android.view.Gravity;
@@ -54,6 +55,7 @@ import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ViewInject;
 import com.yolanda.nohttp.RequestMethod;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -78,9 +80,9 @@ public class CompanyDetailsActivity extends BaseActivity {
             TextView details_tit1;
 
     @ViewInject(R.id.saveG)
-            LinearLayout saveG;
+    LinearLayout saveG;
     @ViewInject(R.id.details_tit3)
-            TextView details_tit3;
+    TextView details_tit3;
 
     @ViewInject(R.id.vg)
     RelativeLayout vg;
@@ -96,9 +98,9 @@ public class CompanyDetailsActivity extends BaseActivity {
     MyGridAdapter1 adapter1;
     MyGridAdapter2 adapter2;
     private final int MSG = 0x015;
-    int a1=0,a2=0,a3=0,a4=0,a5=0,a6=0,a7=0,a8=0,a9=0,a10=0,a11=0,a12=0,a13=0,a14=0,a15=0,a16=0;
+    int a1 = 0, a2 = 0, a3 = 0, a4 = 0, a5 = 0, a6 = 0, a7 = 0, a8 = 0, a9 = 0, a10 = 0, a11 = 0, a12 = 0, a13 = 0, a14 = 0, a15 = 0, a16 = 0;
 
-//    List<DataManager.search> detailsList = new ArrayList<DataManager.search>();
+    //    List<DataManager.search> detailsList = new ArrayList<DataManager.search>();
     public String[] arrays3 = {"注册资本", "法定代表", "发照日期", "成立日期",
             "工商注册号", "组织机构代码"};
 
@@ -133,8 +135,10 @@ public class CompanyDetailsActivity extends BaseActivity {
             R.mipmap.icon15, R.mipmap.icon16};
 
     public static Handler handler;
-    String model,KeyNo,token,regnore,enterId;
+    String model, KeyNo, token, regnore, enterId;
 
+    @ViewInject(R.id.pb_0)
+    LinearLayout pb_0;//二维码
     @ViewInject(R.id.pb_1)
     LinearLayout pb_1;//首页
     @ViewInject(R.id.pb_2)
@@ -147,18 +151,21 @@ public class CompanyDetailsActivity extends BaseActivity {
     ImageView pb_4_img;//关注图标
     @ViewInject(R.id.pb_4_txt)
     TextView pb_4_txt;//关注文字
+    @ViewInject(R.id.panoramic)
+    ImageView panoramic;//全景视图
 
     TitlePopup titlePopup;
     public static ProgressDialog pd;
-    String KeyNos,tokens;
+    String KeyNos, tokens;
     CreditSharePreferences csp;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_company_details);
         ViewUtils.inject(this);
-        csp=CreditSharePreferences.getLifeSharedPreferences();
-        waitDialog=new WaitDialog(this);
+        csp = CreditSharePreferences.getLifeSharedPreferences();
+        waitDialog = new WaitDialog(this);
         mScrollView.smoothScrollTo(0, 20);
         Intent i = getIntent();
         int s = i.getIntExtra("s", 0);
@@ -166,12 +173,12 @@ public class CompanyDetailsActivity extends BaseActivity {
         Build bd = new Build();
         model = bd.MODEL;//设备ID
         KeyNo = DataManager.BaseinfoList.get(0).PRIPID;//市场主体身份代码
-        enterId=DataManager.BaseinfoList.get(0).EnterAddtionID;//企业附加表ID
+        enterId = DataManager.BaseinfoList.get(0).EnterAddtionID;//企业附加表ID
         token = SearchFirmActivty.MD5s(KeyNo + model);//token 由 设备ID+市场主体身份代码 MD5生成
-        regnore=DataManager.BaseinfoList.get(0).REGNO;//注册号
+        regnore = DataManager.BaseinfoList.get(0).REGNO;//注册号
 
-        KeyNos=DataManager.BaseinfoList.get(0).EnterAddtionID;//企业附加信息主键ID
-        tokens= SearchFirmActivty.MD5s(KeyNos + model);
+        KeyNos = DataManager.BaseinfoList.get(0).EnterAddtionID;//企业附加信息主键ID
+        tokens = SearchFirmActivty.MD5s(KeyNos + model);
         init();
         adapter1 = new MyGridAdapter1(CompanyDetailsActivity.this, arrays1, arrays2, imgs);
 
@@ -179,6 +186,7 @@ public class CompanyDetailsActivity extends BaseActivity {
         myGridView1.setAdapter(adapters);
         myGridView1.setSelector(new ColorDrawable(Color.TRANSPARENT));
         myGridView1.setOnItemClickListener(listener);
+        panoramic.setOnClickListener(onClickListener);//全景视图
 
         vg.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -204,21 +212,21 @@ public class CompanyDetailsActivity extends BaseActivity {
                     case 0://工商信息
                         waitDialog.dismiss();
                         Intent i0 = new Intent(CompanyDetailsActivity.this, DetailsContentActivity.class);
-                        i0.putExtra("Tname",arrays1[msg.what]);
+                        i0.putExtra("Tname", arrays1[msg.what]);
                         startActivity(i0);
                         overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
                         break;
                     case 1://行政审批
                         waitDialog.dismiss();
                         Intent i1 = new Intent(CompanyDetailsActivity.this, AdminActivity.class);
-                        i1.putExtra("Tname",arrays1[msg.what]);
+                        i1.putExtra("Tname", arrays1[msg.what]);
                         startActivity(i1);
                         overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
                         break;
                     case 2://荣誉信息
                         waitDialog.dismiss();
                         Intent i2 = new Intent(CompanyDetailsActivity.this, Honor_Support_Activity.class);
-                        i2.putExtra("Tname",arrays1[msg.what]);
+                        i2.putExtra("Tname", arrays1[msg.what]);
                         i2.putExtra("st", 1);
                         startActivity(i2);
                         overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
@@ -227,84 +235,84 @@ public class CompanyDetailsActivity extends BaseActivity {
                         waitDialog.dismiss();
                         Intent i3 = new Intent(CompanyDetailsActivity.this, Honor_Support_Activity.class);
                         i3.putExtra("st", 2);
-                        i3.putExtra("Tname",arrays1[msg.what]);
+                        i3.putExtra("Tname", arrays1[msg.what]);
                         startActivity(i3);
                         overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
                         break;
                     case 4://抵押信息
                         waitDialog.dismiss();
-                        Intent i4 =new Intent(CompanyDetailsActivity.this,Mortgage_detail_Activity.class);
-                        i4.putExtra("Tname",arrays1[msg.what]);
+                        Intent i4 = new Intent(CompanyDetailsActivity.this, Mortgage_detail_Activity.class);
+                        i4.putExtra("Tname", arrays1[msg.what]);
                         startActivity(i4);
                         overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
                         break;
                     case 5://出质信息
                         waitDialog.dismiss();
                         Intent i5 = new Intent(CompanyDetailsActivity.this, PledgeActivity.class);
-                        i5.putExtra("Tname",arrays1[msg.what]);
+                        i5.putExtra("Tname", arrays1[msg.what]);
                         startActivity(i5);
                         overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
                         break;
                     case 6://司法信息
                         waitDialog.dismiss();
                         Intent i6 = new Intent(CompanyDetailsActivity.this, JudicialActivity.class);
-                        i6.putExtra("Tname",arrays1[msg.what]);
+                        i6.putExtra("Tname", arrays1[msg.what]);
                         startActivity(i6);
                         overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
                         break;
                     case 7://预警信息
                         waitDialog.dismiss();
                         Intent i7 = new Intent(CompanyDetailsActivity.this, AlertActivity.class);
-                        i7.putExtra("Tname",arrays1[msg.what]);
+                        i7.putExtra("Tname", arrays1[msg.what]);
                         startActivity(i7);
                         overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
                         break;
                     case 8://行政处罚
                         waitDialog.dismiss();
                         Intent i8 = new Intent(CompanyDetailsActivity.this, PunishActivity.class);
-                        i8.putExtra("Tname",arrays1[msg.what]);
+                        i8.putExtra("Tname", arrays1[msg.what]);
                         startActivity(i8);
                         overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
                         break;
                     case 9://经营异常
                         waitDialog.dismiss();
                         Intent i9 = new Intent(CompanyDetailsActivity.this, AbnormalActivity.class);
-                        i9.putExtra("Tname",arrays1[msg.what]);
+                        i9.putExtra("Tname", arrays1[msg.what]);
                         startActivity(i9);
                         overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
                         break;
                     case 10://专利
                         waitDialog.dismiss();
                         Intent i10 = new Intent(CompanyDetailsActivity.this, PatentActivity.class);
-                        i10.putExtra("Tname",arrays1[msg.what]);
+                        i10.putExtra("Tname", arrays1[msg.what]);
                         startActivity(i10);
                         overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
                         break;
                     case 11://商标
                         waitDialog.dismiss();
                         Intent i11 = new Intent(CompanyDetailsActivity.this, TrademarkActivity.class);
-                        i11.putExtra("Tname",arrays1[msg.what]);
+                        i11.putExtra("Tname", arrays1[msg.what]);
                         startActivity(i11);
                         overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
                         break;
                     case 12://著作权
                         waitDialog.dismiss();
                         Intent i12 = new Intent(CompanyDetailsActivity.this, CopyrightActivity.class);
-                        i12.putExtra("Tname",arrays1[msg.what]);
+                        i12.putExtra("Tname", arrays1[msg.what]);
                         startActivity(i12);
                         overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
                         break;
                     case 13://广告资质
                         waitDialog.dismiss();
                         Intent i13 = new Intent(CompanyDetailsActivity.this, AdvertisementActivity.class);
-                        i13.putExtra("Tname",arrays1[msg.what]);
+                        i13.putExtra("Tname", arrays1[msg.what]);
                         startActivity(i13);
                         overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
                         break;
                     case 14://守合同重信用
                         waitDialog.dismiss();
                         Intent i14 = new Intent(CompanyDetailsActivity.this, ObeyedActivity.class);
-                        i14.putExtra("Tname",arrays1[msg.what]);
+                        i14.putExtra("Tname", arrays1[msg.what]);
                         startActivity(i14);
                         overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
                         break;
@@ -315,37 +323,41 @@ public class CompanyDetailsActivity extends BaseActivity {
                         break;
                     case 21://评论
 //                        waitDialog.dismiss();
-                        pd.dismiss();
-                        CommentListActivity.RUserreviewList= DataManager.UserreviewList;
-                        Intent i21=new Intent(CompanyDetailsActivity.this,CommentListActivity.class);
+                        CommentListActivity.RUserreviewList = DataManager.UserreviewList;
+                        Intent i21 = new Intent(CompanyDetailsActivity.this, CommentListActivity.class);
+                        i21.putExtra("type",0);
                         startActivity(i21);
                         break;
                     case 22://关注
-                        if(DataManager.FavotiteS.data.result.equals("success")){
+                        if (DataManager.FavotiteS.data.result.equals("success")) {
                             pb_4_img.setBackgroundResource(R.mipmap.btm_4_s);
                             pb_4_txt.setText("已关注");
                             android.widget.Toast.makeText(CompanyDetailsActivity.this, "关注成功！", android.widget.Toast.LENGTH_SHORT).show();
-                        }else{
+                        } else {
                             android.widget.Toast.makeText(CompanyDetailsActivity.this, "关注失败！", android.widget.Toast.LENGTH_SHORT).show();
                         }
                         break;
                     case 23://取消关注
-                        if(DataManager.FavotiteS.data.result.equals("success")){
+                        if (DataManager.FavotiteS.data.result.equals("success")) {
                             pb_4_img.setBackgroundResource(R.mipmap.btm_4_n);
                             pb_4_txt.setText("关注");
                             android.widget.Toast.makeText(CompanyDetailsActivity.this, "取消关注成功！", android.widget.Toast.LENGTH_SHORT).show();
-                        }else{
+                        } else {
                             android.widget.Toast.makeText(CompanyDetailsActivity.this, "取消关注失败！", android.widget.Toast.LENGTH_SHORT).show();
                         }
                         break;
                     case 24://投诉跳转列表
                         ActivityManager am = (ActivityManager) getSystemService(ACTIVITY_SERVICE);
                         ComponentName cn = am.getRunningTasks(1).get(0).topActivity;
-                        if(!cn.getClassName().equals(MycomplaintsListActivity.class.getName())) {
+                        if (!cn.getClassName().equals(MycomplaintsListActivity.class.getName())) {
                             startActivity(new Intent(CompanyDetailsActivity.this, MycomplaintsListActivity.class).putExtra("key", 1));
-                        }else {//用于判定是否更新数据，是否跳转
+                        } else {//用于判定是否更新数据，是否跳转
                             MycomplaintsListActivity.handler.sendEmptyMessage(5);//通知企业投诉ListView更新数据源刷新UI
-                        }break;
+                        }
+                        break;
+                    case 25://我的二维码名片
+                        startActivity(new Intent(CompanyDetailsActivity.this,TwoDimActivity.class));
+                        break;
                     case 500:
                         waitDialog.dismiss();
                         android.widget.Toast.makeText(CompanyDetailsActivity.this, "暂无数据！", android.widget.Toast.LENGTH_SHORT).show();
@@ -360,7 +372,7 @@ public class CompanyDetailsActivity extends BaseActivity {
         public void onItemClick(AdapterView<?> parent, View view, int index, long id) {
             switch (index) {
                 case 0://工商信息
-                    if(a1==0){
+                    if (a1 == 0) {
                         waitDialog.show();
                         GsonUtil request0 = new GsonUtil(URLconstant.URLINSER + URLconstant.DETAILSCINFOURL, RequestMethod.GET);
                         request0.add("priptype", DataManager.BaseinfoList.get(0).ENTTYPE);
@@ -371,7 +383,7 @@ public class CompanyDetailsActivity extends BaseActivity {
                     }
                     break;
                 case 1://行政审批
-                    if(a2==0) {
+                    if (a2 == 0) {
                         waitDialog.show();
                         GsonUtil request1 = new GsonUtil(URLconstant.URLINSER + URLconstant.ADMINURL, RequestMethod.GET);
                         request1.add("token", token);
@@ -382,7 +394,7 @@ public class CompanyDetailsActivity extends BaseActivity {
                     }
                     break;
                 case 2://荣誉信息
-                    if(a3==0) {
+                    if (a3 == 0) {
                         waitDialog.show();
                         String KeyNoR = DataManager.BaseinfoList.get(0).REGNO;//注册号
                         String tokenr = SearchFirmActivty.MD5s(KeyNoR + model);//token 由 设备ID+/注册号 MD5生成
@@ -395,7 +407,7 @@ public class CompanyDetailsActivity extends BaseActivity {
                     }
                     break;
                 case 3://扶持信息
-                    if(a4==0) {
+                    if (a4 == 0) {
                         waitDialog.show();
                         GsonUtil request3 = new GsonUtil(URLconstant.URLINSER + URLconstant.SUPPORTURL, RequestMethod.GET);
                         request3.add("token", token);
@@ -406,7 +418,7 @@ public class CompanyDetailsActivity extends BaseActivity {
                     }
                     break;
                 case 4://抵押信息
-                    if(a5==0) {
+                    if (a5 == 0) {
                         waitDialog.show();
                         GsonUtil mortinfoRequest = new GsonUtil(URLconstant.URLINSER + URLconstant.MORTINFO, RequestMethod.GET);//动产request
                         GsonUtil mortinfoBdcRequest = new GsonUtil(URLconstant.URLINSER + URLconstant.MORTINFOBDC, RequestMethod.GET);//不动产request
@@ -423,7 +435,7 @@ public class CompanyDetailsActivity extends BaseActivity {
                     }
                     break;
                 case 5://出质信息
-                    if(a6==0) {
+                    if (a6 == 0) {
                         waitDialog.show();
                         GsonUtil request5 = new GsonUtil(URLconstant.URLINSER + URLconstant.PLEDGEURL, RequestMethod.GET);
                         request5.add("token", token);
@@ -434,7 +446,7 @@ public class CompanyDetailsActivity extends BaseActivity {
                     }
                     break;
                 case 6://司法信息
-                    if(a7==0) {
+                    if (a7 == 0) {
                         waitDialog.show();
                         GsonUtil request6 = new GsonUtil(URLconstant.URLINSER + URLconstant.JUDICIALURL, RequestMethod.GET);
                         request6.add("token", token);
@@ -446,7 +458,7 @@ public class CompanyDetailsActivity extends BaseActivity {
                     }
                     break;
                 case 7://预警信息
-                    if(a8==0) {
+                    if (a8 == 0) {
                         waitDialog.show();
                         GsonUtil request7 = new GsonUtil(URLconstant.URLINSER + URLconstant.GETALERT, RequestMethod.GET);
                         request7.add("token", token);
@@ -457,7 +469,7 @@ public class CompanyDetailsActivity extends BaseActivity {
                     }
                     break;
                 case 8://行政处罚
-                    if(a9==0) {
+                    if (a9 == 0) {
                         waitDialog.show();
                         GsonUtil request = new GsonUtil(URLconstant.URLINSER + URLconstant.PUNISHURL, RequestMethod.GET);
                         request.add("token", token);
@@ -468,7 +480,7 @@ public class CompanyDetailsActivity extends BaseActivity {
                     }
                     break;
                 case 9://经营异常
-                    if(a10==0) {
+                    if (a10 == 0) {
                         waitDialog.show();
                         GsonUtil request9 = new GsonUtil(URLconstant.URLINSER + URLconstant.ABNORMALURL, RequestMethod.GET);
                         request9.add("token", token);
@@ -479,7 +491,7 @@ public class CompanyDetailsActivity extends BaseActivity {
                     }
                     break;
                 case 10://专利信息
-                    if(a11==0) {
+                    if (a11 == 0) {
                         waitDialog.show();
                         GsonUtil request10 = new GsonUtil(URLconstant.URLINSER + URLconstant.PATENTURL, RequestMethod.GET);
                         request10.add("token", token);
@@ -502,7 +514,7 @@ public class CompanyDetailsActivity extends BaseActivity {
                     }
                     break;
                 case 11://商标信息
-                    if(a12==0) {
+                    if (a12 == 0) {
                         waitDialog.show();
                         GsonUtil request11 = new GsonUtil(URLconstant.URLINSER + URLconstant.TRADEMARKURL, RequestMethod.GET);
                         request11.add("token", token);
@@ -513,7 +525,7 @@ public class CompanyDetailsActivity extends BaseActivity {
                     }
                     break;
                 case 12://著作权
-                    if(a13==0) {
+                    if (a13 == 0) {
                         waitDialog.show();
                         GsonUtil request12 = new GsonUtil(URLconstant.URLINSER + URLconstant.COPYRIGHTURL, RequestMethod.GET);
                         request12.add("token", token);
@@ -524,7 +536,7 @@ public class CompanyDetailsActivity extends BaseActivity {
                     }
                     break;
                 case 13://广告资质
-                    if(a14==0) {
+                    if (a14 == 0) {
                         waitDialog.show();
                         GsonUtil request13 = new GsonUtil(URLconstant.URLINSER + URLconstant.ADVERTISEMENTURL, RequestMethod.GET);
                         request13.add("token", token);
@@ -535,7 +547,7 @@ public class CompanyDetailsActivity extends BaseActivity {
                     }
                     break;
                 case 14://守合同重信用
-                    if(a15==0) {
+                    if (a15 == 0) {
                         waitDialog.show();
                         GsonUtil request14 = new GsonUtil(URLconstant.URLINSER + URLconstant.OBEYEDURL, RequestMethod.GET);
                         request14.add("token", token);
@@ -546,7 +558,7 @@ public class CompanyDetailsActivity extends BaseActivity {
                     }
                     break;
                 case 15://自主公示
-                    if(a16==0) {
+                    if (a16 == 0) {
                         waitDialog.show();
                         GsonUtil request15 = new GsonUtil(URLconstant.URLINSER + URLconstant.GETAUTO, RequestMethod.GET);
                         request15.add("token", token);
@@ -564,7 +576,7 @@ public class CompanyDetailsActivity extends BaseActivity {
     };
 
     public void init() {
-        pd=new ProgressDialog(CompanyDetailsActivity.this);
+        pd = new ProgressDialog(CompanyDetailsActivity.this);
         pd.setMessage("正在加载中...");
         pd.setCancelable(false);
         d_return.setOnClickListener(new View.OnClickListener() {
@@ -576,8 +588,8 @@ public class CompanyDetailsActivity extends BaseActivity {
             }
         });
         if (DataManager.BaseinfoList != null && DataManager.BaseinfoList.size() > 0) {
-            String stra = (DataManager.BaseinfoList.get(0).REGSTATE_CN).substring(0, 2);
-            details_tit3.setText(stra);//状态
+//            String stra = (DataManager.BaseinfoList.get(0).REGSTATE_CN).substring(0, 2);
+//            details_tit3.setText(stra);//状态
             cp_name.setText(DataManager.BaseinfoList.get(0).ENTNAME);
             List<String> lt = new ArrayList<String>();
             lt.add(DataManager.BaseinfoList.get(0).REGCAP + "万元");
@@ -590,79 +602,80 @@ public class CompanyDetailsActivity extends BaseActivity {
             int size = lt.size();
             arrays4 = (String[]) lt.toArray(new String[size]);
         }
-        if(DataManager.allcountsList.get(0).BaseInfoCount=="0"||DataManager.allcountsList.get(0).BaseInfoCount.equals("0")){
-            a1=1;
-            imgs1[0]=R.mipmap.icon1_1;
+        if (DataManager.allcountsList.get(0).BaseInfoCount == "0" || DataManager.allcountsList.get(0).BaseInfoCount.equals("0")) {
+            a1 = 1;
+            imgs1[0] = R.mipmap.icon1_1;
         }
-        if(DataManager.allcountsList.get(0).ApprovalCount=="0"||DataManager.allcountsList.get(0).ApprovalCount.equals("0")){
-            a2=1;
-            imgs1[1]=R.mipmap.icon2_1;
+        if (DataManager.allcountsList.get(0).ApprovalCount == "0" || DataManager.allcountsList.get(0).ApprovalCount.equals("0")) {
+            a2 = 1;
+            imgs1[1] = R.mipmap.icon2_1;
         }
-        if(DataManager.allcountsList.get(0).HonorCount=="0"||DataManager.allcountsList.get(0).HonorCount.equals("0")){
-            a3=1;
-            imgs1[2]=R.mipmap.icon3_1;
+        if (DataManager.allcountsList.get(0).HonorCount == "0" || DataManager.allcountsList.get(0).HonorCount.equals("0")) {
+            a3 = 1;
+            imgs1[2] = R.mipmap.icon3_1;
         }
-        if(DataManager.allcountsList.get(0).SupportCount=="0"||DataManager.allcountsList.get(0).SupportCount.equals("0")){
-            a4=1;
-            imgs1[3]=R.mipmap.icon4_1;
+        if (DataManager.allcountsList.get(0).SupportCount == "0" || DataManager.allcountsList.get(0).SupportCount.equals("0")) {
+            a4 = 1;
+            imgs1[3] = R.mipmap.icon4_1;
         }
-        if(DataManager.allcountsList.get(0).PledgeCount=="0"||DataManager.allcountsList.get(0).PledgeCount.equals("0")){
-            a5=1;
-            imgs1[4]=R.mipmap.icon5_1;
+        if (DataManager.allcountsList.get(0).PledgeCount == "0" || DataManager.allcountsList.get(0).PledgeCount.equals("0")) {
+            a5 = 1;
+            imgs1[4] = R.mipmap.icon5_1;
         }
-        if(DataManager.allcountsList.get(0).MortgagorCount=="0"||DataManager.allcountsList.get(0).MortgagorCount.equals("0")){
-            a6=1;
-            imgs1[5]=R.mipmap.icon6_1;
+        if (DataManager.allcountsList.get(0).MortgagorCount == "0" || DataManager.allcountsList.get(0).MortgagorCount.equals("0")) {
+            a6 = 1;
+            imgs1[5] = R.mipmap.icon6_1;
         }
-        if(DataManager.allcountsList.get(0).JudiciaryCount=="0"||DataManager.allcountsList.get(0).JudiciaryCount.equals("0")){
-            a7=1;
-            imgs1[6]=R.mipmap.icon7_1;
+        if (DataManager.allcountsList.get(0).JudiciaryCount == "0" || DataManager.allcountsList.get(0).JudiciaryCount.equals("0")) {
+            a7 = 1;
+            imgs1[6] = R.mipmap.icon7_1;
         }
-        if(DataManager.allcountsList.get(0).WarningCount=="0"||DataManager.allcountsList.get(0).WarningCount.equals("0")){
-            a8=1;
-            imgs1[7]=R.mipmap.icon8_1;
+        if (DataManager.allcountsList.get(0).WarningCount == "0" || DataManager.allcountsList.get(0).WarningCount.equals("0")) {
+            a8 = 1;
+            imgs1[7] = R.mipmap.icon8_1;
         }
-        if(DataManager.allcountsList.get(0).PunishCount=="0"||DataManager.allcountsList.get(0).PunishCount.equals("0")){
-            a9=1;
-            imgs1[8]=R.mipmap.icon9_1;
+        if (DataManager.allcountsList.get(0).PunishCount == "0" || DataManager.allcountsList.get(0).PunishCount.equals("0")) {
+            a9 = 1;
+            imgs1[8] = R.mipmap.icon9_1;
         }
-        if(DataManager.allcountsList.get(0).AbnormityCount=="0"||DataManager.allcountsList.get(0).AbnormityCount.equals("0")){
-            a10=1;
-            imgs1[9]=R.mipmap.icon10_1;
+        if (DataManager.allcountsList.get(0).AbnormityCount == "0" || DataManager.allcountsList.get(0).AbnormityCount.equals("0")) {
+            a10 = 1;
+            imgs1[9] = R.mipmap.icon10_1;
         }
-        if(DataManager.allcountsList.get(0).PatentCount=="0"||DataManager.allcountsList.get(0).PatentCount.equals("0")){
-            a11=1;
-            imgs1[10]=R.mipmap.icon11_1;
+        if (DataManager.allcountsList.get(0).PatentCount == "0" || DataManager.allcountsList.get(0).PatentCount.equals("0")) {
+            a11 = 1;
+            imgs1[10] = R.mipmap.icon11_1;
         }
-        if(DataManager.allcountsList.get(0).TrademarkCount=="0"||DataManager.allcountsList.get(0).TrademarkCount.equals("0")){
-            a12=1;
-            imgs1[11]=R.mipmap.icon12_1;
+        if (DataManager.allcountsList.get(0).TrademarkCount == "0" || DataManager.allcountsList.get(0).TrademarkCount.equals("0")) {
+            a12 = 1;
+            imgs1[11] = R.mipmap.icon12_1;
         }
-        if(DataManager.allcountsList.get(0).CopyrightCount=="0"||DataManager.allcountsList.get(0).CopyrightCount.equals("0")){
-            a13=1;
-            imgs1[12]=R.mipmap.icon13_1;
+        if (DataManager.allcountsList.get(0).CopyrightCount == "0" || DataManager.allcountsList.get(0).CopyrightCount.equals("0")) {
+            a13 = 1;
+            imgs1[12] = R.mipmap.icon13_1;
         }
-        if(DataManager.allcountsList.get(0).AdvertisementCount=="0"||DataManager.allcountsList.get(0).AdvertisementCount.equals("0")){
-            a14=1;
-            imgs1[13]=R.mipmap.icon14_1;
+        if (DataManager.allcountsList.get(0).AdvertisementCount == "0" || DataManager.allcountsList.get(0).AdvertisementCount.equals("0")) {
+            a14 = 1;
+            imgs1[13] = R.mipmap.icon14_1;
         }
-        if(DataManager.allcountsList.get(0).CreditCount=="0"||DataManager.allcountsList.get(0).CreditCount.equals("0")){
-            a15=1;
-            imgs1[14]=R.mipmap.icon15_1;
+        if (DataManager.allcountsList.get(0).CreditCount == "0" || DataManager.allcountsList.get(0).CreditCount.equals("0")) {
+            a15 = 1;
+            imgs1[14] = R.mipmap.icon15_1;
         }
-        if(DataManager.allcountsList.get(0).AnnualCount=="0"||DataManager.allcountsList.get(0).AnnualCount.equals("0")){
-            a16=1;
-            imgs1[15]=R.mipmap.icon16_1;
+        if (DataManager.allcountsList.get(0).AnnualCount == "0" || DataManager.allcountsList.get(0).AnnualCount.equals("0")) {
+            a16 = 1;
+            imgs1[15] = R.mipmap.icon16_1;
         }
 
-        if(DataManager.allcountsList.get(0).IsFavorite.equals("false")) {//当前状态为未关注，所以点击是关注
+        if (DataManager.allcountsList.get(0).IsFavorite.equals("false")) {//当前状态为未关注，所以点击是关注
             pb_4_img.setBackgroundResource(R.mipmap.btm_4_n);
             pb_4_txt.setText("关注");
-        }else{
+        } else {
             pb_4_img.setBackgroundResource(R.mipmap.btm_4_s);
             pb_4_txt.setText("已关注");
         }
 
+        pb_0.setOnClickListener(onClickListener);
         pb_1.setOnClickListener(onClickListener);
         pb_2.setOnClickListener(onClickListener);
         pb_3.setOnClickListener(onClickListener);
@@ -676,23 +689,19 @@ public class CompanyDetailsActivity extends BaseActivity {
         // 给标题栏弹窗添加子类
         titlePopup.addAction(new ActionItem(this, "认领企业",
                 R.mipmap.icon_menu_group));
-        titlePopup.addAction(new ActionItem(this,"认领企业",
-                R.mipmap.icon_menu_addfriend));
-        titlePopup.addAction(new ActionItem(this, "认领企业",
-                R.mipmap.icon_menu_sao));
-        titlePopup.addAction(new ActionItem(this,"认领企业",
-                R.mipmap.abv));
     }
+
     public void popupmenu(View v) {
         titlePopup.show(findViewById(R.id.d_more));
     }
+
     private TitlePopup.OnItemOnClickListener onitemClick = new TitlePopup.OnItemOnClickListener() {
 
         @Override
         public void onItemClick(ActionItem item, int position) {
             switch (position) {
                 case 0://认领企业
-                    Intent i=new Intent(CompanyDetailsActivity.this,ToClaimActivity.class);
+                    Intent i = new Intent(CompanyDetailsActivity.this, ToClaimActivity.class);
                     startActivity(i);
                     break;
                 default:
@@ -701,54 +710,74 @@ public class CompanyDetailsActivity extends BaseActivity {
         }
     };
 
-    View.OnClickListener onClickListener=new View.OnClickListener() {
+    View.OnClickListener onClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            switch (v.getId()){
+            switch (v.getId()) {
                 case R.id.pb_1://首页
-                    Intent i1=new Intent(CompanyDetailsActivity.this,MainActivity.class);
+                    Intent i1 = new Intent(CompanyDetailsActivity.this, MainActivity.class);
                     startActivity(i1);
                     finish();
                     break;
                 case R.id.pb_2://评论
-                    pd.show();
+                    waitDialog.show();
                     GsonUtil request14 = new GsonUtil(URLconstant.URLINSER + URLconstant.COMM, RequestMethod.GET);
-                    request14.add("deviceId",model);
-                    request14.add("token",tokens);
-                    request14.add("KeyNo",KeyNos);
-                    request14.add("memberId",csp.getID());
+                    request14.add("deviceId", model);
+                    request14.add("token", tokens);
+                    request14.add("KeyNo", KeyNos);
+                    request14.add("memberId", csp.getID());
                     CallServer.getInstance().add(CompanyDetailsActivity.this, request14, MyhttpCallBack.getInstance(), 0x201, true, false, true);
+                    break;
+                case R.id.pb_0://二维码名片
+                    File file = new File(Environment.getExternalStorageDirectory() + "/Credit/cache/"+DataManager.BaseinfoList.get(0).REGNO+"_TwoDimImg.jpg");
+                    if (file.exists()) {//获取本地图片路径是否存在
+                        CompanyDetailsActivity.handler.sendEmptyMessage(25);
+                    }else {
+                        waitDialog.show();
+                        GsonUtil request100 = new GsonUtil(URLconstant.URLINSER + URLconstant.TWODIM, RequestMethod.GET);
+                        request100.add("deviceId", model);
+                        request100.add("token", token);
+                        request100.add("KeyNo", KeyNo);
+                        request100.add("regnore", regnore);
+                        request100.add("priptype", DataManager.BaseinfoList.get(0).ENTTYPE_CN);
+                        request100.add("entname", DataManager.BaseinfoList.get(0).ENTNAME);
+                        CallServer.getInstance().add(CompanyDetailsActivity.this, request100, MyhttpCallBack.getInstance(), 0x601, true, false, true);
+                    }
                     break;
                 case R.id.pb_3://企业投诉
                     pd.show();
                     GsonUtil ComplaintsRuerst = new GsonUtil(URLconstant.URLINSER + URLconstant.GETCOMPLAIN, RequestMethod.GET);
                     ComplaintsRuerst.add("token", MD5.MD5s("" + new Build().MODEL));//csp.getID()
-                    ComplaintsRuerst.add("KeyNo","");//csp.getID()
+                    ComplaintsRuerst.add("KeyNo", "");//csp.getID()
                     ComplaintsRuerst.add("deviceId", new Build().MODEL);
-                    ComplaintsRuerst.add("enterId",enterId);
-                    CallServer.getInstance().add(CompanyDetailsActivity.this,ComplaintsRuerst,MyhttpCallBack.getInstance(),0x994,true,false,true);
+                    ComplaintsRuerst.add("enterId", enterId);
+                    CallServer.getInstance().add(CompanyDetailsActivity.this, ComplaintsRuerst, MyhttpCallBack.getInstance(), 0x994, true, false, true);
 
                     break;
 
                 case R.id.pb_4://关注
-                    if(pb_4_txt.getText().toString().equals("关注")){//当前状态为未关注，所以点击是关注
+                    if (pb_4_txt.getText().toString().equals("关注")) {//当前状态为未关注，所以点击是关注
                         GsonUtil requestG = new GsonUtil(URLconstant.URLINSER + URLconstant.YESFAVORITE, RequestMethod.GET);
-                        requestG.add("deviceId",model);
-                        requestG.add("token",tokens);
-                        requestG.add("KeyNo",KeyNos);
-                        requestG.add("memberId",csp.getID());
-                        requestG.add("attentionTypeId","11");
+                        requestG.add("deviceId", model);
+                        requestG.add("token", tokens);
+                        requestG.add("KeyNo", KeyNos);
+                        requestG.add("memberId", csp.getID());
+                        requestG.add("attentionTypeId", "11");
                         CallServer.getInstance().add(CompanyDetailsActivity.this, requestG, MyhttpCallBack.getInstance(), 0x101, true, false, true);
-                    }else{//当前状态为已关注，所以点击是取消关注
+                    } else {//当前状态为已关注，所以点击是取消关注
                         GsonUtil requestN = new GsonUtil(URLconstant.URLINSER + URLconstant.NOFAVORITE, RequestMethod.GET);
-                        requestN.add("deviceId",model);
-                        requestN.add("token",tokens);
-                        requestN.add("KeyNo",KeyNos);
-                        requestN.add("memberId",csp.getID());
+                        requestN.add("deviceId", model);
+                        requestN.add("token", tokens);
+                        requestN.add("KeyNo", KeyNos);
+                        requestN.add("memberId", csp.getID());
                         CallServer.getInstance().add(CompanyDetailsActivity.this, requestN, MyhttpCallBack.getInstance(), 0x102, true, false, true);
                     }
 //                    android.widget.Toast.makeText(CompanyDetailsActivity.this, "此模块，正在抢修中。。。！", android.widget.Toast.LENGTH_SHORT).show();
 
+                    break;
+                case R.id.panoramic://全景
+                    startActivity(new Intent(CompanyDetailsActivity.this, Panoramic_Activity.class).putExtra("KeyNo", KeyNo).putExtra("deviceId", model).putExtra("priptype", DataManager.BaseinfoList.get(0).ENTTYPE).putExtra("regnore", regnore).putExtra("entname",DataManager.BaseinfoList.get(0).ENTNAME));
+                default:
                     break;
             }
         }

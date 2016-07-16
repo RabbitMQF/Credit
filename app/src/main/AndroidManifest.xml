@@ -133,11 +133,24 @@
         <activity
             android:name=".Activitys.RegisterActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity android:name=".Activitys.MyCommentlistActivity" />
-        <activity android:name=".Activitys.UserSetTowActivity" />
-        <activity android:name=".Activitys.AgreementActivity"/>
-        <activity android:name=".Activitys.AboutActivity"/>
-        <activity android:name=".Activitys.PassWordActivity"/>
+
+
+        <activity android:name=".Activitys.MyCommentlistActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity android:name=".Activitys.UserSetTowActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity android:name=".Activitys.AgreementActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity android:name=".Activitys.AboutActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity android:name=".Activitys.PassWordActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity android:name=".Activitys.TwoDimActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity android:name=".Activitys.Panoramic_Activity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity android:name=".Activitys.WebAutonomy"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
     </application>
 
 </manifest>

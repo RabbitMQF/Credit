@@ -15,6 +15,7 @@ import android.widget.LinearLayout;
 import android.widget.Switch;
 import android.widget.TextView;
 
+import com.example.credit.Dialogs.WaitDialog;
 import com.example.credit.R;
 import com.example.credit.Services.CallServer;
 import com.example.credit.Utils.CreditSharePreferences;
@@ -52,7 +53,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
     ImageView pwd_c;//密码清除按钮
 
     public static Handler handler;
-
+    public static WaitDialog wd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,6 +71,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
     }
 
     public void init() {
+        wd=new WaitDialog(this);
 
         b_topname.setText("用户登录");
         b_return.setOnClickListener(new View.OnClickListener() {
@@ -155,6 +157,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
 
                 } else {
                     //Toast.show("通过判定");
+                    wd.show();;
                     GsonUtil LoginRequest = new GsonUtil(URLconstant.URLINSER + URLconstant.USERLOGIN, RequestMethod.GET);
                     LoginRequest.add("token", MD5.MD5s(login_user.getText() + new Build().MODEL));
                     LoginRequest.add("KeyNo", login_user.getText().toString());

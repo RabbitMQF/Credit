@@ -16,7 +16,7 @@
             android:layout_marginRight="10dp"
             android:background="#DFDFDF"
             android:orientation="vertical">
-            <LinearLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
@@ -31,14 +31,15 @@
 
                 <TextView
                     android:id="@+id/pli_time"
+                    android:text="shijian"
+                    android:layout_alignParentRight="true"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="2016-05-12 12:30"
                     android:layout_marginLeft="20dp"
                     android:textColor="@color/blue1"
                     android:textSize="14sp" />
 
-            </LinearLayout>
+            </RelativeLayout>
 
             <TextView
                 android:id="@+id/pli_content"

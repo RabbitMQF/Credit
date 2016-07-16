@@ -37,9 +37,17 @@ public class WelcomeActivity extends Activity {
         CreditSharePreferences.init(this);
         esp = CreditSharePreferences.getLifeSharedPreferences();
 
-        File destDir = new File(Environment.getExternalStorageDirectory() + "/Credit");
-        if (!destDir.exists()) {
-            destDir.mkdirs();
+        File destDir1 = new File(Environment.getExternalStorageDirectory() + "/Credit");//项目文件夹
+        File destDir2 = new File(Environment.getExternalStorageDirectory() + "/Credit/cache");//项目缓存文件夹
+        File destDir3 = new File(Environment.getExternalStorageDirectory() + "/Credit/TwoDimImg");//项目存放二维码文件夹
+        if (!destDir1.exists()) {
+            destDir1.mkdirs();
+        }
+        if (!destDir2.exists()) {
+            destDir2.mkdirs();
+        }
+        if (!destDir3.exists()) {
+            destDir3.mkdirs();
         }
         initData();
         next.setOnClickListener(new View.OnClickListener() {

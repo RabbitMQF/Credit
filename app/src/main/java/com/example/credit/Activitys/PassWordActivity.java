@@ -60,6 +60,7 @@ public class PassWordActivity extends BaseActivity implements View.OnClickListen
     WaitDialog wd;
     AlertDialog.Builder builder;
     AlertDialog dialog;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,11 +75,21 @@ public class PassWordActivity extends BaseActivity implements View.OnClickListen
                 super.handleMessage(msg);
                 switch (msg.what){
                     case 1:
+                        wd.dismiss();
                         csp.putLoginStatus(false);
-                        dialog.show();
-                        finish();
+//                        dialog.show();
+                        Toast.show("修改密码成功，请重新登录！");
+                        Intent i=new Intent(PassWordActivity.this,MainActivity.class);
+                        startActivity(i);
+//                        finish();
                         break;
                     case 2:
+                        wd.dismiss();
+                        Toast.show("修改密码失败！");
+                        break;
+                    case 3:
+                        wd.dismiss();
+                        Toast.show("原始密码错误！");
                         break;
                 }
             }
@@ -106,7 +117,7 @@ public class PassWordActivity extends BaseActivity implements View.OnClickListen
         dialog = builder.create();
         dialog.setCanceledOnTouchOutside(false);// 设置点击屏幕Dialog不消失
 
-        b_topname.setText("用户登录");
+        b_topname.setText("修改密码");
         R_user.setText(csp.getUSERNAME());
         b_return.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -225,6 +236,7 @@ public class PassWordActivity extends BaseActivity implements View.OnClickListen
                 } else if (!R_pwd2.getText().toString().equals(R_pwd3.getText().toString())) {
                     Toast.show("两次新密码输入不一致...");
                 } else {
+                    wd.show();
                     GsonUtil LoginRequest = new GsonUtil(URLconstant.URLINSER + URLconstant.RPASSWORD, RequestMethod.GET);
                     LoginRequest.add("token", MD5.MD5s(csp.getID() + new Build().MODEL));
                     LoginRequest.add("KeyNo", csp.getID());
