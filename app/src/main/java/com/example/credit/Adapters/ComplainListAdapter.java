@@ -26,6 +26,7 @@ import java.util.List;
 
 /**
  * Created by alucard on 2016-07-01.
+ * 我的投诉item适配器
  */
 public class ComplainListAdapter extends BaseAdapter {
     private Context context;
@@ -97,6 +98,7 @@ public class ComplainListAdapter extends BaseAdapter {
 
                 vh.complain_status.setTextColor(context.getResources().getColor(R.color.green));
                 vh.complain_status.setText("已处理");
+                vh.complain_cancel.setVisibility(View.GONE);
                 break;
             case "2"://已拒绝
 

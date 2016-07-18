@@ -26,6 +26,9 @@ import Decoder.BASE64Decoder;
 
 import static com.example.credit.Views.FileUtil.saveBitmap;
 
+/**
+ * 二维码详情页
+ */
 public class TwoDimActivity extends Activity {
     @ViewInject(R.id.b_topname)
     TextView b_topname;
@@ -92,6 +95,7 @@ public class TwoDimActivity extends Activity {
                     }
                     break;
                 case R.id.fenxiang:
+                    Toast.show("功能开发中...");
                     break;
                 case R.id.b_return:
                     finish();

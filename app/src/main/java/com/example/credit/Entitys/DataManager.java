@@ -37,6 +37,7 @@ public class DataManager {
         }
     }
 
+
     public class ContatUser {//联系人信息
         public Integer user_id;
         public Integer corps_id;
@@ -515,23 +516,29 @@ public class DataManager {
      * 专利信息实体类
      */
 
-    public static List<patentInfo> patentInfoList = new ArrayList<>();
+    public static PatentInfo PatentInfoS=new PatentInfo();
+    public static class PatentInfo {
+        public String message;
+        public String status;
+        public String version;
 
-    public static class patentInfo {
-        public String PRIPID;//企业ID
-        public String PATENTNAME;//专利名称
-        public String RCODE;//申请号
-        public String RDATE;//申请日期
-        public String ACODE;//授权公布号
-        public String ADATE;//授权公布日期
-        public String INVENTOR;//发明人
-        public String PATENTTYPE;//专利类型
-        public String AGENCY;//代理机构
-        public String LEGALSTATUS;//法律状态
-        public String DETAILINFO;//详细信息
+        public List<PatentInfoBean> patentInfo;
 
+        public static class PatentInfoBean {
+            public String PRIPID;//企业ID
+            public String PATENTNAME;//专利名称
+            public String RCODE;//申请号
+            public String RDATE;//申请日期
+            public String ACODE;//授权公布号
+            public String ADATE;//授权公布日期
+            public String INVENTOR;//发明人
+            public String PATENTTYPE;//专利类型
+            public String AGENCY;//代理机构
+            public String LEGALSTATUS;//法律状态
+            public String DETAILINFO;//详细信息
+
+        }
     }
-
     /**
      * 处罚信息实体类
      */
@@ -867,40 +874,54 @@ public class DataManager {
 //
 //    }
 
-    public static List<date> pdateList_zzdq = new ArrayList<>();
-    public static List<date> pdateList_zzgq = new ArrayList<>();
-    public static List<date> pdateList_zlgz = new ArrayList<>();
-    public static List<date> pdateList_qdxx = new ArrayList<>();
-    public static List<date> pdateList_qsxx = new ArrayList<>();
-    public static List<date> pdateList_qxxx = new ArrayList<>();
+//    public static List<date> pdateList_zzdq = new ArrayList<>();
+//    public static List<date> pdateList_zzgq = new ArrayList<>();
+//    public static List<date> pdateList_zlgz = new ArrayList<>();
+//    public static List<date> pdateList_qdxx = new ArrayList<>();
+//    public static List<date> pdateList_qsxx = new ArrayList<>();
+//    public static List<date> pdateList_qxxx = new ArrayList<>();
 
-    /**
-     * Date[]： 6个type返回字段一样
-     */
-    public static class date {
-        public String WARNID;//数据id
-        public String REGNO;//注册号
-        public String PRIPID;//企业id
-        public String UNISCID;//社会统一信用代码
-        public String ENTNAME;//企业名称
-        public String WARNDATE;//预警日期
-        public String WARNAMOUNT;//预警金额
-        public String WARNSTATUS;//预警状态
-        public String ORGAN;//预警机关
-        public String WARNCONTENT;//预警内容
-        public String SOURCE;//数据来源（部门）
-        public String STATE;//数据状态（0有效，1无效）
-        public String SOURCENAME;//部门名称
-        public String SUPDEPARTMENT;//上级部门编码
-        public String UPDEPARTMENTNAME;//上级部门名称
-        public String BUSINESSATT;//业务属性
-        public String UPDATETIME;//更新时间
-        public String USERNAME;//上传用户
-        public String DEPID;//部门id
-        public String DATATYPE;//数据种类
+    public static AlertInfo AlertInfoS=new AlertInfo();
+    public static class AlertInfo {
+        public String message;
+        public String status;
+        public String version;
+        public List<DataBean> data;
+
+        public static class DataBean {
+            public String type;
+            public List<date> data;
+            /**
+             * Date[]： 6个type返回字段一样
+             */
+            public static class date {
+                public String D_AD;
+
+                public String WARNID;//数据id
+                public String REGNO;//注册号
+                public String PRIPID;//企业id
+                public String UNISCID;//社会统一信用代码
+                public String ENTNAME;//企业名称
+                public String WARNDATE;//预警日期
+                public String WARNAMOUNT;//预警金额
+                public String WARNSTATUS;//预警状态
+                public String ORGAN;//预警机关
+                public String WARNCONTENT;//预警内容
+                public String SOURCE;//数据来源（部门）
+                public String STATE;//数据状态（0有效，1无效）
+                public String SOURCENAME;//部门名称
+                public String SUPDEPARTMENT;//上级部门编码
+                public String UPDEPARTMENTNAME;//上级部门名称
+                public String BUSINESSATT;//业务属性
+                public String UPDATETIME;//更新时间
+                public String USERNAME;//上传用户
+                public String DEPID;//部门id
+                public String DATATYPE;//数据种类
+            }
+        }
+
 
     }
-
 //    /**
 //     * 证照过期zzgq(证照过期)
 //     */
@@ -1012,16 +1033,21 @@ public class DataManager {
 
     /**
      * 广告信息实体类
+     * {"message":"true","status":"1","data":{"advertising":[{"ADVERTID":"1","CATEGORY":"1","C_LEVEL":"a","IDENTIFYDATE":"2013-05-30",
+     * "Validity":"null-2013-05-01","VALFORM":"2013-03-12","SOURCENAME":"豆腐干","IDENTIFYORGANS":"工商局","VALTO":"2013-05-01"}]}}
      */
     public static List<advertisementInfo> advertisementInfoList=new ArrayList<>();
 
     public static class advertisementInfo {
+        public String Validity;
+        public String SOURCENAME;
+
         public String ADVERTID;//ID
         public String C_LEVEL;// 广告资质级别
         public String CATEGORY;//类别
         public String IDENTIFYDATE;//认定时间
         public String VALFORM;//有效期自
-        public String VALFTO;//有效期至
+        public String VALTO;//有效期至
         public String IDENTIFYORGANS;//认定机关
     }
 

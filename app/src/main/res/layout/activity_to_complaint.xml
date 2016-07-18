@@ -136,12 +136,19 @@
                 android:layout_gravity="center_vertical"
                 android:background="@mipmap/ec_photo" />
         </LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tip:长按删除"
+            android:layout_marginLeft="20dp"/>
         <com.example.credit.Views.MyGridView
             android:id="@+id/myGridViewtc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:numColumns="4"
             android:stretchMode="columnWidth"
+            android:horizontalSpacing="5dp"
+            android:verticalSpacing="5dp"
             />
     </LinearLayout>
 

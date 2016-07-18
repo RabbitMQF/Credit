@@ -278,9 +278,10 @@
             </RelativeLayout>
 
             <TextView
+                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="8sp"
+                android:textSize="10sp"
                 android:layout_margin="10dp"
                 android:text="Tip:提交保存只相对于'头像','昵称','性别','邮箱','行业','学历','手机'"/>
             <android.support.v7.widget.AppCompatButton

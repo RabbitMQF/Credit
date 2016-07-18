@@ -17,6 +17,7 @@ import com.example.credit.Entitys.DataManager;
 import com.example.credit.R;
 import com.example.credit.Views.MyListView;
 import com.example.credit.Views.RoundImageView;
+import com.squareup.picasso.Picasso;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -25,6 +26,7 @@ import java.util.List;
 
 import Decoder.BASE64Decoder;
 
+import static com.example.credit.Utils.base64Util.stringtoBitmap;
 import static com.example.credit.Views.FileUtil.decodeBitmap;
 
 public class CommmentAdapter extends BaseAdapter {
@@ -77,8 +79,12 @@ public class CommmentAdapter extends BaseAdapter {
         } else {
             vh = (ViewHolder) view.getTag();
         }
-
+//@mipmap/alreadygood  好评图片   红色
+//@mipmap/good          好评图片 灰色
+//@mipmap/alreadynogood   差评 黑色
+//@mipmap/nogood  差评 灰色
         vh.comm_img.setImageBitmap(decodeBitmap(Environment.getExternalStorageDirectory() + "/Credit/cache/"+list.get(position).COMMENTID+".jpg",35,35));
+//        vh.comm_img.setImageBitmap(stringtoBitmap(list.get(position).ICONPATH));
         vh.comm_name.setText(list.get(position).MEMBERNAME);
         vh.comm_time.setText(list.get(position).CREATETIME);
         vh.comm_cont.setText(list.get(position).CONTENT);
@@ -87,7 +93,9 @@ public class CommmentAdapter extends BaseAdapter {
 
         String s=list.get(position).ISSUCCESS;
         String s2=list.get(position).ISFAILED;
-
+/**
+ * /初始化点赞和差评 状态和数量
+ */
         if(list.get(position).ISSUCCESS.equals("0")){//是否点赞
             vh.pl_good.setVisibility(View.VISIBLE);
             vh.pl_alreadgood.setVisibility(View.GONE);
@@ -102,44 +110,96 @@ public class CommmentAdapter extends BaseAdapter {
             vh.nogood.setVisibility(View.GONE);
             vh.alreadynogood.setVisibility(View.VISIBLE);
         }
-//        vh.liuyan.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                if(vh.huifu.getVisibility()==View.VISIBLE){
-//                    vh.huifu.setVisibility(View.GONE);
-//                }else{
-//                    vh.huifu.setVisibility(View.VISIBLE);
+//   /**
+//    * /对点赞和差评 状态和数量 进行改变请求
+//   */
+//
+//        /**
+//         * 好评icon点击事件
+//         */
+//        if(vh.pl_alreadgood.getVisibility()==View.VISIBLE){
+//            vh.pl_alreadgood.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    vh.pl_alreadgood.setVisibility(View.GONE);
+//                    vh.pl_good.setVisibility(View.VISIBLE);
+//                    vh.pl_good_num.setText(Integer.parseInt(list.get(position).SUCCESSQTY.trim())-1+"");
 //                }
-//            }
-//        });
-//        vh.pl_alreadgood.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                vh.pl_alreadgood.setVisibility(View.GONE);
-//                vh.pl_good.setVisibility(View.VISIBLE);
-//            }
-//        });
-//        vh.pl_good.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                vh.pl_good.setVisibility(View.GONE);
-//                vh.pl_alreadgood.setVisibility(View.VISIBLE);
-//            }
-//        });
+//            });
+//            vh.pl_good.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    vh.pl_good.setVisibility(View.GONE);
+//                    vh.pl_alreadgood.setVisibility(View.VISIBLE);
+//                    vh.pl_good_num.setText(Integer.parseInt(list.get(position).SUCCESSQTY.trim())+"");
+//                }
+//            });
+//        }else{
+//            vh.pl_alreadgood.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    vh.pl_alreadgood.setVisibility(View.GONE);
+//                    vh.pl_good.setVisibility(View.VISIBLE);
+//                    vh.pl_good_num.setText(Integer.parseInt(list.get(position).SUCCESSQTY.trim())+"");
+//                }
+//            });
+//            vh.pl_good.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    vh.pl_good.setVisibility(View.GONE);
+//                    vh.pl_alreadgood.setVisibility(View.VISIBLE);
+//                    vh.pl_good_num.setText(Integer.parseInt(list.get(position).SUCCESSQTY.trim())+1+"");
+//                }
+//            });
+//        }
+//
+//        /**
+//         * 差评icon点击事件
+//         */
+//        if(vh.alreadynogood.getVisibility()==View.VISIBLE){
+//            vh.alreadynogood.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    vh.alreadynogood.setVisibility(View.GONE);
+//                    vh.nogood.setVisibility(View.VISIBLE);
+//                    vh.nogood_num.setText(Integer.parseInt(list.get(position).FAILEDQTY.trim())-1+"");
+//                }
+//            });
+//            vh.nogood.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    vh.nogood.setVisibility(View.GONE);
+//                    vh.alreadynogood.setVisibility(View.VISIBLE);
+//                    vh.nogood_num.setText(Integer.parseInt(list.get(position).FAILEDQTY.trim())+"");
+//                }
+//            });
+//        }else{
+//            vh.alreadynogood.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    vh.alreadynogood.setVisibility(View.GONE);
+//                    vh.nogood.setVisibility(View.VISIBLE);
+//                    vh.nogood_num.setText(Integer.parseInt(list.get(position).FAILEDQTY.trim())+"");
+//                }
+//            });
+//            vh.nogood.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    vh.nogood.setVisibility(View.GONE);
+//                    vh.alreadynogood.setVisibility(View.VISIBLE);
+//                    vh.nogood_num.setText(Integer.parseInt(list.get(position).FAILEDQTY.trim())+1+"");
+//                }
+//            });
+//        }
+        /**
+         * 绑定评论的回复列表
+         */
         DataManager.replay2reviewList=list.get(position).replay2review;
         if(DataManager.replay2reviewList!=null){
             vh.liuyan_num.setText(DataManager.replay2reviewList.size()+"");
             Commment_ItemlistAdapter adapter=new Commment_ItemlistAdapter(context,DataManager.replay2reviewList);
             vh.commpl_list.setAdapter(adapter);
         }
-//        if(list.get(position).ISFAILED=="0"){//是否差评
-//            vh.pl_good.setVisibility(View.VISIBLE);
-//            vh.pl_alreadgood.setVisibility(View.GONE);
-//        }else{
-//            vh.pl_good.setVisibility(View.GONE);
-//            vh.pl_alreadgood.setVisibility(View.VISIBLE);
-//
-//        }
         return view;
     }
 

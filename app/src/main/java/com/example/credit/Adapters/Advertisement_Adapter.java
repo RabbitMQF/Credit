@@ -57,8 +57,8 @@ public class Advertisement_Adapter extends BaseAdapter {
             DataManager.advertisementInfo temp=advertisementList.get(position);
             vh.level.setText(temp.C_LEVEL);
             vh.type.setText(temp.CATEGORY);
-            vh.dates.setText(temp.IDENTIFYDATE);
-            vh.times.setText(temp.VALFORM +"至"+ temp.VALFTO);
+            vh.dates.setText(temp.VALFORM +"至"+ temp.VALTO);
+            vh.times.setText(temp.IDENTIFYDATE);
             vh.office.setText(temp.IDENTIFYORGANS);
         }
 

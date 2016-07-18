@@ -63,6 +63,10 @@ public class WebAutonomy extends BaseActivity {
         ws.setDomStorageEnabled(true);
         ws.setJavaScriptEnabled(true);
         ws.setRenderPriority(WebSettings.RenderPriority.HIGH);//提高渲染优先级
+        //ws.setSupportZoom(true);
+        //ws.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.SINGLE_COLUMN);
+        ws.setUseWideViewPort(true);//自适应
+        ws.setLoadWithOverviewMode(true);//自适应
 
         web_conten.loadUrl(Url+KeyNo+devicetype);
 

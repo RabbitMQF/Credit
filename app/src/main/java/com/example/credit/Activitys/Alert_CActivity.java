@@ -61,32 +61,56 @@ public class Alert_CActivity extends BaseActivity {
         adapter=new Alert_Adapter(this);
         switch (key){
             case "证照到期":
-                adapter.setData(DataManager.pdateList_zzdq,null,null,null,null,null);
+                for(int i=0;i<DataManager.AlertInfoS.data.size();i++){
+                    if(DataManager.AlertInfoS.data.get(i).type.equals("zzdq")){
+                        adapter.setData(DataManager.AlertInfoS.data.get(i).data,null,null,null,null,null);
+                    }
+                }
                 alert_lv.setAdapter(adapter);
                 adapter.notifyDataSetChanged();
                 break;
             case "证照过期":
-                adapter.setData(null,DataManager.pdateList_zzgq,null,null,null,null);
+                for(int i=0;i<DataManager.AlertInfoS.data.size();i++){
+                    if(DataManager.AlertInfoS.data.get(i).type.equals("zzgq")){
+                        adapter.setData(null,DataManager.AlertInfoS.data.get(i).data,null,null,null,null);
+                    }
+                }
                 alert_lv.setAdapter(adapter);
                 adapter.notifyDataSetChanged();
                 break;
             case "责令改正":
-                adapter.setData(null,null,DataManager.pdateList_zlgz,null,null,null);
+                for(int i=0;i<DataManager.AlertInfoS.data.size();i++){
+                    if(DataManager.AlertInfoS.data.get(i).type.equals("zlgz")){
+                        adapter.setData(null,null,DataManager.AlertInfoS.data.get(i).data,null,null,null);
+                    }
+                }
                 alert_lv.setAdapter(adapter);
                 adapter.notifyDataSetChanged();
                 break;
             case "欠贷信息":
-                adapter.setData(null,null,null,DataManager.pdateList_qdxx,null,null);
+                for(int i=0;i<DataManager.AlertInfoS.data.size();i++){
+                    if(DataManager.AlertInfoS.data.get(i).type.equals("qdxx")){
+                        adapter.setData(null,null,null,DataManager.AlertInfoS.data.get(i).data,null,null);
+                    }
+                }
                 alert_lv.setAdapter(adapter);
                 adapter.notifyDataSetChanged();
                 break;
             case "欠税信息":
-                adapter.setData(null,null,null,null,DataManager.pdateList_qsxx,null);
+                for(int i=0;i<DataManager.AlertInfoS.data.size();i++){
+                    if(DataManager.AlertInfoS.data.get(i).type.equals("qsxx")){
+                        adapter.setData(null,null,null,null,DataManager.AlertInfoS.data.get(i).data,null);
+                    }
+                }
                 alert_lv.setAdapter(adapter);
                 adapter.notifyDataSetChanged();
                 break;
             case "欠薪信息":
-                adapter.setData(null,null,null,null,null,DataManager.pdateList_qxxx);
+                for(int i=0;i<DataManager.AlertInfoS.data.size();i++){
+                    if(DataManager.AlertInfoS.data.get(i).type.equals("qxxx")){
+                        adapter.setData(null,null,null,null,null,DataManager.AlertInfoS.data.get(i).data);
+                    }
+                }
                 alert_lv.setAdapter(adapter);
                 adapter.notifyDataSetChanged();
                 break;

@@ -74,6 +74,9 @@ public class Panoramic_Activity extends BaseActivity {
         ws.setDomStorageEnabled(true);
         ws.setJavaScriptEnabled(true);
         ws.setRenderPriority(WebSettings.RenderPriority.HIGH);//提高渲染优先级
+        //ws.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.SINGLE_COLUMN);
+        ws.setUseWideViewPort(true);//自适应
+        ws.setLoadWithOverviewMode(true);//自适应
         fullview.loadUrl(url+KeyNo+deviceId+priptype+regno+entname+token+devicetype);
         fullview.setWebViewClient( new WebViewClient(){
 

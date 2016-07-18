@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 import com.example.credit.Adapters.CommmentAdapter;
 import com.example.credit.Adapters.Commment_ItemlistAdapter;
+import com.example.credit.Dialogs.WaitDialog;
 import com.example.credit.Entitys.DataManager;
 import com.example.credit.R;
 import com.example.credit.Services.CallServer;
@@ -78,8 +79,8 @@ public class CommentListDetailsActivity extends BaseActivity {
     @ViewInject(R.id.Dhuifu_con)
     EditText huifu_con;//回复内容
     @ViewInject(R.id.Dhuifu_btn)
-    TextView huifu_btn;//回复按钮
-    public static ProgressDialog pd;
+    TextView huifu_btn;//回复按钮、
+    public static WaitDialog wd;
     int position;//下标
     public static Handler handler;
     String deviceId,uid,pid,KeyNo,token;
@@ -91,6 +92,7 @@ public class CommentListDetailsActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_comment_list_details);
         ViewUtils.inject(this);
+        wd=new WaitDialog(this);
         csp=CreditSharePreferences.getLifeSharedPreferences();
         Intent i=getIntent();
         position=i.getIntExtra("position",0);
@@ -131,11 +133,11 @@ public class CommentListDetailsActivity extends BaseActivity {
                         CallServer.getInstance().add(CommentListDetailsActivity.this, request14, MyhttpCallBack.getInstance(), 0x20111, true, false, true);
                         break;
                     case 3:
-                        pd.dismiss();
+                        wd.dismiss();
                         android.widget.Toast.makeText(CommentListDetailsActivity.this, "点赞失败!", android.widget.Toast.LENGTH_SHORT).show();
                         break;
                     case 4:
-                        pd.dismiss();
+                        wd.dismiss();
                         android.widget.Toast.makeText(CommentListDetailsActivity.this, "差评失败!", android.widget.Toast.LENGTH_SHORT).show();
                         break;
                     case 5:
@@ -298,15 +300,12 @@ public class CommentListDetailsActivity extends BaseActivity {
     };
 
     public void HttpInit(){
-        pd=new ProgressDialog(CommentListDetailsActivity.this);
-        pd.setMessage("正在加载中...");
-        pd.setCancelable(false);
         S=Integer.parseInt(DataManager.UserreviewList.get(position).SUCCESSQTY.trim());//原来点赞数值
         N=Integer.parseInt(plD_good_num.getText().toString());//当前点赞数值
         So=Integer.parseInt(DataManager.UserreviewList.get(position).FAILEDQTY.trim());//原来差评数值
         No=Integer.parseInt(Dnogood_num.getText().toString());//当前差评数值
         if(N!=S){//当当前点赞数值等于原来所赋值的数值，差评数量不变，则只执行点赞请求
-            pd.show();
+//            pd.show();
             GsonUtil request14 = new GsonUtil(URLconstant.URLINSER + URLconstant.ZZOMM, RequestMethod.GET);
             request14.add("KeyNo",KeyNo);
             request14.add("token",token);
@@ -320,7 +319,6 @@ public class CommentListDetailsActivity extends BaseActivity {
             CallServer.getInstance().add(CommentListDetailsActivity.this, request14, MyhttpCallBack.getInstance(), 0x202, true, false, true);
         }
         if(No!=So) {//当当前差评数值等于原来所赋值的数值，好评数量不变，则只执行差评请求
-            pd.show();
             GsonUtil request14 = new GsonUtil(URLconstant.URLINSER + URLconstant.NNOMM, RequestMethod.GET);
             request14.add("KeyNo",KeyNo);
             request14.add("token",token);
@@ -334,9 +332,20 @@ public class CommentListDetailsActivity extends BaseActivity {
             CallServer.getInstance().add(CommentListDetailsActivity.this, request14, MyhttpCallBack.getInstance(), 0x203, true, false, true);
         }
         if(N==S && No==So){
+            wd.show();
             CommentListDetailsActivity.this.finish();
         }else{
-            CommentListDetailsActivity.handler.sendEmptyMessage(2);
+//            CommentListDetailsActivity.handler.sendEmptyMessage(2);
+            /**
+             * 重新查一遍评论
+             */
+            wd.show();
+            GsonUtil request14 = new GsonUtil(URLconstant.URLINSER + URLconstant.COMM, RequestMethod.GET);
+            request14.add("deviceId", (new Build()).MODEL);
+            request14.add("token", SearchFirmActivty.MD5s(DataManager.BaseinfoList.get(0).EnterAddtionID + (new Build()).MODEL));
+            request14.add("KeyNo", DataManager.BaseinfoList.get(0).EnterAddtionID);
+            request14.add("memberId", csp.getID());
+            CallServer.getInstance().add(CommentListDetailsActivity.this, request14, MyhttpCallBack.getInstance(), 0x20111, true, false, true);
         }
     }
 }

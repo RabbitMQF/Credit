@@ -64,16 +64,16 @@ public class Public_Detail_ctivity extends BaseActivity {
         List<String> list2 = new ArrayList<>();
         if (state.equals("patent")) {//专利
             b_topname.setText("专利信息");
-            list1.add(DataManager.patentInfoList.get(position).PATENTNAME);
-            list1.add(DataManager.patentInfoList.get(position).RCODE);
-            list1.add(DataManager.patentInfoList.get(position).RDATE);
-            list1.add(DataManager.patentInfoList.get(position).ACODE);
-            list1.add(DataManager.patentInfoList.get(position).ADATE);
-            list1.add(DataManager.patentInfoList.get(position).INVENTOR);
-            list1.add(DataManager.patentInfoList.get(position).PATENTTYPE);
-            list1.add(DataManager.patentInfoList.get(position).AGENCY);
-            list1.add(DataManager.patentInfoList.get(position).LEGALSTATUS);
-            list1.add(DataManager.patentInfoList.get(position).DETAILINFO);
+            list1.add(DataManager.PatentInfoS.patentInfo.get(position).PATENTNAME);
+            list1.add(DataManager.PatentInfoS.patentInfo.get(position).RCODE);
+            list1.add(DataManager.PatentInfoS.patentInfo.get(position).RDATE);
+            list1.add(DataManager.PatentInfoS.patentInfo.get(position).ACODE);
+            list1.add(DataManager.PatentInfoS.patentInfo.get(position).ADATE);
+            list1.add(DataManager.PatentInfoS.patentInfo.get(position).INVENTOR);
+            list1.add(DataManager.PatentInfoS.patentInfo.get(position).PATENTTYPE);
+            list1.add(DataManager.PatentInfoS.patentInfo.get(position).AGENCY);
+            list1.add(DataManager.PatentInfoS.patentInfo.get(position).LEGALSTATUS);
+            list1.add(DataManager.PatentInfoS.patentInfo.get(position).DETAILINFO);
             list2 = Arrays.asList(getResources().getStringArray(R.array.patent_c));
 
         } else if (state.equals("punish")) {//处罚

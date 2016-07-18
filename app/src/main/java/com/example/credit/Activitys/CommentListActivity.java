@@ -122,37 +122,37 @@ public class CommentListActivity extends BaseActivity {
 
     public  void Rit(){
 
-        File file = new File(Environment.getExternalStorageDirectory() + "/Credit/cache/"+RUserreviewList.get(0).COMMENTID+".jpg");
-        if (!file.exists()) {//获取本地图片路径是否存在
-            for(int i=0;i<RUserreviewList.size();i++){
-                try {
-                    BASE64Decoder decode = new BASE64Decoder();
-                    byte[] b = decode.decodeBuffer(RUserreviewList.get(i).ICONPATH);
-                    System.out.println(new String(b));
-                    StringBuilder str = new StringBuilder();//不建议用String
-                    for (byte bs : b) {
-                        str.append(Integer.toBinaryString(bs));//转换为二进制
-                    }
-                    //把字节数组的图片写到另一个地方
-                    File apple = new File(Environment.getExternalStorageDirectory() + "/Credit/cache/"+RUserreviewList.get(i).COMMENTID+".jpg");
-                    FileOutputStream fos = new FileOutputStream(apple);
-                    fos.write(b);
-                    fos.flush();
-                    fos.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
+//        File file = new File(Environment.getExternalStorageDirectory() + "/Credit/cache/"+RUserreviewList.get(0).COMMENTID+".jpg");
+//        if (!file.exists()) {//获取本地图片路径是否存在
+//            for(int i=0;i<RUserreviewList.size();i++){
+//                try {
+//                    BASE64Decoder decode = new BASE64Decoder();
+//                    byte[] b = decode.decodeBuffer(RUserreviewList.get(i).ICONPATH);
+//                    System.out.println(new String(b));
+//                    StringBuilder str = new StringBuilder();//不建议用String
+//                    for (byte bs : b) {
+//                        str.append(Integer.toBinaryString(bs));//转换为二进制
+//                    }
+//                    //把字节数组的图片写到另一个地方
+//                    File apple = new File(Environment.getExternalStorageDirectory() + "/Credit/cache/"+RUserreviewList.get(i).COMMENTID+".jpg");
+//                    FileOutputStream fos = new FileOutputStream(apple);
+//                    fos.write(b);
+//                    fos.flush();
+//                    fos.close();
+//                } catch (IOException e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//            adapter=new CommmentAdapter(CommentListActivity.this,RUserreviewList);
+//            Ccomm_list.setAdapter(adapter);
+//        }else{
             adapter=new CommmentAdapter(CommentListActivity.this,RUserreviewList);
             Ccomm_list.setAdapter(adapter);
-        }else{
-            adapter=new CommmentAdapter(CommentListActivity.this,RUserreviewList);
-            Ccomm_list.setAdapter(adapter);
-        }
+//        }
         if(type==0){
             CompanyDetailsActivity.waitDialog.dismiss();
         }else{
-            CommentListDetailsActivity.pd.dismiss();
+            CommentListDetailsActivity.wd.dismiss();
         }
     }
     public void intiow(){

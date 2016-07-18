@@ -635,47 +635,53 @@ public class MyhttpCallBack implements HttpCallBack {
                 break;
             case 0x007://预警信息zlh
                 String jsonstring = (String) response.get();
-                map = gson.fromJson(jsonstring, new TypeToken<Map<String, Object>>() {
-                }.getType());
-
-                List<LinkedTreeMap> listtemp2 = (List<LinkedTreeMap>) map.get("data");
-                for (int i = 0; i < listtemp2.size(); i++) {
-                    if (listtemp2.get(i).get("date") != null && !listtemp2.get(i).get("date").equals(null)) {
-                        switch (listtemp2.get(i).get("type").toString()) {
-                            case "zzdq"://zzdq(证照到期)
-                                DataManager.pdateList_zzdq = gson.fromJson(listtemp2.get(i).get("date").toString(), new TypeToken<List<DataManager.date>>() {
-                                }.getType());
-                                break;
-                            case "zzgq"://zzgq(证照过期)
-                                DataManager.pdateList_zzgq = gson.fromJson(listtemp2.get(i).get("date").toString(), new TypeToken<List<DataManager.date>>() {
-                                }.getType());
-                                break;
-                            case "zlgz"://zlgz（责令改正）
-                                DataManager.pdateList_zlgz = gson.fromJson(listtemp2.get(i).get("date").toString(), new TypeToken<List<DataManager.date>>() {
-                                }.getType());
-                                break;
-                            case "qdxx"://qdxx(欠贷信息)
-                                DataManager.pdateList_qdxx = gson.fromJson(listtemp2.get(i).get("date").toString(), new TypeToken<List<DataManager.date>>() {
-                                }.getType());
-                                break;
-                            case "qsxx"://qsxx(欠税信息)
-                                DataManager.pdateList_qsxx = gson.fromJson(listtemp2.get(i).get("date").toString(), new TypeToken<List<DataManager.date>>() {
-                                }.getType());
-                                break;
-                            case "qxxx"://qxxx(欠薪信息)
-                                DataManager.pdateList_qxxx = gson.fromJson(listtemp2.get(i).get("date").toString(), new TypeToken<List<DataManager.date>>() {
-                                }.getType());
-                                break;
-                            default:
-                                break;
-                        }
-                    }
-                }
-                if (listtemp2.size() > 0 && listtemp2 != null) {
+                DataManager.AlertInfoS = gson.fromJson(jsonstring, DataManager.AlertInfo.class);
+                if (DataManager.AlertInfoS.data.size() > 0 && DataManager.AlertInfoS != null) {
                     CompanyDetailsActivity.handler.sendEmptyMessage(7);
                 } else {
                     CompanyDetailsActivity.handler.sendEmptyMessage(500);
                 }
+//                map = gson.fromJson(jsonstring, new TypeToken<Map<String, Object>>() {
+//                }.getType());
+//
+//                List<LinkedTreeMap> listtemp2 = (List<LinkedTreeMap>) map.get("data");
+//                for (int i = 0; i < listtemp2.size(); i++) {
+//                    if (listtemp2.get(i).get("data") != null && !listtemp2.get(i).get("data").equals(null)) {
+//                        switch (listtemp2.get(i).get("type").toString()) {
+//                            case "zzdq"://zzdq(证照到期)
+//                                DataManager.pdateList_zzdq = gson.fromJson(listtemp2.get(i).get("data").toString(), new TypeToken<List<DataManager.date>>() {
+//                                }.getType());
+//                                break;
+//                            case "zzgq"://zzgq(证照过期)
+//                                DataManager.pdateList_zzgq = gson.fromJson(listtemp2.get(i).get("data").toString(), new TypeToken<List<DataManager.date>>() {
+//                                }.getType());
+//                                break;
+//                            case "zlgz"://zlgz（责令改正）
+//                                DataManager.pdateList_zlgz = gson.fromJson(listtemp2.get(i).get("data").toString(), new TypeToken<List<DataManager.date>>() {
+//                                }.getType());
+//                                break;
+//                            case "qdxx"://qdxx(欠贷信息)
+//                                DataManager.pdateList_qdxx = gson.fromJson(listtemp2.get(i).get("data").toString(), new TypeToken<List<DataManager.date>>() {
+//                                }.getType());
+//                                break;
+//                            case "qsxx"://qsxx(欠税信息)
+//                                DataManager.pdateList_qsxx = gson.fromJson(listtemp2.get(i).get("data").toString(), new TypeToken<List<DataManager.date>>() {
+//                                }.getType());
+//                                break;
+//                            case "qxxx"://qxxx(欠薪信息)
+//                                DataManager.pdateList_qxxx = gson.fromJson(listtemp2.get(i).get("data").toString(), new TypeToken<List<DataManager.date>>() {
+//                                }.getType());
+//                                break;
+//                            default:
+//                                break;
+//                        }
+//                    }
+//                }
+//                if (listtemp2.size() > 0 && listtemp2 != null) {
+//                    CompanyDetailsActivity.handler.sendEmptyMessage(7);
+//                } else {
+//                    CompanyDetailsActivity.handler.sendEmptyMessage(500);
+//                }
 
                 break;
             case 0x008://行政处罚
@@ -721,41 +727,10 @@ public class MyhttpCallBack implements HttpCallBack {
 
                 break;
             case 0x010://专利信息
-                String jstring10 = (String) response.get();
-//                map = gson.fromJson(jstring10, new TypeToken<Map<String, Object>>() {
-//                }.getType());
-//                List<DataManager.patentInfo> list10 = gson.fromJson(((Map<String, Object>) map.get("data")).get("patentInfo").toString().trim(), new TypeToken<List<DataManager.patentInfo>>() {
-//                }.getType());
-//                DataManager.patentInfoList = list10;
+                jsonString = (String) response.get();
+                DataManager.PatentInfoS = gson.fromJson(jsonString, DataManager.PatentInfo.class);
 
-                //以下代码解决空格问题
-                map = gson.fromJson(jstring10, new TypeToken<Map<String, Object>>() {
-                }.getType());
-                List<LinkedTreeMap> list10 = (List<LinkedTreeMap>) ((Map<String, Object>) map.get("data")).get("patentInfo");
-
-                if (DataManager.patentInfoList != null) {
-                    DataManager.patentInfoList.clear();
-                }
-                if (list10 != null && list10.size() > 0) {
-                    for (LinkedTreeMap temp : list10) {
-                        DataManager.patentInfo cfo = new DataManager.patentInfo();
-                        cfo.PRIPID = (String) temp.get("PRIPID");
-                        cfo.PATENTNAME = (String) temp.get("PATENTNAME");
-                        cfo.RCODE = (String) temp.get("RCODE");
-                        cfo.RDATE = (String) temp.get("RDATE");
-                        cfo.ACODE = (String) temp.get("ACODE");
-                        cfo.ADATE = (String) temp.get("ADATE");
-                        cfo.PATENTTYPE = (String) temp.get("PATENTTYPE");
-                        cfo.INVENTOR = (String) temp.get("INVENTOR");
-                        cfo.AGENCY = (String) temp.get("AGENCY");
-                        cfo.LEGALSTATUS = (String) temp.get("LEGALSTATUS");
-                        cfo.DETAILINFO = (String) temp.get("DETAILINFO");
-                        DataManager.patentInfoList.add(cfo);
-                    }
-                }
-
-
-                if (DataManager.patentInfoList.size() > 0 && DataManager.patentInfoList != null) {
+                if (DataManager.PatentInfoS.patentInfo != null) {
                     CompanyDetailsActivity.handler.sendEmptyMessage(10);
                 } else {
                     CompanyDetailsActivity.handler.sendEmptyMessage(500);
@@ -871,7 +846,7 @@ public class MyhttpCallBack implements HttpCallBack {
                         cfo.CATEGORY = (String) temp.get("CATEGORY");
                         cfo.IDENTIFYDATE = (String) temp.get("IDENTIFYDATE");
                         cfo.VALFORM = (String) temp.get("VALFORM");
-                        cfo.VALFTO = (String) temp.get("VALFTO");
+                        cfo.VALTO = (String) temp.get("VALTO");
                         cfo.IDENTIFYORGANS = (String) temp.get("IDENTIFYORGANS");
                         DataManager.advertisementInfoList.add(cfo);
                     }
@@ -1422,6 +1397,14 @@ public class MyhttpCallBack implements HttpCallBack {
                 ToComplaintActivity.pd.dismiss();
                 MycomplaintsListActivity.pd.dismiss();
                 break;
+            case 0x301://提交认领
+                MainActivity.ad.dismiss();
+                MainActivity.pd.dismiss();
+                break;
+            case 0x20111://查询评论列表
+                CommentListDetailsActivity.wd.dismiss();
+                break;
+
             default:
                 break;
 

@@ -17,18 +17,18 @@ import java.util.List;
  */
 public class Alert_Adapter extends BaseAdapter {
     Context context;
-    List<DataManager.date> paperwork_expireList;
-    List<DataManager.date> paperwork_ExpiredList;
-    List<DataManager.date> correctionList;
-    List<DataManager.date> loanList;
-    List<DataManager.date> taxesList;
-    List<DataManager.date> wagesList;
+    List<DataManager.AlertInfo.DataBean.date> paperwork_expireList;
+    List<DataManager.AlertInfo.DataBean.date> paperwork_ExpiredList;
+    List<DataManager.AlertInfo.DataBean.date> correctionList;
+    List<DataManager.AlertInfo.DataBean.date> loanList;
+    List<DataManager.AlertInfo.DataBean.date> taxesList;
+    List<DataManager.AlertInfo.DataBean.date> wagesList;
 
     public Alert_Adapter(Context context) {
         this.context = context;
     }
 
-    public void setData(List<DataManager.date> paperwork_expireList, List<DataManager.date> paperwork_ExpiredList, List<DataManager.date> correctionList, List<DataManager.date> loanList, List<DataManager.date> taxesList, List<DataManager.date> wagesList) {
+    public void setData(List<DataManager.AlertInfo.DataBean.date> paperwork_expireList, List<DataManager.AlertInfo.DataBean.date> paperwork_ExpiredList, List<DataManager.AlertInfo.DataBean.date> correctionList, List<DataManager.AlertInfo.DataBean.date> loanList, List<DataManager.AlertInfo.DataBean.date> taxesList, List<DataManager.AlertInfo.DataBean.date> wagesList) {
         this.paperwork_expireList = paperwork_expireList;
         this.paperwork_ExpiredList = paperwork_ExpiredList;
         this.correctionList = correctionList;

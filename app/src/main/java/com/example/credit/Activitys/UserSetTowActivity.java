@@ -15,11 +15,14 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.example.credit.R;
+import com.example.credit.Utils.Toast;
 import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ViewInject;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class UserSetTowActivity extends Activity {
     @ViewInject(R.id.b_topname)
@@ -85,6 +88,11 @@ public class UserSetTowActivity extends Activity {
             case 3:
                 ll1.setVisibility(View.GONE);
                 ll2.setVisibility(View.VISIBLE);
+                if(txt.equals("男")){
+                    rb1.setChecked(true);
+                }else{
+                    rb2.setChecked(true);
+                }
                 b_topname.setText("性别修改");
                 rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
                     @Override
@@ -99,6 +107,7 @@ public class UserSetTowActivity extends Activity {
                         }
                     }
                 });
+
                 break;
             case 4:
                 b_topname.setText("邮箱修改");
@@ -175,18 +184,60 @@ public class UserSetTowActivity extends Activity {
         public void onClick(View v) {
             switch (v.getId()){
                 case R.id.b_return:
-                    i=new Intent();
-                    i.putExtra("text",ustC_et.getText().toString() );
-                    setResult(3, i);
                     finish();
                     break;
                 case R.id.b_topY:
-                    i=new Intent();
-                    i.putExtra("text",ustC_et.getText().toString());
-                    setResult(3, i);
-                    finish();
+                    if(type==4){
+                        if(!isEmail(ustC_et.getText().toString())){
+                            Toast.show("邮箱格式不正确！");
+                        }else{
+                            i=new Intent();
+                            i.putExtra("text",ustC_et.getText().toString());
+                            setResult(3, i);
+                            finish();
+                        }
+                    }else if(type==7){
+                        if(!isMobileNO(ustC_et.getText().toString()) && !isNumeric(ustC_et.getText().toString())){
+                            Toast.show("手机格式不正确！");
+                        }else{
+                            i=new Intent();
+                            i.putExtra("text",ustC_et.getText().toString());
+                            setResult(3, i);
+                            finish();
+                        }
+                    }else{
+                        i=new Intent();
+                        i.putExtra("text",ustC_et.getText().toString());
+                        setResult(3, i);
+                        finish();
+                    }
                     break;
             }
         }
     };
+    //判断手机格式是否正确
+    public boolean isMobileNO(String mobiles) {
+        Pattern p = Pattern
+                .compile("^((13[0-9])|(15[^4,\\D])|(18[0,5-9]))\\d{8}$");
+        Matcher m = p.matcher(mobiles);
+
+        return m.matches();
+    }
+    //判断email格式是否正确
+    public boolean isEmail(String email) {
+        String str = "^([a-zA-Z0-9_\\-\\.]+)@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.)|(([a-zA-Z0-9\\-]+\\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\\]?)$";
+        Pattern p = Pattern.compile(str);
+        Matcher m = p.matcher(email);
+
+        return m.matches();
+    }
+    //判断是否全是数字
+    public boolean isNumeric(String str) {
+        Pattern pattern = Pattern.compile("[0-9]*");
+        Matcher isNum = pattern.matcher(str);
+        if (!isNum.matches()) {
+            return false;
+        }
+        return true;
+    }
 }

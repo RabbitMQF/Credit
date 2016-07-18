@@ -103,4 +103,16 @@ public class MyconcernActivity extends BaseActivity {
             }
         }
     };
+
+    @Override
+    protected void onRestart() {
+        adapter.notifyDataSetChanged();
+        super.onRestart();
+    }
+
+    @Override
+    protected void onResume() {
+        adapter.notifyDataSetChanged();
+        super.onResume();
+    }
 }

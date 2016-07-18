@@ -54,7 +54,7 @@ public class PatentActivity extends BaseActivity {
             }
         });
         List<String> list = new ArrayList<>();
-        for(DataManager.patentInfo p:DataManager.patentInfoList){
+        for(DataManager.PatentInfo.PatentInfoBean p:DataManager.PatentInfoS.patentInfo){
             list.add(p.PATENTNAME);
         }
         CC_List_itemAdapter adapter = new CC_List_itemAdapter(PatentActivity.this, list, "patent",null);
