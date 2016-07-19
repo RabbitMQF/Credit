@@ -1070,16 +1070,14 @@ public class MyhttpCallBack implements HttpCallBack {
                 MainActivity.handler.sendEmptyMessage(5);
                 break;
             case 0x201://评论
-                String jstring201 = (String) response.get();
-                DataManager.Root201 jsonRoot201 = gson.fromJson(jstring201, new TypeToken<DataManager.Root201>() {
-                }.getType());
-                DataManager.Data201 d201 = jsonRoot201.data;
-                DataManager.UserreviewList = d201.userreview;
-                if(DataManager.UserreviewList!=null && DataManager.UserreviewList.size()>0){
-                    CompanyDetailsActivity.handler.sendEmptyMessage(21);
-                }else{
-                    CompanyDetailsActivity.handler.sendEmptyMessage(500);
-                }
+                jsonString = (String) response.get();
+                DataManager.MyCommentlistrS = gson.fromJson(jsonString, DataManager.MyCommentlistr.class);
+//                if(DataManager.MyCommentlistrS.data.userreview !=null){
+//                    CompanyDetailsActivity.handler.sendEmptyMessage(21);
+                CommentListActivity.handler.sendEmptyMessage(0);
+//                }else{
+//                    CompanyDetailsActivity.handler.sendEmptyMessage(500);
+//                }
                 break;
             case 0x2011://评论1
                 String jstring2011 = (String) response.get();
@@ -1260,8 +1258,14 @@ public class MyhttpCallBack implements HttpCallBack {
                     csp.putUser(DataManager.user);
                     csp.putLoginStatus(true);
                     Toast.show("登录成功");
-                    MainActivity.UserSz.setText(csp.getALIASNAME());
-                    MainActivity.loginImg(csp.getICONSTEAM());
+                    if(!csp.getALIASNAME().equals("")){
+                        MainActivity.UserSz.setText(csp.getALIASNAME());
+                    }else{
+                        MainActivity.UserSz.setText(csp.getUSERNAME());
+                    }
+                    if(!csp.getICONSTEAM().equals("")){
+                        MainActivity.loginImg(csp.getICONSTEAM());
+                    }
                     LoginActivity.handler.sendEmptyMessage(0);
                     LoginActivity.wd.dismiss();
                 }

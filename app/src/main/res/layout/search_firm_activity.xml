@@ -252,6 +252,7 @@
                 android:background="@color/material_grey_600" />
 
             <TextView
+                android:visibility="gone"
                 android:id="@+id/capital"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
@@ -262,6 +263,7 @@
                 android:textColor="@color/text_nocheck" />
 
             <ImageView
+                android:visibility="gone"
                 android:id="@+id/capital_arraow"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -269,6 +271,7 @@
                 android:src="@mipmap/senior_arraow_down" />
 
             <View
+                android:visibility="gone"
                 android:layout_width="0.5dp"
                 android:layout_height="match_parent"
                 android:layout_marginBottom="10dip"
@@ -277,6 +280,7 @@
                 android:background="@color/text_nocheck" />
 
             <TextView
+                android:visibility="gone"
                 android:id="@+id/time"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
@@ -287,6 +291,7 @@
                 android:textColor="@color/text_nocheck" />
 
             <ImageView
+                android:visibility="gone"
                 android:id="@+id/time_arraow"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -294,6 +299,7 @@
                 android:src="@mipmap/senior_arraow_down" />
 
             <View
+                android:visibility="gone"
                 android:layout_width="0.5dp"
                 android:layout_height="match_parent"
                 android:layout_marginBottom="10dip"

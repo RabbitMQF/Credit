@@ -12,6 +12,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@drawable/details_con_bg"
         android:orientation="vertical">
         <FrameLayout
             android:layout_width="match_parent"
@@ -23,7 +24,6 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/details_con_bg"
                     android:layout_margin="10dp"
 
                     android:orientation="horizontal">
@@ -125,7 +125,10 @@
                                 android:textSize="18sp"
                                 android:textColor="#757475"/>
                         </LinearLayout>
-
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="#EEEEEE"/>
                         <com.example.credit.Views.MyListView
                             android:id="@+id/commplD_list"
                             android:layout_width="match_parent"

@@ -88,7 +88,9 @@ public class RegisterActivity extends BaseActivity {
             @Override
             public void handleMessage(Message msg) {
                 pd.dismiss();
-                dialog.show();
+                Toast.show("注册成功！");
+//                dialog.show();
+                finish();
                 super.handleMessage(msg);
             }
         };

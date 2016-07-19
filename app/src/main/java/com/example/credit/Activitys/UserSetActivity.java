@@ -100,11 +100,13 @@ public class UserSetActivity extends BaseActivity {
     WaitDialog wd;
     String a,b,c,d,e,f,g;
     Intent i;
+    CreditSharePreferences csp;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_set);
         ViewUtils.inject(this);
+        csp=CreditSharePreferences.getLifeSharedPreferences();
         wd=new WaitDialog(this);
         csf=CreditSharePreferences.getLifeSharedPreferences();
         init();
@@ -132,10 +134,12 @@ public class UserSetActivity extends BaseActivity {
         /**
          * 获取用户头像
          */
-        File file = new File(Environment.getExternalStorageDirectory() + "/Credit/cache/loginImg.jpg");
-        if (file.exists()) {//获取本地图片路径是否存在
-            us_headimg.setImageBitmap(decodeBitmap(Environment.getExternalStorageDirectory() + "/Credit/cache/loginImg.jpg",35,35));
+        if(!csp.getICONSTEAM().equals("")){
+            File file = new File(Environment.getExternalStorageDirectory() + "/Credit/cache/loginImg.jpg");
+            if (file.exists()) {//获取本地图片路径是否存在
+                us_headimg.setImageBitmap(decodeBitmap(Environment.getExternalStorageDirectory() + "/Credit/cache/loginImg.jpg",35,35));
 //            Picasso.with(UserSetActivity.this).load(file).into(us_headimg);
+            }
         }
         us1.setOnClickListener(listener);
         /**
@@ -210,6 +214,7 @@ public class UserSetActivity extends BaseActivity {
                         if(!us_xueli.getText().toString().equals(csf.getEDUCATION())) {
                             MyClaimRuerst.add("educationId", us_xueli.getText().toString());//教育
                         }
+
                         if(pic!=null){
                             if(!csf.getICONSTEAM().equals("")){
                                 if(!pic.equals(csf.getICONSTEAM())) {

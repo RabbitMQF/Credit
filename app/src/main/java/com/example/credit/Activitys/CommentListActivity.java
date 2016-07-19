@@ -16,6 +16,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.credit.Adapters.CommmentAdapter;
+import com.example.credit.Dialogs.WaitDialog;
 import com.example.credit.Entitys.DataManager;
 import com.example.credit.R;
 import com.example.credit.Services.CallServer;
@@ -52,12 +53,13 @@ public class CommentListActivity extends BaseActivity {
     public static Handler handler;
     CreditSharePreferences csp;
     int type;
-    public static List<DataManager.Userreview> RUserreviewList = new ArrayList<>();
+    WaitDialog wd;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_comment_list);
         ViewUtils.inject(this);
+        wd=new WaitDialog(this);
         Intent i=getIntent();
         type=i.getIntExtra("type",0);
         csp=CreditSharePreferences.getLifeSharedPreferences();
@@ -68,8 +70,8 @@ public class CommentListActivity extends BaseActivity {
                 super.handleMessage(msg);
                 switch (msg.what){
                     case 0:
-                        RUserreviewList=DataManager.UserreviewList;
                         Rit();
+                        wd.dismiss();
                         break;
                 }
             }
@@ -80,15 +82,15 @@ public class CommentListActivity extends BaseActivity {
         b_topname.setText("评论");
         b_return.setOnClickListener(listener);
         b_topY.setOnClickListener(listener);
-        Rit();
+        intiow();
         Ccomm_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent i=new Intent(CommentListActivity.this,CommentListDetailsActivity.class);
-                i.putExtra("uid",RUserreviewList.get(position).MEMBERID);
-                i.putExtra("pid",RUserreviewList.get(position).COMMENTID);
+                i.putExtra("uid",DataManager.MyCommentlistrS.data.userreview.get(position).MEMBERID);
+                i.putExtra("pid",DataManager.MyCommentlistrS.data.userreview.get(position).COMMENTID);
                 i.putExtra("position",position);
-                startActivity(i);
+                startActivityForResult(i,22);
             }
         });
     }
@@ -102,68 +104,69 @@ public class CommentListActivity extends BaseActivity {
                     break;
                 case R.id.b_topY://跳转发表评论界面
                     Intent i=new Intent(CommentListActivity.this,ToCommentActivity.class);
-                    startActivity(i);
+                    startActivityForResult(i,11);
                     break;
             }
         }
     };
 
     @Override
-    protected void onRestart() {
-        Rit();
-        super.onRestart();
-    }
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        switch (requestCode) {
+            case 11:
+                intiow();
+                break;
+            case 22:
+                adapter.notifyDataSetChanged();
+//                intiow();
+                break;
+        }
 
-//    @Override
-//    protected void onResume() {
-//        Rit();
-//        super.onResume();
-//    }
+        super.onActivityResult(requestCode, resultCode, data);
+    }
 
     public  void Rit(){
 
-//        File file = new File(Environment.getExternalStorageDirectory() + "/Credit/cache/"+RUserreviewList.get(0).COMMENTID+".jpg");
-//        if (!file.exists()) {//获取本地图片路径是否存在
-//            for(int i=0;i<RUserreviewList.size();i++){
-//                try {
-//                    BASE64Decoder decode = new BASE64Decoder();
-//                    byte[] b = decode.decodeBuffer(RUserreviewList.get(i).ICONPATH);
-//                    System.out.println(new String(b));
-//                    StringBuilder str = new StringBuilder();//不建议用String
-//                    for (byte bs : b) {
-//                        str.append(Integer.toBinaryString(bs));//转换为二进制
-//                    }
-//                    //把字节数组的图片写到另一个地方
-//                    File apple = new File(Environment.getExternalStorageDirectory() + "/Credit/cache/"+RUserreviewList.get(i).COMMENTID+".jpg");
-//                    FileOutputStream fos = new FileOutputStream(apple);
-//                    fos.write(b);
-//                    fos.flush();
-//                    fos.close();
-//                } catch (IOException e) {
-//                    e.printStackTrace();
-//                }
-//            }
-//            adapter=new CommmentAdapter(CommentListActivity.this,RUserreviewList);
-//            Ccomm_list.setAdapter(adapter);
-//        }else{
-            adapter=new CommmentAdapter(CommentListActivity.this,RUserreviewList);
+        File file = new File(Environment.getExternalStorageDirectory() + "/Credit/cache/"+DataManager.MyCommentlistrS.data.userreview.get(0).COMMENTID+".jpg");
+        if (!file.exists()) {//获取本地图片路径是否存在
+            for(int i=0;i<DataManager.MyCommentlistrS.data.userreview.size();i++){
+                try {
+                    BASE64Decoder decode = new BASE64Decoder();
+                    byte[] b = decode.decodeBuffer(DataManager.MyCommentlistrS.data.userreview.get(i).ICONPATH);
+                    System.out.println(new String(b));
+                    StringBuilder str = new StringBuilder();//不建议用String
+                    for (byte bs : b) {
+                        str.append(Integer.toBinaryString(bs));//转换为二进制
+                    }
+                    //把字节数组的图片写到另一个地方
+                    File apple = new File(Environment.getExternalStorageDirectory() + "/Credit/cache/"+DataManager.MyCommentlistrS.data.userreview.get(i).COMMENTID+".jpg");
+                    FileOutputStream fos = new FileOutputStream(apple);
+                    fos.write(b);
+                    fos.flush();
+                    fos.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            adapter=new CommmentAdapter(CommentListActivity.this,DataManager.MyCommentlistrS.data.userreview);
+            adapter.notifyDataSetChanged();
             Ccomm_list.setAdapter(adapter);
-//        }
-        if(type==0){
-            CompanyDetailsActivity.waitDialog.dismiss();
         }else{
-            CommentListDetailsActivity.wd.dismiss();
+            adapter=new CommmentAdapter(CommentListActivity.this,DataManager.MyCommentlistrS.data.userreview);
+            adapter.notifyDataSetChanged();
+            Ccomm_list.setAdapter(adapter);
         }
     }
     public void intiow(){
         /**
-         * 重新查一遍评论
+         * 查询评论
          */
+        wd.show();
         GsonUtil request14 = new GsonUtil(URLconstant.URLINSER + URLconstant.COMM, RequestMethod.GET);
         request14.add("deviceId", (new Build()).MODEL);
         request14.add("token", SearchFirmActivty.MD5s(DataManager.BaseinfoList.get(0).EnterAddtionID + (new Build()).MODEL));
         request14.add("KeyNo", DataManager.BaseinfoList.get(0).EnterAddtionID);
         request14.add("memberId", csp.getID());
-        CallServer.getInstance().add(CommentListActivity.this, request14, MyhttpCallBack.getInstance(), 0x20111, true, false, true);
+        CallServer.getInstance().add(CommentListActivity.this, request14, MyhttpCallBack.getInstance(), 0x201, true, false, true);
     }
 }

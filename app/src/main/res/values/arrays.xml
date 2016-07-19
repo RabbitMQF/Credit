@@ -158,12 +158,13 @@
         <item>详情</item>
     </string-array>
     <string-array name="trademark_c"><!--商标-->
-        <item>商标注册号</item>
         <item>商标名称</item>
         <item>申请日期</item>
-        <item>代理机构</item>
-        <item>申请企业名称</item>
         <item>申请人</item>
+        <item>商标状态</item>
+        <item>商标注册号</item>
+        <item>商标分类号</item>
+        <item>代理机构</item>
         <item>使用期限</item>
 
     </string-array>

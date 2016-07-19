@@ -408,10 +408,12 @@ public class MainActivity extends Activity implements View.OnClickListener {
         if (LoginStatus) {//若当前状态为登录
             UserSz.setText(csp.getALIASNAME());
             login.setText("退出登录");
-            File file = new File(Environment.getExternalStorageDirectory() + "/Credit/cache/loginImg.jpg");
-            if (file.exists()) {//获取本地图片路径是否存在
-                headimg.setImageBitmap(decodeBitmap(Environment.getExternalStorageDirectory() + "/Credit/cache/loginImg.jpg",80,80));
+            if(!csp.getICONSTEAM().equals("")){
+                File file = new File(Environment.getExternalStorageDirectory() + "/Credit/cache/loginImg.jpg");
+                if (file.exists()) {//获取本地图片路径是否存在
+                    headimg.setImageBitmap(decodeBitmap(Environment.getExternalStorageDirectory() + "/Credit/cache/loginImg.jpg",80,80));
 //                Picasso.with(MainActivity.this).load(file).into(headimg);
+                }
             }
         } else {//若当前状态未未登录
             login.setText("登录");

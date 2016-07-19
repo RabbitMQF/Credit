@@ -20,9 +20,9 @@ import java.util.List;
 
 public class Commment_ItemlistAdapter extends BaseAdapter {
     private Context context;
-    private List<DataManager.Replay2review> list;
+    private List<DataManager.MyCommentlistr.DataBean.UserreviewBean.Replay2review> list;
     ViewHolder vh = null;
-    public Commment_ItemlistAdapter(Context context, List<DataManager.Replay2review> list) {
+    public Commment_ItemlistAdapter(Context context, List<DataManager.MyCommentlistr.DataBean.UserreviewBean.Replay2review> list) {
         this.context = context;
         this.list = list;
     }

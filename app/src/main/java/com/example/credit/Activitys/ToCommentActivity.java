@@ -60,27 +60,12 @@ public class ToCommentActivity extends BaseActivity {
             public void handleMessage(Message msg) {
                 switch (msg.what){
                     case 1:
-                        /**
-                         * 重新查一遍评论
-                         */
-                        String KeyNos=DataManager.BaseinfoList.get(0).EnterAddtionID;
-                        String tokens= SearchFirmActivty.MD5s(KeyNos + deviceId);
-                        GsonUtil request14 = new GsonUtil(URLconstant.URLINSER + URLconstant.COMM, RequestMethod.GET);
-                        request14.add("deviceId",deviceId);
-                        request14.add("token",tokens);
-                        request14.add("KeyNo",KeyNos);
-                        request14.add("memberId",csp.getID());
-                        CallServer.getInstance().add(ToCommentActivity.this, request14, MyhttpCallBack.getInstance(), 0x2011, true, false, true);
+                        Intent i=new Intent();
+                        setResult(1, i);
+                        finish();
                         break;
                     case 2:
                         android.widget.Toast.makeText(ToCommentActivity.this, "发表评论失败!", android.widget.Toast.LENGTH_SHORT).show();
-                        break;
-                    case 21://评论
-                        wd.dismiss();
-                        CommentListActivity.RUserreviewList= DataManager.UserreviewList;
-                        finish();
-//                        Intent i21=new Intent(ToCommentActivity.this,CommentListActivity.class);
-//                        startActivity(i21);
                         break;
                 }
             }

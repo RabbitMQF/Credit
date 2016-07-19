@@ -95,7 +95,6 @@ public class CompanyDetailsActivity extends BaseActivity {
     @ViewInject(R.id.myGridView2)
     MyGridView myGridView2;
 
-    MyGridAdapter1 adapter1;
     MyGridAdapter2 adapter2;
     private final int MSG = 0x015;
     int a1 = 0, a2 = 0, a3 = 0, a4 = 0, a5 = 0, a6 = 0, a7 = 0, a8 = 0, a9 = 0, a10 = 0, a11 = 0, a12 = 0, a13 = 0, a14 = 0, a15 = 0, a16 = 0;
@@ -116,14 +115,6 @@ public class CompanyDetailsActivity extends BaseActivity {
             "+1", "+1", "+1", "+1",
             "+1", "+1", "+1", "+1"};
 
-    public int[] imgs = {R.mipmap.infodetial_fun1_abled, R.mipmap.infodetial_fun2_abled,
-            R.mipmap.infodetial_fun3_abled, R.mipmap.infodetial_fun4_abled,
-            R.mipmap.infodetial_fun5_abled, R.mipmap.infodetial_fun6_abled,
-            R.mipmap.infodetial_fun7_abled, R.mipmap.infodetial_fun8_abled,
-            R.mipmap.infodetial_fun9_abled, R.mipmap.infodetial_fun10_abled,
-            R.mipmap.infodetial_fun11_abled, R.mipmap.infodetial_fun12_abled,
-            R.mipmap.infodetial_fun13_abled, R.mipmap.infodetial_fun14_abled,
-            R.mipmap.infodetial_fun15_abled, R.mipmap.infodetial_fun16_abled};
 
     public int[] imgs1 = {R.mipmap.icon1, R.mipmap.icon2,
             R.mipmap.icon3, R.mipmap.icon4,
@@ -180,7 +171,6 @@ public class CompanyDetailsActivity extends BaseActivity {
         KeyNos = DataManager.BaseinfoList.get(0).EnterAddtionID;//企业附加信息主键ID
         tokens = SearchFirmActivty.MD5s(KeyNos + model);
         init();
-        adapter1 = new MyGridAdapter1(CompanyDetailsActivity.this, arrays1, arrays2, imgs);
 
         MyGridAdapters adapters = new MyGridAdapters(CompanyDetailsActivity.this, imgs1);
         myGridView1.setAdapter(adapters);
@@ -322,8 +312,7 @@ public class CompanyDetailsActivity extends BaseActivity {
                         overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
                         break;
                     case 21://评论
-//                        waitDialog.dismiss();
-                        CommentListActivity.RUserreviewList = DataManager.UserreviewList;
+//                      waitDialog.dismiss();
                         Intent i21 = new Intent(CompanyDetailsActivity.this, CommentListActivity.class);
                         i21.putExtra("type",0);
                         startActivity(i21);
@@ -720,13 +709,9 @@ public class CompanyDetailsActivity extends BaseActivity {
                     finish();
                     break;
                 case R.id.pb_2://评论
-                    waitDialog.show();
-                    GsonUtil request14 = new GsonUtil(URLconstant.URLINSER + URLconstant.COMM, RequestMethod.GET);
-                    request14.add("deviceId", model);
-                    request14.add("token", tokens);
-                    request14.add("KeyNo", KeyNos);
-                    request14.add("memberId", csp.getID());
-                    CallServer.getInstance().add(CompanyDetailsActivity.this, request14, MyhttpCallBack.getInstance(), 0x201, true, false, true);
+                    Intent i21 = new Intent(CompanyDetailsActivity.this, CommentListActivity.class);
+                    i21.putExtra("type",0);
+                    startActivity(i21);
                     break;
                 case R.id.pb_0://二维码名片
                     File file = new File(Environment.getExternalStorageDirectory() + "/Credit/cache/"+DataManager.BaseinfoList.get(0).REGNO+"_TwoDimImg.jpg");

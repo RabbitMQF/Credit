@@ -55,7 +55,7 @@ public class SearchListAdapter2 extends BaseAdapter {
 		vh.corporate.setText(c.NAME);
 		vh.funds.setText(c.REGCAP+"万元");
 		vh.status.setText(c.REGSTATE_CN);
-		vh.time.setText(c.D_ADDTIME);
+		vh.time.setText(c.OPFROM);
 		return view;
 	}
 	public class ViewHolder{

@@ -37,7 +37,6 @@ public class DataManager {
         }
     }
 
-
     public class ContatUser {//联系人信息
         public Integer user_id;
         public Integer corps_id;
@@ -1156,6 +1155,48 @@ public class DataManager {
     /**
      * 我的点评列表
      */
+    public static MyCommentlistr MyCommentlistrS=new MyCommentlistr();
+    public static class MyCommentlistr {
+        public String message;
+        public String status;
+        public DataBean data;
+        public String version;
+        public static class DataBean {
+            public PagingBean Paging;
+            public List<UserreviewBean> userreview;
+            public static class PagingBean {
+                public int TotalPage;
+                public int ShowCount;
+                public int TotalResult;
+                public int CurrentResult;
+                public int CurrentPage;
+            }
+            public static class UserreviewBean {
+                public String ENTERID;//附加表的企业ID
+                public String ICONPATH;//头像
+                public String FAILEDQTY;//点赞吐槽
+                public String replay2reviewCount;
+                public String MEMBERID;//本评论用户ID
+                public String CREATETIME;//评论时间
+                public String COMMENTID;//评论ID
+                public String CONTENT;//点评内容
+                public String SUCCESSQTY;//点赞数量
+                public String ISSUCCESS;//是否点赞 0为否，1为是
+                public List<Replay2review> replay2review;
+                public String MEMBERNAME;//本评论用户名称
+                public String ISFAILED;//是否吐槽 0为否，1为是
+                /**
+                 * 回复评论（楼中楼）
+                 */
+                public static class Replay2review {
+                    public String CHILDMEMBERID;//用户ID
+                    public String REPLAYCOMMENT;//回复评论内容
+                    public String CHILDMEMBERNAME;//用户名称
+                    public String REPLAYTIME;//回复评论时间
+                }
+            }
+        }
+    }
     public static class Userreview {
         public String ENTERID;//附加表的企业ID
         public String ICONPATH;//头像

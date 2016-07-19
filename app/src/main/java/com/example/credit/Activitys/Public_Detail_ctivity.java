@@ -111,12 +111,13 @@ public class Public_Detail_ctivity extends BaseActivity {
 
         } else if (state.equals("trademark")) {//商标
             b_topname.setText("商标信息");
-            list1.add(DataManager.trademarkInfoList.get(position).REGCORE);
             list1.add(DataManager.trademarkInfoList.get(position).BRANDNAME);
             list1.add(DataManager.trademarkInfoList.get(position).APPLICATIONDATE);
-            list1.add(DataManager.trademarkInfoList.get(position).AGENCY);
-            list1.add(DataManager.trademarkInfoList.get(position).ENTNAME);
             list1.add(DataManager.trademarkInfoList.get(position).APPLICANT);
+            list1.add(DataManager.trademarkInfoList.get(position).BRANDSTAUTS);
+            list1.add(DataManager.trademarkInfoList.get(position).REGCORE);
+            list1.add(DataManager.trademarkInfoList.get(position).CLASSIFYID);
+            list1.add(DataManager.trademarkInfoList.get(position).AGENCY);
             list1.add(DataManager.trademarkInfoList.get(position).LIFESPAN);
             list2 = Arrays.asList(getResources().getStringArray(R.array.trademark_c));
 

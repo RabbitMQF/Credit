@@ -98,7 +98,7 @@ public class ComplainListAdapter extends BaseAdapter {
 
                 vh.complain_status.setTextColor(context.getResources().getColor(R.color.green));
                 vh.complain_status.setText("已处理");
-                vh.complain_cancel.setVisibility(View.GONE);
+                //vh.complain_cancel.setVisibility(View.GONE);
                 break;
             case "2"://已拒绝
 

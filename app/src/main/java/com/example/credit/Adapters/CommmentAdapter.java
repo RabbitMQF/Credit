@@ -31,10 +31,10 @@ import static com.example.credit.Views.FileUtil.decodeBitmap;
 
 public class CommmentAdapter extends BaseAdapter {
     private Context context;
-    private List<DataManager.Userreview> list;
+    private List<DataManager.MyCommentlistr.DataBean.UserreviewBean> list;
     ViewHolder vh = null;
     int sum=0;
-    public CommmentAdapter(Context context, List<DataManager.Userreview> list) {
+    public CommmentAdapter(Context context, List<DataManager.MyCommentlistr.DataBean.UserreviewBean> list) {
         this.context = context;
         this.list = list;
         notifyDataSetChanged();
@@ -194,10 +194,9 @@ public class CommmentAdapter extends BaseAdapter {
         /**
          * 绑定评论的回复列表
          */
-        DataManager.replay2reviewList=list.get(position).replay2review;
         if(DataManager.replay2reviewList!=null){
             vh.liuyan_num.setText(DataManager.replay2reviewList.size()+"");
-            Commment_ItemlistAdapter adapter=new Commment_ItemlistAdapter(context,DataManager.replay2reviewList);
+            Commment_ItemlistAdapter adapter=new Commment_ItemlistAdapter(context,list.get(position).replay2review);
             vh.commpl_list.setAdapter(adapter);
         }
         return view;

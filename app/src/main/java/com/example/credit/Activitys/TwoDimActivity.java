@@ -1,8 +1,10 @@
 package com.example.credit.Activitys;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.view.View;
@@ -40,7 +42,7 @@ public class TwoDimActivity extends Activity {
     Button xiazai;
     @ViewInject(R.id.fenxiang)
     Button fenxiang;
-
+    File file1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,9 +51,9 @@ public class TwoDimActivity extends Activity {
         init();
     }
     public void init() {
-        File file = new File(Environment.getExternalStorageDirectory() + "/Credit/cache/"+DataManager.BaseinfoList.get(0).REGNO+"_TwoDimImg.jpg");
-        if (file.exists()) {//获取本地图片路径是否存在
-            Picasso.with(TwoDimActivity.this).load(file).into(towd);
+        file1 = new File(Environment.getExternalStorageDirectory() + "/Credit/cache/"+DataManager.BaseinfoList.get(0).REGNO+"_TwoDimImg.jpg");
+        if (file1.exists()) {//获取本地图片路径是否存在
+            Picasso.with(TwoDimActivity.this).load(file1).into(towd);
         }else{
             try {
                 BASE64Decoder decode = new BASE64Decoder();
@@ -70,7 +72,7 @@ public class TwoDimActivity extends Activity {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            Picasso.with(TwoDimActivity.this).load(file).into(towd);
+            Picasso.with(TwoDimActivity.this).load(file1).into(towd);
         }
 
         b_topname.setText("我的名片");
@@ -95,7 +97,12 @@ public class TwoDimActivity extends Activity {
                     }
                     break;
                 case R.id.fenxiang:
-                    Toast.show("功能开发中...");
+                    //Toast.show("功能开发中...");
+                    Intent shareIntent = new Intent(Intent.ACTION_SEND);
+                    shareIntent.setType("image/*");
+                    Uri uri = Uri.fromFile(file1);
+                    shareIntent.putExtra(Intent.EXTRA_STREAM, uri);
+                    startActivity(Intent.createChooser(shareIntent, "选择分享方式"));
                     break;
                 case R.id.b_return:
                     finish();

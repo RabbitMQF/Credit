@@ -17,7 +17,7 @@
             android:layout_height="35dp"
             android:layout_marginTop="10dp"
             android:layout_centerHorizontal="true"
-            android:background="@mipmap/infodetial_fun1_abled" />
+           />
 
         <TextView
             android:id="@+id/tv_item1"
