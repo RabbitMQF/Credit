@@ -313,13 +313,13 @@ public class ToClaimActivity extends BaseActivity implements OnItemLongClickList
                 case R.id.claim_btn:
                     if(claim_emils.getText().toString().equals("")){
                         Toast.show("邮箱地址不能为空!");
-                    }else if(isEmail(claim_emils.getText().toString())){
+                    }else if(!isEmail(claim_emils.getText().toString())){
                         Toast.show("邮箱地址格式不正确!");
                     }else if(claim_phone.getText().toString().equals("")){
                         Toast.show("手机号码不能为空!");
                     }else if(claim_details.getText().toString().equals("")){
                         Toast.show("描述详情不能为空!");
-                    }else if((claim_phone.getText().toString()).length()>13){
+                    }else if((claim_phone.getText().toString()).length()!=11){
                         Toast.show("手机号码格式错误!");
                     }else{
                         wd.show();

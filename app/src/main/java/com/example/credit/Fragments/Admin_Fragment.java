@@ -21,13 +21,13 @@ public class Admin_Fragment extends Fragment {
     ListView listView;
     Admin_Adapter admin_adapter;
     List<DataManager.administraton> amdinList;
-    List<Object> otherList;//空其它信息数据
+    List<DataManager.admin_other> otherList;//空其它信息数据
 
     public static Admin_Fragment newInstance(){
         Admin_Fragment fragment=new Admin_Fragment();
         return fragment;
     }
-    public void setListData(List<DataManager.administraton> amdinList,List<Object> otherList){
+    public void setListData(List<DataManager.administraton> amdinList,List<DataManager.admin_other> otherList){
         this.amdinList=amdinList;
         this.otherList=otherList;//空其它信息数据
     }

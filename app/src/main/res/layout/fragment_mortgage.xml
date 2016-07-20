@@ -3,9 +3,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-<ListView
-    android:id="@+id/mortgage_listview"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:divider="#00000000"></ListView>
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="150dp"
+        android:layout_height="30dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/details_gg_bgtit"
+        android:gravity="center"
+        android:text=" 动产抵押信息 "
+        android:textColor="#ffffff"
+        android:textSize="18sp" />
+    <ListView
+        android:id="@+id/mortgage_listview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="#00000000"/>
 </LinearLayout>

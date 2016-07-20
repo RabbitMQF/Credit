@@ -46,7 +46,7 @@ public class Public_Detail_ctivity extends BaseActivity {
         ViewUtils.inject(this);
         cd_cs.smoothScrollTo(0,20);
         Intent i = getIntent();
-        position = i.getIntExtra("postion", 0);
+        position = i.getIntExtra("position", 0);
         state = i.getStringExtra("state");
         type = i.getStringExtra("type");
         b_return.setOnClickListener(new View.OnClickListener() {

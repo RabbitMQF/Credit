@@ -80,6 +80,7 @@
                     android:lines="1"
                     android:maxLines="1"
                     android:autoLink="phone"
+                    android:numeric="integer"
                     android:singleLine="true"
                     android:gravity="center_vertical"
                     android:hint="请输入手机号"

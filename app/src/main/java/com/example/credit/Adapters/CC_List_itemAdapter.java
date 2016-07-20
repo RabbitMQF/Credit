@@ -66,7 +66,7 @@ public class CC_List_itemAdapter extends BaseAdapter {
             Picasso.with(context).load(imgUrl.get(position)).into(vh.im);
 
         } else if (str.equals("judicial")) {//司法信息
-            vh.im.setVisibility(View.VISIBLE);
+//            vh.im.setVisibility(View.VISIBLE);
             vh.cl_tv1.setVisibility(View.VISIBLE);
             vh.cl_tv1.setText(list.get(position));
 

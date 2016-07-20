@@ -54,6 +54,7 @@ import java.io.IOException;
 import Decoder.BASE64Decoder;
 
 import static com.example.credit.Views.FileUtil.decodeBitmap;
+import static com.example.credit.Views.FileUtil.deleteDir;
 
 public class MainActivity extends Activity implements View.OnClickListener {
     private long exitTime = 0;
@@ -464,6 +465,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 Toast.makeText(MainActivity.this, "再按一次退出程序", Toast.LENGTH_SHORT).show();
                 exitTime = System.currentTimeMillis();
             } else {
+                deleteDir(Environment.getExternalStorageDirectory() + "/Credit/cache");//正常退出时，清除缓存
                 finish();
                 System.exit(0);
             }

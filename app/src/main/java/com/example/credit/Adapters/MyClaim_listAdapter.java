@@ -76,14 +76,15 @@ public class MyClaim_listAdapter extends BaseAdapter {
         } else {
             vh = (ViewHolder) view.getTag();
         }
+
         vh.myclaim_name.setText(list.get(position).ENTERNAME);
         vh.myclaim_state.setText(list.get(position).STATUSNAME);
         vh.myclaim_base.setText(list.get(position).REFUSEREASON);
 
-        if(list.get(position).STATUS.equals("1")){
-            vh.myclaim_text.setVisibility(View.GONE);
-            vh.myclaim_dimss.setVisibility(View.GONE);
-        }
+//        if(list.get(position).STATUS.equals("1")){
+//            vh.myclaim_text.setVisibility(View.GONE);
+//            vh.myclaim_dimss.setVisibility(View.GONE);
+//        }
         /**
          * 附件图片数组
          */

@@ -123,7 +123,11 @@ public class CompanyDetailsActivity extends BaseActivity {
             R.mipmap.icon9, R.mipmap.icon10,
             R.mipmap.icon11, R.mipmap.icon12,
             R.mipmap.icon13, R.mipmap.icon14,
-            R.mipmap.icon15, R.mipmap.icon16};
+            R.mipmap.icon15, R.mipmap.icon16,
+            R.mipmap.icon16,R.mipmap.icon16,
+            R.mipmap.icon16,R.mipmap.icon16,
+            R.mipmap.icon16,R.mipmap.icon16,
+            R.mipmap.icon16,R.mipmap.icon16,};
 
     public static Handler handler;
     String model, KeyNo, token, regnore, enterId;
@@ -149,7 +153,6 @@ public class CompanyDetailsActivity extends BaseActivity {
     public static ProgressDialog pd;
     String KeyNos, tokens;
     CreditSharePreferences csp;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -170,7 +173,7 @@ public class CompanyDetailsActivity extends BaseActivity {
 
         KeyNos = DataManager.BaseinfoList.get(0).EnterAddtionID;//企业附加信息主键ID
         tokens = SearchFirmActivty.MD5s(KeyNos + model);
-        init();
+        init();//初始化16宫格等
 
         MyGridAdapters adapters = new MyGridAdapters(CompanyDetailsActivity.this, imgs1);
         myGridView1.setAdapter(adapters);
@@ -410,14 +413,15 @@ public class CompanyDetailsActivity extends BaseActivity {
                     if (a5 == 0) {
                         waitDialog.show();
                         GsonUtil mortinfoRequest = new GsonUtil(URLconstant.URLINSER + URLconstant.MORTINFO, RequestMethod.GET);//动产request
-                        GsonUtil mortinfoBdcRequest = new GsonUtil(URLconstant.URLINSER + URLconstant.MORTINFOBDC, RequestMethod.GET);//不动产request
-                        mortinfoRequest.add("token", token);
+                        mortinfoRequest.add("token", SearchFirmActivty.MD5s(DataManager.BaseinfoList.get(0).PRIPID + model));
                         mortinfoRequest.add("deviceId", model);
-                        mortinfoRequest.add("KeyNo", KeyNo);
+                        mortinfoRequest.add("KeyNo", DataManager.BaseinfoList.get(0).PRIPID);
                         mortinfoRequest.add("priptype", DataManager.BaseinfoList.get(0).ENTTYPE);
-                        mortinfoBdcRequest.add("token", token);
+
+                        GsonUtil mortinfoBdcRequest = new GsonUtil(URLconstant.URLINSER + URLconstant.MORTINFOBDC, RequestMethod.GET);//不动产request
+                        mortinfoBdcRequest.add("token", SearchFirmActivty.MD5s(DataManager.BaseinfoList.get(0).REGNO + model));
                         mortinfoBdcRequest.add("deviceId", model);
-                        mortinfoBdcRequest.add("KeyNo", KeyNo);
+                        mortinfoBdcRequest.add("KeyNo", DataManager.BaseinfoList.get(0).REGNO);
                         mortinfoBdcRequest.add("priptype", DataManager.BaseinfoList.get(0).ENTTYPE);
                         CallServer.getInstance().add(CompanyDetailsActivity.this, mortinfoRequest, MyhttpCallBack.getInstance(), 0x004, true, false, true);
                         CallServer.getInstance().add(CompanyDetailsActivity.this, mortinfoBdcRequest, MyhttpCallBack.getInstance(), 0x0041, true, false, true);
@@ -557,6 +561,9 @@ public class CompanyDetailsActivity extends BaseActivity {
                         CallServer.getInstance().add(CompanyDetailsActivity.this, request15, MyhttpCallBack.getInstance(), MSG, true, false, true);
                     }
                     break;
+                case  16:
+                    startActivity(new Intent(CompanyDetailsActivity.this, Panoramic_Activity.class).putExtra("KeyNo", KeyNo).putExtra("deviceId", model).putExtra("priptype", DataManager.BaseinfoList.get(0).ENTTYPE).putExtra("regnore", regnore).putExtra("entname",DataManager.BaseinfoList.get(0).ENTNAME));
+                    break;
                 case 500://没有数据时返回信息
                     android.widget.Toast.makeText(CompanyDetailsActivity.this, "暂无数据！", android.widget.Toast.LENGTH_SHORT).show();
                     break;
@@ -565,6 +572,16 @@ public class CompanyDetailsActivity extends BaseActivity {
     };
 
     public void init() {
+        details_tit1.setText("浏览量"+DataManager.allcountsList.get(0).PageView);
+        if(DataManager.allcountsList.get(0).IsClaim=="1"||DataManager.allcountsList.get(0).IsClaim.equals("1")){
+            details_tit3.setText("已认领");
+        }if(DataManager.allcountsList.get(0).IsClaim=="2"||DataManager.allcountsList.get(0).IsClaim.equals("2")) {
+            details_tit3.setText("认领中");
+        }else {
+            details_tit3.setText("未认领");
+        }
+
+
         pd = new ProgressDialog(CompanyDetailsActivity.this);
         pd.setMessage("正在加载中...");
         pd.setCancelable(false);
@@ -576,6 +593,8 @@ public class CompanyDetailsActivity extends BaseActivity {
 
             }
         });
+
+
         if (DataManager.BaseinfoList != null && DataManager.BaseinfoList.size() > 0) {
 //            String stra = (DataManager.BaseinfoList.get(0).REGSTATE_CN).substring(0, 2);
 //            details_tit3.setText(stra);//状态
@@ -591,70 +610,71 @@ public class CompanyDetailsActivity extends BaseActivity {
             int size = lt.size();
             arrays4 = (String[]) lt.toArray(new String[size]);
         }
-        if (DataManager.allcountsList.get(0).BaseInfoCount == "0" || DataManager.allcountsList.get(0).BaseInfoCount.equals("0")) {
-            a1 = 1;
-            imgs1[0] = R.mipmap.icon1_1;
-        }
-        if (DataManager.allcountsList.get(0).ApprovalCount == "0" || DataManager.allcountsList.get(0).ApprovalCount.equals("0")) {
-            a2 = 1;
-            imgs1[1] = R.mipmap.icon2_1;
-        }
-        if (DataManager.allcountsList.get(0).HonorCount == "0" || DataManager.allcountsList.get(0).HonorCount.equals("0")) {
-            a3 = 1;
-            imgs1[2] = R.mipmap.icon3_1;
-        }
-        if (DataManager.allcountsList.get(0).SupportCount == "0" || DataManager.allcountsList.get(0).SupportCount.equals("0")) {
-            a4 = 1;
-            imgs1[3] = R.mipmap.icon4_1;
-        }
-        if (DataManager.allcountsList.get(0).PledgeCount == "0" || DataManager.allcountsList.get(0).PledgeCount.equals("0")) {
-            a5 = 1;
-            imgs1[4] = R.mipmap.icon5_1;
-        }
-        if (DataManager.allcountsList.get(0).MortgagorCount == "0" || DataManager.allcountsList.get(0).MortgagorCount.equals("0")) {
-            a6 = 1;
-            imgs1[5] = R.mipmap.icon6_1;
-        }
-        if (DataManager.allcountsList.get(0).JudiciaryCount == "0" || DataManager.allcountsList.get(0).JudiciaryCount.equals("0")) {
-            a7 = 1;
-            imgs1[6] = R.mipmap.icon7_1;
-        }
-        if (DataManager.allcountsList.get(0).WarningCount == "0" || DataManager.allcountsList.get(0).WarningCount.equals("0")) {
-            a8 = 1;
-            imgs1[7] = R.mipmap.icon8_1;
-        }
-        if (DataManager.allcountsList.get(0).PunishCount == "0" || DataManager.allcountsList.get(0).PunishCount.equals("0")) {
-            a9 = 1;
-            imgs1[8] = R.mipmap.icon9_1;
-        }
-        if (DataManager.allcountsList.get(0).AbnormityCount == "0" || DataManager.allcountsList.get(0).AbnormityCount.equals("0")) {
-            a10 = 1;
-            imgs1[9] = R.mipmap.icon10_1;
-        }
-        if (DataManager.allcountsList.get(0).PatentCount == "0" || DataManager.allcountsList.get(0).PatentCount.equals("0")) {
-            a11 = 1;
-            imgs1[10] = R.mipmap.icon11_1;
-        }
-        if (DataManager.allcountsList.get(0).TrademarkCount == "0" || DataManager.allcountsList.get(0).TrademarkCount.equals("0")) {
-            a12 = 1;
-            imgs1[11] = R.mipmap.icon12_1;
-        }
-        if (DataManager.allcountsList.get(0).CopyrightCount == "0" || DataManager.allcountsList.get(0).CopyrightCount.equals("0")) {
-            a13 = 1;
-            imgs1[12] = R.mipmap.icon13_1;
-        }
-        if (DataManager.allcountsList.get(0).AdvertisementCount == "0" || DataManager.allcountsList.get(0).AdvertisementCount.equals("0")) {
-            a14 = 1;
-            imgs1[13] = R.mipmap.icon14_1;
-        }
-        if (DataManager.allcountsList.get(0).CreditCount == "0" || DataManager.allcountsList.get(0).CreditCount.equals("0")) {
-            a15 = 1;
-            imgs1[14] = R.mipmap.icon15_1;
-        }
-        if (DataManager.allcountsList.get(0).AnnualCount == "0" || DataManager.allcountsList.get(0).AnnualCount.equals("0")) {
-            a16 = 1;
-            imgs1[15] = R.mipmap.icon16_1;
-        }
+//        图片变灰
+//        if (DataManager.allcountsList.get(0).BaseInfoCount == "0" || DataManager.allcountsList.get(0).BaseInfoCount.equals("0")) {
+//            a1 = 1;
+//            imgs1[0] = R.mipmap.icon1_1;
+//        }
+//        if (DataManager.allcountsList.get(0).ApprovalCount == "0" || DataManager.allcountsList.get(0).ApprovalCount.equals("0")) {
+//            a2 = 1;
+//            imgs1[1] = R.mipmap.icon2_1;
+//        }
+//        if (DataManager.allcountsList.get(0).HonorCount == "0" || DataManager.allcountsList.get(0).HonorCount.equals("0")) {
+//            a3 = 1;
+//            imgs1[2] = R.mipmap.icon3_1;
+//        }
+//        if (DataManager.allcountsList.get(0).SupportCount == "0" || DataManager.allcountsList.get(0).SupportCount.equals("0")) {
+//            a4 = 1;
+//            imgs1[3] = R.mipmap.icon4_1;
+//        }
+//        if (DataManager.allcountsList.get(0).PledgeCount == "0" || DataManager.allcountsList.get(0).PledgeCount.equals("0")) {
+//            a5 = 1;
+//            imgs1[4] = R.mipmap.icon5_1;
+//        }
+//        if (DataManager.allcountsList.get(0).MortgagorCount == "0" || DataManager.allcountsList.get(0).MortgagorCount.equals("0")) {
+//            a6 = 1;
+//            imgs1[5] = R.mipmap.icon6_1;
+//        }
+//        if (DataManager.allcountsList.get(0).JudiciaryCount == "0" || DataManager.allcountsList.get(0).JudiciaryCount.equals("0")) {
+//            a7 = 1;
+//            imgs1[6] = R.mipmap.icon7_1;
+//        }
+//        if (DataManager.allcountsList.get(0).WarningCount == "0" || DataManager.allcountsList.get(0).WarningCount.equals("0")) {
+//            a8 = 1;
+//            imgs1[7] = R.mipmap.icon8_1;
+//        }
+//        if (DataManager.allcountsList.get(0).PunishCount == "0" || DataManager.allcountsList.get(0).PunishCount.equals("0")) {
+//            a9 = 1;
+//            imgs1[8] = R.mipmap.icon9_1;
+//        }
+//        if (DataManager.allcountsList.get(0).AbnormityCount == "0" || DataManager.allcountsList.get(0).AbnormityCount.equals("0")) {
+//            a10 = 1;
+//            imgs1[9] = R.mipmap.icon10_1;
+//        }
+//        if (DataManager.allcountsList.get(0).PatentCount == "0" || DataManager.allcountsList.get(0).PatentCount.equals("0")) {
+//            a11 = 1;
+//            imgs1[10] = R.mipmap.icon11_1;
+//        }
+//        if (DataManager.allcountsList.get(0).TrademarkCount == "0" || DataManager.allcountsList.get(0).TrademarkCount.equals("0")) {
+//            a12 = 1;
+//            imgs1[11] = R.mipmap.icon12_1;
+//        }
+//        if (DataManager.allcountsList.get(0).CopyrightCount == "0" || DataManager.allcountsList.get(0).CopyrightCount.equals("0")) {
+//            a13 = 1;
+//            imgs1[12] = R.mipmap.icon13_1;
+//        }
+//        if (DataManager.allcountsList.get(0).AdvertisementCount == "0" || DataManager.allcountsList.get(0).AdvertisementCount.equals("0")) {
+//            a14 = 1;
+//            imgs1[13] = R.mipmap.icon14_1;
+//        }
+//        if (DataManager.allcountsList.get(0).CreditCount == "0" || DataManager.allcountsList.get(0).CreditCount.equals("0")) {
+//            a15 = 1;
+//            imgs1[14] = R.mipmap.icon15_1;
+//        }
+//        if (DataManager.allcountsList.get(0).AnnualCount == "0" || DataManager.allcountsList.get(0).AnnualCount.equals("0")) {
+//            a16 = 1;
+//            imgs1[15] = R.mipmap.icon16_1;
+//        }
 
         if (DataManager.allcountsList.get(0).IsFavorite.equals("false")) {//当前状态为未关注，所以点击是关注
             pb_4_img.setBackgroundResource(R.mipmap.btm_4_n);

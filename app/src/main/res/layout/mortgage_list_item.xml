@@ -13,6 +13,7 @@
         android:background="@drawable/details_gg_bgtit"
         android:gravity="center"
         android:text=" 动产抵押信息 "
+        android:visibility="gone"
         android:textColor="#ffffff"
         android:textSize="18sp" />
 

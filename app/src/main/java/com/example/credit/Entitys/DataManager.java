@@ -265,25 +265,25 @@ public class DataManager {
             }
 
             public static class BaseInfoBean {
-                public String D_ADDTIME;
-                public String REGCAP;
-                public String NAME;
-                public String ESTDATE;
-                public String REGSTATE_CN;
-                public String OPTO;
-                public String ENTTYPE;
-                public String INDUSTRYPHY;
-                public String REGNO;
-                public String DOM;
-                public String REGORG_CN;
+                public String D_ADDTIME;//更新时间
+                public String REGCAP;//注册资本
+                public String NAME;//法定代表人
+                public String ESTDATE;//成立日期
+                public String REGSTATE_CN;//登记状态（中文名称）
+                public String OPTO;//经营(驻在)期限至
+                public String ENTTYPE;//9999=个体工商户
+                public String INDUSTRYPHY;//行业门类
+                public String REGNO;//注册号
+                public String DOM;//住所
+                public String REGORG_CN;//登记机关（中文名称）
                 public String APPRDATE;
-                public String ENTTYPE_CN;
-                public String ENTNAME;
-                public String OPSCOPE;
-                public String PRIPID;
-                public String C_STATE;
-                public String OPFROM;
-                public String C_PROVINCE;
+                public String ENTTYPE_CN;//市场主体类型（中文名称）
+                public String ENTNAME;//企业(机构)名称
+                public String OPSCOPE;//经营范围
+                public String PRIPID;//主体身份代码
+                public String C_STATE;//经营状态 （1 存续（在营，开业，在册）  2 吊销，未注销    3 吊销，已注销  4，注销  5，撤销  6，迁出   9，其他 ）
+                public String OPFROM;//经营(驻在)期限自   起
+                public String C_PROVINCE;//省
             }
 
             /**
@@ -382,7 +382,7 @@ public class DataManager {
 
 
     public static List<administraton> ad_List = new ArrayList<>();
-
+    public static List<admin_other> admin_other_List = new ArrayList<>();
     /**
      * 行政审批
      * 行政许可实体类
@@ -402,7 +402,17 @@ public class DataManager {
      * 其它信息实体类
      */
     public static class admin_other {
-        public String OTHER;//暂无信息
+        public String LICANTH;//许可机关
+        public String REGNO;//注册号
+        public String VALFROM;//有效期自
+        public String LICNAME_CN;//许可文件名称（中文名称）
+        public String LICID;//其他部门行政许可信息
+        public String ENTNAME;//名称
+        public String LICNO;//许可文件编号
+        public String VALTO;//有效期至
+        public String PRIPID;//主体身份代码
+        public String TYPE;//状态(  1有效   2无效)
+        public String LICITEM;//许可内容
 
     }
 
@@ -1145,6 +1155,8 @@ public class DataManager {
         public String SupportCount;//扶持
         public String MortgagorCount;//出质
         public String PatentCount;//专利
+        public String PageView;//浏览量    +++
+        public String IsClaim;//是否认领   +++
 
     }
 

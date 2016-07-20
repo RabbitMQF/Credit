@@ -266,6 +266,8 @@ public class MyhttpCallBack implements HttpCallBack {
                             cfo.SupportCount = temp.get("SupportCount").toString();
                             cfo.MortgagorCount = temp.get("MortgagorCount").toString();
                             cfo.PatentCount = temp.get("PatentCount").toString();
+                            cfo.PageView=temp.get("PageView").toString();
+                            cfo.IsClaim=temp.get("IsClaim").toString();
                             DataManager.allcountsList.add(cfo);
                         }
                     }
@@ -299,7 +301,7 @@ public class MyhttpCallBack implements HttpCallBack {
                     SearchFirmActivty.pd.dismiss();
                 }
                 break;
-            case 0x025://????
+            case 0x025://我的关注跳公司详情界面的请求
                 jsonString = (String) response.get();
                 map = gson.fromJson(jsonString, new TypeToken<Map<String, Object>>() {
                 }.getType());
@@ -331,6 +333,8 @@ public class MyhttpCallBack implements HttpCallBack {
                         cfo.SupportCount = temp.get("SupportCount").toString();
                         cfo.MortgagorCount = temp.get("MortgagorCount").toString();
                         cfo.PatentCount = temp.get("PatentCount").toString();
+                        cfo.PageView=temp.get("PageView").toString();
+                        cfo.IsClaim=temp.get("IsClaim").toString();
                         DataManager.allcountsList.add(cfo);
                     }
                 }
@@ -386,16 +390,14 @@ public class MyhttpCallBack implements HttpCallBack {
                 String jstring1 = (String) response.get();
                 map = gson.fromJson(jstring1, new TypeToken<Map<String, Object>>() {
                 }.getType());
-//                List<DataManager.administraton> list5 = gson.fromJson(((Map<String, Object>) map.get("data")).get("administrative").toString().trim(), new TypeToken<List<DataManager.administraton>>() {
-//                }.getType());
-//                DataManager.ad_List = list5;
 
-                map = gson.fromJson(jstring1, new TypeToken<Map<String, Object>>() {
-                }.getType());
                 List<LinkedTreeMap> list1 = (List<LinkedTreeMap>) ((Map<String, Object>) map.get("data")).get("administrative");
-
+                List<LinkedTreeMap> list221 = (List<LinkedTreeMap>) ((Map<String, Object>) map.get("data")).get("other");
                 if (DataManager.ad_List != null) {
                     DataManager.ad_List.clear();
+                }
+                if (DataManager.admin_other_List != null) {
+                    DataManager.admin_other_List.clear();
                 }
                 if (list1 != null && list1.size() > 0) {
                     for (LinkedTreeMap temp : list1) {
@@ -409,9 +411,24 @@ public class MyhttpCallBack implements HttpCallBack {
                         DataManager.ad_List.add(cfo);
                     }
                 }
-
-
-                if (DataManager.ad_List != null && DataManager.ad_List.size() > 0) {
+                if (list221 != null && list221.size() > 0) {
+                    for (LinkedTreeMap temp : list221) {
+                        DataManager.admin_other cfo = new DataManager.admin_other();
+                        cfo.LICANTH = (String) temp.get("LICANTH");
+                        cfo.REGNO = (String) temp.get("REGNO");
+                        cfo.VALFROM = (String) temp.get("VALFROM");
+                        cfo.LICNAME_CN = (String) temp.get("LICNAME_CN");
+                        cfo.LICID = (String) temp.get("LICID");
+                        cfo.ENTNAME = (String) temp.get("ENTNAME");
+                        cfo.LICNO = (String) temp.get("LICNO");
+                        cfo.VALTO = (String) temp.get("VALTO");
+                        cfo.PRIPID = (String) temp.get("PRIPID");
+                        cfo.TYPE = (String) temp.get("TYPE");
+                        cfo.LICITEM = (String) temp.get("LICITEM");
+                        DataManager.admin_other_List.add(cfo);
+                    }
+                }
+                if (DataManager.ad_List != null || DataManager.admin_other_List != null) {
                     CompanyDetailsActivity.handler.sendEmptyMessage(1);
                 } else {
                     CompanyDetailsActivity.handler.sendEmptyMessage(500);
@@ -1072,29 +1089,11 @@ public class MyhttpCallBack implements HttpCallBack {
             case 0x201://评论
                 jsonString = (String) response.get();
                 DataManager.MyCommentlistrS = gson.fromJson(jsonString, DataManager.MyCommentlistr.class);
-//                if(DataManager.MyCommentlistrS.data.userreview !=null){
-//                    CompanyDetailsActivity.handler.sendEmptyMessage(21);
-                CommentListActivity.handler.sendEmptyMessage(0);
-//                }else{
-//                    CompanyDetailsActivity.handler.sendEmptyMessage(500);
-//                }
-                break;
-            case 0x2011://评论1
-                String jstring2011 = (String) response.get();
-                DataManager.Root201 jsonRoot2011 = gson.fromJson(jstring2011, new TypeToken<DataManager.Root201>() {
-                }.getType());
-                DataManager.Data201 d2011 = jsonRoot2011.data;
-                DataManager.UserreviewList = d2011.userreview;
-                ToCommentActivity.handler.sendEmptyMessage(21);
-                break;
-            case 0x20111://评论2
-                String jstring20111 = (String) response.get();
-                DataManager.Root201 jsonRoot20111 = gson.fromJson(jstring20111, new TypeToken<DataManager.Root201>() {
-                }.getType());
-                DataManager.Data201 d20111 = jsonRoot20111.data;
-                DataManager.UserreviewList = d20111.userreview;
-//                CommentListActivity.handler.sendEmptyMessage(0);
-                CommentListDetailsActivity.handler.sendEmptyMessage(21);
+                if(DataManager.MyCommentlistrS.data.userreview!=null && DataManager.MyCommentlistrS.data.userreview.size()>0) {
+                    CommentListActivity.handler.sendEmptyMessage(0);
+                }else{
+                    CommentListActivity.handler.sendEmptyMessage(500);
+                }
                 break;
             case 0x202://点赞
                 String jstring202 = (String) response.get();
@@ -1116,30 +1115,6 @@ public class MyhttpCallBack implements HttpCallBack {
 //                    CommentListDetailsActivity.handler.sendEmptyMessage(2);
 //                }
                 break;
-//            case 0x2021://点赞(先走)
-//                jsonString = (String) response.get();
-//                DataManager.Root202 jsonRoot2021 = gson.fromJson(jsonString, new TypeToken<DataManager.Root202>() {
-//                }.getType());
-//                DataManager.Data202 d2021 = jsonRoot2021.data;
-//                DataManager.Result = d2021.result;
-//                if (DataManager.Result.equals("1")) {
-//                    CommentListDetailsActivity.handler.sendEmptyMessage(0);
-//                } else {
-//                    CommentListDetailsActivity.handler.sendEmptyMessage(3);
-//                }
-//                break;
-//            case 0x2031://差评（后走）
-//                jsonString = (String) response.get();
-//                DataManager.Root202 jsonRoot2031 = gson.fromJson(jsonString, new TypeToken<DataManager.Root202>() {
-//                }.getType());
-//                DataManager.Data202 d2031 = jsonRoot2031.data;
-//                DataManager.Result = d2031.result;
-//                if (DataManager.Result.equals("1")) {
-//                    CommentListDetailsActivity.handler.sendEmptyMessage(2);
-//                } else {
-//                    CommentListDetailsActivity.handler.sendEmptyMessage(4);
-//                }
-//                break;
             case 0x204://发表评论
                 String jstring204 = (String) response.get();
                 DataManager.Root202 jsonRoot204 = gson.fromJson(jstring204, new TypeToken<DataManager.Root202>() {

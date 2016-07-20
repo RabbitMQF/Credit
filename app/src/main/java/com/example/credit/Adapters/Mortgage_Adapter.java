@@ -76,6 +76,11 @@ public class Mortgage_Adapter extends BaseAdapter {
             tempMP = listMP.get(position);
         }
         if (listMP != null) {
+            if(position==0){
+                vh.ctv.setVisibility(View.VISIBLE);
+                vh.ctv.setText("动产抵押信息");
+            }
+
             vh.mort_id.setText(tempMP.MORREG_ID);
             vh.mort_no.setText(tempMP.MORREGCNO);
             vh.mort_time.setText(tempMP.REGIDATE);
@@ -85,7 +90,10 @@ public class Mortgage_Adapter extends BaseAdapter {
             vh.ll_val.setVisibility(View.VISIBLE);
             vh.ll_detail.setVisibility(View.GONE);
         } else {
-            vh.ctv.setText("不动产抵押信息");
+            if(position==0){
+                vh.ctv.setVisibility(View.VISIBLE);
+                vh.ctv.setText("不动产抵押信息");
+            }
             vh.mort_id.setText(tempRE.C_INFOID);
             vh.mort_no.setText(tempRE.C_DYDJZH);
             vh.mort_time.setText(tempRE.D_DJRQ);

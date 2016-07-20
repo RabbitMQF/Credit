@@ -163,6 +163,55 @@ public class MyGridAdapters extends BaseAdapter {
                 }
                 tv.setText((DataManager.allcountsList.get(0).AnnualCount)+"");
                 break;
+            //===========================================================后续功能
+            case 16:
+                if(DataManager.allcountsList.get(0).AnnualCount.equals("0")){
+                    tv.setTextColor(Color.parseColor("#B8B8B8"));
+                }
+                tv.setText((DataManager.allcountsList.get(0).AnnualCount)+"");
+                break;
+            case 17:
+                if(DataManager.allcountsList.get(0).AnnualCount.equals("0")){
+                    tv.setTextColor(Color.parseColor("#B8B8B8"));
+                }
+                tv.setText((DataManager.allcountsList.get(0).AnnualCount)+"");
+                break;
+            case 18:
+                if(DataManager.allcountsList.get(0).AnnualCount.equals("0")){
+                    tv.setTextColor(Color.parseColor("#B8B8B8"));
+                }
+                tv.setText((DataManager.allcountsList.get(0).AnnualCount)+"");
+                break;
+            case 19:
+                if(DataManager.allcountsList.get(0).AnnualCount.equals("0")){
+                    tv.setTextColor(Color.parseColor("#B8B8B8"));
+                }
+                tv.setText((DataManager.allcountsList.get(0).AnnualCount)+"");
+                break;
+            case 20:
+                if(DataManager.allcountsList.get(0).AnnualCount.equals("0")){
+                    tv.setTextColor(Color.parseColor("#B8B8B8"));
+                }
+                tv.setText((DataManager.allcountsList.get(0).AnnualCount)+"");
+                break;
+            case 21:
+                if(DataManager.allcountsList.get(0).AnnualCount.equals("0")){
+                    tv.setTextColor(Color.parseColor("#B8B8B8"));
+                }
+                tv.setText((DataManager.allcountsList.get(0).AnnualCount)+"");
+                break;
+            case 22:
+                if(DataManager.allcountsList.get(0).AnnualCount.equals("0")){
+                    tv.setTextColor(Color.parseColor("#B8B8B8"));
+                }
+                tv.setText((DataManager.allcountsList.get(0).AnnualCount)+"");
+                break;
+            case 23:
+                if(DataManager.allcountsList.get(0).AnnualCount.equals("0")){
+                    tv.setTextColor(Color.parseColor("#B8B8B8"));
+                }
+                tv.setText((DataManager.allcountsList.get(0).AnnualCount)+"");
+                break;
             default:
                 break;
 

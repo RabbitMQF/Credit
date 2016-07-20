@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.credit.Entitys.DataManager;
@@ -19,9 +20,9 @@ import java.util.List;
 public class Admin_Adapter extends BaseAdapter {
     Context context;
     List<DataManager.administraton> adminList;//行政许可信息
-    List<Object> otherList;//空其它信息数据
+    List<DataManager.admin_other> otherList;//空其它信息数据
 
-    public Admin_Adapter(Context context, List<DataManager.administraton> adminList,List<Object> otherList) {
+    public Admin_Adapter(Context context, List<DataManager.administraton> adminList,List<DataManager.admin_other> otherList) {
         this.context = context;
         this.adminList = adminList;
         this.otherList=otherList;//空其它信息数据
@@ -60,26 +61,59 @@ public class Admin_Adapter extends BaseAdapter {
             convertView = LayoutInflater.from(context).inflate(R.layout.admin_list_item, null);
             vh = new ViewHolder();
             vh.title = (TextView) convertView.findViewById(R.id.title);
+
+            vh.apripid = (TextView) convertView.findViewById(R.id.apripid);
             vh.aname = (TextView) convertView.findViewById(R.id.aname);
             vh.ano = (TextView) convertView.findViewById(R.id.ano);
             vh.adate = (TextView) convertView.findViewById(R.id.adate);
             vh.aoffice = (TextView) convertView.findViewById(R.id.aoffice);
             vh.atime = (TextView) convertView.findViewById(R.id.atime);
-            vh.apripid = (TextView) convertView.findViewById(R.id.apripid);
+
+            vh.apripid_tit = (TextView) convertView.findViewById(R.id.apripid_tit);
+            vh.aname_tit = (TextView) convertView.findViewById(R.id.aname_tit);
+            vh.ano_tit = (TextView) convertView.findViewById(R.id.ano_tit);
+            vh.atime_tit = (TextView) convertView.findViewById(R.id.atime_tit);
+            vh.aoffice_tit = (TextView) convertView.findViewById(R.id.aoffice_tit);
+            vh.contetns1 = (TextView) convertView.findViewById(R.id.contetns1);
+
             convertView.setTag(vh);
         } else {
             vh = (ViewHolder) convertView.getTag();
         }
         if(adminList!=null) {
             DataManager.administraton temp_admin = adminList.get(position);
-            vh.title.setText("行政许可信息");
+            if(position==0){
+                vh.title.setVisibility(View.VISIBLE);
+                vh.title.setText("行政许可信息");
+            }
+            vh.apripid.setText(temp_admin.PRIPID);
             vh.aname.setText(temp_admin.LICNAME);
             vh.ano.setText(temp_admin.LICNO);
             vh.atime.setText(temp_admin.VALFROM);
             vh.aoffice.setText(temp_admin.LICANTH);
             vh.adate.setText(temp_admin.VALTO);
-            vh.apripid.setText(temp_admin.PRIPID);
-        }else {}
+        }
+        if(otherList!=null) {
+            DataManager.admin_other temp_admin = otherList.get(position);
+            if(position==0){
+                vh.title.setVisibility(View.VISIBLE);
+                vh.title.setText("其他信息");
+            }
+            vh.apripid_tit.setText("许可文件名称");
+            vh.aname_tit.setText("许可证号");
+            vh.ano_tit.setText("有效期");
+            vh.atime_tit.setText("登记机关");
+            vh.aoffice_tit.setText("发证日期");
+            vh.contetns1.setText("详情");
+
+            vh.apripid.setText(temp_admin.LICNAME_CN);
+            vh.aname.setText(temp_admin.LICNO);
+            vh.ano.setText(temp_admin.VALFROM+" "+temp_admin.VALTO);
+            vh.atime.setText(temp_admin.LICANTH);
+            vh.aoffice.setText("");
+            vh.adate.setText(temp_admin.LICITEM);
+
+        }
         return convertView;
     }
 
@@ -91,6 +125,13 @@ public class Admin_Adapter extends BaseAdapter {
         TextView aoffice;
         TextView atime;
         TextView apripid;
+
+        TextView apripid_tit;
+        TextView aname_tit;
+        TextView ano_tit;
+        TextView atime_tit;
+        TextView aoffice_tit;
+        TextView contetns1;
 
     }
 

@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.example.credit.Adapters.Mortgage_Adapter;
 import com.example.credit.Entitys.DataManager;
