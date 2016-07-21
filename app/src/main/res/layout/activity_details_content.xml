@@ -287,7 +287,6 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="5dp"
-                            android:text="2015-05-05至2016-06-06"
                             android:textColor="#57737D"
                             android:textSize="14sp" />
                     </LinearLayout>

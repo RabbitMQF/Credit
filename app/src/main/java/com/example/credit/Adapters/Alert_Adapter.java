@@ -17,12 +17,12 @@ import java.util.List;
  */
 public class Alert_Adapter extends BaseAdapter {
     Context context;
-    List<DataManager.AlertInfo.DataBean.date> paperwork_expireList;
-    List<DataManager.AlertInfo.DataBean.date> paperwork_ExpiredList;
-    List<DataManager.AlertInfo.DataBean.date> correctionList;
-    List<DataManager.AlertInfo.DataBean.date> loanList;
-    List<DataManager.AlertInfo.DataBean.date> taxesList;
-    List<DataManager.AlertInfo.DataBean.date> wagesList;
+    List<DataManager.AlertInfo.DataBean.date> paperwork_expireList;//"证照到期"
+    List<DataManager.AlertInfo.DataBean.date> paperwork_ExpiredList;//证照过期
+    List<DataManager.AlertInfo.DataBean.date> correctionList;//责令改正
+    List<DataManager.AlertInfo.DataBean.date> loanList;//欠贷信息
+    List<DataManager.AlertInfo.DataBean.date> taxesList;//欠税信息
+    List<DataManager.AlertInfo.DataBean.date> wagesList;//欠薪信息
 
     public Alert_Adapter(Context context) {
         this.context = context;
@@ -95,85 +95,157 @@ public class Alert_Adapter extends BaseAdapter {
         ViewHolder vh = null;
         if (convertView == null) {
             vh = new ViewHolder();
-            if (paperwork_expireList != null) {
-                convertView = LayoutInflater.from(context).inflate(R.layout.paperwork_expire_item, null);
-                vh.expire_time= (TextView) convertView.findViewById(R.id.expire_time);
-                vh.expire_day= (TextView) convertView.findViewById(R.id.expire_day);
-
-            }
-            if (paperwork_ExpiredList != null) {
-                convertView = LayoutInflater.from(context).inflate(R.layout.paperwork_expired_item, null);
-                vh.Expired_time= (TextView) convertView.findViewById(R.id.Expired_time);
-                vh.Expired_status= (TextView) convertView.findViewById(R.id.Expired_status);
-
-            }
-            if (correctionList != null) {
-                convertView = LayoutInflater.from(context).inflate(R.layout.correction_item, null);
-                vh.correction_content= (TextView) convertView.findViewById(R.id.correction_content);
-
-            }
-            if (loanList != null) {
+//            if (paperwork_expireList != null) {
+//                convertView = LayoutInflater.from(context).inflate(R.layout.paperwork_expire_item, null);
+//                vh.expire_time= (TextView) convertView.findViewById(R.id.expire_time);
+//                vh.expire_day= (TextView) convertView.findViewById(R.id.expire_day);
+//
+//            }
+//            if (paperwork_ExpiredList != null) {
+//                convertView = LayoutInflater.from(context).inflate(R.layout.paperwork_expired_item, null);
+//                vh.Expired_time= (TextView) convertView.findViewById(R.id.Expired_time);
+//                vh.Expired_status= (TextView) convertView.findViewById(R.id.Expired_status);
+//
+//            }
+//            if (correctionList != null) {
+//                convertView = LayoutInflater.from(context).inflate(R.layout.correction_item, null);
+//                vh.correction_content= (TextView) convertView.findViewById(R.id.correction_content);
+//
+//            }
+//            if (loanList != null) {
                 convertView = LayoutInflater.from(context).inflate(R.layout.loan_item, null);
-                vh.loan_time= (TextView) convertView.findViewById(R.id.loan_time);
-                vh.loan_money= (TextView) convertView.findViewById(R.id.loan_money);
-                vh.loan_bank= (TextView) convertView.findViewById(R.id.loan_bank);
-                vh.loan_status= (TextView) convertView.findViewById(R.id.loan_status);
-            }
-            if (taxesList != null) {
-                convertView = LayoutInflater.from(context).inflate(R.layout.taxes_item, null);
-                vh.taxes_time= (TextView) convertView.findViewById(R.id.taxes_time);
-                vh.taxes_money= (TextView) convertView.findViewById(R.id.taxes_money);
-                vh.taxes_office= (TextView) convertView.findViewById(R.id.taxes_office);
-                vh.taxes_status= (TextView) convertView.findViewById(R.id.taxes_status);
-            }
-            if (wagesList != null) {
-                convertView = LayoutInflater.from(context).inflate(R.layout.wages_item, null);
-                vh.wages_time= (TextView) convertView.findViewById(R.id.wages_time);
-                vh.wages_money= (TextView) convertView.findViewById(R.id.wages_money);
-                vh.wages_status= (TextView) convertView.findViewById(R.id.wages_status);
-                vh.wages_source= (TextView) convertView.findViewById(R.id.wages_source);
-            } else {}
+                vh.loan_1= (TextView) convertView.findViewById(R.id.loan_1);
+                vh.loan_2= (TextView) convertView.findViewById(R.id.loan_2);
+                vh.loan_3= (TextView) convertView.findViewById(R.id.loan_3);
+                vh.loan_4= (TextView) convertView.findViewById(R.id.loan_4);
+                vh.loan_5= (TextView) convertView.findViewById(R.id.loan_5);
+                vh.loan_6= (TextView) convertView.findViewById(R.id.loan_6);
+                vh.loan_7= (TextView) convertView.findViewById(R.id.loan_7);
+                vh.loan_8= (TextView) convertView.findViewById(R.id.loan_8);
+                vh.loan_9= (TextView) convertView.findViewById(R.id.loan_9);
+                vh.loan_10= (TextView) convertView.findViewById(R.id.loan_10);
+//            }
+//            if (taxesList != null) {
+//                convertView = LayoutInflater.from(context).inflate(R.layout.taxes_item, null);
+//                vh.taxes_time= (TextView) convertView.findViewById(R.id.taxes_time);
+//                vh.taxes_money= (TextView) convertView.findViewById(R.id.taxes_money);
+//                vh.taxes_office= (TextView) convertView.findViewById(R.id.taxes_office);
+//                vh.taxes_status= (TextView) convertView.findViewById(R.id.taxes_status);
+//            }
+//            if (wagesList != null) {
+//                convertView = LayoutInflater.from(context).inflate(R.layout.wages_item, null);
+//                vh.wages_time= (TextView) convertView.findViewById(R.id.wages_time);
+//                vh.wages_money= (TextView) convertView.findViewById(R.id.wages_money);
+//                vh.wages_status= (TextView) convertView.findViewById(R.id.wages_status);
+//                vh.wages_source= (TextView) convertView.findViewById(R.id.wages_source);
+//            } else {}
 
         } else {
         vh = (ViewHolder) convertView.getTag();
     }
 
-//        if (paperwork_expireList != null) {
-//           DataManager.paperwork_expire pe=DataManager.paperwork_expireList.get(position);
-//            vh.expire_time.setText(pe.deadline);
-//            vh.expire_day.setText(pe.daysRemaining);
-//        }
-//        if (paperwork_ExpiredList != null) {
-//            DataManager.paperwork_Expired ped=DataManager.paperwork_ExpiredList.get(position);
-//            vh.Expired_time.setText(ped.deadline);
-//            vh.Expired_status.setText(ped.state);
-//        }
-//        if (correctionList != null) {
-//            DataManager.correction cor=DataManager.correctionList.get(position);
-//            vh.correction_content.setText(cor.centent);
-//        }
-//        if (loanList != null) {
-//            DataManager.loan loan=DataManager.loanList.get(position);
-//            vh.loan_time.setText(loan.time);
-//            vh.loan_money.setText(loan.money);
-//            vh.loan_bank.setText(loan.bank);
-//            vh.loan_status.setText(loan.status);
-//        }
-//        if (taxesList != null) {
-//            DataManager.Taxes taxes=DataManager.taxesList.get(position);
-//            vh.taxes_time.setText(taxes.time);
-//            vh.taxes_money.setText(taxes.money);
-//            vh.taxes_office.setText(taxes.organ);
-//            vh.taxes_status.setText(taxes.status);
-//
-//        }
-//        if (wagesList != null) {
-//            DataManager.Wages wages=DataManager.wagesList.get(position);
-//            vh.wages_time.setText(wages.time);
-//            vh.wages_money.setText(wages.money);
-//            vh.wages_status.setText(wages.status);
-//            vh.wages_source.setText(wages.source);
-//        } else {}
+        if (paperwork_expireList != null) {
+            DataManager.AlertInfo.DataBean.date loan=paperwork_expireList.get(position);
+            vh.loan_1.setText(loan.ORGAN);
+            vh.loan_2.setText(loan.WARNAMOUNT);
+            vh.loan_3.setText(loan.WARNSTATUS);
+            vh.loan_4.setText(loan.WARNDATE);
+            vh.loan_5.setText(loan.WARNCONTENT);
+            if(loan.STATE.equals("0")){
+                vh.loan_6.setText("有效");
+            }else{
+                vh.loan_6.setText("无效");
+            }
+            vh.loan_7.setText(loan.SOURCENAME);
+            vh.loan_8.setText(loan.UPDEPARTMENTNAME);
+            vh.loan_9.setText(loan.BUSINESSATT);
+            vh.loan_10.setText(loan.DATATYPE);
+        }
+        if (paperwork_ExpiredList != null) {
+            DataManager.AlertInfo.DataBean.date loan=paperwork_ExpiredList.get(position);
+            vh.loan_1.setText(loan.ORGAN);
+            vh.loan_2.setText(loan.WARNAMOUNT);
+            vh.loan_3.setText(loan.WARNSTATUS);
+            vh.loan_4.setText(loan.WARNDATE);
+            vh.loan_5.setText(loan.WARNCONTENT);
+            if(loan.STATE.equals("0")){
+                vh.loan_6.setText("有效");
+            }else{
+                vh.loan_6.setText("无效");
+            }
+            vh.loan_7.setText(loan.SOURCENAME);
+            vh.loan_8.setText(loan.UPDEPARTMENTNAME);
+            vh.loan_9.setText(loan.BUSINESSATT);
+            vh.loan_10.setText(loan.DATATYPE);
+        }
+        if (correctionList != null) {
+            DataManager.AlertInfo.DataBean.date loan=correctionList.get(position);
+            vh.loan_1.setText(loan.ORGAN);
+            vh.loan_2.setText(loan.WARNAMOUNT);
+            vh.loan_3.setText(loan.WARNSTATUS);
+            vh.loan_4.setText(loan.WARNDATE);
+            vh.loan_5.setText(loan.WARNCONTENT);
+            if(loan.STATE.equals("0")){
+                vh.loan_6.setText("有效");
+            }else{
+                vh.loan_6.setText("无效");
+            }
+            vh.loan_7.setText(loan.SOURCENAME);
+            vh.loan_8.setText(loan.UPDEPARTMENTNAME);
+            vh.loan_9.setText(loan.BUSINESSATT);
+            vh.loan_10.setText(loan.DATATYPE);
+        }
+        if (loanList != null) {
+            DataManager.AlertInfo.DataBean.date loan=loanList.get(position);
+            vh.loan_1.setText(loan.ORGAN);
+            vh.loan_2.setText(loan.WARNAMOUNT);
+            vh.loan_3.setText(loan.WARNSTATUS);
+            vh.loan_4.setText(loan.WARNDATE);
+            vh.loan_5.setText(loan.WARNCONTENT);
+            if(loan.STATE.equals("0")){
+                vh.loan_6.setText("有效");
+            }else{
+                vh.loan_6.setText("无效");
+            }
+            vh.loan_7.setText(loan.SOURCENAME);
+            vh.loan_8.setText(loan.UPDEPARTMENTNAME);
+            vh.loan_9.setText(loan.BUSINESSATT);
+            vh.loan_10.setText(loan.DATATYPE);
+        }
+        if (taxesList != null) {
+            DataManager.AlertInfo.DataBean.date loan=taxesList.get(position);
+            vh.loan_1.setText(loan.ORGAN);
+            vh.loan_2.setText(loan.WARNAMOUNT);
+            vh.loan_3.setText(loan.WARNSTATUS);
+            vh.loan_4.setText(loan.WARNDATE);
+            vh.loan_5.setText(loan.WARNCONTENT);
+            if(loan.STATE.equals("0")){
+                vh.loan_6.setText("有效");
+            }else{
+                vh.loan_6.setText("无效");
+            }
+            vh.loan_7.setText(loan.SOURCENAME);
+            vh.loan_8.setText(loan.UPDEPARTMENTNAME);
+            vh.loan_9.setText(loan.BUSINESSATT);
+            vh.loan_10.setText(loan.DATATYPE);
+        }
+        if (wagesList != null) {
+            DataManager.AlertInfo.DataBean.date loan=wagesList.get(position);
+            vh.loan_1.setText(loan.ORGAN);
+            vh.loan_2.setText(loan.WARNAMOUNT);
+            vh.loan_3.setText(loan.WARNSTATUS);
+            vh.loan_4.setText(loan.WARNDATE);
+            vh.loan_5.setText(loan.WARNCONTENT);
+            if(loan.STATE.equals("0")){
+                vh.loan_6.setText("有效");
+            }else{
+                vh.loan_6.setText("无效");
+            }
+            vh.loan_7.setText(loan.SOURCENAME);
+            vh.loan_8.setText(loan.UPDEPARTMENTNAME);
+            vh.loan_9.setText(loan.BUSINESSATT);
+            vh.loan_10.setText(loan.DATATYPE);
+        } else {}
     return convertView;
 }
 
@@ -181,7 +253,7 @@ class ViewHolder {
     TextView expire_time, expire_day;
     TextView Expired_time, Expired_status;
     TextView correction_content;
-    TextView loan_time, loan_money, loan_bank, loan_status;
+    TextView loan_1, loan_2, loan_3, loan_4,loan_5,loan_6,loan_7,loan_8,loan_9,loan_10;
     TextView taxes_time, taxes_money, taxes_office, taxes_status;
     TextView wages_time, wages_money, wages_status, wages_source;
 }

@@ -29,6 +29,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.credit.Adapters.NewClaimListAdapter;
 import com.example.credit.Adapters.NewsListAdapter;
 import com.example.credit.Dialogs.WaitDialog;
 import com.example.credit.Entitys.DataManager;
@@ -70,7 +71,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     @ViewInject(R.id.tab4)
     LinearLayout tab4;//股东查询
     RelativeLayout topSearch;
-    ListView NewsListview;
+    ListView NewsListview,NewClaimListview;
     public static Handler handler;
 
     @ViewInject(R.id.headimg)
@@ -102,34 +103,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     public static ProgressDialog pd;
     public static WaitDialog ad;
 
-//    @ViewInject(R.id.pb_1)
-//    LinearLayout pb_1;//首页
-//    @ViewInject(R.id.pb_1i)
-//    ImageView pb_1i;//登录
-//    @ViewInject(R.id.pb_1t)
-//    TextView pb_1t;//登录
-//
-//    @ViewInject(R.id.pb_2)
-//    LinearLayout pb_2;//关注
-//    @ViewInject(R.id.pb_4_img)
-//    ImageView pb_4_img;//登录
-//    @ViewInject(R.id.pb_4_txt)
-//    TextView pb_4_txt;//登录
-//
-//    @ViewInject(R.id.pb_3)
-//    LinearLayout pb_3;//历史
-//    @ViewInject(R.id.pb_4_img)
-//    ImageView pb_4_img;//登录
-//    @ViewInject(R.id.pb_4_txt)
-//    TextView pb_4_txt;//登录
-//
-//    @ViewInject(R.id.pb_4)
-//    LinearLayout pb_4;//我
-//    @ViewInject(R.id.pb_4_img)
-//    ImageView pb_4_img;//登录
-//    @ViewInject(R.id.pb_4_txt)
-//    TextView pb_4_txt;//登录
-
+    TextView main1,main2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -187,6 +161,38 @@ public class MainActivity extends Activity implements View.OnClickListener {
                         Intent i6 = new Intent(MainActivity.this, MyClaimActivity.class);
                         startActivity(i6);
                         break;
+                    case 7:
+                        NewClaimListAdapter adapter1 = new NewClaimListAdapter(MainActivity.this, DataManager.MyClaimUtilsModel.data.Claimlist);
+                        NewClaimListview.setAdapter(adapter1);
+                        adapter1.notifyDataSetChanged();
+                        NewClaimListview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                            @Override
+                            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                                if(csp.getLoginStatus()){
+                                    ad.show();
+                                    String KeyNo=DataManager.MyClaimUtilsModel.data.Claimlist.get(position).PRIPID;//市场主体身份代码
+                                    String token=SearchFirmActivty.MD5s(KeyNo+(new Build()).MODEL);
+                                    GsonUtil requst=new GsonUtil(URLconstant.URLINSER + URLconstant.GETITEMNUM, RequestMethod.GET);
+                                    requst.add("KeyNo",KeyNo);
+                                    requst.add("token",token);
+                                    requst.add("deviceId",(new Build()).MODEL);
+                                    requst.add("memberId",csp.getID());
+                                    requst.add("regnore",DataManager.MyClaimUtilsModel.data.Claimlist.get(position).REGNORE);
+                                    requst.add("priptype",DataManager.MyClaimUtilsModel.data.Claimlist.get(position).ENTTYPE);
+                                    CallServer.getInstance().add(MainActivity.this,requst, MyhttpCallBack.getInstance(),0x026,true,false,true);
+                                }else{
+                                    Toast.makeText(MainActivity.this, "请先登录!", Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        });
+                        break;
+                    case 8://跳公司详情
+                        ad.dismiss();
+                        Intent i = new Intent(MainActivity.this, CompanyDetailsActivity.class);
+                        i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        startActivity(i);
+                        overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
+                        break;
                     default:
                         break;
                 }
@@ -197,19 +203,49 @@ public class MainActivity extends Activity implements View.OnClickListener {
     }
 
     private void initData() {
-       /* GsonUtil NewsRequest=new GsonUtil(URLconstant.NEWSURL,RequestMethod.GET);
-        NewsRequest.setConnectTimeout(20000);
-        CallServer.getInstance().add(this,NewsRequest,MyhttpCallBack.getInstance(),0x111,true,false,true);*/
         if (DataManager.NewssList != null && DataManager.NewssList.size() > 0) {
             handler.sendEmptyMessage(0);
         }
+        main1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                NewsListview.setVisibility(View.VISIBLE);
+                NewClaimListview.setVisibility(View.GONE);
+                main1.setTextColor(getResources().getColor(R.color.white));
+                main1.setBackgroundDrawable(getResources().getDrawable(R.drawable.details_gg_bgtit));
+                main2.setTextColor(getResources().getColor(R.color.black));
+                main2.setBackgroundDrawable(getResources().getDrawable(R.drawable.details_con_tabbg2));
+                if (DataManager.NewssList != null && DataManager.NewssList.size() > 0) {
+                    handler.sendEmptyMessage(0);
+                }
+            }
+        });
+        main2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                NewClaimListview.setVisibility(View.VISIBLE);
+                NewsListview.setVisibility(View.GONE);
+                main1.setTextColor(getResources().getColor(R.color.black));
+                main1.setBackgroundDrawable(getResources().getDrawable(R.drawable.details_con_tabbg2));
+                main2.setTextColor(getResources().getColor(R.color.white));
+                main2.setBackgroundDrawable(getResources().getDrawable(R.drawable.details_gg_bgtit));
+                if (DataManager.MyClaimUtilsModel.data.Claimlist != null && DataManager.MyClaimUtilsModel.data.Claimlist.size() > 0) {
+                    handler.sendEmptyMessage(7);
+                }
+
+            }
+        });
     }
 
     private void initView() {
+        main1 = (TextView) findViewById(R.id.main1);
+        main2 = (TextView) findViewById(R.id.main2);
+
         mLeftMenu = (SlidingMenu) findViewById(R.id.id_menu);
         topSearch = (RelativeLayout) findViewById(R.id.top_search);
         topSearch.setOnClickListener(this);
         NewsListview = (ListView) findViewById(R.id.news_list);
+        NewClaimListview = (ListView) findViewById(R.id.NewClaimListview);
         pd = new ProgressDialog(MainActivity.this);
         pd.setMessage("请稍后...");
         pd.setCancelable(false);

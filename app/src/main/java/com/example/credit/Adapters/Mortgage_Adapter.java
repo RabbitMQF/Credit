@@ -55,7 +55,7 @@ public class Mortgage_Adapter extends BaseAdapter {
         if (convertView == null) {
             vh = new ViewHolder();
             convertView = LayoutInflater.from(context).inflate(R.layout.mortgage_list_item, null);
-            vh.ctv= (TextView) convertView.findViewById(R.id.title);
+            vh.ctv= (TextView) convertView.findViewById(R.id.title2);
             vh.mort_id = (TextView) convertView.findViewById(R.id.mort_id);
             vh.mort_no = (TextView) convertView.findViewById(R.id.mort_no);
             vh.mort_time = (TextView) convertView.findViewById(R.id.mort_time);

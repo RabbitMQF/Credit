@@ -214,38 +214,26 @@ public class RegisterActivity extends BaseActivity {
                     finish();
                     break;
                 case R.id.regiest_ing://注册按钮
-                    pd.show();
-                    GsonUtil regiestRquerst = new GsonUtil(URLconstant.URLINSER + URLconstant.USERSET, RequestMethod.GET);
-                    regiestRquerst.add("token", MD5.MD5s(Ruser.getText() + new Build().MODEL));
-                    regiestRquerst.add("KeyNo", Ruser.getText().toString());
-                    regiestRquerst.add("deviceId", new Build().MODEL);
-                    regiestRquerst.add("openType", 0);//0为注册 1为修改
-                    regiestRquerst.add("password", isTrue(Rpwd.getText().toString(), Rrpwds.getText().toString()));
-                    if (!isTrue(Rpwd.getText().toString(), Rrpwds.getText().toString()).equals("null")) {
+                    if (!UserSetTowActivity.isEmail(Ruser.getText().toString())) {
+                        Toast.show("账号邮箱格式不正确...");
+                    } else if (Rpwd.getText().length() < 6 ) {
+                        Toast.show("密码长度至少6位...");
+                    } else if (!Rpwd.getText().toString().equals(Rrpwds.getText().toString()) ) {
+                        Toast.show("两次密码输入不一致...");
+                    } else {
+                        pd.show();
+                        GsonUtil regiestRquerst = new GsonUtil(URLconstant.URLINSER + URLconstant.USERSET, RequestMethod.GET);
+                        regiestRquerst.add("token", MD5.MD5s(Ruser.getText() + new Build().MODEL));
+                        regiestRquerst.add("KeyNo", Ruser.getText().toString());
+                        regiestRquerst.add("deviceId", new Build().MODEL);
+                        regiestRquerst.add("openType", 0);//0为注册 1为修改
+                        regiestRquerst.add("password", Rrpwds.getText().toString());
                         CallServer.getInstance().add(RegisterActivity.this, regiestRquerst, MyhttpCallBack.getInstance(), 0x998, true, false, true);
                     }
-
                     break;
                 default:
                     break;
             }
         }
     };
-
-
-    private String isTrue(String pwd, String pwd2) {
-        String password = null;
-        if (!pwd.equals(pwd2)) {
-            pd.dismiss();
-            Toast.show("两次输入密码不一致,请重新输入");
-        }
-        if (pwd.equals(pwd2)) {
-            password = pwd;
-            return password;
-        } else {
-            return "null";
-        }
-
-    }
-
 }

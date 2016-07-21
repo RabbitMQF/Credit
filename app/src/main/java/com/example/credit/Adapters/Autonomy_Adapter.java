@@ -187,9 +187,10 @@ public class Autonomy_Adapter extends BaseAdapter {
         if (stockList != null) {
             DataManager.stock stock = stockList.get(position);
             vh.stock_time.setText(stock.ALTDATE);
-            vh.AfterContent.setText(stock.TRANSAMAFT);
-            vh.BeforeContent.setText(stock.TRANSAMPR);
+            vh.AfterContent.setText(stock.ALTAF);
+            vh.BeforeContent.setText(stock.ALTBE);
         }
+
         if (permitList != null) {
             DataManager.permit permit = permitList.get(position);
             vh.permit_name.setText(permit.LICNAME_CN);
@@ -215,8 +216,8 @@ public class Autonomy_Adapter extends BaseAdapter {
             vh.punish_no.setText(punish.PENDECNO);
             vh.punish_illtype.setText(punish.ILLEGACTTYPE);
             vh.punish_type_cn.setText(punish.PENTYPE_CN);
-            vh.punish_money.setText(punish.PENAM);
-            vh.punish_cash.setText(punish.FORFAM);
+            vh.punish_money.setText(punish.PENAM+"");
+            vh.punish_cash.setText(punish.FORFAM+"");
             vh.punihs_context.setText(punish.PENCONTENT);
             vh.punish_office.setText(punish.JUDAUTH);
             vh.punish_time.setText(punish.PENDECISSDATE);

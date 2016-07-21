@@ -92,7 +92,7 @@ public class JudicialAdapter extends BaseAdapter {
         }
         if(list3!=null && list3.size()>0){
             listst.add(list3.get(position).INV);
-            listst.add(list3.get(position).FROAM);
+            listst.add(list3.get(position).FROAM+"");
             listst.add(list3.get(position).ALIEN);
             listst.add(list3.get(position).FROAUTH);
             listst.add(list3.get(position).REGNO);

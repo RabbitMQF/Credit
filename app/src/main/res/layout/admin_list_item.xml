@@ -4,16 +4,14 @@
     android:layout_height="wrap_content"
     android:background="#EEEEEE"
     android:orientation="vertical">
-
     <TextView
-        android:id="@+id/title"
+        android:id="@+id/title1"
         android:layout_width="150dp"
         android:layout_height="30dp"
         android:layout_margin="10dp"
         android:background="@drawable/details_gg_bgtit"
         android:gravity="center"
         android:visibility="gone"
-        android:text="行政许可信息"
         android:textColor="#ffffff"
         android:textSize="18sp" />
 

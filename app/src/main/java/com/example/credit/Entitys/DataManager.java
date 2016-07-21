@@ -274,6 +274,7 @@ public class DataManager {
                 public String ENTTYPE;//9999=个体工商户
                 public String INDUSTRYPHY;//行业门类
                 public String REGNO;//注册号
+                public String UNISCID;//统一社会信用代码
                 public String DOM;//住所
                 public String REGORG_CN;//登记机关（中文名称）
                 public String APPRDATE;
@@ -456,7 +457,7 @@ public class DataManager {
             public List<AdvertisingBean> advertising;
             public static class AdvertisingBean {
                 public String PRIPID;//主体身份代码
-                public int ENJSPAMOUNT;//享受扶持政策的数额
+                public Double ENJSPAMOUNT;//享受扶持政策的数额
                 public String ENJSPCONTENT;//享受扶持政策内容
                 public String IMPSPDEPART;//享受扶持政策的的部门
                 public String IMPSPDATE;//实施扶持政策日期
@@ -711,9 +712,15 @@ public class DataManager {
      * 股权变更
      */
     public static class stock {
-        public String ALTDATE;//时间
-        public String TRANSAMAFT;//变更后
-        public String TRANSAMPR;//变更前
+        public String REGNO;//注册号
+        public String ALTAF;//变更后
+        public String ENTNAME;//企业(机构)名称
+        public String INVUID;//出资信息修改ID
+        public String UNISCID;//统一社会信用代码
+        public String PRIPID;//主体身份代码
+        public String ALITEM;//变更事项
+        public String ALTDATE;//变更日期
+        public String ALTBE;//变更前
     }
 
 
@@ -839,14 +846,14 @@ public class DataManager {
         public String REMARK;            //备注
         public String UNISCID;          //统一社会信用代码
         public String PENDECISSDATE;    //作出处罚决定书日期
-        public String PENAM;            //罚款金额
+        public Double PENAM;            //罚款金额
         public String CASEID;         //行政处罚ID
         public String REGNO;           //注册号
         public String JUDAUTH;        //作出行政处罚决定机关名称
         public String ENTNAME;        //企业(机构)名称
         public String PENDECNO;         //处罚决定书文号
         public String PENTYPE;        //处罚种类
-        public String FORFAM;         //没收金额
+        public Double FORFAM;         //没收金额
         public String ILLEGACTTYPE;    //违法行为类型
         public String PENCONTENT;       //处罚内容
         public String PRIPID;          //主体身份代码
@@ -1025,7 +1032,7 @@ public class DataManager {
         public String ALIEN;//受让人
         public String REGNO;//注册号
         public String FROAUTH;//执行法院
-        public String FROAM;//股权数额
+        public Double FROAM;//股权数额
         public String INV;//被执行人
     }
 
@@ -1557,22 +1564,6 @@ public class DataManager {
         public static class DataBean {
 
             public PagingBean Paging;
-            /**
-             * ENTERID : 29cf69863e6a11e6b90f00163e160363
-             * CLAIMID : 3e8657395f804e07b70020add0ef1844
-             * DESCRIPTION : 123123123123123
-             * CLAIMTIME : 2016-07-06 14:45:25
-             * STATUS : 0
-             * TELPHONE : 1231231231231
-             * STATUSNAME : 审核中
-             * REGNORE : 360103210025958
-             * REFUSEREASON :
-             * ENTTYPE_CN : 有限责任公司(自然人投资或控股)
-             * ENTERNAME : 江西智容科技有限公司
-             * EMAIL : 1231232@qq.com
-             * AttachmentList : [{"ATTACHMENTDESC":"pic","ATTACHMENTNAME":"d75bb0be5bb74b6e81e1ef06b8a5b39d1467787553609.jpg","ATTACHMENTID":"da13ee17e44f4f8d9632233bc8ec3228","ATTACHMENTPATH":"iVBORw0KGgoAAAANSUhEUgAAAKcAAACoCAIAAAAKImluAAAAA3NCSVQ/gAAAgAElEQVR4\nnKy8aZRlV3UmuPc+59zpzTFHZERG5KhMZSqVKSmRBJqQQBgEMsJtKNyGbrBpt92rjV1Q7eoCTNn\n7lpd5cZgU27XMrSpLlxlA7KEDWhMzUIIZSol5TxGZmRExhzxxjuec3b/uBGRoQkPq896K+K++967\nw9nTt7+9z8VzjZiZmRkALAIA8MpfsW4bAMACAICxGSJmDIhohcPMGkBK2e60yuWSCSPP82wcpmla\ndN3Lly+ff/nwRz7yEV8JAOBUO44\nP3Bob6dPyMZ7tIqYRrgNInFe72VR1n1REheGSYNRFDDBkABI8DHSS6Qh+MQYL7q7tZnPNJuZDSJp\nnaQfnBUF8MZgdKO9P3DgwJNPPlkUxbvvvttqtUIIjUZjFI/UURARh6AmsEUbXOBib/vSRfZ7vbKw\nGW98tUreToDxvnDFfebK9yVv4+N/3eOoYemdBUYAAAAASUVORK5CYII=\n","ATTACHMENTTYPE":"认领企业","ATTACHMENTTIME":"2016-07-06 14:45:53"}]
-             * PRIPID : 3601032011041300098564
-             */
             public List<ClaimlistBean> Claimlist;
 
             public static class PagingBean {
@@ -1585,6 +1576,11 @@ public class DataManager {
             }
 
             public static class ClaimlistBean {
+                public String MEMBERID;//"MEMBERID":"f9aca831e7444509b4b3dcbc6a0a9318"
+                public String ENTTYPE;//"ENTTYPE":"1130"
+                public String USERNAME;//登录名
+                private String ALIASNAME;//认领人名字
+
                 public String ENTERID;//附加表的企业ID
                 public String CLAIMID;//认领ID
                 public String DESCRIPTION;//认领申明

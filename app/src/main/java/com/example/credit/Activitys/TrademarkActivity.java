@@ -50,7 +50,9 @@ public class TrademarkActivity extends BaseActivity {
         List<String> listurl = new ArrayList<>();//商标URL
         for(DataManager.trademarkInfo p:DataManager.trademarkInfoList){
             list.add(p.BRANDNAME);
-            listurl.add(p.BRANDIMG);
+            if(!p.BRANDIMG.equals("") && p.BRANDIMG!=null){
+                listurl.add(p.BRANDIMG);
+            }
         }
         CC_List_itemAdapter adapter = new CC_List_itemAdapter(TrademarkActivity.this, list,"trademark",listurl);
         tListView1.setAdapter(adapter);

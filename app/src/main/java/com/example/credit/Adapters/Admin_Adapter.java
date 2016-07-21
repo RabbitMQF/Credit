@@ -60,7 +60,7 @@ public class Admin_Adapter extends BaseAdapter {
         if (convertView == null) {
             convertView = LayoutInflater.from(context).inflate(R.layout.admin_list_item, null);
             vh = new ViewHolder();
-            vh.title = (TextView) convertView.findViewById(R.id.title);
+            vh.title = (TextView) convertView.findViewById(R.id.title1);
 
             vh.apripid = (TextView) convertView.findViewById(R.id.apripid);
             vh.aname = (TextView) convertView.findViewById(R.id.aname);
@@ -108,7 +108,7 @@ public class Admin_Adapter extends BaseAdapter {
 
             vh.apripid.setText(temp_admin.LICNAME_CN);
             vh.aname.setText(temp_admin.LICNO);
-            vh.ano.setText(temp_admin.VALFROM+" "+temp_admin.VALTO);
+            vh.ano.setText(temp_admin.VALFROM+"   "+temp_admin.VALTO);
             vh.atime.setText(temp_admin.LICANTH);
             vh.aoffice.setText("");
             vh.adate.setText(temp_admin.LICITEM);

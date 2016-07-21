@@ -100,7 +100,7 @@ public class CompanyDetailsActivity extends BaseActivity {
     int a1 = 0, a2 = 0, a3 = 0, a4 = 0, a5 = 0, a6 = 0, a7 = 0, a8 = 0, a9 = 0, a10 = 0, a11 = 0, a12 = 0, a13 = 0, a14 = 0, a15 = 0, a16 = 0;
 
     //    List<DataManager.search> detailsList = new ArrayList<DataManager.search>();
-    public String[] arrays3 = {"注册资本", "法定代表", "发照日期", "成立日期",
+    public String[] arrays3 = {"注册资本", "法定代表人", "发照日期", "成立日期",
             "工商注册号", "组织机构代码"};
 
     public String[] arrays4;
@@ -611,70 +611,70 @@ public class CompanyDetailsActivity extends BaseActivity {
             arrays4 = (String[]) lt.toArray(new String[size]);
         }
 //        图片变灰
-//        if (DataManager.allcountsList.get(0).BaseInfoCount == "0" || DataManager.allcountsList.get(0).BaseInfoCount.equals("0")) {
-//            a1 = 1;
+        if (DataManager.allcountsList.get(0).BaseInfoCount == "0" || DataManager.allcountsList.get(0).BaseInfoCount.equals("0")) {
+            a1 = 1;
 //            imgs1[0] = R.mipmap.icon1_1;
-//        }
-//        if (DataManager.allcountsList.get(0).ApprovalCount == "0" || DataManager.allcountsList.get(0).ApprovalCount.equals("0")) {
-//            a2 = 1;
+        }
+        if (DataManager.allcountsList.get(0).ApprovalCount == "0" || DataManager.allcountsList.get(0).ApprovalCount.equals("0")) {
+            a2 = 1;
 //            imgs1[1] = R.mipmap.icon2_1;
-//        }
-//        if (DataManager.allcountsList.get(0).HonorCount == "0" || DataManager.allcountsList.get(0).HonorCount.equals("0")) {
-//            a3 = 1;
+        }
+        if (DataManager.allcountsList.get(0).HonorCount == "0" || DataManager.allcountsList.get(0).HonorCount.equals("0")) {
+            a3 = 1;
 //            imgs1[2] = R.mipmap.icon3_1;
-//        }
-//        if (DataManager.allcountsList.get(0).SupportCount == "0" || DataManager.allcountsList.get(0).SupportCount.equals("0")) {
-//            a4 = 1;
+        }
+        if (DataManager.allcountsList.get(0).SupportCount == "0" || DataManager.allcountsList.get(0).SupportCount.equals("0")) {
+            a4 = 1;
 //            imgs1[3] = R.mipmap.icon4_1;
-//        }
-//        if (DataManager.allcountsList.get(0).PledgeCount == "0" || DataManager.allcountsList.get(0).PledgeCount.equals("0")) {
-//            a5 = 1;
+        }
+        if (DataManager.allcountsList.get(0).PledgeCount == "0" || DataManager.allcountsList.get(0).PledgeCount.equals("0")) {
+            a5 = 1;
 //            imgs1[4] = R.mipmap.icon5_1;
-//        }
-//        if (DataManager.allcountsList.get(0).MortgagorCount == "0" || DataManager.allcountsList.get(0).MortgagorCount.equals("0")) {
-//            a6 = 1;
+        }
+        if (DataManager.allcountsList.get(0).MortgagorCount == "0" || DataManager.allcountsList.get(0).MortgagorCount.equals("0")) {
+            a6 = 1;
 //            imgs1[5] = R.mipmap.icon6_1;
-//        }
-//        if (DataManager.allcountsList.get(0).JudiciaryCount == "0" || DataManager.allcountsList.get(0).JudiciaryCount.equals("0")) {
-//            a7 = 1;
+        }
+        if (DataManager.allcountsList.get(0).JudiciaryCount == "0" || DataManager.allcountsList.get(0).JudiciaryCount.equals("0")) {
+            a7 = 1;
 //            imgs1[6] = R.mipmap.icon7_1;
-//        }
-//        if (DataManager.allcountsList.get(0).WarningCount == "0" || DataManager.allcountsList.get(0).WarningCount.equals("0")) {
-//            a8 = 1;
+        }
+        if (DataManager.allcountsList.get(0).WarningCount == "0" || DataManager.allcountsList.get(0).WarningCount.equals("0")) {
+            a8 = 1;
 //            imgs1[7] = R.mipmap.icon8_1;
-//        }
-//        if (DataManager.allcountsList.get(0).PunishCount == "0" || DataManager.allcountsList.get(0).PunishCount.equals("0")) {
-//            a9 = 1;
+        }
+        if (DataManager.allcountsList.get(0).PunishCount == "0" || DataManager.allcountsList.get(0).PunishCount.equals("0")) {
+            a9 = 1;
 //            imgs1[8] = R.mipmap.icon9_1;
-//        }
-//        if (DataManager.allcountsList.get(0).AbnormityCount == "0" || DataManager.allcountsList.get(0).AbnormityCount.equals("0")) {
-//            a10 = 1;
+        }
+        if (DataManager.allcountsList.get(0).AbnormityCount == "0" || DataManager.allcountsList.get(0).AbnormityCount.equals("0")) {
+            a10 = 1;
 //            imgs1[9] = R.mipmap.icon10_1;
-//        }
-//        if (DataManager.allcountsList.get(0).PatentCount == "0" || DataManager.allcountsList.get(0).PatentCount.equals("0")) {
-//            a11 = 1;
+        }
+        if (DataManager.allcountsList.get(0).PatentCount == "0" || DataManager.allcountsList.get(0).PatentCount.equals("0")) {
+            a11 = 1;
 //            imgs1[10] = R.mipmap.icon11_1;
-//        }
-//        if (DataManager.allcountsList.get(0).TrademarkCount == "0" || DataManager.allcountsList.get(0).TrademarkCount.equals("0")) {
-//            a12 = 1;
+        }
+        if (DataManager.allcountsList.get(0).TrademarkCount == "0" || DataManager.allcountsList.get(0).TrademarkCount.equals("0")) {
+            a12 = 1;
 //            imgs1[11] = R.mipmap.icon12_1;
-//        }
-//        if (DataManager.allcountsList.get(0).CopyrightCount == "0" || DataManager.allcountsList.get(0).CopyrightCount.equals("0")) {
-//            a13 = 1;
+        }
+        if (DataManager.allcountsList.get(0).CopyrightCount == "0" || DataManager.allcountsList.get(0).CopyrightCount.equals("0")) {
+            a13 = 1;
 //            imgs1[12] = R.mipmap.icon13_1;
-//        }
-//        if (DataManager.allcountsList.get(0).AdvertisementCount == "0" || DataManager.allcountsList.get(0).AdvertisementCount.equals("0")) {
-//            a14 = 1;
+        }
+        if (DataManager.allcountsList.get(0).AdvertisementCount == "0" || DataManager.allcountsList.get(0).AdvertisementCount.equals("0")) {
+            a14 = 1;
 //            imgs1[13] = R.mipmap.icon14_1;
-//        }
-//        if (DataManager.allcountsList.get(0).CreditCount == "0" || DataManager.allcountsList.get(0).CreditCount.equals("0")) {
-//            a15 = 1;
+        }
+        if (DataManager.allcountsList.get(0).CreditCount == "0" || DataManager.allcountsList.get(0).CreditCount.equals("0")) {
+            a15 = 1;
 //            imgs1[14] = R.mipmap.icon15_1;
-//        }
-//        if (DataManager.allcountsList.get(0).AnnualCount == "0" || DataManager.allcountsList.get(0).AnnualCount.equals("0")) {
-//            a16 = 1;
+        }
+        if (DataManager.allcountsList.get(0).AnnualCount == "0" || DataManager.allcountsList.get(0).AnnualCount.equals("0")) {
+            a16 = 1;
 //            imgs1[15] = R.mipmap.icon16_1;
-//        }
+        }
 
         if (DataManager.allcountsList.get(0).IsFavorite.equals("false")) {//当前状态为未关注，所以点击是关注
             pb_4_img.setBackgroundResource(R.mipmap.btm_4_n);

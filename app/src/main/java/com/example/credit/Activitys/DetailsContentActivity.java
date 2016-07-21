@@ -341,11 +341,18 @@ public class DetailsContentActivity extends BaseActivity {
         }else{
             lt.add("暂无信息");
         }
-        if(DataManager.gsxx.data.BaseInfo.REGNO!=null&&!DataManager.gsxx.data.BaseInfo.REGNO.equals(null)&&!DataManager.gsxx.data.BaseInfo.REGNO.equals("")){
-            lt.add(DataManager.gsxx.data.BaseInfo.REGNO);
+
+        if(DataManager.gsxx.data.BaseInfo.UNISCID!=null&&!DataManager.gsxx.data.BaseInfo.UNISCID.equals(null)&&!DataManager.gsxx.data.BaseInfo.UNISCID.equals("")){
+            arrays3[4]="统一社会信用代码";
+            lt.add(DataManager.gsxx.data.BaseInfo.UNISCID);
         }else{
-            lt.add("暂无信息");
+            if(DataManager.gsxx.data.BaseInfo.REGNO!=null&&!DataManager.gsxx.data.BaseInfo.REGNO.equals(null)&&!DataManager.gsxx.data.BaseInfo.REGNO.equals("")){
+                lt.add(DataManager.gsxx.data.BaseInfo.REGNO);
+            }else{
+                lt.add("暂无信息");
+            }
         }
+
         lt.add("暂无信息");
         int size = lt.size();
         arrays4 = (String[]) lt.toArray(new String[size]);
@@ -411,11 +418,11 @@ public class DetailsContentActivity extends BaseActivity {
          * 判断经营期限是否为空
          */
         try{
-        if((DataManager.gsxx.data.BaseInfo.OPFROM).equals("")){
+        if(DataManager.gsxx.data.BaseInfo.OPFROM==null&&DataManager.gsxx.data.BaseInfo.OPFROM.equals(null)&&DataManager.gsxx.data.BaseInfo.OPFROM.equals("")){
             c_datetiem.setText("**** 至" + DataManager.gsxx.data.BaseInfo.OPTO);
-        }else if((DataManager.gsxx.data.BaseInfo.OPTO).equals("")){
+        }else if(DataManager.gsxx.data.BaseInfo.OPTO==null&&DataManager.gsxx.data.BaseInfo.OPTO.equals(null)&&DataManager.gsxx.data.BaseInfo.OPTO.equals("")){
             c_datetiem.setText(DataManager.gsxx.data.BaseInfo.OPFROM + "至 ****" );
-        }else if(DataManager.gsxx.data.BaseInfo.OPTO!=null&&DataManager.gsxx.data.BaseInfo.OPFROM!=null&&!(DataManager.gsxx.data.BaseInfo.OPFROM).equals("") && !(DataManager.gsxx.data.BaseInfo.OPTO).equals("")){
+        }else if((DataManager.gsxx.data.BaseInfo.OPFROM!=null&&!DataManager.gsxx.data.BaseInfo.OPFROM.equals(null)&&!(DataManager.gsxx.data.BaseInfo.OPFROM).equals(""))&&DataManager.gsxx.data.BaseInfo.OPTO!=null&&!DataManager.gsxx.data.BaseInfo.OPTO.equals(null)&&!(DataManager.gsxx.data.BaseInfo.OPTO).equals("")){
             c_datetiem.setText(DataManager.gsxx.data.BaseInfo.OPFROM + "至" + DataManager.gsxx.data.BaseInfo.OPTO);//经营期限
         }else{
             c_datetiem.setText("暂无信息");

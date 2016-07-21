@@ -29,36 +29,36 @@
             android:textColor="#ffffff"
             android:textSize="20sp" />
     </RelativeLayout>-->
-<com.example.credit.Views.ViewPagerIndicator
-    android:id="@+id/id_indicator"
-    android:layout_height="48dp"
-    android:layout_width="match_parent"
-    android:background="#D9EFFC"
-    android:orientation="horizontal"
-    android:layout_marginTop="-2dp"
-   >
-    <TextView
-        android:layout_width="0dp"
-        android:layout_weight="1"
-        android:layout_height="match_parent"
-        android:text="动产抵押信息"
-        android:textColor="@color/blue2"
-        android:gravity="center"/>
-    <View
-        android:layout_width="0.5dp"
-        android:layout_height="match_parent"
-        android:background="@color/material_grey_600"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"/>
-    <TextView
-        android:layout_width="0dp"
-        android:layout_weight="1"
-        android:layout_height="match_parent"
-        android:text="不动产抵押信息"
-        android:textColor="@color/blue2"
-        android:gravity="center"/>
-    
-</com.example.credit.Views.ViewPagerIndicator>
+    <com.example.credit.Views.ViewPagerIndicator
+        android:id="@+id/id_indicator"
+        android:layout_height="48dp"
+        android:layout_width="match_parent"
+        android:background="#D9EFFC"
+        android:orientation="horizontal"
+        android:layout_marginTop="-2dp"
+        >
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:text="动产抵押信息"
+            android:textColor="@color/blue2"
+            android:gravity="center"/>
+        <View
+            android:layout_width="0.5dp"
+            android:layout_height="match_parent"
+            android:background="@color/material_grey_600"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:text="不动产抵押信息"
+            android:textColor="@color/blue2"
+            android:gravity="center"/>
+
+    </com.example.credit.Views.ViewPagerIndicator>
     <View
         android:layout_width="match_parent"
         android:layout_height="5dp"

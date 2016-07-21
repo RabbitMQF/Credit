@@ -85,6 +85,9 @@ public class WelcomeActivity extends Activity {
         NewsRequest.setConnectTimeout(20000);
         NewsRequest.setReadTimeout(20000);
         CallServer.getInstance().add(this,NewsRequest, MyhttpCallBack.getInstance(),0x111,true,false,true);
+
+        GsonUtil NewClaimRequest=new GsonUtil(URLconstant.URLINSER + URLconstant.NEWCLAIM, RequestMethod.GET);//新闻数据
+        CallServer.getInstance().add(this,NewClaimRequest, MyhttpCallBack.getInstance(),0x113,true,false,true);
     }
 
     Animation.AnimationListener listener=new Animation.AnimationListener() {
