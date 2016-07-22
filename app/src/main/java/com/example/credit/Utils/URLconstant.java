@@ -121,8 +121,9 @@ public class URLconstant {
 
 //    public static final String JUDICIALURL = "http://www.zhirong.applinzi.com/editor/attached/file/20160530/20160530101457_32579.txt";//司法信息URL
 
-    public static final String NEWSURL = "http://op.juhe.cn/onebox/news/query?key=c0e7b7d679e557ef030efeaaa7be0b07&q=%E6%B1%9F%E8%A5%BF"/*""*/;//新闻URLObeyed
+//    public static final String NEWSURL = "http://op.juhe.cn/onebox/news/query?key=c0e7b7d679e557ef030efeaaa7be0b07&q=%E6%B1%9F%E8%A5%BF"/*""*/;//新闻URLObeyed
 
+    public static final String NEWSURL ="http://101.201.211.27:8282/zhirong.creditcard/Interface/newsController/getNewslistPage?token=202cb962ac59075b964b07152d234b70&KeyNo=&deviceId=123&pageSize=2&pageIndex=0";//新闻URLObeyed
 
     //WebService测试专用
 //    public static final String TRADEMARKURL = "http://119.29.181.170:8555/WebService.asmx/trademark";//商标URLtrademark

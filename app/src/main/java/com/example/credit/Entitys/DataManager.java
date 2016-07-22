@@ -1085,30 +1085,64 @@ public class DataManager {
     }
 
 
-    public static List<Newss> NewssList = new ArrayList<>();
+    public static NewClaim NewClaimS=new NewClaim();
 
     /**
      * 新闻测试实体类
      */
-    public class Newss {
-        public String title;
-        public String content;
-        public String img_width;
-        public String full_title;
-        public String pdate;
-        public String src;
-        public String img_length;
-        public String img;
-        public String url;
-        public String pdate_src;
-    }
+    public static class NewClaim {
+        public String message;
+        public String status;
+        public DataBean data;
+        public String version;
 
-    public class Root11 {
-        public String reason;
-        public List<Newss> result;
-        public int error_code;
-    }
+        public static class DataBean {
+            public PagingBean Paging;
+            /**
+             * AUTHOR :
+             * MODEL_ID : 1
+             * RELEASE_DATE : 2016-7-21 16:20
+             * DESCRIPTION : “最开始知道有这么个‘一张网’的时候是在去年5月，当时真是有种又爱又恨的感觉。用上了以后，现在感觉离不开它了。”江西智容科技总经理李志，一个现在拥有近百名员工的80后老板，激动的对人民财经讲述他第一时间触“一张网”时候的经历。
+             * ID : 4
+             * TXT : <p style="margin: 15px 0px; padding: 0px; font-size: 16px; line-height: 2em; color: rgb(0, 0, 0); font-family: 'Microsoft YaHei', u5FAEu8F6Fu96C5u9ED1, Arial, SimSun, u5B8Bu4F53;">&ldquo;我为什么恨它？自己公司的基本信息在江西企业信用监管警示系统上全部对外公开，甚至很多隐私信息，比如违法次数、违法记录等等，这些我们不愿意让别人知道的东西，不管是我的竞争对手，还是除了工商以外的其他政府部门，都能轻松查到。我有一种透明感，有一种担心和害怕。&rdquo;李志说道，&ldquo;不过，这张网对于每家企业都是公平的，我对它的爱也来源于此。因为业务需要，过去经常出现在合作里提前垫资的情况，如果对方没有经济能力继续下去，往往垫资就全部打了水漂。现在我会通过系统查询提前了解到一些，比如对方是否有欠贷的历史记录等负面信息，之后再决定是否要合作，我的心里踏实了许多。&rdquo;</p>
+             * <p style="margin: 15px 0px; padding: 0px; font-size: 16px; line-height: 2em; color: rgb(0, 0, 0); font-family: 'Microsoft YaHei', u5FAEu8F6Fu96C5u9ED1, Arial, SimSun, u5B8Bu4F53;">　　那么，李志口中的这张&ldquo;网&rdquo;究竟是什么？</p>
+             * <p style="margin: 15px 0px; padding: 0px; font-size: 16px; line-height: 2em; color: rgb(0, 0, 0); font-family: 'Microsoft YaHei', u5FAEu8F6Fu96C5u9ED1, Arial, SimSun, u5B8Bu4F53;">　　2015年3月20日，李克强总理视察工商总局时强调，要组织形成全国统一的企业信息公示大数据平台，完善企业信用信息共享机制，探索新的监管模式，把市场监管体系这张&ldquo;网&rdquo;织好织密。</p>
+             * <p style="margin: 15px 0px; padding: 0px; font-size: 16px; line-height: 2em; color: rgb(0, 0, 0); font-family: 'Microsoft YaHei', u5FAEu8F6Fu96C5u9ED1, Arial, SimSun, u5B8Bu4F53;">　　紧接着，去年底国务院印发的《关于&ldquo;先照后证&rdquo;改革后加强事中事后监管的意见》明确提出，各地区各部门要完善协同监管机制，做好信息公示工作，大力建设企业信用信息公示&ldquo;全国一张网&rdquo;。工商总局局长张茅不久前也表示，要在2016年底前，国家企业信用信息公示系统（即&ldquo;一张网&rdquo;）基本建成使用。</p>
+             * <p style="margin: 15px 0px; padding: 0px; font-size: 16px; line-height: 2em; color: rgb(0, 0, 0); font-family: 'Microsoft YaHei', u5FAEu8F6Fu96C5u9ED1, Arial, SimSun, u5B8Bu4F53;">　　为了加快推进&ldquo;一张网&rdquo;工程的建设，工商总局选择了北京、上海、天津、江西、福建、重庆、贵州等七个信息化建设基础较好的省市工商、市场监管部门作为先行建设单位，江西就于去年率先建设了企业信用监管警示系统。人民财经了解到，该系统会根据企业有无违法记录、违法次数的多少等，分成四种监管类别，正常企业标记为绿色，警示企业视违法失信程度由轻到重，分别标记为黄色、橙色和红色。企业信用监管警示系统相当于为每个企业建立一个实时动态&ldquo;经济户口&rdquo;，与企业相关的信息全部向社会公示，接受社会监督，使企业违法行为无所遁形。</p>
+             * <p style="margin: 15px 0px; padding: 0px; font-size: 16px; line-height: 2em; color: rgb(0, 0, 0); font-family: 'Microsoft YaHei', u5FAEu8F6Fu96C5u9ED1, Arial, SimSun, u5B8Bu4F53;">　　系统究竟好不好用？江西银行业务经理肖列深有感触地告诉人民财经，&ldquo;以前没有可靠的企业信息来源，贷款授信审批只能到各个监管部门去逐个核实，甚至出现过1个企业客户需要1周的时间去调查；现在只需打开这个网站，企业信息就一目了然，审核效率大大提高。客户开心，我们也更省时省力。&rdquo;</p>
+             * <p style="margin: 15px 0px; padding: 0px; font-size: 16px; line-height: 2em; color: rgb(0, 0, 0); font-family: 'Microsoft YaHei', u5FAEu8F6Fu96C5u9ED1, Arial, SimSun, u5B8Bu4F53;">　　据统计，江西省南昌市已有20余家企业因违法失信被取消投标资格；去年市里某园区两家企业因在企业信用监管警示系统中有违法记录被取消新三板上市资格；在南昌市政府对相关企业予以奖励时，6家企业又因有违法记录被取消奖励。南昌市市场和质量监督管理局局长徐云辉告诉人民财经，&ldquo;很多受到处罚的企业表示，希望不要公示违法经营处罚和监管等级等信息，担心经营受影响，宁愿接受比以前更重的经济处罚。&rdquo;</p>
+             * <p/>
+             * CONTENT_IMG : /zhirong.creditqrcode/u/cms/www/201607/21180540mw1b.jpg
+             * TITLE_IMG : /zhirong.creditqrcode/u/cms/www/201607/21180534v7us.jpg
+             * ORIGIN : 中国政府网
+             * TITLE : “全国一张网”是紧箍咒？企业主：有助于遏制违法失信
+             */
+            public  List<NewslistBean> Newslist;
 
+            public static class PagingBean {
+                public int TotalPage;
+                public int ShowCount;
+                public int TotalResult;
+                public int CurrentResult;
+                public int CurrentPage;
+
+            }
+
+            public static class NewslistBean {
+                public String AUTHOR;
+                public String MODEL_ID;
+                public String RELEASE_DATE;
+                public String DESCRIPTION;
+                public String ID;
+                public String TXT;
+                public String CONTENT_IMG;
+                public String TITLE_IMG;//
+                public String ORIGIN;//
+                public String TITLE;//标题 * TITLE : “全国一张网”是紧箍咒？企业主：有助于遏制违法失信
+
+            }
+        }
+    }
     /**
      * 搜索接口返回参数实体类
      */
@@ -1564,7 +1598,7 @@ public class DataManager {
         public static class DataBean {
 
             public PagingBean Paging;
-            public List<ClaimlistBean> Claimlist;
+            public List<ClaimlistBean> Claimlist=new ArrayList<>();
 
             public static class PagingBean {
                 public int TotalPage;

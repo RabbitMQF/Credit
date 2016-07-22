@@ -94,6 +94,14 @@ public class CompanyDetailsActivity extends BaseActivity {
     MyGridView myGridView1;
     @ViewInject(R.id.myGridView2)
     MyGridView myGridView2;
+    @ViewInject(R.id.name)
+    TextView name;//法人
+    @ViewInject(R.id.regcap)
+    TextView regcap;//注册资金
+    @ViewInject(R.id.enttype)
+    TextView enttype;//市场主体类型
+    @ViewInject(R.id.estdate)
+    TextView estdate;//成立日期
 
     MyGridAdapter2 adapter2;
     private final int MSG = 0x015;
@@ -124,10 +132,10 @@ public class CompanyDetailsActivity extends BaseActivity {
             R.mipmap.icon11, R.mipmap.icon12,
             R.mipmap.icon13, R.mipmap.icon14,
             R.mipmap.icon15, R.mipmap.icon16,
-            R.mipmap.icon16,R.mipmap.icon16,
-            R.mipmap.icon16,R.mipmap.icon16,
-            R.mipmap.icon16,R.mipmap.icon16,
-            R.mipmap.icon16,R.mipmap.icon16,};
+            R.mipmap.icon16, R.mipmap.icon16,
+            R.mipmap.icon16, R.mipmap.icon16,
+            R.mipmap.icon16, R.mipmap.icon16,
+            R.mipmap.icon16, R.mipmap.icon16,};
 
     public static Handler handler;
     String model, KeyNo, token, regnore, enterId;
@@ -153,6 +161,7 @@ public class CompanyDetailsActivity extends BaseActivity {
     public static ProgressDialog pd;
     String KeyNos, tokens;
     CreditSharePreferences csp;
+    int type,posit;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -162,7 +171,8 @@ public class CompanyDetailsActivity extends BaseActivity {
         waitDialog = new WaitDialog(this);
         mScrollView.smoothScrollTo(0, 20);
         Intent i = getIntent();
-        int s = i.getIntExtra("s", 0);
+        posit = i.getIntExtra("posit", 0);
+        type = i.getIntExtra("type", 0);
 //        detailsList = DataManager.searchList;
         Build bd = new Build();
         model = bd.MODEL;//设备ID
@@ -331,6 +341,9 @@ public class CompanyDetailsActivity extends BaseActivity {
                         break;
                     case 23://取消关注
                         if (DataManager.FavotiteS.data.result.equals("success")) {
+                            if(type==5){
+                                DataManager.FavotiteListS.data.AttentionList.remove(posit);
+                            }
                             pb_4_img.setBackgroundResource(R.mipmap.btm_4_n);
                             pb_4_txt.setText("关注");
                             android.widget.Toast.makeText(CompanyDetailsActivity.this, "取消关注成功！", android.widget.Toast.LENGTH_SHORT).show();
@@ -580,6 +593,13 @@ public class CompanyDetailsActivity extends BaseActivity {
         }else {
             details_tit3.setText("未认领");
         }
+
+        name.setText(DataManager.BaseinfoList.get(0).NAME);
+        regcap.setText(DataManager.BaseinfoList.get(0).REGCAP+"万元");
+        estdate.setText(DataManager.BaseinfoList.get(0).ESTDATE);
+        enttype.setText(DataManager.BaseinfoList.get(0).ENTTYPE_CN);
+
+
 
 
         pd = new ProgressDialog(CompanyDetailsActivity.this);

@@ -14,8 +14,8 @@
         <ScrollView
             android:id="@+id/sc"
             android:layout_width="match_parent"
-            android:paddingBottom="40dp"
             android:layout_height="match_parent"
+            android:paddingBottom="40dp"
             android:scrollbars="none">
 
             <LinearLayout
@@ -25,46 +25,60 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="150dp"
+                    android:layout_height="158dp"
                     android:background="@mipmap/detail_top"
                     android:orientation="vertical">
 
                     <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:layout_marginTop="30dp"
-                        >
+                        android:layout_height="70dp"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal">
                         <!--android:paddingTop="30dp"-->
 
                         <ImageView
                             android:id="@+id/d_return"
                             android:layout_width="wrap_content"
                             android:layout_height="30dp"
-                            android:layout_marginLeft="10dp"
                             android:layout_centerVertical="true"
+                            android:layout_marginLeft="10dp"
                             android:layout_marginTop="20dp"
                             android:background="@mipmap/arrow_left_back" />
 
 
                         <TextView
-                            android:layout_marginTop="14dp"
                             android:id="@+id/cp_name"
-                            android:layout_marginLeft="60dp"
-                            android:layout_marginRight="60dp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="60dp"
+                            android:layout_marginRight="60dp"
                             android:gravity="center_horizontal"
-                            android:text="江西科技有限公司"
+                            android:text="江西科技有限公司的飞洒发生大法撒旦飞洒地方十大"
                             android:textColor="#ffffff"
-                            android:textSize="20sp" />
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/enttype"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
+                            android:layout_centerVertical="true"
+                            android:gravity="center_horizontal"
+                            android:layout_marginLeft="60dp"
+                            android:layout_marginRight="60dp"
+                            android:text="江西科技有限公司的飞洒发生大法撒旦飞洒地方十大"
+                            android:textColor="#ffffff"
+                            android:textSize="12sp" />
+
                         <LinearLayout
-                            android:visibility="gone"
                             android:id="@+id/ll"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
-                            android:orientation="vertical">
+                            android:orientation="vertical"
+                            android:visibility="gone">
 
                             <ImageView
 
@@ -77,14 +91,14 @@
 
                         <LinearLayout
                             android:id="@+id/d_more"
-                            android:onClick="popupmenu"
-                            android:layout_alignParentRight="true"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:onClick="popupmenu"
                             android:orientation="horizontal"
-                            android:layout_marginTop="14dp"
-                            android:padding="10dp"
-                            >
+                            android:padding="10dp">
+
                             <ImageView
 
                                 android:layout_width="30dp"
@@ -98,10 +112,10 @@
                     </RelativeLayout>
 
                     <LinearLayout
-                        android:layout_marginTop="20dp"
                         android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:layout_marginBottom="10dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginTop="5dp"
                         android:gravity="center"
                         android:orientation="horizontal">
 
@@ -116,6 +130,7 @@
                                 android:layout_marginLeft="5dp"
                                 android:layout_width="20dp"
                                 android:layout_height="15dp"
+
                                 android:background="@mipmap/details_top1" />
 
                             <TextView
@@ -123,10 +138,10 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="5dp"
+                                android:layout_marginRight="5dp"
                                 android:text="浏览量100"
                                 android:textColor="@color/blue1"
-                                android:textSize="14sp"
-                                android:layout_marginRight="5dp"/>
+                                android:textSize="14sp" />
 
                         </LinearLayout>
 
@@ -182,14 +197,85 @@
                         </LinearLayout>
 
                     </LinearLayout>
-                </LinearLayout>
+                    <!--淡色详情-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:background="@color/touming"
+                        android:orientation="horizontal">
 
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="法定代表人"
+                                android:textColor="@color/white" />
+
+                            <TextView
+                                android:id="@+id/name"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="注册日期"
+                                android:textColor="@color/white" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="注册资金"
+                                android:textColor="@color/white" />
+
+                            <TextView
+                                android:id="@+id/regcap"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="注册日期"
+                                android:textColor="@color/white" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="注册日期"
+                                android:textColor="@color/white" />
+
+                            <TextView
+                                android:id="@+id/estdate"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="注册日期"
+                                android:textColor="@color/white" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+                <!--原收拉详情-->
                 <RelativeLayout
                     android:id="@+id/vg"
                     android:layout_width="match_parent"
                     android:layout_height="35dp"
                     android:background="@drawable/details_c_tle"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:visibility="gone">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -228,10 +314,10 @@
                     android:id="@+id/myGridView2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingLeft="20dp"
                     android:background="#EEEEEE"
-                    android:paddingRight="20dp"
                     android:numColumns="2"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
                     android:visibility="gone" />
 
                 <com.example.credit.Views.MyGridView
@@ -239,8 +325,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:numColumns="4"
-                    android:stretchMode="columnWidth"
-                    />
+                    android:stretchMode="columnWidth" />
 
                 <View
                     android:layout_width="match_parent"
@@ -252,38 +337,43 @@
                 <!--android:layout_margin="30dp"-->
                 <ImageView
                     android:id="@+id/panoramic"
-                    android:layout_gravity="center"
                     android:layout_width="300dp"
                     android:layout_height="30dp"
+                    android:layout_gravity="center"
                     android:layout_margin="30dp"
-                    android:visibility="gone"
-                    android:background="@mipmap/details_bottom" />
+                    android:background="@mipmap/details_bottom"
+                    android:visibility="gone" />
             </LinearLayout>
 
         </ScrollView>
+
         <include
+            layout="@layout/public_bottom_bar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            layout="@layout/public_bottom_bar"/>
+            android:layout_gravity="bottom" />
+
         <FrameLayout
             android:layout_width="wrap_content"
-            android:layout_gravity="bottom|center_horizontal"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center_horizontal">
+
             <com.example.credit.Views.RoundImageView
                 android:layout_width="55dp"
                 android:layout_height="55dp"
-                android:src="@mipmap/detail_fff"/>
+                android:src="@mipmap/detail_fff" />
+
             <LinearLayout
                 android:id="@+id/pb_0"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:orientation="vertical">
+
                 <com.example.credit.Views.RoundImageView
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    android:background="@mipmap/btm_0"/>
+                    android:background="@mipmap/btm_0" />
 
             </LinearLayout>
         </FrameLayout>

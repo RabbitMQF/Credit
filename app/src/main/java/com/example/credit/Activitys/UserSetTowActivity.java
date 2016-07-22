@@ -184,6 +184,9 @@ public class UserSetTowActivity extends Activity {
         public void onClick(View v) {
             switch (v.getId()){
                 case R.id.b_return:
+                    i=new Intent();
+                    i.putExtra("text",txt);
+                    setResult(3, i);
                     finish();
                     break;
                 case R.id.b_topY:
@@ -197,7 +200,9 @@ public class UserSetTowActivity extends Activity {
                             finish();
                         }
                     }else if(type==7){
-                        if(ustC_et.getText().toString().length()!=11 && !isNumeric(ustC_et.getText().toString())){
+                        if(!isNumeric(ustC_et.getText().toString())){
+                            Toast.show("手机格式不正确！");
+                        }else if(ustC_et.getText().length()!=11){
                             Toast.show("手机格式不正确！");
                         }else{
                             i=new Intent();

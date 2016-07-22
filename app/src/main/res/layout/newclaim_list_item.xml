@@ -45,12 +45,13 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp"
                 android:maxEms="13"
+                android:layout_toLeftOf="@+id/lin1"
                 android:singleLine="true"
                 android:ellipsize="end"
                 android:textSize="14sp"
                 android:text="mdzz"/>
-
             <LinearLayout
+                android:id="@+id/lin1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"

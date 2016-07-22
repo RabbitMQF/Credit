@@ -81,12 +81,12 @@ public class WelcomeActivity extends Activity {
 
     private void initData() {
 
-        GsonUtil NewsRequest=new GsonUtil(URLconstant.NEWSURL, RequestMethod.GET);//新闻数据
+        GsonUtil NewsRequest=new GsonUtil(URLconstant.NEWSURL, RequestMethod.POST);//新闻数据
         NewsRequest.setConnectTimeout(20000);
         NewsRequest.setReadTimeout(20000);
         CallServer.getInstance().add(this,NewsRequest, MyhttpCallBack.getInstance(),0x111,true,false,true);
 
-        GsonUtil NewClaimRequest=new GsonUtil(URLconstant.URLINSER + URLconstant.NEWCLAIM, RequestMethod.GET);//新闻数据
+        GsonUtil NewClaimRequest=new GsonUtil(URLconstant.URLINSER + URLconstant.NEWCLAIM, RequestMethod.GET);//最新认领
         CallServer.getInstance().add(this,NewClaimRequest, MyhttpCallBack.getInstance(),0x113,true,false,true);
     }
 

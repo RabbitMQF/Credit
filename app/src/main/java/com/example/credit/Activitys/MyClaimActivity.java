@@ -64,6 +64,8 @@ public class MyClaimActivity extends BaseActivity {
                         adapter.notifyDataSetChanged();
 //                        Toast.show("数据更新成功~！");
                         break;
+                    case 6://
+                        break;
                     case 500://
                         wd.dismiss();
                         Toast.show("认领取消失败~！");

@@ -21,7 +21,7 @@
             android:layout_centerVertical="true"
             android:layout_marginLeft="10dp"
             android:background="@mipmap/icon12"
-            android:visibility="visible" />
+            android:visibility="gone" />
 
         <LinearLayout
             android:layout_width="wrap_content"

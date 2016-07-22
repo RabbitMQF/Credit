@@ -26,8 +26,7 @@ public class NewsContentActivity extends Activity {
     @ViewInject(R.id.webv)
     WebView mWebView;
 
-
-    int position;
+    String id;
 
     ProgressDialog pd;
     @Override
@@ -43,7 +42,7 @@ public class NewsContentActivity extends Activity {
             }
         });
         Intent i=getIntent();
-        position=i.getIntExtra("position",0);
+        id=i.getStringExtra("id");
         webinit();
     }
     public  void webinit(){
@@ -51,7 +50,7 @@ public class NewsContentActivity extends Activity {
         pd.setMessage("正在加载中...");
         pd.setCancelable(false);
         pd.show();
-        mWebView.loadUrl(DataManager.NewssList.get(position).url);
+        mWebView.loadUrl("http://101.201.211.27:8282/zhirong.credith5/enterinfo/tonewsDetails.do?devicetype=1&KeyNo="+id);
         mWebView.setWebChromeClient(new WebChromeClient() {
             @Override
             public void onProgressChanged(WebView view, int newProgress) {
@@ -61,7 +60,6 @@ public class NewsContentActivity extends Activity {
                 } else {
                     // 加载中
                 }
-
             }
         });
         mWebView.setWebViewClient(new WebViewClient(){

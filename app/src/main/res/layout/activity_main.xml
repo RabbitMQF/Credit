@@ -64,7 +64,7 @@
                                 android:layout_height="wrap_content"
                                 android:textColor="@color/white"
                                 android:textSize="22sp"
-                                android:text="百信企业查询系统"
+                                android:text="瑞臻征信系统"
                                 />
                             <TextView
                                 android:layout_width="wrap_content"

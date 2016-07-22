@@ -85,19 +85,17 @@ public class MyhttpCallBack implements HttpCallBack {
                 }
                 break;
             case 0x111://获取新闻
-                String jstring111 = (String) response.get();
-                DataManager.Root11 jsonRoot11 = gson.fromJson(jstring111, new TypeToken<DataManager.Root11>() {
-                }.getType());
-                DataManager.NewssList = jsonRoot11.result;
+                jsonString = (String) response.get();
+                DataManager.NewClaimS = gson.fromJson(jsonString, DataManager.NewClaim.class);
                 break;
             case 0x112://获取新闻内容
-                String jstring112 = (String) response.get();
-                DataManager.Root11 jsonRoot12 = gson.fromJson(jstring112, new TypeToken<DataManager.Root11>() {
-                }.getType());
-                DataManager.NewssList = jsonRoot12.result;
-                if (DataManager.NewssList != null && DataManager.NewssList.size() > 0) {
-                    MainActivity.handler.sendEmptyMessage(0);
-                }
+//                String jstring112 = (String) response.get();
+//                DataManager.Root11 jsonRoot12 = gson.fromJson(jstring112, new TypeToken<DataManager.Root11>() {
+//                }.getType());
+//                DataManager.NewssList = jsonRoot12.result;
+//                if (DataManager.NewssList != null && DataManager.NewssList.size() > 0) {
+//                    MainActivity.handler.sendEmptyMessage(0);
+//                }
                 break;
             case 0x113://获取最新认领
                 jsonString = (String) response.get();
@@ -1170,7 +1168,7 @@ public class MyhttpCallBack implements HttpCallBack {
             case 0x304://我的认领详情
                 jsonString = (String) response.get();
                 DataManager.MyClaimUtilsModel = gson.fromJson(jsonString, DataManager.MyClaimUtils.class);
-                MainActivity.handler.sendEmptyMessage(6);
+//                MyClaimActivity.handler.sendEmptyMessage(6);
                 break;
             case 0x305://取消认领
                 jsonString = (String) response.get();

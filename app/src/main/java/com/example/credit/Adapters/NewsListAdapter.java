@@ -17,8 +17,8 @@ import java.util.List;
  */
 public class NewsListAdapter extends BaseAdapter{
     Context context;
-    List<DataManager.Newss> newsList;
-    public NewsListAdapter(Context context, List<DataManager.Newss> newsList) {
+    List<DataManager.NewClaim.DataBean.NewslistBean> newsList;
+    public NewsListAdapter(Context context, List<DataManager.NewClaim.DataBean.NewslistBean> newsList) {
         this.context = context;
         this.newsList = newsList;
     }
@@ -53,17 +53,17 @@ public class NewsListAdapter extends BaseAdapter{
         }else {
             vh=(ViewHolder) convertView.getTag();
         }
-        DataManager.Newss tempNews=newsList.get(position);
+        DataManager.NewClaim.DataBean.NewslistBean tempNews=newsList.get(position);
         //Bitmap bitmap=BitmapFactory.decodeByteArray(Base64.decode(tempNews.img,Base64.DEFAULT),0,Base64.decode(tempNews.img,Base64.DEFAULT).length);
-        if(tempNews.img!=""){
-            Picasso.with(context).load(tempNews.img).into(vh.img);
+        if(tempNews.TITLE_IMG!=""){
+            Picasso.with(context).load("http://101.201.211.27:8282"+tempNews.TITLE_IMG).into(vh.img);
         }else {
             Picasso.with(context).load(R.mipmap.nopicture).into(vh.img);
         }
 
-        vh.title.setText(tempNews.title);
-        vh.congtent.setText(tempNews.content);
-        vh.time.setText(tempNews.pdate_src);
+        vh.title.setText(tempNews.TITLE);
+        vh.congtent.setText(tempNews.DESCRIPTION);
+        vh.time.setText(tempNews.RELEASE_DATE);
         return convertView;
     }
 

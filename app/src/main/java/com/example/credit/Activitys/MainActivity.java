@@ -135,7 +135,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
             public void handleMessage(Message msg) {
                 switch (msg.what) {
                     case 0:
-                        NewsListAdapter adapter = new NewsListAdapter(MainActivity.this, DataManager.NewssList);
+                        NewsListAdapter adapter = new NewsListAdapter(MainActivity.this, DataManager.NewClaimS.data.Newslist);
                         NewsListview.setAdapter(adapter);
                         adapter.notifyDataSetChanged();
                         break;
@@ -193,6 +193,10 @@ public class MainActivity extends Activity implements View.OnClickListener {
                         startActivity(i);
                         overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
                         break;
+                    case 9:
+                        Intent i2 = new Intent(MainActivity.this, NewsContentActivity.class);
+                        startActivity(i2);
+                        break;
                     default:
                         break;
                 }
@@ -203,8 +207,14 @@ public class MainActivity extends Activity implements View.OnClickListener {
     }
 
     private void initData() {
-        if (DataManager.NewssList != null && DataManager.NewssList.size() > 0) {
-            handler.sendEmptyMessage(0);
+        try{
+            if (!DataManager.NewClaimS.data.Newslist.equals(null) && DataManager.NewClaimS.data.Newslist != null && DataManager.NewClaimS.data.Newslist.size() > 0 ) {
+                handler.sendEmptyMessage(0);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+            com.example.credit.Utils.Toast.show("新闻数据加载失败");
+
         }
         main1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -215,7 +225,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 main1.setBackgroundDrawable(getResources().getDrawable(R.drawable.details_gg_bgtit));
                 main2.setTextColor(getResources().getColor(R.color.black));
                 main2.setBackgroundDrawable(getResources().getDrawable(R.drawable.details_con_tabbg2));
-                if (DataManager.NewssList != null && DataManager.NewssList.size() > 0) {
+                if (DataManager.NewClaimS.data.Newslist != null && DataManager.NewClaimS.data.Newslist.size() > 0) {
                     handler.sendEmptyMessage(0);
                 }
             }
@@ -235,6 +245,14 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
             }
         });
+        NewsListview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent i=new Intent(MainActivity.this,NewsContentActivity.class);
+                i.putExtra("id",DataManager.NewClaimS.data.Newslist.get(position).ID);
+                startActivity(i);
+            }
+        });
     }
 
     private void initView() {
@@ -249,15 +267,14 @@ public class MainActivity extends Activity implements View.OnClickListener {
         pd = new ProgressDialog(MainActivity.this);
         pd.setMessage("请稍后...");
         pd.setCancelable(false);
-        NewsListview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent i = new Intent(MainActivity.this, NewsContentActivity.class);
-                i.putExtra("position", position);
-                startActivity(i);
-//                Toast.makeText(MainActivity.this, "此模块，正在赶点加工中...", Toast.LENGTH_SHORT).show();
-            }
-        });
+//        NewsListview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//                GsonUtil NewsRequest=new GsonUtil(URLconstant.NEWSURL, RequestMethod.POST);//新闻数据
+//                NewsRequest.add("KeyNo",DataManager.NewClaimS.data.Newslist.get(position).ID);
+//                CallServer.getInstance().add(MainActivity.this,NewsRequest, MyhttpCallBack.getInstance(),0x111,true,false,true);
+//            }
+//        });
         headimg.setOnClickListener(listener);
         UserSz.setOnClickListener(listener);
         Smenu_1.setOnClickListener(listener);
@@ -446,9 +463,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
             UserSz.setText(csp.getALIASNAME());
             login.setText("退出登录");
             if(!csp.getICONSTEAM().equals("")){
-                File file = new File(Environment.getExternalStorageDirectory() + "/Credit/cache/loginImg.jpg");
+                File file = new File(Environment.getExternalStorageDirectory() + "/Credit/loginImg.jpg");
                 if (file.exists()) {//获取本地图片路径是否存在
-                    headimg.setImageBitmap(decodeBitmap(Environment.getExternalStorageDirectory() + "/Credit/cache/loginImg.jpg",80,80));
+                    headimg.setImageBitmap(decodeBitmap(Environment.getExternalStorageDirectory() + "/Credit/loginImg.jpg",80,80));
 //                Picasso.with(MainActivity.this).load(file).into(headimg);
                 }
             }
@@ -470,7 +487,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                     str.append(Integer.toBinaryString(bs));//转换为二进制
                 }
                 //把字节数组的图片写到另一个地方
-                File apple = new File(Environment.getExternalStorageDirectory() + "/Credit/cache/loginImg.jpg");
+                File apple = new File(Environment.getExternalStorageDirectory() + "/Credit/loginImg.jpg");
                 FileOutputStream fos = new FileOutputStream(apple);
                 fos.write(b);
                 fos.flush();

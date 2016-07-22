@@ -43,6 +43,7 @@ public class MyconcernActivity extends BaseActivity {
     public static Handler handler;
 
     CreditSharePreferences csp;
+    int positions;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,6 +59,8 @@ public class MyconcernActivity extends BaseActivity {
                     case 1:
                         wd.dismiss();
                         Intent i = new Intent(MyconcernActivity.this, CompanyDetailsActivity.class);
+                        i.putExtra("type",5);
+                        i.putExtra("posit",positions);
                         i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(i);
                         overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
@@ -80,6 +83,7 @@ public class MyconcernActivity extends BaseActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 wd.show();
+                positions=position;
                 String KeyNo=DataManager.FavotiteListS.data.AttentionList.get(position).PRIPID;//市场主体身份代码
                 String token=SearchFirmActivty.MD5s(KeyNo+(new Build()).MODEL);
                 GsonUtil requst=new GsonUtil(URLconstant.URLINSER + URLconstant.GETITEMNUM, RequestMethod.GET);

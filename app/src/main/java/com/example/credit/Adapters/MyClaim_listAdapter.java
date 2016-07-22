@@ -131,12 +131,12 @@ public class MyClaim_listAdapter extends BaseAdapter {
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                GsonUtil MyClaimRuerst = new GsonUtil(URLconstant.URLINSER + URLconstant.MYCLAIMURL, RequestMethod.GET);
-//                MyClaimRuerst.add("deviceId",(new Build()).MODEL);
-//                MyClaimRuerst.add("token", SearchFirmActivty.MD5s("86D9D7F53FCA45DD93E2D83DFCA0CB42" + (new Build()).MODEL));
-//                MyClaimRuerst.add("KeyNo","86D9D7F53FCA45DD93E2D83DFCA0CB42");
-//                MyClaimRuerst.add("claimId",DataManager.MyClaimUtilsModel.data.Claimlist.get(position).CLAIMID);
-//                CallServer.getInstance().add(context,MyClaimRuerst, MyhttpCallBack.getInstance(),0x304,true,false,true);
+                GsonUtil MyClaimRuerst = new GsonUtil(URLconstant.URLINSER + URLconstant.MYCLAIMURL, RequestMethod.GET);
+                MyClaimRuerst.add("deviceId",(new Build()).MODEL);
+                MyClaimRuerst.add("token", SearchFirmActivty.MD5s(csp.getID() + (new Build()).MODEL));
+                MyClaimRuerst.add("KeyNo",csp.getID());
+                MyClaimRuerst.add("claimId",DataManager.MyClaimUtilsModel.data.Claimlist.get(position).CLAIMID);
+                CallServer.getInstance().add(context,MyClaimRuerst, MyhttpCallBack.getInstance(),0x304,true,false,true);
                 Intent i=new Intent(context, ClaimDetailsActivity.class);
                 i.putExtra("position",position);
                 context.startActivity(i);

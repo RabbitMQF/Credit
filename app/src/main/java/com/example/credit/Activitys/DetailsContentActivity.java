@@ -119,7 +119,7 @@ public class DetailsContentActivity extends BaseActivity {
     @ViewInject(R.id.c_fzjg)
     LinearLayout c_impPeoc_fzjgple;//分支机构null
 
-    public String[] arrays3 = {"注册资本", "法定代表", "发照日期", "成立日期",
+    public String[] arrays3 = {"注册资本", "法定代表人", "发照日期", "成立日期",
             "工商注册号", "组织机构代码"};
     public String[] arrays4;
     MyGridAdapter3 adapter2;
@@ -418,13 +418,13 @@ public class DetailsContentActivity extends BaseActivity {
          * 判断经营期限是否为空
          */
         try{
-        if(DataManager.gsxx.data.BaseInfo.OPFROM==null&&DataManager.gsxx.data.BaseInfo.OPFROM.equals(null)&&DataManager.gsxx.data.BaseInfo.OPFROM.equals("")){
+        if(DataManager.gsxx.data.BaseInfo.OPFROM==null||DataManager.gsxx.data.BaseInfo.OPFROM.equals(null)||DataManager.gsxx.data.BaseInfo.OPFROM.equals("")){
             c_datetiem.setText("**** 至" + DataManager.gsxx.data.BaseInfo.OPTO);
-        }else if(DataManager.gsxx.data.BaseInfo.OPTO==null&&DataManager.gsxx.data.BaseInfo.OPTO.equals(null)&&DataManager.gsxx.data.BaseInfo.OPTO.equals("")){
+        }else if(DataManager.gsxx.data.BaseInfo.OPTO==null||DataManager.gsxx.data.BaseInfo.OPTO.equals(null)||DataManager.gsxx.data.BaseInfo.OPTO.equals("")){
             c_datetiem.setText(DataManager.gsxx.data.BaseInfo.OPFROM + "至 ****" );
         }else if((DataManager.gsxx.data.BaseInfo.OPFROM!=null&&!DataManager.gsxx.data.BaseInfo.OPFROM.equals(null)&&!(DataManager.gsxx.data.BaseInfo.OPFROM).equals(""))&&DataManager.gsxx.data.BaseInfo.OPTO!=null&&!DataManager.gsxx.data.BaseInfo.OPTO.equals(null)&&!(DataManager.gsxx.data.BaseInfo.OPTO).equals("")){
             c_datetiem.setText(DataManager.gsxx.data.BaseInfo.OPFROM + "至" + DataManager.gsxx.data.BaseInfo.OPTO);//经营期限
-        }else{
+        }else if(DataManager.gsxx.data.BaseInfo.OPFROM==null&&DataManager.gsxx.data.BaseInfo.OPTO==null){
             c_datetiem.setText("暂无信息");
         }
         }catch(Exception e){

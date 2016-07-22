@@ -135,9 +135,9 @@ public class UserSetActivity extends BaseActivity {
          * 获取用户头像
          */
         if(!csp.getICONSTEAM().equals("")){
-            File file = new File(Environment.getExternalStorageDirectory() + "/Credit/cache/loginImg.jpg");
+            File file = new File(Environment.getExternalStorageDirectory() + "/Credit/loginImg.jpg");
             if (file.exists()) {//获取本地图片路径是否存在
-                us_headimg.setImageBitmap(decodeBitmap(Environment.getExternalStorageDirectory() + "/Credit/cache/loginImg.jpg",35,35));
+                us_headimg.setImageBitmap(decodeBitmap(Environment.getExternalStorageDirectory() + "/Credit/loginImg.jpg",35,35));
 //            Picasso.with(UserSetActivity.this).load(file).into(us_headimg);
             }
         }
@@ -164,12 +164,12 @@ public class UserSetActivity extends BaseActivity {
         /**
          * 获取用户行业
          */
-        us_hangye.setText(csf.getINDUSTRYID());
+        us_hangye.setText(csf.getINDUSTRY());
         us5.setOnClickListener(listener);
         /**
          * 获取用户学历
          */
-        us_xueli.setText(csf.getEDUCATIONID());
+        us_xueli.setText(csf.getEDUCATION());
         us6.setOnClickListener(listener);
         /**
          * 获取用户手机

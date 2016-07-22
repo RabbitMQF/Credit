@@ -78,7 +78,7 @@ public class ClaimDetailsActivity extends Activity {
 
         cm_time.setText(DataManager.MyClaimUtilsModel.data.Claimlist.get(position).CLAIMTIME);
 
-        cm_state.setText(DataManager.MyClaimUtilsModel.data.Claimlist.get(position).STATUS);
+        cm_state.setText(DataManager.MyClaimUtilsModel.data.Claimlist.get(position).STATUSNAME);
 
         cm_emall.setText(DataManager.MyClaimUtilsModel.data.Claimlist.get(position).EMAIL);
 

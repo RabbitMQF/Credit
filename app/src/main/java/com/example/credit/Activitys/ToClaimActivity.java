@@ -107,6 +107,8 @@ public class ToClaimActivity extends BaseActivity implements OnItemLongClickList
     Boolean isExit=false;
     KeyEvent backKey;
     ArrayList<Drawable> myList=new ArrayList<Drawable>();
+    String attchmentDescS="";
+    String attchmentSteamS="";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -142,8 +144,6 @@ public class ToClaimActivity extends BaseActivity implements OnItemLongClickList
                         }
 
                         if(listStirng.size()>0){
-                            String attchmentDescS="";
-                            String attchmentSteamS="";
                             for(int c=0;c<listStirng.size();c++){
                                 attchmentDescS=attchmentDescS+"pic@";
                                 attchmentSteamS=attchmentSteamS+listStirng.get(c)+"@";
