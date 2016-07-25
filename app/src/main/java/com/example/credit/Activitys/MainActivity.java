@@ -98,6 +98,10 @@ public class MainActivity extends Activity implements View.OnClickListener {
     @ViewInject(R.id.login)
     Button login;//登录
 
+//    @ViewInject(R.id.homeprogress)
+//    LinearLayout homeprogress;//单独的新闻加载框
+
+
     static CreditSharePreferences csp;
     Boolean LoginStatus;
     public static ProgressDialog pd;
@@ -135,6 +139,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
             public void handleMessage(Message msg) {
                 switch (msg.what) {
                     case 0:
+//                        homeprogress.setVisibility(View.GONE);
                         NewsListAdapter adapter = new NewsListAdapter(MainActivity.this, DataManager.NewClaimS.data.Newslist);
                         NewsListview.setAdapter(adapter);
                         adapter.notifyDataSetChanged();
@@ -162,6 +167,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                         startActivity(i6);
                         break;
                     case 7:
+//                        homeprogress.setVisibility(View.GONE);
                         NewClaimListAdapter adapter1 = new NewClaimListAdapter(MainActivity.this, DataManager.MyClaimUtilsModel.data.Claimlist);
                         NewClaimListview.setAdapter(adapter1);
                         adapter1.notifyDataSetChanged();
@@ -208,13 +214,13 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
     private void initData() {
         try{
+//            homeprogress.setVisibility(View.VISIBLE);
             if (!DataManager.NewClaimS.data.Newslist.equals(null) && DataManager.NewClaimS.data.Newslist != null && DataManager.NewClaimS.data.Newslist.size() > 0 ) {
                 handler.sendEmptyMessage(0);
             }
         }catch (Exception e){
             e.printStackTrace();
-            com.example.credit.Utils.Toast.show("新闻数据加载失败");
-
+            com.example.credit.Utils.Toast.show("新闻君正在赶来的路上...");
         }
         main1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -242,7 +248,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 if (DataManager.MyClaimUtilsModel.data.Claimlist != null && DataManager.MyClaimUtilsModel.data.Claimlist.size() > 0) {
                     handler.sendEmptyMessage(7);
                 }
-
             }
         });
         NewsListview.setOnItemClickListener(new AdapterView.OnItemClickListener() {

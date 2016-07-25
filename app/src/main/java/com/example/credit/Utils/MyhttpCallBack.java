@@ -88,15 +88,6 @@ public class MyhttpCallBack implements HttpCallBack {
                 jsonString = (String) response.get();
                 DataManager.NewClaimS = gson.fromJson(jsonString, DataManager.NewClaim.class);
                 break;
-            case 0x112://获取新闻内容
-//                String jstring112 = (String) response.get();
-//                DataManager.Root11 jsonRoot12 = gson.fromJson(jstring112, new TypeToken<DataManager.Root11>() {
-//                }.getType());
-//                DataManager.NewssList = jsonRoot12.result;
-//                if (DataManager.NewssList != null && DataManager.NewssList.size() > 0) {
-//                    MainActivity.handler.sendEmptyMessage(0);
-//                }
-                break;
             case 0x113://获取最新认领
                 jsonString = (String) response.get();
                 DataManager.MyClaimUtilsModel = gson.fromJson(jsonString, DataManager.MyClaimUtils.class);

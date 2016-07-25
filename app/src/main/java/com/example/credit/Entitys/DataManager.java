@@ -7,6 +7,31 @@ import java.util.List;
  * Created by Administrator on 2016/5/13 0013.
  */
 public class DataManager {
+    public static String String0="";//工商
+    public static String String1="";//
+    public static String String2="";//
+    public static String String3="";//
+    public static String String4="";//
+    public static String String5="";//
+    public static String String6="";//
+    public static String String7="";//
+    public static String String8="";//
+    public static String String9="";//
+    public static String String10="";//
+    public static String String11="";//
+    public static String String12="";//
+    public static String String13="";//
+    public static String String14="";//
+    public static String String15="";//
+    public static String String16="";//
+    public static String String17="";//
+    public static String String18="";//
+    public static String String19="";//
+    public static String String20="";//
+    public static String String21="";//
+    public static String String22="";//
+    public static String String23="";//
+
 
     public static MyComm MyComms=new MyComm();
 

@@ -164,7 +164,7 @@ public class UserSetActivity extends BaseActivity {
         /**
          * 获取用户行业
          */
-        us_hangye.setText(csf.getINDUSTRY());
+        us_hangye.setText(csf.getINDUSTRYID());
         us5.setOnClickListener(listener);
         /**
          * 获取用户学历

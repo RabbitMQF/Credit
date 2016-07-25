@@ -40,6 +40,8 @@ public class MyClaim_listAdapter extends BaseAdapter {
     private List<DataManager.MyClaimUtils.DataBean.ClaimlistBean> list;
     ViewHolder vh = null;
     String ImgString="";
+    int a=0;
+    int b=0;
     CreditSharePreferences csp=CreditSharePreferences.getLifeSharedPreferences();
     public MyClaim_listAdapter(Context context) {
         this.context = context;
@@ -131,15 +133,22 @@ public class MyClaim_listAdapter extends BaseAdapter {
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                GsonUtil MyClaimRuerst = new GsonUtil(URLconstant.URLINSER + URLconstant.MYCLAIMURL, RequestMethod.GET);
-                MyClaimRuerst.add("deviceId",(new Build()).MODEL);
-                MyClaimRuerst.add("token", SearchFirmActivty.MD5s(csp.getID() + (new Build()).MODEL));
-                MyClaimRuerst.add("KeyNo",csp.getID());
-                MyClaimRuerst.add("claimId",DataManager.MyClaimUtilsModel.data.Claimlist.get(position).CLAIMID);
-                CallServer.getInstance().add(context,MyClaimRuerst, MyhttpCallBack.getInstance(),0x304,true,false,true);
-                Intent i=new Intent(context, ClaimDetailsActivity.class);
-                i.putExtra("position",position);
-                context.startActivity(i);
+                if(a<b){
+                    GsonUtil MyClaimRuerst = new GsonUtil(URLconstant.URLINSER + URLconstant.MYCLAIMURL, RequestMethod.GET);
+                    MyClaimRuerst.add("deviceId",(new Build()).MODEL);
+                    MyClaimRuerst.add("token", SearchFirmActivty.MD5s(csp.getID() + (new Build()).MODEL));
+                    MyClaimRuerst.add("KeyNo",csp.getID());
+                    MyClaimRuerst.add("claimId",DataManager.MyClaimUtilsModel.data.Claimlist.get(position).CLAIMID);
+                    CallServer.getInstance().add(context,MyClaimRuerst, MyhttpCallBack.getInstance(),0x304,true,false,true);
+                    Intent i=new Intent(context, ClaimDetailsActivity.class);
+                    i.putExtra("position",position);
+                    context.startActivity(i);
+                }else{
+                    Intent i=new Intent(context, ClaimDetailsActivity.class);
+                    i.putExtra("position",position);
+                    context.startActivity(i);
+                }
+                a++;
             }
         });
 
@@ -156,7 +165,7 @@ public class MyClaim_listAdapter extends BaseAdapter {
                 MyClaimRuerst.add("KeyNo",csp.getID());
                 MyClaimRuerst.add("enterId",list.get(position).ENTERID);
                 CallServer.getInstance().add(context,MyClaimRuerst, MyhttpCallBack.getInstance(),0x305,true,false,true);
-
+                b++;
             }
         });
         /**

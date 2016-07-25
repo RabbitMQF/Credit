@@ -25,7 +25,6 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
             android:background="@drawable/details_toplogo"
             >
             <TextView
@@ -45,33 +44,33 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp"
                 android:maxEms="13"
-                android:layout_toLeftOf="@+id/lin1"
                 android:singleLine="true"
                 android:ellipsize="end"
                 android:textSize="14sp"
                 android:text="mdzz"/>
-            <LinearLayout
-                android:id="@+id/lin1"
+        </RelativeLayout>
+        <LinearLayout
+            android:id="@+id/lin1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginBottom="5dp"
+            android:layout_marginRight="5dp"
+            android:orientation="horizontal">
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/blue1"
-                    android:layout_margin="5dp"
-                    android:textSize="14sp"
-                    android:text="认领日期:"/>
-                <TextView
-                    android:id="@+id/newclaim_3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/blue1"
-                    android:layout_margin="5dp"
-                    android:textSize="14sp"
-                    android:text="2016-07-20"/>
-            </LinearLayout>
-        </RelativeLayout>
+                android:textColor="@color/blue1"
+                android:textSize="14sp"
+                android:text="认领日期:"/>
+            <TextView
+                android:id="@+id/newclaim_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/blue1"
+                android:textSize="14sp"
+                android:text="2016-07-20"/>
+        </LinearLayout>
+
     </LinearLayout>
 </LinearLayout>

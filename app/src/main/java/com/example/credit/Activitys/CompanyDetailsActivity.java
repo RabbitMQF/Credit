@@ -66,8 +66,8 @@ import java.util.Map;
  */
 public class CompanyDetailsActivity extends BaseActivity {
     public static WaitDialog waitDialog;
-    @ViewInject(R.id.sc)
-    ScrollView mScrollView;
+//    @ViewInject(R.id.sc)
+//    ScrollView mScrollView;
 
     @ViewInject(R.id.d_return)
     ImageView d_return;
@@ -132,10 +132,10 @@ public class CompanyDetailsActivity extends BaseActivity {
             R.mipmap.icon11, R.mipmap.icon12,
             R.mipmap.icon13, R.mipmap.icon14,
             R.mipmap.icon15, R.mipmap.icon16,
-            R.mipmap.icon16, R.mipmap.icon16,
-            R.mipmap.icon16, R.mipmap.icon16,
-            R.mipmap.icon16, R.mipmap.icon16,
-            R.mipmap.icon16, R.mipmap.icon16,};
+            R.mipmap.icon17, R.mipmap.icon18,
+            R.mipmap.icon19, R.mipmap.icon20,
+            R.mipmap.icon21, R.mipmap.icon22,
+            R.mipmap.icon23, R.mipmap.icon24,};
 
     public static Handler handler;
     String model, KeyNo, token, regnore, enterId;
@@ -169,7 +169,7 @@ public class CompanyDetailsActivity extends BaseActivity {
         ViewUtils.inject(this);
         csp = CreditSharePreferences.getLifeSharedPreferences();
         waitDialog = new WaitDialog(this);
-        mScrollView.smoothScrollTo(0, 20);
+//        mScrollView.smoothScrollTo(0, 20);
         Intent i = getIntent();
         posit = i.getIntExtra("posit", 0);
         type = i.getIntExtra("type", 0);
@@ -214,6 +214,7 @@ public class CompanyDetailsActivity extends BaseActivity {
                 switch (msg.what) {
                     case 0://工商信息
                         waitDialog.dismiss();
+                        DataManager.String0=DataManager.BaseinfoList.get(0).ENTNAME;
                         Intent i0 = new Intent(CompanyDetailsActivity.this, DetailsContentActivity.class);
                         i0.putExtra("Tname", arrays1[msg.what]);
                         startActivity(i0);
@@ -221,6 +222,7 @@ public class CompanyDetailsActivity extends BaseActivity {
                         break;
                     case 1://行政审批
                         waitDialog.dismiss();
+                        DataManager.String1=DataManager.BaseinfoList.get(0).ENTNAME;
                         Intent i1 = new Intent(CompanyDetailsActivity.this, AdminActivity.class);
                         i1.putExtra("Tname", arrays1[msg.what]);
                         startActivity(i1);
@@ -228,6 +230,7 @@ public class CompanyDetailsActivity extends BaseActivity {
                         break;
                     case 2://荣誉信息
                         waitDialog.dismiss();
+                        DataManager.String2=DataManager.BaseinfoList.get(0).ENTNAME;
                         Intent i2 = new Intent(CompanyDetailsActivity.this, Honor_Support_Activity.class);
                         i2.putExtra("Tname", arrays1[msg.what]);
                         i2.putExtra("st", 1);
@@ -236,6 +239,7 @@ public class CompanyDetailsActivity extends BaseActivity {
                         break;
                     case 3://扶持信息
                         waitDialog.dismiss();
+                        DataManager.String3=DataManager.BaseinfoList.get(0).ENTNAME;
                         Intent i3 = new Intent(CompanyDetailsActivity.this, Honor_Support_Activity.class);
                         i3.putExtra("st", 2);
                         i3.putExtra("Tname", arrays1[msg.what]);
@@ -244,6 +248,7 @@ public class CompanyDetailsActivity extends BaseActivity {
                         break;
                     case 4://抵押信息
                         waitDialog.dismiss();
+                        DataManager.String4=DataManager.BaseinfoList.get(0).ENTNAME;
                         Intent i4 = new Intent(CompanyDetailsActivity.this, Mortgage_detail_Activity.class);
                         i4.putExtra("Tname", arrays1[msg.what]);
                         startActivity(i4);
@@ -251,6 +256,7 @@ public class CompanyDetailsActivity extends BaseActivity {
                         break;
                     case 5://出质信息
                         waitDialog.dismiss();
+                        DataManager.String5=DataManager.BaseinfoList.get(0).ENTNAME;
                         Intent i5 = new Intent(CompanyDetailsActivity.this, PledgeActivity.class);
                         i5.putExtra("Tname", arrays1[msg.what]);
                         startActivity(i5);
@@ -258,6 +264,7 @@ public class CompanyDetailsActivity extends BaseActivity {
                         break;
                     case 6://司法信息
                         waitDialog.dismiss();
+                        DataManager.String6=DataManager.BaseinfoList.get(0).ENTNAME;
                         Intent i6 = new Intent(CompanyDetailsActivity.this, JudicialActivity.class);
                         i6.putExtra("Tname", arrays1[msg.what]);
                         startActivity(i6);
@@ -265,6 +272,7 @@ public class CompanyDetailsActivity extends BaseActivity {
                         break;
                     case 7://预警信息
                         waitDialog.dismiss();
+                        DataManager.String7=DataManager.BaseinfoList.get(0).ENTNAME;
                         Intent i7 = new Intent(CompanyDetailsActivity.this, AlertActivity.class);
                         i7.putExtra("Tname", arrays1[msg.what]);
                         startActivity(i7);
@@ -272,6 +280,7 @@ public class CompanyDetailsActivity extends BaseActivity {
                         break;
                     case 8://行政处罚
                         waitDialog.dismiss();
+                        DataManager.String8=DataManager.BaseinfoList.get(0).ENTNAME;
                         Intent i8 = new Intent(CompanyDetailsActivity.this, PunishActivity.class);
                         i8.putExtra("Tname", arrays1[msg.what]);
                         startActivity(i8);
@@ -279,6 +288,7 @@ public class CompanyDetailsActivity extends BaseActivity {
                         break;
                     case 9://经营异常
                         waitDialog.dismiss();
+                        DataManager.String9=DataManager.BaseinfoList.get(0).ENTNAME;
                         Intent i9 = new Intent(CompanyDetailsActivity.this, AbnormalActivity.class);
                         i9.putExtra("Tname", arrays1[msg.what]);
                         startActivity(i9);
@@ -286,6 +296,7 @@ public class CompanyDetailsActivity extends BaseActivity {
                         break;
                     case 10://专利
                         waitDialog.dismiss();
+                        DataManager.String10=DataManager.BaseinfoList.get(0).ENTNAME;
                         Intent i10 = new Intent(CompanyDetailsActivity.this, PatentActivity.class);
                         i10.putExtra("Tname", arrays1[msg.what]);
                         startActivity(i10);
@@ -293,6 +304,7 @@ public class CompanyDetailsActivity extends BaseActivity {
                         break;
                     case 11://商标
                         waitDialog.dismiss();
+                        DataManager.String11=DataManager.BaseinfoList.get(0).ENTNAME;
                         Intent i11 = new Intent(CompanyDetailsActivity.this, TrademarkActivity.class);
                         i11.putExtra("Tname", arrays1[msg.what]);
                         startActivity(i11);
@@ -300,6 +312,7 @@ public class CompanyDetailsActivity extends BaseActivity {
                         break;
                     case 12://著作权
                         waitDialog.dismiss();
+                        DataManager.String12=DataManager.BaseinfoList.get(0).ENTNAME;
                         Intent i12 = new Intent(CompanyDetailsActivity.this, CopyrightActivity.class);
                         i12.putExtra("Tname", arrays1[msg.what]);
                         startActivity(i12);
@@ -307,6 +320,7 @@ public class CompanyDetailsActivity extends BaseActivity {
                         break;
                     case 13://广告资质
                         waitDialog.dismiss();
+                        DataManager.String13=DataManager.BaseinfoList.get(0).ENTNAME;
                         Intent i13 = new Intent(CompanyDetailsActivity.this, AdvertisementActivity.class);
                         i13.putExtra("Tname", arrays1[msg.what]);
                         startActivity(i13);
@@ -314,6 +328,7 @@ public class CompanyDetailsActivity extends BaseActivity {
                         break;
                     case 14://守合同重信用
                         waitDialog.dismiss();
+                        DataManager.String14=DataManager.BaseinfoList.get(0).ENTNAME;
                         Intent i14 = new Intent(CompanyDetailsActivity.this, ObeyedActivity.class);
                         i14.putExtra("Tname", arrays1[msg.what]);
                         startActivity(i14);
@@ -321,6 +336,7 @@ public class CompanyDetailsActivity extends BaseActivity {
                         break;
                     case 15://自主公示
                         waitDialog.dismiss();
+                        DataManager.String15=DataManager.BaseinfoList.get(0).ENTNAME;
                         startActivity(new Intent(CompanyDetailsActivity.this, AutonomyActivity.class));
                         overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
                         break;
@@ -384,6 +400,9 @@ public class CompanyDetailsActivity extends BaseActivity {
                         request0.add("token", token);
                         request0.add("deviceId", model);
                         request0.add("KeyNo", KeyNo);
+                        if(!DataManager.String0.equals(DataManager.BaseinfoList.get(0).ENTNAME)){
+                            request0.add("modulename", "工商信息");
+                        }
                         CallServer.getInstance().add(CompanyDetailsActivity.this, request0, MyhttpCallBack.getInstance(), 0x000, true, false, true);
                     }
                     break;
@@ -395,6 +414,9 @@ public class CompanyDetailsActivity extends BaseActivity {
                         request1.add("deviceId", model);
                         request1.add("KeyNo", KeyNo);
                         request1.add("priptype", DataManager.BaseinfoList.get(0).ENTTYPE);
+                        if(!DataManager.String1.equals(DataManager.BaseinfoList.get(0).ENTNAME)) {
+                            request1.add("modulename", "行政审批");
+                        }
                         CallServer.getInstance().add(CompanyDetailsActivity.this, request1, MyhttpCallBack.getInstance(), 0x001, true, false, true);
                     }
                     break;
@@ -408,6 +430,9 @@ public class CompanyDetailsActivity extends BaseActivity {
                         request2.add("deviceId", model);
                         request2.add("KeyNo", KeyNoR);
                         request2.add("priptype", DataManager.BaseinfoList.get(0).ENTTYPE);
+                        if(!DataManager.String2.equals(DataManager.BaseinfoList.get(0).ENTNAME)) {
+                            request2.add("modulename", "荣誉信息");
+                        }
                         CallServer.getInstance().add(CompanyDetailsActivity.this, request2, MyhttpCallBack.getInstance(), 0x002, true, false, true);
                     }
                     break;
@@ -419,6 +444,9 @@ public class CompanyDetailsActivity extends BaseActivity {
                         request3.add("deviceId", model);
                         request3.add("KeyNo", KeyNo);
                         request3.add("priptype", DataManager.BaseinfoList.get(0).ENTTYPE);
+                        if(!DataManager.String3.equals(DataManager.BaseinfoList.get(0).ENTNAME)) {
+                            request3.add("modulename", "扶持信息");
+                        }
                         CallServer.getInstance().add(CompanyDetailsActivity.this, request3, MyhttpCallBack.getInstance(), 0x003, true, false, true);
                     }
                     break;
@@ -430,7 +458,9 @@ public class CompanyDetailsActivity extends BaseActivity {
                         mortinfoRequest.add("deviceId", model);
                         mortinfoRequest.add("KeyNo", DataManager.BaseinfoList.get(0).PRIPID);
                         mortinfoRequest.add("priptype", DataManager.BaseinfoList.get(0).ENTTYPE);
-
+                        if(!DataManager.String4.equals(DataManager.BaseinfoList.get(0).ENTNAME)){
+                            mortinfoRequest.add("modulename", "抵押信息");
+                        }
                         GsonUtil mortinfoBdcRequest = new GsonUtil(URLconstant.URLINSER + URLconstant.MORTINFOBDC, RequestMethod.GET);//不动产request
                         mortinfoBdcRequest.add("token", SearchFirmActivty.MD5s(DataManager.BaseinfoList.get(0).REGNO + model));
                         mortinfoBdcRequest.add("deviceId", model);
@@ -448,6 +478,9 @@ public class CompanyDetailsActivity extends BaseActivity {
                         request5.add("deviceId", model);
                         request5.add("KeyNo", KeyNo);
                         request5.add("priptype", DataManager.BaseinfoList.get(0).ENTTYPE);
+                        if(!DataManager.String5.equals(DataManager.BaseinfoList.get(0).ENTNAME)) {
+                            request5.add("modulename", "出质信息");
+                        }
                         CallServer.getInstance().add(CompanyDetailsActivity.this, request5, MyhttpCallBack.getInstance(), 0x005, true, false, true);
                     }
                     break;
@@ -460,6 +493,9 @@ public class CompanyDetailsActivity extends BaseActivity {
                         request6.add("KeyNo", KeyNo);
                         request6.add("regnore", regnore);//注册号
                         request6.add("priptype", DataManager.BaseinfoList.get(0).ENTTYPE);
+                        if(!DataManager.String6.equals(DataManager.BaseinfoList.get(0).ENTNAME)) {
+                            request6.add("modulename", "司法信息");
+                        }
                         CallServer.getInstance().add(CompanyDetailsActivity.this, request6, MyhttpCallBack.getInstance(), 0X006, true, false, true);
                     }
                     break;
@@ -471,6 +507,9 @@ public class CompanyDetailsActivity extends BaseActivity {
                         request7.add("deviceId", model);
                         request7.add("KeyNo", KeyNo);
                         request7.add("priptype", DataManager.BaseinfoList.get(0).ENTTYPE);
+                        if(!DataManager.String7.equals(DataManager.BaseinfoList.get(0).ENTNAME)) {
+                            request7.add("modulename", "预警信息");
+                        }
                         CallServer.getInstance().add(CompanyDetailsActivity.this, request7, MyhttpCallBack.getInstance(), 0x007, true, false, true);
                     }
                     break;
@@ -482,6 +521,9 @@ public class CompanyDetailsActivity extends BaseActivity {
                         request.add("deviceId", model);
                         request.add("KeyNo", KeyNo);
                         request.add("priptype", DataManager.BaseinfoList.get(0).ENTTYPE);
+                        if(!DataManager.String8.equals(DataManager.BaseinfoList.get(0).ENTNAME)) {
+                            request.add("modulename", "行政处罚");
+                        }
                         CallServer.getInstance().add(CompanyDetailsActivity.this, request, MyhttpCallBack.getInstance(), 0X008, true, false, true);
                     }
                     break;
@@ -493,6 +535,9 @@ public class CompanyDetailsActivity extends BaseActivity {
                         request9.add("deviceId", model);
                         request9.add("KeyNo", KeyNo);
                         request9.add("priptype", DataManager.BaseinfoList.get(0).ENTTYPE);
+                        if(!DataManager.String9.equals(DataManager.BaseinfoList.get(0).ENTNAME)) {
+                            request9.add("modulename", "经营异常");
+                        }
                         CallServer.getInstance().add(CompanyDetailsActivity.this, request9, MyhttpCallBack.getInstance(), 0X009, true, false, true);
                     }
                     break;
@@ -504,6 +549,9 @@ public class CompanyDetailsActivity extends BaseActivity {
                         request10.add("deviceId", model);
                         request10.add("KeyNo", KeyNo);
                         request10.add("priptype", DataManager.BaseinfoList.get(0).ENTTYPE);
+                        if(!DataManager.String10.equals(DataManager.BaseinfoList.get(0).ENTNAME)) {
+                            request10.add("modulename", "专利信息");
+                        }
                         CallServer.getInstance().add(CompanyDetailsActivity.this, request10, MyhttpCallBack.getInstance(), 0X010, true, false, true);
 //                    Gson gson=new Gson();
 //                    String jstring10 = getResources().getString(R.string.test1);
@@ -527,6 +575,9 @@ public class CompanyDetailsActivity extends BaseActivity {
                         request11.add("deviceId", model);
                         request11.add("KeyNo", KeyNo);
                         request11.add("priptype", DataManager.BaseinfoList.get(0).ENTTYPE);
+                        if(!DataManager.String11.equals(DataManager.BaseinfoList.get(0).ENTNAME)) {
+                            request11.add("modulename", "商标信息");
+                        }
                         CallServer.getInstance().add(CompanyDetailsActivity.this, request11, MyhttpCallBack.getInstance(), 0x011, true, false, true);
                     }
                     break;
@@ -538,6 +589,9 @@ public class CompanyDetailsActivity extends BaseActivity {
                         request12.add("deviceId", model);
                         request12.add("KeyNo", KeyNo);
                         request12.add("priptype", DataManager.BaseinfoList.get(0).ENTTYPE);
+                        if(!DataManager.String12.equals(DataManager.BaseinfoList.get(0).ENTNAME)) {
+                            request12.add("modulename", "著作权");
+                        }
                         CallServer.getInstance().add(CompanyDetailsActivity.this, request12, MyhttpCallBack.getInstance(), 0x012, true, false, true);
                     }
                     break;
@@ -549,6 +603,9 @@ public class CompanyDetailsActivity extends BaseActivity {
                         request13.add("deviceId", model);
                         request13.add("KeyNo", KeyNo);
                         request13.add("priptype", DataManager.BaseinfoList.get(0).ENTTYPE);
+                        if(!DataManager.String13.equals(DataManager.BaseinfoList.get(0).ENTNAME)) {
+                            request13.add("modulename", "广告资质");
+                        }
                         CallServer.getInstance().add(CompanyDetailsActivity.this, request13, MyhttpCallBack.getInstance(), 0x013, true, false, true);
                     }
                     break;
@@ -560,6 +617,9 @@ public class CompanyDetailsActivity extends BaseActivity {
                         request14.add("deviceId", model);
                         request14.add("KeyNo", KeyNo);
                         request14.add("priptype", DataManager.BaseinfoList.get(0).ENTTYPE);
+                        if(!DataManager.String14.equals(DataManager.BaseinfoList.get(0).ENTNAME)) {
+                            request14.add("modulename", "守合同重信用");
+                        }
                         CallServer.getInstance().add(CompanyDetailsActivity.this, request14, MyhttpCallBack.getInstance(), 0x014, true, false, true);
                     }
                     break;
@@ -571,12 +631,37 @@ public class CompanyDetailsActivity extends BaseActivity {
                         request15.add("deviceId", model);
                         request15.add("KeyNo", KeyNo);
                         request15.add("priptype", DataManager.BaseinfoList.get(0).ENTTYPE);
+                        if(!DataManager.String15.equals(DataManager.BaseinfoList.get(0).ENTNAME)) {
+                            request15.add("modulename", "自主公示");
+                        }
                         CallServer.getInstance().add(CompanyDetailsActivity.this, request15, MyhttpCallBack.getInstance(), MSG, true, false, true);
                     }
                     break;
                 case  16:
                     startActivity(new Intent(CompanyDetailsActivity.this, Panoramic_Activity.class).putExtra("KeyNo", KeyNo).putExtra("deviceId", model).putExtra("priptype", DataManager.BaseinfoList.get(0).ENTTYPE).putExtra("regnore", regnore).putExtra("entname",DataManager.BaseinfoList.get(0).ENTNAME));
                     break;
+                case  17:
+                    Toast.show( "此模块，正在开发中...");
+                    break;
+                case  18:
+                    Toast.show( "此模块，正在开发中...");
+                    break;
+                case  19:
+                    Toast.show( "此模块，正在开发中...");
+                    break;
+                case  20:
+                    Toast.show( "此模块，正在开发中...");
+                    break;
+                case  21:
+                    Toast.show( "此模块，正在开发中...");
+                    break;
+                case  22:
+                    Toast.show( "此模块，正在开发中...");
+                    break;
+                case  23:
+                    Toast.show( "此模块，正在开发中...");
+                    break;
+
                 case 500://没有数据时返回信息
                     android.widget.Toast.makeText(CompanyDetailsActivity.this, "暂无数据！", android.widget.Toast.LENGTH_SHORT).show();
                     break;

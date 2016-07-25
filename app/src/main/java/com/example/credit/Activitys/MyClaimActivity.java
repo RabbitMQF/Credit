@@ -89,6 +89,25 @@ public class MyClaimActivity extends BaseActivity {
         adapter.setDataList(DataManager.MyClaimUtilsModel.data.Claimlist);
         Myclaim_list.setAdapter(adapter);
         MainActivity.ad.dismiss();
+
+//        /**
+//         * 认领详情
+//         */
+//        Myclaim_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//                GsonUtil MyClaimRuerst = new GsonUtil(URLconstant.URLINSER + URLconstant.MYCLAIMURL, RequestMethod.GET);
+//                MyClaimRuerst.add("deviceId",(new Build()).MODEL);
+//                MyClaimRuerst.add("token", SearchFirmActivty.MD5s(csp.getID() + (new Build()).MODEL));
+//                MyClaimRuerst.add("KeyNo",csp.getID());
+//                MyClaimRuerst.add("claimId",DataManager.MyClaimUtilsModel.data.Claimlist.get(position).CLAIMID);
+//                CallServer.getInstance().add(MyClaimActivity.this,MyClaimRuerst, MyhttpCallBack.getInstance(),0x304,true,false,true);
+//                Intent i=new Intent(MyClaimActivity.this, ClaimDetailsActivity.class);
+//                i.putExtra("position",position);
+//                startActivity(i);
+//            }
+//        });
+
     }
 
     @Override
