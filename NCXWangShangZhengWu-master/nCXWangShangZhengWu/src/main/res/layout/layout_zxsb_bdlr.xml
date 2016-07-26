@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/blue_green"
+    android:orientation="vertical" >
+    
+    
+    <include layout="@layout/zwgk_view_title" />
+    <include layout="@layout/custom_title_two" />
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="@dimen/height_1_100"
+        android:layout_marginLeft="@dimen/height_1_100"
+        android:layout_marginRight="@dimen/height_1_100"
+        android:layout_marginTop="@dimen/height_1_100"
+        android:layout_weight="1"
+        android:background="@drawable/linearlayout"
+        android:scrollbars="vertical" >
+
+        <LinearLayout
+            android:id="@+id/ll_form"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" 
+            android:padding="5dp">
+
+            <!--
+                 <ListView
+                android:id="@id/lv_base"
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+                android:layout_margin="@dimen/height_1_100"
+                android:cacheColorHint="@android:color/transparent"
+                android:divider="#00000000"
+                android:dividerHeight="@dimen/height_1_100"
+                android:listSelector="@android:color/transparent"
+                android:scrollbars="none" />
+            -->
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/height_1_100"
+        android:layout_marginLeft="@dimen/height_4_100"
+        android:layout_marginRight="@dimen/height_4_100"
+        android:gravity="bottom"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/btn_list_2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/height_2_100"
+            android:layout_weight="1"
+            android:background="@drawable/custom_button"
+            android:gravity="center"
+            android:paddingBottom="@dimen/height_1_100"
+            android:text="返回上一步"
+            android:textColor="#FFFFFF" />
+
+        <Button
+            android:id="@+id/btn_list_3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/height_2_100"
+            android:layout_weight="2"
+            android:background="@drawable/custom_button"
+            android:clickable="false"
+            android:gravity="center"
+            android:paddingBottom="@dimen/height_1_100"
+            android:text="完成提交"
+            android:textColor="#FFFFFF"
+            android:visibility="visible" />
+    </LinearLayout>
+    
+    
+    
+    
+
+</LinearLayout>

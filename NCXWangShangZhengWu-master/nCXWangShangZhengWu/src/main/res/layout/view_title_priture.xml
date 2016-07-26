@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:paddingTop="10dip"
+    android:paddingBottom="10dip"
+    android:background="#2172AC"
+    android:orientation="horizontal" >
+    
+    <ImageButton 
+        android:id="@+id/ib_return"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dip"
+        android:layout_marginLeft="10dip"
+        android:background="@drawable/btn_title_return"/>
+    
+    <TextView 
+        android:id="@+id/tv_priture_show_title"
+        android:layout_width="0dip"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:singleLine="true"
+        android:ellipsize="marquee"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:focusableInTouchMode="true"
+        android:focusable="true"
+        android:scrollHorizontally="true"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white_light"
+        android:textSize="18sp"
+        android:text="身份证证明"/>
+	
+    <ImageButton 
+        android:id="@+id/ib_priture_muen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_title_menu"
+        android:layout_marginRight="10dip"/>
+</LinearLayout>

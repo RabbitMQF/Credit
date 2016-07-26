@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="E:\ZLH\android_studio_zlh\NCXWangShangZhengWu-master\nCXWangShangZhengWu\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="2b7f6922a86a183c0482d3364d36ab5c0e800864">
+        <dex dex="E:\ZLH\android_studio_zlh\NCXWangShangZhengWu-master\nCXWangShangZhengWu\build\intermediates\pre-dexed\debug\instant-run_7776edf172e76e9937f0c3b5fe6da80dca04ef9a.jar" />
+    </item>
+    <item
+        jar="D:\ZLH\android-studio\gradle\m2repository\com\google\code\gson\gson\2.2.4\gson-2.2.4.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="a60a5e993c98c864010053cb901b7eab25306568">
+        <dex dex="E:\ZLH\android_studio_zlh\NCXWangShangZhengWu-master\nCXWangShangZhengWu\build\intermediates\pre-dexed\debug\gson-2.2.4_3a19d6988d066752bb6e7496946ff18e130221cf.jar" />
+    </item>
+    <item
+        jar="E:\ZLH\android_studio_zlh\NCXWangShangZhengWu-master\nCXWangShangZhengWu\libs\nineoldandroids-2.4.0.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="59f19e43354d32de831379c23ce03bb259a4c2b7">
+        <dex dex="E:\ZLH\android_studio_zlh\NCXWangShangZhengWu-master\nCXWangShangZhengWu\build\intermediates\pre-dexed\debug\nineoldandroids-2.4.0_32f69c7d13992164424fecff77d22214ad9509ee.jar" />
+    </item>
+    <item
+        jar="D:\ZLH\Android_SDK\extras\android\m2repository\com\android\support\support-annotations\20.0.0\support-annotations-20.0.0.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="9d9013e9ff35fc3756411e62873c363c70c638fa">
+        <dex dex="E:\ZLH\android_studio_zlh\NCXWangShangZhengWu-master\nCXWangShangZhengWu\build\intermediates\pre-dexed\debug\support-annotations-20.0.0_a2ca1f7d4ddd31a6115a20b8582afc8173d08afc.jar" />
+    </item>
+    <item
+        jar="E:\ZLH\android_studio_zlh\NCXWangShangZhengWu-master\nCXWangShangZhengWu\libs\ksoap2-android-assembly-3.0.0.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="f8ddd5d69d8cdc994cde9af278ff79b06365eee3">
+        <dex dex="E:\ZLH\android_studio_zlh\NCXWangShangZhengWu-master\nCXWangShangZhengWu\build\intermediates\pre-dexed\debug\ksoap2-android-assembly-3.0.0_f69e5c15142ad823a796545e1bb182d698cab271.jar" />
+    </item>
+    <item
+        jar="E:\ZLH\android_studio_zlh\NCXWangShangZhengWu-master\nCXWangShangZhengWu\build\intermediates\exploded-aar\com.android.support\appcompat-v7\20.0.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="f21927d22fe31889ecce94dd697a2e75b137e0ef">
+        <dex dex="E:\ZLH\android_studio_zlh\NCXWangShangZhengWu-master\nCXWangShangZhengWu\build\intermediates\pre-dexed\debug\com.android.support-appcompat-v7-20.0.0_23cca3a65a60742029cf51e4541d6d3e5d34a0c5.jar" />
+    </item>
+    <item
+        jar="E:\ZLH\android_studio_zlh\NCXWangShangZhengWu-master\nCXWangShangZhengWu\libs\androidannotations-api-2.7.1.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="064169e7aacaaa76f5a0ca5eea66e2fc02737a17">
+        <dex dex="E:\ZLH\android_studio_zlh\NCXWangShangZhengWu-master\nCXWangShangZhengWu\build\intermediates\pre-dexed\debug\androidannotations-api-2.7.1_c38b910584694c7827ff94a40ed2e1d0ccb9ecac.jar" />
+    </item>
+    <item
+        jar="E:\ZLH\android_studio_zlh\NCXWangShangZhengWu-master\nCXWangShangZhengWu\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="73f46c7c063c7a0d3bad169760137ea642761447">
+        <dex dex="E:\ZLH\android_studio_zlh\NCXWangShangZhengWu-master\nCXWangShangZhengWu\build\intermediates\pre-dexed\debug\instant-run-bootstrap_b677b89ab84aff604ec85c6fede6f9e28a06b78e.jar" />
+    </item>
+    <item
+        jar="E:\ZLH\android_studio_zlh\NCXWangShangZhengWu-master\nCXWangShangZhengWu\build\intermediates\exploded-aar\com.android.support\support-v4\20.0.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="8694693636ab36910c8100ce527c258ff3ebece0">
+        <dex dex="E:\ZLH\android_studio_zlh\NCXWangShangZhengWu-master\nCXWangShangZhengWu\build\intermediates\pre-dexed\debug\com.android.support-support-v4-20.0.0_52d81de3220c2eaa8d8b0589c96df185e5355cd9.jar" />
+    </item>
+    <item
+        jar="E:\ZLH\android_studio_zlh\NCXWangShangZhengWu-master\nCXWangShangZhengWu\build\intermediates\exploded-aar\com.android.support\support-v4\20.0.0\jars\libs\internal_impl-20.0.0.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="e40b3078e3fbd353c9f44da8df25a8fc0078209d">
+        <dex dex="E:\ZLH\android_studio_zlh\NCXWangShangZhengWu-master\nCXWangShangZhengWu\build\intermediates\pre-dexed\debug\internal_impl-20.0.0_13401a6d581c9fe2ca4cf8f3209ca945380b3777.jar" />
+    </item>
+    <item
+        jar="E:\ZLH\android_studio_zlh\NCXWangShangZhengWu-master\nCXWangShangZhengWu\libs\umeng-update-v2.5.0.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="7bfd85d65a43fcf2cd343f11c13ad29bc3965a1f">
+        <dex dex="E:\ZLH\android_studio_zlh\NCXWangShangZhengWu-master\nCXWangShangZhengWu\build\intermediates\pre-dexed\debug\umeng-update-v2.5.0_410b0d491cf4e4a49d10ba55d6ab849e1240ac1b.jar" />
+    </item>
+
+</items>

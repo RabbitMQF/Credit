@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/view_pager_content"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <com.WSZW.view.PriViewPager
+            android:id="@+id/gzlm_vp"
+            android:layout_width="fill_parent"
+            android:layout_height="150dp"
+            android:visibility="gone"
+            >
+        </com.WSZW.view.PriViewPager>
+
+        <LinearLayout
+            android:id="@+id/pg"
+            android:layout_width="fill_parent"
+            android:visibility="visible" 
+            android:layout_height="150dp" >
+
+            <ProgressBar
+                style="?android:attr/progressBarStyleLarge"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_points"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:orientation="horizontal" >
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/gzlm_vp_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="县十五届人大五次会议隆重开幕" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="1dp"
+        android:layout_marginRight="1dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp" >
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginTop="@dimen/height_1_100"
+            android:background="#1E81DB" />
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/gzlm_lv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+    </ListView>
+
+    <WebView
+        android:id="@+id/wb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone" />
+
+</LinearLayout>

@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ff7fa87f"
+    android:orientation="vertical" >
+
+    <include layout="@layout/view_titles" />
+	<FrameLayout 
+	    android:id="@+id/frame"
+	    android:layout_width="fill_parent"
+	    android:layout_height="fill_parent"
+	    android:background="@color/white">
+	    
+	</FrameLayout>
+    <HorizontalScrollView 
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:scrollbars="none"
+	    android:visibility="gone">
+	    
+	
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/heng"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/tv_zx"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/height_1_100"
+            android:layout_weight="1.0"
+            android:background="@drawable/text_view_border"
+            android:gravity="center"
+            android:paddingBottom="2dp"
+            android:paddingLeft="2dp"
+            android:paddingRight="2dp"
+            android:paddingTop="1dp"
+            android:text="  咨询   "
+            android:textColor="@color/black"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/tv_ts"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/height_1_100"
+            android:layout_weight="1.0"
+            android:gravity="center"
+            android:paddingBottom="2dp"
+            android:paddingLeft="2dp"
+            android:paddingRight="2dp"
+            android:paddingTop="1dp"
+            android:text="  投诉  "
+            android:textColor="@color/black"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/tv_jy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/height_1_100"
+            android:layout_weight="1.0"
+            android:gravity="center"
+            android:paddingBottom="2dp"
+            android:paddingLeft="2dp"
+            android:paddingRight="2dp"
+            android:paddingTop="1dp"
+            android:text="  建议  "
+            android:textColor="@color/black"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/tv_qz"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/height_1_100"
+            android:layout_weight="1.0"
+            android:gravity="center"
+            android:paddingBottom="2dp"
+            android:paddingLeft="2dp"
+            android:paddingRight="2dp"
+            android:paddingTop="1dp"
+            android:text="  求助  "
+            android:textColor="@color/black"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/tv_qt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/height_1_100"
+            android:layout_weight="1.0"
+            android:gravity="center"
+            android:paddingBottom="2dp"
+            android:paddingLeft="2dp"
+            android:paddingRight="2dp"
+            android:paddingTop="1dp"
+            android:text="  其他  "
+            android:textColor="@color/black"
+            android:textSize="15sp" />
+        
+            <TextView
+            android:id="@+id/tv_ly"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/height_1_100"
+            android:layout_marginRight="@dimen/height_1_100"
+            android:layout_weight="1.0"
+            android:gravity="center"
+            android:paddingBottom="2dp"
+            android:paddingLeft="2dp"
+            android:paddingRight="2dp"
+            android:paddingTop="1dp"
+            android:text="  留言  "
+            android:textColor="@color/black"
+            android:textSize="15sp" />
+            <TextView
+            android:id="@+id/tv_xw"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/height_1_100"
+            android:layout_marginRight="@dimen/height_1_100"
+            android:layout_weight="1.0"
+            android:gravity="center"
+            android:paddingBottom="2dp"
+            android:paddingLeft="2dp"
+            android:paddingRight="2dp"
+            android:paddingTop="1dp"
+            android:text="  新闻  "
+            android:textColor="@color/black"
+            android:textSize="15sp" />
+    </LinearLayout>
+</HorizontalScrollView>
+
+     <android.support.v4.view.ViewPager
+        android:id="@+id/viewpager"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:flipInterval="30"
+        android:background="@drawable/zwfw_bg"
+        android:persistentDrawingCache="animation" />
+
+</LinearLayout>

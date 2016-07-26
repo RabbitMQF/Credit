@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="messagebox_ok">确 定</string>
+    <string name="messagebox_cancel">取 消</string>
+    <string name="messagebox_query">查 询</string>
+    <string name="always_need">常 用</string>
+    <string name="select">选 择</string>
+    <string name="upload">上 传</string>
+    <string name="save">保 存</string>
+    <string name="sign">签 名</string>
+    <string name="photo_upload">上 传</string>
+    <string name="photo_stop_upload">停 止</string>
+    <string name="ok">确 认</string>
+    <string name="dispatch_car">派 车</string>
+    <string name="common_use">常 用</string>
+    <string name="sign_name">签 名</string>
+    <string name="upload_name">更 新</string>
+    <string name="query">查 询</string>
+    <string name="login">登 录</string>
+</resources>

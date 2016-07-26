@@ -1,0 +1,898 @@
+[
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ab_solid_dark_holo.9.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\drawable-hdpi\\abc_ab_solid_dark_holo.9.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_spinner_ab_disabled_holo_light.9.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\drawable-hdpi\\abc_spinner_ab_disabled_holo_light.9.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_list_longpressed_holo.9.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\drawable-hdpi\\abc_list_longpressed_holo.9.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ab_stacked_solid_dark_holo.9.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\drawable-hdpi\\abc_ab_stacked_solid_dark_holo.9.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\gr_gaoxiaobiyesheng.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\gr_gaoxiaobiyesheng.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ic_menu_moreoverflow_normal_holo_light.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\drawable-hdpi\\abc_ic_menu_moreoverflow_normal_holo_light.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\big_button_up.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\big_button_up.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\gr_laonianren.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\gr_laonianren.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\bg_edit.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\bg_edit.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_pulltorefresh_arrow.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\ic_pulltorefresh_arrow.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\tt_menu_.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\tt_menu_.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\qzwfw.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\qzwfw.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\custom_fragment_tt.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\custom_fragment_tt.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ab_bottom_solid_dark_holo.9.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\drawable-hdpi\\abc_ab_bottom_solid_dark_holo.9.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_menu_hardkey_panel_holo_dark.9.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\drawable-hdpi\\abc_menu_hardkey_panel_holo_dark.9.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_cab_background_top_holo_dark.9.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\drawable-hdpi\\abc_cab_background_top_holo_dark.9.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\channel_rightblock.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\channel_rightblock.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\umeng_update_btn_check_off_pressed_holo_light.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\umeng_update_btn_check_off_pressed_holo_light.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\gr_funv.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\gr_funv.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\xzxk_6.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\xzxk_6.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\btn_check_on_1.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\btn_check_on_1.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\datepickerbg.jpg",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\datepickerbg.jpg"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\gr_jiehun.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\gr_jiehun.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ic_cab_done_holo_dark.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\drawable-hdpi\\abc_ic_cab_done_holo_dark.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_spinner_ab_default_holo_light.9.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\drawable-hdpi\\abc_spinner_ab_default_holo_light.9.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\sxcx.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\sxcx.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\nan4.jpg",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\nan4.jpg"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_list_pressed_holo_light.9.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\drawable-hdpi\\abc_list_pressed_holo_light.9.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ic_clear_search_api_disabled_holo_light.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\drawable-hdpi\\abc_ic_clear_search_api_disabled_holo_light.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ab_bottom_transparent_dark_holo.9.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\drawable-hdpi\\abc_ab_bottom_transparent_dark_holo.9.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\bg_dialog_loading.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\bg_dialog_loading.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\bmfw_4_3.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\bmfw_4_3.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\xzxk_2.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\xzxk_2.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ic_menu_moreoverflow_normal_holo_dark.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\drawable-hdpi\\abc_ic_menu_moreoverflow_normal_holo_dark.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\gr_shiye.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\gr_shiye.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\zwfw_bg.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\zwfw_bg.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\jgcx.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\jgcx.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\bmfw_1_4.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\bmfw_1_4.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\zxts.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\zxts.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ab_stacked_solid_light_holo.9.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\drawable-hdpi\\abc_ab_stacked_solid_light_holo.9.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ic_clear_normal.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\drawable-hdpi\\abc_ic_clear_normal.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ic_menu_share_holo_light.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\drawable-hdpi\\abc_ic_menu_share_holo_light.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\bmfw_2_1.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\bmfw_2_1.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\bottom1.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\bottom1.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\tt_menu.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\tt_menu.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_list_focused_holo.9.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\drawable-hdpi\\abc_list_focused_holo.9.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_list_selector_disabled_holo_light.9.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\drawable-hdpi\\abc_list_selector_disabled_holo_light.9.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\return_one.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\return_one.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\bmfw_3_2.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\bmfw_3_2.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ab_bottom_solid_light_holo.9.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\drawable-hdpi\\abc_ab_bottom_solid_light_holo.9.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\btn_common_normal.9.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\btn_common_normal.9.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\zwfw_fwpy_1_bg.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\zwfw_fwpy_1_bg.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\vpi__tab_selected_focused_holo.9.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\exploded-aar\\NCXWangShangZhengWu-master\\library\\unspecified\\res\\drawable-hdpi-v4\\vpi__tab_selected_focused_holo.9.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\bg_point.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\bg_point.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ab_share_pack_holo_dark.9.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\drawable-hdpi\\abc_ab_share_pack_holo_dark.9.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\btn_back_pressed.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\btn_back_pressed.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\umeng_update_btn_check_on_pressed_holo_light.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\umeng_update_btn_check_on_pressed_holo_light.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\btn_style_alert_dialog_cancel_normal.9.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\btn_style_alert_dialog_cancel_normal.9.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\sgzlm.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\sgzlm.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\nan1.jpg",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\nan1.jpg"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ic_search.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\drawable-hdpi\\abc_ic_search.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\custom_fenge.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\custom_fenge.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\umeng_update_btn_check_off_focused_holo_light.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\umeng_update_btn_check_off_focused_holo_light.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_cab_background_bottom_holo_dark.9.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\drawable-hdpi\\abc_cab_background_bottom_holo_dark.9.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ic_ab_back_holo_dark.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\drawable-hdpi\\abc_ic_ab_back_holo_dark.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_menu_hardkey_panel_holo_light.9.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\drawable-hdpi\\abc_menu_hardkey_panel_holo_light.9.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\return_two.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\return_two.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_textfield_search_default_holo_light.9.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\drawable-hdpi\\abc_textfield_search_default_holo_light.9.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\gr_zhaogongzuo.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\gr_zhaogongzuo.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\top.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\top.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\vpi__tab_unselected_holo.9.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\exploded-aar\\NCXWangShangZhengWu-master\\library\\unspecified\\res\\drawable-hdpi-v4\\vpi__tab_unselected_holo.9.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\bmfw_3_4.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\bmfw_3_4.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\login_01.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\login_01.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\btn_date_check_.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\btn_date_check_.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\umeng_update_btn_check_off_holo_light.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\umeng_update_btn_check_off_holo_light.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\btn_custom_.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\btn_custom_.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\nan3.jpg",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\nan3.jpg"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_spinner_ab_pressed_holo_light.9.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\drawable-hdpi\\abc_spinner_ab_pressed_holo_light.9.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\btn_style_alert_dialog_special_normal.9.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\btn_style_alert_dialog_special_normal.9.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_textfield_search_default_holo_dark.9.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\drawable-hdpi\\abc_textfield_search_default_holo_dark.9.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\qzmhd.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\qzmhd.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_spinner_ab_disabled_holo_dark.9.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\drawable-hdpi\\abc_spinner_ab_disabled_holo_dark.9.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\water.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\water.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\vpi__tab_selected_pressed_holo.9.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\exploded-aar\\NCXWangShangZhengWu-master\\library\\unspecified\\res\\drawable-hdpi-v4\\vpi__tab_selected_pressed_holo.9.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\btn_style_alert_dialog_special_pressed.9.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\btn_style_alert_dialog_special_pressed.9.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\right.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\right.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_cab_background_top_holo_light.9.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\drawable-hdpi\\abc_cab_background_top_holo_light.9.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\have_no.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\have_no.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\button.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\button.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\gr_tuixiu.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\gr_tuixiu.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ic_ab_back_holo_light.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\drawable-hdpi\\abc_ic_ab_back_holo_light.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_cab_background_bottom_holo_light.9.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\drawable-hdpi\\abc_cab_background_bottom_holo_light.9.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\gr_rencai.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\gr_rencai.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\bmfw_3_3.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\bmfw_3_3.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\dl_x.jpg",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\dl_x.jpg"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_textfield_search_right_default_holo_light.9.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\drawable-hdpi\\abc_textfield_search_right_default_holo_light.9.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\home_btn_bg.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\home_btn_bg.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\btn_common_disabled.9.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\btn_common_disabled.9.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_tab_selected_focused_holo.9.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\drawable-hdpi\\abc_tab_selected_focused_holo.9.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\top_1.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\top_1.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\bg_background.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\bg_background.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\xzxk_4.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\xzxk_4.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\point_end.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\point_end.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_tab_unselected_pressed_holo.9.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\drawable-hdpi\\abc_tab_unselected_pressed_holo.9.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_menu_dropdown_panel_holo_light.9.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\drawable-hdpi\\abc_menu_dropdown_panel_holo_light.9.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\umeng_update_close_bg_normal.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\umeng_update_close_bg_normal.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\gr_tekunjiating.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\gr_tekunjiating.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\bg_radiogroup_title.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\bg_radiogroup_title.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\gr_nongming.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\gr_nongming.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ic_voice_search_api_holo_light.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\drawable-hdpi\\abc_ic_voice_search_api_holo_light.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\bmfw_1_2.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\bmfw_1_2.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\szwfw.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\szwfw.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\rideobuttons.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\rideobuttons.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\gr_shengxiaohai.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\gr_shengxiaohai.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\nan2.jpg",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\nan2.jpg"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\btn_style_alert_dialog_button_pressed.9.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\btn_style_alert_dialog_button_pressed.9.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\gr_ertongqingshaonian.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\gr_ertongqingshaonian.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\btn_check_on.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\btn_check_on.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ic_commit_search_api_holo_dark.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\drawable-hdpi\\abc_ic_commit_search_api_holo_dark.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\szmhd.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\szmhd.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_list_pressed_holo_dark.9.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\drawable-hdpi\\abc_list_pressed_holo_dark.9.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\szwgk.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\szwgk.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\channel_glide_press.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\channel_glide_press.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\xzxk_5.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\xzxk_5.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\btn_date_check.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\btn_date_check.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\login_06.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\login_06.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\dot_enable.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\dot_enable.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ab_share_pack_holo_light.9.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\drawable-hdpi\\abc_ab_share_pack_holo_light.9.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_spinner_ab_pressed_holo_dark.9.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\drawable-hdpi\\abc_spinner_ab_pressed_holo_dark.9.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_tab_selected_holo.9.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\drawable-hdpi\\abc_tab_selected_holo.9.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\gr_houshi.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\gr_houshi.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ic_search_api_holo_light.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\drawable-hdpi\\abc_ic_search_api_holo_light.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_launcher_1.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\ic_launcher_1.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\bmfw_3_1.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\bmfw_3_1.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\vpi__tab_unselected_pressed_holo.9.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\exploded-aar\\NCXWangShangZhengWu-master\\library\\unspecified\\res\\drawable-hdpi-v4\\vpi__tab_unselected_pressed_holo.9.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\bmfw_1_1.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\bmfw_1_1.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ab_stacked_transparent_dark_holo.9.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\drawable-hdpi\\abc_ab_stacked_transparent_dark_holo.9.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\gr_maifangzi.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\gr_maifangzi.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\icon_have.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\icon_have.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\bmfw_2_2.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\bmfw_2_2.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\zmhd.jpg",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\zmhd.jpg"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\dl_xs.jpg",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\dl_xs.jpg"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\bmfw_4_2.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\bmfw_4_2.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_menu_dropdown_panel_holo_dark.9.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\drawable-hdpi\\abc_menu_dropdown_panel_holo_dark.9.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\vpi__tab_selected_holo.9.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\exploded-aar\\NCXWangShangZhengWu-master\\library\\unspecified\\res\\drawable-hdpi-v4\\vpi__tab_selected_holo.9.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\xzxk_3.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\xzxk_3.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\zwgk.jpg",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\zwgk.jpg"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ic_cab_done_holo_light.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\drawable-hdpi\\abc_ic_cab_done_holo_light.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\gr_shengxue.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\gr_shengxue.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\login_02.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\login_02.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\shutiao.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\shutiao.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\umeng_update_btn_check_on_focused_holo_light.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\umeng_update_btn_check_on_focused_holo_light.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\btn_back_normal.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\btn_back_normal.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\channel_glide.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\channel_glide.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\bmfw_1_3.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\bmfw_1_3.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ic_go_search_api_holo_light.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\drawable-hdpi\\abc_ic_go_search_api_holo_light.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\bg_title.9.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\bg_title.9.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ab_stacked_transparent_light_holo.9.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\drawable-hdpi\\abc_ab_stacked_transparent_light_holo.9.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\fwpy.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\fwpy.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\qzwgk.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\qzwgk.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\umeng_update_btn_check_on_holo_light.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\umeng_update_btn_check_on_holo_light.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_textfield_search_right_default_holo_dark.9.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\drawable-hdpi\\abc_textfield_search_right_default_holo_dark.9.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\title_fuwu.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\title_fuwu.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\bmfw_2_4.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\bmfw_2_4.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\title_search.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\title_search.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\sliding_arrow.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\sliding_arrow.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\btn_search_2.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\btn_search_2.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\btn_custom.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\btn_custom.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_textfield_search_right_selected_holo_light.9.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\drawable-hdpi\\abc_textfield_search_right_selected_holo_light.9.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\btn_upload.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\btn_upload.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ic_clear_disabled.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\drawable-hdpi\\abc_ic_clear_disabled.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\login_01_.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\login_01_.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\back.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\back.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\heng.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\heng.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_list_selector_disabled_holo_dark.9.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\drawable-hdpi\\abc_list_selector_disabled_holo_dark.9.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\vpi__tab_unselected_focused_holo.9.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\exploded-aar\\NCXWangShangZhengWu-master\\library\\unspecified\\res\\drawable-hdpi-v4\\vpi__tab_unselected_focused_holo.9.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_spinner_ab_default_holo_dark.9.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\drawable-hdpi\\abc_spinner_ab_default_holo_dark.9.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_textfield_search_selected_holo_dark.9.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\drawable-hdpi\\abc_textfield_search_selected_holo_dark.9.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\umeng_update_close_bg_tap.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\umeng_update_close_bg_tap.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\gr_chuangye.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\gr_chuangye.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ab_transparent_light_holo.9.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\drawable-hdpi\\abc_ab_transparent_light_holo.9.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ic_go.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\drawable-hdpi\\abc_ic_go.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\mm_trans.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\mm_trans.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\tt_dllbd.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\tt_dllbd.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\xzxk_1.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\xzxk_1.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\dot_normal.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\dot_normal.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ab_transparent_dark_holo.9.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\drawable-hdpi\\abc_ab_transparent_dark_holo.9.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\more.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\more.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\gr_canjiren.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\gr_canjiren.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\btn_bg.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\btn_bg.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\icon_1.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\icon_1.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\back_down.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\back_down.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\btn_style_alert_dialog_button_normal.9.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\btn_style_alert_dialog_button_normal.9.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_textfield_search_selected_holo_light.9.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\drawable-hdpi\\abc_textfield_search_selected_holo_light.9.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\loading.jpg",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\loading.jpg"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_spinner_ab_focused_holo_dark.9.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\drawable-hdpi\\abc_spinner_ab_focused_holo_dark.9.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ab_solid_light_holo.9.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\drawable-hdpi\\abc_ab_solid_light_holo.9.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ab_bottom_transparent_light_holo.9.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\drawable-hdpi\\abc_ab_bottom_transparent_light_holo.9.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\btn_common_pressed.9.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\btn_common_pressed.9.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\icon_not_null.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\icon_not_null.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_textfield_search_right_selected_holo_dark.9.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\drawable-hdpi\\abc_textfield_search_right_selected_holo_dark.9.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\gr_qianju.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\gr_qianju.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\channel_leftblock.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\channel_leftblock.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ic_clear_search_api_holo_light.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\drawable-hdpi\\abc_ic_clear_search_api_holo_light.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_closed.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\exploded-aar\\NCXWangShangZhengWu-master\\library\\unspecified\\res\\drawable-hdpi-v4\\ic_closed.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\bmfw_2_3.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\bmfw_2_3.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\btn_upload_.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\btn_upload_.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_list_divider_holo_dark.9.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\drawable-hdpi\\abc_list_divider_holo_dark.9.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\gzlm.jpg",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\gzlm.jpg"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_tab_selected_pressed_holo.9.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\drawable-hdpi\\abc_tab_selected_pressed_holo.9.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\qgzlm.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\qgzlm.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\btn_style_alert_dialog_background.9.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\btn_style_alert_dialog_background.9.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\bg_edit_big.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\bg_edit_big.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ic_voice_search.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\drawable-hdpi\\abc_ic_voice_search.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ic_commit_search_api_holo_light.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\drawable-hdpi\\abc_ic_commit_search_api_holo_light.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\xzxk_7.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\xzxk_7.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\nan5.jpg",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\nan5.jpg"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_list_divider_holo_light.9.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\drawable-hdpi\\abc_list_divider_holo_light.9.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\rideobuttones.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\rideobuttones.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\bg_divider.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\bg_divider.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\btn_search_2_.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\btn_search_2_.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_spinner_ab_focused_holo_light.9.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\drawable-hdpi\\abc_spinner_ab_focused_holo_light.9.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\arrow1.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable-hdpi\\arrow1.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ic_menu_share_holo_dark.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\drawable-hdpi\\abc_ic_menu_share_holo_dark.png"
+    }
+]

@@ -1,0 +1,439 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">南昌县政府网站</string>
+    <string name="action_settings">Settings</string>
+    <string name="config_file_name">config_produce_220</string>
+    <!-- 是否处于开发模式 -->
+    <string name="devMode">true</string>
+    
+    <!-- webservice url -->
+    <string name="namespace">http://tempuri.org</string>
+    <string name="endpoint">http://117.40.244.135:8082/Service/PortalSrv?wsdl</string>
+    <string name="bmpoint">http://117.40.244.135:8082/Service/PortalSrv?wsdl</string>
+    <string name="xzpoint">http://117.40.244.135:8082/Service/PortalSrv?wsdl</string>
+        <!-- 加载对话框 -->
+    <string name="data_loading">数据加载中…</string>
+    <string name="string_nan1">\t\t2月27日上午，2015年全县三级干部大会隆重召开。\n
+
+\t\t会场内，“深入推进四大‘三年强攻计划’，朝着创建全国县级文明城市目标奋勇迈进”的大型横幅格外醒目，鼓舞人心。\n
+
+\t\t县委书记、小蓝经开区党工委书记郭毅讲话,小蓝经开区管委会主任王敏主持会议，县委副书记、县长刘闯部署今年全县重点工作,县委副书记杨保根、县人大常委会主任胡小明、县政协主席邓炳根等县四套班子领导以及小蓝经开区班子成员出席会议。\n
+
+\t\t大会在庄严的国歌声中开幕。\n
+
+\t\t郭毅指出，刚刚过去的一年，在省委、省政府和市委、市政府的坚强领导下，全县上下紧紧围绕打造核心增长极“两年有看头、三年有突破”的要求，以实施四大“三年强攻计划”为主线，以全面深化改革为动力，以践行群众路线为保障，经济社会继续保持了良好的发展态势。主要指标实现十个全省第一；重点工作实现十个历史突破；亮点跨越实现十个走在前列。在肯定成绩的同时，我们也要清醒地认识到当前所处的阶段特征、面临的形势挑战和存在的现实差距。一是跻身全国五十强的基本实现，激励着我们向更高目标迈进。二是创建全国文明城的启动开展，鼓舞着我们向更高标准看齐。三是四个新常态带来的机遇挑战，鞭策着我们向更高水平努力。郭毅指出，今年是“十二五”规划的收官之年，是全面深化改革的推进之年，是全面推进依法治国的开局之年，也是创建全国县级文明城市的起步之年。今年全县工作的总体要求是：认真贯彻党的十八届三中、四中全会、中央经济工作会议精神以及省委十三届十次全会、市委十届十次全会精神，以全面构建核心增长极的重要战略支点为主线，以全面深化改革为动力，以全面推进依法治县和从严治党为保障，以创建全国县级文明城市为抓手，增强定力，加快发展，改革创新，狠抓落实，圆满完成“十二五”规划各项目标，为全省五年决战同步小康、全市打造核心增长极作出应有贡献。\n
+
+\t\t郭毅强调，我们要在执行战略上保持定力，以深入推进为主基调，推动四大“三年强攻计划”升温加压，始终抓牢招商引资的“生命线”，加快推进小蓝经开区运行机制改革、政府职能机构改革、投融资体制改革和城市管理体制改革，统筹推进城乡一体化、现代农业等各项改革，进一步激发发展的动力和活力。今年是我县创建全国县级文明城市的起步之年，也是打基础之年，全县上下务必要按照“目标同向、行动同步、责任同担”的要求，迅速掀起文明创建的新高潮，通过文明创建这个载体，全面提升各项工作标准，推动经济社会更加协调、可持续发展。要突出围绕社会公正、社会诚信、社会秩序这“三个关键”，深入开展法制宣传教育活动，着力在全社会形成遵纪守法、崇尚法律、依法办事的良好风尚。郭毅强调，党的建设关系全局，关乎根本。各级党组织尤其是党组党支部书记，都要切实肩负起管党治党重任，县委将今年定为“党建工作责任落实年”，着力强化各级党委从严治党、从实抓党建，强化各级书记带头重视党建，亲历亲为抓党建，强化全体党员心中有党、对党忠诚，着力打造一支讲政治、懂经济、有激情、会干事的干部队伍。各级党组织特别是主要领导要坚持把抓好基层党建作为“一号工程”和“书记工程”，投入足够的时间和精力，县区上下要牢固树立“一盘棋”思想，心往一处想，劲往一处使，加强沟通、紧密配合、形成合力，构建县区同心、工作同向、分工合作、共同担当的工作新格局，实现创建全国县级文明城市的宏伟目标，谱写全面构建核心增长极的重要战略支点的崭新篇章！\n
+
+\t\t王敏在主持会议时强调，今年是“十二五”规划的收官之年，是全面深化改革的关键之年，是南昌县迈入全国百强县50强和小蓝经开区迈入千亿元区的发力之年，也是深入推进四大“三年强攻计划”的攻坚之年，各地各部门要围绕县委、县政府以及小蓝经开区党工委、管委会的战略目标和总体部署，结合本部门、本单位的工作实际，研究制定切实可行的工作计划和具体举措，细化目标任务，落实责任人员，明确时间节点，攻坚克难，确保既定的各项工作任务全面完成，促进县区各项工作多出特色，多出亮点、多出成绩，交出新常态下南昌县和小蓝经开区发展升级、小康提速的优异答卷。\n
+
+\t\t刘闯就如何抓好今年全县经济社会重点工作做了部署，他强调，要紧盯中心抓落实，必须坚持加快发展不动摇，一步一个脚印把既定的目标任务和各项部署落到实处；要以深化改革为契机，通过寻求点上的突破、线上的延伸、面上的拓展，不断加快体制机制创新，推动各项工作的高效落实。当前特别要抓好春耕备耕、造林绿化、农田水利基本建设扫尾和防汛准备、春季计划生育、春季禁渔和湖区管理、全国“两会”期间的信访维稳、春季就业指导帮扶等七项重点工作，顺利实现一季度各项工作的“开门红”，确保圆满完成今年的各项目标任务，为挺进全国五十强县市、创建全国县级文明城市作出新的更大贡献！\n
+
+\t\t杨保根宣读了《县委、县政府关于表彰2014年度经济社会发展先进集体和先进个人的决定》。\n
+
+\t\t县区领导分别为荣获突出贡献企业、特别优秀企业、优秀企业和出口创汇先进企业授奖，为荣获年度综合奖的单位、党的建设先进单位代表以及先进个人代表进行了授奖。\n
+
+\t\t江铃控股有限公司、江西汇仁药业有限公司、向塘开发区、县城投公司、八一乡党委以及银湖管理处沥山村等六个单位负责同志做了表态发言。\n
+
+　　　　　　　　　　　　　　　                            　南昌县电视台</string>
+    <string name="string_nan2">\t\t2月27日上午，全县创建全国县级文明城市千人誓师动员大会在县文化会展中心举行。会议号召县区上下积极行动起来，以志在必得的信心、扎实有效的举措，共创文明城市，共建美好家园，力争到2017年顺利进入全国县级文明城市行列，实现“全国五十强、全国文明城”的“双丰收”。\n
+
+\t\t县委书记、小蓝经开区党工委书记郭毅主持会议，小蓝经开区党工委副书记、管委会主任王敏、县委副书记、县长刘闯讲话、县委副书记杨保根、县人大常委会主任胡小明、县政协主席邓炳根等县四套班子领导以及小蓝经开区班子成员出席会议。\n
+
+\t\t刘闯在讲话中指出，全国文明城市是目前我国综合评价城市发展水平的最高荣誉，也是城市竞争中最具价值的金字招牌。特别是当前以城市文明为标志的新一轮竞争，已经日益成为区域经济发展的主旋律。县区广大干部群众，尤其是各级领导干部要切实增强大局意识、责任意识和使命意识，要形成全民参与，共享幸福新生活的浓厚氛围，始终坚持把让群众参与、让群众受益、让群众满意作为创建工作的基本准则，充分发挥群众的主体作用，广泛动员社会各界力量参与创建活动，努力使文明创建家喻户晓、深入人心，成为全县人民的共同事业和一致追求。刘闯强调，创建全国文明城是一项庞大的社会系统工程，涉及内容多、时间长、范围广、要求高。县区各级各单位务必要高度重视，齐抓共管，合力推进，打好创建攻坚战、持久战。力争到2017年顺利通过创建验收，进入全国县级文明城市行列，努力把南昌县建设成为干干净净、漂漂亮亮、井然有序、和谐宜居的美丽家园。\n
+
+\t\t杨保根就我县全国县级文明城市创建重点工作进行了安排部署。\n
+
+\t\t县城管系统、交管系统、卫生系统、城建系统、交通系统、公安系统、市场监管系统、驻县部队、青年志愿者、社区居民十大方阵依次宣誓。\n　
+
+　　　　　　　　　　　　　　　　　　　                                          南昌县电视台
+</string>
+    <string name="string_nan3">\t\t县十五届人大五次会议圆满完成大会各项任务，今天下午胜利闭幕。\n
+
+\t\t本次大会应到代表301人，因事因病请假  18 人，实到代表  283  人，符合法定人数。\n
+
+\t\t大会主席团常务主席郭毅、王敏、刘闯、杨保根、胡小明、陈秀梅、李植、王三毛、熊鹰、黄连科、李木旺、吴文卫、刘玉在主席台前排就座。\n
+
+\t\t陈秀梅主持大会。\n
+
+\t\t邓炳根、杨斯、肖红松、陈圣栋、黄文、赵俊、周仁斌、杨春、程雷佬、谭伯乐、刘光荣、陈奇勇、胡炜、李荣、江振国、刘廷爱、杨楼锐、樊方平、李成星、黄志清、吴克芳、姜润根、李红刚、吴曙明、周庆鲁、李广祥、陈伟峰及主席团其他成员在主席台就座。\n
+
+\t\t大会投票前，通过了大会选举总监票人、监票人名单。\n
+
+\t\t大会会场分两个投票区，设两个投票箱。会场内洋溢着民主、团结的气氛，与会代表手持选票，庄严履行职责，行使代表的神圣权利。\n
+
+\t\t在投票完毕和计票后，大会执行主席宣布大会发出选票283 张，收回 283 张，大会投票选举有效。\n
+
+\t\t大会宣布吴文卫、刘玉当选县人大常委会副主任。\n
+
+\t\t罗敏、胡敏芳、姚轶当选县人大常委会委员。\n
+
+\t\t大会通过了议案审查委员会议案审查报告。n\
+
+\t\t 大会表决通过了南昌县第十五届人民代表大会第五次会议关于政府工作报告的决议、关于南昌县2014年国民经济和社会发展计划执行情况与2015年国民经济和社会发展计划的决议、关于南昌县2014年财政预算执行情况和2015年财政预算的决议、关于南昌县人大常委会工作报告的决议、关于南昌县人民法院工作报告的决议、关于南昌县人民检察院工作报告的决议。\n
+
+\t\t大会结束前，县委书记郭毅作了讲话。\n
+
+\t\t郭毅说：各位代表、同志们：南昌县第十五届人民代表大会第五次会议，在全体与会代表和同志们的共同努力下，圆满完成各项议程，即将胜利闭幕，这是一次民主团结、务实鼓劲、风清气正的大会。\n
+
+\t\t郭毅说，过去的一年，在省委、省政府和市委、市政府的坚强领导下，全县上下按照打造核心增长极“两年有看头、三年有突破”的要求，以实施四大“三年强攻计划”为主线，以全面深化改革为动力，以践行群众路线为保障，经济社会继续保持了良好的发展态势。一是百强进位演绎加速度。二是四大强攻奏响最强音。三是改革创新迈出新步伐。四是作风转变汇聚正能量。这些成绩的取得，是全县广大干部群众团结奋进、顽强拼搏的结果，也凝聚着县人大常委会、全体人大代表的智慧、心血和汗水。\n
+
+\t\t郭毅指出，2015年，是“十二五”规划的收官之年，是全面深化改革的推进之年，是全面推进依法治国的开局之年，也是创建全国县级文明城市的起步之年。做好今年工作，关系当前，影响长远。全体代表要牢记使命、不负重托，切实增强加快发展的责任感、使命感和危机感，主动适应新常态，展现新作为。\n
+
+\t\t要更加注重推进法治昌南建设。我们要全面落实依法治国、依法治县基本方略，大力弘扬社会主义法治精神，加快建设法治昌南，扎实推进严格执法、公正司法、全民守法，保证人民平等参与、平等发展权利，维护社会公平正义，实现各项工作法治化。广大人大代表要坚持法律面前人人平等，带头信仰法治、坚守法治，不断提高运用法治思维和法治方式深化改革、推动发展、化解矛盾、维护稳定的能力。\n
+
+\t\t要更加注重人大工作与时俱进。我们要认真贯彻落实习近平总书记关于人大工作的系列重要讲话精神，坚持党的领导、人民当家作主、依法治国有机统一，推进人民代表大会制度理论与实践创新。要始终坚持正确政治方向，自觉把服务发展作为各级人大的首要责任和人大工作的永恒主题，把监督重点放在促进党委决策部署的贯彻落实、人民群众关心的热点难点问题解决上，通过人民代表大会制度，保证党的方针政策和县委决策部署得到全面贯彻执行。要切实增强监督效果，改进监督方式方法，要继续开展对人大常委会任命的国家机关干部述职评议和满意度测评工作，不断增强公职人员的法制意识和公仆意识。要始终突出问题导向，着力加强思想政治建设、组织建设、能力建设、作风建设和制度建设，切实提高履职水平和实效，保持人大工作的生机和活力。\n
+
+\t\t要更加注重发挥代表主体作用。各级人大及其常委会要深入贯彻实施代表法，尊重代表主体地位，强化服务代表意识，支持和保障代表依法行使职权。最大限度地发挥代表在了解民情、反映民意、汇聚民智、化解矛盾等方面的独特作用，要坚持为人民用权、为人民履职、为人民服务，促进代表积极投身全县经济社会发展一线，要珍惜人民群众赋予的权力，认真履行人大代表义务。\n
+
+\t\t郭毅强调，我们要毫不动摇地坚持和完善人大代表制度，进一步加强党对人大工作的领导，充分发挥党委领导核心作用，积极支持人大加强自身建设，着力营造人大工作良好环境，全力支持人大及其常委会依法行使职权、发挥作用，不断开创全县人大工作新局面。\n
+
+\t\t郭毅最后说：各位代表、同志们！新常态需要新作为，新征程激励新使命。让我们紧密团结在以习近平同志为总书记的党中央周围，高举中国特色社会主义伟大旗帜，深入贯彻落实党的十八大和十八届三中、四中全会精神，牢记使命，不负重托，奋发进取，扎实工作，共同谱写我县经济社会各项事业发展的新篇章！\n
+
+\t\t最后，大会在国歌声中胜利闭幕。
+
+
+</string>
+     <string name="string_nan4">\t\t2月4日上午，县十五届人大五次会议举行第二次全体会议。\n
+
+\t\t本次大会应到301人，因事因病请假12人，实到代表289人，符合法定人数。\n
+
+\t\t大会主席团常务主席郭毅、王敏、刘闯、杨保根、胡小明、陈秀梅、李植、王三毛、熊鹰、黄连科、李木旺、吴文卫、刘玉在主席台前排就座。王三毛主持大会。\n
+
+\t\t邓炳根、杨斯、肖红松、陈圣栋、黄文、赵俊、周仁斌、杨春、程雷佬、陈翔、谭伯乐、胡文俊、刘光荣、陈奇勇、胡炜、李荣、李红刚、吴曙明、周庆鲁、李广祥、陈伟峰及主席团其他成员在主席台就座。\n
+
+\t\t县人大常委会主任胡小明向大会作县人大常委会工作报告。\n
+
+\t\t胡小明说，2014年，是全面深化改革的开局之年，是第二批群众路线教育实践活动开展之年，更是南昌县凝心聚力攻坚克难、团结一致砥砺奋进，百强进位演绎加速度、四大强攻奏响最强音、改革创新迈出新步伐之年。一年来，在中共南昌县委的正确领导下，县人大常委会按照“为民、务实、清廉”的工作要求。围绕中心、服务大局、勤勉尽责、主动作为，在促进经济健康发展、保障民生持续改善、推动民主政治建设、维护社会和谐稳定等方面作出了积极努力。常委会全年共听取和审议“一府两院”专项工作报告13项，开展执法检查4项，组织视察活动2次，开展专题询问1次，配合省市人大开展执法检查和工作调研19项，任免国家机关工作人员41人次，任命人民陪审员10人次，圆满完成了县十五届人大四次会议确定的各项目标任务。\n
+
+\t\t一是坚持为民宗旨，在推动发展改善民生中积极作为\n
+
+\t\t牢固树立“监督为民”工作理念，以推动发展为目标、以改善民生为重点。以维护稳定为基础，积极依法履职，充分体现了人大“植根人民、服务大众”的民本属性。\n
+
+\t\t做到了全力推动发展。致力改善民生。着力促进和谐。\n
+
+\t\t二是坚持务实作风，在依法履职强化监督中开创新局\n
+
+\t\t坚持与时俱进工作要求，在突出监督重点、改进监督方式、提升监督实效上积极探索，使监督工作不断呈现务实创新特征。\n
+
+\t\t在监督内容的选择上，始终围绕改革发展稳定和群众切身利益、社会普遍关注的重大问题，认真倾听社情民意，积极回应民众所期所盼。\n
+
+\t\t在监督方式的运用上，改变以往程序化的监督模式，更多地运用好前置监督与量化监督，不断增强监督工作的实效。\n
+
+\t\t三是坚持清廉准则，在强本固基提升形象中激发活力\n
+
+\t\t主动适应新形势新任务新要求，不断深化思想、制度、作风建设。扎实开展了第二批党的群众路线教育实践活动，进一步增强了常委会和机关干部的群众观点、宗旨意识，展现了人大工作的新风气、新形象。\n
+
+\t\t实现了注重思想建设，干部素质不断增强。注重制度建设，履职能力不断提升。注重作风建设，工作效能不断提高。\n
+
+\t\t胡小明指出，今年常委会工作总结的指导思想是：在中共南昌县委的坚强领导下，以党的十八届三中、四中全会精神为指导，认真贯彻县委十二届九次全会精神，以全面深化改革为立足点，以维护民权民生民利、增进人民福祉为着力点，以推进依法治县、促进公平正义为切入点，弘扬务实作风，坚持与时俱进，依法履行宪法和法律赋予的各项职权，为加快推进民主法治建设进程，促进经济社会持续健康发展做出新的更大贡献。\n
+
+\t\t胡小明强调，一是要强化政治意识，坚持党的领导，为服务大局助推发展勇担使命。突出抓好学习贯彻，认真落实县委决策。坚持围绕中心工作，全力助推发展进位。\n
+
+\t\t二是要强化法治意识，维护公平正义，为推进依法治县进程履职尽责。\n
+
+\t\t要深入开展法治宣传教育活动。切实抓好普法宣传教育，推动法制宣传工作长效机制的建立，推动法律在基层更广普及，使学法尊法守法用法成为全民的自觉行动。\n
+
+\t\t要切实推进依法行政公正司法。通过综合运用听取专项工作报告、执法检查等方式，监督确保法律法规在本行政区域的有效实施，来推动“一府两院”依法行政和公正司法。通过强化社会监督，扩大人民群众参与司法实践和政务活动，来推动“一府两院”依法行政和公正司法。通过坚持和完善专项评议、工作测评等制度，来推动“一府两院”依法行政和公正司法。\n
+
+\t\t三是强化进取意识，注重整改提升，为巩固教育实践成果持续务力。要纵深推进教育活动。进一步巩固深化群众路线教育实践活动成果，保持强烈的政治自觉和责任担当。\n
+
+\t\t要大力加强自身建设。深入推进学习型机关建设，着力提高人大机关干部的政治素质、法律素质、业务素质。不断提升我县人大工作水平。\n
+
+\t\t县人民法院院长李红刚作了县法院工作报告。\n
+
+\t\t县人民检察院检察长吴曙明作了县人民检察院工作报告。
+
+</string>
+    <string name="string_nan5" formatted="false">\t\t2月3日上午，南昌县第十五届人民代表大会第五次会议在县文化会展中心隆重开幕。\n
+
+\t\t本次大会应到代表301人，因事因病请假13 人，实到代表288人，符合法定人数。\n
+
+\t\t大会主席团常务主席郭毅、王敏、刘闯、胡小明、陈秀梅、李植、王三毛、熊鹰、黄连科、李木旺、吴文卫、刘玉在主席台前排就座。\n
+
+\t\t在主席台就座的还有：邓炳根、杨斯、肖红松、陈圣栋、黄文、赵俊、杨春、程雷佬、陈翔、涂莉华、谭伯乐、胡文俊、陈奇勇、胡炜、李荣、江振国、刘廷爱、康健、熊明泉、杨楼锐、樊方平、李成星、黄志清、吴克芳、李信谆、姜润根、刘东平、况志强、张斗、李红刚、吴曙明、周庆鲁、李广祥、陈伟峰及主席团其他成员，胡小明主持大会。\n
+
+\t\t上午九时，大会开幕。\n
+
+\t\t县长刘闯代表县人民政府向大会作政府工作报告。\n
+
+ \t\t刘闯说：各位代表：现在，我代表县人民政府，向大会作政府工作报告，请予审议，并请各位政协委员和其他列席会议的同志提出意见。\n
+
+\t\t刘闯在报告中首先回顾了我县2014年经济社会发展主要工作，他说，过去一年，在市委、市政府和县委的正确领导下，全县上下按照打造核心增长极“两年有看头”的要求，以实施四大“三年强攻计划”为主线，以全面深化改革为动力，以践行群众路线为保障，统筹推进稳增长、促改革、调结构、惠民生各项工作，经济社会实现了持续健康较快发展，在第十四届全国县域经济基本竞争力百强县排名中，阔步前移15位，跃居第52位，在2014年度中小城市综合实力百强县排名中，跃居第51位，两年跨越26位，展现了进位赶超的“加速度”。 地区生产总值预计达到550亿元，增长10%，稳居全省县市第一。财政总收入和地方公共财政预算收入分别跨越80亿元和50亿元，达到87.3亿元和52.4亿元，分别增长20.2%和15%，两项指标总量连续五年稳居全省县市第一。\n
+
+\t\t（一）驱动工业“主引擎”，推进主导产业升级\n
+
+\t\t（二）抓牢招商“生命线”，推进开放水平升级\n
+
+\t\t（三）打好建管“组合拳”，推进城市功能升级\n
+
+\t\t（四）激发改革“活力源”，推进机制创新升级\n
+
+\t\t（五）坚持农业“特色路”，推进城乡统筹升级\n
+
+\t\t（六）奏响民生“和谐曲”，推进社会治理升级\n
+
+\t\t刘闯指出，上述成绩的取得，归功于市委、市政府和县委的坚强领导，离不开人大、政协的监督支持，得益于社会各界的热情帮助，凝聚着百万昌南人民的智慧和汗水。\n
+
+\t\t在肯定成绩的同时，我们也清醒地认识到，我县经济社会发展中还存在许多困难和问题，对此，我们将高度重视，采取切实有效的措施认真加以解决。\n
+
+\t\t刘闯在报告中全面阐述了2015年政府工作安排，他说，今年政府工作的总体要求是：深入贯彻落实十八届四中全会精神、中央经济工作会议精神以及省委、市委、县委全会精神，坚持把推动发展升级作为首要任务，把深化改革创新作为根本动力，把改善民生福祉作为头等大事，把建设法治政府作为坚实保障，保持定力，主动担当，深入推进四大“三年强攻计划”，推动经济发展大提速、城乡面貌大变样、改革攻坚大突破、民生福祉大改善、政府效能大提升，圆满完成“十二五”规划各项目标，为挺进全国五十强县市、创建全国县级文明城市而努力奋斗！\n
+
+\t\t今年全县经济社会发展的主要预期目标是：\n
+
+\t\t地区生产总值增长10%；\n
+
+\t\t财政总收入增长15%；\n
+
+\t\t地方公共财政预算收入增长10%；\n
+
+\t\t规模以上工业增加值增长12%；\n
+
+\t\t500万元以上固定资产投资增长16%；\n
+
+\t\t社会消费品零售总额增长14%；\n
+
+\t\t实际利用外资增长10%；\n
+
+\t\t实际利用内资增长10%；\n
+
+\t\t出口总额增长7%；\n
+
+\t\t城镇居民人均年可支配收入增长10%；\n
+
+\t\t农村居民人均年可支配收入增长13%；\n
+
+\t\t单位生产总值能耗比上年下降3%；\n
+
+\t\t人口自然增长率控制在9‰以内。\n
+
+\t\t刘闯强调，做好今年的工作，要坚持“四个原则”。一是坚持集群发展增强竞争力。二是坚持协调发展增强支撑力。三是坚持创新发展增强原动力。四是坚持和谐发展增强凝聚力。\n
+
+\t\t刘闯指出，今年将重点抓好以下五个方面的工作：\n
+
+\t\t（一）以产业升级助力经济发展大提速\n
+
+\t\t以产业转型升级为核心，在理念上坚持“二三并举”、“接二连三”；在手段上坚持集群发展、特色推进；在措施上坚持招商选资、项目带动，实现经济发展在更高平台上的大提速。\n
+
+\t\t（二）以文明创建助力城乡面貌大变样\n
+
+\t\t以创建全国县级文明城市为契机，以完善城市功能、美化乡村环境为总抓手，以创建助推建设提标，以创建助推管理提质，以创建助推形象提升，实现城乡面貌在更高标准上的大变样。\n
+
+\t\t（三）以制度创新助力改革攻坚大突破\n
+
+\t\t以事关全局的重点问题、群众关注的热点问题和制约发展的难点问题为导向，敢于啃硬骨头，敢于涉险滩，敢于过深水区，实现改革攻坚在更宽领域上的大突破。\n
+
+\t\t（四）以多元投入助力民生福祉大改善\n
+
+\t\t以保障民生为宗旨，以为民解困为己任，多投入保民生，促和谐保稳定，让民众享有更完善的民生保障、更优质的公共服务、更和谐的社会环境，实现民生福祉在更深层次的大改善。\n
+
+\t\t在连续八年大力实施民生工程的基础上，今年新增安排7亿元，总量达37.6亿元，继续加大民生工程实施力度。\n
+
+\t\t（五）以法治思维助力政府效能大提升\n
+
+\t\t以依法治县为引领，以政府机构改革、政府职能转变为切入点，以简政放权、放管结合为抓手，大力开展“绩效管理年”活动，按照“凭专业说话，按规矩办事”的要求，倒逼政府机关干部提升从业素养和专业素质，提高依法行政能力，实现政府效能在更严要求上的大提升。\n
+
+\t\t刘闯最后指出，各位代表，发展升级、百强进位的艰巨任务鞭策着我们，绿色崛起、富民强县的美好前景鼓舞着我们。让我们更加紧密地团结在以习近平同志为总书记的党中央周围，在市委、市政府和县委的坚强领导下，主动担当、攻坚克难，创新求进、狠抓落实，圆满完成“十二五”规划各项目标，为挺进全国五十强县市、创建全国县级文明城市而努力奋斗！\n
+
+\t\t大会还提请审议了南昌县2014年国民经济和社会发展计划执行情况与2015年国民经济和社会发展计划草案的报告（书面），提请审议了南昌县2014年财政预算执行情况和2015年财政预算草案的报告（书面）。\n
+
+\t\t大会表决了选举办法。列席会议的有出席政协南昌县十一届五次会议的全体委员，县委、县政府有关方面负责人。 \n
+
+                                                                                                                                                                           南昌县电视台 
+</string>
+
+    <!-- 在线申办里面的内容 -->
+    <string name="_name">姓\u0020\u0020\u0020\u0020\u0020\u0020\u0020\u0020名</string>
+    <string name="_numID">身\u0020份\u0020证\u0020号</string>
+    <string name="shenfenyanzheng">身份验证</string>
+    <string name="shenhefafang">审核发放</string>
+    <string name="lianxifangshi">联系方式</string>
+    <string name="shoujihaoma">\u0020\u0020\u0020\u0020手机号码</string>
+    <string name="dianziyoujian">\u0020\u0020\u0020\u0020电子邮件</string>
+    <string name="fashouduanxinhuizhi">\u0020\u0020\u0020\u0020是否接受短信提示</string>
+    <string name="shoulididian">\u0020\u0020\u0020\u0020受理地点</string>
+    <string name="shoulididian_">莲塘镇澄湖东路居委会</string>
+    <string name="chushendidian">\u0020\u0020\u0020\u0020初审地点</string>
+    <string name="fafangdidian">\u0020\u0020\u0020\u0020发放地点</string>
+    <string name="notice_1">(如申请人不在本辖区，请选择申请人所在的审核地点)</string>
+    <string name="notice_2">(请选择申请人想在的领取地)</string>
+    <string name="choose_family">选择方式</string>
+    <string name="done_shouli">受理完成并返回</string>
+    <string name="done_bdlr">完成进入表单录入</string>
+    <string name="banlitiaojian">办理条件</string>
+    <!-- radiobutton -->
+    <string name="jbxx">基本信息</string>
+    <string name="wsbd">网上表单</string>
+    <string name="fjck">附件查看</string>
+    <string name="sjdj">收件登记</string>
+    <string name="ywbd">业务表单</string>
+    <string name="dzcl">电子材料</string>
+    <string name="ffjl">发放记录</string>
+    <string name="jdks">街道科室</string>
+    <string name="ywbm">业务部门</string>
+    <string name="cyfw">常用服务</string>
+    <string name="djxx">登记信息</string>
+    <string name="dxfs">短信详情</string>
+    <string name="wxts">温馨提示</string>
+    <string name="bzxx">补正信息</string>
+    <string name="ztxx">暂停信息</string>
+
+    <string-array name="paizhao">
+        <item>拍照</item>
+        <item>从相册选择</item>
+    </string-array>
+    <string-array name="priture_show_menu">
+        <item>新建版本</item>
+        <item>删除版本</item>
+        <item>修改信息</item>
+        <item>查看信息</item>
+        <item>证照版本</item>
+    </string-array>
+    <!-- 提示对话框 -->
+    <string name="ensure">确定</string>
+    <string name="cancel">取消</string>
+    
+    <string name="yushouliyewu">预受理业务</string>
+    <!-- 搜索框 -->
+    <string name="more">更多</string>
+    <string name="search_apply_name">申请人姓名</string>
+    <string name="search_id_num">\u0020\u0020\u0020\u0020身份证号</string>
+    <string name="search_fuwushixiangming">服务事项名</string>
+    <string name="search_banjianfenlei">\u0020\u0020\u0020\u0020办件分类</string>
+    <string name="search_banjianliushuihao">办件流水号</string>
+    <string name="search_shenqingriqi">申请日期从</string>
+    <string name="search_banjianriqi">办件日期从</string>
+    <string name="search_to">\u0020\u0020\u0020\u0020\u0020\u0020\u0020\u0020\u0020\u0020\u0020\u0020\u0020\u0020\u0020\u0020至</string>
+    <string name="search_wangshangshoulihao">网上受理号</string>
+    <string name="search_banlizhuangtai">\u0020\u0020\u0020\u0020办理状态</string>
+    <string name="search_shenqingriqi_">\u0020\u0020\u0020\u0020申请日期</string>
+    <string name="search_banjieqixian">\u0020\u0020\u0020\u0020办结期限</string>
+    <string name="search_banjianriqi_">\u0020\u0020\u0020\u0020办件日期</string>
+    <string name="search_fafangriqi">\u0020\u0020\u0020\u0020发放日期</string>
+    <string name="search_chaoshitianshu">\u0020\u0020\u0020\u0020超时天数</string>
+    <string name="search_jieguoliebiao">结果列表</string>
+    <string name="search_yewusuochuhuanjie">\u0020\u0020\u0020\u0020业务环节</string>
+    <string name="search_danganzhuangtai">\u0020\u0020\u0020\u0020档案状态</string>
+    <string name="search_shoulidengjididian">受理登记点</string>
+    <string name="search_shouliren">\u0020\u0020\u0020\u0020\u0020\u0020\u0020\u0020受理人</string>
+    <string name="sjdj_next">下一步</string>
+    <string name="shoulijigou">\u0020\u0020\u0020\u0020受理机构</string>
+    <string name="fafangjigou">\u0020\u0020\u0020\u0020发放机构</string>
+    <string name="shoulirenyuan">\u0020\u0020\u0020\u0020受理人员</string>
+    <string name="shouliriqi">\u0020\u0020\u0020\u0020受理日期</string>
+    <string name="jingbanjigou">\u0020\u0020\u0020\u0020经办机构</string>
+    <string name="lururen">\u0020\u0020\u0020\u0020\u0020\u0020\u0020\u0020录入人</string>
+    <string name="lururiqi">\u0020\u0020\u0020\u0020录入日期</string>
+    <string name="luruzhuangtai">\u0020\u0020\u0020\u0020录入状态</string>
+    <string name="banlishixian">\u0020\u0020\u0020\u0020办理时限</string>
+    <string name="banliriqi">\u0020\u0020\u0020\u0020办理日期</string>
+    <string name="dengjiriqi">\u0020\u0020\u0020\u0020登记日期</string>
+    <string name="shifouchaoshi">\u0020\u0020\u0020\u0020是否超时</string>
+    <string name="jingbanren">\u0020\u0020\u0020\u0020\u0020\u0020\u0020\u0020经办人</string>
+    <string name="dengjiren">\u0020\u0020\u0020\u0020\u0020\u0020\u0020\u0020登记人</string>
+    <string name="fafangren">\u0020\u0020\u0020\u0020\u0020\u0020\u0020\u0020发放人</string>
+    <string name="jieshouren">\u0020\u0020\u0020\u0020\u0020\u0020\u0020\u0020接收人</string>
+    <string name="jieshouhaoma">\u0020\u0020\u0020\u0020接受号码</string>
+    <string name="duanxinneirong">\u0020\u0020\u0020\u0020短信内容</string>
+    <string name="fasongshijian">\u0020\u0020\u0020\u0020发送时间</string>
+    <string name="qianshouren">\u0020\u0020\u0020\u0020\u0020\u0020\u0020\u0020签收人</string>
+    <string name="beizhu">\u0020\u0020\u0020\u0020\u0020\u0020\u0020\u0020\u0020\u0020\u0020\u0020备注</string>
+    <string name="shenhejieguotupian">审核结果图片</string>
+    <string name="jieguojiaofu">结果交付图片</string>
+    <string name="banlijieguo">\u0020\u0020\u0020\u0020办理结果</string>
+    
+    <string name="banlicailiao">办理材料</string>
+    <string name="shifoufuhe">是否符合</string>
+    <string name="shouqu">收取</string>
+    <string name="caiji">采集</string>
+    <string name="fanhui">返回</string>
+    <string name="wancheng">完成</string>
+    <string name="wanchengjinruxiayihuanjie">完成，进入下一环节</string>
+    <string name="shangchuan">上传</string>
+    <string name="banjieriqi">\u0020\u0020\u0020\u0020办结日期</string>
+    <string name="tijiaocailiao">提交材料</string>
+    <string name="yingshoucailiao">应收材料</string>
+    <string name="dianzicailiao">电子材料</string>
+    <string name="zuochujueding">\u0020\u0020做出决定</string>
+    <string name="shenhetongguo">审核通过</string>
+    <string name="shenhebutongguo">审核不通过</string>
+    <string name="tianxieyijian">填写意见：</string>
+    <string name="qianshourenshenfenzheng">签收人身份证</string>
+    <string name="wangshangyushoulihao">网上预受理号</string>
+    <string name="buyushouliyuanyin">不予受理原因</string>
+    <string name="qingxuanzhe">请根据申请人的实际情况做出选择:</string>
+    <string name="chakanxuanzhe">查看申请人选择的条件:</string>
+    <string name="xuanzhe">选择</string>
+    <string name="chakan">查看</string>
+    <string name="shi">是</string>
+    <string name="fou">否</string>
+
+    <string name="shenhechuli">审核处理</string>
+    <string name="shangchuanshenhejieguo">上传审核结果</string>
+    <string name="shangchuanfafangjieguo">上传发放结果</string>
+    <string name="shifoubenrenlingqu">是否本人领取</string>
+    <string name="lingqurenxingming">领取人姓名</string>
+    <string name="shenfenzhenghaoma">身份证号码</string>
+    <string name="ywxx">业务信息</string>
+    <string name="jiaofuwancheng">交付完成</string>
+    <string name="fanhuiliebiao">返回列表</string>
+    <string name="yewuliushuihao">业务流水号</string>
+    <string name="duanxintongzhi">短信通知</string>
+    <string name="tongzhineirong">通知内容</string>
+    <string name="buzhengyuanyin">补正原因</string>
+    <string name="zantingyuanyin">暂停原因</string>
+    <string name="zantingkaishishijian">暂停开始时间</string>
+     <string name="buzhengtongzhi">补正通知</string>
+     <string name="buzhengshouli">补正受理</string>
+    <string name="chenggong">成功</string>
+    <string name="shibai">失败</string>
+    <string name="fasong">发送</string>
+    <string name="shenqingrenshoujihaoma">申请人手机号码</string>
+    <string name="buzhengtongzhihaoma">补正通知号码</string>
+    <string name="buzhengtongzhicaozuoyuan">补正通知操作员</string>
+    <string name="fasongbingfanhui">发送并返回</string>
+    <string name="yewutuihui">业务退回</string>
+    <string name="tuihuiyuanyin">退回原因</string>
+    <string name="wanchengchuli">完成处理</string>
+    <string name="qingxuanzhetuihuiyuanyin">---请选择退回原因---</string>
+    <string name="fuheyixiaqingkuangzhiyi">符合以下情况之一 ：</string>
+    <string name="dianzizhengzhao">电子证照</string>
+    <string name="shifoushouqu">是否收取</string>
+    
+    
+    <!-- 侧滑信息 -->
+    <string name="sliding_title_1">网上申请</string>
+    <string name="sliding_title_2">收件受理</string>
+    <string name="sliding_title_3">表单录入</string>
+    <string name="sliding_title_4">审批处理</string>
+    <string name="sliding_title_5">结果发放</string>
+    <string name="sliding_title_6">业务档案</string>
+    <string name="sliding_title_7">统计报表</string>
+    <string name="sliding_title_8">我的配置</string>
+    <string name="sliding_title_9">业务处理</string>
+    <string name="sliding_title_10">结果登记</string>
+    <string name="sliding_title_11">结果交付</string>
+    <string name="sliding_title_12">更多</string>
+    
+    <string name="shoujiandengji">收件登记</string>
+    <string name="yishouliyewu">已受理业务</string>
+    <string name="buyushouliyewu">不予受理业务</string>
+    <string name="yilurubiaodan">已录入表单</string>
+    <string name="dailurubiaodan">待录入表单</string>
+    <string name="daishenpi">待审批</string>
+    <string name="yishenpi">已审批</string>
+    <string name="yituihui">已退回</string>
+    <string name="daifafangliebiao">待发放列表</string>
+    <string name="yifafangliebiao">已发放列表</string>
+    <string name="daoqiweibanjieliebiao">到期未办结列表</string>
+    <string name="yewudanganchaxun">业务档案查询</string>
+    <string name="anfuwushixiangtongji">按服务事项统计</string>
+    <string name="anshoulijigoutongji">按受理机构统计</string>
+    <string name="anyewubumentongji">按业务部门统计</string>
+    <string name="gerenxinxi">个人信息</string>
+    <string name="xiugaimima">修改密码</string>
+    <string name="checkupdate">检查更新</string>
+    <string name="re_login">切换账号</string>
+    
+    </resources>

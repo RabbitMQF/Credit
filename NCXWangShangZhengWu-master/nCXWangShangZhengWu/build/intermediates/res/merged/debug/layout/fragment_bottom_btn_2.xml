@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/blue_green"
+    android:orientation="vertical"
+    android:layout_margin="@dimen/height_1_100"
+    android:id="@+id/ll_detail_btn_2"
+    android:visibility="gone"  >
+
+    <!-- 底部的三个固定按钮 -->
+
+
+    <!-- Button -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:gravity="center"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/detail_btn_llbd"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_custom"
+            android:gravity="center"
+            android:paddingBottom="4dp"
+            android:text="录入表单"
+            android:textColor="#FFFFFF" />
+    </LinearLayout>
+
+</LinearLayout>

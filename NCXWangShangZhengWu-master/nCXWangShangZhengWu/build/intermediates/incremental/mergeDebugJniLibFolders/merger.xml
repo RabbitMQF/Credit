@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3"><dataSet config="main"><source path="E:\ZLH\android_studio_zlh\NCXWangShangZhengWu-master\nCXWangShangZhengWu\src\main\jniLibs"><file name="armeabi/libbspatch.so" path="E:\ZLH\android_studio_zlh\NCXWangShangZhengWu-master\nCXWangShangZhengWu\src\main\jniLibs\armeabi\libbspatch.so"/></source></dataSet><dataSet config="debug"><source path="E:\ZLH\android_studio_zlh\NCXWangShangZhengWu-master\nCXWangShangZhengWu\src\debug\jniLibs"/></dataSet></merger>

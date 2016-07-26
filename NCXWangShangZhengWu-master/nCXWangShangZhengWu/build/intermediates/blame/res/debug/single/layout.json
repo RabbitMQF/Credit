@@ -1,0 +1,806 @@
+[
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\zmhd_framgemnt_xw.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\zmhd_framgemnt_xw.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_zmhd_xzxx.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\fragment_zmhd_xzxx.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\tb_munion_aditem.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\tb_munion_aditem.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\zwfw_menu.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\zwfw_menu.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\gzlm_main.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\gzlm_main.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\gzlm_title_bar.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\gzlm_title_bar.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_detail_ztxx_list_item.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\fragment_detail_ztxx_list_item.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\gzlm_ldzc_list_item.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\gzlm_ldzc_list_item.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_detail_fjck.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\fragment_detail_fjck.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\zmhd_main.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\zmhd_main.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\item_single_popup_window.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\item_single_popup_window.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_decor_include.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\layout\\abc_action_bar_decor_include.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\zwfw_query_main.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\zwfw_query_main.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\zwfw_main.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\zwfw_main.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_menu_item_layout.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\layout\\abc_action_menu_item_layout.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\tb_munion_adview.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\tb_munion_adview.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\zwfw_shixiang_list_item.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\zwfw_shixiang_list_item.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_zmhd_wsdc.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\fragment_zmhd_wsdc.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_detail_jbxx_ywcl_2_item.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\fragment_detail_jbxx_ywcl_2_item.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_detail_jbxx_jgjf_item.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\fragment_detail_jbxx_jgjf_item.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\sliding_menu_list.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\sliding_menu_list.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_detail_sjdj_tjclqk_item.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\fragment_detail_sjdj_tjclqk_item.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\layout_zxsb_shouli_lxfs_item.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\layout_zxsb_shouli_lxfs_item.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\abc_activity_chooser_view.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\layout\\abc_activity_chooser_view.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_layout.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\layout\\abc_list_menu_item_layout.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\dialog_alert.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\dialog_alert.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_detail_wxts.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\fragment_detail_wxts.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_detail_wsbd_wsbd_item.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\fragment_detail_wsbd_wsbd_item.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\zwgk_xzzfxxgk_list_item.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\zwgk_xzzfxxgk_list_item.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\layout_sjsl_sjdj_deny.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\layout_sjsl_sjdj_deny.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\guide_1.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\guide_1.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_detail_dzcl_spgccl_list_item.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\fragment_detail_dzcl_spgccl_list_item.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\zwfw_activity_bmfw.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\zwfw_activity_bmfw.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_zwfw_main_listview_item.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\fragment_zwfw_main_listview_item.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_detail_ffjl_ffjl_item.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\fragment_detail_ffjl_ffjl_item.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\zwfw_shixiang_list.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\zwfw_shixiang_list.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_zwfw_detail_1.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\fragment_zwfw_detail_1.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\viewpager_view2.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\viewpager_view2.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\layout_zxsb_bdtj_sqrxx_item.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\layout_zxsb_bdtj_sqrxx_item.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\gzlm_xqgk_chanle_list.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\gzlm_xqgk_chanle_list.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_detail_sjdj_bltj_item.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\fragment_detail_sjdj_bltj_item.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\layout_zxsb_shouli_tjcl_item.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\layout_zxsb_shouli_tjcl_item.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_detail_ywbd_item.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\fragment_detail_ywbd_item.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\zwfw_fwpy_detailes.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\zwfw_fwpy_detailes.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_detail_ywbd.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\fragment_detail_ywbd.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_detail_bzxx.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\fragment_detail_bzxx.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_detail_ztxx.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\fragment_detail_ztxx.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\zwfw_main_2.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\zwfw_main_2.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\abc_expanded_menu_layout.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\layout\\abc_expanded_menu_layout.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\abc_search_dropdown_item_icons_2line.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\layout\\abc_search_dropdown_item_icons_2line.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\layout_zxsb_shouli_sfyz_item.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\layout_zxsb_shouli_sfyz_item.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\timepicker.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\timepicker.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\layout_zxsb_shouli.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\layout_zxsb_shouli.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_zwfu_main_2.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\fragment_zwfu_main_2.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_gzlm_main_listitem.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\fragment_gzlm_main_listitem.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\layout_zxsb_shouli_shff_item.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\layout_zxsb_shouli_shff_item.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\sjdj_shouli_tjcl_dialog_list_item.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\sjdj_shouli_tjcl_dialog_list_item.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_icon.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\layout\\abc_list_menu_item_icon.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\custom_radio_group.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\custom_radio_group.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_detail_jbxx_jgdj_item.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\fragment_detail_jbxx_jgdj_item.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\gzlm_picturecontent_mian.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\gzlm_picturecontent_mian.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_bottom_btn_3.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\fragment_bottom_btn_3.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_detail_sjdj_bltjqk_item.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\fragment_detail_sjdj_bltjqk_item.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\custom_auto_complete_view.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\custom_auto_complete_view.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_zmhd_zxft.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\fragment_zmhd_zxft.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_bottom_btn_4.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\fragment_bottom_btn_4.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\zwfw_fwpy_detail.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\zwfw_fwpy_detail.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\gzlm_picturecontent_mian1.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\gzlm_picturecontent_mian1.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_detail_jbxx.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\fragment_detail_jbxx.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\option_item.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\option_item.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\zwgk_form_content_main.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\zwgk_form_content_main.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_detail_ffjl_dxfs_item.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\fragment_detail_ffjl_dxfs_item.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\umeng_update_dialog.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\umeng_update_dialog.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\more_data_bar.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\more_data_bar.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\zwgk_content_main.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\zwgk_content_main.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\sjdj_shouli_bltj_list_item.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\sjdj_shouli_bltj_list_item.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\layout_priture_show.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\layout_priture_show.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\viewpager_view3.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\viewpager_view3.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\zwgk_view_title.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\zwgk_view_title.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_zwfw_main_4.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\fragment_zwfw_main_4.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_detail_sjdj_djxx_item.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\fragment_detail_sjdj_djxx_item.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_mode_close_item.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\layout\\abc_action_mode_close_item.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\listview_for_popup_window.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\listview_for_popup_window.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_mode_bar.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\layout\\abc_action_mode_bar.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\slidingmenumain.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\slidingmenumain.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\gzlm_picturecontent_mian3.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\gzlm_picturecontent_mian3.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\zwgk_column_main.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\zwgk_column_main.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\sliding_menu_row_1.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\sliding_menu_row_1.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\layout_zxsb_bdtj_jbxx_item.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\layout_zxsb_bdtj_jbxx_item.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\zmhd_framgemnt_qt.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\zmhd_framgemnt_qt.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\view_titles.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\view_titles.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\zwfw_main_4.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\zwfw_main_4.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\viewpager_view4.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\viewpager_view4.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\zmhd_framgemnt_qz.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\zmhd_framgemnt_qz.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_detail_dzcl_dzcl_item.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\fragment_detail_dzcl_dzcl_item.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_decor_overlay.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\layout\\abc_action_bar_decor_overlay.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\options.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\options.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\zwfw_main_3.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\zwfw_main_3.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_zmhd_xjw.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\fragment_zmhd_xjw.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\gzlm_picturecontent_mian2.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\gzlm_picturecontent_mian2.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\zmhd_lxxd_chakan.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\zmhd_lxxd_chakan.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\sjdj_shouli_tjcl_list_item.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\sjdj_shouli_tjcl_list_item.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_zwfw_main_3.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\fragment_zwfw_main_3.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\channel_item.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\channel_item.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\zwfw_shixiang_xzcf_detail_main.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\zwfw_shixiang_xzcf_detail_main.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\layout_datail_bar.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\layout_datail_bar.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\layout_select_pic.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\layout_select_pic.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\zmhd_list_item.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\zmhd_list_item.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_checkbox.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\layout\\abc_list_menu_item_checkbox.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\layout_zxsb_bdtj_poxx_item.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\layout_zxsb_bdtj_poxx_item.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\zwfw_main_1.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\zwfw_main_1.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\tab_item.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\tab_item.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\gzlm_fragment_1.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\gzlm_fragment_1.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_detail_fjck_item.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\fragment_detail_fjck_item.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_zwfw_detail_2.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\fragment_zwfw_detail_2.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\zmhd_framgemnt_ts.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\zmhd_framgemnt_ts.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\abc_activity_chooser_view_include.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\layout\\abc_activity_chooser_view_include.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\bdlr_luru_edittext.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\bdlr_luru_edittext.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\zwgk_formcontent_main.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\zwgk_formcontent_main.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\custom_title_two.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\custom_title_two.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\timepicker_title.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\timepicker_title.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\zwfw_shixiang_detail_main.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\zwfw_shixiang_detail_main.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_zmhd_mytd.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\fragment_zmhd_mytd.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\zwfw_assess_main1.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\zwfw_assess_main1.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\mysearchview.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\mysearchview.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\abc_activity_chooser_view_list_item.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\layout\\abc_activity_chooser_view_list_item.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_detail_jbxx_wsysl_item.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\fragment_detail_jbxx_wsysl_item.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\gzlm_content_main.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\gzlm_content_main.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_zwgk_main_3.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\fragment_zwgk_main_3.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_zwfu_main_5.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\fragment_zwfu_main_5.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\bdlr_luru_item.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\bdlr_luru_item.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\view_title.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\view_title.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\zwfw_zxsb_activity.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\zwfw_zxsb_activity.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\gzlm_picturecontent_mian4.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\gzlm_picturecontent_mian4.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_tabbar.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\layout\\abc_action_bar_tabbar.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\viewpager_view5.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\viewpager_view5.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_detail_sjdj_tjcl_item.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\fragment_detail_sjdj_tjcl_item.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\gzlm_xqgk_listitem.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\gzlm_xqgk_listitem.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_zmhd_lxxd.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\fragment_zmhd_lxxd.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_zmhd_cjwt.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\fragment_zmhd_cjwt.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\zmhd_framgemnt_jy.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\zmhd_framgemnt_jy.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_bottom_btn_5.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\fragment_bottom_btn_5.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\sjdj_deny_bltj_tjcl_list_item.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\sjdj_deny_bltj_tjcl_list_item.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_detail_sjdj.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\fragment_detail_sjdj.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\sliding_menu_frame.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\sliding_menu_frame.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\zwfw_query_main02_item.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\zwfw_query_main02_item.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\zwfw_query_main01.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\zwfw_query_main01.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\zwfw_main_5.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\zwfw_main_5.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\zwgk_main.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\zwgk_main.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_bottom_btn_2.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\fragment_bottom_btn_2.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\support_simple_spinner_dropdown_item.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\layout\\support_simple_spinner_dropdown_item.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\viewpager_view1.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\viewpager_view1.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\abc_popup_menu_item_layout.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\layout\\abc_popup_menu_item_layout.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_detail_ffjl.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\fragment_detail_ffjl.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\layout_loading.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\layout_loading.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_bottom_btn.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\fragment_bottom_btn.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\zmhd_chakan_main.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\zmhd_chakan_main.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_tab.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\layout\\abc_action_bar_tab.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\layout_zxsb_bdtj_wjxx_item.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\layout_zxsb_bdtj_wjxx_item.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\zwfw_quer_lv4.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\zwfw_quer_lv4.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\zmhd_framgemnt_ly.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\zmhd_framgemnt_ly.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_zwgk_main_1.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\fragment_zwgk_main_1.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\abc_search_view.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\layout\\abc_search_view.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\activity_main.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\zwgk_formcontent_item.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\zwgk_formcontent_item.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\gzlm_fragment_bmdt.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\gzlm_fragment_bmdt.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\layout_zxsb_shouli_bltj_item.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\layout_zxsb_shouli_bltj_item.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\gzlm_channel.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\gzlm_channel.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\zwgk_xzxgk_content_listitem.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\zwgk_xzxgk_content_listitem.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\zwfw_query_main02.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\zwfw_query_main02.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_menu_layout.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\layout\\abc_action_menu_layout.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\zmhd_framgemnt_zx.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\zmhd_framgemnt_zx.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\zwgk_bmxxgk_list_item.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\zwgk_bmxxgk_list_item.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\zwfw_assess_forme.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\zwfw_assess_forme.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_zwfu_main_1.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\fragment_zwfu_main_1.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_zwfw_main_4_listitem.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\fragment_zwfw_main_4_listitem.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\sjdj_shouli_tjcl_checkbox_dialog.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\sjdj_shouli_tjcl_checkbox_dialog.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_detail_jbxx_ywcl_item.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\fragment_detail_jbxx_ywcl_item.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_detail_wsbd.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\fragment_detail_wsbd.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_detail_jbxx_bdlr_item.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\fragment_detail_jbxx_bdlr_item.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_detail_bzxx_list_item.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\fragment_detail_bzxx_list_item.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_bottom_btn_6.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\fragment_bottom_btn_6.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\sliding_menu_row.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\sliding_menu_row.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_detail_jbxx_wxts_item.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\fragment_detail_jbxx_wxts_item.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\layout_zxsb_bdlr.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\layout_zxsb_bdlr.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_title_item.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\layout\\abc_action_bar_title_item.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\zwfw_show_webview.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\zwfw_show_webview.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\layout_sjsl_sjdj_deny_item.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\layout_sjsl_sjdj_deny_item.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\gzlm_ldzc.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\gzlm_ldzc.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\view_title_priture.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\view_title_priture.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_detail_jbxx_sjdj_item.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\fragment_detail_jbxx_sjdj_item.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_detail_dzcl.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\fragment_detail_dzcl.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\gzlm_xqgk_list_item.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\gzlm_xqgk_list_item.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\gzlm_picturecontent_mian5.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\gzlm_picturecontent_mian5.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_view_list_nav_layout.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\layout\\abc_action_bar_view_list_nav_layout.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_zwgk_main_2.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\fragment_zwgk_main_2.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\dialog_loading.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\dialog_loading.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\grid_item.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\grid_item.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\guide_2.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\layout\\guide_2.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_home.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\layout\\abc_action_bar_home.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_radio.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\layout\\abc_list_menu_item_radio.xml"
+    }
+]

@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@id/ll_detail_jbxx_shff"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/height_1_100"
+    android:background="@drawable/linearlayout"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:background="@drawable/custom_fragment_tt" >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="@string/tijiaocailiao"
+                android:textColor="#FFFFFF" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:background="#3293DB" />
+
+    <LinearLayout
+        android:id="@+id/ll_sjdj_tjcl_checkbox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/height_2_100"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="5"
+            android:text="@string/chakanxuanzhe"
+            android:textColor="@color/blue_1"
+            android:textSize="@dimen/text_middle_size" />
+
+        <Button
+            android:id="@+id/btn_check_tiaojian"
+            android:layout_width="0dp"
+            android:layout_height="25dp"
+            android:layout_weight="1"
+            android:background="@drawable/btn_login"
+            android:contentDescription="@string/app_name"
+            android:gravity="center"
+            android:text="@string/chakan"
+            android:textColor="@color/white_light" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_sjdj_tjcl_all"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/height_1_100"
+            android:layout_marginRight="@dimen/height_1_100"
+            android:layout_marginTop="@dimen/height_1_100"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="5"
+                android:gravity="center|left"
+                android:text="@string/tijiaocailiao"
+                android:textColor="@color/blue_1"
+                android:textSize="@dimen/text_small_size" />
+
+            <TextView
+                android:id="@+id/dzzz"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="left"
+                android:text="@string/dianzizhengzhao"
+                android:textColor="@color/blue_1"
+                android:textSize="@dimen/text_small_size" />
+
+            <TextView
+                android:id="@+id/sfsq"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="left"
+                android:text="@string/shifoushouqu"
+                android:textColor="@color/blue_1"
+                android:textSize="@dimen/text_small_size" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:text="@string/shifoufuhe"
+                android:textColor="@color/blue_1"
+                android:textSize="@dimen/text_small_size" />
+
+        </LinearLayout>
+
+        <ListView
+            android:id="@+id/lv_detail_sjdj_tjcl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/height_1_100"
+            android:cacheColorHint="@android:color/transparent"
+            android:divider="#00000000"
+            android:dividerHeight="@dimen/height_1_100"
+            android:listSelector="@android:color/transparent"
+            android:scrollbars="none" />
+    </LinearLayout>
+
+</LinearLayout>

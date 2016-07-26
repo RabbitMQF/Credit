@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/linearlayout"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:background="@drawable/custom_fragment_tt" >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="暂停信息"
+                android:textColor="#FFFFFF" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:background="#3293DB" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/height_1_100"
+        android:layout_marginRight="@dimen/height_1_100"
+        android:layout_marginTop="@dimen/height_2_100"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.5"
+            android:gravity="center"
+            android:text="    暂停开始时间"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_middle_size" />
+
+        <TextView
+            android:id="@id/tv_list_item_1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="@string/search_apply_name"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_middle_size" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="@dimen/height_1_100"
+        android:layout_marginRight="@dimen/height_1_100"
+        android:layout_marginTop="@dimen/height_1_100"
+        android:background="@drawable/bg_divider" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/height_1_100"
+        android:layout_marginRight="@dimen/height_1_100"
+        android:layout_marginTop="@dimen/height_1_100"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.5"
+            android:gravity="center"
+            android:text="暂停业务操作员"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_middle_size" />
+
+        <TextView
+            android:id="@id/tv_list_item_2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="@string/search_apply_name"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_middle_size" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="@dimen/height_1_100"
+        android:layout_marginRight="@dimen/height_1_100"
+        android:layout_marginTop="@dimen/height_1_100"
+        android:background="@drawable/bg_divider" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/height_1_100"
+        android:layout_marginRight="@dimen/height_1_100"
+        android:layout_marginTop="@dimen/height_1_100"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.5"
+            android:gravity="center"
+            android:text="    暂停截至时间"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_middle_size" />
+
+        <TextView
+            android:id="@id/tv_list_item_3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="@string/search_apply_name"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_middle_size" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="@dimen/height_1_100"
+        android:layout_marginRight="@dimen/height_1_100"
+        android:layout_marginTop="@dimen/height_1_100"
+        android:background="@drawable/bg_divider" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/height_1_100"
+        android:layout_marginRight="@dimen/height_1_100"
+        android:layout_marginTop="@dimen/height_1_100"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.5"
+            android:gravity="center"
+            android:text="开始业务操作员"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_middle_size" />
+
+        <TextView
+            android:id="@id/tv_list_item_4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="@string/search_apply_name"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_middle_size" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="@dimen/height_1_100"
+        android:layout_marginRight="@dimen/height_1_100"
+        android:layout_marginTop="@dimen/height_1_100"
+        android:background="@drawable/bg_divider" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/height_1_100"
+        android:layout_marginRight="@dimen/height_1_100"
+        android:layout_marginTop="@dimen/height_1_100"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.5"
+            android:gravity="center"
+            android:text="          暂停原因"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_middle_size" />
+
+        <TextView
+            android:id="@id/tv_list_item_5"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="@string/search_apply_name"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_middle_size" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="@dimen/height_1_100"
+        android:layout_marginRight="@dimen/height_1_100"
+        android:layout_marginTop="@dimen/height_1_100"
+        android:background="@drawable/bg_divider" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/height_1_100"
+        android:layout_marginRight="@dimen/height_1_100"
+        android:layout_marginTop="@dimen/height_1_100"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.5"
+            android:gravity="center"
+            android:text="          暂停环节"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_middle_size" />
+
+        <TextView
+            android:id="@id/tv_list_item_6"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="@string/search_apply_name"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_middle_size" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="@dimen/height_1_100"
+        android:layout_marginRight="@dimen/height_1_100"
+        android:layout_marginTop="@dimen/height_1_100"
+        android:background="@drawable/bg_divider" />
+
+</LinearLayout>

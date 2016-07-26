@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/blue_green"
+    android:orientation="vertical" >
+
+    <!-- 滚动标题栏 -->
+
+    <com.ZWPT.view.CustomTitle
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+    </com.ZWPT.view.CustomTitle>
+
+
+    <include layout="@layout/custom_radio_group" />
+
+    <FrameLayout
+        android:id="@+id/frameL_title"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" >
+    </FrameLayout>
+
+    <include layout="@layout/fragment_bottom_btn" />
+    <include layout="@layout/fragment_bottom_btn_2" />
+    <include layout="@layout/fragment_bottom_btn_3" />
+    <include layout="@layout/fragment_bottom_btn_4" />
+    <include layout="@layout/fragment_bottom_btn_5" />
+    <include layout="@layout/fragment_bottom_btn_6" />
+
+</LinearLayout>

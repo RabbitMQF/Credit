@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/blue_green"
+    android:orientation="vertical" >
+    <com.ZWPT.view.CustomTitle
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+    </com.ZWPT.view.CustomTitle>
+
+    <include layout="@layout/custom_title_two" />
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:scrollbars="vertical" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <include layout="@layout/layout_sjsl_sjdj_deny_item" />
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/btn_cancel"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/custom_button"
+            android:gravity="center"
+            android:paddingBottom="2dip"
+            android:text="返回" />
+
+        <Button
+            android:id="@+id/btn_sjdj_next"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:background="@drawable/custom_button"
+            android:gravity="center"
+            android:paddingBottom="2dip"
+            android:text="完成并继续受理" />
+    </LinearLayout>
+
+</LinearLayout>

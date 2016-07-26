@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/query_main1"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="20dp"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:layout_marginTop="30dp"
+    android:background="@drawable/boder"
+    android:orientation="vertical"
+    android:paddingTop="20dp" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/height_10_100" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:paddingLeft="20dp"
+            android:text="查询办事情况"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/height_10_100"
+        android:layout_marginLeft="1dp"
+        android:layout_marginRight="1dp"
+        android:background="@color/white"
+        android:paddingTop="10dp" >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="15dp"
+            android:paddingRight="10dp"
+            android:src="@drawable/icon_1" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="您可根据身份证件号和受理回执单上的业务流水号查询办事状态和办事结果。"
+            android:textColor="@color/black" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="1dp"
+        android:layout_marginRight="1dp"
+        android:background="@color/white"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp" >
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="@dimen/height_1_100"
+            android:background="@drawable/bg_divider" />
+    </LinearLayout>
+
+              <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="30dp"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:layout_gravity="center"
+                    android:text="身份证号码:"
+                    android:textColor="@color/black"
+                    android:textSize="16dp" />
+
+                <EditText
+                    android:id="@+id/edit_IDCard"
+                    android:layout_width="0dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/height_1_100"
+                    android:layout_weight="2"
+                    android:background="@drawable/bg_edit"
+                    android:inputType="textPersonName"
+                    android:paddingLeft="@dimen/height_1_100"
+                    android:singleLine="true" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="15dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="30dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:layout_gravity="center_vertical"
+                    android:text="业务流水号 :"
+                    android:textColor="@color/black"
+                    android:textSize="16dp" />
+
+                <EditText
+                    android:id="@+id/edit_TrafficNummber"
+                    android:layout_width="0dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/height_1_100"
+                    android:layout_weight="2"
+                    android:background="@drawable/bg_edit"
+                    android:inputType="textPersonName"
+                    android:paddingLeft="@dimen/height_1_100"
+                    android:singleLine="true" />
+            </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="1dp"
+        android:layout_marginRight="1dp"
+        android:orientation="horizontal"
+        android:paddingBottom="30dp"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:paddingTop="30dp" >
+
+        <Button
+            android:id="@+id/button_query"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="20dp"
+            android:layout_weight="1"
+            android:background="@drawable/btn_bg"
+            android:text="查询" />
+
+        <Button
+            android:id="@+id/button_clean"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="40dp"
+            android:layout_weight="1"
+            android:background="@drawable/btn_bg"
+            android:text="清空" />
+    </LinearLayout>
+
+</LinearLayout>

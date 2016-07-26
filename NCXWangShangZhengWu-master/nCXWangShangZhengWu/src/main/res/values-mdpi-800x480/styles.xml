@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="myDialogTitleDimensions">
+        <item name="android:textSize">@dimen/text_big_size</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:layout_marginLeft">@dimen/verysupper_margin</item>
+        <item name="android:layout_marginRight">@dimen/verysupper_margin</item>
+    </style>
+</resources>

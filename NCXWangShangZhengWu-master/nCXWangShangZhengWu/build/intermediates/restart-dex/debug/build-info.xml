@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<instant-run
+    abi="x86,armeabi-v7a"
+    api-level="19"
+    density="mdpi"
+    format="7"
+    timestamp="4843541422508" >
+
+    <task
+        name="javac"
+        duration="10694" />
+    <task
+        name="instant-run-dex"
+        duration="0" />
+    <task
+        name="instant-run-transform"
+        duration="3596" />
+    <task
+        name="verifier"
+        duration="1655" />
+
+    <artifact
+        location="E:\ZLH\android_studio_zlh\NCXWangShangZhengWu-master\nCXWangShangZhengWu\build\outputs\apk\nCXWangShangZhengWu-debug.apk"
+        type="MAIN" />
+
+    <build timestamp="4843541422508" >
+        <artifact
+            location="E:\ZLH\android_studio_zlh\NCXWangShangZhengWu-master\nCXWangShangZhengWu\build\outputs\apk\nCXWangShangZhengWu-debug.apk"
+            type="MAIN" />
+    </build>
+
+</instant-run>

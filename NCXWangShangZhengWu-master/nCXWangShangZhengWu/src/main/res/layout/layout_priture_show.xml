@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/blue_green"
+    android:orientation="vertical" >
+
+    <include layout="@layout/view_title_priture" />
+
+    <TextView
+        android:id="@+id/tv_void_priture"
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="暂无图片"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:id="@+id/ll_tupianliulanqi"
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1"
+        android:gravity="center_horizontal"
+        android:orientation="vertical" >
+
+        <ImageSwitcher
+            android:id="@+id/is_priture_show"
+            android:layout_width="match_parent"
+            android:layout_height="0dip"
+            android:layout_weight="1"
+            android:inAnimation="@android:anim/fade_in"
+            android:outAnimation="@android:anim/fade_out" />
+
+        
+        <HorizontalScrollView
+            android:layout_marginTop="10dip"
+            android:layout_marginBottom="10dip"
+            android:fadingEdge="none"
+            android:scrollbars="none"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <LinearLayout
+                android:id="@+id/ll_priture_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" />
+        </HorizontalScrollView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/btn_wancheng_priture"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/custom_button"
+            android:gravity="center"
+            android:paddingBottom="2dip"
+            android:text="完成" />
+
+        <Button
+            android:id="@+id/btn_add_priture"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/custom_button"
+            android:gravity="center"
+            android:paddingBottom="2dip"
+            android:text="添加图片" />
+    </LinearLayout>
+
+</LinearLayout>

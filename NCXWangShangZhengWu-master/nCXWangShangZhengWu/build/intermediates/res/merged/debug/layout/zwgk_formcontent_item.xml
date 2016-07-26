@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/linearlayout"
+    android:orientation="vertical" >
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/width_1_100"
+        android:layout_marginRight="@dimen/width_1_100"
+        android:layout_marginTop="@dimen/height_2_100"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:text="    索引号："
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_middle_size" />
+
+        <TextView
+            android:id="@+id/tv_list_item_1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.5"
+            android:text=""
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_middle_size" />
+        
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="@dimen/height_1_100"
+        android:background="@drawable/bg_divider" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/width_1_100"
+        android:layout_marginRight="@dimen/width_1_100"
+        android:layout_marginTop="@dimen/height_1_100"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:text="       标题 ："
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_middle_size" />
+
+        <TextView
+            android:id="@+id/tv_list_item_2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.5"
+            android:text=""
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_middle_size" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="@dimen/height_1_100"
+        android:background="@drawable/bg_divider" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/width_1_100"
+        android:layout_marginRight="@dimen/width_1_100"
+        android:layout_marginTop="@dimen/height_1_100"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:text="公开方式："
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_middle_size" />
+
+        <TextView
+            android:id="@+id/tv_list_item_3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.5"
+            android:text=""
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_middle_size" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="@dimen/height_1_100"
+        android:background="@drawable/bg_divider" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/width_1_100"
+        android:layout_marginRight="@dimen/width_1_100"
+        android:layout_marginTop="@dimen/height_1_100"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:text="公开日期："
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_middle_size" />
+
+        <TextView
+            android:id="@+id/tv_list_item_4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.5"
+            android:text=""
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_middle_size" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="@dimen/height_1_100"
+        android:background="@drawable/bg_divider" />
+    
+      
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/height_1_100"
+        android:layout_marginLeft="@dimen/width_15_100"
+        android:layout_marginRight="@dimen/width_15_100"
+        android:layout_marginTop="@dimen/height_1_100"
+            android:gravity="center_horizontal"
+        android:orientation="horizontal" >
+
+         <Button
+            android:id="@+id/btn_list_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/linearlayout_button_apply"
+            android:clickable="false"
+            android:text="   查看    "
+            android:textStyle="bold"
+            android:padding="1dp"
+            android:textSize="20dp"
+            android:textColor="@color/white_light"
+            android:visibility="visible" />
+
+    </LinearLayout>
+
+</LinearLayout>

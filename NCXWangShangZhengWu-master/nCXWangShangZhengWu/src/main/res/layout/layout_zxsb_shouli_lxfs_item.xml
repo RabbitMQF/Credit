@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+	android:layout_margin="@dimen/height_1_100"
+    android:background="@drawable/linearlayout"
+    android:orientation="vertical"
+    android:id="@+id/sjsl_lxfs" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:background="@drawable/custom_fragment_tt" >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="@string/lianxifangshi"
+                android:textColor="#FFFFFF" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:background="#3293DB" />
+
+     <LinearLayout
+        android:id="@+id/search_rll4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/height_1_100"
+        android:layout_marginRight="@dimen/height_2_100"
+        android:layout_marginTop="@dimen/width_2_100"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/shoujihaoma"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_middle_size" />
+
+        <EditText
+            android:id="@+id/edt_search_3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="2"
+            android:background="@drawable/bg_edit"
+            android:inputType="number"
+            android:paddingLeft="@dimen/height_1_100"
+            android:singleLine="true" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/search_rll1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/height_3_100"
+        android:layout_marginRight="@dimen/height_1_100"
+        android:layout_marginTop="@dimen/width_1_100"
+        android:orientation="horizontal" 
+        android:visibility="visible">
+
+
+
+        <CheckBox
+            android:id="@+id/cb_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/height_1_100"
+            android:button="@drawable/checkbox_style" />
+                <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/height_1_100"
+            android:text="@string/fashouduanxinhuizhi"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_small_size" />
+    </LinearLayout>
+
+        <LinearLayout
+        android:id="@+id/search__rll4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/height_1_100"
+        android:layout_marginRight="@dimen/height_2_100"
+        android:layout_marginTop="@dimen/width_1_100"
+        android:layout_marginBottom="@dimen/height_1_100"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/dianziyoujian"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_middle_size" />
+
+        <EditText
+            android:id="@+id/edt_search_4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="2"
+            android:background="@drawable/bg_edit"
+            android:inputType="textEmailAddress"
+            android:paddingLeft="@dimen/height_1_100"
+            android:singleLine="true" />
+    </LinearLayout>
+</LinearLayout>

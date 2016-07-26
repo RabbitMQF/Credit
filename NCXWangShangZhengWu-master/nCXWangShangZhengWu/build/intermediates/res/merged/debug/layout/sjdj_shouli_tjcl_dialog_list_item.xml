@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/tv_sjdj_shouli_bltj_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:maxWidth="@dimen/width_90_100"
+        android:text="@string/shoulididian_"
+        android:textSize="@dimen/text_small_size" 
+        android:textColor="@color/black"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="@dimen/height_1_100"
+        android:background="@color/blue_2" />
+
+    <RadioGroup
+        android:id="@+id/rg_sjdj_tjcl_dialog_rg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:checkedButton="0" >
+    </RadioGroup>
+
+</LinearLayout>

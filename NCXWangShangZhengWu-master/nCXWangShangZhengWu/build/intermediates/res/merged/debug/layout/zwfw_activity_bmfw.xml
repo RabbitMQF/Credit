@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    <include layout="@layout/zwgk_view_title" />
+<LinearLayout android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_gravity="center_vertical"
+    android:background="@drawable/zwfw_bg">
+    <ScrollView 
+        android:id="@+id/Scroll"
+        android:layout_width="fill_parent"
+	    android:layout_height="fill_parent" 
+	    android:layout_weight="2"
+	    android:visibility="visible">
+    <ImageView 
+        android:id="@+id/ivS"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        
+        android:src="@drawable/bmfw_4_2"
+        android:scaleType="fitStart" />
+    
+</ScrollView>
+<WebView 
+        android:id="@+id/wv"
+        android:layout_width="fill_parent"
+	    android:layout_height="fill_parent" 
+	    android:layout_weight="2"
+	    android:visibility="gone"
+	    />
+    <Button
+        android:id="@+id/btS"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:background="@drawable/btn_bg" 
+        android:text="返回"
+        android:textColor="#ffffff"
+        android:layout_marginBottom="0dp"/>
+    
+</LinearLayout>
+    
+    
+    
+    
+</LinearLayout>

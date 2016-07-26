@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/blue_green"
+    android:orientation="vertical"
+    android:paddingLeft="@dimen/height_1_100"
+    android:paddingRight="@dimen/height_1_100" >
+
+    <!-- 点击Title滚动——业务表单 -->
+
+
+    <!-- 业务表单 -->
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/height_1_100"
+        android:scrollbars="none" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <include layout="@layout/fragment_detail_ywbd_item" />
+
+            <TextView
+                android:id="@+id/tv_bd"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/height_1_100"
+                android:layout_marginTop="@dimen/height_2_100"
+                android:textColor="@color/blue_2"
+                android:textSize="@dimen/text_middle_size"
+                android:visibility="gone" />
+
+            <LinearLayout
+                android:id="@+id/ll_detail_bd"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/height_2_100"
+                android:layout_marginBottom="@dimen/height_1_100"
+                android:background="@drawable/linearlayout"
+                android:orientation="vertical" >
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:background="@drawable/custom_fragment_tt" >
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginRight="20dp"
+                            android:gravity="center"
+                            android:text="表单"
+                            android:textColor="#FFFFFF" />
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:background="#3293DB" />
+
+                <LinearLayout
+                    android:id="@+id/ll_form"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/height_1_100"
+                    android:orientation="vertical" >
+                </LinearLayout>
+                <!--
+                 <ListView
+                android:id="@id/lv_base"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/height_1_100"
+                android:cacheColorHint="@android:color/transparent"
+                android:divider="#00000000"
+                android:dividerHeight="@dimen/height_1_100"
+                android:listSelector="@android:color/transparent"
+                android:scrollbars="none" />
+                -->
+
+                <!-- 
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginBottom="5dp"
+                    android:background="#E1E1E1" />
+                 -->
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

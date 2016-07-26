@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/height_10_100"
+        android:background="@drawable/top_1">
+        
+        <Button 
+            android:id="@+id/ib_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_btn_back"
+            />
+        <TextView 
+            android:id="@+id/tv_title"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="中小学生复学"
+            android:textColor="@color/txt_orange"
+            android:gravity="center"
+            android:textSize="16sp"
+            android:paddingRight="8dp"
+            android:layout_height="fill_parent"
+            android:textStyle="bold"/>
+    </LinearLayout>
+    
+    <ListView
+        android:id="@+id/lv_base"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:padding="@dimen/height_1_100"
+        android:layout_weight="1"
+        android:background="@drawable/zwfw_bg"
+        android:cacheColorHint="@android:color/transparent"
+        android:divider="#00000000"
+        android:dividerHeight="@dimen/height_1_100"
+        android:listSelector="@android:color/transparent"
+        android:scrollbars="none" />
+
+</LinearLayout>

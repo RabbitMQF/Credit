@@ -1,0 +1,480 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/height_1_100"
+    android:background="@drawable/linearlayout"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical">
+    
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:background="@drawable/custom_fragment_tt" >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="基本信息"
+                android:textColor="#FFFFFF" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:background="#3293DB" />
+
+    <LinearLayout
+        android:id="@id/search_rll1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/height_1_100"
+        android:layout_marginRight="@dimen/height_2_100"
+        android:layout_marginTop="@dimen/height_2_100"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="0.95"
+            android:gravity="right|center_vertical"
+            android:text="申请人："
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_middle_size"/>
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="@dimen/height_1_100"
+            android:layout_marginRight="@dimen/height_1_100"
+            android:layout_marginTop="@dimen/height_2_100"
+            android:layout_weight="0.05"
+            android:background="@drawable/icon_not_null"
+            android:visibility="gone" />
+
+        <EditText
+            android:id="@+id/edt_search_1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="2"
+            android:background="@drawable/bg_edit"
+            android:inputType="textPersonName"
+            android:paddingLeft="@dimen/height_1_100"
+            android:singleLine="true" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/search_rll10"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/height_2_100"
+        android:layout_marginLeft="@dimen/height_1_100"
+        android:layout_marginRight="@dimen/height_2_100"
+        android:layout_marginTop="@dimen/height_1_100"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="0.95"
+            android:gravity="right|center_vertical"
+            android:text="申请地址："
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_middle_size" />
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="@dimen/height_1_100"
+            android:layout_marginRight="@dimen/height_1_100"
+            android:layout_marginTop="@dimen/height_2_100"
+            android:layout_weight="0.05"
+            android:background="@drawable/icon_not_null" 
+            android:visibility="gone"/>
+
+        <EditText
+            android:id="@+id/edt_search_2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="2"
+            android:background="@drawable/bg_edit"
+            android:inputType="number"
+            android:paddingLeft="@dimen/height_1_100"
+            android:singleLine="true" />
+    </LinearLayout>
+    
+    <LinearLayout
+        android:id="@+id/search_rll3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        
+        android:layout_marginLeft="@dimen/height_1_100"
+        android:layout_marginRight="@dimen/height_2_100"
+        android:layout_marginTop="@dimen/height_1_100"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="0.95"
+            android:gravity="right|center_vertical"
+            android:text="申请单位："
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_middle_size" />
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="@dimen/height_1_100"
+            android:layout_marginRight="@dimen/height_1_100"
+            android:layout_marginTop="@dimen/height_2_100"
+            android:layout_weight="0.05"
+            android:background="@drawable/icon_not_null" 
+            android:visibility="gone"/>
+
+        <EditText
+            
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="2"
+            android:background="@drawable/bg_edit"
+            android:inputType="number"
+            android:paddingLeft="@dimen/height_1_100"
+            android:singleLine="true" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/search_rll4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+       android:layout_marginBottom="@dimen/height_2_100"
+        android:layout_marginLeft="@dimen/height_1_100"
+        android:layout_marginRight="@dimen/height_2_100"
+        android:layout_marginTop="@dimen/height_1_100"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="0.95"
+            android:gravity="right|center_vertical"
+            android:text="单位地址："
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_middle_size" />
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="@dimen/height_1_100"
+            android:layout_marginRight="@dimen/height_1_100"
+            android:layout_marginTop="@dimen/height_2_100"
+            android:layout_weight="0.05"
+            android:background="@drawable/icon_not_null" 
+            android:visibility="gone"/>
+
+        <EditText
+            
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="2"
+            android:background="@drawable/bg_edit"
+            android:inputType="number"
+            android:paddingLeft="@dimen/height_1_100"
+            android:singleLine="true" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/search_rll5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        
+        android:layout_marginLeft="@dimen/height_1_100"
+        android:layout_marginRight="@dimen/height_2_100"
+        android:layout_marginTop="@dimen/height_1_100"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="0.95"
+            android:gravity="right|center_vertical"
+            android:text="法人代表："
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_middle_size" />
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="@dimen/height_1_100"
+            android:layout_marginRight="@dimen/height_1_100"
+            android:layout_marginTop="@dimen/height_2_100"
+            android:layout_weight="0.05"
+            android:background="@drawable/icon_not_null" 
+            android:visibility="gone"/>
+
+        <EditText
+            
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="2"
+            android:background="@drawable/bg_edit"
+            android:inputType="number"
+            android:paddingLeft="@dimen/height_1_100"
+            android:singleLine="true" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/search_rll6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+       android:layout_marginBottom="@dimen/height_2_100"
+        android:layout_marginLeft="@dimen/height_1_100"
+        android:layout_marginRight="@dimen/height_2_100"
+        android:layout_marginTop="@dimen/height_1_100"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="0.95"
+            android:gravity="right|center_vertical"
+            android:text="联系电话："
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_middle_size" />
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="@dimen/height_1_100"
+            android:layout_marginRight="@dimen/height_1_100"
+            android:layout_marginTop="@dimen/height_2_100"
+            android:layout_weight="0.05"
+            android:background="@drawable/icon_not_null" 
+            android:visibility="gone"/>
+
+        <EditText
+            
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="2"
+            android:background="@drawable/bg_edit"
+            android:inputType="number"
+            android:paddingLeft="@dimen/height_1_100"
+            android:singleLine="true" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/search_rll7"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        
+        android:layout_marginLeft="@dimen/height_1_100"
+        android:layout_marginRight="@dimen/height_2_100"
+        android:layout_marginTop="@dimen/height_1_100"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="0.95"
+            android:gravity="right|center_vertical"
+            android:text="联系人："
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_middle_size" />
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="@dimen/height_1_100"
+            android:layout_marginRight="@dimen/height_1_100"
+            android:layout_marginTop="@dimen/height_2_100"
+            android:layout_weight="0.05"
+            android:background="@drawable/icon_not_null" 
+            android:visibility="gone"/>
+
+        <EditText
+            
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="2"
+            android:background="@drawable/bg_edit"
+            android:inputType="number"
+            android:paddingLeft="@dimen/height_1_100"
+            android:singleLine="true" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/search_rll8"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/height_2_100"
+        android:layout_marginLeft="@dimen/height_1_100"
+        android:layout_marginRight="@dimen/height_2_100"
+        android:layout_marginTop="@dimen/height_1_100"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="0.95"
+            android:gravity="right|center_vertical"
+            android:text="联系电话："
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_middle_size" />
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="@dimen/height_1_100"
+            android:layout_marginRight="@dimen/height_1_100"
+            android:layout_marginTop="@dimen/height_2_100"
+            android:layout_weight="0.05"
+            android:background="@drawable/icon_not_null" 
+            android:visibility="gone"/>
+
+        <EditText
+            
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="2"
+            android:background="@drawable/bg_edit"
+            android:inputType="number"
+            android:paddingLeft="@dimen/height_1_100"
+            android:singleLine="true" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/search_rll9"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+       
+        android:layout_marginLeft="@dimen/height_1_100"
+        android:layout_marginRight="@dimen/height_2_100"
+        android:layout_marginTop="@dimen/height_1_100"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="0.95"
+            android:gravity="right|center_vertical"
+            android:text="联系地址："
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_middle_size" />
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="@dimen/height_1_100"
+            android:layout_marginRight="@dimen/height_1_100"
+            android:layout_marginTop="@dimen/height_2_100"
+            android:layout_weight="0.05"
+            android:background="@drawable/icon_not_null" 
+            android:visibility="gone"/>
+
+        <EditText
+            
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="2"
+            android:background="@drawable/bg_edit"
+            android:inputType="number"
+            android:paddingLeft="@dimen/height_1_100"
+            android:singleLine="true" />
+    </LinearLayout>
+    <LinearLayout
+        
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        
+        android:layout_marginLeft="@dimen/height_1_100"
+        android:layout_marginRight="@dimen/height_2_100"
+        android:layout_marginTop="@dimen/height_1_100"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="0.95"
+            android:gravity="right|center_vertical"
+            android:text="移动电话："
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_middle_size" />
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="@dimen/height_1_100"
+            android:layout_marginRight="@dimen/height_1_100"
+            android:layout_marginTop="@dimen/height_2_100"
+            android:layout_weight="0.05"
+            android:background="@drawable/icon_not_null" 
+            android:visibility="gone"/>
+
+        <EditText
+            
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="2"
+            android:background="@drawable/bg_edit"
+            android:inputType="number"
+            android:paddingLeft="@dimen/height_1_100"
+            android:singleLine="true" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/search_rll11"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+      android:layout_marginBottom="@dimen/height_2_100"
+        android:layout_marginLeft="@dimen/height_1_100"
+        android:layout_marginRight="@dimen/height_2_100"
+        android:layout_marginTop="@dimen/height_1_100"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="0.95"
+            android:gravity="right|center_vertical"
+            android:text="备    注："
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_middle_size" />
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="@dimen/height_1_100"
+            android:layout_marginRight="@dimen/height_1_100"
+            android:layout_marginTop="@dimen/height_2_100"
+            android:layout_weight="0.05"
+            android:background="@drawable/icon_not_null" 
+            android:visibility="gone"/>
+
+        <EditText
+            
+            android:layout_width="0dp"
+            android:layout_height="89dp"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="2.08"
+            android:background="@drawable/bg_edit"
+            android:inputType="number"
+            android:paddingLeft="@dimen/height_1_100"
+            android:singleLine="true" />
+    </LinearLayout>
+    
+    
+
+</LinearLayout>

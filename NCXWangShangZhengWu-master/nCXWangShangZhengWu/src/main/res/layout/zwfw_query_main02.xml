@@ -1,0 +1,396 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/zwfw_bg"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/height_10_100"
+        android:background="@drawable/top_1" >
+
+        <Button
+            android:id="@+id/btn_back"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:background="@drawable/bg_btn_back" />
+
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@drawable/title_search" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp"
+        android:background="@drawable/boder"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/height_10_100"
+            android:layout_marginLeft="1dp"
+            android:layout_marginRight="1dp"
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:paddingLeft="20dp"
+                android:text="查询办事情况"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@drawable/bg_divider" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="1dp"
+            android:layout_marginRight="1dp"
+            android:background="@color/white" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:orientation="horizontal"
+                android:paddingTop="5dp" >
+
+                <TextView
+                    android:id="@+id/tv1_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="受理流水号 : "
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_small_size" />
+
+                <TextView
+                    android:id="@+id/tv1_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="360121100001-141104-00002"
+                    android:textColor="@color/black"
+                    android:textSize="15dp" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="1dp"
+                android:layout_marginRight="1dp"
+                android:layout_marginTop="@dimen/height_1_100"
+                android:background="@drawable/bg_divider"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:orientation="horizontal"
+                android:paddingTop="5dp" >
+
+                <TextView
+                    android:id="@+id/tv3_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="   办事人 : "
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_small_size" />
+
+                <TextView
+                    android:id="@+id/tv3_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="xxx"
+                    android:textColor="@color/black"
+                    android:textSize="15dp" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="1dp"
+                android:layout_marginRight="1dp"
+                android:layout_marginTop="@dimen/height_1_100"
+                android:background="@drawable/bg_divider"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="35dp"
+                android:layout_marginRight="1dp"
+                android:background="@color/white"
+                android:orientation="horizontal"
+                android:paddingTop="5dp" >
+
+                <TextView
+                    android:id="@+id/tv2_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="事项名称 : "
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_small_size" />
+
+                <TextView
+                    android:id="@+id/tv2_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="中小学办事"
+                    android:textColor="@color/black"
+                    android:textSize="15dp" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="1dp"
+                android:layout_marginRight="1dp"
+                android:layout_marginTop="@dimen/height_1_100"
+                android:background="@drawable/bg_divider"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="35dp"
+                android:orientation="horizontal"
+                android:paddingTop="5dp" >
+
+                <TextView
+                    android:id="@+id/tv4_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="申办日期 : "
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_small_size" />
+
+                <TextView
+                    android:id="@+id/tv4_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2014"
+                    android:textColor="@color/black"
+                    android:textSize="15dp" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="1dp"
+                android:layout_marginRight="1dp"
+                android:layout_marginTop="@dimen/height_1_100"
+                android:background="@drawable/bg_divider"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="35dp"
+                android:orientation="horizontal"
+                android:paddingTop="5dp" >
+
+                <TextView
+                    android:id="@+id/tv5_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="受理机构 : "
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_small_size" />
+
+                <TextView
+                    android:id="@+id/tv5_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="莲塘镇府前路居委会"
+                    android:textColor="@color/black"
+                    android:textSize="15dp" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="1dp"
+                android:layout_marginRight="1dp"
+                android:layout_marginTop="@dimen/height_1_100"
+                android:background="@drawable/bg_divider"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="35dp"
+                android:orientation="horizontal"
+                android:paddingTop="5dp" >
+
+                <TextView
+                    android:id="@+id/tv6_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="办结日期 : "
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_small_size" />
+
+                <TextView
+                    android:id="@+id/tv6_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2014"
+                    android:textColor="@color/black"
+                    android:textSize="15dp" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="1dp"
+                android:layout_marginRight="1dp"
+                android:layout_marginTop="@dimen/height_1_100"
+                android:background="@drawable/bg_divider"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="35dp"
+                android:orientation="horizontal"
+                android:paddingTop="5dp" >
+
+                <TextView
+                    android:id="@+id/tv7_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="主管部门 : "
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_small_size" />
+
+                <TextView
+                    android:id="@+id/tv7_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="南昌县教育体育局"
+                    android:textColor="@color/black"
+                    android:textSize="15dp" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="1dp"
+                android:layout_marginRight="1dp"
+                android:layout_marginTop="@dimen/height_1_100"
+                android:background="@drawable/bg_divider"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="35dp"
+                android:orientation="horizontal"
+                android:paddingTop="5dp" >
+
+                <TextView
+                    android:id="@+id/tv8_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="办理地点 : "
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_small_size" />
+
+                <TextView
+                    android:id="@+id/tv8_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="南昌县莲塘路"
+                    android:textColor="@color/black"
+                    android:textSize="15dp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_marginTop="5dp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="业务时间"
+                    android:textSize="18dp"
+                    android:textColor="@color/black" />
+                
+                <TextView
+                    android:layout_marginTop="5dp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="经办机构"
+                    android:textSize="18dp"
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:layout_marginTop="5dp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="业务环节"
+                    android:textSize="18dp"
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:layout_marginTop="5dp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="业务状态"
+                    android:textSize="18dp"
+                    android:textColor="@color/black" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_margin="1dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <ListView
+                    android:id="@+id/lv_query"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp" >
+                </ListView>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

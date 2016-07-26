@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll_detail_btn_6"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/height_1_100"
+    android:background="@color/blue_green"
+    android:orientation="vertical"
+    android:visibility="gone" >
+
+    <!-- 底部的三个固定按钮 -->
+
+
+    <!-- Button -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <Button
+            android:id="@+id/detail_btn_buzhengshouli"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/width_5_100"
+            android:layout_marginRight="@dimen/width_5_100"
+            android:background="@drawable/btn_custom"
+            android:gravity="center"
+            android:paddingBottom="4dp"
+            android:text="补正受理"
+            android:textColor="#FFFFFF"
+            android:visibility="gone" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/width_5_100"
+            android:layout_marginRight="@dimen/width_5_100"
+            android:gravity="center"
+            android:text="该业务已暂停，请开始业务并处理。"
+            android:textColor="#FF0000" />
+    </LinearLayout>
+
+</LinearLayout>

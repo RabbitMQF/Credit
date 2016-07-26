@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical" >
+
+    <!-- 表单录入输入框 -->
+
+    <LinearLayout
+        android:id="@+id/ll_bdlr_shurukuang"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/height_1_100"
+        android:layout_marginRight="@dimen/height_2_100"
+        android:layout_marginTop="@dimen/height_1_100"
+        android:background="@color/white"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/tv_bdlr_shurukuang"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="0.95"
+            android:gravity="center"
+            android:text="@string/search_apply_name"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_middle_size" />
+
+        <ImageView
+            android:id="@+id/iv_bdlr_shurukuang"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/height_1_100"
+            android:layout_marginTop="@dimen/height_2_100"
+            android:layout_weight="0.05"
+            android:background="@drawable/icon_not_null"
+            android:visibility="invisible" />
+
+        <EditText
+            android:id="@+id/edt_bdlr_shurukuang"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/height_1_100"
+            android:layout_weight="2"
+            android:background="@drawable/bg_edit"
+            android:inputType="textPersonName"
+            android:paddingLeft="@dimen/height_1_100"
+            android:singleLine="true" />
+    </LinearLayout>
+
+    <!-- 多行选择框 -->
+
+    <LinearLayout
+        android:id="@+id/ll_more_chioce_kuang"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/height_1_100"
+        android:layout_marginRight="@dimen/height_2_100"
+        android:layout_marginTop="@dimen/height_1_100"
+        android:background="@color/white"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/tv_more_chioce_kuang"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="0.95"
+                android:gravity="center"
+                android:text="@string/search_apply_name"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_middle_size" />
+
+            <ImageView
+                android:id="@+id/iv_more_chioce_kuang"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/height_1_100"
+                android:layout_marginTop="@dimen/height_2_100"
+                android:layout_weight="0.05"
+                android:background="@drawable/icon_not_null"
+                android:visibility="invisible" />
+
+            <LinearLayout
+                android:id="@+id/ll_more_chioce_kuang_address"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/height_1_100"
+                android:layout_weight="2"
+                android:background="@drawable/bg_edit"
+                android:orientation="horizontal" >
+
+                <com.WSZW.view.MarqueeTextView
+                    android:id="@+id/tv_more_chioce_kuang_address"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="9"
+                    android:background="@null"
+                    android:ellipsize="end"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="@dimen/height_1_100"
+                    android:singleLine="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_middle_size" />
+
+                <ImageView
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="@dimen/height_1_100"
+                    android:layout_marginTop="@dimen/height_1_100"
+                    android:background="@drawable/custom_fenge"
+                    android:contentDescription="@string/app_name" />
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/height_2_100"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="@dimen/height_1_100"
+                    android:layout_marginRight="@dimen/height_1_100"
+                    android:layout_weight="0.8"
+                    android:background="@drawable/more"
+                    android:contentDescription="@string/app_name" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_addr_gone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="0.95"
+                android:gravity="center"
+                android:text="@string/search_apply_name"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_middle_size"
+                android:visibility="invisible" />
+
+            <ImageView
+                android:id="@+id/iv_icon1"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/height_1_100"
+                android:layout_marginTop="@dimen/height_2_100"
+                android:layout_weight="0.05"
+                android:background="@drawable/icon_not_null"
+                android:visibility="invisible" />
+
+            <LinearLayout
+                android:id="@+id/ll_more_chioce_kuang_address2"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/height_1_100"
+                android:layout_weight="2"
+                android:background="@drawable/bg_edit"
+                android:orientation="horizontal" >
+
+                <com.WSZW.view.MarqueeTextView
+                    android:id="@+id/tv_more_chioce_kuang_address2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="9"
+                    android:background="@null"
+                    android:ellipsize="end"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="@dimen/height_1_100"
+                    android:singleLine="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_middle_size" />
+
+                <ImageView
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="@dimen/height_1_100"
+                    android:layout_marginTop="@dimen/height_1_100"
+                    android:background="@drawable/custom_fenge"
+                    android:contentDescription="@string/app_name" />
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/height_2_100"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="@dimen/height_1_100"
+                    android:layout_marginRight="@dimen/height_1_100"
+                    android:layout_weight="0.8"
+                    android:background="@drawable/more"
+                    android:contentDescription="@string/app_name" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+    <!-- 下拉选择框 -->
+
+    <LinearLayout
+        android:id="@+id/ll_bdlr_springs_chioce_kuang"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/height_1_100"
+        android:layout_marginRight="@dimen/height_2_100"
+        android:layout_marginTop="@dimen/height_1_100"
+        android:background="@color/white"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/tv_bdlr_springs_chioce_kuang"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="0.95"
+            android:gravity="center"
+            android:text="@string/search_banjianfenlei"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_middle_size" />
+
+        <ImageView
+            android:id="@+id/iv_bdlr_springs_chioce_kuang"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/height_1_100"
+            android:layout_marginTop="@dimen/height_2_100"
+            android:layout_weight="0.05"
+            android:background="@drawable/icon_not_null"
+            android:visibility="invisible" />
+
+        <LinearLayout
+            android:id="@+id/ll_bdlr_springs_chioce_kuang_fenlei"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/height_1_100"
+            android:layout_weight="2"
+            android:background="@drawable/bg_edit"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/tv_bdlr_springs_chioce_kuang_fenlei"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="9"
+                android:background="@null"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/height_1_100"
+                android:singleLine="true"
+                android:text="---请选择---"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_middle_size" />
+
+            <ImageView
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/height_1_100"
+                android:layout_marginTop="@dimen/height_1_100"
+                android:background="@drawable/custom_fenge"
+                android:contentDescription="@string/app_name" />
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="@dimen/height_2_100"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/height_1_100"
+                android:layout_marginRight="@dimen/height_1_100"
+                android:layout_weight="0.8"
+                android:background="@drawable/more"
+                android:contentDescription="@string/app_name" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- 时间选择框 -->
+
+    <LinearLayout
+        android:id="@+id/ll_bdlr_time_chioce_kuang"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/height_1_100"
+        android:layout_marginRight="@dimen/height_2_100"
+        android:layout_marginTop="@dimen/height_1_100"
+        android:background="@color/white"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/tv_bdlr_time_chioce_kuang"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="0.95"
+            android:gravity="center"
+            android:text="@string/search_shenqingriqi"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_middle_size" />
+
+        <ImageView
+            android:id="@+id/iv_bdlr_time_chioce_kuang"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/height_1_100"
+            android:layout_marginTop="@dimen/height_2_100"
+            android:layout_weight="0.05"
+            android:background="@drawable/icon_not_null"
+            android:visibility="invisible" />
+
+        <LinearLayout
+            android:id="@+id/ll_bdlr_time_chioce_kuang_shenqingriqi"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/height_1_100"
+            android:layout_weight="2"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/tv_bdlr_time_chioce_kuang_shenqingriqi"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="9"
+                android:background="@drawable/bg_edit"
+                android:paddingLeft="@dimen/height_1_100"
+                android:singleLine="true"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_middle_size" />
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/height_1_100"
+                android:layout_weight="1.1"
+                android:background="@drawable/btn_date_checks"
+                android:contentDescription="@string/app_name" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/shape_black_half"
+    android:gravity="center"
+    android:minHeight="100dp"
+    android:minWidth="200dp"
+    android:orientation="vertical"
+    android:padding="20dp" >
+    
+    <TextView
+        android:id="@+id/tvTitle"
+        style="@style/tv_medium"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/blue_1"
+        android:gravity="center"
+        android:padding="5dp"
+        android:text="提示"
+        android:textColor="@color/white" />
+
+    <TextView
+        android:id="@+id/tvInfo"
+        style="@style/tv_default2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white_light"
+        android:padding="10dp"
+        android:text="@string/data_loading" />
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:background="@color/white_light"
+        android:scaleType="fitXY"
+        android:src="@drawable/bg_divider" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="5dp" >
+
+        <Button
+            android:id="@+id/btnEnsure"
+            style="@style/btn_green_medium"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="5dp"
+            android:text="@string/ensure" />
+
+        <Button
+            android:id="@+id/btnCancle"
+            style="@style/btn_gray_medium"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:padding="5dp"
+            android:text="@string/cancel" />
+    </LinearLayout>
+
+</LinearLayout>

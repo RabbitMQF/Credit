@@ -1,0 +1,366 @@
+[
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable\\bg_checkbox_icon_menu_0.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable\\bg_checkbox_icon_menu_0.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable\\bg_buttom.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable\\bg_buttom.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_item_background_holo_light.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\drawable\\abc_item_background_holo_light.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable\\linearlayout.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable\\linearlayout.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable\\wheel_bg.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable\\wheel_bg.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable\\linearlayout_detail_1.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable\\linearlayout_detail_1.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable\\btn_title_return.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable\\btn_title_return.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable\\shape_courn.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable\\shape_courn.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable\\bg_list_item_up.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable\\bg_list_item_up.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_item_background_holo_dark.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\drawable\\abc_item_background_holo_dark.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable\\background_view_rounded_middle.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable\\background_view_rounded_middle.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_list_selector_holo_light.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\drawable\\abc_list_selector_holo_light.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_search_dropdown_dark.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\drawable\\abc_search_dropdown_dark.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable\\radio_buttong_bg.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable\\radio_buttong_bg.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_update_button_ok_bg_selector.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable\\umeng_update_button_ok_bg_selector.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable\\linearlayout_detail_2.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable\\linearlayout_detail_2.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable\\shape_black_half.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable\\shape_black_half.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_textfield_searchview_right_holo_dark.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\drawable\\abc_textfield_searchview_right_holo_dark.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable\\btn_style_alert_dialog_cancel.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable\\btn_style_alert_dialog_cancel.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_common_gradient_red.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable\\umeng_common_gradient_red.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_update_button_cancel_bg_focused.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable\\umeng_update_button_cancel_bg_focused.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_clear_holo_light.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\drawable\\abc_ic_clear_holo_light.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_textfield_searchview_right_holo_light.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\drawable\\abc_textfield_searchview_right_holo_light.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_update_wifi_disable.png",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable\\umeng_update_wifi_disable.png"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable\\ridepbutton.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable\\ridepbutton.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable\\shape_bottom.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable\\shape_bottom.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_textfield_searchview_holo_light.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\drawable\\abc_textfield_searchview_holo_light.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable\\btn_uploads.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable\\btn_uploads.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable\\selector_shape_btn_green.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable\\selector_shape_btn_green.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable\\boder3.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable\\boder3.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable\\boder5.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable\\boder5.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable\\btn_style_alert_dialog_button.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable\\btn_style_alert_dialog_button.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable\\background.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable\\background.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable\\selector_shape_btn_gray.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable\\selector_shape_btn_gray.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable\\tb_munion_icon.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable\\tb_munion_icon.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_update_title_bg.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable\\umeng_update_title_bg.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable\\linearlayout_popu_window.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable\\linearlayout_popu_window.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable\\btn_title_menu.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable\\btn_title_menu.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_common_gradient_green.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable\\umeng_common_gradient_green.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_update_button_ok_bg_normal.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable\\umeng_update_button_ok_bg_normal.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_update_button_ok_bg_focused.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable\\umeng_update_button_ok_bg_focused.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable\\linearlayout_detail_3.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable\\linearlayout_detail_3.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable\\text_view_border.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable\\text_view_border.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable\\bg_checkbox_icon_menu_2.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable\\bg_checkbox_icon_menu_2.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_common_gradient_orange.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable\\umeng_common_gradient_orange.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable\\linearlayout_1.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable\\linearlayout_1.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable\\bg_list_item.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable\\bg_list_item.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable\\bg_checkbox_menus.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable\\bg_checkbox_menus.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable\\custom_button.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable\\custom_button.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable\\layout_view_border.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable\\layout_view_border.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable\\bg_checkbox_icon_menu_3.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable\\bg_checkbox_icon_menu_3.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable\\linearlayout_button_apply.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable\\linearlayout_button_apply.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_spinner_ab_holo_dark.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\drawable\\abc_spinner_ab_holo_dark.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_list_selector_holo_dark.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\drawable\\abc_list_selector_holo_dark.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable\\linearlayout_detail_4.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable\\linearlayout_detail_4.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_update_button_cancel_bg_tap.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable\\umeng_update_button_cancel_bg_tap.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable\\shadow.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable\\shadow.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable\\btn_search_fj.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable\\btn_search_fj.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable\\btn_back.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable\\btn_back.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_update_button_cancel_bg_normal.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable\\umeng_update_button_cancel_bg_normal.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable\\boder6.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable\\boder6.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_list_selector_background_transition_holo_dark.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\drawable\\abc_list_selector_background_transition_holo_dark.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable\\boder2.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable\\boder2.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable\\bg_button_zwfw_tt_menu.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable\\bg_button_zwfw_tt_menu.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable\\channel_glide_day_bg.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable\\channel_glide_day_bg.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_update_button_close_bg_selector.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable\\umeng_update_button_close_bg_selector.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable\\bg_btn_back.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable\\bg_btn_back.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_update_button_cancel_bg_selector.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable\\umeng_update_button_cancel_bg_selector.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable\\selector_item.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable\\selector_item.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_update_button_check_selector.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable\\umeng_update_button_check_selector.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable\\chevron.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable\\chevron.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable\\btn_common.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable\\btn_common.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable\\bg_checkbox_icon_menu_1.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable\\bg_checkbox_icon_menu_1.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable\\boder.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable\\boder.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable\\wheel_val.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable\\wheel_val.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable\\vpi__tab_indicator.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\exploded-aar\\NCXWangShangZhengWu-master\\library\\unspecified\\res\\drawable\\vpi__tab_indicator.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable\\btn_date_checks.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable\\btn_date_checks.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable\\tb_munion_item_selector.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable\\tb_munion_item_selector.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable\\shape_top.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable\\shape_top.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable\\checkbox_style.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable\\checkbox_style.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_update_dialog_bg.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable\\umeng_update_dialog_bg.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_list_selector_background_transition_holo_light.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\drawable\\abc_list_selector_background_transition_holo_light.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_update_button_ok_bg_tap.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable\\umeng_update_button_ok_bg_tap.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable\\btn_login.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable\\btn_login.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_spinner_ab_holo_light.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\drawable\\abc_spinner_ab_holo_light.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_textfield_searchview_holo_dark.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\drawable\\abc_textfield_searchview_holo_dark.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_clear.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\drawable\\abc_ic_clear.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_tab_indicator_ab_holo.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\drawable\\abc_tab_indicator_ab_holo.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_search_dropdown_light.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\20.0.0\\res\\drawable\\abc_search_dropdown_light.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable\\selector_popup_window_item_bg.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable\\selector_popup_window_item_bg.xml"
+    },
+    {
+        "merged": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\build\\intermediates\\res\\merged\\debug\\drawable\\boder4.xml",
+        "source": "E:\\ZLH\\android_studio_zlh\\NCXWangShangZhengWu-master\\nCXWangShangZhengWu\\src\\main\\res\\drawable\\boder4.xml"
+    }
+]

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+        android:gravity="center"
+        android:background="#ffffff"
+    android:orientation="vertical" >
+  
+	<RelativeLayout
+	    android:id="@+id/rl_title"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:background="@drawable/top"
+	    android:orientation="vertical" >
+<LinearLayout
+    android:id="@+id/ll_back"
+    android:layout_width="50dp"
+    android:layout_height="50dp"
+    android:gravity="center"
+    >
+		<ImageView
+		    android:id="@+id/iv_back"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_marginLeft="10dp"
+		    android:layout_alignParentLeft="true"
+		    android:layout_centerVertical="true"
+		    android:src="@drawable/btn_back_normal" />
+    </LinearLayout>
+
+	</RelativeLayout>
+
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingLeft="30dp"
+                android:paddingRight="30dp"
+                android:paddingTop="10dp"
+                android:layout_marginBottom="5dp"
+                android:text="县十五届人大五次会议隆重开幕"
+                android:textColor="#000000"
+                android:textSize="20sp" />
+				<LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:orientation="horizontal" >
+            <LinearLayout
+                    android:paddingLeft="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="发布时间  : "
+                        style="@style/content_title_style"
+                         />
+
+                    <TextView
+                        android:id="@+id/tv_fabutime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                           style="@style/content_title_style"
+                        android:text="2015年 02月28日  "
+                       />
+                </LinearLayout>
+                
+                <LinearLayout
+                    android:paddingLeft="15dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                  >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="13sp"
+                        android:text="作者:"
+                        android:textColor="#000000" />
+
+                    <TextView
+                        android:id="@+id/tv_author"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="13sp"
+                        android:text=" 县委宣传部
+"
+                        android:textColor="#000000" />
+                </LinearLayout>
+                </LinearLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:background="#000000" />
+
+            <ScrollView
+                android:id="@+id/scrollView1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical" >
+	    
+              <ImageView
+                  android:id="@+id/imageView1"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:src="@drawable/nan1" />
+              <TextView
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="@string/string_nan1"
+                   android:textColor="#000000"
+                  />
+              
+                </LinearLayout>
+            </ScrollView>
+        
+        </LinearLayout>
+</LinearLayout>
