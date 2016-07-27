@@ -260,6 +260,11 @@ public class CreditSharePreferences {
             return "";
         }
     }
+    public void putUSERNAME(String USERNAME) {
+        Editor editor = sp.edit();
+        editor.putString("USERNAME", USERNAME);
+        editor.commit();
+    }
     /**
      * 获取EMAIL
      * @return

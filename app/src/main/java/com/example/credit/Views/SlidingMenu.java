@@ -117,8 +117,7 @@ public class SlidingMenu extends HorizontalScrollView
 	}
 
 	@Override
-	public boolean onTouchEvent(MotionEvent ev)
-	{
+	public boolean onTouchEvent(MotionEvent ev){
 		int action = ev.getAction();
 		switch (action)
 		{

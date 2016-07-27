@@ -670,7 +670,7 @@ public class CompanyDetailsActivity extends BaseActivity {
     };
 
     public void init() {
-        details_tit1.setText("浏览量"+DataManager.allcountsList.get(0).PageView);
+        details_tit1.setText(DataManager.allcountsList.get(0).PageView);
         if(DataManager.allcountsList.get(0).IsClaim=="1"||DataManager.allcountsList.get(0).IsClaim.equals("1")){
             details_tit3.setText("已认领");
         }if(DataManager.allcountsList.get(0).IsClaim=="2"||DataManager.allcountsList.get(0).IsClaim.equals("2")) {

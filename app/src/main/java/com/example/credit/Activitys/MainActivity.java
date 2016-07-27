@@ -16,10 +16,12 @@ import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
 import android.provider.MediaStore;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.Display;
 import android.view.KeyEvent;
 import android.view.View;
 
+import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -31,6 +33,7 @@ import android.widget.Toast;
 
 import com.example.credit.Adapters.NewClaimListAdapter;
 import com.example.credit.Adapters.NewsListAdapter;
+import com.example.credit.Adapters.SearchListAdapter2;
 import com.example.credit.Dialogs.WaitDialog;
 import com.example.credit.Entitys.DataManager;
 import com.example.credit.R;
@@ -39,6 +42,7 @@ import com.example.credit.Utils.CreditSharePreferences;
 import com.example.credit.Utils.GsonUtil;
 import com.example.credit.Utils.MD5;
 import com.example.credit.Utils.MyhttpCallBack;
+import com.example.credit.Utils.PullToRefreshView;
 import com.example.credit.Utils.URLconstant;
 import com.example.credit.Views.FileUtil;
 import com.example.credit.Views.RoundImageView;
@@ -51,13 +55,18 @@ import com.yolanda.nohttp.RequestMethod;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import Decoder.BASE64Decoder;
 
 import static com.example.credit.Views.FileUtil.decodeBitmap;
 import static com.example.credit.Views.FileUtil.deleteDir;
-
+//SwipeRefreshLayout.OnRefreshListener
 public class MainActivity extends Activity implements View.OnClickListener {
+//    ,PullToRefreshView.OnHeaderRefreshListener, PullToRefreshView.OnFooterRefreshListener
     private long exitTime = 0;
     private SlidingMenu mLeftMenu;
     private final int NOHTTP_CITY = 0x021;//获取城市
@@ -71,7 +80,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
     @ViewInject(R.id.tab4)
     LinearLayout tab4;//股东查询
     RelativeLayout topSearch;
-    ListView NewsListview,NewClaimListview;
     public static Handler handler;
 
     @ViewInject(R.id.headimg)
@@ -98,17 +106,25 @@ public class MainActivity extends Activity implements View.OnClickListener {
     @ViewInject(R.id.login)
     Button login;//登录
 
-//    @ViewInject(R.id.homeprogress)
-//    LinearLayout homeprogress;//单独的新闻加载框
+    @ViewInject(R.id.btmore)
+    Button btmore;//加载更多
 
+    //    @ViewInject(R.id.homeprogress)
+//    LinearLayout homeprogress;//数据加载框
+    @ViewInject(R.id.news_list)
+    ListView NewsListview;
 
+    public static List<DataManager.MyNews.DataBean.NewslistBean> MyNewsList = new ArrayList<DataManager.MyNews.DataBean.NewslistBean>();//初始新闻集合
     static CreditSharePreferences csp;
     Boolean LoginStatus;
     public static ProgressDialog pd;
     public static WaitDialog ad;
 
-    TextView main1,main2;
-
+    TextView main1,main2;//新闻和最新认领按钮
+//    PullToRefreshView mPullToRefreshView;
+    boolean falg=true;
+    int t=2;
+    int str=1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -118,7 +134,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
         ViewUtils.inject(this);
         ad = new WaitDialog(this);
         initView();
-
         mLeftMenu = (SlidingMenu) findViewById(R.id.id_menu);
 
         /*FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -139,10 +154,21 @@ public class MainActivity extends Activity implements View.OnClickListener {
             public void handleMessage(Message msg) {
                 switch (msg.what) {
                     case 0:
-//                        homeprogress.setVisibility(View.GONE);
-                        NewsListAdapter adapter = new NewsListAdapter(MainActivity.this, DataManager.NewClaimS.data.Newslist);
+                        int por=MyNewsList.size()-1;
+                        NewsListAdapter adapter = new NewsListAdapter(MainActivity.this,MyNewsList);
                         NewsListview.setAdapter(adapter);
                         adapter.notifyDataSetChanged();
+                        if(str==2){
+                            NewsListview.setSelection(por-1);
+                        }
+                        NewsListview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                            @Override
+                            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                                Intent i=new Intent(MainActivity.this,NewsContentActivity.class);
+                                i.putExtra("id",MyNewsList.get(position).ID);
+                                startActivity(i);
+                            }
+                        });
                         break;
                     case 1://我的评价
                         Intent i1 = new Intent(MainActivity.this, MyCommentlistActivity.class);
@@ -167,11 +193,10 @@ public class MainActivity extends Activity implements View.OnClickListener {
                         startActivity(i6);
                         break;
                     case 7:
-//                        homeprogress.setVisibility(View.GONE);
                         NewClaimListAdapter adapter1 = new NewClaimListAdapter(MainActivity.this, DataManager.MyClaimUtilsModel.data.Claimlist);
-                        NewClaimListview.setAdapter(adapter1);
+                        NewsListview.setAdapter(adapter1);
                         adapter1.notifyDataSetChanged();
-                        NewClaimListview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                        NewsListview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                             @Override
                             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                                 if(csp.getLoginStatus()){
@@ -203,6 +228,10 @@ public class MainActivity extends Activity implements View.OnClickListener {
                         Intent i2 = new Intent(MainActivity.this, NewsContentActivity.class);
                         startActivity(i2);
                         break;
+                    case 101:
+                        com.example.credit.Utils.Toast.show("没有数据了!");
+                        break;
+
                     default:
                         break;
                 }
@@ -210,65 +239,96 @@ public class MainActivity extends Activity implements View.OnClickListener {
             }
         };
         initData();
-    }
-
-    private void initData() {
-        try{
-//            homeprogress.setVisibility(View.VISIBLE);
-            if (!DataManager.NewClaimS.data.Newslist.equals(null) && DataManager.NewClaimS.data.Newslist != null && DataManager.NewClaimS.data.Newslist.size() > 0 ) {
-                handler.sendEmptyMessage(0);
+        NewsListview.setOnScrollListener(new AbsListView.OnScrollListener(){
+            @Override
+            public void onScrollStateChanged(AbsListView view, int scrollState){
+                // 当不滚动时
+                if (scrollState == AbsListView.OnScrollListener.SCROLL_STATE_IDLE) {
+                    // 判断是否滚动到底部
+                    btmore.setVisibility(View.VISIBLE);
+                    if (view.getLastVisiblePosition() == view.getCount() - 1) {
+                        //加载更多功能的代码
+                        //btmore.setVisibility(View.GONE);
+                    }
+                }
             }
-        }catch (Exception e){
-            e.printStackTrace();
-            com.example.credit.Utils.Toast.show("新闻君正在赶来的路上...");
+
+            @Override
+            public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
+
+            }
+        });
+
+
+    }
+    private void initData() {
+//        try{
+//            if (!DataManager.MyNewsS.data.Newslist.equals(null) && DataManager.MyNewsS.data.Newslist != null && DataManager.MyNewsS.data.Newslist.size() > 0 ) {
+//                handler.sendEmptyMessage(0);
+//            }
+//        }catch (Exception e){
+//            e.printStackTrace();
+//            com.example.credit.Utils.Toast.show("新闻正在赶来的路上...");
+//            mPullToRefreshView.setVisibility(View.GONE);
+//        }
+        if(MyNewsList!=null && MyNewsList.size()>0){
+            handler.sendEmptyMessage(0);
+        }else{//没有数据
+//            mPullToRefreshView.setVisibility(View.GONE);
+            btmore.setVisibility(View.GONE);
         }
+
         main1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                NewsListview.setVisibility(View.VISIBLE);
-                NewClaimListview.setVisibility(View.GONE);
+                falg=true;
                 main1.setTextColor(getResources().getColor(R.color.white));
                 main1.setBackgroundDrawable(getResources().getDrawable(R.drawable.details_gg_bgtit));
                 main2.setTextColor(getResources().getColor(R.color.black));
                 main2.setBackgroundDrawable(getResources().getDrawable(R.drawable.details_con_tabbg2));
-                if (DataManager.NewClaimS.data.Newslist != null && DataManager.NewClaimS.data.Newslist.size() > 0) {
-                    handler.sendEmptyMessage(0);
+                try{
+                    if (MyNewsList != null && MyNewsList.size() > 0) {
+                        handler.sendEmptyMessage(0);
+                    }
+                }catch (Exception e){
+                    e.printStackTrace();
+                    com.example.credit.Utils.Toast.show("新闻正在赶来的路上...");
+//                    mPullToRefreshView.setVisibility(View.GONE);
                 }
             }
         });
         main2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                NewClaimListview.setVisibility(View.VISIBLE);
-                NewsListview.setVisibility(View.GONE);
+                falg=false;
+                btmore.setVisibility(View.GONE);
                 main1.setTextColor(getResources().getColor(R.color.black));
                 main1.setBackgroundDrawable(getResources().getDrawable(R.drawable.details_con_tabbg2));
                 main2.setTextColor(getResources().getColor(R.color.white));
                 main2.setBackgroundDrawable(getResources().getDrawable(R.drawable.details_gg_bgtit));
-                if (DataManager.MyClaimUtilsModel.data.Claimlist != null && DataManager.MyClaimUtilsModel.data.Claimlist.size() > 0) {
-                    handler.sendEmptyMessage(7);
+                try{
+                    if (DataManager.MyClaimUtilsModel.data.Claimlist != null && DataManager.MyClaimUtilsModel.data.Claimlist.size() > 0) {
+                        handler.sendEmptyMessage(7);
+                    }
+                }catch (Exception e){
+                    e.printStackTrace();
+                    com.example.credit.Utils.Toast.show("数据正在赶来的路上...");
+//                    mPullToRefreshView.setVisibility(View.GONE);
                 }
-            }
-        });
-        NewsListview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent i=new Intent(MainActivity.this,NewsContentActivity.class);
-                i.putExtra("id",DataManager.NewClaimS.data.Newslist.get(position).ID);
-                startActivity(i);
             }
         });
     }
 
     private void initView() {
+//        mPullToRefreshView = (PullToRefreshView) findViewById(R.id.pull_refresh_view);
+//        mPullToRefreshView.setOnHeaderRefreshListener(this);
+//        mPullToRefreshView.setOnFooterRefreshListener(this);
         main1 = (TextView) findViewById(R.id.main1);
         main2 = (TextView) findViewById(R.id.main2);
 
         mLeftMenu = (SlidingMenu) findViewById(R.id.id_menu);
         topSearch = (RelativeLayout) findViewById(R.id.top_search);
         topSearch.setOnClickListener(this);
-        NewsListview = (ListView) findViewById(R.id.news_list);
-        NewClaimListview = (ListView) findViewById(R.id.NewClaimListview);
         pd = new ProgressDialog(MainActivity.this);
         pd.setMessage("请稍后...");
         pd.setCancelable(false);
@@ -294,7 +354,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         tab2.setOnClickListener(listener);
         tab3.setOnClickListener(listener);
         tab4.setOnClickListener(listener);
-
+        btmore.setOnClickListener(listener);
         set.setOnClickListener(listener);
 
 //        pb_4.setOnClickListener(listener);
@@ -417,6 +477,24 @@ public class MainActivity extends Activity implements View.OnClickListener {
                         startActivity(is);
                     }
                     break;
+                case R.id.btmore://新闻加载更多
+                    if(t<=DataManager.MyNewsS.data.Paging.TotalPage){
+                        GsonUtil NewsRequest=new GsonUtil(URLconstant.URLINSER+URLconstant.NEWSURL, RequestMethod.GET);//新闻数据
+                        NewsRequest.setConnectTimeout(20000);
+                        NewsRequest.setReadTimeout(20000);
+                        NewsRequest.add("token",MD5.MD5s("" + new Build().MODEL));
+                        NewsRequest.add("KeyNo","");
+                        NewsRequest.add("deviceId",(new Build()).MODEL);
+
+                        NewsRequest.add("pageIndex",t);
+                        NewsRequest.add("pageSize",5);
+                        CallServer.getInstance().add(MainActivity.this,NewsRequest, MyhttpCallBack.getInstance(),0x1111,true,false,true);
+                        t++;
+                        str=2;
+                    }else{
+                        btmore.setVisibility(View.GONE);
+                    }
+                    break;
 
 
             }
@@ -531,4 +609,64 @@ public class MainActivity extends Activity implements View.OnClickListener {
         }
         return super.onKeyDown(keyCode, event);
     }
+
+//    /**
+//     * 上啦加载
+//     * @param view
+//     */
+//    @Override
+//    public void onFooterRefresh(PullToRefreshView view) {
+//        mPullToRefreshView.postDelayed(new Runnable() {
+//
+//            @Override
+//            public void run() {
+//                mPullToRefreshView.onFooterRefreshComplete();
+//                if(falg){
+//                    if(t<=DataManager.MyNewsS.data.Paging.TotalPage){
+//                        GsonUtil NewsRequest=new GsonUtil(URLconstant.URLINSER+URLconstant.NEWSURL, RequestMethod.GET);//新闻数据
+//                        NewsRequest.setConnectTimeout(20000);
+//                        NewsRequest.setReadTimeout(20000);
+//                        NewsRequest.add("token",MD5.MD5s("" + new Build().MODEL));
+//                        NewsRequest.add("KeyNo","");
+//                        NewsRequest.add("deviceId",(new Build()).MODEL);
+//
+//                        NewsRequest.add("pageIndex",t);
+//                        NewsRequest.add("pageSize",5);
+//                        CallServer.getInstance().add(MainActivity.this,NewsRequest, MyhttpCallBack.getInstance(),0x1111,true,false,true);
+//                        t++;
+//                        str=2;
+//                    }else{
+//                        com.example.credit.Utils.Toast.show("没有数据了!");
+//                    }
+//                }else{
+//                    NewClaimListAdapter adapter1 = new NewClaimListAdapter(MainActivity.this, DataManager.MyClaimUtilsModel.data.Claimlist);
+//                    NewsListview.setAdapter(adapter1);
+//                    adapter1.notifyDataSetChanged();
+//                }
+//            }
+//        }, 1000);
+//    }
+//    /**
+//     * 下拉刷新
+//     * @param view
+//     */
+//    @Override
+//    public void onHeaderRefresh(PullToRefreshView view) {
+//        mPullToRefreshView.postDelayed(new Runnable() {
+//
+//            @Override
+//            public void run() {
+//                mPullToRefreshView.onHeaderRefreshComplete();
+//                if(falg){
+//                    NewsListAdapter adapter = new NewsListAdapter(MainActivity.this, MyNewsList);
+//                    NewsListview.setAdapter(adapter);
+//                    adapter.notifyDataSetChanged();
+//                }else{
+//                    NewClaimListAdapter adapter1 = new NewClaimListAdapter(MainActivity.this, DataManager.MyClaimUtilsModel.data.Claimlist);
+//                    NewsListview.setAdapter(adapter1);
+//                    adapter1.notifyDataSetChanged();
+//                }
+//            }
+//        }, 1000);
+//    }
 }

@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.provider.Settings;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AlertDialog;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -44,6 +45,7 @@ import com.example.credit.Services.CallServer;
 import com.example.credit.Utils.CreditSharePreferences;
 import com.example.credit.Utils.GsonUtil;
 import com.example.credit.Utils.MyhttpCallBack;
+import com.example.credit.Utils.PullToRefreshView;
 import com.example.credit.Utils.Toast;
 import com.example.credit.Utils.URLconstant;
 import com.example.credit.Views.CustomPopupwindow;
@@ -53,14 +55,16 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.security.MessageDigest;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Arrays;
+import java.util.Map;
 import java.util.Random;
 
 /**
  * Created by alucard on 2016-05-12.
  */
-public class SearchFirmActivty extends BaseActivity implements GestureDetector.OnGestureListener {
+public class SearchFirmActivty extends BaseActivity implements PullToRefreshView.OnHeaderRefreshListener, PullToRefreshView.OnFooterRefreshListener,GestureDetector.OnGestureListener {
     public static final String ENCODEING_TRYPE = "UTF-8";
     public static final String SEARCH_HISTORY = "search_history";
     public static final int NOHTTP_SEARCH = 0x022;
@@ -109,7 +113,9 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
     int type;
     AlertDialog.Builder builder;
     AlertDialog dialog;
-
+    int t=2;
+    int por;
+    PullToRefreshView mPullToRefreshView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -127,18 +133,28 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
                     case 0:
                         falg = 2;//设置搜索结果时的默认值
                         pd.dismiss();
-                        listsea = DataManager.searchList;
+                        por=listsea.size()-1;
+                        if(DataManager.searchListMore!=null && DataManager.searchListMore.size()>0){
+                            t++;
+                            for(int i=0;i<DataManager.searchListMore.size();i++){
+                                listsea.add(DataManager.searchListMore.get(i));
+                            }
+                        }else{
+                            listsea = DataManager.searchList;
+                        }
                         his_sra.setVisibility(View.GONE);
                         search_list.setVisibility(View.VISIBLE);
+                        mPullToRefreshView.setVisibility(View.VISIBLE);
                         SearchListAdapter2 adapter2 = new SearchListAdapter2(SearchFirmActivty.this, listsea);
                         search_list.setAdapter(adapter2);
                         adapter2.notifyDataSetChanged();
-                        android.widget.Toast.makeText(SearchFirmActivty.this, "搜索到" + MyhttpCallBack.baging.TotalRecords + "条数据", android.widget.Toast.LENGTH_SHORT).show();
+                        search_list.setSelection(por-2);
+                        android.widget.Toast.makeText(SearchFirmActivty.this, "已搜索到" + MyhttpCallBack.baging.TotalRecords + "条数据,共有" + MyhttpCallBack.baging.TotalRecords + "条数据", android.widget.Toast.LENGTH_SHORT).show();
                         search_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                             @Override
                             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                                 if (!csp.getLoginStatus()) {//判定是否登录
-                                   Toast.show("请先登录账号");
+                                    Toast.show("请先登录账号");
                                     dialog.show();
                                 } else {
                                     po = position;
@@ -185,6 +201,7 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
         initViews();
         randomTanslate();
         gDetector = new GestureDetector(this);
+
     }
 
     /**
@@ -260,6 +277,7 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
                     if (his_sra.getVisibility() == View.GONE) {//当历史界面隐藏
                         if (falg == 2) {//并且当前处于已经搜索结果时
                             search_list.setVisibility(View.VISIBLE);//则显示搜索结果list
+                            mPullToRefreshView.setVisibility(View.VISIBLE);
                         } else {
                             his_sra.setVisibility(View.VISIBLE);//反之则显示历史UI
                         }
@@ -287,6 +305,7 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
                         if (his_sra.getVisibility() == View.GONE) {//当历史界面隐藏
                             if (falg == 2) {//并且当前处于已经搜索结果时
                                 search_list.setVisibility(View.VISIBLE);//则显示搜索结果list
+                                mPullToRefreshView.setVisibility(View.VISIBLE);
                             } else {
                                 his_sra.setVisibility(View.VISIBLE);//反之则显示历史UI
                             }
@@ -325,6 +344,9 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
      * 初始化UI组建
      */
     private void initView() {
+        mPullToRefreshView = (PullToRefreshView) findViewById(R.id.pull_refresh_view);
+        mPullToRefreshView.setOnHeaderRefreshListener(this);
+        mPullToRefreshView.setOnFooterRefreshListener(this);
 
         builder = new AlertDialog.Builder(this);
         builder.setTitle("是否登录");
@@ -481,6 +503,7 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
                         if (his_sra.getVisibility() == View.GONE) {//当历史界面隐藏
                             if (falg == 2) {//并且当前处于已经搜索结果时
                                 search_list.setVisibility(View.VISIBLE);//则显示搜索结果list
+                                mPullToRefreshView.setVisibility(View.VISIBLE);
                             } else {
                                 his_sra.setVisibility(View.VISIBLE);//反之则显示历史UI
                             }
@@ -508,6 +531,7 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
                         city_check = true;
                         if (his_sra.getVisibility() == View.GONE) {//当历史界面隐藏
                             search_list.setVisibility(View.GONE);//则隐藏搜索结果list
+                            mPullToRefreshView.setVisibility(View.VISIBLE);
                         } else {
                             his_sra.setVisibility(View.GONE);//反之则隐藏历史UI
                         }
@@ -538,6 +562,7 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
                             if (his_sra.getVisibility() == View.GONE) {//当历史界面隐藏
                                 if (falg == 2) {//并且当前处于已经搜索结果时
                                     search_list.setVisibility(View.VISIBLE);//则显示搜索结果list
+                                    mPullToRefreshView.setVisibility(View.VISIBLE);
                                 } else {
                                     his_sra.setVisibility(View.VISIBLE);//反之则显示历史UI
                                 }
@@ -582,6 +607,7 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
                             if (his_sra.getVisibility() == View.GONE) {//当历史界面隐藏
                                 if (falg == 2) {//并且当前处于已经搜索结果时
                                     search_list.setVisibility(View.VISIBLE);//则显示搜索结果list
+                                    mPullToRefreshView.setVisibility(View.VISIBLE);
                                 } else {
                                     his_sra.setVisibility(View.VISIBLE);//反之则显示历史UI
                                 }
@@ -627,6 +653,7 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
                             if (his_sra.getVisibility() == View.GONE) {//当历史界面隐藏
                                 if (falg == 2) {//并且当前处于已经搜索结果时
                                     search_list.setVisibility(View.VISIBLE);//则显示搜索结果list
+                                    mPullToRefreshView.setVisibility(View.VISIBLE);
                                 } else {
                                     his_sra.setVisibility(View.VISIBLE);//反之则显示历史UI
                                 }
@@ -751,8 +778,13 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
      * @param event
      * @return
      */
+    @Override
     public boolean onTouchEvent(MotionEvent event) {
-        return gDetector.onTouchEvent(event);
+        if(listsea.size()<=0){
+            return gDetector.onTouchEvent(event);
+        }else{
+            return super.onTouchEvent(event);
+        }
     }
 
     private void initViews() {
@@ -913,7 +945,8 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
         } else if (endX - beginX > minMove && Math.abs(velocityX) > minVelocity) {   //右滑
             startAnimations1();
             randomText();
-        } else if (beginY - endY > minMove && Math.abs(velocityY) > minVelocity) {   //上滑
+        } else
+        if (beginY - endY > minMove && Math.abs(velocityY) > minVelocity) {   //上滑
             startAnimations2();
             randomText();
         } else if (endY - beginY > minMove && Math.abs(velocityY) > minVelocity) {   //下滑
@@ -1066,8 +1099,8 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
                     request.add("searchType", 3);//int 搜索类型 （企业、法人、失信、违法）默认为0企业,1是该法人名下企业,2失信企业,3违法企业
                     break;
             }
-            //request.add("pageIndex", 0);//int 搜索请求页数
-            //request.add("pageSize", 40);//int 搜索请求条数
+            request.add("pageIndex", 1);//int 搜索请求页数
+            request.add("pageSize", 10);//int 搜索请求条数
             if (industryindex != null && industryindex != "") {//int/string(建议传string) 行业代码为空不做限制
                 request.add("industryCode", industryindex);
             }
@@ -1094,5 +1127,85 @@ public class SearchFirmActivty extends BaseActivity implements GestureDetector.O
         } else {
             android.widget.Toast.makeText(SearchFirmActivty.this, "搜索关键词不能为空!", android.widget.Toast.LENGTH_SHORT).show();
         }
+    }
+
+    /**
+     * 上拉加载
+     * @param view
+     */
+    @Override
+    public void onFooterRefresh(PullToRefreshView view) {
+
+        mPullToRefreshView.postDelayed(new Runnable() {
+
+            @Override
+            public void run() {
+                GsonUtil request = new GsonUtil(URLconstant.URLINSER + URLconstant.SEARCHURL, RequestMethod.GET);
+                request.setReadTimeout(50000);
+                request.add("token",  MD5s(searchEt.getText().toString() + model));//加密结果
+                request.add("searchKey", searchEt.getText().toString());//string搜索关键字
+                request.add("deviceId", model);//设备ID
+                request.add("memberId", csp.getID());//86D9D7F53FCA45DD93E2D83DFCA0CB42  记录用户搜索关键字
+                //根据type判断查询类型
+                switch (type) {
+                    case 0:
+                        request.add("searchType", 0);//int 搜索类型 （企业、法人、失信、违法）默认为0企业,1是该法人名下企业,2失信企业,3违法企业
+                        break;
+                    case 1:
+                        request.add("searchType", 1);//int 搜索类型 （企业、法人、失信、违法）默认为0企业,1是该法人名下企业,2失信企业,3违法企业
+                        break;
+                    case 2:
+                        request.add("searchType", 2);//int 搜索类型 （企业、法人、失信、违法）默认为0企业,1是该法人名下企业,2失信企业,3违法企业
+                        break;
+                    case 3:
+                        request.add("searchType", 3);//int 搜索类型 （企业、法人、失信、违法）默认为0企业,1是该法人名下企业,2失信企业,3违法企业
+                        break;
+                }
+                request.add("pageIndex", t);//int 搜索请求页数
+                request.add("pageSize", 10);//int 搜索请求条数
+                if (industryindex != null && industryindex != "") {//int/string(建议传string) 行业代码为空不做限制
+                    request.add("industryCode", industryindex);
+                }
+                if (startDateindex != null) {//int 企业经营时间起 3（3至startDateEnd）
+                    request.add("startDateBegin", startDateindex);
+                }
+                if (endDateindex != null) {//int 企业经营时间止 5（startDateBegin至5） 为空不作限制，为空必须与startDateBegin一起为空
+                    request.add("startDateEnd", endDateindex);
+                }
+                if (registCapiStartIndex != null) {//int 注册资金起 为空不做限制
+                    request.add("registCapiBegin", registCapiStartIndex);
+                }
+                if (registCapiEndIndex != null) {//int 注册资金止 为空必须和registCapiEnd一起为空
+                    request.add("registCapiEnd", registCapiEndIndex);
+                }
+                if (provinceindex != null) {//int/string 省代码 为空不做限制 为空citycode必须为空
+                    request.add("province", provinceindex);
+                }
+                if (cityindex != null && provinceindex != null && cityindex != "") {//int 城市代码  为空为当前省所有城市
+                    request.add("cityCode", cityindex);
+                }
+                CallServer.getInstance().add(SearchFirmActivty.this, request, MyhttpCallBack.getInstance(), 0x0221, true, false, true);
+                mPullToRefreshView.onFooterRefreshComplete();
+            }
+        }, 1000);
+
+    }
+
+    /**
+     * 下拉刷新
+     * @param view
+     */
+    @Override
+    public void onHeaderRefresh(PullToRefreshView view) {
+        mPullToRefreshView.postDelayed(new Runnable() {
+
+            @Override
+            public void run() {
+                mPullToRefreshView.onHeaderRefreshComplete();
+                SearchListAdapter2 adapter2 = new SearchListAdapter2(SearchFirmActivty.this, listsea);
+                search_list.setAdapter(adapter2);
+                adapter2.notifyDataSetChanged();
+            }
+        }, 1000);
     }
 }

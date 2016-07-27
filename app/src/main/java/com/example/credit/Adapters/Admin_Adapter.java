@@ -108,7 +108,7 @@ public class Admin_Adapter extends BaseAdapter {
 
             vh.apripid.setText(temp_admin.LICNAME_CN);
             vh.aname.setText(temp_admin.LICNO);
-            vh.ano.setText(temp_admin.VALFROM+"   "+temp_admin.VALTO);
+            vh.ano.setText(temp_admin.VALFROM+" - "+temp_admin.VALTO);
             vh.atime.setText(temp_admin.LICANTH);
             vh.aoffice.setText("");
             vh.adate.setText(temp_admin.LICITEM);

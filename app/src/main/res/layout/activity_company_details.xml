@@ -10,6 +10,7 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -17,21 +18,21 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="158dp"
+                android:layout_height="153dip"
                 android:background="@mipmap/detail_top"
                 android:orientation="vertical">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="70dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_height="80dp"
+
                     android:orientation="horizontal">
                     <!--android:paddingTop="30dp"-->
 
                     <ImageView
                         android:id="@+id/d_return"
-                        android:layout_width="wrap_content"
-                        android:layout_height="30dp"
+                        android:layout_width="15dip"
+                        android:layout_height="20dip"
                         android:layout_centerVertical="true"
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="20dp"
@@ -48,7 +49,7 @@
                         android:gravity="center_horizontal"
                         android:text="江西科技有限公司的飞洒发生大法撒旦飞洒地方十大"
                         android:textColor="#ffffff"
-                        android:textSize="16sp"
+                        android:textSize="15sp"
                         android:textStyle="bold" />
 
                     <TextView
@@ -57,12 +58,13 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentBottom="true"
                         android:layout_centerVertical="true"
-                        android:gravity="center_horizontal"
                         android:layout_marginLeft="60dp"
                         android:layout_marginRight="60dp"
+                        android:gravity="center_horizontal"
+
                         android:text="江西科技有限公司的飞洒发生大法撒旦飞洒地方十大"
                         android:textColor="#ffffff"
-                        android:textSize="12sp" />
+                        android:textSize="11sp" />
 
                     <LinearLayout
                         android:id="@+id/ll"
@@ -92,7 +94,7 @@
                         android:padding="10dp">
 
                         <ImageView
-                            android:layout_width="30dp"
+                            android:layout_width="20dp"
                             android:layout_height="5dp"
                             android:background="@mipmap/c_more" />
                         <!--android:layout_marginLeft="10dp"-->
@@ -105,21 +107,20 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
-                    android:layout_marginTop="5dp"
-                    android:gravity="center"
+
+                    android:gravity="left"
                     android:orientation="horizontal">
 
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="28dp"
-                        android:background="@drawable/details_toplogo"
                         android:gravity="center"
                         android:orientation="horizontal">
 
                         <ImageView
+                            android:layout_width="15dp"
+                            android:layout_height="10dp"
                             android:layout_marginLeft="5dp"
-                            android:layout_width="20dp"
-                            android:layout_height="15dp"
                             android:background="@mipmap/details_top1" />
 
                         <TextView
@@ -129,19 +130,19 @@
                             android:layout_marginLeft="5dp"
                             android:layout_marginRight="5dp"
                             android:text="浏览量100"
-                            android:textColor="@color/blue1"
-                            android:textSize="14sp" />
+                            android:textColor="@color/white"
+                            android:textSize="11sp" />
 
                     </LinearLayout>
 
                     <LinearLayout
-                        android:visibility="gone"
                         android:layout_width="100dp"
                         android:layout_height="28dp"
                         android:layout_marginLeft="10dp"
                         android:background="@drawable/details_toplogo"
                         android:gravity="center"
-                        android:orientation="horizontal">
+                        android:orientation="horizontal"
+                        android:visibility="gone">
 
                         <ImageView
                             android:layout_width="20dp"
@@ -160,14 +161,14 @@
                     </LinearLayout>
 
                     <LinearLayout
-
                         android:id="@+id/saveG"
                         android:layout_width="100dp"
                         android:layout_height="28dp"
                         android:layout_marginLeft="10dp"
                         android:background="@drawable/details_toplogo"
                         android:gravity="center"
-                        android:orientation="horizontal">
+                        android:orientation="horizontal"
+                        android:visibility="gone">
 
                         <ImageView
                             android:layout_width="20dp"
@@ -204,14 +205,16 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="法定代表人"
-                            android:textColor="@color/white" />
+                            android:textColor="@color/white"
+                            android:textSize="11sp"/>
 
                         <TextView
                             android:id="@+id/name"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="注册日期"
-                            android:textColor="@color/white" />
+                            android:textColor="@color/white"
+                            android:textSize="11sp"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -225,14 +228,16 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="注册资金"
-                            android:textColor="@color/white" />
+                            android:textColor="@color/white"
+                            android:textSize="11sp"/>
 
                         <TextView
                             android:id="@+id/regcap"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="注册日期"
-                            android:textColor="@color/white" />
+                            android:textColor="@color/white"
+                            android:textSize="11sp"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -246,14 +251,16 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="注册日期"
-                            android:textColor="@color/white" />
+                            android:textColor="@color/white"
+                            android:textSize="11sp"/>
 
                         <TextView
                             android:id="@+id/estdate"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="注册日期"
-                            android:textColor="@color/white" />
+                            android:textColor="@color/white"
+                            android:textSize="11sp"/>
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
@@ -322,6 +329,7 @@
                     android:numColumns="4"
                     android:stretchMode="columnWidth" />
             </ScrollView>
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="0.5dp"
@@ -353,8 +361,8 @@
             android:layout_gravity="bottom|center_horizontal">
 
             <com.example.credit.Views.RoundImageView
-                android:layout_width="55dp"
-                android:layout_height="55dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:src="@mipmap/detail_fff" />
 
             <LinearLayout
@@ -365,8 +373,8 @@
                 android:orientation="vertical">
 
                 <com.example.credit.Views.RoundImageView
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
                     android:background="@mipmap/btm_0" />
 
             </LinearLayout>

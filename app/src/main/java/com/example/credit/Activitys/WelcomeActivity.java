@@ -2,6 +2,7 @@ package com.example.credit.Activitys;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.view.View;
@@ -14,6 +15,7 @@ import com.example.credit.R;
 import com.example.credit.Services.CallServer;
 import com.example.credit.Utils.CreditSharePreferences;
 import com.example.credit.Utils.GsonUtil;
+import com.example.credit.Utils.MD5;
 import com.example.credit.Utils.MyhttpCallBack;
 import com.example.credit.Utils.URLconstant;
 import com.lidroid.xutils.ViewUtils;
@@ -49,7 +51,6 @@ public class WelcomeActivity extends Activity {
         if (!destDir3.exists()) {
             destDir3.mkdirs();
         }
-        initData();
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -77,19 +78,24 @@ public class WelcomeActivity extends Activity {
         Animation a= AnimationUtils.loadAnimation(this, R.anim.welcome_in);
         a.setAnimationListener(listener);
         iv.setAnimation(a);
+        initDataHttp();
     }
 
-    private void initData() {
-
-        GsonUtil NewsRequest=new GsonUtil(URLconstant.NEWSURL, RequestMethod.POST);//新闻数据
+    private void initDataHttp() {
+        GsonUtil NewsRequest=new GsonUtil(URLconstant.URLINSER+URLconstant.NEWSURL, RequestMethod.GET);//新闻数据
         NewsRequest.setConnectTimeout(20000);
         NewsRequest.setReadTimeout(20000);
+        NewsRequest.add("token", MD5.MD5s("" + new Build().MODEL));
+        NewsRequest.add("KeyNo","");
+        NewsRequest.add("deviceId",(new Build()).MODEL);
+
+        NewsRequest.add("pageIndex",1);
+        NewsRequest.add("pageSize",5);
         CallServer.getInstance().add(this,NewsRequest, MyhttpCallBack.getInstance(),0x111,true,false,true);
 
         GsonUtil NewClaimRequest=new GsonUtil(URLconstant.URLINSER + URLconstant.NEWCLAIM, RequestMethod.GET);//最新认领
         CallServer.getInstance().add(this,NewClaimRequest, MyhttpCallBack.getInstance(),0x113,true,false,true);
     }
-
     Animation.AnimationListener listener=new Animation.AnimationListener() {
 
         @Override

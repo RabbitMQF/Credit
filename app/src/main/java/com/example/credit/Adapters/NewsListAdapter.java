@@ -17,8 +17,8 @@ import java.util.List;
  */
 public class NewsListAdapter extends BaseAdapter{
     Context context;
-    List<DataManager.NewClaim.DataBean.NewslistBean> newsList;
-    public NewsListAdapter(Context context, List<DataManager.NewClaim.DataBean.NewslistBean> newsList) {
+    List<DataManager.MyNews.DataBean.NewslistBean> newsList;
+    public NewsListAdapter(Context context, List<DataManager.MyNews.DataBean.NewslistBean> newsList) {
         this.context = context;
         this.newsList = newsList;
     }
@@ -53,7 +53,7 @@ public class NewsListAdapter extends BaseAdapter{
         }else {
             vh=(ViewHolder) convertView.getTag();
         }
-        DataManager.NewClaim.DataBean.NewslistBean tempNews=newsList.get(position);
+        DataManager.MyNews.DataBean.NewslistBean tempNews=newsList.get(position);
         //Bitmap bitmap=BitmapFactory.decodeByteArray(Base64.decode(tempNews.img,Base64.DEFAULT),0,Base64.decode(tempNews.img,Base64.DEFAULT).length);
         if(tempNews.TITLE_IMG!=""){
             Picasso.with(context).load("http://101.201.211.27:8282"+tempNews.TITLE_IMG).into(vh.img);

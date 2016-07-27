@@ -164,12 +164,14 @@ public class UserSetActivity extends BaseActivity {
         /**
          * 获取用户行业
          */
-        us_hangye.setText(csf.getINDUSTRYID());
+        String e=csf.getINDUSTRYID();
+        us_hangye.setText(csf.getINDUSTRY());
         us5.setOnClickListener(listener);
         /**
          * 获取用户学历
          */
-        us_xueli.setText(csf.getEDUCATION());
+        String e2=csf.getEDUCATION();
+        us_xueli.setText(csf.getEDUCATIONID());
         us6.setOnClickListener(listener);
         /**
          * 获取用户手机

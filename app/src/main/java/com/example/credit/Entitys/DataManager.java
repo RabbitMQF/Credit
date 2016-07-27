@@ -93,7 +93,7 @@ public class DataManager {
     }
 
     public static List<search> searchList = new ArrayList<>();//搜索列表集合
-
+    public static List<search> searchListMore = new ArrayList<>();//搜索更多列表集合
     /**
      * 搜索实体类
      */
@@ -118,32 +118,6 @@ public class DataManager {
         public String INDUSTRYPHY_NAME;//行业代码中文名字
         public String OPSCOPE;//经营范围
 
-
-       /* public String KeyNo;
-        public String Name;//公司名
-        public String No;
-        public String BelongOrg;
-        public String OperName;//法人
-        public String StartDate;//注册时间
-        public String EndDate;
-        public String Status;//存续
-        public String Province;
-        public String UpdatedDate;
-        public String ShortStatus;
-        public String CreditCode;
-        public String RegistCapi;//注册资金
-        public String EconKind;
-        public String Address;
-        public Industry Industry;
-        public List<OriginalName> OriginalName;
-        public HitReason HitReason;
-        public String Scope;
-        public String ContactNumber;
-        public String Email;
-        public String WebSite;
-        public String ImageUrl;
-        public String OrgNo;
-        public String EnglishName;*/
     }
 
     public class Industry {
@@ -1110,12 +1084,13 @@ public class DataManager {
     }
 
 
-    public static NewClaim NewClaimS=new NewClaim();
+    public static MyNews MyNewsS=new MyNews();//初始新闻信息
+    public static MyNews MyNewsSMore=new MyNews();//更多新闻列表
 
     /**
      * 新闻测试实体类
      */
-    public static class NewClaim {
+    public static class MyNews {
         public String message;
         public String status;
         public DataBean data;

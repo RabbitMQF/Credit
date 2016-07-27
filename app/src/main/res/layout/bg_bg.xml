@@ -8,9 +8,10 @@
     tools:context="com.example.credit.Activitys.AboutActivity">
 
     <ImageView
-        android:layout_width="200dp"
+        android:layout_width="250dp"
         android:layout_height="200dp"
         android:layout_gravity="center"
-        android:background="@mipmap/bg_null2"/>
+        android:layout_marginLeft="10dp"
+        android:background="@mipmap/bg_null"/>
 
 </LinearLayout>

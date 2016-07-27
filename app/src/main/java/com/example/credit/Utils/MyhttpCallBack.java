@@ -86,7 +86,22 @@ public class MyhttpCallBack implements HttpCallBack {
                 break;
             case 0x111://获取新闻
                 jsonString = (String) response.get();
-                DataManager.NewClaimS = gson.fromJson(jsonString, DataManager.NewClaim.class);
+                DataManager.MyNewsS = gson.fromJson(jsonString, DataManager.MyNews.class);
+                if(DataManager.MyNewsS.data.Newslist!=null && DataManager.MyNewsS.data.Newslist.size()>0){
+                    MainActivity.MyNewsList=DataManager.MyNewsS.data.Newslist;
+                }
+                break;
+            case 0x1111://获取更多新闻
+                jsonString = (String) response.get();
+                DataManager.MyNewsSMore = gson.fromJson(jsonString, DataManager.MyNews.class);
+                if(DataManager.MyNewsSMore.data.Newslist!=null && DataManager.MyNewsSMore.data.Newslist.size()>0){
+                    for(int i=0;i<DataManager.MyNewsSMore.data.Newslist.size();i++){
+                        MainActivity.MyNewsList.add(DataManager.MyNewsSMore.data.Newslist.get(i));;
+                    }
+                    MainActivity.handler.sendEmptyMessage(0);
+                }else{
+                    MainActivity.handler.sendEmptyMessage(101);
+                }
                 break;
             case 0x113://获取最新认领
                 jsonString = (String) response.get();
@@ -132,6 +147,43 @@ public class MyhttpCallBack implements HttpCallBack {
                     DataManager.searchList.add(serchtemp);
                 }
                 if (DataManager.searchList != null && DataManager.searchList.size() > 0) {
+                    SearchFirmActivty.handler.sendEmptyMessage(0);
+                } else {
+                    SearchFirmActivty.handler.sendEmptyMessage(500);
+                }
+                break;
+            case 0x0221://搜索加载更多
+                jsonString= (String) response.get();
+                map = gson.fromJson(jsonString, new TypeToken<Map<String, Object>>() {
+                }.getType());
+                baging = gson.fromJson(((Map<String, Object>) map.get("data")).get("Pageing").toString(), DataManager.baging.class);
+                List<LinkedTreeMap> searchstrlist22 = (List<LinkedTreeMap>) ((Map<String, Object>) map.get("data")).get("Result");
+                if (DataManager.searchListMore.size() != 0) {
+                    DataManager.searchListMore.clear();
+                }
+                for (LinkedTreeMap temp : searchstrlist22) {
+                    DataManager.search serchtemp = new DataManager.search();
+                    serchtemp.ENTTYPE = (String) temp.get("ENTTYPE");
+                    serchtemp.PRIPID = (String) temp.get("PRIPID");
+                    serchtemp.ENTNAME = (String) temp.get("ENTNAME");
+                    serchtemp.REGNO = (String) temp.get("REGNO");
+                    serchtemp.REGORG_CN = (String) temp.get("REGORG_CN");
+                    serchtemp.NAME = (String) temp.get("NAME");
+                    serchtemp.OPFROM = (String) temp.get("OPFROM");
+                    serchtemp.OPTO = (String) temp.get("OPTO");
+                    serchtemp.REGSTATE_CN = (String) temp.get("REGSTATE_CN");
+                    serchtemp.C_PROVINCE = (String) temp.get("C_PROVINCE");
+                    serchtemp.D_ADDTIME = (String) temp.get("D_ADDTIME");
+                    serchtemp.C_STATE = (String) temp.get("C_STATE");
+                    serchtemp.REGCAP = temp.get("REGCAP").toString();
+                    serchtemp.ENTTYPE_CN = (String) temp.get("ENTTYPE_CN");
+                    serchtemp.DOM = (String) temp.get("DOM");
+                    serchtemp.INDUSTRYPHY = (String) temp.get("INDUSTRYPHY");
+                    serchtemp.INDUSTRYPHY_NAME = (String) temp.get("INDUSTRYPHY_NAME");
+                    serchtemp.OPSCOPE = (String) temp.get("OPSCOPE");
+                    DataManager.searchListMore.add(serchtemp);
+                }
+                if (DataManager.searchListMore != null && DataManager.searchListMore.size() > 0) {
                     SearchFirmActivty.handler.sendEmptyMessage(0);
                 } else {
                     SearchFirmActivty.handler.sendEmptyMessage(500);
@@ -1217,6 +1269,9 @@ public class MyhttpCallBack implements HttpCallBack {
                     csp.putUser(DataManager.user);
                     csp.putLoginStatus(true);
                     Toast.show("登录成功");
+                    if(csp.getUSERNAME().equals("")){
+                        csp.putUSERNAME("用户12138");
+                    }
                     if(!csp.getALIASNAME().equals("")){
                         MainActivity.UserSz.setText(csp.getALIASNAME());
                     }else{
