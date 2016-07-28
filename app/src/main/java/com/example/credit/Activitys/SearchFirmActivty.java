@@ -72,13 +72,12 @@ public class SearchFirmActivty extends BaseActivity implements PullToRefreshView
     public static ImageView search_et_cc;
     public static TextView downButton, city, capital, time, industry, selectCity, tab_frim, tab_illegal, tab_shareholder;
     TextView temp, tempprovince;
-    public static ImageView city_arraow, capital_arraow, time_arraow, industry_arraow, arrowBack;
+    public static ImageView city_arraow, capital_arraow, time_arraow, industry_arraow;
     CustomPopupwindow popupwindow;
     ImageView search_bt;
     public static boolean city_check = false, capital_check = false, time_check = false, industry_check = false, tab_frim_check = false, tab_illegal_check = false, tab_shareholder_check = false;
     FrameLayout his_sra;
-    LinearLayout select;
-    LinearLayout searchContent;
+    LinearLayout select,arrowBack,searchContent;
     ListView menu_one;
     public static ListView menu_two;
     ViewGroup.MarginLayoutParams oneLayoutParams;
@@ -116,6 +115,7 @@ public class SearchFirmActivty extends BaseActivity implements PullToRefreshView
     int t=2;
     int por;
     PullToRefreshView mPullToRefreshView;
+    LinearLayout typeSD;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -131,6 +131,7 @@ public class SearchFirmActivty extends BaseActivity implements PullToRefreshView
             public void handleMessage(Message msg) {
                 switch (msg.what) {
                     case 0:
+                        typeSD.setVisibility(View.VISIBLE);
                         falg = 2;//设置搜索结果时的默认值
                         pd.dismiss();
                         por=listsea.size()-1;
@@ -154,7 +155,7 @@ public class SearchFirmActivty extends BaseActivity implements PullToRefreshView
                             @Override
                             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                                 if (!csp.getLoginStatus()) {//判定是否登录
-                                    Toast.show("请先登录账号");
+                                    //Toast.show("请先登录账号");
                                     dialog.show();
                                 } else {
                                     po = position;
@@ -348,13 +349,14 @@ public class SearchFirmActivty extends BaseActivity implements PullToRefreshView
         mPullToRefreshView.setOnHeaderRefreshListener(this);
         mPullToRefreshView.setOnFooterRefreshListener(this);
 
+        typeSD= (LinearLayout) findViewById(R.id.typeSD);
         builder = new AlertDialog.Builder(this);
         builder.setTitle("是否登录");
         builder.setMessage("浏览企业详情，请先登录账号。");
         builder.setPositiveButton("去登陆", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                finish();
+
                 startActivity(new Intent(SearchFirmActivty.this,LoginActivity.class));
             }
         });
@@ -371,7 +373,7 @@ public class SearchFirmActivty extends BaseActivity implements PullToRefreshView
         search_et_cc = (ImageView) findViewById(R.id.search_et_cc);//叉叉
         //selectCity = (TextView) findViewById(R.id.selectCity);//旧版搜索城市
         //selectCity.setOnClickListener(this);////旧版搜索城市
-        arrowBack = (ImageView) findViewById(R.id.arrow_back);
+        arrowBack = (LinearLayout) findViewById(R.id.arrow_back);
         arrowBack.setOnClickListener(onClickListener);
         tab_frim = (TextView) findViewById(R.id.tab_frim);
         tab_illegal = (TextView) findViewById(R.id.tab_illegal);
@@ -1140,52 +1142,57 @@ public class SearchFirmActivty extends BaseActivity implements PullToRefreshView
 
             @Override
             public void run() {
-                GsonUtil request = new GsonUtil(URLconstant.URLINSER + URLconstant.SEARCHURL, RequestMethod.GET);
-                request.setReadTimeout(50000);
-                request.add("token",  MD5s(searchEt.getText().toString() + model));//加密结果
-                request.add("searchKey", searchEt.getText().toString());//string搜索关键字
-                request.add("deviceId", model);//设备ID
-                request.add("memberId", csp.getID());//86D9D7F53FCA45DD93E2D83DFCA0CB42  记录用户搜索关键字
-                //根据type判断查询类型
-                switch (type) {
-                    case 0:
-                        request.add("searchType", 0);//int 搜索类型 （企业、法人、失信、违法）默认为0企业,1是该法人名下企业,2失信企业,3违法企业
-                        break;
-                    case 1:
-                        request.add("searchType", 1);//int 搜索类型 （企业、法人、失信、违法）默认为0企业,1是该法人名下企业,2失信企业,3违法企业
-                        break;
-                    case 2:
-                        request.add("searchType", 2);//int 搜索类型 （企业、法人、失信、违法）默认为0企业,1是该法人名下企业,2失信企业,3违法企业
-                        break;
-                    case 3:
-                        request.add("searchType", 3);//int 搜索类型 （企业、法人、失信、违法）默认为0企业,1是该法人名下企业,2失信企业,3违法企业
-                        break;
-                }
-                request.add("pageIndex", t);//int 搜索请求页数
-                request.add("pageSize", 10);//int 搜索请求条数
-                if (industryindex != null && industryindex != "") {//int/string(建议传string) 行业代码为空不做限制
-                    request.add("industryCode", industryindex);
-                }
-                if (startDateindex != null) {//int 企业经营时间起 3（3至startDateEnd）
-                    request.add("startDateBegin", startDateindex);
-                }
-                if (endDateindex != null) {//int 企业经营时间止 5（startDateBegin至5） 为空不作限制，为空必须与startDateBegin一起为空
-                    request.add("startDateEnd", endDateindex);
-                }
-                if (registCapiStartIndex != null) {//int 注册资金起 为空不做限制
-                    request.add("registCapiBegin", registCapiStartIndex);
-                }
-                if (registCapiEndIndex != null) {//int 注册资金止 为空必须和registCapiEnd一起为空
-                    request.add("registCapiEnd", registCapiEndIndex);
-                }
-                if (provinceindex != null) {//int/string 省代码 为空不做限制 为空citycode必须为空
-                    request.add("province", provinceindex);
-                }
-                if (cityindex != null && provinceindex != null && cityindex != "") {//int 城市代码  为空为当前省所有城市
-                    request.add("cityCode", cityindex);
-                }
-                CallServer.getInstance().add(SearchFirmActivty.this, request, MyhttpCallBack.getInstance(), 0x0221, true, false, true);
                 mPullToRefreshView.onFooterRefreshComplete();
+                if (t <=  MyhttpCallBack.baging.TotalPage) {
+                    GsonUtil request = new GsonUtil(URLconstant.URLINSER + URLconstant.SEARCHURL, RequestMethod.GET);
+                    request.setReadTimeout(50000);
+                    request.add("token",  MD5s(searchEt.getText().toString() + model));//加密结果
+                    request.add("searchKey", searchEt.getText().toString());//string搜索关键字
+                    request.add("deviceId", model);//设备ID
+                    request.add("memberId", csp.getID());//86D9D7F53FCA45DD93E2D83DFCA0CB42  记录用户搜索关键字
+                    //根据type判断查询类型
+                    switch (type) {
+                        case 0:
+                            request.add("searchType", 0);//int 搜索类型 （企业、法人、失信、违法）默认为0企业,1是该法人名下企业,2失信企业,3违法企业
+                            break;
+                        case 1:
+                            request.add("searchType", 1);//int 搜索类型 （企业、法人、失信、违法）默认为0企业,1是该法人名下企业,2失信企业,3违法企业
+                            break;
+                        case 2:
+                            request.add("searchType", 2);//int 搜索类型 （企业、法人、失信、违法）默认为0企业,1是该法人名下企业,2失信企业,3违法企业
+                            break;
+                        case 3:
+                            request.add("searchType", 3);//int 搜索类型 （企业、法人、失信、违法）默认为0企业,1是该法人名下企业,2失信企业,3违法企业
+                            break;
+                    }
+                    request.add("pageIndex", t);//int 搜索请求页数
+                    request.add("pageSize", 10);//int 搜索请求条数
+                    if (industryindex != null && industryindex != "") {//int/string(建议传string) 行业代码为空不做限制
+                        request.add("industryCode", industryindex);
+                    }
+                    if (startDateindex != null) {//int 企业经营时间起 3（3至startDateEnd）
+                        request.add("startDateBegin", startDateindex);
+                    }
+                    if (endDateindex != null) {//int 企业经营时间止 5（startDateBegin至5） 为空不作限制，为空必须与startDateBegin一起为空
+                        request.add("startDateEnd", endDateindex);
+                    }
+                    if (registCapiStartIndex != null) {//int 注册资金起 为空不做限制
+                        request.add("registCapiBegin", registCapiStartIndex);
+                    }
+                    if (registCapiEndIndex != null) {//int 注册资金止 为空必须和registCapiEnd一起为空
+                        request.add("registCapiEnd", registCapiEndIndex);
+                    }
+                    if (provinceindex != null) {//int/string 省代码 为空不做限制 为空citycode必须为空
+                        request.add("province", provinceindex);
+                    }
+                    if (cityindex != null && provinceindex != null && cityindex != "") {//int 城市代码  为空为当前省所有城市
+                        request.add("cityCode", cityindex);
+                    }
+                    CallServer.getInstance().add(SearchFirmActivty.this, request, MyhttpCallBack.getInstance(), 0x0221, true, false, true);
+                    t++;
+                }else{
+                    com.example.credit.Utils.Toast.show("没有更多数据了！");
+                }
             }
         }, 1000);
 

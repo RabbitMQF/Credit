@@ -12,8 +12,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
             android:layout_marginRight="10dp"
+            android:layout_marginBottom="8dp"
             android:background="@drawable/comment_item_item_bg"
             android:orientation="vertical">
             <RelativeLayout
@@ -29,26 +29,26 @@
                     android:textColor="@color/blue1"
                     android:textSize="14sp" />
 
-                <TextView
-                    android:id="@+id/pli_time"
-                    android:text="shijian"
-                    android:layout_alignParentRight="true"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
-                    android:textColor="@color/blue1"
-                    android:textSize="14sp" />
+        </RelativeLayout>
 
-            </RelativeLayout>
-
-            <TextView
-                android:id="@+id/pli_content"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:text="这里是这里是企业名称这里是企业名称这里是企业名称企业名称"
-                android:textColor="#000000"
-                android:textSize="12sp" />
-        </LinearLayout>
+        <TextView
+            android:id="@+id/pli_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="这里是这里是企业名称这里是企业名称这里是企业名称企业名称"
+            android:textColor="#000000"
+            android:textSize="12sp" />
+        <TextView
+            android:id="@+id/pli_time"
+            android:text="2016-25-16 15:15:15"
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginLeft="20dp"
+            android:textColor="@color/blue1"
+            android:textSize="14sp" />
+    </LinearLayout>
 
 </LinearLayout>

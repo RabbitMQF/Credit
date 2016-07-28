@@ -70,7 +70,7 @@ public class CompanyDetailsActivity extends BaseActivity {
 //    ScrollView mScrollView;
 
     @ViewInject(R.id.d_return)
-    ImageView d_return;
+    LinearLayout d_return;
 
     @ViewInject(R.id.details_logo)
     ImageView details_logo;
@@ -176,12 +176,16 @@ public class CompanyDetailsActivity extends BaseActivity {
 //        detailsList = DataManager.searchList;
         Build bd = new Build();
         model = bd.MODEL;//设备ID
-        KeyNo = DataManager.BaseinfoList.get(0).PRIPID;//市场主体身份代码
-        enterId = DataManager.BaseinfoList.get(0).EnterAddtionID;//企业附加表ID
-        token = SearchFirmActivty.MD5s(KeyNo + model);//token 由 设备ID+市场主体身份代码 MD5生成
-        regnore = DataManager.BaseinfoList.get(0).REGNO;//注册号
 
-        KeyNos = DataManager.BaseinfoList.get(0).EnterAddtionID;//企业附加信息主键ID
+        if (DataManager.BaseinfoList.size()>0) {
+            KeyNo = DataManager.BaseinfoList.get(0).PRIPID;//市场主体身份代码
+            enterId = DataManager.BaseinfoList.get(0).EnterAddtionID;//企业附加表ID
+            token = SearchFirmActivty.MD5s(KeyNo + model);//token 由 设备ID+市场主体身份代码 MD5生成
+            regnore = DataManager.BaseinfoList.get(0).REGNO;//注册号
+            KeyNos = DataManager.BaseinfoList.get(0).EnterAddtionID;//企业附加信息主键ID
+        }else {
+            Toast.show("暂无数据...");
+        }
         tokens = SearchFirmActivty.MD5s(KeyNos + model);
         init();//初始化16宫格等
 

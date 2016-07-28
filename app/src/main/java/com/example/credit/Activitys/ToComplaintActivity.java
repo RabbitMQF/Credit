@@ -100,7 +100,6 @@ public class ToComplaintActivity extends BaseActivity implements OnItemLongClick
         ViewUtils.inject(this);
         init();
         initHandler();
-
     }
 
     private void initHandler() {

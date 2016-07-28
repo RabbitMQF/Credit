@@ -28,15 +28,24 @@
 
                     android:orientation="horizontal">
                     <!--android:paddingTop="30dp"-->
-
-                    <ImageView
+                    <LinearLayout
                         android:id="@+id/d_return"
-                        android:layout_width="15dip"
-                        android:layout_height="20dip"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="20dp"
-                        android:background="@mipmap/arrow_left_back" />
+                        android:padding="10dp"
+                        >
+
+                        <ImageView
+
+                            android:layout_width="15dip"
+                            android:layout_height="20dip"
+                            android:layout_gravity="center"
+
+
+                            android:background="@mipmap/arrow_left_back"
+                            android:padding="5dp" />
+                    </LinearLayout>
 
 
                     <TextView
@@ -206,7 +215,7 @@
                             android:layout_height="wrap_content"
                             android:text="法定代表人"
                             android:textColor="@color/white"
-                            android:textSize="11sp"/>
+                            android:textSize="11sp" />
 
                         <TextView
                             android:id="@+id/name"
@@ -214,7 +223,7 @@
                             android:layout_height="wrap_content"
                             android:text="注册日期"
                             android:textColor="@color/white"
-                            android:textSize="11sp"/>
+                            android:textSize="11sp" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -229,7 +238,7 @@
                             android:layout_height="wrap_content"
                             android:text="注册资金"
                             android:textColor="@color/white"
-                            android:textSize="11sp"/>
+                            android:textSize="11sp" />
 
                         <TextView
                             android:id="@+id/regcap"
@@ -237,7 +246,7 @@
                             android:layout_height="wrap_content"
                             android:text="注册日期"
                             android:textColor="@color/white"
-                            android:textSize="11sp"/>
+                            android:textSize="11sp" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -252,7 +261,7 @@
                             android:layout_height="wrap_content"
                             android:text="注册日期"
                             android:textColor="@color/white"
-                            android:textSize="11sp"/>
+                            android:textSize="11sp" />
 
                         <TextView
                             android:id="@+id/estdate"
@@ -260,7 +269,7 @@
                             android:layout_height="wrap_content"
                             android:text="注册日期"
                             android:textColor="@color/white"
-                            android:textSize="11sp"/>
+                            android:textSize="11sp" />
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>

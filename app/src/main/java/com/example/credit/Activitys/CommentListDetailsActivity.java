@@ -107,7 +107,7 @@ public class CommentListDetailsActivity extends BaseActivity {
             public void handleMessage(Message msg) {
                 switch (msg.what){
                     case 1:
-                        SimpleDateFormat sDateFormat=new SimpleDateFormat("yyyy-MM-dd");
+                        SimpleDateFormat sDateFormat=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
                         String  date =sDateFormat.format(new java.util.Date());
                         DataManager.MyCommentlistr.DataBean.UserreviewBean.Replay2review r2=new DataManager.MyCommentlistr.DataBean.UserreviewBean.Replay2review();
                         r2.CHILDMEMBERNAME=DataManager.MyCommentlistrS.data.userreview.get(position).MEMBERNAME;

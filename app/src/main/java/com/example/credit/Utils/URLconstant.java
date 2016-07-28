@@ -94,7 +94,7 @@ public class URLconstant {
 
     public static final String NEWCLAIM="businessController/getClaim.do";//最新认领接口revise
 
-
+    public static final String DICTIONARIE="dictionarieController/getDictionarie.do";//字典表接口revise
 //    public static final String GETCITYLIST="http://app.qichacha.com/enterprises/new/GetCityList";//获取城市接口
 
     //    public static final String SEARCHURL="http://168s.mobile.hc360.com/get168.cgi";//获取搜索列表

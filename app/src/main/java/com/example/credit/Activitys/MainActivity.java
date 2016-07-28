@@ -120,11 +120,12 @@ public class MainActivity extends Activity implements View.OnClickListener {
     public static ProgressDialog pd;
     public static WaitDialog ad;
 
-    TextView main1,main2;//新闻和最新认领按钮
-//    PullToRefreshView mPullToRefreshView;
-    boolean falg=true;
-    int t=2;
-    int str=1;
+    TextView main1, main2;//新闻和最新认领按钮
+    //    PullToRefreshView mPullToRefreshView;
+    boolean falg = true;
+    int t = 2;
+    int str = 1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -144,7 +145,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                         .setAction("Action", null).show();
             }
         });*/
-        if(DataManager.citysList.size()==0||DataManager.citysList==null) {
+        if (DataManager.citysList.size() == 0 || DataManager.citysList == null) {
             GsonUtil request = new GsonUtil(URLconstant.URLINSER + URLconstant.GETCITY, RequestMethod.GET);
             CallServer.getInstance().add(this, request, MyhttpCallBack.getInstance(), NOHTTP_CITY, true, false, true);//获取城市
         }
@@ -154,18 +155,19 @@ public class MainActivity extends Activity implements View.OnClickListener {
             public void handleMessage(Message msg) {
                 switch (msg.what) {
                     case 0:
-                        int por=MyNewsList.size()-1;
-                        NewsListAdapter adapter = new NewsListAdapter(MainActivity.this,MyNewsList);
+                        btmore.setVisibility(View.VISIBLE);
+                        int por = MyNewsList.size() - 1;
+                        NewsListAdapter adapter = new NewsListAdapter(MainActivity.this, MyNewsList);
                         NewsListview.setAdapter(adapter);
                         adapter.notifyDataSetChanged();
-                        if(str==2){
-                            NewsListview.setSelection(por-1);
+                        if (str == 2) {
+                            NewsListview.setSelection(por - 1);
                         }
                         NewsListview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                             @Override
                             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                                Intent i=new Intent(MainActivity.this,NewsContentActivity.class);
-                                i.putExtra("id",MyNewsList.get(position).ID);
+                                Intent i = new Intent(MainActivity.this, NewsContentActivity.class);
+                                i.putExtra("id", MyNewsList.get(position).ID);
                                 startActivity(i);
                             }
                         });
@@ -199,19 +201,19 @@ public class MainActivity extends Activity implements View.OnClickListener {
                         NewsListview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                             @Override
                             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                                if(csp.getLoginStatus()){
+                                if (csp.getLoginStatus()) {
                                     ad.show();
-                                    String KeyNo=DataManager.MyClaimUtilsModel.data.Claimlist.get(position).PRIPID;//市场主体身份代码
-                                    String token=SearchFirmActivty.MD5s(KeyNo+(new Build()).MODEL);
-                                    GsonUtil requst=new GsonUtil(URLconstant.URLINSER + URLconstant.GETITEMNUM, RequestMethod.GET);
-                                    requst.add("KeyNo",KeyNo);
-                                    requst.add("token",token);
-                                    requst.add("deviceId",(new Build()).MODEL);
-                                    requst.add("memberId",csp.getID());
-                                    requst.add("regnore",DataManager.MyClaimUtilsModel.data.Claimlist.get(position).REGNORE);
-                                    requst.add("priptype",DataManager.MyClaimUtilsModel.data.Claimlist.get(position).ENTTYPE);
-                                    CallServer.getInstance().add(MainActivity.this,requst, MyhttpCallBack.getInstance(),0x026,true,false,true);
-                                }else{
+                                    String KeyNo = DataManager.MyClaimUtilsModel.data.Claimlist.get(position).PRIPID;//市场主体身份代码
+                                    String token = SearchFirmActivty.MD5s(KeyNo + (new Build()).MODEL);
+                                    GsonUtil requst = new GsonUtil(URLconstant.URLINSER + URLconstant.GETITEMNUM, RequestMethod.GET);
+                                    requst.add("KeyNo", KeyNo);
+                                    requst.add("token", token);
+                                    requst.add("deviceId", (new Build()).MODEL);
+                                    requst.add("memberId", csp.getID());
+                                    requst.add("regnore", DataManager.MyClaimUtilsModel.data.Claimlist.get(position).REGNORE);
+                                    requst.add("priptype", DataManager.MyClaimUtilsModel.data.Claimlist.get(position).ENTTYPE);
+                                    CallServer.getInstance().add(MainActivity.this, requst, MyhttpCallBack.getInstance(), 0x026, true, false, true);
+                                } else {
                                     Toast.makeText(MainActivity.this, "请先登录!", Toast.LENGTH_SHORT).show();
                                 }
                             }
@@ -239,16 +241,31 @@ public class MainActivity extends Activity implements View.OnClickListener {
             }
         };
         initData();
-        NewsListview.setOnScrollListener(new AbsListView.OnScrollListener(){
+        NewsListview.setOnScrollListener(new AbsListView.OnScrollListener() {
             @Override
-            public void onScrollStateChanged(AbsListView view, int scrollState){
+            public void onScrollStateChanged(AbsListView view, int scrollState) {
                 // 当不滚动时
                 if (scrollState == AbsListView.OnScrollListener.SCROLL_STATE_IDLE) {
                     // 判断是否滚动到底部
                     btmore.setVisibility(View.VISIBLE);
                     if (view.getLastVisiblePosition() == view.getCount() - 1) {
                         //加载更多功能的代码
-                        //btmore.setVisibility(View.GONE);
+                        if (t <= DataManager.MyNewsS.data.Paging.TotalPage) {
+                            GsonUtil NewsRequest = new GsonUtil(URLconstant.URLINSER + URLconstant.NEWSURL, RequestMethod.GET);//新闻数据
+                            NewsRequest.setConnectTimeout(20000);
+                            NewsRequest.setReadTimeout(20000);
+                            NewsRequest.add("token", MD5.MD5s("" + new Build().MODEL));
+                            NewsRequest.add("KeyNo", "");
+                            NewsRequest.add("deviceId", (new Build()).MODEL);
+
+                            NewsRequest.add("pageIndex", t);
+                            NewsRequest.add("pageSize", 5);
+                            CallServer.getInstance().add(MainActivity.this, NewsRequest, MyhttpCallBack.getInstance(), 0x1111, true, false, true);
+                            t++;
+                            str = 2;
+                        } else {
+                            btmore.setVisibility(View.GONE);
+                        }
                     }
                 }
             }
@@ -261,6 +278,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
 
     }
+
     private void initData() {
 //        try{
 //            if (!DataManager.MyNewsS.data.Newslist.equals(null) && DataManager.MyNewsS.data.Newslist != null && DataManager.MyNewsS.data.Newslist.size() > 0 ) {
@@ -271,9 +289,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
 //            com.example.credit.Utils.Toast.show("新闻正在赶来的路上...");
 //            mPullToRefreshView.setVisibility(View.GONE);
 //        }
-        if(MyNewsList!=null && MyNewsList.size()>0){
+        if (MyNewsList != null && MyNewsList.size() > 0) {
             handler.sendEmptyMessage(0);
-        }else{//没有数据
+        } else {//没有数据
 //            mPullToRefreshView.setVisibility(View.GONE);
             btmore.setVisibility(View.GONE);
         }
@@ -281,16 +299,16 @@ public class MainActivity extends Activity implements View.OnClickListener {
         main1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                falg=true;
+                falg = true;
                 main1.setTextColor(getResources().getColor(R.color.white));
                 main1.setBackgroundDrawable(getResources().getDrawable(R.drawable.details_gg_bgtit));
                 main2.setTextColor(getResources().getColor(R.color.black));
                 main2.setBackgroundDrawable(getResources().getDrawable(R.drawable.details_con_tabbg2));
-                try{
+                try {
                     if (MyNewsList != null && MyNewsList.size() > 0) {
                         handler.sendEmptyMessage(0);
                     }
-                }catch (Exception e){
+                } catch (Exception e) {
                     e.printStackTrace();
                     com.example.credit.Utils.Toast.show("新闻正在赶来的路上...");
 //                    mPullToRefreshView.setVisibility(View.GONE);
@@ -300,17 +318,17 @@ public class MainActivity extends Activity implements View.OnClickListener {
         main2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                falg=false;
+                falg = false;
                 btmore.setVisibility(View.GONE);
                 main1.setTextColor(getResources().getColor(R.color.black));
                 main1.setBackgroundDrawable(getResources().getDrawable(R.drawable.details_con_tabbg2));
                 main2.setTextColor(getResources().getColor(R.color.white));
                 main2.setBackgroundDrawable(getResources().getDrawable(R.drawable.details_gg_bgtit));
-                try{
+                try {
                     if (DataManager.MyClaimUtilsModel.data.Claimlist != null && DataManager.MyClaimUtilsModel.data.Claimlist.size() > 0) {
                         handler.sendEmptyMessage(7);
                     }
-                }catch (Exception e){
+                } catch (Exception e) {
                     e.printStackTrace();
                     com.example.credit.Utils.Toast.show("数据正在赶来的路上...");
 //                    mPullToRefreshView.setVisibility(View.GONE);
@@ -375,7 +393,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 case R.id.Smenu_1://我的评价
                     if (!csp.getLoginStatus()) {//判定是否登录
                         com.example.credit.Utils.Toast.show("请先登录账号");
-                    }else {
+                    } else {
                         ad.show();
                         GsonUtil request14 = new GsonUtil(URLconstant.URLINSER + URLconstant.MMOMM, RequestMethod.GET);
                         request14.add("deviceId", (new Build()).MODEL);
@@ -389,7 +407,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 case R.id.Smenu_2://我的投诉
                     if (!csp.getLoginStatus()) {//判定是否登录
                         com.example.credit.Utils.Toast.show("请先登录账号");
-                    }else {
+                    } else {
                         pd.show();
                         getComplaint(MainActivity.this);
                     }
@@ -398,7 +416,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 case R.id.Smenu_3://我的关注
                     if (!csp.getLoginStatus()) {//判定是否登录
                         com.example.credit.Utils.Toast.show("请先登录账号");
-                    }else {
+                    } else {
                         ad.show();
                         GsonUtil MyconcernRuerst = new GsonUtil(URLconstant.URLINSER + URLconstant.MYFAVORITE, RequestMethod.GET);
                         MyconcernRuerst.add("deviceId", (new Build()).MODEL);
@@ -411,12 +429,12 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 case R.id.Smenu_4://我的认领
                     if (!csp.getLoginStatus()) {//判定是否登录
                         com.example.credit.Utils.Toast.show("请先登录账号");
-                    }else {
+                    } else {
                         ad.show();
                         GsonUtil MyClaimRuerst = new GsonUtil(URLconstant.URLINSER + URLconstant.MYCLAIMURL, RequestMethod.GET);
                         MyClaimRuerst.add("deviceId", (new Build()).MODEL);
                         MyClaimRuerst.add("token", SearchFirmActivty.MD5s(csp.getID() + (new Build()).MODEL));
-                        MyClaimRuerst.add("KeyNo",csp.getID());
+                        MyClaimRuerst.add("KeyNo", csp.getID());
                         CallServer.getInstance().add(MainActivity.this, MyClaimRuerst, MyhttpCallBack.getInstance(), 0x303, true, false, true);
                     }
 //                    Toast.makeText(MainActivity.this, "此模块，正在赶点加工中...", Toast.LENGTH_SHORT).show();
@@ -471,35 +489,38 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 case R.id.set://个人信息设置
                     if (!csp.getLoginStatus()) {//判定是否登录
                         com.example.credit.Utils.Toast.show("请先登录账号");
-                    }else {
+                    } else {
 //                    com.example.credit.Utils.Toast.show("此模块，正在赶点加工中...");
                         Intent is = new Intent(MainActivity.this, UserSetActivity.class);
                         startActivity(is);
                     }
                     break;
                 case R.id.btmore://新闻加载更多
-                    if(t<=DataManager.MyNewsS.data.Paging.TotalPage){
-                        GsonUtil NewsRequest=new GsonUtil(URLconstant.URLINSER+URLconstant.NEWSURL, RequestMethod.GET);//新闻数据
+                    if (t <= DataManager.MyNewsS.data.Paging.TotalPage) {
+                        GsonUtil NewsRequest = new GsonUtil(URLconstant.URLINSER + URLconstant.NEWSURL, RequestMethod.GET);//新闻数据
                         NewsRequest.setConnectTimeout(20000);
                         NewsRequest.setReadTimeout(20000);
-                        NewsRequest.add("token",MD5.MD5s("" + new Build().MODEL));
-                        NewsRequest.add("KeyNo","");
-                        NewsRequest.add("deviceId",(new Build()).MODEL);
+                        NewsRequest.add("token", MD5.MD5s("" + new Build().MODEL));
+                        NewsRequest.add("KeyNo", "");
+                        NewsRequest.add("deviceId", (new Build()).MODEL);
 
-                        NewsRequest.add("pageIndex",t);
-                        NewsRequest.add("pageSize",5);
-                        CallServer.getInstance().add(MainActivity.this,NewsRequest, MyhttpCallBack.getInstance(),0x1111,true,false,true);
+                        NewsRequest.add("pageIndex", t);
+                        NewsRequest.add("pageSize", 5);
+                        CallServer.getInstance().add(MainActivity.this, NewsRequest, MyhttpCallBack.getInstance(), 0x1111, true, false, true);
                         t++;
                         str=2;
                     }else{
+                        com.example.credit.Utils.Toast.show("没有更多数据了！");
                         btmore.setVisibility(View.GONE);
                     }
                     break;
-
+                default:
+                    break;
 
             }
         }
     };
+
     /**
      * 获取我的投诉列表方法
      */
@@ -545,10 +566,10 @@ public class MainActivity extends Activity implements View.OnClickListener {
         if (LoginStatus) {//若当前状态为登录
             UserSz.setText(csp.getALIASNAME());
             login.setText("退出登录");
-            if(!csp.getICONSTEAM().equals("")){
+            if (!csp.getICONSTEAM().equals("")) {
                 File file = new File(Environment.getExternalStorageDirectory() + "/Credit/loginImg.jpg");
                 if (file.exists()) {//获取本地图片路径是否存在
-                    headimg.setImageBitmap(decodeBitmap(Environment.getExternalStorageDirectory() + "/Credit/loginImg.jpg",80,80));
+                    headimg.setImageBitmap(decodeBitmap(Environment.getExternalStorageDirectory() + "/Credit/loginImg.jpg", 80, 80));
 //                Picasso.with(MainActivity.this).load(file).into(headimg);
                 }
             }
@@ -559,8 +580,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
         }
     }
 
-    public static void loginImg(String base64){
-        if(base64!=null){
+    public static void loginImg(String base64) {
+        if (base64 != null) {
             try {
                 BASE64Decoder decode = new BASE64Decoder();
                 byte[] b = decode.decodeBuffer(base64);

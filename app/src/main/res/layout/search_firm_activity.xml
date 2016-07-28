@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#ffffff"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".Activitys.SearchFirmActivty">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -12,13 +14,19 @@
         android:background="@mipmap/search_background"
         android:orientation="horizontal">
         <!--android:layout_weight="1.5"-->
-        <ImageView
+        <LinearLayout
             android:id="@+id/arrow_back"
-            android:layout_width="20dp"
-            android:layout_height="30dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:layout_marginLeft="10dp"
-            android:background="@mipmap/arrow_left_back" />
+            android:padding="10dp">
+
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="25dp"
+                android:layout_gravity="center_vertical"
+                android:background="@mipmap/arrow_left_back" />
+        </LinearLayout>
 
 
         <!--输入框下拉popupwindow-->
@@ -34,7 +42,6 @@
             android:hint="查全部"
             />-->
         <ImageView
-            android:visibility="gone"
             android:id="@+id/magnifying"
             android:layout_width="wrap_content"
             android:layout_height="35dp"
@@ -43,13 +50,14 @@
             android:background="@drawable/spinner_bg"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
-            android:src="@mipmap/search_drawable_left" />
+            android:src="@mipmap/search_drawable_left"
+            android:visibility="gone" />
 
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="35dp"
-            android:layout_marginLeft="10dp"
-            android:layout_gravity="center_vertical"/>
+            android:layout_gravity="center_vertical"
+            />
         <!--android:layout_marginRight="10dp"-->
         <LinearLayout
             android:layout_width="0dp"
@@ -58,20 +66,22 @@
             android:layout_weight="10"
             android:background="@drawable/edit_bg"
             android:orientation="horizontal">
+
             <EditText
-                android:layout_marginLeft="5dp"
                 android:id="@+id/search_et"
                 android:layout_width="0dp"
                 android:layout_height="35dp"
                 android:layout_gravity="center_vertical"
-                android:lines="1"
-                android:maxLines="1"
-                android:singleLine="true"
-                android:imeOptions="actionSearch"
+                android:layout_marginLeft="5dp"
                 android:layout_weight="10"
                 android:background="@drawable/edit_bg"
                 android:hint="请输入企业名称"
+                android:imeOptions="actionSearch"
+                android:lines="1"
+                android:maxLines="1"
+                android:singleLine="true"
                 android:textSize="14sp" />
+
             <ImageView
                 android:id="@+id/search_et_cc"
                 android:layout_width="0dp"
@@ -80,7 +90,7 @@
                 android:layout_marginRight="5dp"
                 android:layout_weight="1.4"
                 android:src="@mipmap/www"
-                android:visibility="gone"/>
+                android:visibility="gone" />
         </LinearLayout>
 
 
@@ -94,7 +104,6 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_gravity="center_vertical"
-            android:layout_marginRight="5dp"
             android:layout_weight="1.4"
             android:src="@drawable/aic_search_black_24dp" />
     </LinearLayout>
@@ -225,6 +234,7 @@
         android:orientation="vertical">
 
         <LinearLayout
+            android:id="@+id/typeSD"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal">
@@ -255,60 +265,60 @@
                 android:background="@color/material_grey_600" />
 
             <TextView
-                android:visibility="gone"
                 android:id="@+id/capital"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-
                 android:gravity="center_horizontal|center_vertical"
+
                 android:text="不限注册"
-                android:textColor="@color/text_nocheck" />
+                android:textColor="@color/text_nocheck"
+                android:visibility="gone" />
 
             <ImageView
-                android:visibility="gone"
                 android:id="@+id/capital_arraow"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:src="@mipmap/senior_arraow_down" />
+                android:src="@mipmap/senior_arraow_down"
+                android:visibility="gone" />
 
             <View
-                android:visibility="gone"
                 android:layout_width="0.5dp"
                 android:layout_height="match_parent"
                 android:layout_marginBottom="10dip"
                 android:layout_marginLeft="3dip"
                 android:layout_marginTop="10dip"
-                android:background="@color/text_nocheck" />
+                android:background="@color/text_nocheck"
+                android:visibility="gone" />
 
             <TextView
-                android:visibility="gone"
                 android:id="@+id/time"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-
                 android:gravity="center_horizontal|center_vertical"
+
                 android:text="不限年限"
-                android:textColor="@color/text_nocheck" />
+                android:textColor="@color/text_nocheck"
+                android:visibility="gone" />
 
             <ImageView
-                android:visibility="gone"
                 android:id="@+id/time_arraow"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:src="@mipmap/senior_arraow_down" />
+                android:src="@mipmap/senior_arraow_down"
+                android:visibility="gone" />
 
             <View
-                android:visibility="gone"
                 android:layout_width="0.5dp"
                 android:layout_height="match_parent"
                 android:layout_marginBottom="10dip"
                 android:layout_marginLeft="3dip"
                 android:layout_marginTop="10dip"
-                android:background="@color/material_grey_600" />
+                android:background="@color/material_grey_600"
+                android:visibility="gone" />
 
             <TextView
                 android:id="@+id/industry"
@@ -356,7 +366,8 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="10">
-        <include layout="@layout/bg_bg"/>
+
+        <include layout="@layout/bg_bg" />
         <!--android:background="#2299cc33"-->
         <LinearLayout
             android:layout_width="match_parent"
@@ -364,34 +375,33 @@
             android:orientation="vertical"
             android:paddingLeft="10dp"
             android:paddingTop="10dp"
-            android:visibility="visible"
-            >
+            android:visibility="visible">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
                 android:gravity="center_vertical"
+                android:orientation="horizontal"
                 android:visibility="gone">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/details_tit"
+                    android:padding="5dp"
                     android:text="历史记录"
                     android:textColor="@color/white"
-                    android:padding="5dp"
-                    android:background="@drawable/details_tit"
-                    android:visibility="visible"
-                    android:textSize="18sp" />
+                    android:textSize="18sp"
+                    android:visibility="visible" />
 
                 <ImageView
                     android:id="@+id/his_nullbt"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
-                    android:layout_marginLeft="20dp"
                     android:layout_gravity="center_vertical"
-                    android:visibility="visible"
-                    android:background="@mipmap/history_clear"/>
+                    android:layout_marginLeft="20dp"
+                    android:background="@mipmap/history_clear"
+                    android:visibility="visible" />
             </LinearLayout>
 
             <ListView
@@ -425,9 +435,9 @@
                     android:id="@+id/txt1"
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:layout_marginTop="10dip"
                     android:layout_marginLeft="25dip"
+                    android:layout_marginTop="10dip"
+                    android:layout_weight="1"
                     android:text="江西省科豪实业发展有限公司"
                     android:textColor="@color/t1"
                     android:textSize="16sp" />
@@ -436,9 +446,9 @@
                     android:id="@+id/txt2"
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
-                    android:layout_weight="1"
                     android:layout_gravity="right"
                     android:layout_marginRight="25dip"
+                    android:layout_weight="1"
                     android:text="信丰县小江镇平顺煤矿"
                     android:textColor="@color/t2"
                     android:textSize="16sp" />
@@ -447,9 +457,9 @@
                     android:id="@+id/txt3"
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
-                    android:layout_weight="1"
                     android:layout_alignParentLeft="true"
                     android:layout_marginLeft="25dip"
+                    android:layout_weight="1"
                     android:text="萍乡市烟草公司莲花分公司"
                     android:textColor="@color/t3"
                     android:textSize="16sp" />
@@ -458,19 +468,20 @@
                     android:id="@+id/txt4"
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
-                    android:layout_weight="1"
                     android:layout_gravity="right"
                     android:layout_marginRight="25dip"
+                    android:layout_weight="1"
                     android:text="贵溪市幸福树电器有限公司"
                     android:textColor="@color/t4"
                     android:textSize="16sp" />
+
                 <TextView
                     android:id="@+id/txt5"
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
-                    android:layout_weight="1"
                     android:layout_alignParentLeft="true"
                     android:layout_marginLeft="25dip"
+                    android:layout_weight="1"
                     android:text="南昌市东湖区海声听力服务中心"
                     android:textColor="@color/t5"
                     android:textSize="16sp" />
@@ -479,39 +490,42 @@
                     android:id="@+id/txt6"
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
-                    android:layout_weight="1"
                     android:layout_gravity="right"
                     android:layout_marginRight="25dip"
+                    android:layout_weight="1"
                     android:text="余江县龙溪养蜂专业合作社"
                     android:textColor="@color/t6"
                     android:textSize="16sp" />
+
                 <TextView
                     android:id="@+id/txt7"
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
-                    android:layout_weight="1"
                     android:layout_alignParentLeft="true"
                     android:layout_marginLeft="25dip"
+                    android:layout_weight="1"
                     android:text="江西南大图书代办站"
                     android:textColor="@color/t6"
                     android:textSize="16sp" />
+
                 <TextView
                     android:id="@+id/txt8"
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
-                    android:layout_weight="1"
                     android:layout_gravity="right"
                     android:layout_marginRight="25dip"
+                    android:layout_weight="1"
                     android:text="赣州国光实业有限公司信丰店"
                     android:textColor="@color/t1"
                     android:textSize="16sp" />
+
                 <TextView
                     android:id="@+id/txt9"
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
-                    android:layout_weight="1"
                     android:layout_alignParentLeft="true"
                     android:layout_marginLeft="25dip"
+                    android:layout_weight="1"
                     android:text="江西省华侨旅游经贸公司"
                     android:textColor="@color/t2"
                     android:textSize="16sp" />
@@ -520,9 +534,9 @@
                     android:id="@+id/txt10"
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
-                    android:layout_weight="1"
                     android:layout_gravity="right"
                     android:layout_marginRight="25dip"
+                    android:layout_weight="1"
                     android:text="德兴市华清汽车销售服务有限公司"
                     android:textColor="@color/t3"
                     android:textSize="16sp" />
@@ -536,18 +550,19 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white"
-        android:visibility="gone"
-        android:orientation="vertical">
-    <ListView
-        android:id="@+id/search_list"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_weight="10"
-        android:divider="#00000000"
-        android:listSelector="#00000000"
-        android:scrollbars="none"
-        android:visibility="gone" />
-</com.example.credit.Utils.PullToRefreshView>
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <ListView
+            android:id="@+id/search_list"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="10"
+            android:divider="#00000000"
+            android:listSelector="#00000000"
+            android:scrollbars="none"
+            android:visibility="gone" />
+    </com.example.credit.Utils.PullToRefreshView>
     <!--城市选择布局-->
     <LinearLayout
         android:id="@+id/select"

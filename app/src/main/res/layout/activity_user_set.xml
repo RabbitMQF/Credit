@@ -62,8 +62,8 @@
                     android:text="昵称"/>
                 <ImageView
                     android:id="@+id/u_tv2"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
                     android:layout_centerVertical="true"
                     android:layout_gravity="center_vertical"
                     android:layout_alignParentRight="true"
@@ -97,8 +97,8 @@
                     android:text="性别"/>
                 <ImageView
                     android:id="@+id/u_tv3"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
                     android:layout_centerVertical="true"
                     android:layout_gravity="center_vertical"
                     android:layout_alignParentRight="true"
@@ -132,12 +132,12 @@
                     android:text="邮箱"/>
                 <ImageView
                     android:id="@+id/u_tv4"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
                     android:layout_centerVertical="true"
                     android:layout_gravity="center_vertical"
                     android:layout_alignParentRight="true"
-                    android:layout_marginRight="10dp"
+                    android:layout_marginRight="5dp"
                     android:background="@mipmap/icon_back_act"/>
                 <TextView
                     android:id="@+id/us_emils"
@@ -166,8 +166,8 @@
                     android:text="行业"/>
                 <ImageView
                     android:id="@+id/u_tv5"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
                     android:layout_centerVertical="true"
                     android:layout_gravity="center_vertical"
                     android:layout_alignParentRight="true"
@@ -200,8 +200,8 @@
                     android:text="学历"/>
                 <ImageView
                     android:id="@+id/u_tv6"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
                     android:layout_centerVertical="true"
                     android:layout_gravity="center_vertical"
                     android:layout_alignParentRight="true"
@@ -234,8 +234,8 @@
                     android:text="手机"/>
                 <ImageView
                     android:id="@+id/u_tv7"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
                     android:layout_centerVertical="true"
                     android:layout_gravity="center_vertical"
                     android:layout_alignParentRight="true"
@@ -268,8 +268,8 @@
                     android:text="密码"/>
                 <ImageView
                     android:id="@+id/u_tv8"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
                     android:layout_centerVertical="true"
                     android:layout_gravity="center_vertical"
                     android:layout_alignParentRight="true"

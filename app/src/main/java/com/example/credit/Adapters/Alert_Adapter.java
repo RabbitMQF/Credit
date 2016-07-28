@@ -159,7 +159,19 @@ public class Alert_Adapter extends BaseAdapter {
             vh.loan_7.setText(loan.SOURCENAME);
             vh.loan_8.setText(loan.UPDEPARTMENTNAME);
             vh.loan_9.setText(loan.BUSINESSATT);
-            vh.loan_10.setText(loan.DATATYPE);
+            if(loan.DATATYPE.equals("2")){
+                vh.loan_10.setText("欠贷信息");
+            }else if(loan.DATATYPE.equals("4")){
+                vh.loan_10.setText("欠税信息");
+            }else if(loan.DATATYPE.equals("5")){
+                vh.loan_10.setText("欠薪信息");
+            }else if(loan.DATATYPE.equals("7")){
+                vh.loan_10.setText("责令改正");
+            }else if(loan.DATATYPE.equals("8")){
+                vh.loan_10.setText("证照到期");
+            }else if(loan.DATATYPE.equals("9")){
+                vh.loan_10.setText("证照过期");
+            }
         }
         if (paperwork_ExpiredList != null) {
             DataManager.AlertInfo.DataBean.date loan=paperwork_ExpiredList.get(position);
@@ -176,7 +188,19 @@ public class Alert_Adapter extends BaseAdapter {
             vh.loan_7.setText(loan.SOURCENAME);
             vh.loan_8.setText(loan.UPDEPARTMENTNAME);
             vh.loan_9.setText(loan.BUSINESSATT);
-            vh.loan_10.setText(loan.DATATYPE);
+            if(loan.DATATYPE.equals("2")){
+                vh.loan_10.setText("欠贷信息");
+            }else if(loan.DATATYPE.equals("4")){
+                vh.loan_10.setText("欠税信息");
+            }else if(loan.DATATYPE.equals("5")){
+                vh.loan_10.setText("欠薪信息");
+            }else if(loan.DATATYPE.equals("7")){
+                vh.loan_10.setText("责令改正");
+            }else if(loan.DATATYPE.equals("8")){
+                vh.loan_10.setText("证照到期");
+            }else if(loan.DATATYPE.equals("9")){
+                vh.loan_10.setText("证照过期");
+            }
         }
         if (correctionList != null) {
             DataManager.AlertInfo.DataBean.date loan=correctionList.get(position);
@@ -193,7 +217,19 @@ public class Alert_Adapter extends BaseAdapter {
             vh.loan_7.setText(loan.SOURCENAME);
             vh.loan_8.setText(loan.UPDEPARTMENTNAME);
             vh.loan_9.setText(loan.BUSINESSATT);
-            vh.loan_10.setText(loan.DATATYPE);
+            if(loan.DATATYPE.equals("2")){
+                vh.loan_10.setText("欠贷信息");
+            }else if(loan.DATATYPE.equals("4")){
+                vh.loan_10.setText("欠税信息");
+            }else if(loan.DATATYPE.equals("5")){
+                vh.loan_10.setText("欠薪信息");
+            }else if(loan.DATATYPE.equals("7")){
+                vh.loan_10.setText("责令改正");
+            }else if(loan.DATATYPE.equals("8")){
+                vh.loan_10.setText("证照到期");
+            }else if(loan.DATATYPE.equals("9")){
+                vh.loan_10.setText("证照过期");
+            }
         }
         if (loanList != null) {
             DataManager.AlertInfo.DataBean.date loan=loanList.get(position);
@@ -210,7 +246,19 @@ public class Alert_Adapter extends BaseAdapter {
             vh.loan_7.setText(loan.SOURCENAME);
             vh.loan_8.setText(loan.UPDEPARTMENTNAME);
             vh.loan_9.setText(loan.BUSINESSATT);
-            vh.loan_10.setText(loan.DATATYPE);
+            if(loan.DATATYPE.equals("2")){
+                vh.loan_10.setText("欠贷信息");
+            }else if(loan.DATATYPE.equals("4")){
+                vh.loan_10.setText("欠税信息");
+            }else if(loan.DATATYPE.equals("5")){
+                vh.loan_10.setText("欠薪信息");
+            }else if(loan.DATATYPE.equals("7")){
+                vh.loan_10.setText("责令改正");
+            }else if(loan.DATATYPE.equals("8")){
+                vh.loan_10.setText("证照到期");
+            }else if(loan.DATATYPE.equals("9")){
+                vh.loan_10.setText("证照过期");
+            }
         }
         if (taxesList != null) {
             DataManager.AlertInfo.DataBean.date loan=taxesList.get(position);
@@ -227,7 +275,19 @@ public class Alert_Adapter extends BaseAdapter {
             vh.loan_7.setText(loan.SOURCENAME);
             vh.loan_8.setText(loan.UPDEPARTMENTNAME);
             vh.loan_9.setText(loan.BUSINESSATT);
-            vh.loan_10.setText(loan.DATATYPE);
+            if(loan.DATATYPE.equals("2")){
+                vh.loan_10.setText("欠贷信息");
+            }else if(loan.DATATYPE.equals("4")){
+                vh.loan_10.setText("欠税信息");
+            }else if(loan.DATATYPE.equals("5")){
+                vh.loan_10.setText("欠薪信息");
+            }else if(loan.DATATYPE.equals("7")){
+                vh.loan_10.setText("责令改正");
+            }else if(loan.DATATYPE.equals("8")){
+                vh.loan_10.setText("证照到期");
+            }else if(loan.DATATYPE.equals("9")){
+                vh.loan_10.setText("证照过期");
+            }
         }
         if (wagesList != null) {
             DataManager.AlertInfo.DataBean.date loan=wagesList.get(position);
@@ -244,8 +304,21 @@ public class Alert_Adapter extends BaseAdapter {
             vh.loan_7.setText(loan.SOURCENAME);
             vh.loan_8.setText(loan.UPDEPARTMENTNAME);
             vh.loan_9.setText(loan.BUSINESSATT);
-            vh.loan_10.setText(loan.DATATYPE);
-        } else {}
+            if(loan.DATATYPE.equals("2")){
+                vh.loan_10.setText("欠贷信息");
+            }else if(loan.DATATYPE.equals("4")){
+                vh.loan_10.setText("欠税信息");
+            }else if(loan.DATATYPE.equals("5")){
+                vh.loan_10.setText("欠薪信息");
+            }else if(loan.DATATYPE.equals("7")){
+                vh.loan_10.setText("责令改正");
+            }else if(loan.DATATYPE.equals("8")){
+                vh.loan_10.setText("证照到期");
+            }else if(loan.DATATYPE.equals("9")){
+                vh.loan_10.setText("证照过期");
+            }
+        }
+
     return convertView;
 }
 

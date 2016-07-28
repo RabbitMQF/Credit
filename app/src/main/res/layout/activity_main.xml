@@ -100,7 +100,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_centerVertical="true"
                                 android:layout_marginLeft="10dp"
-                                android:text="输入公司名,地址或其他信息"
+                                android:text="输入公司名查询"
                                 android:textColor="#B8B8B8"
                                 android:textSize="18sp" />
 
@@ -271,8 +271,8 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="30dp"
                                 android:text="加载更多"
-                                android:layout_margin="5dp"
                                 android:gravity="center"
+                                android:layout_marginTop="5dp"
                                 android:background="@color/white"/>
                         </LinearLayout>
                     </ScrollView>

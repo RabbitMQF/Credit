@@ -49,6 +49,7 @@
             android:hint="请输入主题"
             android:lines="1"
             android:maxLines="1"
+            android:maxLength="20"
             android:singleLine="true"
             android:textColor="#000000"
             android:textSize="14sp"

@@ -101,6 +101,9 @@ public class UserSetActivity extends BaseActivity {
     String a,b,c,d,e,f,g;
     Intent i;
     CreditSharePreferences csp;
+    int type;
+    String txt;
+    int sa;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -121,6 +124,12 @@ public class UserSetActivity extends BaseActivity {
                         break;
                     case 2:
                         Toast.show("修改信息失败！");
+                        break;
+                    case 3://学历/行业
+                        i =new Intent(UserSetActivity.this,UserSetTowActivity.class);
+                        i.putExtra("type",type);
+                        i.putExtra("txt",txt);
+                        startActivityForResult(i,sa);
                         break;
                 }
             }
@@ -170,8 +179,8 @@ public class UserSetActivity extends BaseActivity {
         /**
          * 获取用户学历
          */
-        String e2=csf.getEDUCATION();
-        us_xueli.setText(csf.getEDUCATIONID());
+        String e2=csf.getEDUCATIONID();
+        us_xueli.setText(csf.getEDUCATION());
         us6.setOnClickListener(listener);
         /**
          * 获取用户手机
@@ -211,12 +220,23 @@ public class UserSetActivity extends BaseActivity {
                             MyClaimRuerst.add("sex", sexs);//性别
                         }
                         if(!us_hangye.getText().toString().equals(csf.getINDUSTRY())) {
-                            MyClaimRuerst.add("industryId", us_hangye.getText().toString());//行业
+                            if(!us_hangye.getText().toString().equals(csf.getINDUSTRY())) {
+                                for(int i=0;i<DataManager.ZdianS.data.dictionarie.size();i++){
+                                    if(us_hangye.getText().toString().equals(DataManager.ZdianS.data.dictionarie.get(i).NAME)){
+                                        MyClaimRuerst.add("industryId",DataManager.ZdianS.data.dictionarie.get(i).ZD_ID);//行业
+                                    }
+                                }
+                            }
                         }
                         if(!us_xueli.getText().toString().equals(csf.getEDUCATION())) {
-                            MyClaimRuerst.add("educationId", us_xueli.getText().toString());//教育
+                            if(!us_xueli.getText().toString().equals(csf.getINDUSTRY())) {
+                                for(int i=0;i<DataManager.ZdianS.data.dictionarie.size();i++){
+                                    if(us_xueli.getText().toString().equals(DataManager.ZdianS.data.dictionarie.get(i).NAME)){
+                                        MyClaimRuerst.add("educationId",DataManager.ZdianS.data.dictionarie.get(i).ZD_ID);///教育
+                                    }
+                                }
+                            }
                         }
-
                         if(pic!=null){
                             if(!csf.getICONSTEAM().equals("")){
                                 if(!pic.equals(csf.getICONSTEAM())) {
@@ -268,17 +288,27 @@ public class UserSetActivity extends BaseActivity {
                     d="1";
                     break;
                 case R.id.us5:
-                    i =new Intent(UserSetActivity.this,UserSetTowActivity.class);
-                    i.putExtra("type",5);
-                    i.putExtra("txt",us_hangye.getText().toString());
-                    startActivityForResult(i,55);
+                    txt=us_hangye.getText().toString();
+                    type=5;
+                    sa=55;
+                    GsonUtil  MyClaimRuerst1232= new GsonUtil(URLconstant.URLINSER + URLconstant.DICTIONARIE, RequestMethod.GET);
+                    MyClaimRuerst1232.add("deviceId", (new Build()).MODEL);
+                    MyClaimRuerst1232.add("token", SearchFirmActivty.MD5s("" + (new Build()).MODEL));
+                    MyClaimRuerst1232.add("KeyNo", "");
+                    MyClaimRuerst1232.add("pname", "行业");
+                    CallServer.getInstance().add(UserSetActivity.this, MyClaimRuerst1232, MyhttpCallBack.getInstance(), 0x4011, true, false, true);
                     e="1";
                     break;
                 case R.id.us6:
-                    i =new Intent(UserSetActivity.this,UserSetTowActivity.class);
-                    i.putExtra("type",6);
-                    i.putExtra("txt",us_xueli.getText().toString());
-                    startActivityForResult(i,66);
+                    txt=us_xueli.getText().toString();
+                    type=6;
+                    sa=66;
+                    GsonUtil MyClaimRuerst123 = new GsonUtil(URLconstant.URLINSER + URLconstant.DICTIONARIE, RequestMethod.GET);
+                    MyClaimRuerst123.add("deviceId", (new Build()).MODEL);
+                    MyClaimRuerst123.add("token", SearchFirmActivty.MD5s("" + (new Build()).MODEL));
+                    MyClaimRuerst123.add("KeyNo", "");
+                    MyClaimRuerst123.add("pname", "学历");
+                    CallServer.getInstance().add(UserSetActivity.this, MyClaimRuerst123, MyhttpCallBack.getInstance(), 0x4011, true, false, true);
                     f="1";
                     break;
                 case R.id.us7:

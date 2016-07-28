@@ -1233,6 +1233,13 @@ public class MyhttpCallBack implements HttpCallBack {
                     UserSetActivity.handler.sendEmptyMessage(2);
                 }
                 break;
+            case 0x4011://个人资料字典
+                jsonString = (String) response.get();
+                DataManager.ZdianS = gson.fromJson(jsonString, DataManager.Zdian.class);
+                if(DataManager.ZdianS.data.dictionarie!=null && DataManager.ZdianS.data.dictionarie.size()>0){
+                    UserSetActivity.handler.sendEmptyMessage(3);
+                }
+                break;
             case 0x501://修改密码
                 jsonString = (String) response.get();
                 DataManager.user = gson.fromJson(jsonString, DataManager.User.class);
@@ -1405,9 +1412,19 @@ public class MyhttpCallBack implements HttpCallBack {
             case 0x997://个人中心获取投诉列表
                 MainActivity.pd.dismiss();
                 break;
+            case 0x204://发表评论
+            case 0x205://回复评论
             case 0x201://公司我的评价链表
+                CommentListActivity.wd.dismiss();
                 CompanyDetailsActivity.pd.dismiss();
+                ToCommentActivity.wd.dismiss();
+                CommentListDetailsActivity.wd.dismiss();
                 break;
+            case 0x206://我的评价
+                MainActivity.ad.dismiss();
+                MainActivity.pd.dismiss();
+                break;
+            case 0x995:
             case 0x994://获取企业投诉列表
             case 0x993://提交企业投诉
             case 0x992://提交投诉附件
@@ -1415,14 +1432,31 @@ public class MyhttpCallBack implements HttpCallBack {
                 ToComplaintActivity.pd.dismiss();
                 MycomplaintsListActivity.pd.dismiss();
                 break;
+            case 0x3031://我的认领列表{副}
+            case 0x305://取消认领
+            case 0x303://我的认领列表
             case 0x301://提交认领
+            case 0x302://提交认领附件
+                MainActivity.ad.dismiss();
+                MainActivity.pd.dismiss();
+                ToClaimActivity.wd.dismiss();
+                break;
+            case 0x101://关注企业
+            case 0x102://取消关注企业
+            case 0x103://我的关注列表
+                CompanyDetailsActivity.waitDialog.dismiss();
+                CompanyDetailsActivity.pd.dismiss();
                 MainActivity.ad.dismiss();
                 MainActivity.pd.dismiss();
                 break;
+
+
             case 0x20111://查询评论列表
                 CommentListDetailsActivity.wd.dismiss();
                 break;
-
+            case 0x999://查询评论列表
+                LoginActivity.wd.dismiss();
+                break;
             default:
                 break;
 

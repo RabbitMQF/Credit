@@ -98,7 +98,7 @@ public class ToClaimActivity extends BaseActivity implements OnItemLongClickList
     public Drawable [] imgs1 =new Drawable[9];
     List<String> listStirng=new ArrayList<>();
 
-    WaitDialog wd;
+    public static WaitDialog wd;
     int position,type;
 
     CreditSharePreferences csp;

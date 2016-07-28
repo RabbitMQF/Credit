@@ -66,11 +66,13 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
             public void handleMessage(Message msg) {
                 super.handleMessage(msg);
              finish();
+
             }
         };
     }
 
     public void init() {
+
         wd=new WaitDialog(this);
 
         b_topname.setText("用户登录");

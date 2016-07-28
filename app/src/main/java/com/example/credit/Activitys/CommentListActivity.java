@@ -53,7 +53,7 @@ public class CommentListActivity extends BaseActivity {
     public static Handler handler;
     CreditSharePreferences csp;
     int type;
-    WaitDialog wd;
+    public static WaitDialog wd;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -130,25 +130,34 @@ public class CommentListActivity extends BaseActivity {
 
     public  void Rit(){
         if(DataManager.MyCommentlistrS.data.userreview!=null && DataManager.MyCommentlistrS.data.userreview.size()>0) {
-            File file = new File(Environment.getExternalStorageDirectory() + "/Credit/cache/" + DataManager.MyCommentlistrS.data.userreview.get(0).COMMENTID + ".jpg");
+           String s= ((DataManager.MyCommentlistrS.data.userreview.get(0).ICONPATH).substring(DataManager.MyCommentlistrS.data.userreview.get(0).ICONPATH.length() - 20, DataManager.MyCommentlistrS.data.userreview.get(0).ICONPATH.length()-5)).replaceAll("\\/", "_");
+            File file=null;
+            for (int i = 0; i < DataManager.MyCommentlistrS.data.userreview.size(); i++) {
+                if (!DataManager.MyCommentlistrS.data.userreview.get(i).ICONPATH.equals("")) {
+                    file = new File(Environment.getExternalStorageDirectory() + "/Credit/cache/" + ((DataManager.MyCommentlistrS.data.userreview.get(i).ICONPATH).substring(DataManager.MyCommentlistrS.data.userreview.get(i).ICONPATH.length() - 20, DataManager.MyCommentlistrS.data.userreview.get(i).ICONPATH.length()-5)).replaceAll("\\/", "_") + ".jpg");
+                    break;
+                }
+            }
             if (!file.exists()) {//获取本地图片路径是否存在
                 for (int i = 0; i < DataManager.MyCommentlistrS.data.userreview.size(); i++) {
-                    try {
-                        BASE64Decoder decode = new BASE64Decoder();
-                        byte[] b = decode.decodeBuffer(DataManager.MyCommentlistrS.data.userreview.get(i).ICONPATH);
-                        System.out.println(new String(b));
-                        StringBuilder str = new StringBuilder();//不建议用String
-                        for (byte bs : b) {
-                            str.append(Integer.toBinaryString(bs));//转换为二进制
+                    if(!DataManager.MyCommentlistrS.data.userreview.get(i).ICONPATH.equals("")){
+                        try {
+                            BASE64Decoder decode = new BASE64Decoder();
+                            byte[] b = decode.decodeBuffer(DataManager.MyCommentlistrS.data.userreview.get(i).ICONPATH);
+                            System.out.println(new String(b));
+                            StringBuilder str = new StringBuilder();//不建议用String
+                            for (byte bs : b) {
+                                str.append(Integer.toBinaryString(bs));//转换为二进制
+                            }
+                            //把字节数组的图片写到另一个地方
+                            File apple = new File(Environment.getExternalStorageDirectory() + "/Credit/cache/" + ((DataManager.MyCommentlistrS.data.userreview.get(i).ICONPATH).substring(DataManager.MyCommentlistrS.data.userreview.get(i).ICONPATH.length() - 20, DataManager.MyCommentlistrS.data.userreview.get(i).ICONPATH.length()-5)).replaceAll("\\/", "_") + ".jpg");
+                            FileOutputStream fos = new FileOutputStream(apple);
+                            fos.write(b);
+                            fos.flush();
+                            fos.close();
+                        } catch (IOException e) {
+                            e.printStackTrace();
                         }
-                        //把字节数组的图片写到另一个地方
-                        File apple = new File(Environment.getExternalStorageDirectory() + "/Credit/cache/" + DataManager.MyCommentlistrS.data.userreview.get(i).COMMENTID + ".jpg");
-                        FileOutputStream fos = new FileOutputStream(apple);
-                        fos.write(b);
-                        fos.flush();
-                        fos.close();
-                    } catch (IOException e) {
-                        e.printStackTrace();
                     }
                 }
                 adapter = new CommmentAdapter(CommentListActivity.this, DataManager.MyCommentlistrS.data.userreview);

@@ -34,7 +34,7 @@ public class ToCommentActivity extends BaseActivity {
     @ViewInject(R.id.b_return)
     LinearLayout b_return;
 
-    WaitDialog wd;
+    public static WaitDialog wd;
     @ViewInject(R.id.To_details)
     EditText To_details;
     @ViewInject(R.id.To_details_num)
@@ -98,7 +98,7 @@ public class ToCommentActivity extends BaseActivity {
             @Override
             public void afterTextChanged(Editable s) {
                 if(s.length()==300){
-                    android.widget.Toast.makeText(ToCommentActivity.this, "您输入的字数已经达到200了", android.widget.Toast.LENGTH_SHORT).show();
+                    android.widget.Toast.makeText(ToCommentActivity.this, "您输入的字数已经达到300了", android.widget.Toast.LENGTH_SHORT).show();
                 }
             }
         });

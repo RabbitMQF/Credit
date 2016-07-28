@@ -77,7 +77,10 @@ public class RoundImageView extends ImageView {
 		if (drawable.getClass() == NinePatchDrawable.class)
 			return;
 		Bitmap b = ((BitmapDrawable) drawable).getBitmap();
-		Bitmap bitmap = b.copy(Bitmap.Config.ARGB_8888, true);
+		Bitmap bitmap = null;
+		if (b!=null&&!b.equals(null)) {
+			bitmap = b.copy(Config.ARGB_8888, true);
+		}
 		if (defaultWidth == 0) {
 			defaultWidth = getWidth();
 
@@ -207,5 +210,6 @@ public class RoundImageView extends ImageView {
 		paint.setStrokeWidth(mBorderThickness);
 		canvas.drawCircle(defaultWidth / 2, defaultHeight / 2, radius, paint);
 	}
+
 
 }

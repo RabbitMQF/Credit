@@ -17,6 +17,9 @@ import com.example.credit.Views.MyListView;
 import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ViewInject;
 
+/**
+ * 我的评论
+ */
 public class MyCommentlistActivity extends Activity {
     @ViewInject(R.id.b_topname)
     TextView b_topname;

@@ -14,6 +14,7 @@ import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.example.credit.Entitys.DataManager;
 import com.example.credit.R;
 import com.example.credit.Utils.Toast;
 import com.lidroid.xutils.ViewUtils;
@@ -117,10 +118,9 @@ public class UserSetTowActivity extends Activity {
                 ll3.setVisibility(View.VISIBLE);
                 b_topname.setText("行业修改");
                 data_list = new ArrayList<String>();
-                data_list.add("金融");
-                data_list.add("通信");
-                data_list.add("运输");
-
+                for(int i=0;i<DataManager.ZdianS.data.dictionarie.size();i++){
+                    data_list.add(DataManager.ZdianS.data.dictionarie.get(i).NAME);
+                }
                 arr_adapter= new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, data_list);
                 arr_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 spinner2.setAdapter(arr_adapter);
@@ -147,11 +147,9 @@ public class UserSetTowActivity extends Activity {
                 ll3.setVisibility(View.VISIBLE);
                 b_topname.setText("学历修改");
                 data_list = new ArrayList<String>();
-                data_list.add("本科");
-                data_list.add("专科");
-                data_list.add("硕士");
-                data_list.add("博士");
-                data_list.add("高中");
+                for(int i=0;i<DataManager.ZdianS.data.dictionarie.size();i++){
+                    data_list.add(DataManager.ZdianS.data.dictionarie.get(i).NAME);
+                }
                 arr_adapter= new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, data_list);
                 arr_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 spinner2.setAdapter(arr_adapter);

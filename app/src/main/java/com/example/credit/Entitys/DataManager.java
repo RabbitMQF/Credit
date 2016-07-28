@@ -1147,9 +1147,9 @@ public class DataManager {
      * 搜索接口返回参数实体类
      */
     public static class baging {
-        public String TotalPage;
-        public String PageIndex;
-        public String showCount;
+        public int TotalPage;
+        public int PageIndex;
+        public int showCount;
         public int TotalRecords;
     }
 
@@ -1233,7 +1233,7 @@ public class DataManager {
                 public String CREATETIME;//评论时间
                 public String COMMENTID;//评论ID
                 public String CONTENT;//点评内容
-                public String SUCCESSQTY;//点赞数量
+                public String SUCCESSQTY;//点赞数量123123.
                 public String ISSUCCESS;//是否点赞 0为否，1为是
                 public List<Replay2review> replay2review;
                 public String MEMBERNAME;//本评论用户名称
@@ -1679,6 +1679,41 @@ public class DataManager {
         public String version;
         public static class DataBean {
             public String result;
+        }
+    }
+
+    public  static Zdian ZdianS=new Zdian();
+    /**
+     * d字典表
+     */
+    public static class Zdian {
+        public String message;
+        public String status;
+        public DataBean data;
+        public String version;
+
+        public static class DataBean {
+            /**
+             * NAME : 金融
+             * ORDY_BY : 1
+             * PNAME : 行业
+             * P_BM : HY_JR
+             * JB : 2
+             * ZD_ID : a5819ad67e1e4cb1a863188602bbb861
+             * BIANMA : JR
+             * PARENT_ID : 43271e594e824d0f874a422a4b9933fa
+             */
+            public List<DictionarieBean> dictionarie;
+            public static class DictionarieBean {
+                public String NAME;
+                public String ORDY_BY;
+                public String PNAME;
+                public String P_BM;
+                public String JB;
+                public String ZD_ID;
+                public String BIANMA;
+                public String PARENT_ID;
+            }
         }
     }
 }
