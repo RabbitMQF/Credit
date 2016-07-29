@@ -1178,6 +1178,10 @@ public class DataManager {
      * 16个item条数实体类
      */
     public static class allcount {
+        public String BiddingCount;//招标总数
+        public String JobCount;//企业招聘总数
+        public String EntNewCount;//企业新闻总数
+
         public String IsFavorite;//关注信息
 
         public String HonorCount;//荣誉信息

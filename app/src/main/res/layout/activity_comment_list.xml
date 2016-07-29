@@ -9,9 +9,11 @@
 
     <include layout="@layout/public_top_bar"/>
     <ScrollView
+        android:id="@+id/scrollV"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <com.example.credit.Views.MyListView
+
             android:id="@+id/Ccomm_list"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -24,7 +26,21 @@
             android:scrollbars="none"
             android:focusableInTouchMode="true"
             android:listSelector="#00000000" />
+
     </ScrollView>
 
-
+    <LinearLayout
+        android:visibility="gone"
+        android:id="@+id/commentNull"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center_vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="暂无评论!"
+            android:layout_gravity="center"
+            android:textSize="20sp"/>
+    </LinearLayout>
 </LinearLayout>

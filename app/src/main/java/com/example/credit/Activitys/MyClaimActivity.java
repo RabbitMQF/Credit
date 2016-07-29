@@ -35,20 +35,22 @@ public class MyClaimActivity extends BaseActivity {
     TextView b_topname;
     @ViewInject(R.id.b_return)
     LinearLayout b_return;
-
+    @ViewInject(R.id.Null)
+    LinearLayout Null;
     @ViewInject(R.id.Myclaim_list)
     ListView Myclaim_list;
     public static Handler handler;
     MyClaim_listAdapter adapter;
     public static WaitDialog wd;
     CreditSharePreferences csp;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_claim);
         ViewUtils.inject(this);
-        csp=CreditSharePreferences.getLifeSharedPreferences();
-        wd=new WaitDialog(this);
+        csp = CreditSharePreferences.getLifeSharedPreferences();
+        wd = new WaitDialog(this);
         init();
         handler = new Handler() {
             @Override
@@ -77,7 +79,8 @@ public class MyClaimActivity extends BaseActivity {
         };
 
     }
-    public void init(){
+
+    public void init() {
         b_topname.setText("我的认领");
         b_return.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -85,9 +88,14 @@ public class MyClaimActivity extends BaseActivity {
                 finish();
             }
         });
-        adapter=new MyClaim_listAdapter(MyClaimActivity.this);
-        adapter.setDataList(DataManager.MyClaimUtilsModel.data.Claimlist);
-        Myclaim_list.setAdapter(adapter);
+        if (DataManager.MyClaimUtilsModel.data != null && !DataManager.MyClaimUtilsModel.data.equals(null) && DataManager.MyClaimUtilsModel.data.Claimlist.size() > 0) {
+            adapter = new MyClaim_listAdapter(MyClaimActivity.this);
+            adapter.setDataList(DataManager.MyClaimUtilsModel.data.Claimlist);
+            Myclaim_list.setAdapter(adapter);
+        } else {
+            Myclaim_list.setVisibility(View.GONE);
+            Null.setVisibility(View.VISIBLE);
+        }
         MainActivity.ad.dismiss();
 
 //        /**
@@ -116,7 +124,7 @@ public class MyClaimActivity extends BaseActivity {
         UInit();
     }
 
-    public void UInit(){
+    public void UInit() {
         GsonUtil MyClaimRuerst = new GsonUtil(URLconstant.URLINSER + URLconstant.MYCLAIMURL, RequestMethod.GET);
         MyClaimRuerst.add("deviceId", (new Build()).MODEL);
         MyClaimRuerst.add("token", SearchFirmActivty.MD5s(csp.getID() + (new Build()).MODEL));

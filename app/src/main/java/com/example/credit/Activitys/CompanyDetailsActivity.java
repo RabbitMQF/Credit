@@ -186,6 +186,7 @@ public class CompanyDetailsActivity extends BaseActivity {
         }else {
             Toast.show("暂无数据...");
         }
+
         tokens = SearchFirmActivty.MD5s(KeyNos + model);
         init();//初始化16宫格等
 

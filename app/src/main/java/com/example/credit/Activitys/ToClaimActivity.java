@@ -38,6 +38,7 @@ import com.example.credit.Services.CallServer;
 import com.example.credit.Utils.CreditSharePreferences;
 import com.example.credit.Utils.GsonUtil;
 import com.example.credit.Utils.MyhttpCallBack;
+import com.example.credit.Utils.TextUtils;
 import com.example.credit.Utils.Toast;
 import com.example.credit.Utils.URLconstant;
 import com.example.credit.Views.MyGridView;
@@ -109,6 +110,7 @@ public class ToClaimActivity extends BaseActivity implements OnItemLongClickList
     ArrayList<Drawable> myList=new ArrayList<Drawable>();
     String attchmentDescS="";
     String attchmentSteamS="";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

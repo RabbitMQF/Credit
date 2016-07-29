@@ -5,19 +5,11 @@ import android.app.ActivityManager;
 import android.app.ProgressDialog;
 import android.content.ComponentName;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
-import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
-import android.provider.MediaStore;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.view.Display;
 import android.view.KeyEvent;
 import android.view.View;
 
@@ -33,7 +25,6 @@ import android.widget.Toast;
 
 import com.example.credit.Adapters.NewClaimListAdapter;
 import com.example.credit.Adapters.NewsListAdapter;
-import com.example.credit.Adapters.SearchListAdapter2;
 import com.example.credit.Dialogs.WaitDialog;
 import com.example.credit.Entitys.DataManager;
 import com.example.credit.R;
@@ -42,23 +33,19 @@ import com.example.credit.Utils.CreditSharePreferences;
 import com.example.credit.Utils.GsonUtil;
 import com.example.credit.Utils.MD5;
 import com.example.credit.Utils.MyhttpCallBack;
-import com.example.credit.Utils.PullToRefreshView;
+import com.example.credit.Utils.NetUtils;
 import com.example.credit.Utils.URLconstant;
-import com.example.credit.Views.FileUtil;
 import com.example.credit.Views.RoundImageView;
 import com.example.credit.Views.SlidingMenu;
 import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ViewInject;
-import com.squareup.picasso.Picasso;
 import com.yolanda.nohttp.RequestMethod;
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import Decoder.BASE64Decoder;
 
@@ -66,7 +53,7 @@ import static com.example.credit.Views.FileUtil.decodeBitmap;
 import static com.example.credit.Views.FileUtil.deleteDir;
 //SwipeRefreshLayout.OnRefreshListener
 public class MainActivity extends Activity implements View.OnClickListener {
-//    ,PullToRefreshView.OnHeaderRefreshListener, PullToRefreshView.OnFooterRefreshListener
+    //    ,PullToRefreshView.OnHeaderRefreshListener, PullToRefreshView.OnFooterRefreshListener
     private long exitTime = 0;
     private SlidingMenu mLeftMenu;
     private final int NOHTTP_CITY = 0x021;//获取城市
@@ -114,18 +101,19 @@ public class MainActivity extends Activity implements View.OnClickListener {
     @ViewInject(R.id.news_list)
     ListView NewsListview;
 
+    NewsListAdapter adapter;
     public static List<DataManager.MyNews.DataBean.NewslistBean> MyNewsList = new ArrayList<DataManager.MyNews.DataBean.NewslistBean>();//初始新闻集合
+
     static CreditSharePreferences csp;
     Boolean LoginStatus;
     public static ProgressDialog pd;
     public static WaitDialog ad;
 
-    TextView main1, main2;//新闻和最新认领按钮
+    TextView main1, main2;//今日热点和最新认领按钮
     //    PullToRefreshView mPullToRefreshView;
     boolean falg = true;
     int t = 2;
     int str = 1;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -134,7 +122,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
         LoginStatus = csp.getLoginStatus();
         ViewUtils.inject(this);
         ad = new WaitDialog(this);
-        initView();
+        boolean falg= NetUtils.isConnectingToInternet(this);
+
         mLeftMenu = (SlidingMenu) findViewById(R.id.id_menu);
 
         /*FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -157,7 +146,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                     case 0:
                         btmore.setVisibility(View.VISIBLE);
                         int por = MyNewsList.size() - 1;
-                        NewsListAdapter adapter = new NewsListAdapter(MainActivity.this, MyNewsList);
+                        adapter = new NewsListAdapter(MainActivity.this, MyNewsList);
                         NewsListview.setAdapter(adapter);
                         adapter.notifyDataSetChanged();
                         if (str == 2) {
@@ -233,14 +222,22 @@ public class MainActivity extends Activity implements View.OnClickListener {
                     case 101:
                         com.example.credit.Utils.Toast.show("没有数据了!");
                         break;
-
+                    case 10://刷新新闻
+                       adapter.notifyDataSetChanged();
+                        break;
                     default:
                         break;
                 }
 
             }
         };
-        initData();
+        if(falg==true){
+            initView();
+            initData();
+        }else{
+            this.finish();
+            System.exit(0);
+        }
         NewsListview.setOnScrollListener(new AbsListView.OnScrollListener() {
             @Override
             public void onScrollStateChanged(AbsListView view, int scrollState) {
@@ -289,12 +286,23 @@ public class MainActivity extends Activity implements View.OnClickListener {
 //            com.example.credit.Utils.Toast.show("新闻正在赶来的路上...");
 //            mPullToRefreshView.setVisibility(View.GONE);
 //        }
-        if (MyNewsList != null && MyNewsList.size() > 0) {
-            handler.sendEmptyMessage(0);
-        } else {//没有数据
-//            mPullToRefreshView.setVisibility(View.GONE);
-            btmore.setVisibility(View.GONE);
-        }
+
+//        new Thread(){
+//            @Override
+//            public void run() {
+//                super.run();
+//                try {
+//                    sleep(1000);
+                    if (MyNewsList != null && MyNewsList.size() > 0) {
+                        handler.sendEmptyMessage(0);
+                    } else {//没有数据
+                        btmore.setVisibility(View.GONE);
+                    }
+//                } catch (Exception e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//        }.start();
 
         main1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -331,6 +339,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 } catch (Exception e) {
                     e.printStackTrace();
                     com.example.credit.Utils.Toast.show("数据正在赶来的路上...");
+                    handler.sendEmptyMessage(7);
 //                    mPullToRefreshView.setVisibility(View.GONE);
                 }
             }
@@ -560,7 +569,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
             super.onBackPressed();
         }
     }*/
-
     private void isLogin() {
         LoginStatus = csp.getLoginStatus();
         if (LoginStatus) {//若当前状态为登录
@@ -612,6 +620,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     protected void onResume() {
         super.onResume();
         isLogin();
+        initData();
     }
 
     @Override
@@ -690,4 +699,5 @@ public class MainActivity extends Activity implements View.OnClickListener {
 //            }
 //        }, 1000);
 //    }
+
 }

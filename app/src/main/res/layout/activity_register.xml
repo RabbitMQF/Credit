@@ -37,6 +37,8 @@
             android:hint="请输入邮箱"
             android:maxLines="1"
             android:lines="1"
+            android:maxLength="20"
+            android:digits="0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ.@"
             android:singleLine="true"
             android:imeOptions="actionNext"
             android:background="@drawable/bg_edittext"

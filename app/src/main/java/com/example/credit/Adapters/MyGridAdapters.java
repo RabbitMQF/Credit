@@ -189,28 +189,22 @@ public class MyGridAdapters extends BaseAdapter {
                 tv.setText("0");
                 break;
             case 19:
-//                if(DataManager.allcountsList.get(0).AnnualCount.equals("0")){
-//                    tv.setTextColor(Color.parseColor("#B8B8B8"));
-//                }
-//                tv.setText((DataManager.allcountsList.get(0).AnnualCount)+"");
-                tv.setTextColor(Color.parseColor("#B8B8B8"));
-                tv.setText("0");
+                if(DataManager.allcountsList.get(0).BiddingCount.equals("0")){
+                    tv.setTextColor(Color.parseColor("#B8B8B8"));
+                }
+                tv.setText((DataManager.allcountsList.get(0).BiddingCount)+"");
                 break;
             case 20:
-//                if(DataManager.allcountsList.get(0).AnnualCount.equals("0")){
-//                    tv.setTextColor(Color.parseColor("#B8B8B8"));
-//                }
-//                tv.setText((DataManager.allcountsList.get(0).AnnualCount)+"");
-                tv.setTextColor(Color.parseColor("#B8B8B8"));
-                tv.setText("0");
+                if(DataManager.allcountsList.get(0).EntNewCount.equals("0")){
+                    tv.setTextColor(Color.parseColor("#B8B8B8"));
+                }
+                tv.setText((DataManager.allcountsList.get(0).EntNewCount)+"");
                 break;
             case 21:
-//                if(DataManager.allcountsList.get(0).AnnualCount.equals("0")){
-//                    tv.setTextColor(Color.parseColor("#B8B8B8"));
-//                }
-//                tv.setText((DataManager.allcountsList.get(0).AnnualCount)+"");
-                tv.setTextColor(Color.parseColor("#B8B8B8"));
-                tv.setText("0");
+                if(DataManager.allcountsList.get(0).JobCount.equals("0")){
+                    tv.setTextColor(Color.parseColor("#B8B8B8"));
+                }
+                tv.setText((DataManager.allcountsList.get(0).JobCount)+"");
                 break;
             case 22:
 //                if(DataManager.allcountsList.get(0).AnnualCount.equals("0")){

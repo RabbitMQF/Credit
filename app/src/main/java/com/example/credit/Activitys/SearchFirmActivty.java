@@ -113,6 +113,7 @@ public class SearchFirmActivty extends BaseActivity implements PullToRefreshView
     AlertDialog.Builder builder;
     AlertDialog dialog;
     int t=2;
+    int sum=1;
     int por;
     PullToRefreshView mPullToRefreshView;
     LinearLayout typeSD;
@@ -136,12 +137,14 @@ public class SearchFirmActivty extends BaseActivity implements PullToRefreshView
                         pd.dismiss();
                         por=listsea.size()-1;
                         if(DataManager.searchListMore!=null && DataManager.searchListMore.size()>0){
+                            mPullToRefreshView.onFooterRefreshComplete();
                             t++;
                             for(int i=0;i<DataManager.searchListMore.size();i++){
                                 listsea.add(DataManager.searchListMore.get(i));
                             }
                         }else{
                             listsea = DataManager.searchList;
+                            android.widget.Toast.makeText(SearchFirmActivty.this, "已搜索到" + MyhttpCallBack.baging.TotalRecords + "条数据", android.widget.Toast.LENGTH_SHORT).show();
                         }
                         his_sra.setVisibility(View.GONE);
                         search_list.setVisibility(View.VISIBLE);
@@ -150,7 +153,6 @@ public class SearchFirmActivty extends BaseActivity implements PullToRefreshView
                         search_list.setAdapter(adapter2);
                         adapter2.notifyDataSetChanged();
                         search_list.setSelection(por-2);
-                        android.widget.Toast.makeText(SearchFirmActivty.this, "已搜索到" + MyhttpCallBack.baging.TotalRecords + "条数据,共有" + MyhttpCallBack.baging.TotalRecords + "条数据", android.widget.Toast.LENGTH_SHORT).show();
                         search_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                             @Override
                             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -1085,7 +1087,7 @@ public class SearchFirmActivty extends BaseActivity implements PullToRefreshView
             request.add("token", Tks);//加密结果
             request.add("searchKey", Tname);//string搜索关键字
             request.add("deviceId", model);//设备ID
-            request.add("memberId", csp.getID());//86D9D7F53FCA45DD93E2D83DFCA0CB42  记录用户搜索关键字
+            request.add("memberId", csp.getID());//86D9D7F53FCA45DD93E2D83DFCA0CB42  记录用户ID
             //根据type判断查询类型
             switch (type) {
                 case 0:
@@ -1142,7 +1144,6 @@ public class SearchFirmActivty extends BaseActivity implements PullToRefreshView
 
             @Override
             public void run() {
-                mPullToRefreshView.onFooterRefreshComplete();
                 if (t <=  MyhttpCallBack.baging.TotalPage) {
                     GsonUtil request = new GsonUtil(URLconstant.URLINSER + URLconstant.SEARCHURL, RequestMethod.GET);
                     request.setReadTimeout(50000);
@@ -1190,8 +1191,10 @@ public class SearchFirmActivty extends BaseActivity implements PullToRefreshView
                     }
                     CallServer.getInstance().add(SearchFirmActivty.this, request, MyhttpCallBack.getInstance(), 0x0221, true, false, true);
                     t++;
+                    sum++;
                 }else{
                     com.example.credit.Utils.Toast.show("没有更多数据了！");
+                    mPullToRefreshView.onFooterRefreshComplete();
                 }
             }
         }, 1000);

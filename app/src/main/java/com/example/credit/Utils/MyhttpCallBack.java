@@ -15,6 +15,7 @@ import com.example.credit.Activitys.ToClaimActivity;
 import com.example.credit.Activitys.ToCommentActivity;
 import com.example.credit.Activitys.ToComplaintActivity;
 import com.example.credit.Activitys.UserSetActivity;
+import com.example.credit.Activitys.WelcomeActivity;
 import com.example.credit.Entitys.DataManager;
 import com.example.credit.Entitys.DataManager.Replay2review;
 import com.google.gson.Gson;
@@ -89,6 +90,7 @@ public class MyhttpCallBack implements HttpCallBack {
                 DataManager.MyNewsS = gson.fromJson(jsonString, DataManager.MyNews.class);
                 if(DataManager.MyNewsS.data.Newslist!=null && DataManager.MyNewsS.data.Newslist.size()>0){
                     MainActivity.MyNewsList=DataManager.MyNewsS.data.Newslist;
+                    WelcomeActivity.handler.sendEmptyMessage(10);
                 }
                 break;
             case 0x1111://获取更多新闻
@@ -118,9 +120,12 @@ public class MyhttpCallBack implements HttpCallBack {
 //                }.getType());
 //                DataManager.searchList = searchstrlist2;
                 baging = gson.fromJson(((Map<String, Object>) map.get("data")).get("Pageing").toString(), DataManager.baging.class);
-                List<LinkedTreeMap> searchstrlist2 = (List<LinkedTreeMap>) ((Map<String, Object>) map.get("data")).get("Result");
+                List<LinkedTreeMap> searchstrlist2 = (List<LinkedTreeMap>) ((Map<String, Object>) map.get("data")).get("Result");//余思
                 if (DataManager.searchList.size() != 0) {
                     DataManager.searchList.clear();
+                }
+                if (DataManager.searchListMore.size() != 0) {
+                    DataManager.searchListMore.clear();
                 }
                 for (LinkedTreeMap temp : searchstrlist2) {
                     DataManager.search serchtemp = new DataManager.search();
@@ -280,6 +285,10 @@ public class MyhttpCallBack implements HttpCallBack {
                             cfo.PatentCount = temp.get("PatentCount").toString();
                             cfo.PageView=temp.get("PageView").toString();
                             cfo.IsClaim=temp.get("IsClaim").toString();
+
+                            cfo.BiddingCount=temp.get("BiddingCount").toString();
+                            cfo.JobCount=temp.get("JobCount").toString();
+                            cfo.EntNewCount=temp.get("EntNewCount").toString();
                             DataManager.allcountsList.add(cfo);
                         }
                     }
@@ -347,6 +356,10 @@ public class MyhttpCallBack implements HttpCallBack {
                         cfo.PatentCount = temp.get("PatentCount").toString();
                         cfo.PageView=temp.get("PageView").toString();
                         cfo.IsClaim=temp.get("IsClaim").toString();
+
+                        cfo.BiddingCount=temp.get("BiddingCount").toString();
+                        cfo.JobCount=temp.get("JobCount").toString();
+                        cfo.EntNewCount=temp.get("EntNewCount").toString();
                         DataManager.allcountsList.add(cfo);
                     }
                 }
@@ -375,7 +388,7 @@ public class MyhttpCallBack implements HttpCallBack {
                     SearchFirmActivty.handler.sendEmptyMessage(500);
                 }
                 break;
-            case 0x026://我的关注跳公司详情界面的请求
+            case 0x026://主界面 跳公司详情
                 jsonString = (String) response.get();
                 map = gson.fromJson(jsonString, new TypeToken<Map<String, Object>>() {
                 }.getType());
@@ -409,6 +422,10 @@ public class MyhttpCallBack implements HttpCallBack {
                         cfo.PatentCount = temp.get("PatentCount").toString();
                         cfo.PageView=temp.get("PageView").toString();
                         cfo.IsClaim=temp.get("IsClaim").toString();
+
+                        cfo.BiddingCount=temp.get("BiddingCount").toString();
+                        cfo.JobCount=temp.get("JobCount").toString();
+                        cfo.EntNewCount=temp.get("EntNewCount").toString();
                         DataManager.allcountsList.add(cfo);
                     }
                 }
@@ -1276,8 +1293,8 @@ public class MyhttpCallBack implements HttpCallBack {
                     csp.putUser(DataManager.user);
                     csp.putLoginStatus(true);
                     Toast.show("登录成功");
-                    if(csp.getUSERNAME().equals("")){
-                        csp.putUSERNAME("用户12138");
+                    if(csp.getALIASNAME().equals("")){
+                        csp.putALIASNAME("用户12138");
                     }
                     if(!csp.getALIASNAME().equals("")){
                         MainActivity.UserSz.setText(csp.getALIASNAME());

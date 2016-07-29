@@ -28,29 +28,37 @@ public class MyCommentlistActivity extends Activity {
     @ViewInject(R.id.Mycomm_list)
     ListView Mycomm_list;//评论列表
     MyCommment_listAdapter adapter;
+    @ViewInject(R.id.commentNull)
+    LinearLayout commentNull;//空
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_commentlist);
         ViewUtils.inject(this);
-            init();
-        }
-        public void init(){
-            b_topname.setText("我的评论");
-            b_return.setOnClickListener(listener);
-            adapter=new MyCommment_listAdapter(MyCommentlistActivity.this, DataManager.MyComms.data.commentList);
-            Mycomm_list.setAdapter(adapter);
-            MainActivity.ad.dismiss();
-        }
+        init();
+    }
 
-        View.OnClickListener listener= new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                switch (v.getId()){
-                    case R.id.b_return://返回键
-                        finish();
-                        break;
-                }
+    public void init() {
+        b_topname.setText("我的评论");
+        b_return.setOnClickListener(listener);
+        if (DataManager.MyComms.data == null || DataManager.MyComms.data.equals(null) || DataManager.MyComms.data.commentList.size() == 0) {
+            Mycomm_list.setVisibility(View.GONE);
+            commentNull.setVisibility(View.VISIBLE);
+        }
+        adapter = new MyCommment_listAdapter(MyCommentlistActivity.this, DataManager.MyComms.data.commentList);
+        Mycomm_list.setAdapter(adapter);
+        MainActivity.ad.dismiss();
+    }
+
+    View.OnClickListener listener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            switch (v.getId()) {
+                case R.id.b_return://返回键
+                    finish();
+                    break;
+            }
         }
     };
 }

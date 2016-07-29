@@ -13,6 +13,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.example.credit.Adapters.CommmentAdapter;
@@ -49,26 +50,32 @@ public class CommentListActivity extends BaseActivity {
     TextView b_topY;
     @ViewInject(R.id.Ccomm_list)
     MyListView Ccomm_list;//评论列表
+    @ViewInject(R.id.scrollV)
+    ScrollView scrollV;//列表
+    @ViewInject(R.id.commentNull)
+    LinearLayout commentNull;//空
+
     CommmentAdapter adapter;
     public static Handler handler;
     CreditSharePreferences csp;
     int type;
     public static WaitDialog wd;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_comment_list);
         ViewUtils.inject(this);
-        wd=new WaitDialog(this);
-        Intent i=getIntent();
-        type=i.getIntExtra("type",0);
-        csp=CreditSharePreferences.getLifeSharedPreferences();
+        wd = new WaitDialog(this);
+        Intent i = getIntent();
+        type = i.getIntExtra("type", 0);
+        csp = CreditSharePreferences.getLifeSharedPreferences();
         init();
-        handler=new Handler(){
+        handler = new Handler() {
             @Override
             public void handleMessage(Message msg) {
                 super.handleMessage(msg);
-                switch (msg.what){
+                switch (msg.what) {
                     case 0:
                         Rit();
                         wd.dismiss();
@@ -80,34 +87,39 @@ public class CommentListActivity extends BaseActivity {
             }
         };
     }
-    public void init(){
+
+    public void init() {
         b_topY.setVisibility(View.VISIBLE);//显示右上角控件“发表”
         b_topname.setText("评论");
         b_return.setOnClickListener(listener);
         b_topY.setOnClickListener(listener);
         intiow();
+        if(DataManager.MyCommentlistrS.data==null||DataManager.MyCommentlistrS.data.equals(null)||DataManager.MyCommentlistrS.data.userreview.size()==0){
+            scrollV.setVisibility(View.GONE);
+            commentNull.setVisibility(View.VISIBLE);
+        }
         Ccomm_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent i=new Intent(CommentListActivity.this,CommentListDetailsActivity.class);
-                i.putExtra("uid",DataManager.MyCommentlistrS.data.userreview.get(position).MEMBERID);
-                i.putExtra("pid",DataManager.MyCommentlistrS.data.userreview.get(position).COMMENTID);
-                i.putExtra("position",position);
-                startActivityForResult(i,22);
+                Intent i = new Intent(CommentListActivity.this, CommentListDetailsActivity.class);
+                i.putExtra("uid", DataManager.MyCommentlistrS.data.userreview.get(position).MEMBERID);
+                i.putExtra("pid", DataManager.MyCommentlistrS.data.userreview.get(position).COMMENTID);
+                i.putExtra("position", position);
+                startActivityForResult(i, 22);
             }
         });
     }
 
-    View.OnClickListener listener= new View.OnClickListener() {
+    View.OnClickListener listener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            switch (v.getId()){
+            switch (v.getId()) {
                 case R.id.b_return://返回键
                     finish();
                     break;
                 case R.id.b_topY://跳转发表评论界面
-                    Intent i=new Intent(CommentListActivity.this,ToCommentActivity.class);
-                    startActivityForResult(i,11);
+                    Intent i = new Intent(CommentListActivity.this, ToCommentActivity.class);
+                    startActivityForResult(i, 11);
                     break;
             }
         }
@@ -128,19 +140,19 @@ public class CommentListActivity extends BaseActivity {
         super.onActivityResult(requestCode, resultCode, data);
     }
 
-    public  void Rit(){
-        if(DataManager.MyCommentlistrS.data.userreview!=null && DataManager.MyCommentlistrS.data.userreview.size()>0) {
-           String s= ((DataManager.MyCommentlistrS.data.userreview.get(0).ICONPATH).substring(DataManager.MyCommentlistrS.data.userreview.get(0).ICONPATH.length() - 20, DataManager.MyCommentlistrS.data.userreview.get(0).ICONPATH.length()-5)).replaceAll("\\/", "_");
-            File file=null;
+    public void Rit() {
+        if (DataManager.MyCommentlistrS.data.userreview != null && DataManager.MyCommentlistrS.data.userreview.size() > 0) {
+            String s = ((DataManager.MyCommentlistrS.data.userreview.get(0).ICONPATH).substring(DataManager.MyCommentlistrS.data.userreview.get(0).ICONPATH.length() - 20, DataManager.MyCommentlistrS.data.userreview.get(0).ICONPATH.length() - 5)).replaceAll("\\/", "_");
+            File file = null;
             for (int i = 0; i < DataManager.MyCommentlistrS.data.userreview.size(); i++) {
                 if (!DataManager.MyCommentlistrS.data.userreview.get(i).ICONPATH.equals("")) {
-                    file = new File(Environment.getExternalStorageDirectory() + "/Credit/cache/" + ((DataManager.MyCommentlistrS.data.userreview.get(i).ICONPATH).substring(DataManager.MyCommentlistrS.data.userreview.get(i).ICONPATH.length() - 20, DataManager.MyCommentlistrS.data.userreview.get(i).ICONPATH.length()-5)).replaceAll("\\/", "_") + ".jpg");
+                    file = new File(Environment.getExternalStorageDirectory() + "/Credit/cache/" + ((DataManager.MyCommentlistrS.data.userreview.get(i).ICONPATH).substring(DataManager.MyCommentlistrS.data.userreview.get(i).ICONPATH.length() - 20, DataManager.MyCommentlistrS.data.userreview.get(i).ICONPATH.length() - 5)).replaceAll("\\/", "_") + ".jpg");
                     break;
                 }
             }
             if (!file.exists()) {//获取本地图片路径是否存在
                 for (int i = 0; i < DataManager.MyCommentlistrS.data.userreview.size(); i++) {
-                    if(!DataManager.MyCommentlistrS.data.userreview.get(i).ICONPATH.equals("")){
+                    if (!DataManager.MyCommentlistrS.data.userreview.get(i).ICONPATH.equals("")) {
                         try {
                             BASE64Decoder decode = new BASE64Decoder();
                             byte[] b = decode.decodeBuffer(DataManager.MyCommentlistrS.data.userreview.get(i).ICONPATH);
@@ -150,7 +162,7 @@ public class CommentListActivity extends BaseActivity {
                                 str.append(Integer.toBinaryString(bs));//转换为二进制
                             }
                             //把字节数组的图片写到另一个地方
-                            File apple = new File(Environment.getExternalStorageDirectory() + "/Credit/cache/" + ((DataManager.MyCommentlistrS.data.userreview.get(i).ICONPATH).substring(DataManager.MyCommentlistrS.data.userreview.get(i).ICONPATH.length() - 20, DataManager.MyCommentlistrS.data.userreview.get(i).ICONPATH.length()-5)).replaceAll("\\/", "_") + ".jpg");
+                            File apple = new File(Environment.getExternalStorageDirectory() + "/Credit/cache/" + ((DataManager.MyCommentlistrS.data.userreview.get(i).ICONPATH).substring(DataManager.MyCommentlistrS.data.userreview.get(i).ICONPATH.length() - 20, DataManager.MyCommentlistrS.data.userreview.get(i).ICONPATH.length() - 5)).replaceAll("\\/", "_") + ".jpg");
                             FileOutputStream fos = new FileOutputStream(apple);
                             fos.write(b);
                             fos.flush();
@@ -170,7 +182,8 @@ public class CommentListActivity extends BaseActivity {
             }
         }
     }
-    public void intiow(){
+
+    public void intiow() {
         /**
          * 查询评论
          */

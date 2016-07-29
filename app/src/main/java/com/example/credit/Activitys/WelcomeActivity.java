@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.Handler;
+import android.os.Message;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -17,6 +19,7 @@ import com.example.credit.Utils.CreditSharePreferences;
 import com.example.credit.Utils.GsonUtil;
 import com.example.credit.Utils.MD5;
 import com.example.credit.Utils.MyhttpCallBack;
+import com.example.credit.Utils.NetUtils;
 import com.example.credit.Utils.URLconstant;
 import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ViewInject;
@@ -31,6 +34,7 @@ public class WelcomeActivity extends Activity {
     Button next;
 
     CreditSharePreferences esp;
+    public  static Handler handler;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,6 +64,18 @@ public class WelcomeActivity extends Activity {
                 overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
             }
         });
+        handler=new Handler(){
+            @Override
+            public void handleMessage(Message msg) {
+                super.handleMessage(msg);
+                startActivity(new Intent(WelcomeActivity.this,MainActivity.class));
+                finish();
+                overridePendingTransition(R.anim.welcome_in,R.anim.welcome_out);
+            }
+        };
+
+
+
 //        new Thread() {
 //            @Override
 //            public void run() {
@@ -124,10 +140,7 @@ public class WelcomeActivity extends Activity {
                     }
                 }
             }.start();
-            Intent i=new Intent(WelcomeActivity.this,MainActivity.class);
-            startActivity(i);
-            finish();
-            overridePendingTransition(R.anim.welcome_in,R.anim.welcome_out);
+
         }
     };
 //    }

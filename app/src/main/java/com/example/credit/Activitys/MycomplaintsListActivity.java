@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
+
 import com.example.credit.Adapters.ComplainListAdapter;
 import com.example.credit.Entitys.DataManager;
 import com.example.credit.R;
@@ -37,6 +38,8 @@ public class MycomplaintsListActivity extends BaseActivity {
     ListView complain_lv;
     @ViewInject(R.id.b_topY)
     TextView b_topY;
+    @ViewInject(R.id.Null)
+    LinearLayout Null;//空
     ComplainListAdapter Cadapter;
     public static Handler handler;
     public static ProgressDialog pd;
@@ -68,13 +71,13 @@ public class MycomplaintsListActivity extends BaseActivity {
                         startActivity(new Intent(MycomplaintsListActivity.this, ComplaintDetailsActivity.class));
                         break;
                     case 4://提交投诉后重新请求获取企业投诉数据源
-                       pd.show();
+                        pd.show();
                         GsonUtil ComplaintsRuerst = new GsonUtil(URLconstant.URLINSER + URLconstant.GETCOMPLAIN, RequestMethod.GET);
                         ComplaintsRuerst.add("token", MD5.MD5s("" + new Build().MODEL));//csp.getID()
-                        ComplaintsRuerst.add("KeyNo","");//csp.getID()
+                        ComplaintsRuerst.add("KeyNo", "");//csp.getID()
                         ComplaintsRuerst.add("deviceId", new Build().MODEL);
-                        ComplaintsRuerst.add("enterId",DataManager.BaseinfoList.get(0).EnterAddtionID);
-                        CallServer.getInstance().add(MycomplaintsListActivity.this,ComplaintsRuerst, MyhttpCallBack.getInstance(),0x991,true,false,true);
+                        ComplaintsRuerst.add("enterId", DataManager.BaseinfoList.get(0).EnterAddtionID);
+                        CallServer.getInstance().add(MycomplaintsListActivity.this, ComplaintsRuerst, MyhttpCallBack.getInstance(), 0x991, true, false, true);
                         break;
                     case 5://提交投诉后数据源更新后刷新UI
                         Cadapter.setDataList(DataManager.myComplaint.data.commentList);
@@ -90,10 +93,7 @@ public class MycomplaintsListActivity extends BaseActivity {
     }
 
     public void init() {
-        if (DataManager.myComplaint.data != null && !DataManager.myComplaint.data.equals(null)) {
-            Cadapter = new ComplainListAdapter(this);
-            Cadapter.setDataList(DataManager.myComplaint.data.commentList);
-
+        Cadapter = new ComplainListAdapter(this);
         Intent i = getIntent();
         if (i.getIntExtra("key", 0) == 1) {
             b_topY.setText("我要投诉");
@@ -102,8 +102,16 @@ public class MycomplaintsListActivity extends BaseActivity {
             Cadapter.setTag();
 
         }
-        complain_lv.setAdapter(Cadapter);
-        Cadapter.notifyDataSetChanged();
+        if (DataManager.myComplaint.data != null && !DataManager.myComplaint.data.equals(null) && DataManager.myComplaint.data.commentList.size() != 0) {
+
+            Cadapter.setDataList(DataManager.myComplaint.data.commentList);
+
+
+            complain_lv.setAdapter(Cadapter);
+            Cadapter.notifyDataSetChanged();
+        } else {
+            complain_lv.setVisibility(View.GONE);
+            Null.setVisibility(View.VISIBLE);
         }
         b_topname.setText("我的投诉");
         b_return.setOnClickListener(new View.OnClickListener() {
@@ -127,12 +135,15 @@ public class MycomplaintsListActivity extends BaseActivity {
 
     }
 
+
     @Override
-    protected void onStart() {
-        super.onStart();
-        Cadapter.setDataList(DataManager.myComplaint.data.commentList);
-        Cadapter.notifyDataSetChanged();
-        pd.dismiss();
+    protected void onRestart() {
+        super.onRestart();
+
+            Cadapter.setDataList(DataManager.myComplaint.data.commentList);
+            Cadapter.notifyDataSetChanged();
+            init();
+            pd.dismiss();
 
     }
 }
