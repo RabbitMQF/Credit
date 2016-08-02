@@ -258,7 +258,7 @@ public class CommentListDetailsActivity extends BaseActivity {
                     break;
                 case R.id.Dhuifu_btn://发送键
                     if(!huifu_con.getText().toString().equals("")){
-                        String KeyNo= DataManager.BaseinfoList.get(0).EnterAddtionID;
+                        String KeyNo= DataManager.allcountsList.get(0).EnterAddtionID;
                         String token = SearchFirmActivty.MD5s(KeyNo + deviceId);
                         GsonUtil request14 = new GsonUtil(URLconstant.URLINSER + URLconstant.HHOMM, RequestMethod.GET);
                         request14.add("KeyNo",KeyNo);

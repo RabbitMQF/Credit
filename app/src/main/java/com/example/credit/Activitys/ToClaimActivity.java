@@ -332,8 +332,8 @@ public class ToClaimActivity extends BaseActivity implements OnItemLongClickList
                         request14.add("description",claim_details.getText().toString());
                         request14.add("telphone",claim_phone.getText().toString());
                         if(type!=1){//id为空则是添加，否则是修改
-                            request14.add("KeyNo",DataManager.BaseinfoList.get(0).EnterAddtionID);
-                            request14.add("token",SearchFirmActivty.MD5s(DataManager.BaseinfoList.get(0).EnterAddtionID + (new Build()).MODEL));
+                            request14.add("KeyNo",DataManager.allcountsList.get(0).EnterAddtionID);
+                            request14.add("token",SearchFirmActivty.MD5s(DataManager.allcountsList.get(0).EnterAddtionID + (new Build()).MODEL));
                             request14.add("openType","0");//0为添加，1为修改
                         }else{
                             request14.add("KeyNo",DataManager.MyClaimUtilsModel.data.Claimlist.get(position).CLAIMID);

@@ -13,6 +13,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import com.example.credit.Entitys.DataManager;
 import com.example.credit.R;
 import com.example.credit.Services.CallServer;
 import com.example.credit.Utils.CreditSharePreferences;
@@ -109,8 +110,6 @@ public class WelcomeActivity extends Activity {
         NewsRequest.add("pageSize",5);
         CallServer.getInstance().add(this,NewsRequest, MyhttpCallBack.getInstance(),0x111,true,false,true);
 
-        GsonUtil NewClaimRequest=new GsonUtil(URLconstant.URLINSER + URLconstant.NEWCLAIM, RequestMethod.GET);//最新认领
-        CallServer.getInstance().add(this,NewClaimRequest, MyhttpCallBack.getInstance(),0x113,true,false,true);
     }
     Animation.AnimationListener listener=new Animation.AnimationListener() {
 

@@ -12,58 +12,59 @@ import android.webkit.WebViewClient;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.example.credit.Entitys.DataManager;
+import com.example.credit.Dialogs.WaitDialog;
 import com.example.credit.R;
 import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ViewInject;
 
-public class NewsContentActivity extends Activity {
+public class H5ViewActivity extends Activity {
     @ViewInject(R.id.b_return)
     LinearLayout b_return;
     @ViewInject(R.id.b_topname)
     TextView b_topname;
 
-    @ViewInject(R.id.webv)
-    WebView mWebView;
+    @ViewInject(R.id.Hwebv)
+    WebView Hwebv;
 
-    String id;
-
-    ProgressDialog pd;
+    String KeyNo,pripid,URL,priptype,regno;
+WaitDialog wd;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_news_content);
+        setContentView(R.layout.activity_h5_view);
         ViewUtils.inject(this);
-        b_topname.setText("新闻内容");
+        wd=new WaitDialog(this);
+        Intent i=getIntent();
+        KeyNo=i.getStringExtra("KeyNo");
+        pripid=i.getStringExtra("pripid");
+        URL=i.getStringExtra("URL");
+        regno=i.getStringExtra("regno");
+        priptype=i.getStringExtra("priptype");
+        b_topname.setText(KeyNo);
         b_return.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
             }
         });
-        Intent i=getIntent();
-        id=i.getStringExtra("id");
         webinit();
     }
     public  void webinit(){
-        pd = new ProgressDialog(NewsContentActivity.this);
-        pd.setMessage("正在加载中...");
-        pd.setCancelable(false);
-        pd.show();
-//        mWebView.loadUrl("http://101.201.211.27:8282/zhirong.credith5/enterinfo/tonewsDetails.do?devicetype=1&KeyNo="+id);
-        mWebView.loadUrl("http://101.201.211.27:8282/zhirong.credith5/biddingInfoController/getBiddingInfolist.do?KeyNo=江西智容科技有限公司&pripid=3601032011041300098564&regno=360103210025958&priptype=1130");
-        mWebView.setWebChromeClient(new WebChromeClient() {
+        wd.show();
+        String str=URL+"?KeyNo="+KeyNo+"&pripid="+pripid+"&regno="+regno+"&priptype="+priptype;
+        Hwebv.loadUrl(str);
+        Hwebv.setWebChromeClient(new WebChromeClient() {
             @Override
             public void onProgressChanged(WebView view, int newProgress) {
                 // TODO Auto-generated method stub
                 if (newProgress == 100) {
-                    pd.dismiss();
+                    wd.dismiss();
                 } else {
                     // 加载中
                 }
             }
         });
-        mWebView.setWebViewClient(new WebViewClient(){
+        Hwebv.setWebViewClient(new WebViewClient(){
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
                 view.loadUrl(url);
@@ -71,6 +72,6 @@ public class NewsContentActivity extends Activity {
             }
         });
 
-        mWebView.getSettings().setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);//网页缓存
+        Hwebv.getSettings().setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);//网页缓存
     }
 }

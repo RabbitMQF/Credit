@@ -179,10 +179,10 @@ public class CompanyDetailsActivity extends BaseActivity {
 
         if (DataManager.BaseinfoList.size()>0) {
             KeyNo = DataManager.BaseinfoList.get(0).PRIPID;//市场主体身份代码
-            enterId = DataManager.BaseinfoList.get(0).EnterAddtionID;//企业附加表ID
+            enterId = DataManager.allcountsList.get(0).EnterAddtionID;//企业附加表ID
             token = SearchFirmActivty.MD5s(KeyNo + model);//token 由 设备ID+市场主体身份代码 MD5生成
             regnore = DataManager.BaseinfoList.get(0).REGNO;//注册号
-            KeyNos = DataManager.BaseinfoList.get(0).EnterAddtionID;//企业附加信息主键ID
+            KeyNos = DataManager.allcountsList.get(0).EnterAddtionID;//企业附加信息主键ID
         }else {
             Toast.show("暂无数据...");
         }
@@ -642,28 +642,54 @@ public class CompanyDetailsActivity extends BaseActivity {
                         CallServer.getInstance().add(CompanyDetailsActivity.this, request15, MyhttpCallBack.getInstance(), MSG, true, false, true);
                     }
                     break;
-                case  16:
+                case  16://全景视图
                     startActivity(new Intent(CompanyDetailsActivity.this, Panoramic_Activity.class).putExtra("KeyNo", KeyNo).putExtra("deviceId", model).putExtra("priptype", DataManager.BaseinfoList.get(0).ENTTYPE).putExtra("regnore", regnore).putExtra("entname",DataManager.BaseinfoList.get(0).ENTNAME));
                     break;
-                case  17:
+                case  17://投资连图
                     Toast.show( "此模块，正在开发中...");
                     break;
-                case  18:
+                case  18://发展历程
                     Toast.show( "此模块，正在开发中...");
                     break;
-                case  19:
+                case  19://招投标
+                    Intent i19 = new Intent(CompanyDetailsActivity.this, H5ViewActivity.class);
+                    i19.putExtra("KeyNo", DataManager.BaseinfoList.get(0).ENTNAME);
+                    i19.putExtra("pripid",  DataManager.BaseinfoList.get(0).PRIPID);
+                    i19.putExtra("URL",  URLconstant.TENDER);
+                    i19.putExtra("regno",  DataManager.BaseinfoList.get(0).REGNO);
+                    i19.putExtra("priptype", DataManager.BaseinfoList.get(0).ENTTYPE);
+                    startActivity(i19);
+                    overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
+//                    Toast.show( "此模块，正在开发中...");
+                    break;
+
+                case  20://企业新闻
+                    Intent i20 = new Intent(CompanyDetailsActivity.this, H5ViewActivity.class);
+                    i20.putExtra("KeyNo", DataManager.BaseinfoList.get(0).ENTNAME);
+                    i20.putExtra("pripid",  DataManager.BaseinfoList.get(0).PRIPID);
+                    i20.putExtra("URL",  URLconstant.COMPANYNEWS);
+                    i20.putExtra("regno",  DataManager.BaseinfoList.get(0).REGNO);
+                    i20.putExtra("priptype", DataManager.BaseinfoList.get(0).ENTTYPE);
+                    startActivity(i20);
+                    overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
+                    //                    Toast.show( "此模块，正在开发中...");
+                    break;
+
+                case  21://企业招聘
+                    Intent i21 = new Intent(CompanyDetailsActivity.this, H5ViewActivity.class);
+                    i21.putExtra("KeyNo", DataManager.BaseinfoList.get(0).ENTNAME);
+                    i21.putExtra("pripid",  DataManager.BaseinfoList.get(0).PRIPID);
+                    i21.putExtra("URL",  URLconstant.RECRUIT);
+                    i21.putExtra("regno",  DataManager.BaseinfoList.get(0).REGNO);
+                    i21.putExtra("priptype", DataManager.BaseinfoList.get(0).ENTTYPE);
+                    startActivity(i21);
+                    overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
+                    //                    Toast.show( "此模块，正在开发中...");
+                    break;
+                case  22://企业展示
                     Toast.show( "此模块，正在开发中...");
                     break;
-                case  20:
-                    Toast.show( "此模块，正在开发中...");
-                    break;
-                case  21:
-                    Toast.show( "此模块，正在开发中...");
-                    break;
-                case  22:
-                    Toast.show( "此模块，正在开发中...");
-                    break;
-                case  23:
+                case  23://信用报告
                     Toast.show( "此模块，正在开发中...");
                     break;
 

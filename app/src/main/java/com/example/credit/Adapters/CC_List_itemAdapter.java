@@ -5,9 +5,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.example.credit.Entitys.DataManager;
 import com.example.credit.R;
 import com.squareup.picasso.Picasso;
 
@@ -46,9 +49,15 @@ public class CC_List_itemAdapter extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(context).inflate(R.layout.activity_c_list_item, null);
             vh = new ViewHolder();
+            vh.punlic_1 = (RelativeLayout) view.findViewById(R.id.punlic_1);
             vh.im = (ImageView) view.findViewById(R.id.im);
             vh.cl_tv1 = (TextView) view.findViewById(R.id.cl_tv1);
             vh.cl_tv2 = (TextView) view.findViewById(R.id.cl_tv2);
+
+            vh.punlic_2 = (FrameLayout) view.findViewById(R.id.punlic_2);
+            vh.cl2_tv1 = (TextView) view.findViewById(R.id.cl2_tv1);
+            vh.cl2_tv2 = (TextView) view.findViewById(R.id.cl2_tv2);
+            vh.cl2_tv3 = (TextView) view.findViewById(R.id.cl2_tv3);
             view.setTag(vh);
         } else {
             vh = (ViewHolder) view.getTag();
@@ -72,8 +81,11 @@ public class CC_List_itemAdapter extends BaseAdapter {
             vh.cl_tv1.setText(list.get(position));
 
         } else if (str.equals("copyright")) {//著作权
-            vh.cl_tv1.setVisibility(View.VISIBLE);
-            vh.cl_tv1.setText(list.get(position));
+            vh.punlic_1.setVisibility(View.GONE);
+            vh.punlic_2.setVisibility(View.VISIBLE);
+            vh.cl2_tv1.setText(list.get(position));
+            vh.cl2_tv2.setText(imgUrl.get(position));
+            vh.cl2_tv3.setText(DataManager.copyrightInfoeList.get(position).WORKCLASS);
 
         }else if (str.equals("patent")) {//专利信息
             vh.cl_tv1.setVisibility(View.VISIBLE);
@@ -92,8 +104,14 @@ public class CC_List_itemAdapter extends BaseAdapter {
     }
 
     public class ViewHolder {
+        RelativeLayout punlic_1;
+        FrameLayout punlic_2;
         ImageView im;
         TextView cl_tv1;
         TextView cl_tv2;
+
+        TextView cl2_tv1;
+        TextView cl2_tv2;
+        TextView cl2_tv3;
     }
 }

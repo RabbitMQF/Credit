@@ -95,6 +95,16 @@ public class URLconstant {
     public static final String NEWCLAIM="businessController/getClaim.do";//最新认领接口revise
 
     public static final String DICTIONARIE="dictionarieController/getDictionarie.do";//字典表接口revise
+
+    public static final String COMPANYNEWS="http://101.201.211.27:8282/zhirong.credith5/enterinfo/entnew.do";//企业新闻接口
+
+    public static final String RECRUIT="http://101.201.211.27:8282/zhirong.credith5/enterinfo/entrecruit.do";//招聘接口recruit
+
+    public static final String TENDER="http://101.201.211.27:8282/zhirong.credith5/biddingInfoController/getBiddingInfolist.do";//招标接口Tender
+
+
+
+
 //    public static final String GETCITYLIST="http://app.qichacha.com/enterprises/new/GetCityList";//获取城市接口
 
     //    public static final String SEARCHURL="http://168s.mobile.hc360.com/get168.cgi";//获取搜索列表

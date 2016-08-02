@@ -20,7 +20,6 @@ public class GsonUtil extends RestRequest {
 
     @Override
     public Object parseResponse(String url, Headers responseHeaders, byte[] responseBody) {
-
         return StringRequest.parseResponseString(url,responseHeaders,responseBody);
     }
 

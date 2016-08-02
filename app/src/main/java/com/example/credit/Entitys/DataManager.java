@@ -1158,9 +1158,7 @@ public class DataManager {
      */
     public static class Baseinfo {
         public String REGSTATE;//登记状态
-        public String EnterAddtionID;//企业附加表ID
         public String REGNO;//企业注册号
-        public String IsFavorite;//是否关注
         public String NAME;//法人
         public String REGCAP;//注册资金
         public String ESTDATE;//成立日期
@@ -1178,11 +1176,12 @@ public class DataManager {
      * 16个item条数实体类
      */
     public static class allcount {
+        public String EnterAddtionID;//企业附加表ID
+        public String IsFavorite;//关注信息
+
         public String BiddingCount;//招标总数
         public String JobCount;//企业招聘总数
         public String EntNewCount;//企业新闻总数
-
-        public String IsFavorite;//关注信息
 
         public String HonorCount;//荣誉信息
         public String JudiciaryCount;//司法信息

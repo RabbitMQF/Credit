@@ -38,14 +38,14 @@
                 android:text="补偿400万，就不能当钉子户了？"
                 android:lines="1"
                 android:ellipsize="end"
-                android:textColor="@android:color/black"/>
+                android:textColor="#6E6E6E"/>
 
             <TextView
                 android:id="@+id/news_content"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:textSize="13sp"
-                android:textColor="@color/huise"
+                android:textColor="#A0A0A0"
                 android:text="最开始知道有这么个‘一张网’的时候是在去年5月，当时真是有种又爱又恨的感觉。用上了以后，现在感觉离不开它了。”江西智容科技总经理李志，一个现在拥有近百名员工的80后老板，激动的对人民财经讲述他第一时间触“一张网”时候的经历"
                 android:lines="2"
                 android:ellipsize="end"
@@ -56,9 +56,8 @@
                 android:layout_height="wrap_content"
                 android:text="今天19：00"
                 android:layout_gravity="right"
-                android:textColor="@color/blue1"
+                android:textColor="#B4B4B4"
                 />
-
         </LinearLayout>
     </LinearLayout>
 

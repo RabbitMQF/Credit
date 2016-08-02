@@ -22,7 +22,7 @@
             android:maxLines="1"
             android:textColor="#000000"
             android:textSize="14sp"
-            android:text="其他投资人"/>
+            />
 
         <TextView
             android:id="@+id/tvzy_item2"
@@ -31,7 +31,7 @@
             android:layout_marginRight="2dip"
             android:textColor="#B8B8B8"
             android:textSize="14sp"
-            android:text="中国农业银行江西省井冈山培训中心"/>
+            />
 
     </LinearLayout>
 

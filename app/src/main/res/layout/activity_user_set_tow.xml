@@ -40,6 +40,7 @@
             android:hint="请输入修改信息"
             android:maxLines="1"
             android:lines="1"
+            android:maxLength="20"
             android:singleLine="true"
             android:imeOptions="actionNext"
             android:background="@drawable/bg_edittext"

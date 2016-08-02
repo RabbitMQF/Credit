@@ -290,6 +290,9 @@ public class SearchFirmActivty extends BaseActivity implements PullToRefreshView
                     city_arraow.setImageResource(R.mipmap.senior_arraow_down);
                     city_check = false;
                     cityindex = null;
+                    searchEt.setFocusable(true);//重新获取焦点
+                    searchEt.setFocusableInTouchMode(true);//重新获取焦点
+                    searchEt.requestFocus();//重新获取焦点
                     e.printStackTrace();
                 }
 

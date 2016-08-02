@@ -82,6 +82,8 @@ public class CommentListActivity extends BaseActivity {
                         break;
                     case 500:
                         wd.dismiss();
+                        scrollV.setVisibility(View.GONE);
+                        commentNull.setVisibility(View.VISIBLE);
                         break;
                 }
             }
@@ -94,10 +96,6 @@ public class CommentListActivity extends BaseActivity {
         b_return.setOnClickListener(listener);
         b_topY.setOnClickListener(listener);
         intiow();
-        if(DataManager.MyCommentlistrS.data==null||DataManager.MyCommentlistrS.data.equals(null)||DataManager.MyCommentlistrS.data.userreview.size()==0){
-            scrollV.setVisibility(View.GONE);
-            commentNull.setVisibility(View.VISIBLE);
-        }
         Ccomm_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -142,7 +140,6 @@ public class CommentListActivity extends BaseActivity {
 
     public void Rit() {
         if (DataManager.MyCommentlistrS.data.userreview != null && DataManager.MyCommentlistrS.data.userreview.size() > 0) {
-            String s = ((DataManager.MyCommentlistrS.data.userreview.get(0).ICONPATH).substring(DataManager.MyCommentlistrS.data.userreview.get(0).ICONPATH.length() - 20, DataManager.MyCommentlistrS.data.userreview.get(0).ICONPATH.length() - 5)).replaceAll("\\/", "_");
             File file = null;
             for (int i = 0; i < DataManager.MyCommentlistrS.data.userreview.size(); i++) {
                 if (!DataManager.MyCommentlistrS.data.userreview.get(i).ICONPATH.equals("")) {
@@ -150,36 +147,43 @@ public class CommentListActivity extends BaseActivity {
                     break;
                 }
             }
-            if (!file.exists()) {//获取本地图片路径是否存在
-                for (int i = 0; i < DataManager.MyCommentlistrS.data.userreview.size(); i++) {
-                    if (!DataManager.MyCommentlistrS.data.userreview.get(i).ICONPATH.equals("")) {
-                        try {
-                            BASE64Decoder decode = new BASE64Decoder();
-                            byte[] b = decode.decodeBuffer(DataManager.MyCommentlistrS.data.userreview.get(i).ICONPATH);
-                            System.out.println(new String(b));
-                            StringBuilder str = new StringBuilder();//不建议用String
-                            for (byte bs : b) {
-                                str.append(Integer.toBinaryString(bs));//转换为二进制
+            if(file!=null){
+                if (!file.exists()) {//获取本地图片路径是否存在
+                    for (int i = 0; i < DataManager.MyCommentlistrS.data.userreview.size(); i++) {
+                        if (!DataManager.MyCommentlistrS.data.userreview.get(i).ICONPATH.equals("")) {
+                            try {
+                                BASE64Decoder decode = new BASE64Decoder();
+                                byte[] b = decode.decodeBuffer(DataManager.MyCommentlistrS.data.userreview.get(i).ICONPATH);
+                                System.out.println(new String(b));
+                                StringBuilder str = new StringBuilder();//不建议用String
+                                for (byte bs : b) {
+                                    str.append(Integer.toBinaryString(bs));//转换为二进制
+                                }
+                                //把字节数组的图片写到另一个地方
+                                File apple = new File(Environment.getExternalStorageDirectory() + "/Credit/cache/" + ((DataManager.MyCommentlistrS.data.userreview.get(i).ICONPATH).substring(DataManager.MyCommentlistrS.data.userreview.get(i).ICONPATH.length() - 20, DataManager.MyCommentlistrS.data.userreview.get(i).ICONPATH.length() - 5)).replaceAll("\\/", "_") + ".jpg");
+                                FileOutputStream fos = new FileOutputStream(apple);
+                                fos.write(b);
+                                fos.flush();
+                                fos.close();
+                            } catch (IOException e) {
+                                e.printStackTrace();
                             }
-                            //把字节数组的图片写到另一个地方
-                            File apple = new File(Environment.getExternalStorageDirectory() + "/Credit/cache/" + ((DataManager.MyCommentlistrS.data.userreview.get(i).ICONPATH).substring(DataManager.MyCommentlistrS.data.userreview.get(i).ICONPATH.length() - 20, DataManager.MyCommentlistrS.data.userreview.get(i).ICONPATH.length() - 5)).replaceAll("\\/", "_") + ".jpg");
-                            FileOutputStream fos = new FileOutputStream(apple);
-                            fos.write(b);
-                            fos.flush();
-                            fos.close();
-                        } catch (IOException e) {
-                            e.printStackTrace();
                         }
                     }
+                    adapter = new CommmentAdapter(CommentListActivity.this, DataManager.MyCommentlistrS.data.userreview);
+                    adapter.notifyDataSetChanged();
+                    Ccomm_list.setAdapter(adapter);
+                }else{
+                    adapter = new CommmentAdapter(CommentListActivity.this, DataManager.MyCommentlistrS.data.userreview);
+                    adapter.notifyDataSetChanged();
+                    Ccomm_list.setAdapter(adapter);
                 }
-                adapter = new CommmentAdapter(CommentListActivity.this, DataManager.MyCommentlistrS.data.userreview);
-                adapter.notifyDataSetChanged();
-                Ccomm_list.setAdapter(adapter);
-            } else {
+            }else{
                 adapter = new CommmentAdapter(CommentListActivity.this, DataManager.MyCommentlistrS.data.userreview);
                 adapter.notifyDataSetChanged();
                 Ccomm_list.setAdapter(adapter);
             }
+
         }
     }
 
@@ -190,8 +194,8 @@ public class CommentListActivity extends BaseActivity {
         wd.show();
         GsonUtil request14 = new GsonUtil(URLconstant.URLINSER + URLconstant.COMM, RequestMethod.GET);
         request14.add("deviceId", (new Build()).MODEL);
-        request14.add("token", SearchFirmActivty.MD5s(DataManager.BaseinfoList.get(0).EnterAddtionID + (new Build()).MODEL));
-        request14.add("KeyNo", DataManager.BaseinfoList.get(0).EnterAddtionID);
+        request14.add("token", SearchFirmActivty.MD5s(DataManager.allcountsList.get(0).EnterAddtionID + (new Build()).MODEL));
+        request14.add("KeyNo", DataManager.allcountsList.get(0).EnterAddtionID);
         request14.add("memberId", csp.getID());
         CallServer.getInstance().add(CommentListActivity.this, request14, MyhttpCallBack.getInstance(), 0x201, true, false, true);
     }

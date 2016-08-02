@@ -119,7 +119,7 @@ public class DetailsContentActivity extends BaseActivity {
     @ViewInject(R.id.c_fzjg)
     LinearLayout c_impPeoc_fzjgple;//分支机构null
 
-    public String[] arrays3 = {"注册资本", "法定代表人", "发照日期", "成立日期",
+    public String[] arrays3 = {"注册资本", "法定代表人","成立日期","核准日期",
             "工商注册号", "组织机构代码"};
     public String[] arrays4;
     MyGridAdapter3 adapter2;
@@ -331,17 +331,16 @@ public class DetailsContentActivity extends BaseActivity {
         }else{
             lt.add("暂无信息");
         }
-        if(DataManager.gsxx.data.BaseInfo.APPRDATE!=null&&!DataManager.gsxx.data.BaseInfo.APPRDATE.equals(null)&&!DataManager.gsxx.data.BaseInfo.APPRDATE.equals("")){
-            lt.add(DataManager.gsxx.data.BaseInfo.APPRDATE);
-        }else{
-            lt.add("暂无信息");
-        }
         if(DataManager.gsxx.data.BaseInfo.ESTDATE!=null&&!DataManager.gsxx.data.BaseInfo.ESTDATE.equals(null)&&!DataManager.gsxx.data.BaseInfo.ESTDATE.equals("")){
             lt.add(DataManager.gsxx.data.BaseInfo.ESTDATE);
         }else{
             lt.add("暂无信息");
         }
-
+        if(DataManager.gsxx.data.BaseInfo.APPRDATE!=null&&!DataManager.gsxx.data.BaseInfo.APPRDATE.equals(null)&&!DataManager.gsxx.data.BaseInfo.APPRDATE.equals("")){
+            lt.add(DataManager.gsxx.data.BaseInfo.APPRDATE);
+        }else{
+            lt.add("暂无信息");
+        }
         if(DataManager.gsxx.data.BaseInfo.UNISCID!=null&&!DataManager.gsxx.data.BaseInfo.UNISCID.equals(null)&&!DataManager.gsxx.data.BaseInfo.UNISCID.equals("")){
             arrays3[4]="统一社会信用代码";
             lt.add(DataManager.gsxx.data.BaseInfo.UNISCID);

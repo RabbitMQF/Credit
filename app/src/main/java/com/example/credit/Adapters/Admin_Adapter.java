@@ -93,6 +93,7 @@ public class Admin_Adapter extends BaseAdapter {
             vh.aoffice.setText(temp_admin.LICANTH);
             vh.adate.setText(temp_admin.VALTO);
         }
+
         if(otherList!=null) {
             DataManager.admin_other temp_admin = otherList.get(position);
             if(position==0){
@@ -102,16 +103,16 @@ public class Admin_Adapter extends BaseAdapter {
             vh.apripid_tit.setText("许可文件名称");
             vh.aname_tit.setText("许可证号");
             vh.ano_tit.setText("有效期");
-            vh.atime_tit.setText("登记机关");
-            vh.aoffice_tit.setText("发证日期");
-            vh.contetns1.setText("详情");
+            vh.atime_tit.setText("详情");
+            vh.aoffice_tit.setText("登记机关");
+            vh.contetns1.setText("发证日期");
 
             vh.apripid.setText(temp_admin.LICNAME_CN);
             vh.aname.setText(temp_admin.LICNO);
-            vh.ano.setText(temp_admin.VALFROM+" - "+temp_admin.VALTO);
-            vh.atime.setText(temp_admin.LICANTH);
-            vh.aoffice.setText("");
-            vh.adate.setText(temp_admin.LICITEM);
+            vh.ano.setText(temp_admin.VALFROM+"至"+temp_admin.VALTO);
+            vh.atime.setText(temp_admin.LICITEM);
+            vh.aoffice.setText(temp_admin.LICANTH);
+            vh.adate.setText("");
 
         }
         return convertView;

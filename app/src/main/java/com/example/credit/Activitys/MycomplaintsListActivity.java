@@ -76,7 +76,7 @@ public class MycomplaintsListActivity extends BaseActivity {
                         ComplaintsRuerst.add("token", MD5.MD5s("" + new Build().MODEL));//csp.getID()
                         ComplaintsRuerst.add("KeyNo", "");//csp.getID()
                         ComplaintsRuerst.add("deviceId", new Build().MODEL);
-                        ComplaintsRuerst.add("enterId", DataManager.BaseinfoList.get(0).EnterAddtionID);
+                        ComplaintsRuerst.add("enterId", DataManager.allcountsList.get(0).EnterAddtionID);
                         CallServer.getInstance().add(MycomplaintsListActivity.this, ComplaintsRuerst, MyhttpCallBack.getInstance(), 0x991, true, false, true);
                         break;
                     case 5://提交投诉后数据源更新后刷新UI

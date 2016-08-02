@@ -90,15 +90,15 @@ public class MyhttpCallBack implements HttpCallBack {
                 DataManager.MyNewsS = gson.fromJson(jsonString, DataManager.MyNews.class);
                 if(DataManager.MyNewsS.data.Newslist!=null && DataManager.MyNewsS.data.Newslist.size()>0){
                     MainActivity.MyNewsList=DataManager.MyNewsS.data.Newslist;
-                    WelcomeActivity.handler.sendEmptyMessage(10);
                 }
+                WelcomeActivity.handler.sendEmptyMessage(10);
                 break;
             case 0x1111://获取更多新闻
                 jsonString = (String) response.get();
                 DataManager.MyNewsSMore = gson.fromJson(jsonString, DataManager.MyNews.class);
                 if(DataManager.MyNewsSMore.data.Newslist!=null && DataManager.MyNewsSMore.data.Newslist.size()>0){
                     for(int i=0;i<DataManager.MyNewsSMore.data.Newslist.size();i++){
-                        MainActivity.MyNewsList.add(DataManager.MyNewsSMore.data.Newslist.get(i));;
+                        MainActivity.MyNewsList.add(DataManager.MyNewsSMore.data.Newslist.get(i));
                     }
                     MainActivity.handler.sendEmptyMessage(0);
                 }else{
@@ -108,6 +108,11 @@ public class MyhttpCallBack implements HttpCallBack {
             case 0x113://获取最新认领
                 jsonString = (String) response.get();
                 DataManager.MyClaimUtilsModel = gson.fromJson(jsonString, DataManager.MyClaimUtils.class);
+                if (DataManager.MyClaimUtilsModel.data.Claimlist != null && DataManager.MyClaimUtilsModel.data.Claimlist.size() > 0) {
+                    MainActivity.handler.sendEmptyMessage(7);
+                }else{
+                    MainActivity.handler.sendEmptyMessage(500);
+                }
                 break;
 
             case 0x022://搜索结果
@@ -266,6 +271,7 @@ public class MyhttpCallBack implements HttpCallBack {
                     if (lists2 != null && lists2.size() > 0) {
                         for (LinkedTreeMap temp : lists2) {
                             DataManager.allcount cfo = new DataManager.allcount();
+                            cfo.EnterAddtionID = temp.get("EnterAddtionID").toString();
                             cfo.IsFavorite = temp.get("IsFavorite").toString();
                             cfo.HonorCount = temp.get("HonorCount").toString();
                             cfo.JudiciaryCount = temp.get("JudiciaryCount").toString();
@@ -295,10 +301,8 @@ public class MyhttpCallBack implements HttpCallBack {
                     if (lists3 != null && lists3.size() > 0) {
                         for (LinkedTreeMap temp : lists3) {
                             DataManager.Baseinfo cfo = new DataManager.Baseinfo();
-                            cfo.EnterAddtionID = temp.get("EnterAddtionID").toString();
                             cfo.REGSTATE = temp.get("REGSTATE").toString();
                             cfo.REGNO = temp.get("REGNO").toString();
-                            cfo.IsFavorite = temp.get("IsFavorite").toString();
                             cfo.NAME = temp.get("NAME").toString();
                             cfo.REGCAP = temp.get("REGCAP").toString();
                             cfo.ESTDATE = temp.get("ESTDATE").toString();
@@ -337,6 +341,7 @@ public class MyhttpCallBack implements HttpCallBack {
                 if (lists25 != null && lists25.size() > 0) {
                     for (LinkedTreeMap temp : lists25) {
                         DataManager.allcount cfo = new DataManager.allcount();
+                        cfo.EnterAddtionID = temp.get("EnterAddtionID").toString();
                         cfo.IsFavorite = temp.get("IsFavorite").toString();
                         cfo.HonorCount = temp.get("HonorCount").toString();
                         cfo.JudiciaryCount = temp.get("JudiciaryCount").toString();
@@ -366,10 +371,8 @@ public class MyhttpCallBack implements HttpCallBack {
                 if (lists35 != null && lists35.size() > 0) {
                     for (LinkedTreeMap temp : lists35) {
                         DataManager.Baseinfo cfo = new DataManager.Baseinfo();
-                        cfo.EnterAddtionID = temp.get("EnterAddtionID").toString();
                         cfo.REGSTATE = temp.get("REGSTATE").toString();
                         cfo.REGNO = temp.get("REGNO").toString();
-                        cfo.IsFavorite = temp.get("IsFavorite").toString();
                         cfo.NAME = temp.get("NAME").toString();
                         cfo.REGCAP = temp.get("REGCAP").toString();
                         cfo.ESTDATE = temp.get("ESTDATE").toString();
@@ -403,6 +406,7 @@ public class MyhttpCallBack implements HttpCallBack {
                 if (lists26 != null && lists26.size() > 0) {
                     for (LinkedTreeMap temp : lists26) {
                         DataManager.allcount cfo = new DataManager.allcount();
+                        cfo.EnterAddtionID = temp.get("EnterAddtionID").toString();
                         cfo.IsFavorite = temp.get("IsFavorite").toString();
                         cfo.HonorCount = temp.get("HonorCount").toString();
                         cfo.JudiciaryCount = temp.get("JudiciaryCount").toString();
@@ -432,10 +436,8 @@ public class MyhttpCallBack implements HttpCallBack {
                 if (lists261 != null && lists261.size() > 0) {
                     for (LinkedTreeMap temp : lists261) {
                         DataManager.Baseinfo cfo = new DataManager.Baseinfo();
-                        cfo.EnterAddtionID = temp.get("EnterAddtionID").toString();
                         cfo.REGSTATE = temp.get("REGSTATE").toString();
                         cfo.REGNO = temp.get("REGNO").toString();
-                        cfo.IsFavorite = temp.get("IsFavorite").toString();
                         cfo.NAME = temp.get("NAME").toString();
                         cfo.REGCAP = temp.get("REGCAP").toString();
                         cfo.ESTDATE = temp.get("ESTDATE").toString();
@@ -873,7 +875,9 @@ public class MyhttpCallBack implements HttpCallBack {
                         cfo.REGISTERDATA = (String) temp.get("REGISTERDATA");
                         cfo.REGISTERID = (String) temp.get("REGISTERID");
 
-                        cfo.SOFTWARENAME = "【软件】" + (String) temp.get("SOFTWARENAME");
+                        cfo.WORKCLASS = "软件";//额外附加值
+
+                        cfo.SOFTWARENAME =(String) temp.get("SOFTWARENAME");
                         cfo.SOFTWARESHORT = (String) temp.get("SOFTWARESHORT");
                         cfo.STARTINGDATE = (String) temp.get("STARTINGDATE");
                         DataManager.copyrightInfoeList.add(cfo);

@@ -20,6 +20,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -35,6 +36,7 @@ import com.example.credit.Utils.MD5;
 import com.example.credit.Utils.MyhttpCallBack;
 import com.example.credit.Utils.NetUtils;
 import com.example.credit.Utils.URLconstant;
+import com.example.credit.Views.MyListView;
 import com.example.credit.Views.RoundImageView;
 import com.example.credit.Views.SlidingMenu;
 import com.lidroid.xutils.ViewUtils;
@@ -98,8 +100,12 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
     //    @ViewInject(R.id.homeprogress)
 //    LinearLayout homeprogress;//数据加载框
+    @ViewInject(R.id.scmain)
+    ScrollView scmain;
     @ViewInject(R.id.news_list)
-    ListView NewsListview;
+    MyListView NewsListview;
+    @ViewInject(R.id.NewClaimListview)
+    ListView NewClaimListview;
 
     NewsListAdapter adapter;
     public static List<DataManager.MyNews.DataBean.NewslistBean> MyNewsList = new ArrayList<DataManager.MyNews.DataBean.NewslistBean>();//初始新闻集合
@@ -111,7 +117,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
     TextView main1, main2;//今日热点和最新认领按钮
     //    PullToRefreshView mPullToRefreshView;
-    boolean falg = true;
     int t = 2;
     int str = 1;
     @Override
@@ -185,9 +190,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
                         break;
                     case 7:
                         NewClaimListAdapter adapter1 = new NewClaimListAdapter(MainActivity.this, DataManager.MyClaimUtilsModel.data.Claimlist);
-                        NewsListview.setAdapter(adapter1);
+                        NewClaimListview.setAdapter(adapter1);
                         adapter1.notifyDataSetChanged();
-                        NewsListview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                        NewClaimListview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                             @Override
                             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                                 if (csp.getLoginStatus()) {
@@ -226,6 +231,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                        adapter.notifyDataSetChanged();
                         break;
                     default:
+                        com.example.credit.Utils.Toast.show("数据正在赶来的路上...");
                         break;
                 }
 
@@ -307,7 +313,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
         main1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                falg = true;
+                scmain.setVisibility(View.VISIBLE);
+                NewsListview.setVisibility(View.VISIBLE);
+                NewClaimListview.setVisibility(View.GONE);
                 main1.setTextColor(getResources().getColor(R.color.white));
                 main1.setBackgroundDrawable(getResources().getDrawable(R.drawable.details_gg_bgtit));
                 main2.setTextColor(getResources().getColor(R.color.black));
@@ -326,22 +334,16 @@ public class MainActivity extends Activity implements View.OnClickListener {
         main2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                falg = false;
+                scmain.setVisibility(View.GONE);
                 btmore.setVisibility(View.GONE);
+                NewsListview.setVisibility(View.GONE);
+                NewClaimListview.setVisibility(View.VISIBLE);
                 main1.setTextColor(getResources().getColor(R.color.black));
                 main1.setBackgroundDrawable(getResources().getDrawable(R.drawable.details_con_tabbg2));
                 main2.setTextColor(getResources().getColor(R.color.white));
                 main2.setBackgroundDrawable(getResources().getDrawable(R.drawable.details_gg_bgtit));
-                try {
-                    if (DataManager.MyClaimUtilsModel.data.Claimlist != null && DataManager.MyClaimUtilsModel.data.Claimlist.size() > 0) {
-                        handler.sendEmptyMessage(7);
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    com.example.credit.Utils.Toast.show("数据正在赶来的路上...");
-                    handler.sendEmptyMessage(7);
-//                    mPullToRefreshView.setVisibility(View.GONE);
-                }
+                GsonUtil NewClaimRequest=new GsonUtil(URLconstant.URLINSER + URLconstant.NEWCLAIM, RequestMethod.GET);//最新认领
+                CallServer.getInstance().add(MainActivity.this,NewClaimRequest, MyhttpCallBack.getInstance(),0x113,true,false,true);
             }
         });
     }

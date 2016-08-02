@@ -88,8 +88,8 @@ public class Public_Detail_ctivity extends BaseActivity {
 
         } else if (state.equals("copyright")) {//著作
             b_topname.setText("著作权");
-            String t=type.substring(1,3);
-            if(!t.equals("软件")){
+//            String t=type.substring(1,3);
+            if(!type.equals("软件")){
                 list2 = Arrays.asList(getResources().getStringArray(R.array.copyright_c));
                 list1.add(DataManager.copyrightInfoeList.get(position).WORKNAME);
                 list1.add(DataManager.copyrightInfoeList.get(position).REGISTERDATA);

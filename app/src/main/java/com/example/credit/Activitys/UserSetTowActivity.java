@@ -70,7 +70,7 @@ public class UserSetTowActivity extends Activity {
         txt=i.getStringExtra("txt");
         init();
     }
-
+    //android:digits="0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ."
     public void init(){
         ustC_et.setText(txt);
         if(txt.equals("男")){
@@ -188,31 +188,45 @@ public class UserSetTowActivity extends Activity {
                     finish();
                     break;
                 case R.id.b_topY:
-                    if(type==4){
-                        if(!isEmail(ustC_et.getText().toString())){
-                            Toast.show("邮箱格式不正确！");
-                        }else{
+                    switch (type) {
+                        case 4:
+                            if(!isEmail(ustC_et.getText().toString())){
+                                Toast.show("邮箱格式不正确！");
+                            }else{
+                                i=new Intent();
+                                i.putExtra("text",ustC_et.getText().toString());
+                                setResult(3, i);
+                                finish();
+                            }
+                            break;
+                        case 7:
+                            if(!isNumeric(ustC_et.getText().toString())){
+                                Toast.show("手机格式不正确！");
+                            }else if(ustC_et.getText().length()!=11){
+                                Toast.show("手机格式不正确！");
+                            }else{
+                                i=new Intent();
+                                i.putExtra("text",ustC_et.getText().toString());
+                                setResult(3, i);
+                                finish();
+                            }
+                            break;
+                        case 2:
+                            if(ustC_et.getText().toString().length()>8){
+                                Toast.show("昵称字数不能超过8个！");
+                            }else{
+                                i=new Intent();
+                                i.putExtra("text",ustC_et.getText().toString());
+                                setResult(3, i);
+                                finish();
+                            }
+                            break;
+                        default:
                             i=new Intent();
                             i.putExtra("text",ustC_et.getText().toString());
                             setResult(3, i);
                             finish();
-                        }
-                    }else if(type==7){
-                        if(!isNumeric(ustC_et.getText().toString())){
-                            Toast.show("手机格式不正确！");
-                        }else if(ustC_et.getText().length()!=11){
-                            Toast.show("手机格式不正确！");
-                        }else{
-                            i=new Intent();
-                            i.putExtra("text",ustC_et.getText().toString());
-                            setResult(3, i);
-                            finish();
-                        }
-                    }else{
-                        i=new Intent();
-                        i.putExtra("text",ustC_et.getText().toString());
-                        setResult(3, i);
-                        finish();
+                            break;
                     }
                     break;
             }
