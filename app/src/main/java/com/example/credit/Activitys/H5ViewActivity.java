@@ -52,7 +52,21 @@ WaitDialog wd;
     public  void webinit(){
         wd.show();
         String str=URL+"?KeyNo="+KeyNo+"&pripid="+pripid+"&regno="+regno+"&priptype="+priptype;
+        WebSettings ws = Hwebv.getSettings();//网页设置
+        //设置 缓存模式
+        ws.setCacheMode(WebSettings.LOAD_DEFAULT);
+        // 开启 DOM storage API 功能
+        ws.setDomStorageEnabled(true);
+        ws.setJavaScriptEnabled(true);
+        ws.setRenderPriority(WebSettings.RenderPriority.HIGH);//提高渲染优先级
+
+
+
+
         Hwebv.loadUrl(str);
+
+
+
         Hwebv.setWebChromeClient(new WebChromeClient() {
             @Override
             public void onProgressChanged(WebView view, int newProgress) {
