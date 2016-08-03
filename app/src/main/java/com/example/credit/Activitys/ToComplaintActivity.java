@@ -110,7 +110,7 @@ public class ToComplaintActivity extends BaseActivity implements OnItemLongClick
                     case 0://提交图片成功成功
                         pd.dismiss();
                         finish();
-                        Toast.show("提交投诉成功");
+                        Toast.show("提交投诉成功,等待处理.");
                         MycomplaintsListActivity.handler.sendEmptyMessage(4);//通知投诉listview更新数据源重新适配UI
                         break;
                     case 1://提交文字成功
@@ -165,7 +165,7 @@ public class ToComplaintActivity extends BaseActivity implements OnItemLongClick
                             CallServer.getInstance().add(ToComplaintActivity.this, request14, MyhttpCallBack.getInstance(), 0x992, true, false, true);
                         }else{
                             pd.dismiss();
-                            Toast.show("提交投诉成功");
+                            Toast.show("提交投诉成功,等待处理.");
                             MycomplaintsListActivity.handler.sendEmptyMessage(4);//通知投诉listview更新数据源重新适配UI
                             finish();
                         }

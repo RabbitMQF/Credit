@@ -7,11 +7,13 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.credit.Entitys.DataManager;
 import com.example.credit.R;
+import com.example.credit.Views.RoundImageView;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -58,6 +60,11 @@ public class CC_List_itemAdapter extends BaseAdapter {
             vh.cl2_tv1 = (TextView) view.findViewById(R.id.cl2_tv1);
             vh.cl2_tv2 = (TextView) view.findViewById(R.id.cl2_tv2);
             vh.cl2_tv3 = (TextView) view.findViewById(R.id.cl2_tv3);
+
+            vh.punlic_3 = (LinearLayout) view.findViewById(R.id.punlic_3);
+            vh.imR = (RoundImageView) view.findViewById(R.id.imR);
+            vh.cl3_tv1 = (TextView) view.findViewById(R.id.cl3_tv1);
+            vh.cl3_tv2 = (TextView) view.findViewById(R.id.cl3_tv2);
             view.setTag(vh);
         } else {
             vh = (ViewHolder) view.getTag();
@@ -75,6 +82,13 @@ public class CC_List_itemAdapter extends BaseAdapter {
             if(imgUrl !=null && imgUrl.size()>0){
                 Picasso.with(context).load(imgUrl.get(position)).into(vh.im);
             }
+//            if(imgUrl !=null && imgUrl.size()>0){
+//                Picasso.with(context).load(imgUrl.get(position)).into(vh.imR);
+//            }
+//            vh.punlic_1.setVisibility(View.GONE);
+//            vh.punlic_3.setVisibility(View.VISIBLE);
+//            vh.cl3_tv1.setText(list.get(position));
+//            vh.cl3_tv2.setText(DataManager.trademarkInfoList.get(position).APPLICATIONDATE);
         } else if (str.equals("judicial")) {//司法信息
 //            vh.im.setVisibility(View.VISIBLE);
             vh.cl_tv1.setVisibility(View.VISIBLE);
@@ -105,13 +119,18 @@ public class CC_List_itemAdapter extends BaseAdapter {
 
     public class ViewHolder {
         RelativeLayout punlic_1;
-        FrameLayout punlic_2;
         ImageView im;
         TextView cl_tv1;
         TextView cl_tv2;
 
+        FrameLayout punlic_2;
         TextView cl2_tv1;
         TextView cl2_tv2;
         TextView cl2_tv3;
+
+        LinearLayout punlic_3;
+        RoundImageView imR;
+        TextView cl3_tv1;
+        TextView cl3_tv2;
     }
 }

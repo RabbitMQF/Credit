@@ -83,6 +83,7 @@ public class MycomplaintsListActivity extends BaseActivity {
                         Cadapter.setDataList(DataManager.myComplaint.data.commentList);
                         Cadapter.notifyDataSetChanged();
                         pd.dismiss();
+
                         break;
                     default:
                         break;
@@ -136,7 +137,7 @@ public class MycomplaintsListActivity extends BaseActivity {
     }
 
 
-    @Override
+    /*@Override
     protected void onRestart() {
         super.onRestart();
 
@@ -145,5 +146,5 @@ public class MycomplaintsListActivity extends BaseActivity {
             init();
             pd.dismiss();
 
-    }
+    }*/
 }

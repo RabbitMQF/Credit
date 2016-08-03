@@ -102,6 +102,8 @@ public class URLconstant {
 
     public static final String TENDER="http://101.201.211.27:8282/zhirong.credith5/biddingInfoController/getBiddingInfolist.do";//招标接口Tender
 
+    public static final String TOUZILIAN="http://101.201.211.27:8282/zhirong.credith5/overallView/overallView.do";//投资链图
+
 
 
 

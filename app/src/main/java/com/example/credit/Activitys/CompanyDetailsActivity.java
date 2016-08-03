@@ -646,7 +646,8 @@ public class CompanyDetailsActivity extends BaseActivity {
                     startActivity(new Intent(CompanyDetailsActivity.this, Panoramic_Activity.class).putExtra("KeyNo", KeyNo).putExtra("deviceId", model).putExtra("priptype", DataManager.BaseinfoList.get(0).ENTTYPE).putExtra("regnore", regnore).putExtra("entname",DataManager.BaseinfoList.get(0).ENTNAME));
                     break;
                 case  17://投资连图
-                    Toast.show( "此模块，正在开发中...");
+                    startActivity(new Intent(CompanyDetailsActivity.this, H5ViewActivity.class).putExtra("KeyNo",DataManager.BaseinfoList.get(0).PRIPID).putExtra("URL",URLconstant.TOUZILIAN).putExtra("regno",DataManager.BaseinfoList.get(0).REGNO).putExtra("entname",DataManager.BaseinfoList.get(0).ENTNAME));
+                    //Toast.show( "此模块，正在开发中...");
                     break;
                 case  18://发展历程
                     Toast.show( "此模块，正在开发中...");
@@ -701,14 +702,14 @@ public class CompanyDetailsActivity extends BaseActivity {
     };
 
     public void init() {
-        details_tit1.setText(DataManager.allcountsList.get(0).PageView);
-        if(DataManager.allcountsList.get(0).IsClaim=="1"||DataManager.allcountsList.get(0).IsClaim.equals("1")){
-            details_tit3.setText("已认领");
-        }if(DataManager.allcountsList.get(0).IsClaim=="2"||DataManager.allcountsList.get(0).IsClaim.equals("2")) {
-            details_tit3.setText("认领中");
-        }else {
-            details_tit3.setText("未认领");
-        }
+//        details_tit1.setText(DataManager.allcountsList.get(0).PageView);
+//        if(DataManager.allcountsList.get(0).IsClaim=="1"||DataManager.allcountsList.get(0).IsClaim.equals("1")){
+//            details_tit3.setText("已认领");
+//        }if(DataManager.allcountsList.get(0).IsClaim=="2"||DataManager.allcountsList.get(0).IsClaim.equals("2")) {
+//            details_tit3.setText("认领中");
+//        }else {
+//            details_tit3.setText("未认领");
+//        }
 
         name.setText(DataManager.BaseinfoList.get(0).NAME);
         regcap.setText(DataManager.BaseinfoList.get(0).REGCAP+"万元");

@@ -135,13 +135,13 @@ public class SearchFirmActivty extends BaseActivity implements PullToRefreshView
                         typeSD.setVisibility(View.VISIBLE);
                         falg = 2;//设置搜索结果时的默认值
                         pd.dismiss();
-                        por=listsea.size()-1;
                         if(DataManager.searchListMore!=null && DataManager.searchListMore.size()>0){
                             mPullToRefreshView.onFooterRefreshComplete();
                             t++;
                             for(int i=0;i<DataManager.searchListMore.size();i++){
                                 listsea.add(DataManager.searchListMore.get(i));
                             }
+                            por=listsea.size()-1;
                         }else{
                             listsea = DataManager.searchList;
                             android.widget.Toast.makeText(SearchFirmActivty.this, "已搜索到" + MyhttpCallBack.baging.TotalRecords + "条数据", android.widget.Toast.LENGTH_SHORT).show();

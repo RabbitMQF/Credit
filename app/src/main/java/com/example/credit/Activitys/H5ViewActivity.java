@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
+import android.view.KeyEvent;
 import android.view.View;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
@@ -26,7 +28,7 @@ public class H5ViewActivity extends Activity {
     @ViewInject(R.id.Hwebv)
     WebView Hwebv;
 
-    String KeyNo,pripid,URL,priptype,regno;
+    String KeyNo,pripid,URL,priptype,regno,entname;
 WaitDialog wd;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,18 +42,24 @@ WaitDialog wd;
         URL=i.getStringExtra("URL");
         regno=i.getStringExtra("regno");
         priptype=i.getStringExtra("priptype");
+        entname=i.getStringExtra("entname");
         b_topname.setText(KeyNo);
         b_return.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
+                if (Hwebv.canGoBack()) {
+                    Hwebv.goBack();// 返回前一个页面
+                }else{
+                    finish();
+                }
+
             }
         });
         webinit();
     }
     public  void webinit(){
         wd.show();
-        String str=URL+"?KeyNo="+KeyNo+"&pripid="+pripid+"&regno="+regno+"&priptype="+priptype;
+        String str=URL+"?KeyNo="+KeyNo+"&pripid="+pripid+"&regno="+regno+"&priptype="+priptype+"&entname="+entname+"&devicetype=1";
         WebSettings ws = Hwebv.getSettings();//网页设置
         //设置 缓存模式
         ws.setCacheMode(WebSettings.LOAD_DEFAULT);
@@ -59,13 +67,7 @@ WaitDialog wd;
         ws.setDomStorageEnabled(true);
         ws.setJavaScriptEnabled(true);
         ws.setRenderPriority(WebSettings.RenderPriority.HIGH);//提高渲染优先级
-
-
-
-
         Hwebv.loadUrl(str);
-
-
 
         Hwebv.setWebChromeClient(new WebChromeClient() {
             @Override
@@ -87,5 +89,13 @@ WaitDialog wd;
         });
 
         Hwebv.getSettings().setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);//网页缓存
+    }
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK && Hwebv.canGoBack()) {
+            Hwebv.goBack();// 返回前一个页面
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
     }
 }
