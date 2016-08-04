@@ -1,6 +1,7 @@
 package com.example.credit.Adapters;
 
 import android.content.Context;
+import android.os.Environment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +18,8 @@ import com.example.credit.Views.RoundImageView;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
+
+import static com.example.credit.Views.FileUtil.decodeBitmap;
 
 public class CC_List_itemAdapter extends BaseAdapter {
     private Context context;
@@ -62,7 +65,7 @@ public class CC_List_itemAdapter extends BaseAdapter {
             vh.cl2_tv3 = (TextView) view.findViewById(R.id.cl2_tv3);
 
             vh.punlic_3 = (LinearLayout) view.findViewById(R.id.punlic_3);
-            vh.imR = (RoundImageView) view.findViewById(R.id.imR);
+            vh.imR = (ImageView) view.findViewById(R.id.imR);
             vh.cl3_tv1 = (TextView) view.findViewById(R.id.cl3_tv1);
             vh.cl3_tv2 = (TextView) view.findViewById(R.id.cl3_tv2);
             view.setTag(vh);
@@ -76,19 +79,19 @@ public class CC_List_itemAdapter extends BaseAdapter {
             vh.cl_tv2.setText(list.get(position));
 
         } else if (str.equals("trademark")) {//商标信息
-            vh.im.setVisibility(View.VISIBLE);
-            vh.cl_tv1.setVisibility(View.VISIBLE);
-            vh.cl_tv1.setText(list.get(position));
-            if(imgUrl !=null && imgUrl.size()>0){
-                Picasso.with(context).load(imgUrl.get(position)).into(vh.im);
-            }
+//            vh.im.setVisibility(View.VISIBLE);
+//            vh.cl_tv1.setVisibility(View.VISIBLE);
+//            vh.cl_tv1.setText(list.get(position));
 //            if(imgUrl !=null && imgUrl.size()>0){
-//                Picasso.with(context).load(imgUrl.get(position)).into(vh.imR);
+//                Picasso.with(context).load(imgUrl.get(position)).into(vh.im);
 //            }
-//            vh.punlic_1.setVisibility(View.GONE);
-//            vh.punlic_3.setVisibility(View.VISIBLE);
-//            vh.cl3_tv1.setText(list.get(position));
-//            vh.cl3_tv2.setText(DataManager.trademarkInfoList.get(position).APPLICATIONDATE);
+            if(imgUrl !=null && imgUrl.size()>0){
+                Picasso.with(context).load(imgUrl.get(position)).into(vh.imR);
+            }
+            vh.punlic_1.setVisibility(View.GONE);
+            vh.punlic_3.setVisibility(View.VISIBLE);
+            vh.cl3_tv1.setText(list.get(position));
+            vh.cl3_tv2.setText(DataManager.trademarkInfoList.get(position).APPLICATIONDATE);
         } else if (str.equals("judicial")) {//司法信息
 //            vh.im.setVisibility(View.VISIBLE);
             vh.cl_tv1.setVisibility(View.VISIBLE);
@@ -129,7 +132,7 @@ public class CC_List_itemAdapter extends BaseAdapter {
         TextView cl2_tv3;
 
         LinearLayout punlic_3;
-        RoundImageView imR;
+        ImageView imR;
         TextView cl3_tv1;
         TextView cl3_tv2;
     }

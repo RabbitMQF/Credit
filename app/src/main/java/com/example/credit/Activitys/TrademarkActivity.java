@@ -30,6 +30,9 @@ public class TrademarkActivity extends BaseActivity {
 
     @ViewInject(R.id.tListView1)
     ListView tListView1;
+    @ViewInject(R.id.tvtit)
+    TextView tvtit;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +42,7 @@ public class TrademarkActivity extends BaseActivity {
         Intent i=getIntent();
         String Tname=i.getStringExtra("Tname");
         b_topname.setText(Tname);
+        tvtit.setText(Tname);
         b_return.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

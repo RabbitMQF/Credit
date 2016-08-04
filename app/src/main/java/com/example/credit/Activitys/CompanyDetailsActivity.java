@@ -607,10 +607,8 @@ public class CompanyDetailsActivity extends BaseActivity {
                         request13.add("token", token);
                         request13.add("deviceId", model);
                         request13.add("KeyNo", KeyNo);
-                        request13.add("priptype", DataManager.BaseinfoList.get(0).ENTTYPE);
-                        if(!DataManager.String13.equals(DataManager.BaseinfoList.get(0).ENTNAME)) {
-                            request13.add("modulename", "广告资质");
-                        }
+                        request13.add("memberId", "");
+                        request13.add("content", "");
                         CallServer.getInstance().add(CompanyDetailsActivity.this, request13, MyhttpCallBack.getInstance(), 0x013, true, false, true);
                     }
                     break;
@@ -657,6 +655,7 @@ public class CompanyDetailsActivity extends BaseActivity {
                     i19.putExtra("KeyNo", DataManager.BaseinfoList.get(0).ENTNAME);
                     i19.putExtra("pripid",  DataManager.BaseinfoList.get(0).PRIPID);
                     i19.putExtra("URL",  URLconstant.TENDER);
+                    i19.putExtra("Tname", "招投标");
                     i19.putExtra("regno",  DataManager.BaseinfoList.get(0).REGNO);
                     i19.putExtra("priptype", DataManager.BaseinfoList.get(0).ENTTYPE);
                     startActivity(i19);
@@ -669,6 +668,7 @@ public class CompanyDetailsActivity extends BaseActivity {
                     i20.putExtra("KeyNo", DataManager.BaseinfoList.get(0).ENTNAME);
                     i20.putExtra("pripid",  DataManager.BaseinfoList.get(0).PRIPID);
                     i20.putExtra("URL",  URLconstant.COMPANYNEWS);
+                    i20.putExtra("Tname", "企业新闻");
                     i20.putExtra("regno",  DataManager.BaseinfoList.get(0).REGNO);
                     i20.putExtra("priptype", DataManager.BaseinfoList.get(0).ENTTYPE);
                     startActivity(i20);
@@ -681,6 +681,7 @@ public class CompanyDetailsActivity extends BaseActivity {
                     i21.putExtra("KeyNo", DataManager.BaseinfoList.get(0).ENTNAME);
                     i21.putExtra("pripid",  DataManager.BaseinfoList.get(0).PRIPID);
                     i21.putExtra("URL",  URLconstant.RECRUIT);
+                    i21.putExtra("Tname", "企业招聘");
                     i21.putExtra("regno",  DataManager.BaseinfoList.get(0).REGNO);
                     i21.putExtra("priptype", DataManager.BaseinfoList.get(0).ENTTYPE);
                     startActivity(i21);

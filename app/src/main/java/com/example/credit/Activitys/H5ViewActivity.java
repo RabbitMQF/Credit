@@ -29,7 +29,8 @@ public class H5ViewActivity extends Activity {
     WebView Hwebv;
 
     String KeyNo,pripid,URL,priptype,regno,entname;
-WaitDialog wd;
+    WaitDialog wd;
+    String str;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,7 +44,8 @@ WaitDialog wd;
         regno=i.getStringExtra("regno");
         priptype=i.getStringExtra("priptype");
         entname=i.getStringExtra("entname");
-        b_topname.setText(KeyNo);
+        String Tname=i.getStringExtra("Tname");
+        b_topname.setText(Tname);
         b_return.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -59,7 +61,12 @@ WaitDialog wd;
     }
     public  void webinit(){
         wd.show();
-        String str=URL+"?KeyNo="+KeyNo+"&pripid="+pripid+"&regno="+regno+"&priptype="+priptype+"&entname="+entname+"&devicetype=1";
+        if(pripid!=null) {
+            str = URL + "?KeyNo=" + KeyNo + "&pripid=" + pripid + "&regno=" + regno + "&priptype=" + priptype + "&entname=" + entname + "&devicetype=1";
+        }else {//投资连图
+            b_topname.setText(entname);
+            str = URL+"?KeyNo="+KeyNo+"&regno=" + regno +"&entname=" + entname + "&devicetype=1";
+        }
         WebSettings ws = Hwebv.getSettings();//网页设置
         //设置 缓存模式
         ws.setCacheMode(WebSettings.LOAD_DEFAULT);
@@ -80,6 +87,7 @@ WaitDialog wd;
                 }
             }
         });
+
         Hwebv.setWebViewClient(new WebViewClient(){
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {

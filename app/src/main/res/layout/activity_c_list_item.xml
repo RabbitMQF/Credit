@@ -249,17 +249,47 @@
         <FrameLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
+            <LinearLayout
+                android:id="@+id/beijing_yy"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="visible"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp">
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="70dp"
+                        android:layout_gravity="center_vertical"
+
+                        android:background="@color/huise">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="20dp"
+
+                            android:orientation="vertical">
+                        </LinearLayout>
+                    </RelativeLayout>
+                </FrameLayout>
+            </LinearLayout>
+            <!--android:src="@mipmap/detail_fff"-->
+
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_marginLeft="60dp"
+                android:layout_height="70dp"
+                android:layout_marginRight="10dp"
                 android:layout_gravity="center_vertical"
                 android:background="@drawable/details_con_bg">
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:layout_marginLeft="20dp"
+                    android:layout_marginLeft="80dp"
                     android:orientation="vertical">
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -270,12 +300,13 @@
                         <ImageView
                             android:layout_width="25dp"
                             android:layout_height="25dp"
-                            android:background="@mipmap/public_sb_name"/>
+                            android:background="@mipmap/b"/>
 
                         <TextView
                             android:id="@+id/cl3_tv1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dip"
                             android:text="跟鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼"
                             android:textColor="#57737D" />
                     </LinearLayout>
@@ -295,6 +326,7 @@
                             android:id="@+id/cl3_tv2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dip"
                             android:text="2015-15-15"
                             android:textColor="#57737D" />
                     </LinearLayout>
@@ -302,31 +334,25 @@
 
 
             </RelativeLayout>
-            <FrameLayout
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical">
-                <com.example.credit.Views.RoundImageView
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    android:src="@mipmap/detail_ccc" />
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:orientation="vertical">
+                android:layout_gravity="center_vertical"
+                android:orientation="vertical">
 
-                    <com.example.credit.Views.RoundImageView
-                        android:id="@+id/imR"
-                        android:layout_width="70dp"
-                        android:layout_height="70dp"
-                        android:background="@mipmap/public_sb_bg" />
-                </LinearLayout>
-            </FrameLayout>
+                <ImageView
+                    android:id="@+id/imR"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:background="@mipmap/public_sb_bg" />
+            </LinearLayout>
+
+
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="right|center_vertical"
+                android:layout_marginRight="5dp"
                 android:orientation="horizontal">
                 <TextView
                     android:layout_width="wrap_content"
@@ -344,4 +370,35 @@
             </LinearLayout>
         </FrameLayout>
     </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone">
+
+        <com.example.credit.Views.RoundImageView
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:src="@mipmap/detail_fff" />
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
+            <com.example.credit.Views.RoundImageView
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:src="@mipmap/detail_ccc" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+                <com.example.credit.Views.RoundImageView
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:background="@mipmap/public_sb_bg" />
+            </LinearLayout>
+        </FrameLayout>
+    </FrameLayout>
+
 </LinearLayout>

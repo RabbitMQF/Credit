@@ -70,7 +70,7 @@ public class ResponseListener<T> implements OnResponseListener<T> {
             } else if (exception instanceof NotFoundCacheError) {
                 Toast.show("没有发现缓存");
             } else {
-                Toast.show("未知错误");
+                Toast.show("服务器连接失败");
             }
         }
         if (callback != null)

@@ -100,8 +100,8 @@ public class WelcomeActivity extends Activity {
 
     private void initDataHttp() {
         GsonUtil NewsRequest=new GsonUtil(URLconstant.URLINSER+URLconstant.NEWSURL, RequestMethod.GET);//新闻数据
-        NewsRequest.setConnectTimeout(20000);
-        NewsRequest.setReadTimeout(20000);
+        NewsRequest.setConnectTimeout(10000);
+        NewsRequest.setReadTimeout(10000);
         NewsRequest.add("token", MD5.MD5s("" + new Build().MODEL));
         NewsRequest.add("KeyNo","");
         NewsRequest.add("deviceId",(new Build()).MODEL);

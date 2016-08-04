@@ -1297,7 +1297,7 @@ public class MyhttpCallBack implements HttpCallBack {
                 map = gson.fromJson(jsonString, new TypeToken<Map<String, Object>>() {
                 }.getType());
 
-                if (!(map.get("status").toString()).equals("1.0")) {//登入失败谁动了我的账号，给我站出来
+                if (!map.get("status").equals("1")) {//登入失败谁动了我的账号，给我站出来
                     Toast.show(map.get("message").toString());
                     LoginActivity.wd.dismiss();
                 } else {//登入成功
@@ -1487,6 +1487,10 @@ public class MyhttpCallBack implements HttpCallBack {
                 break;
             case 0x999://查询评论列表
                 LoginActivity.wd.dismiss();
+                break;
+            case 0x111://获取新闻
+                System.exit(0);
+                Toast.show("服务器连接失败");
                 break;
             default:
                 break;

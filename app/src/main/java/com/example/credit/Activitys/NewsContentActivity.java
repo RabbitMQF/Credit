@@ -50,8 +50,7 @@ public class NewsContentActivity extends Activity {
         pd.setMessage("正在加载中...");
         pd.setCancelable(false);
         pd.show();
-//        mWebView.loadUrl("http://101.201.211.27:8282/zhirong.credith5/enterinfo/tonewsDetails.do?devicetype=1&KeyNo="+id);
-        mWebView.loadUrl("http://101.201.211.27:8282/zhirong.credith5/biddingInfoController/getBiddingInfolist.do?KeyNo=江西智容科技有限公司&pripid=3601032011041300098564&regno=360103210025958&priptype=1130");
+        mWebView.loadUrl("http://101.201.211.27:8282/zhirong.credith5/enterinfo/tonewsDetails.do?devicetype=1&KeyNo="+id);
         mWebView.setWebChromeClient(new WebChromeClient() {
             @Override
             public void onProgressChanged(WebView view, int newProgress) {

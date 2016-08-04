@@ -54,16 +54,18 @@ public class MyGridZYAdapter extends BaseAdapter {
 			convertView = LayoutInflater.from(mContext).inflate(
 					R.layout.grid_item_zy, parent, false);
 		}
-		if(arrays1.length%2!=0){
-			if((arrays1.length-1)<position){
-				return convertView;
-			}
-		}
-		TextView tv1 = BaseViewHolder.get(convertView, R.id.tvzy_item1);
-		TextView tv2 = BaseViewHolder.get(convertView, R.id.tvzy_item2);
-		tv1.setText(arrays1[position]);
-		tv2.setText(arrays2[position]);
-		return convertView;
+
+			if(arrays1.length%2!=0){
+                if((arrays1.length-1)<position){
+                    return convertView;
+                }
+            }
+			TextView tv1 = BaseViewHolder.get(convertView, R.id.tvzy_item1);
+			TextView tv2 = BaseViewHolder.get(convertView, R.id.tvzy_item2);
+			tv1.setText(arrays1[position]);
+			tv2.setText(arrays2[position]);
+			return convertView;
+
 	}
 
 }

@@ -28,7 +28,7 @@
                     android:layout_height="match_parent"
                     android:background="#ffffff"
                     android:orientation="vertical"
-                    android:layout_marginBottom="30dp">
+                    >
 
                     <RelativeLayout
                         android:layout_width="match_parent"
@@ -313,13 +313,13 @@
                         />
 
                 </LinearLayout>
-                <View
-                    android:id="@+id/vbv"
-                    android:layout_width="match_parent"
-                    android:layout_height="30dp"
-                    android:layout_gravity="bottom"
-                    android:background="@mipmap/search_bottom"
-                    />
+                <!--<View-->
+                    <!--android:id="@+id/vbv"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="30dp"-->
+                    <!--android:layout_gravity="bottom"-->
+                    <!--android:background="@mipmap/search_bottom"-->
+                    <!--/>-->
             </FrameLayout>
         </LinearLayout>
 
