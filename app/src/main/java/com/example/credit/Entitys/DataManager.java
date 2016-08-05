@@ -7,6 +7,7 @@ import java.util.List;
  * Created by Administrator on 2016/5/13 0013.
  */
 public class DataManager {
+    public static String StringZero="";//公司
     public static String String0="";//工商
     public static String String1="";//
     public static String String2="";//

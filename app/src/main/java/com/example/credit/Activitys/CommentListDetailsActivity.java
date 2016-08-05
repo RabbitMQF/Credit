@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
 import android.view.View;
@@ -33,6 +34,8 @@ import com.yolanda.nohttp.RequestMethod;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
+
+import static com.example.credit.Views.FileUtil.decodeBitmap;
 
 /**
  * 评论列表详情界面
@@ -136,7 +139,11 @@ public class CommentListDetailsActivity extends BaseActivity {
     }
     public void init(){
         b_topname.setText("详情");
-
+        if(!DataManager.MyCommentlistrS.data.userreview.get(position).ICONPATH.equals("")){
+            commD_img.setImageBitmap(decodeBitmap(Environment.getExternalStorageDirectory() + "/Credit/cache/"+((DataManager.MyCommentlistrS.data.userreview.get(position).ICONPATH).substring(DataManager.MyCommentlistrS.data.userreview.get(position).ICONPATH.length() - 20, DataManager.MyCommentlistrS.data.userreview.get(position).ICONPATH.length()-5)).replaceAll("\\/", "_")+".jpg",35,35));
+        }else{
+            commD_img.setImageResource(R.mipmap.me_icon02);
+        }
         commD_name.setText(DataManager.MyCommentlistrS.data.userreview.get(position).MEMBERNAME);
         commD_time.setText(DataManager.MyCommentlistrS.data.userreview.get(position).CREATETIME);
         commD_cont.setText(DataManager.MyCommentlistrS.data.userreview.get(position).CONTENT);

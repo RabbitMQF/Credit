@@ -173,6 +173,17 @@ public class SearchFirmActivty extends BaseActivity implements PullToRefreshView
                                     requst.add("memberId", csp.getID());//86D9D7F53FCA45DD93E2D83DFCA0CB42
                                     requst.add("regnore", DataManager.searchList.get(position).REGNO);
                                     requst.add("priptype", DataManager.searchList.get(position).ENTTYPE);
+                                    if(!DataManager.StringZero.equals(DataManager.searchList.get(position).ENTNAME)) {
+                                        GsonUtil request121 = new GsonUtil(URLconstant.URLINSER + URLconstant.SAVESUM, RequestMethod.GET);
+                                        request121.add("token", token);
+                                        request121.add("deviceId", model);
+                                        request121.add("KeyNo", KeyNo);
+                                        request121.add("memberId", csp.getID() );
+                                        request121.add("regnore", DataManager.searchList.get(position).REGNO );
+                                        request121.add("entname", DataManager.searchList.get(position).ENTNAME );
+                                        request121.add("enttype", DataManager.searchList.get(position).ENTTYPE );
+                                        CallServer.getInstance().add(SearchFirmActivty.this, request121, MyhttpCallBack.getInstance(), 0x12138, true, false, true);
+                                    }
                                     CallServer.getInstance().add(SearchFirmActivty.this, requst, MyhttpCallBack.getInstance(), 0x024, true, false, true);
                                 }
                             }
@@ -180,6 +191,7 @@ public class SearchFirmActivty extends BaseActivity implements PullToRefreshView
                         break;
                     case 5:
                         pd.dismiss();
+                        DataManager.StringZero=DataManager.BaseinfoList.get(0).ENTNAME;
                         Intent i = new Intent(SearchFirmActivty.this, CompanyDetailsActivity.class);
                         i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(i);

@@ -1387,8 +1387,9 @@ public class MyhttpCallBack implements HttpCallBack {
                 jsonString = (String) response.get();
                 DataManager.myComplaint = gson.fromJson(jsonString, DataManager.MyComplaint.class);
                 MycomplaintsListActivity.handler.sendEmptyMessage(5);
-
-
+                break;
+            case 0x12138://记录24宫格
+                jsonString = (String) response.get();
                 break;
             default:
                 break;

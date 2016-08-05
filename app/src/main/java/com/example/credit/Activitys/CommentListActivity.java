@@ -46,6 +46,11 @@ public class CommentListActivity extends BaseActivity {
     TextView b_topname;
     @ViewInject(R.id.b_return)
     LinearLayout b_return;
+
+    @ViewInject(R.id.b_topLLt)
+    LinearLayout b_topLLt;
+    @ViewInject(R.id.b_topYicon)
+    ImageView b_topYicon;
     @ViewInject(R.id.b_topY)
     TextView b_topY;
     @ViewInject(R.id.Ccomm_list)
@@ -91,6 +96,7 @@ public class CommentListActivity extends BaseActivity {
     }
 
     public void init() {
+        b_topYicon.setVisibility(View.VISIBLE);
         b_topY.setVisibility(View.VISIBLE);//显示右上角控件“发表”
         b_topname.setText("评论");
         b_return.setOnClickListener(listener);
@@ -115,7 +121,7 @@ public class CommentListActivity extends BaseActivity {
                 case R.id.b_return://返回键
                     finish();
                     break;
-                case R.id.b_topY://跳转发表评论界面
+                case R.id.b_topLLt://跳转发表评论界面
                     Intent i = new Intent(CommentListActivity.this, ToCommentActivity.class);
                     startActivityForResult(i, 11);
                     break;
@@ -134,7 +140,6 @@ public class CommentListActivity extends BaseActivity {
 //                intiow();
                 break;
         }
-
         super.onActivityResult(requestCode, resultCode, data);
     }
 

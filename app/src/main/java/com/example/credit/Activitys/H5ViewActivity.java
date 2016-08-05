@@ -28,30 +28,33 @@ public class H5ViewActivity extends Activity {
     @ViewInject(R.id.Hwebv)
     WebView Hwebv;
 
-    String KeyNo,pripid,URL,priptype,regno,entname;
+    String KeyNo, pripid, URL, priptype, regno, entname, estdate,msg;
     WaitDialog wd;
     String str;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_h5_view);
         ViewUtils.inject(this);
-        wd=new WaitDialog(this);
-        Intent i=getIntent();
-        KeyNo=i.getStringExtra("KeyNo");
-        pripid=i.getStringExtra("pripid");
-        URL=i.getStringExtra("URL");
-        regno=i.getStringExtra("regno");
-        priptype=i.getStringExtra("priptype");
-        entname=i.getStringExtra("entname");
-        String Tname=i.getStringExtra("Tname");
+        wd = new WaitDialog(this);
+        Intent i = getIntent();
+        KeyNo = i.getStringExtra("KeyNo");
+        pripid = i.getStringExtra("pripid");
+        URL = i.getStringExtra("URL");
+        regno = i.getStringExtra("regno");
+        priptype = i.getStringExtra("priptype");
+        entname = i.getStringExtra("entname");
+        estdate = i.getStringExtra("estdate");
+        msg=i.getStringExtra("msg");
+        String Tname = i.getStringExtra("Tname");
         b_topname.setText(Tname);
         b_return.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (Hwebv.canGoBack()) {
                     Hwebv.goBack();// 返回前一个页面
-                }else{
+                } else {
                     finish();
                 }
 
@@ -59,14 +62,46 @@ public class H5ViewActivity extends Activity {
         });
         webinit();
     }
-    public  void webinit(){
+
+    public void webinit() {
         wd.show();
-        if(pripid!=null) {
-            str = URL + "?KeyNo=" + KeyNo + "&pripid=" + pripid + "&regno=" + regno + "&priptype=" + priptype + "&entname=" + entname + "&devicetype=1";
-        }else {//投资连图
-            b_topname.setText(entname);
-            str = URL+"?KeyNo="+KeyNo+"&regno=" + regno +"&entname=" + entname + "&devicetype=1";
+        switch (msg){
+            case "1"://投资连图
+                b_topname.setText(entname);
+                str = URL + "?KeyNo=" + KeyNo + "&regno=" + regno + "&entname=" + entname + "&devicetype=1";
+                break;
+            case "2"://发展历程
+                b_topname.setText(entname);
+                str=URL+"?KeyNo=" + KeyNo+ "&regno=" + regno+"&entname="+entname+"&estdate="+estdate+"&devicetype=1";
+                break;
+            case "3"://招投标
+                str = URL + "?KeyNo=" + KeyNo + "&pripid=" + pripid + "&regno=" + regno + "&priptype=" + priptype + "&entname=" + entname + "&devicetype=1";
+                break;
+            case "4"://企业新闻
+                str = URL + "?KeyNo=" + KeyNo + "&pripid=" + pripid + "&regno=" + regno + "&priptype=" + priptype + "&entname=" + entname + "&devicetype=1";
+                break;
+            case "5"://企业招聘
+                str = URL + "?KeyNo=" + KeyNo + "&pripid=" + pripid + "&regno=" + regno + "&priptype=" + priptype + "&entname=" + entname + "&devicetype=1";
+                break;
+            case "6"://企业展示
+                str = URL + "?KeyNo=" + KeyNo + "&pripid=" + pripid + "&regno=" + regno + "&priptype=" + priptype + "&entname=" + entname + "&devicetype=1";
+                break;
+            default:
+                break;
         }
+
+
+
+//        if (pripid != null) {
+//            str = URL + "?KeyNo=" + KeyNo + "&pripid=" + pripid + "&regno=" + regno + "&priptype=" + priptype + "&entname=" + entname + "&devicetype=1";
+//        }
+//        if (estdate != null) {//发展历程
+//            b_topname.setText(entname);
+//            str=URL+"?KeyNo=" + KeyNo+ "&regno=" + regno+"&entname="+entname+"&estdate="+estdate+"&devicetype=1";
+//        } else {//投资连图
+//            b_topname.setText(entname);
+//            str = URL + "?KeyNo=" + KeyNo + "&regno=" + regno + "&entname=" + entname + "&devicetype=1";
+//        }
         WebSettings ws = Hwebv.getSettings();//网页设置
         //设置 缓存模式
         ws.setCacheMode(WebSettings.LOAD_DEFAULT);
@@ -88,7 +123,7 @@ public class H5ViewActivity extends Activity {
             }
         });
 
-        Hwebv.setWebViewClient(new WebViewClient(){
+        Hwebv.setWebViewClient(new WebViewClient() {
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
                 view.loadUrl(url);
@@ -98,6 +133,7 @@ public class H5ViewActivity extends Activity {
 
         Hwebv.getSettings().setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);//网页缓存
     }
+
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK && Hwebv.canGoBack()) {

@@ -95,6 +95,11 @@ public class TwoDimActivity extends Activity {
                         saveBitmap(image,strD);
                         Toast.show("图片已保存到到:" + strD);
                     }
+
+                    Intent intent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
+                    Uri uri1 = Uri.fromFile(file);
+                    intent.setData(uri1);
+                    TwoDimActivity.this.sendBroadcast(intent);//发送广播更新图库
                     break;
                 case R.id.fenxiang:
                     //Toast.show("功能开发中...");

@@ -161,7 +161,8 @@ public class CompanyDetailsActivity extends BaseActivity {
     public static ProgressDialog pd;
     String KeyNos, tokens;
     CreditSharePreferences csp;
-    int type,posit;
+    int type, posit;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -177,13 +178,13 @@ public class CompanyDetailsActivity extends BaseActivity {
         Build bd = new Build();
         model = bd.MODEL;//设备ID
 
-        if (DataManager.BaseinfoList.size()>0) {
+        if (DataManager.BaseinfoList.size() > 0) {
             KeyNo = DataManager.BaseinfoList.get(0).PRIPID;//市场主体身份代码
             enterId = DataManager.allcountsList.get(0).EnterAddtionID;//企业附加表ID
             token = SearchFirmActivty.MD5s(KeyNo + model);//token 由 设备ID+市场主体身份代码 MD5生成
             regnore = DataManager.BaseinfoList.get(0).REGNO;//注册号
             KeyNos = DataManager.allcountsList.get(0).EnterAddtionID;//企业附加信息主键ID
-        }else {
+        } else {
             Toast.show("暂无数据...");
         }
 
@@ -219,7 +220,7 @@ public class CompanyDetailsActivity extends BaseActivity {
                 switch (msg.what) {
                     case 0://工商信息
                         waitDialog.dismiss();
-                        DataManager.String0=DataManager.BaseinfoList.get(0).ENTNAME;
+                        DataManager.String0 = DataManager.BaseinfoList.get(0).ENTNAME;
                         Intent i0 = new Intent(CompanyDetailsActivity.this, DetailsContentActivity.class);
                         i0.putExtra("Tname", arrays1[msg.what]);
                         startActivity(i0);
@@ -227,7 +228,7 @@ public class CompanyDetailsActivity extends BaseActivity {
                         break;
                     case 1://行政审批
                         waitDialog.dismiss();
-                        DataManager.String1=DataManager.BaseinfoList.get(0).ENTNAME;
+                        DataManager.String1 = DataManager.BaseinfoList.get(0).ENTNAME;
                         Intent i1 = new Intent(CompanyDetailsActivity.this, AdminActivity.class);
                         i1.putExtra("Tname", arrays1[msg.what]);
                         startActivity(i1);
@@ -235,7 +236,7 @@ public class CompanyDetailsActivity extends BaseActivity {
                         break;
                     case 2://荣誉信息
                         waitDialog.dismiss();
-                        DataManager.String2=DataManager.BaseinfoList.get(0).ENTNAME;
+                        DataManager.String2 = DataManager.BaseinfoList.get(0).ENTNAME;
                         Intent i2 = new Intent(CompanyDetailsActivity.this, Honor_Support_Activity.class);
                         i2.putExtra("Tname", arrays1[msg.what]);
                         i2.putExtra("st", 1);
@@ -244,7 +245,7 @@ public class CompanyDetailsActivity extends BaseActivity {
                         break;
                     case 3://扶持信息
                         waitDialog.dismiss();
-                        DataManager.String3=DataManager.BaseinfoList.get(0).ENTNAME;
+                        DataManager.String3 = DataManager.BaseinfoList.get(0).ENTNAME;
                         Intent i3 = new Intent(CompanyDetailsActivity.this, Honor_Support_Activity.class);
                         i3.putExtra("st", 2);
                         i3.putExtra("Tname", arrays1[msg.what]);
@@ -253,7 +254,7 @@ public class CompanyDetailsActivity extends BaseActivity {
                         break;
                     case 4://抵押信息
                         waitDialog.dismiss();
-                        DataManager.String4=DataManager.BaseinfoList.get(0).ENTNAME;
+                        DataManager.String4 = DataManager.BaseinfoList.get(0).ENTNAME;
                         Intent i4 = new Intent(CompanyDetailsActivity.this, Mortgage_detail_Activity.class);
                         i4.putExtra("Tname", arrays1[msg.what]);
                         startActivity(i4);
@@ -261,7 +262,7 @@ public class CompanyDetailsActivity extends BaseActivity {
                         break;
                     case 5://出质信息
                         waitDialog.dismiss();
-                        DataManager.String5=DataManager.BaseinfoList.get(0).ENTNAME;
+                        DataManager.String5 = DataManager.BaseinfoList.get(0).ENTNAME;
                         Intent i5 = new Intent(CompanyDetailsActivity.this, PledgeActivity.class);
                         i5.putExtra("Tname", arrays1[msg.what]);
                         startActivity(i5);
@@ -269,7 +270,7 @@ public class CompanyDetailsActivity extends BaseActivity {
                         break;
                     case 6://司法信息
                         waitDialog.dismiss();
-                        DataManager.String6=DataManager.BaseinfoList.get(0).ENTNAME;
+                        DataManager.String6 = DataManager.BaseinfoList.get(0).ENTNAME;
                         Intent i6 = new Intent(CompanyDetailsActivity.this, JudicialActivity.class);
                         i6.putExtra("Tname", arrays1[msg.what]);
                         startActivity(i6);
@@ -277,7 +278,7 @@ public class CompanyDetailsActivity extends BaseActivity {
                         break;
                     case 7://预警信息
                         waitDialog.dismiss();
-                        DataManager.String7=DataManager.BaseinfoList.get(0).ENTNAME;
+                        DataManager.String7 = DataManager.BaseinfoList.get(0).ENTNAME;
                         Intent i7 = new Intent(CompanyDetailsActivity.this, AlertActivity.class);
                         i7.putExtra("Tname", arrays1[msg.what]);
                         startActivity(i7);
@@ -285,7 +286,7 @@ public class CompanyDetailsActivity extends BaseActivity {
                         break;
                     case 8://行政处罚
                         waitDialog.dismiss();
-                        DataManager.String8=DataManager.BaseinfoList.get(0).ENTNAME;
+                        DataManager.String8 = DataManager.BaseinfoList.get(0).ENTNAME;
                         Intent i8 = new Intent(CompanyDetailsActivity.this, PunishActivity.class);
                         i8.putExtra("Tname", arrays1[msg.what]);
                         startActivity(i8);
@@ -293,7 +294,7 @@ public class CompanyDetailsActivity extends BaseActivity {
                         break;
                     case 9://经营异常
                         waitDialog.dismiss();
-                        DataManager.String9=DataManager.BaseinfoList.get(0).ENTNAME;
+                        DataManager.String9 = DataManager.BaseinfoList.get(0).ENTNAME;
                         Intent i9 = new Intent(CompanyDetailsActivity.this, AbnormalActivity.class);
                         i9.putExtra("Tname", arrays1[msg.what]);
                         startActivity(i9);
@@ -301,7 +302,7 @@ public class CompanyDetailsActivity extends BaseActivity {
                         break;
                     case 10://专利
                         waitDialog.dismiss();
-                        DataManager.String10=DataManager.BaseinfoList.get(0).ENTNAME;
+                        DataManager.String10 = DataManager.BaseinfoList.get(0).ENTNAME;
                         Intent i10 = new Intent(CompanyDetailsActivity.this, PatentActivity.class);
                         i10.putExtra("Tname", arrays1[msg.what]);
                         startActivity(i10);
@@ -309,7 +310,7 @@ public class CompanyDetailsActivity extends BaseActivity {
                         break;
                     case 11://商标
                         waitDialog.dismiss();
-                        DataManager.String11=DataManager.BaseinfoList.get(0).ENTNAME;
+                        DataManager.String11 = DataManager.BaseinfoList.get(0).ENTNAME;
                         Intent i11 = new Intent(CompanyDetailsActivity.this, TrademarkActivity.class);
                         i11.putExtra("Tname", arrays1[msg.what]);
                         startActivity(i11);
@@ -317,7 +318,7 @@ public class CompanyDetailsActivity extends BaseActivity {
                         break;
                     case 12://著作权
                         waitDialog.dismiss();
-                        DataManager.String12=DataManager.BaseinfoList.get(0).ENTNAME;
+                        DataManager.String12 = DataManager.BaseinfoList.get(0).ENTNAME;
                         Intent i12 = new Intent(CompanyDetailsActivity.this, CopyrightActivity.class);
                         i12.putExtra("Tname", arrays1[msg.what]);
                         startActivity(i12);
@@ -325,7 +326,7 @@ public class CompanyDetailsActivity extends BaseActivity {
                         break;
                     case 13://广告资质
                         waitDialog.dismiss();
-                        DataManager.String13=DataManager.BaseinfoList.get(0).ENTNAME;
+                        DataManager.String13 = DataManager.BaseinfoList.get(0).ENTNAME;
                         Intent i13 = new Intent(CompanyDetailsActivity.this, AdvertisementActivity.class);
                         i13.putExtra("Tname", arrays1[msg.what]);
                         startActivity(i13);
@@ -333,7 +334,7 @@ public class CompanyDetailsActivity extends BaseActivity {
                         break;
                     case 14://守合同重信用
                         waitDialog.dismiss();
-                        DataManager.String14=DataManager.BaseinfoList.get(0).ENTNAME;
+                        DataManager.String14 = DataManager.BaseinfoList.get(0).ENTNAME;
                         Intent i14 = new Intent(CompanyDetailsActivity.this, ObeyedActivity.class);
                         i14.putExtra("Tname", arrays1[msg.what]);
                         startActivity(i14);
@@ -341,14 +342,14 @@ public class CompanyDetailsActivity extends BaseActivity {
                         break;
                     case 15://自主公示
                         waitDialog.dismiss();
-                        DataManager.String15=DataManager.BaseinfoList.get(0).ENTNAME;
+                        DataManager.String15 = DataManager.BaseinfoList.get(0).ENTNAME;
                         startActivity(new Intent(CompanyDetailsActivity.this, AutonomyActivity.class));
                         overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
                         break;
                     case 21://评论
 //                      waitDialog.dismiss();
                         Intent i21 = new Intent(CompanyDetailsActivity.this, CommentListActivity.class);
-                        i21.putExtra("type",0);
+                        i21.putExtra("type", 0);
                         startActivity(i21);
                         break;
                     case 22://关注
@@ -362,7 +363,7 @@ public class CompanyDetailsActivity extends BaseActivity {
                         break;
                     case 23://取消关注
                         if (DataManager.FavotiteS.data.result.equals("success")) {
-                            if(type==5){
+                            if (type == 5) {
                                 DataManager.FavotiteListS.data.AttentionList.remove(posit);
                             }
                             pb_4_img.setBackgroundResource(R.mipmap.btm_4_n);
@@ -382,7 +383,7 @@ public class CompanyDetailsActivity extends BaseActivity {
                         }
                         break;
                     case 25://我的二维码名片
-                        startActivity(new Intent(CompanyDetailsActivity.this,TwoDimActivity.class));
+                        startActivity(new Intent(CompanyDetailsActivity.this, TwoDimActivity.class));
                         break;
                     case 500:
                         waitDialog.dismiss();
@@ -406,7 +407,16 @@ public class CompanyDetailsActivity extends BaseActivity {
                         request0.add("deviceId", model);
                         request0.add("KeyNo", KeyNo);
                         if(!DataManager.String0.equals(DataManager.BaseinfoList.get(0).ENTNAME)){
-                            request0.add("modulename", "工商信息");
+                            GsonUtil request121 = new GsonUtil(URLconstant.URLINSER + URLconstant.SAVESUM, RequestMethod.GET);
+                            request121.add("token", token);
+                            request121.add("deviceId", model);
+                            request121.add("KeyNo", KeyNo);
+                            request121.add("regnore",  DataManager.BaseinfoList.get(0).REGNO );
+                            request121.add("entname",  DataManager.BaseinfoList.get(0).ENTNAME );
+                            request121.add("memberId", csp.getID() );
+                            request121.add("enttype",  DataManager.BaseinfoList.get(0).ENTTYPE );
+                            request121.add("modulename", "工商信息");
+                            CallServer.getInstance().add(CompanyDetailsActivity.this, request121, MyhttpCallBack.getInstance(), 0x12138, true, false, true);
                         }
                         CallServer.getInstance().add(CompanyDetailsActivity.this, request0, MyhttpCallBack.getInstance(), 0x000, true, false, true);
                     }
@@ -420,7 +430,16 @@ public class CompanyDetailsActivity extends BaseActivity {
                         request1.add("KeyNo", KeyNo);
                         request1.add("priptype", DataManager.BaseinfoList.get(0).ENTTYPE);
                         if(!DataManager.String1.equals(DataManager.BaseinfoList.get(0).ENTNAME)) {
-                            request1.add("modulename", "行政审批");
+                            GsonUtil request121 = new GsonUtil(URLconstant.URLINSER + URLconstant.SAVESUM, RequestMethod.GET);
+                            request121.add("token", token);
+                            request121.add("deviceId", model);
+                            request121.add("KeyNo", KeyNo);
+                            request121.add("regnore",  DataManager.BaseinfoList.get(0).REGNO );
+                            request121.add("entname",  DataManager.BaseinfoList.get(0).ENTNAME );
+                            request121.add("memberId", csp.getID() );
+                            request121.add("enttype",  DataManager.BaseinfoList.get(0).ENTTYPE );
+                            request121.add("modulename", "行政审批");
+                            CallServer.getInstance().add(CompanyDetailsActivity.this, request121, MyhttpCallBack.getInstance(), 0x12138, true, false, true);
                         }
                         CallServer.getInstance().add(CompanyDetailsActivity.this, request1, MyhttpCallBack.getInstance(), 0x001, true, false, true);
                     }
@@ -436,7 +455,16 @@ public class CompanyDetailsActivity extends BaseActivity {
                         request2.add("KeyNo", KeyNoR);
                         request2.add("priptype", DataManager.BaseinfoList.get(0).ENTTYPE);
                         if(!DataManager.String2.equals(DataManager.BaseinfoList.get(0).ENTNAME)) {
-                            request2.add("modulename", "荣誉信息");
+                            GsonUtil request121 = new GsonUtil(URLconstant.URLINSER + URLconstant.SAVESUM, RequestMethod.GET);
+                            request121.add("token", token);
+                            request121.add("deviceId", model);
+                            request121.add("KeyNo", KeyNo);
+                            request121.add("regnore",  DataManager.BaseinfoList.get(0).REGNO );
+                            request121.add("entname",  DataManager.BaseinfoList.get(0).ENTNAME );
+                            request121.add("memberId", csp.getID() );
+                            request121.add("enttype",  DataManager.BaseinfoList.get(0).ENTTYPE );
+                            request121.add("modulename", "荣誉信息");
+                            CallServer.getInstance().add(CompanyDetailsActivity.this, request121, MyhttpCallBack.getInstance(), 0x12138, true, false, true);
                         }
                         CallServer.getInstance().add(CompanyDetailsActivity.this, request2, MyhttpCallBack.getInstance(), 0x002, true, false, true);
                     }
@@ -450,7 +478,16 @@ public class CompanyDetailsActivity extends BaseActivity {
                         request3.add("KeyNo", KeyNo);
                         request3.add("priptype", DataManager.BaseinfoList.get(0).ENTTYPE);
                         if(!DataManager.String3.equals(DataManager.BaseinfoList.get(0).ENTNAME)) {
-                            request3.add("modulename", "扶持信息");
+                            GsonUtil request121 = new GsonUtil(URLconstant.URLINSER + URLconstant.SAVESUM, RequestMethod.GET);
+                            request121.add("token", token);
+                            request121.add("deviceId", model);
+                            request121.add("KeyNo", KeyNo);
+                            request121.add("regnore",  DataManager.BaseinfoList.get(0).REGNO );
+                            request121.add("entname",  DataManager.BaseinfoList.get(0).ENTNAME );
+                            request121.add("memberId", csp.getID() );
+                            request121.add("enttype",  DataManager.BaseinfoList.get(0).ENTTYPE );
+                            request121.add("modulename", "扶持信息");
+                            CallServer.getInstance().add(CompanyDetailsActivity.this, request121, MyhttpCallBack.getInstance(), 0x12138, true, false, true);
                         }
                         CallServer.getInstance().add(CompanyDetailsActivity.this, request3, MyhttpCallBack.getInstance(), 0x003, true, false, true);
                     }
@@ -464,7 +501,16 @@ public class CompanyDetailsActivity extends BaseActivity {
                         mortinfoRequest.add("KeyNo", DataManager.BaseinfoList.get(0).PRIPID);
                         mortinfoRequest.add("priptype", DataManager.BaseinfoList.get(0).ENTTYPE);
                         if(!DataManager.String4.equals(DataManager.BaseinfoList.get(0).ENTNAME)){
-                            mortinfoRequest.add("modulename", "抵押信息");
+                            GsonUtil request121 = new GsonUtil(URLconstant.URLINSER + URLconstant.SAVESUM, RequestMethod.GET);
+                            request121.add("token", token);
+                            request121.add("deviceId", model);
+                            request121.add("KeyNo", KeyNo);
+                            request121.add("regnore",  DataManager.BaseinfoList.get(0).REGNO );
+                            request121.add("entname",  DataManager.BaseinfoList.get(0).ENTNAME );
+                            request121.add("memberId", csp.getID() );
+                            request121.add("enttype",  DataManager.BaseinfoList.get(0).ENTTYPE );
+                            request121.add("modulename", "抵押信息");
+                            CallServer.getInstance().add(CompanyDetailsActivity.this, request121, MyhttpCallBack.getInstance(), 0x12138, true, false, true);
                         }
                         GsonUtil mortinfoBdcRequest = new GsonUtil(URLconstant.URLINSER + URLconstant.MORTINFOBDC, RequestMethod.GET);//不动产request
                         mortinfoBdcRequest.add("token", SearchFirmActivty.MD5s(DataManager.BaseinfoList.get(0).REGNO + model));
@@ -484,7 +530,16 @@ public class CompanyDetailsActivity extends BaseActivity {
                         request5.add("KeyNo", KeyNo);
                         request5.add("priptype", DataManager.BaseinfoList.get(0).ENTTYPE);
                         if(!DataManager.String5.equals(DataManager.BaseinfoList.get(0).ENTNAME)) {
-                            request5.add("modulename", "出质信息");
+                            GsonUtil request121 = new GsonUtil(URLconstant.URLINSER + URLconstant.SAVESUM, RequestMethod.GET);
+                            request121.add("token", token);
+                            request121.add("deviceId", model);
+                            request121.add("KeyNo", KeyNo);
+                            request121.add("regnore",  DataManager.BaseinfoList.get(0).REGNO );
+                            request121.add("entname",  DataManager.BaseinfoList.get(0).ENTNAME );
+                            request121.add("memberId", csp.getID() );
+                            request121.add("enttype",  DataManager.BaseinfoList.get(0).ENTTYPE );
+                            request121.add("modulename", "出质信息");
+                            CallServer.getInstance().add(CompanyDetailsActivity.this, request121, MyhttpCallBack.getInstance(), 0x12138, true, false, true);
                         }
                         CallServer.getInstance().add(CompanyDetailsActivity.this, request5, MyhttpCallBack.getInstance(), 0x005, true, false, true);
                     }
@@ -499,7 +554,16 @@ public class CompanyDetailsActivity extends BaseActivity {
                         request6.add("regnore", regnore);//注册号
                         request6.add("priptype", DataManager.BaseinfoList.get(0).ENTTYPE);
                         if(!DataManager.String6.equals(DataManager.BaseinfoList.get(0).ENTNAME)) {
-                            request6.add("modulename", "司法信息");
+                            GsonUtil request121 = new GsonUtil(URLconstant.URLINSER + URLconstant.SAVESUM, RequestMethod.GET);
+                            request121.add("token", token);
+                            request121.add("deviceId", model);
+                            request121.add("KeyNo", KeyNo);
+                            request121.add("regnore",  DataManager.BaseinfoList.get(0).REGNO );
+                            request121.add("entname",  DataManager.BaseinfoList.get(0).ENTNAME );
+                            request121.add("memberId", csp.getID() );
+                            request121.add("enttype",  DataManager.BaseinfoList.get(0).ENTTYPE );
+                            request121.add("modulename", "司法信息");
+                            CallServer.getInstance().add(CompanyDetailsActivity.this, request121, MyhttpCallBack.getInstance(), 0x12138, true, false, true);
                         }
                         CallServer.getInstance().add(CompanyDetailsActivity.this, request6, MyhttpCallBack.getInstance(), 0X006, true, false, true);
                     }
@@ -513,7 +577,16 @@ public class CompanyDetailsActivity extends BaseActivity {
                         request7.add("KeyNo", KeyNo);
                         request7.add("priptype", DataManager.BaseinfoList.get(0).ENTTYPE);
                         if(!DataManager.String7.equals(DataManager.BaseinfoList.get(0).ENTNAME)) {
-                            request7.add("modulename", "预警信息");
+                            GsonUtil request121 = new GsonUtil(URLconstant.URLINSER + URLconstant.SAVESUM, RequestMethod.GET);
+                            request121.add("token", token);
+                            request121.add("deviceId", model);
+                            request121.add("KeyNo", KeyNo);
+                            request121.add("regnore",  DataManager.BaseinfoList.get(0).REGNO );
+                            request121.add("entname",  DataManager.BaseinfoList.get(0).ENTNAME );
+                            request121.add("memberId", csp.getID() );
+                            request121.add("enttype",  DataManager.BaseinfoList.get(0).ENTTYPE );
+                            request121.add("modulename", "预警信息");
+                            CallServer.getInstance().add(CompanyDetailsActivity.this, request121, MyhttpCallBack.getInstance(), 0x12138, true, false, true);
                         }
                         CallServer.getInstance().add(CompanyDetailsActivity.this, request7, MyhttpCallBack.getInstance(), 0x007, true, false, true);
                     }
@@ -527,7 +600,16 @@ public class CompanyDetailsActivity extends BaseActivity {
                         request.add("KeyNo", KeyNo);
                         request.add("priptype", DataManager.BaseinfoList.get(0).ENTTYPE);
                         if(!DataManager.String8.equals(DataManager.BaseinfoList.get(0).ENTNAME)) {
-                            request.add("modulename", "行政处罚");
+                            GsonUtil request121 = new GsonUtil(URLconstant.URLINSER + URLconstant.SAVESUM, RequestMethod.GET);
+                            request121.add("token", token);
+                            request121.add("deviceId", model);
+                            request121.add("KeyNo", KeyNo);
+                            request121.add("regnore",  DataManager.BaseinfoList.get(0).REGNO );
+                            request121.add("entname",  DataManager.BaseinfoList.get(0).ENTNAME );
+                            request121.add("memberId", csp.getID() );
+                            request121.add("enttype",  DataManager.BaseinfoList.get(0).ENTTYPE );
+                            request121.add("modulename", "行政处罚");
+                            CallServer.getInstance().add(CompanyDetailsActivity.this, request121, MyhttpCallBack.getInstance(), 0x12138, true, false, true);
                         }
                         CallServer.getInstance().add(CompanyDetailsActivity.this, request, MyhttpCallBack.getInstance(), 0X008, true, false, true);
                     }
@@ -541,7 +623,16 @@ public class CompanyDetailsActivity extends BaseActivity {
                         request9.add("KeyNo", KeyNo);
                         request9.add("priptype", DataManager.BaseinfoList.get(0).ENTTYPE);
                         if(!DataManager.String9.equals(DataManager.BaseinfoList.get(0).ENTNAME)) {
-                            request9.add("modulename", "经营异常");
+                            GsonUtil request121 = new GsonUtil(URLconstant.URLINSER + URLconstant.SAVESUM, RequestMethod.GET);
+                            request121.add("token", token);
+                            request121.add("deviceId", model);
+                            request121.add("KeyNo", KeyNo);
+                            request121.add("regnore",  DataManager.BaseinfoList.get(0).REGNO );
+                            request121.add("entname",  DataManager.BaseinfoList.get(0).ENTNAME );
+                            request121.add("memberId", csp.getID() );
+                            request121.add("enttype",  DataManager.BaseinfoList.get(0).ENTTYPE );
+                            request121.add("modulename", "经营异常");
+                            CallServer.getInstance().add(CompanyDetailsActivity.this, request121, MyhttpCallBack.getInstance(), 0x12138, true, false, true);
                         }
                         CallServer.getInstance().add(CompanyDetailsActivity.this, request9, MyhttpCallBack.getInstance(), 0X009, true, false, true);
                     }
@@ -555,7 +646,16 @@ public class CompanyDetailsActivity extends BaseActivity {
                         request10.add("KeyNo", KeyNo);
                         request10.add("priptype", DataManager.BaseinfoList.get(0).ENTTYPE);
                         if(!DataManager.String10.equals(DataManager.BaseinfoList.get(0).ENTNAME)) {
-                            request10.add("modulename", "专利信息");
+                            GsonUtil request121 = new GsonUtil(URLconstant.URLINSER + URLconstant.SAVESUM, RequestMethod.GET);
+                            request121.add("token", token);
+                            request121.add("deviceId", model);
+                            request121.add("KeyNo", KeyNo);
+                            request121.add("regnore",  DataManager.BaseinfoList.get(0).REGNO );
+                            request121.add("entname",  DataManager.BaseinfoList.get(0).ENTNAME );
+                            request121.add("memberId", csp.getID() );
+                            request121.add("enttype",  DataManager.BaseinfoList.get(0).ENTTYPE );
+                            request121.add("modulename", "专利信息");
+                            CallServer.getInstance().add(CompanyDetailsActivity.this, request121, MyhttpCallBack.getInstance(), 0x12138, true, false, true);
                         }
                         CallServer.getInstance().add(CompanyDetailsActivity.this, request10, MyhttpCallBack.getInstance(), 0X010, true, false, true);
 //                    Gson gson=new Gson();
@@ -581,7 +681,16 @@ public class CompanyDetailsActivity extends BaseActivity {
                         request11.add("KeyNo", KeyNo);
                         request11.add("priptype", DataManager.BaseinfoList.get(0).ENTTYPE);
                         if(!DataManager.String11.equals(DataManager.BaseinfoList.get(0).ENTNAME)) {
-                            request11.add("modulename", "商标信息");
+                            GsonUtil request121 = new GsonUtil(URLconstant.URLINSER + URLconstant.SAVESUM, RequestMethod.GET);
+                            request121.add("token", token);
+                            request121.add("deviceId", model);
+                            request121.add("KeyNo", KeyNo);
+                            request121.add("regnore",  DataManager.BaseinfoList.get(0).REGNO );
+                            request121.add("entname",  DataManager.BaseinfoList.get(0).ENTNAME );
+                            request121.add("memberId", csp.getID() );
+                            request121.add("enttype",  DataManager.BaseinfoList.get(0).ENTTYPE );
+                            request121.add("modulename", "商标信息");
+                            CallServer.getInstance().add(CompanyDetailsActivity.this, request121, MyhttpCallBack.getInstance(), 0x12138, true, false, true);
                         }
                         CallServer.getInstance().add(CompanyDetailsActivity.this, request11, MyhttpCallBack.getInstance(), 0x011, true, false, true);
                     }
@@ -595,7 +704,16 @@ public class CompanyDetailsActivity extends BaseActivity {
                         request12.add("KeyNo", KeyNo);
                         request12.add("priptype", DataManager.BaseinfoList.get(0).ENTTYPE);
                         if(!DataManager.String12.equals(DataManager.BaseinfoList.get(0).ENTNAME)) {
-                            request12.add("modulename", "著作权");
+                            GsonUtil request121 = new GsonUtil(URLconstant.URLINSER + URLconstant.SAVESUM, RequestMethod.GET);
+                            request121.add("token", token);
+                            request121.add("deviceId", model);
+                            request121.add("KeyNo", KeyNo);
+                            request121.add("regnore",  DataManager.BaseinfoList.get(0).REGNO );
+                            request121.add("entname",  DataManager.BaseinfoList.get(0).ENTNAME );
+                            request121.add("memberId", csp.getID() );
+                            request121.add("enttype",  DataManager.BaseinfoList.get(0).ENTTYPE );
+                            request121.add("modulename", "著作权");
+                            CallServer.getInstance().add(CompanyDetailsActivity.this, request121, MyhttpCallBack.getInstance(), 0x12138, true, false, true);
                         }
                         CallServer.getInstance().add(CompanyDetailsActivity.this, request12, MyhttpCallBack.getInstance(), 0x012, true, false, true);
                     }
@@ -609,6 +727,18 @@ public class CompanyDetailsActivity extends BaseActivity {
                         request13.add("KeyNo", KeyNo);
                         request13.add("memberId", "");
                         request13.add("content", "");
+                        if(!DataManager.String13.equals(DataManager.BaseinfoList.get(0).ENTNAME)) {
+                            GsonUtil request121 = new GsonUtil(URLconstant.URLINSER + URLconstant.SAVESUM, RequestMethod.GET);
+                            request121.add("token", token);
+                            request121.add("deviceId", model);
+                            request121.add("KeyNo", KeyNo);
+                            request121.add("regnore",  DataManager.BaseinfoList.get(0).REGNO );
+                            request121.add("entname",  DataManager.BaseinfoList.get(0).ENTNAME );
+                            request121.add("memberId", csp.getID() );
+                            request121.add("enttype",  DataManager.BaseinfoList.get(0).ENTTYPE );
+                            request121.add("modulename", "广告资质");
+                            CallServer.getInstance().add(CompanyDetailsActivity.this, request121, MyhttpCallBack.getInstance(), 0x12138, true, false, true);
+                        }
                         CallServer.getInstance().add(CompanyDetailsActivity.this, request13, MyhttpCallBack.getInstance(), 0x013, true, false, true);
                     }
                     break;
@@ -621,7 +751,16 @@ public class CompanyDetailsActivity extends BaseActivity {
                         request14.add("KeyNo", KeyNo);
                         request14.add("priptype", DataManager.BaseinfoList.get(0).ENTTYPE);
                         if(!DataManager.String14.equals(DataManager.BaseinfoList.get(0).ENTNAME)) {
-                            request14.add("modulename", "守合同重信用");
+                            GsonUtil request121 = new GsonUtil(URLconstant.URLINSER + URLconstant.SAVESUM, RequestMethod.GET);
+                            request121.add("token", token);
+                            request121.add("deviceId", model);
+                            request121.add("KeyNo", KeyNo);
+                            request121.add("regnore",  DataManager.BaseinfoList.get(0).REGNO );
+                            request121.add("entname",  DataManager.BaseinfoList.get(0).ENTNAME );
+                            request121.add("memberId", csp.getID() );
+                            request121.add("enttype",  DataManager.BaseinfoList.get(0).ENTTYPE );
+                            request121.add("modulename", "守合同重信用");
+                            CallServer.getInstance().add(CompanyDetailsActivity.this, request121, MyhttpCallBack.getInstance(), 0x12138, true, false, true);
                         }
                         CallServer.getInstance().add(CompanyDetailsActivity.this, request14, MyhttpCallBack.getInstance(), 0x014, true, false, true);
                     }
@@ -635,64 +774,78 @@ public class CompanyDetailsActivity extends BaseActivity {
                         request15.add("KeyNo", KeyNo);
                         request15.add("priptype", DataManager.BaseinfoList.get(0).ENTTYPE);
                         if(!DataManager.String15.equals(DataManager.BaseinfoList.get(0).ENTNAME)) {
-                            request15.add("modulename", "自主公示");
+                            GsonUtil request121 = new GsonUtil(URLconstant.URLINSER + URLconstant.SAVESUM, RequestMethod.GET);
+                            request121.add("token", token);
+                            request121.add("deviceId", model);
+                            request121.add("KeyNo", KeyNo);
+                            request121.add("regnore",  DataManager.BaseinfoList.get(0).REGNO );
+                            request121.add("entname",  DataManager.BaseinfoList.get(0).ENTNAME );
+                            request121.add("memberId", csp.getID() );
+                            request121.add("enttype",  DataManager.BaseinfoList.get(0).ENTTYPE );
+                            request121.add("modulename", "自主公示");
+                            CallServer.getInstance().add(CompanyDetailsActivity.this, request121, MyhttpCallBack.getInstance(), 0x12138, true, false, true);
                         }
                         CallServer.getInstance().add(CompanyDetailsActivity.this, request15, MyhttpCallBack.getInstance(), MSG, true, false, true);
                     }
                     break;
-                case  16://全景视图
-                    startActivity(new Intent(CompanyDetailsActivity.this, Panoramic_Activity.class).putExtra("KeyNo", KeyNo).putExtra("deviceId", model).putExtra("priptype", DataManager.BaseinfoList.get(0).ENTTYPE).putExtra("regnore", regnore).putExtra("entname",DataManager.BaseinfoList.get(0).ENTNAME));
+                case 16://全景视图
+                    startActivity(new Intent(CompanyDetailsActivity.this, Panoramic_Activity.class).putExtra("KeyNo", KeyNo).putExtra("deviceId", model).putExtra("priptype", DataManager.BaseinfoList.get(0).ENTTYPE).putExtra("regnore", regnore).putExtra("entname", DataManager.BaseinfoList.get(0).ENTNAME));
                     break;
-                case  17://投资连图
-                    startActivity(new Intent(CompanyDetailsActivity.this, H5ViewActivity.class).putExtra("KeyNo",DataManager.BaseinfoList.get(0).PRIPID).putExtra("URL",URLconstant.TOUZILIAN).putExtra("regno",DataManager.BaseinfoList.get(0).REGNO).putExtra("entname",DataManager.BaseinfoList.get(0).ENTNAME));
+                case 17://投资连图
+                    startActivity(new Intent(CompanyDetailsActivity.this, H5ViewActivity.class).putExtra("KeyNo", DataManager.BaseinfoList.get(0).PRIPID).putExtra("URL", URLconstant.TOUZILIAN).putExtra("regno", DataManager.BaseinfoList.get(0).REGNO).putExtra("entname", DataManager.BaseinfoList.get(0).ENTNAME).putExtra("msg","1"));
                     //Toast.show( "此模块，正在开发中...");
                     break;
-                case  18://发展历程
-                    Toast.show( "此模块，正在开发中...");
+                case 18://发展历程
+                    startActivity(new Intent(CompanyDetailsActivity.this, H5ViewActivity.class).putExtra("KeyNo", DataManager.BaseinfoList.get(0).PRIPID).putExtra("URL", URLconstant.FAZHAN).putExtra("regno", DataManager.BaseinfoList.get(0).REGNO).putExtra("entname", DataManager.BaseinfoList.get(0).ENTNAME).putExtra("estdate",DataManager.BaseinfoList.get(0).ESTDATE).putExtra("msg","2"));
+                    //Toast.show("此模块，正在开发中...");
                     break;
-                case  19://招投标
+                case 19://招投标
                     Intent i19 = new Intent(CompanyDetailsActivity.this, H5ViewActivity.class);
                     i19.putExtra("KeyNo", DataManager.BaseinfoList.get(0).ENTNAME);
-                    i19.putExtra("pripid",  DataManager.BaseinfoList.get(0).PRIPID);
-                    i19.putExtra("URL",  URLconstant.TENDER);
+                    i19.putExtra("pripid", DataManager.BaseinfoList.get(0).PRIPID);
+                    i19.putExtra("URL", URLconstant.TENDER);
                     i19.putExtra("Tname", "招投标");
-                    i19.putExtra("regno",  DataManager.BaseinfoList.get(0).REGNO);
+                    i19.putExtra("regno", DataManager.BaseinfoList.get(0).REGNO);
                     i19.putExtra("priptype", DataManager.BaseinfoList.get(0).ENTTYPE);
+                    i19.putExtra("msg","3");
                     startActivity(i19);
                     overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
 //                    Toast.show( "此模块，正在开发中...");
                     break;
 
-                case  20://企业新闻
+                case 20://企业新闻
                     Intent i20 = new Intent(CompanyDetailsActivity.this, H5ViewActivity.class);
                     i20.putExtra("KeyNo", DataManager.BaseinfoList.get(0).ENTNAME);
-                    i20.putExtra("pripid",  DataManager.BaseinfoList.get(0).PRIPID);
-                    i20.putExtra("URL",  URLconstant.COMPANYNEWS);
+                    i20.putExtra("pripid", DataManager.BaseinfoList.get(0).PRIPID);
+                    i20.putExtra("URL", URLconstant.COMPANYNEWS);
                     i20.putExtra("Tname", "企业新闻");
-                    i20.putExtra("regno",  DataManager.BaseinfoList.get(0).REGNO);
+                    i20.putExtra("regno", DataManager.BaseinfoList.get(0).REGNO);
                     i20.putExtra("priptype", DataManager.BaseinfoList.get(0).ENTTYPE);
+                    i20.putExtra("msg","4");
                     startActivity(i20);
                     overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
                     //                    Toast.show( "此模块，正在开发中...");
                     break;
 
-                case  21://企业招聘
+                case 21://企业招聘
                     Intent i21 = new Intent(CompanyDetailsActivity.this, H5ViewActivity.class);
                     i21.putExtra("KeyNo", DataManager.BaseinfoList.get(0).ENTNAME);
-                    i21.putExtra("pripid",  DataManager.BaseinfoList.get(0).PRIPID);
-                    i21.putExtra("URL",  URLconstant.RECRUIT);
+                    i21.putExtra("pripid", DataManager.BaseinfoList.get(0).PRIPID);
+                    i21.putExtra("URL", URLconstant.RECRUIT);
                     i21.putExtra("Tname", "企业招聘");
-                    i21.putExtra("regno",  DataManager.BaseinfoList.get(0).REGNO);
+                    i21.putExtra("regno", DataManager.BaseinfoList.get(0).REGNO);
                     i21.putExtra("priptype", DataManager.BaseinfoList.get(0).ENTTYPE);
+                    i21.putExtra("msg","5");
                     startActivity(i21);
                     overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
                     //                    Toast.show( "此模块，正在开发中...");
                     break;
-                case  22://企业展示
-                    Toast.show( "此模块，正在开发中...");
+                case 22://企业展示
+                    //Toast.show("此模块，正在开发中...");
+                    startActivity(new Intent(CompanyDetailsActivity.this,H5ViewActivity.class).putExtra("KeyNo", DataManager.BaseinfoList.get(0).PRIPID).putExtra("URL", URLconstant.SHOW).putExtra("regno", DataManager.BaseinfoList.get(0).REGNO).putExtra("priptype", DataManager.BaseinfoList.get(0).ENTTYPE).putExtra("entname", DataManager.BaseinfoList.get(0).ENTNAME).putExtra("msg","6"));
                     break;
-                case  23://信用报告
-                    Toast.show( "此模块，正在开发中...");
+                case 23://信用报告
+                    Toast.show("此模块，正在开发中...");
                     break;
 
                 case 500://没有数据时返回信息
@@ -703,7 +856,10 @@ public class CompanyDetailsActivity extends BaseActivity {
     };
 
     public void init() {
-//        details_tit1.setText(DataManager.allcountsList.get(0).PageView);
+        if (DataManager.allcountsList.size() > 0) {
+            details_tit1.setText(DataManager.allcountsList.get(0).PageView);
+        }
+
 //        if(DataManager.allcountsList.get(0).IsClaim=="1"||DataManager.allcountsList.get(0).IsClaim.equals("1")){
 //            details_tit3.setText("已认领");
 //        }if(DataManager.allcountsList.get(0).IsClaim=="2"||DataManager.allcountsList.get(0).IsClaim.equals("2")) {
@@ -713,11 +869,9 @@ public class CompanyDetailsActivity extends BaseActivity {
 //        }
 
         name.setText(DataManager.BaseinfoList.get(0).NAME);
-        regcap.setText(DataManager.BaseinfoList.get(0).REGCAP+"万元");
+        regcap.setText(DataManager.BaseinfoList.get(0).REGCAP + "万元");
         estdate.setText(DataManager.BaseinfoList.get(0).ESTDATE);
         enttype.setText(DataManager.BaseinfoList.get(0).ENTTYPE_CN);
-
-
 
 
         pd = new ProgressDialog(CompanyDetailsActivity.this);
@@ -868,14 +1022,14 @@ public class CompanyDetailsActivity extends BaseActivity {
                     break;
                 case R.id.pb_2://评论
                     Intent i21 = new Intent(CompanyDetailsActivity.this, CommentListActivity.class);
-                    i21.putExtra("type",0);
+                    i21.putExtra("type", 0);
                     startActivity(i21);
                     break;
                 case R.id.pb_0://二维码名片
-                    File file = new File(Environment.getExternalStorageDirectory() + "/Credit/cache/"+DataManager.BaseinfoList.get(0).REGNO+"_TwoDimImg.jpg");
+                    File file = new File(Environment.getExternalStorageDirectory() + "/Credit/cache/" + DataManager.BaseinfoList.get(0).REGNO + "_TwoDimImg.jpg");
                     if (file.exists()) {//获取本地图片路径是否存在
                         CompanyDetailsActivity.handler.sendEmptyMessage(25);
-                    }else {
+                    } else {
                         waitDialog.show();
                         GsonUtil request100 = new GsonUtil(URLconstant.URLINSER + URLconstant.TWODIM, RequestMethod.GET);
                         request100.add("deviceId", model);
@@ -919,7 +1073,7 @@ public class CompanyDetailsActivity extends BaseActivity {
 
                     break;
                 case R.id.panoramic://全景
-                    startActivity(new Intent(CompanyDetailsActivity.this, Panoramic_Activity.class).putExtra("KeyNo", KeyNo).putExtra("deviceId", model).putExtra("priptype", DataManager.BaseinfoList.get(0).ENTTYPE).putExtra("regnore", regnore).putExtra("entname",DataManager.BaseinfoList.get(0).ENTNAME));
+                    startActivity(new Intent(CompanyDetailsActivity.this, Panoramic_Activity.class).putExtra("KeyNo", KeyNo).putExtra("deviceId", model).putExtra("priptype", DataManager.BaseinfoList.get(0).ENTTYPE).putExtra("regnore", regnore).putExtra("entname", DataManager.BaseinfoList.get(0).ENTNAME));
                 default:
                     break;
             }

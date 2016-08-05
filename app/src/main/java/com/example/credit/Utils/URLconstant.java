@@ -104,9 +104,11 @@ public class URLconstant {
 
     public static final String TOUZILIAN="http://101.201.211.27:8282/zhirong.credith5/investViewController/investView.do";//投资链图
 
+    public static final String SAVESUM="baseinfo/saveOperationLog.do";//记录
 
+    public static final String FAZHAN="http://101.201.211.27:8282/zhirong.credith5/entCourseController/entCourse.do";//发展历程
 
-
+    public static final String SHOW="http://101.201.211.27:8282/zhirong.credith5/entShowController/entShow.do";//企业展示
 //    public static final String GETCITYLIST="http://app.qichacha.com/enterprises/new/GetCityList";//获取城市接口
 
     //    public static final String SEARCHURL="http://168s.mobile.hc360.com/get168.cgi";//获取搜索列表

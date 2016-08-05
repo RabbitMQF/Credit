@@ -147,7 +147,7 @@ public class Alert_Adapter extends BaseAdapter {
         if (paperwork_expireList != null) {
             DataManager.AlertInfo.DataBean.date loan=paperwork_expireList.get(position);
             vh.loan_1.setText(loan.ORGAN);
-            vh.loan_2.setText(loan.WARNAMOUNT);
+            vh.loan_2.setText(loan.WARNAMOUNT+" 万元");
             vh.loan_3.setText(loan.WARNSTATUS);
             vh.loan_4.setText(loan.WARNDATE);
             vh.loan_5.setText(loan.WARNCONTENT);
@@ -176,7 +176,7 @@ public class Alert_Adapter extends BaseAdapter {
         if (paperwork_ExpiredList != null) {
             DataManager.AlertInfo.DataBean.date loan=paperwork_ExpiredList.get(position);
             vh.loan_1.setText(loan.ORGAN);
-            vh.loan_2.setText(loan.WARNAMOUNT);
+            vh.loan_2.setText(loan.WARNAMOUNT+" 万元");
             vh.loan_3.setText(loan.WARNSTATUS);
             vh.loan_4.setText(loan.WARNDATE);
             vh.loan_5.setText(loan.WARNCONTENT);
@@ -205,7 +205,7 @@ public class Alert_Adapter extends BaseAdapter {
         if (correctionList != null) {
             DataManager.AlertInfo.DataBean.date loan=correctionList.get(position);
             vh.loan_1.setText(loan.ORGAN);
-            vh.loan_2.setText(loan.WARNAMOUNT);
+            vh.loan_2.setText(loan.WARNAMOUNT+" 万元");
             vh.loan_3.setText(loan.WARNSTATUS);
             vh.loan_4.setText(loan.WARNDATE);
             vh.loan_5.setText(loan.WARNCONTENT);
@@ -234,7 +234,7 @@ public class Alert_Adapter extends BaseAdapter {
         if (loanList != null) {
             DataManager.AlertInfo.DataBean.date loan=loanList.get(position);
             vh.loan_1.setText(loan.ORGAN);
-            vh.loan_2.setText(loan.WARNAMOUNT);
+            vh.loan_2.setText(loan.WARNAMOUNT+" 万元");
             vh.loan_3.setText(loan.WARNSTATUS);
             vh.loan_4.setText(loan.WARNDATE);
             vh.loan_5.setText(loan.WARNCONTENT);
@@ -263,7 +263,7 @@ public class Alert_Adapter extends BaseAdapter {
         if (taxesList != null) {
             DataManager.AlertInfo.DataBean.date loan=taxesList.get(position);
             vh.loan_1.setText(loan.ORGAN);
-            vh.loan_2.setText(loan.WARNAMOUNT);
+            vh.loan_2.setText(loan.WARNAMOUNT+" 万元");
             vh.loan_3.setText(loan.WARNSTATUS);
             vh.loan_4.setText(loan.WARNDATE);
             vh.loan_5.setText(loan.WARNCONTENT);
@@ -292,7 +292,7 @@ public class Alert_Adapter extends BaseAdapter {
         if (wagesList != null) {
             DataManager.AlertInfo.DataBean.date loan=wagesList.get(position);
             vh.loan_1.setText(loan.ORGAN);
-            vh.loan_2.setText(loan.WARNAMOUNT);
+            vh.loan_2.setText(loan.WARNAMOUNT+" 万元");
             vh.loan_3.setText(loan.WARNSTATUS);
             vh.loan_4.setText(loan.WARNDATE);
             vh.loan_5.setText(loan.WARNCONTENT);
