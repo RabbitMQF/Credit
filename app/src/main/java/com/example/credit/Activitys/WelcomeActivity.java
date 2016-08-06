@@ -13,14 +13,12 @@ import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
 
-import com.example.credit.Entitys.DataManager;
 import com.example.credit.R;
 import com.example.credit.Services.CallServer;
 import com.example.credit.Utils.CreditSharePreferences;
 import com.example.credit.Utils.GsonUtil;
 import com.example.credit.Utils.MD5;
 import com.example.credit.Utils.MyhttpCallBack;
-import com.example.credit.Utils.NetUtils;
 import com.example.credit.Utils.URLconstant;
 import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ViewInject;
@@ -99,6 +97,9 @@ public class WelcomeActivity extends Activity {
     }
 
     private void initDataHttp() {
+        GsonUtil NewClaimRequest=new GsonUtil(URLconstant.URLINSER + URLconstant.NEWCLAIM, RequestMethod.GET);//最新认领
+        CallServer.getInstance().add(WelcomeActivity.this,NewClaimRequest, MyhttpCallBack.getInstance(),0x113,true,false,true);
+
         GsonUtil NewsRequest=new GsonUtil(URLconstant.URLINSER+URLconstant.NEWSURL, RequestMethod.GET);//新闻数据
         NewsRequest.setConnectTimeout(10000);
         NewsRequest.setReadTimeout(10000);

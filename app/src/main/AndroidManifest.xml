@@ -28,7 +28,8 @@
         </activity>
         <activity
             android:name=".Contacts.ContactsActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".Activitys.SearchFirmActivty"
             android:screenOrientation="portrait"
@@ -203,9 +204,13 @@
             android:name=".Activitys.WebAutonomy"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity android:name=".Activitys.H5ViewActivity"
+        <activity
+            android:name=".Activitys.H5ViewActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity android:name=".Activitys.Main_SearchActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
     </application>
 
 </manifest>

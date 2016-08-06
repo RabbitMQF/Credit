@@ -5,6 +5,8 @@ import android.app.ActivityManager;
 import android.app.ProgressDialog;
 import android.content.ComponentName;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
@@ -12,7 +14,6 @@ import android.os.Handler;
 import android.os.Message;
 import android.view.KeyEvent;
 import android.view.View;
-
 import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -24,6 +25,8 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.credit.Adapters.MyGridAdaptermMain;
+import com.example.credit.Adapters.MyGridAdapters;
 import com.example.credit.Adapters.NewClaimListAdapter;
 import com.example.credit.Adapters.NewsListAdapter;
 import com.example.credit.Dialogs.WaitDialog;
@@ -36,6 +39,8 @@ import com.example.credit.Utils.MD5;
 import com.example.credit.Utils.MyhttpCallBack;
 import com.example.credit.Utils.NetUtils;
 import com.example.credit.Utils.URLconstant;
+import com.example.credit.Views.MyGridView;
+import com.example.credit.Views.ImageCycleView;
 import com.example.credit.Views.MyListView;
 import com.example.credit.Views.RoundImageView;
 import com.example.credit.Views.SlidingMenu;
@@ -53,6 +58,7 @@ import Decoder.BASE64Decoder;
 
 import static com.example.credit.Views.FileUtil.decodeBitmap;
 import static com.example.credit.Views.FileUtil.deleteDir;
+
 //SwipeRefreshLayout.OnRefreshListener
 public class MainActivity extends Activity implements View.OnClickListener {
     //    ,PullToRefreshView.OnHeaderRefreshListener, PullToRefreshView.OnFooterRefreshListener
@@ -98,31 +104,46 @@ public class MainActivity extends Activity implements View.OnClickListener {
     @ViewInject(R.id.btmore)
     Button btmore;//加载更多
 
-    //    @ViewInject(R.id.homeprogress)
-//    LinearLayout homeprogress;//数据加载框
     @ViewInject(R.id.scmain)
     ScrollView scmain;
     @ViewInject(R.id.news_list)
     MyListView NewsListview;
     @ViewInject(R.id.NewClaimListview)
-    ListView NewClaimListview;
+    MyListView NewClaimListview;
+
+    @ViewInject(R.id.NewClaimTxT)
+    TextView NewClaimTxT;
+
+    @ViewInject(R.id.myGridViewMain)
+    MyGridView myGridViewMain;
+
+    @ViewInject(R.id.cliam_more)
+    TextView cliam_more;//认领-查看更多
+    @ViewInject(R.id.news_more)
+    TextView news_more;//新闻-查看更多
 
     NewsListAdapter adapter;
     public static List<DataManager.MyNews.DataBean.NewslistBean> MyNewsList = new ArrayList<DataManager.MyNews.DataBean.NewslistBean>();//初始新闻集合
+
+    public static List<DataManager.MyClaimUtils.DataBean.ClaimlistBean> MyCliamList = new ArrayList<DataManager.MyClaimUtils.DataBean.ClaimlistBean>();//初始最新认领集合
 
     static CreditSharePreferences csp;
     Boolean LoginStatus;
     public static ProgressDialog pd;
     public static WaitDialog ad;
+    private ImageCycleView mImageCycleView;
 
-    TextView main1, main2;//今日热点和最新认领按钮
-    //    PullToRefreshView mPullToRefreshView;
     int t = 2;
     int str = 1;
+
+    public int[] imgs1 = {R.mipmap.maincon_1, R.mipmap.maincon_2,
+            R.mipmap.maincon_3, R.mipmap.maincon_4};
+    public String[] txt = {"商标查询","专利查询",
+            "招投标", "失信查询"};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main2);
         csp = CreditSharePreferences.getLifeSharedPreferences();
         LoginStatus = csp.getLoginStatus();
         ViewUtils.inject(this);
@@ -130,6 +151,46 @@ public class MainActivity extends Activity implements View.OnClickListener {
         boolean falg= NetUtils.isConnectingToInternet(this);
 
         mLeftMenu = (SlidingMenu) findViewById(R.id.id_menu);
+
+        /**
+         * 轮播
+         */
+        mImageCycleView = (ImageCycleView) findViewById(R.id.icv_topView);
+        List<ImageCycleView.ImageInfo> list=new ArrayList<ImageCycleView.ImageInfo>();
+        //res图片资源
+        list.add(new ImageCycleView.ImageInfo(R.drawable.banner1,"",""));
+        list.add(new ImageCycleView.ImageInfo(R.drawable.banner2,"",""));
+        //list.add(new ImageCycleView.ImageInfo(R.drawable.a3,"3333333333333",""));
+        mImageCycleView.loadData(list, new ImageCycleView.LoadImageCallBack() {
+            @Override
+            public ImageView loadAndDisplay(ImageCycleView.ImageInfo imageInfo) {
+
+                //本地图片
+                ImageView imageView=new ImageView(MainActivity.this);
+                imageView.setImageResource(Integer.parseInt(imageInfo.image.toString()));
+                return imageView;
+
+
+//				//使用SD卡图片
+//				SmartImageView smartImageView=new SmartImageView(MainActivity.this);
+//				smartImageView.setImageURI(Uri.fromFile((File)imageInfo.image));
+//				return smartImageView;
+
+//				//使用SmartImageView，既可以使用网络图片也可以使用本地资源
+//				SmartImageView smartImageView=new SmartImageView(MainActivity.this);
+//				smartImageView.setImageResource(Integer.parseInt(imageInfo.image.toString()));
+//				return smartImageView;
+
+                //使用BitmapUtils,只能使用网络图片
+//				BitmapUtils bitmapUtils = new BitmapUtils(MainActivity.this);
+//				ImageView imageView = new ImageView(MainActivity.this);
+//				bitmapUtils.display(imageView, imageInfo.image.toString());
+//				return imageView;
+
+
+            }
+        });
+
 
         /*FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -228,7 +289,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                         com.example.credit.Utils.Toast.show("没有数据了!");
                         break;
                     case 10://刷新新闻
-                       adapter.notifyDataSetChanged();
+                        adapter.notifyDataSetChanged();
                         break;
                     default:
                         com.example.credit.Utils.Toast.show("数据正在赶来的路上...");
@@ -283,6 +344,39 @@ public class MainActivity extends Activity implements View.OnClickListener {
     }
 
     private void initData() {
+        MyGridAdaptermMain adapters = new MyGridAdaptermMain(MainActivity.this, imgs1,txt);
+        myGridViewMain.setAdapter(adapters);
+        myGridViewMain.setSelector(new ColorDrawable(Color.TRANSPARENT));
+        myGridViewMain.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent i;
+                switch (position){
+                    case 0://商标查询
+                        i=new Intent(MainActivity.this,Main_SearchActivity.class);
+                        i.putExtra("hit","商标");
+                        startActivity(i);
+                        break;
+                    case 1://专利查询
+                        i=new Intent(MainActivity.this,Main_SearchActivity.class);
+                        i.putExtra("hit","专利");
+                        startActivity(i);
+                        break;
+                    case 2://招投标
+//                        i=new Intent(MainActivity.this,Main_SearchActivity.class);
+//                        i.putExtra("hit","招投标");
+//                        startActivity(i);
+                        com.example.credit.Utils.Toast.show("模块正在赶工中...");
+                        break;
+                    case 3://失信
+//                        i=new Intent(MainActivity.this,Main_SearchActivity.class);
+//                        i.putExtra("hit","失信");
+//                        startActivity(i);
+                        com.example.credit.Utils.Toast.show("模块正在赶工中...");
+                        break;
+                }
+            }
+        });
 //        try{
 //            if (!DataManager.MyNewsS.data.Newslist.equals(null) && DataManager.MyNewsS.data.Newslist != null && DataManager.MyNewsS.data.Newslist.size() > 0 ) {
 //                handler.sendEmptyMessage(0);
@@ -299,61 +393,28 @@ public class MainActivity extends Activity implements View.OnClickListener {
 //                super.run();
 //                try {
 //                    sleep(1000);
-                    if (MyNewsList != null && MyNewsList.size() > 0) {
-                        handler.sendEmptyMessage(0);
-                    } else {//没有数据
-                        btmore.setVisibility(View.GONE);
-                    }
+        if (MyNewsList != null && MyNewsList.size() > 0) {
+            handler.sendEmptyMessage(0);
+        } else {//没有数据
+            news_more.setVisibility(View.GONE);
+            btmore.setVisibility(View.GONE);
+        }
+        if (MyCliamList != null && MyCliamList.size() > 0) {
+            handler.sendEmptyMessage(7);
+        } else {//没有数据
+            cliam_more.setVisibility(View.GONE);
+            btmore.setVisibility(View.GONE);
+            NewClaimTxT.setVisibility(View.VISIBLE);
+        }
 //                } catch (Exception e) {
 //                    e.printStackTrace();
 //                }
 //            }
 //        }.start();
 
-        main1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                scmain.setVisibility(View.VISIBLE);
-                NewsListview.setVisibility(View.VISIBLE);
-                NewClaimListview.setVisibility(View.GONE);
-                main1.setTextColor(getResources().getColor(R.color.white));
-                main1.setBackgroundDrawable(getResources().getDrawable(R.drawable.details_gg_bgtit));
-                main2.setTextColor(getResources().getColor(R.color.black));
-                main2.setBackgroundDrawable(getResources().getDrawable(R.drawable.details_con_tabbg2));
-                try {
-                    if (MyNewsList != null && MyNewsList.size() > 0) {
-                        handler.sendEmptyMessage(0);
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    com.example.credit.Utils.Toast.show("新闻正在赶来的路上...");
-//                    mPullToRefreshView.setVisibility(View.GONE);
-                }
-            }
-        });
-        main2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                scmain.setVisibility(View.GONE);
-                btmore.setVisibility(View.GONE);
-                NewsListview.setVisibility(View.GONE);
-                NewClaimListview.setVisibility(View.VISIBLE);
-                main1.setTextColor(getResources().getColor(R.color.black));
-                main1.setBackgroundDrawable(getResources().getDrawable(R.drawable.details_con_tabbg2));
-                main2.setTextColor(getResources().getColor(R.color.white));
-                main2.setBackgroundDrawable(getResources().getDrawable(R.drawable.details_gg_bgtit));
-                GsonUtil NewClaimRequest=new GsonUtil(URLconstant.URLINSER + URLconstant.NEWCLAIM, RequestMethod.GET);//最新认领
-                CallServer.getInstance().add(MainActivity.this,NewClaimRequest, MyhttpCallBack.getInstance(),0x113,true,false,true);
-            }
-        });
     }
 
     private void initView() {
-//        mPullToRefreshView = (PullToRefreshView) findViewById(R.id.pull_refresh_view);
-//        mPullToRefreshView.setOnHeaderRefreshListener(this);
-//        mPullToRefreshView.setOnFooterRefreshListener(this);
-        main1 = (TextView) findViewById(R.id.main1);
-        main2 = (TextView) findViewById(R.id.main2);
 
         mLeftMenu = (SlidingMenu) findViewById(R.id.id_menu);
         topSearch = (RelativeLayout) findViewById(R.id.top_search);
@@ -361,14 +422,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
         pd = new ProgressDialog(MainActivity.this);
         pd.setMessage("请稍后...");
         pd.setCancelable(false);
-//        NewsListview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                GsonUtil NewsRequest=new GsonUtil(URLconstant.NEWSURL, RequestMethod.POST);//新闻数据
-//                NewsRequest.add("KeyNo",DataManager.NewClaimS.data.Newslist.get(position).ID);
-//                CallServer.getInstance().add(MainActivity.this,NewsRequest, MyhttpCallBack.getInstance(),0x111,true,false,true);
-//            }
-//        });
         headimg.setOnClickListener(listener);
         UserSz.setOnClickListener(listener);
         Smenu_1.setOnClickListener(listener);

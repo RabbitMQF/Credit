@@ -5,6 +5,7 @@ import com.example.credit.Activitys.CommentListDetailsActivity;
 import com.example.credit.Activitys.CompanyDetailsActivity;
 import com.example.credit.Activitys.LoginActivity;
 import com.example.credit.Activitys.MainActivity;
+import com.example.credit.Activitys.Main_SearchActivity;
 import com.example.credit.Activitys.MyClaimActivity;
 import com.example.credit.Activitys.MycomplaintsListActivity;
 import com.example.credit.Activitys.MyconcernActivity;
@@ -109,9 +110,7 @@ public class MyhttpCallBack implements HttpCallBack {
                 jsonString = (String) response.get();
                 DataManager.MyClaimUtilsModel = gson.fromJson(jsonString, DataManager.MyClaimUtils.class);
                 if (DataManager.MyClaimUtilsModel.data.Claimlist != null && DataManager.MyClaimUtilsModel.data.Claimlist.size() > 0) {
-                    MainActivity.handler.sendEmptyMessage(7);
-                } else {
-                    MainActivity.handler.sendEmptyMessage(500);
+                    MainActivity.MyCliamList = DataManager.MyClaimUtilsModel.data.Claimlist;
                 }
                 break;
 
@@ -1390,6 +1389,14 @@ public class MyhttpCallBack implements HttpCallBack {
                 break;
             case 0x12138://记录24宫格
                 jsonString = (String) response.get();
+                break;
+            case 0x1001://商标查询
+                jsonString = (String) response.get();
+                Main_SearchActivity.handler.sendEmptyMessage(0);
+                break;
+            case 0x1002://专利查询
+                jsonString = (String) response.get();
+                Main_SearchActivity.handler.sendEmptyMessage(0);
                 break;
             default:
                 break;
