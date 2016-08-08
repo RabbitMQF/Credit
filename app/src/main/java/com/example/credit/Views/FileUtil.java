@@ -1,9 +1,15 @@
 package com.example.credit.Views;
 
+import android.app.ActivityManager;
+import android.app.KeyguardManager;
+import android.content.ComponentName;
 import android.content.Context;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.Bitmap.CompressFormat;
 import android.graphics.BitmapFactory;
+import android.os.Debug;
 import android.os.Environment;
 
 import java.io.ByteArrayOutputStream;
@@ -11,32 +17,33 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.List;
 
 public class FileUtil {
 
-	  /**
-     * 将Bitmap 图片保存到本地路径，并返回路径
-     * @param c
-     * @param mType 资源类型，参照  MultimediaContentType 枚举，根据此类型，保存时可自动归类
-     * @param fileName 文件名称
-     * @param bitmap 图片
-     * @return
-     */
+	/**
+	 * 将Bitmap 图片保存到本地路径，并返回路径
+	 * @param c
+	 * @param mType 资源类型，参照  MultimediaContentType 枚举，根据此类型，保存时可自动归类
+	 * @param fileName 文件名称
+	 * @param bitmap 图片
+	 * @return
+	 */
 	public static String saveFile(Context c, String fileName, Bitmap bitmap) {
 		return saveFile(c, "", fileName, bitmap);
 	}
-	
+
 	public static String saveFile(Context c, String filePath, String fileName, Bitmap bitmap) {
 		byte[] bytes = bitmapToBytes(bitmap);
 		return saveFile(c, filePath, fileName, bytes);
 	}
-	
+
 	public static byte[] bitmapToBytes(Bitmap bm) {
 		ByteArrayOutputStream baos = new ByteArrayOutputStream();
 		bm.compress(CompressFormat.JPEG, 100, baos);
 		return baos.toByteArray();
 	}
-	
+
 	public static String saveFile(Context c, String filePath, String fileName, byte[] bytes) {
 		String fileFullName = "";
 		FileOutputStream fos = null;
@@ -72,7 +79,7 @@ public class FileUtil {
 	/**
 	 * 删除文件
 	 * @param fileName
-     */
+	 */
 	public static void delFile(String fileName){//传文件路径
 		File file = new File(fileName);
 		if(file.isFile()){
@@ -83,7 +90,7 @@ public class FileUtil {
 	/**
 	 * 删除文件夹和文件夹里面的文件
 	 * @param path
-     */
+	 */
 	public static void deleteDir(String path) {//传文件夹路径
 		File dir = new File(path);
 		if (dir == null || !dir.exists() || !dir.isDirectory())
@@ -102,7 +109,7 @@ public class FileUtil {
 	 * 保存图片
 	 * @param bm
 	 * @param picName
-     */
+	 */
 	public static void saveBitmap(Bitmap bm, String picName) {
 		try {
 			if (!isFileExist("")) {
@@ -144,8 +151,8 @@ public class FileUtil {
 	 * @param path
 	 * @param screenWidth
 	 * @param screenHeight
-     * @return
-     */
+	 * @return
+	 */
 	public static Bitmap decodeBitmap(String path,int screenWidth,int screenHeight){
 		BitmapFactory.Options opts = new BitmapFactory.Options();
 		opts.inJustDecodeBounds = true; //设置为true, 加载器不会返回图片, 而是设置Options对象中以out开头的字段.即仅仅解码边缘区域
@@ -163,6 +170,23 @@ public class FileUtil {
 		opts.inSampleSize = scale;
 		Bitmap bmp = BitmapFactory.decodeFile(path, opts);
 		return bmp;
+	}
+
+
+	/**
+	 * 判断Android程序是否在前台运行的方法
+	 */
+	public static boolean isApplicationBroughtToBackground(Context context) {
+		ActivityManager am = (ActivityManager) context
+				.getSystemService(Context.ACTIVITY_SERVICE);
+		List<ActivityManager.RunningTaskInfo> tasks = am.getRunningTasks(1);
+		if (tasks != null && !tasks.isEmpty()) {
+			ComponentName topActivity = tasks.get(0).topActivity;
+			if (!topActivity.getPackageName().equals(context.getPackageName())) {
+				return true;
+			}
+		}
+		return false;
 	}
 
 }

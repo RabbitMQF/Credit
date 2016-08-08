@@ -1,12 +1,9 @@
 package com.example.credit.Activitys;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
@@ -22,9 +19,9 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * 【专利】，【处罚】，【著作】，【商标】，【出质】详情界面
+ * 主界面的【专利】，【商标】详情界面
  */
-public class Public_Detail_ctivity extends BaseActivity {
+public class Main_Public_Detail_ctivity extends BaseActivity {
     @ViewInject(R.id.b_return)
     LinearLayout b_return;
     @ViewInject(R.id.b_topname)
@@ -64,16 +61,16 @@ public class Public_Detail_ctivity extends BaseActivity {
         List<String> list2 = new ArrayList<>();
         if (state.equals("patent")) {//专利
             b_topname.setText("专利信息");
-            list1.add(DataManager.PatentInfoS.data.patentInfo.get(position).PATENTNAME);
-            list1.add(DataManager.PatentInfoS.data.patentInfo.get(position).RCODE);
-            list1.add(DataManager.PatentInfoS.data.patentInfo.get(position).RDATE);
-            list1.add(DataManager.PatentInfoS.data.patentInfo.get(position).ACODE);
-            list1.add(DataManager.PatentInfoS.data.patentInfo.get(position).ADATE);
-            list1.add(DataManager.PatentInfoS.data.patentInfo.get(position).INVENTOR);
-            list1.add(DataManager.PatentInfoS.data.patentInfo.get(position).PATENTTYPE);
-            list1.add(DataManager.PatentInfoS.data.patentInfo.get(position).AGENCY);
-            list1.add(DataManager.PatentInfoS.data.patentInfo.get(position).LEGALSTATUS);
-            list1.add(DataManager.PatentInfoS.data.patentInfo.get(position).DETAILINFO);
+            list1.add(DataManager.zl_searchS.data.patentInfo.get(position).PATENTNAME);
+            list1.add(DataManager.zl_searchS.data.patentInfo.get(position).RCODE);
+            list1.add(DataManager.zl_searchS.data.patentInfo.get(position).RDATE);
+            list1.add(DataManager.zl_searchS.data.patentInfo.get(position).ACODE);
+            list1.add(DataManager.zl_searchS.data.patentInfo.get(position).ADATE);
+            list1.add(DataManager.zl_searchS.data.patentInfo.get(position).INVENTOR);
+            list1.add(DataManager.zl_searchS.data.patentInfo.get(position).PATENTTYPE);
+            list1.add(DataManager.zl_searchS.data.patentInfo.get(position).AGENCY);
+            list1.add(DataManager.zl_searchS.data.patentInfo.get(position).LEGALSTATUS);
+            list1.add(DataManager.zl_searchS.data.patentInfo.get(position).DETAILINFO);
             list2 = Arrays.asList(getResources().getStringArray(R.array.patent_c));
 
         } else if (state.equals("punish")) {//处罚
@@ -111,14 +108,14 @@ public class Public_Detail_ctivity extends BaseActivity {
 
         } else if (state.equals("trademark")) {//商标
             b_topname.setText("商标信息");
-            list1.add(DataManager.trademarkInfoList.get(position).BRANDNAME);
-            list1.add(DataManager.trademarkInfoList.get(position).APPLICATIONDATE);
-            list1.add(DataManager.trademarkInfoList.get(position).APPLICANT);
-            list1.add(DataManager.trademarkInfoList.get(position).BRANDSTAUTS);
-            list1.add(DataManager.trademarkInfoList.get(position).REGCORE);
-            list1.add(DataManager.trademarkInfoList.get(position).CLASSIFYID);
-            list1.add(DataManager.trademarkInfoList.get(position).AGENCY);
-            list1.add(DataManager.trademarkInfoList.get(position).LIFESPAN);
+            list1.add(DataManager.sb_searchS.data.trademark.get(position).BRANDNAME);
+            list1.add(DataManager.sb_searchS.data.trademark.get(position).APPLICATIONDATE);
+            list1.add(DataManager.sb_searchS.data.trademark.get(position).APPLICANT);
+            list1.add(DataManager.sb_searchS.data.trademark.get(position).BRANDSTAUTS);
+            list1.add(DataManager.sb_searchS.data.trademark.get(position).REGCORE);
+            list1.add(DataManager.sb_searchS.data.trademark.get(position).CLASSIFYID);
+            list1.add(DataManager.sb_searchS.data.trademark.get(position).AGENCY);
+            list1.add(DataManager.sb_searchS.data.trademark.get(position).LIFESPAN);
             list2 = Arrays.asList(getResources().getStringArray(R.array.trademark_c));
 
         } else if (state.equals("pledge")) {//出质
@@ -139,7 +136,7 @@ public class Public_Detail_ctivity extends BaseActivity {
         } else if (state.equals("333")) {
 
         }
-        AllDetailsAdapter adapter = new AllDetailsAdapter(Public_Detail_ctivity.this, list1, list2);
+        AllDetailsAdapter adapter = new AllDetailsAdapter(Main_Public_Detail_ctivity.this, list1, list2);
         cdListView1.setAdapter(adapter);
     }
 }

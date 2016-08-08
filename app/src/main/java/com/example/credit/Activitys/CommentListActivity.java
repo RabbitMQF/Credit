@@ -100,7 +100,7 @@ public class CommentListActivity extends BaseActivity {
         b_topY.setVisibility(View.VISIBLE);//显示右上角控件“发表”
         b_topname.setText("评论");
         b_return.setOnClickListener(listener);
-        b_topY.setOnClickListener(listener);
+        b_topLLt.setOnClickListener(listener);
         intiow();
         Ccomm_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

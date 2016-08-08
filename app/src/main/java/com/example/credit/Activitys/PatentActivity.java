@@ -13,6 +13,7 @@ import android.widget.TextView;
 import com.example.credit.Adapters.CC_List_itemAdapter;
 import com.example.credit.Entitys.DataManager;
 import com.example.credit.R;
+import com.example.credit.Utils.PullToRefreshView;
 import com.example.credit.Views.MyListView;
 import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ViewInject;
@@ -34,7 +35,6 @@ public class PatentActivity extends BaseActivity {
     ScrollView pa_sc;
     @ViewInject(R.id.paListView1)
     MyListView paListView1;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,7 +54,7 @@ public class PatentActivity extends BaseActivity {
             }
         });
         List<String> list = new ArrayList<>();
-        for(DataManager.PatentInfo.PatentInfoBean p:DataManager.PatentInfoS.patentInfo){
+        for(DataManager.PatentInfo.DataBean.PatentInfoBean p:DataManager.PatentInfoS.data.patentInfo){
             list.add(p.PATENTNAME);
         }
         CC_List_itemAdapter adapter = new CC_List_itemAdapter(PatentActivity.this, list, "patent",null);
@@ -70,5 +70,4 @@ public class PatentActivity extends BaseActivity {
             }
         });
     }
-
 }

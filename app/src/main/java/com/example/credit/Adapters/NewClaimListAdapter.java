@@ -18,15 +18,25 @@ import java.util.List;
 public class NewClaimListAdapter extends BaseAdapter{
     Context context;
     List<DataManager.MyClaimUtils.DataBean.ClaimlistBean> newsList;
-    public NewClaimListAdapter(Context context, List<DataManager.MyClaimUtils.DataBean.ClaimlistBean> newsList) {
+    int st;
+    public NewClaimListAdapter(Context context, List<DataManager.MyClaimUtils.DataBean.ClaimlistBean> newsList,int sts) {
         this.context = context;
         this.newsList = newsList;
+        st=sts;
     }
 
     @Override
 
     public int getCount() {
-        return newsList.size();
+        if(st==0){
+            if(newsList.size()>=3){
+                return 3;
+            }else{
+                return newsList.size();
+            }
+        }else{
+            return newsList.size();
+        }
     }
 
     @Override

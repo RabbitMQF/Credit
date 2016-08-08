@@ -39,6 +39,7 @@ import com.example.credit.Utils.MD5;
 import com.example.credit.Utils.MyhttpCallBack;
 import com.example.credit.Utils.NetUtils;
 import com.example.credit.Utils.URLconstant;
+import com.example.credit.Views.FileUtil;
 import com.example.credit.Views.MyGridView;
 import com.example.credit.Views.ImageCycleView;
 import com.example.credit.Views.MyListView;
@@ -140,16 +141,17 @@ public class MainActivity extends Activity implements View.OnClickListener {
             R.mipmap.maincon_3, R.mipmap.maincon_4};
     public String[] txt = {"商标查询","专利查询",
             "招投标", "失信查询"};
+    public static   NewClaimListAdapter adapter1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
+        filenewsexists();
         csp = CreditSharePreferences.getLifeSharedPreferences();
         LoginStatus = csp.getLoginStatus();
         ViewUtils.inject(this);
         ad = new WaitDialog(this);
         boolean falg= NetUtils.isConnectingToInternet(this);
-
         mLeftMenu = (SlidingMenu) findViewById(R.id.id_menu);
 
         /**
@@ -250,7 +252,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                         startActivity(i6);
                         break;
                     case 7:
-                        NewClaimListAdapter adapter1 = new NewClaimListAdapter(MainActivity.this, DataManager.MyClaimUtilsModel.data.Claimlist);
+                        adapter1 = new NewClaimListAdapter(MainActivity.this, DataManager.MyClaimUtilsModel.data.Claimlist,0);
                         NewClaimListview.setAdapter(adapter1);
                         adapter1.notifyDataSetChanged();
                         NewClaimListview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -438,7 +440,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         tab4.setOnClickListener(listener);
         btmore.setOnClickListener(listener);
         set.setOnClickListener(listener);
-
+        cliam_more.setOnClickListener(listener);
 //        pb_4.setOnClickListener(listener);
     }
 
@@ -537,13 +539,13 @@ public class MainActivity extends Activity implements View.OnClickListener {
                     startActivity(in2);
                     overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
                     break;
-                case R.id.tab3://失信查询
+                case R.id.tab3://品牌查询
                     Intent in3 = new Intent(MainActivity.this, SearchFirmActivty.class);
                     in3.putExtra("type", 2);
                     startActivity(in3);
                     overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
                     break;
-                case R.id.tab4://违法信息
+                case R.id.tab4://失信信息
                     Intent in4 = new Intent(MainActivity.this, SearchFirmActivty.class);
                     in4.putExtra("type", 3);
                     startActivity(in4);
@@ -577,6 +579,11 @@ public class MainActivity extends Activity implements View.OnClickListener {
                         com.example.credit.Utils.Toast.show("没有更多数据了！");
                         btmore.setVisibility(View.GONE);
                     }
+                    break;
+                case R.id.cliam_more:
+                    Intent i1w1=new Intent(MainActivity.this,Main_NewCliam_MoreListActivity.class);
+                    i1w1.putExtra("Tname","最新认领");
+                    startActivity(i1w1);
                     break;
                 default:
                     break;
@@ -668,8 +675,11 @@ public class MainActivity extends Activity implements View.OnClickListener {
     @Override
     protected void onRestart() {
         isLogin();
+
         super.onRestart();
     }
+
+
 
     @Override
     protected void onResume() {
@@ -677,7 +687,20 @@ public class MainActivity extends Activity implements View.OnClickListener {
         isLogin();
         initData();
     }
-
+    public void filenewsexists(){
+        File destDir1 = new File(Environment.getExternalStorageDirectory() + "/Credit");//项目文件夹
+        File destDir2 = new File(Environment.getExternalStorageDirectory() + "/Credit/cache");//项目缓存文件夹
+        File destDir3 = new File(Environment.getExternalStorageDirectory() + "/Credit/TwoDimImg");//项目存放二维码文件夹
+        if (!destDir1.exists()) {
+            destDir1.mkdirs();
+        }
+        if (!destDir2.exists()) {
+            destDir2.mkdirs();
+        }
+        if (!destDir3.exists()) {
+            destDir3.mkdirs();
+        }
+    }
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK
@@ -694,7 +717,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
         }
         return super.onKeyDown(keyCode, event);
     }
-
 //    /**
 //     * 上啦加载
 //     * @param view

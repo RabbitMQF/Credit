@@ -37,16 +37,16 @@
 
                         <RelativeLayout
                             android:layout_width="match_parent"
-                            android:layout_height="180dp"
+                            android:layout_height="200dp"
                             android:background="@mipmap/banner3"
                             android:orientation="vertical">
                             <ImageView
-                                android:layout_width="48dp"
-                                android:layout_height="48dp"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
                                 android:background="@drawable/ic_menu_black_24dp"
                                 android:onClick="toggleMenu"
-                                android:layout_marginTop="30dip"
-                                android:layout_marginLeft="20dip"/>
+                                android:layout_marginTop="10dip"
+                                android:layout_marginLeft="15dip"/>
                             <!--<TextView-->
                                 <!--android:layout_centerHorizontal="true"-->
                                 <!--android:layout_width="wrap_content"-->
@@ -62,7 +62,7 @@
                                 android:layout_height="40dp"
                                 android:layout_marginLeft="10dp"
                                 android:layout_marginRight="10dp"
-                                android:layout_marginBottom="50dp"
+                                android:layout_marginBottom="60dp"
                                 android:layout_alignParentBottom="true"
                                 android:background="@drawable/maintop_shape">
 
@@ -84,6 +84,7 @@
                             </RelativeLayout>
                         </RelativeLayout>
                         <LinearLayout
+                            android:visibility="gone"
                             android:layout_width="match_parent"
                             android:layout_height="35dp"
                             android:background="#FFFFFF"
@@ -203,12 +204,12 @@
                                 <ImageView
                                     android:layout_width="40dp"
                                     android:layout_height="40dp"
-                                    android:background="@mipmap/maintop_3" />
+                                    android:background="@mipmap/maintop_4" />
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="失信查询"
+                                    android:text="品牌查询"
                                     android:layout_marginTop="10dp"
                                     android:textColor="#424D51"
                                     android:textSize="14sp" />
@@ -227,12 +228,12 @@
                                 <ImageView
                                     android:layout_width="40dp"
                                     android:layout_height="40dp"
-                                    android:background="@mipmap/maintop_4" />
+                                    android:background="@mipmap/maintop_3" />
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="违法查询"
+                                    android:text="失信查询"
                                     android:layout_marginTop="10dp"
                                     android:textColor="#424D51"
                                     android:textSize="14sp" />
@@ -298,7 +299,7 @@
                         <com.example.credit.Views.MyListView
                             android:id="@+id/NewClaimListview"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
+                            android:layout_height="100dip"
                             android:scrollbars="none"
                             android:background="#EEEEEF"
                             android:listSelector="@color/tou"

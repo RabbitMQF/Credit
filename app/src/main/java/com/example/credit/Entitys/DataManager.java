@@ -530,23 +530,31 @@ public class DataManager {
     public static class PatentInfo {
         public String message;
         public String status;
+        public DataBean data;
         public String version;
-
-        public List<PatentInfoBean> patentInfo;
-
-        public static class PatentInfoBean {
-            public String PRIPID;//企业ID
-            public String PATENTNAME;//专利名称
-            public String RCODE;//申请号
-            public String RDATE;//申请日期
-            public String ACODE;//授权公布号
-            public String ADATE;//授权公布日期
-            public String INVENTOR;//发明人
-            public String PATENTTYPE;//专利类型
-            public String AGENCY;//代理机构
-            public String LEGALSTATUS;//法律状态
-            public String DETAILINFO;//详细信息
-
+        public static class DataBean {
+            public PagingBean Paging;
+            public List<PatentInfoBean> patentInfo;
+            public static class PagingBean {
+                public int TotalPage;
+                public int ShowCount;
+                public int TotalResult;
+                public int CurrentResult;
+                public int CurrentPage;
+            }
+            public static class PatentInfoBean {
+                public String PRIPID;//企业ID
+                public String PATENTNAME;//专利名称
+                public String RCODE;//申请号
+                public String RDATE;//申请日期
+                public String ACODE;//授权公布号
+                public String ADATE;//授权公布日期
+                public String INVENTOR;//发明人
+                public String PATENTTYPE;//专利类型
+                public String AGENCY;//代理机构
+                public String LEGALSTATUS;//法律状态
+                public String DETAILINFO;//详细信息
+            }
         }
     }
     /**
@@ -1717,6 +1725,108 @@ public class DataManager {
                 public String ZD_ID;
                 public String BIANMA;
                 public String PARENT_ID;
+            }
+        }
+    }
+    /**
+     * 首页商标查询实体类
+     */
+    public static sb_search sb_searchS=new sb_search();
+    public static class sb_search{
+        public String message;
+        public String status;
+        public DataBean data;
+        public String version;
+        public static class DataBean {
+            public PagingBean Paging;
+            /**
+             * APPLICANT : 江西智容科技有限公司
+             * UNISCID :
+             * CLASSIFYID : 14
+             * BRANDNAME : 玉嫦娥
+             * REGNO : 360103210025958
+             * BRANDIMG : http://tm-image.qichacha.com/cbee38bf6a7fef77fcf80a1b06664ebb.jpg@100h_160w_1l_50q
+             * REGCORE : 18555429
+             * LIFESPAN : -
+             * ENTNAME : 江西智容科技有限公司
+             * BRANDSTAUTS : 商标注册申请等待受理中
+             * ID : 44E748BD2E584011B55904E79D53D6CC
+             * APPLICATIONDATE : 2015/12/9
+             * PRIPID : 3601032011041300098564
+             * AGENCY : 江西帝一国际知识产权代理有限公司
+             */
+            public List<TrademarkBean> trademark;
+            public static class PagingBean {
+                public int TotalPage;
+                public int ShowCount;
+                public int TotalResult;
+                public int CurrentResult;
+                public int CurrentPage;
+            }
+            public static class TrademarkBean {
+                public String ID;//商标id
+                public String PRIPID;//企业id
+                public String REGNO;//注册号
+                public String APPLICATIONDATE;//申请日期
+                public String APPLICANT;//申请人
+                public String BRANDSTAUTS;//商标状态
+                public String CLASSIFYID;//商标分类号
+                public String BRANDIMG;//商标图标链接
+                public String AGENCY;//代理机构
+                public String LIFESPAN;//使用期限
+                public String REGCORE;//商标注册号
+                public String BRANDNAME;//商标名称
+                public String ENTNAME;//企业名称
+                public String UNISCID;//社会统一信用代码
+            }
+        }
+    }
+
+    /**
+     * 首页专利查询实体类
+     */
+    public static zl_search zl_searchS=new zl_search();
+    public static class zl_search{
+        public String message;
+        public String status;
+        public DataBean data;
+        public String version;
+        public static class DataBean {
+            public PagingBean Paging;
+            /**
+             * RDATE : 1991-10-25
+             * INVENTOR : 熊小康
+             * ADATE : 1992-04-08
+             * DETAILINFO : 简要说明： 1.省略其它视图；
+             * PATENTTYPE : 外观设计
+             * LEGALSTATUS :
+             * ACODE : CN3013130
+             * PATENTNAME : 药物包装盒片材
+             * PRIPID : 3600002000000057
+             * AGENCY : 江西省专利事务所
+             * RCODE : 91302869X
+             */
+            public List<PatentInfoBean> patentInfo;
+            public static class PagingBean {
+                public int TotalPage;
+                public int ShowCount;
+                public int TotalResult;
+                public int CurrentResult;
+                public int CurrentPage;
+
+            }
+            public static class PatentInfoBean {
+                public String PRIPID;//企业ID
+                public String PATENTNAME;//专利名称
+                public String RCODE;//申请号
+                public String RDATE;//申请日期
+                public String ACODE;//授权公布号
+                public String ADATE;//授权公布日期
+                public String INVENTOR;//发明人
+                public String PATENTTYPE;//专利类型
+                public String AGENCY;//代理机构
+                public String LEGALSTATUS;//法律状态
+                public String DETAILINFO;//详细信息
             }
         }
     }

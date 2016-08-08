@@ -1,7 +1,6 @@
 package com.example.credit.Adapters;
 
 import android.content.Context;
-import android.os.Environment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,24 +13,20 @@ import android.widget.TextView;
 
 import com.example.credit.Entitys.DataManager;
 import com.example.credit.R;
-import com.example.credit.Views.RoundImageView;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-import static com.example.credit.Views.FileUtil.decodeBitmap;
-
-public class CC_List_itemAdapter extends BaseAdapter {
+public class Main_CC_List_itemAdapter extends BaseAdapter {
     private Context context;
     private List<String> list;
     private String str;
     List<String> imgUrl;
-
-    public CC_List_itemAdapter(Context context, List<String> list, String str, List<String> imgUrl) {
+    public Main_CC_List_itemAdapter(Context context, List<String> list, String str, List<String> imgUrl) {
         this.context = context;
         this.list = list;
         this.str = str;
-        this.imgUrl = imgUrl;
+        this.imgUrl=imgUrl;
     }
 
     @Override
@@ -86,14 +81,13 @@ public class CC_List_itemAdapter extends BaseAdapter {
 //            if(imgUrl !=null && imgUrl.size()>0){
 //                Picasso.with(context).load(imgUrl.get(position)).into(vh.im);
 //            }
-            if (imgUrl != null && imgUrl.size() > 0) {
-                Picasso.with(context).load(imgUrl.get(position)).into(vh.imR);
-
-            }
             vh.punlic_1.setVisibility(View.GONE);
             vh.punlic_3.setVisibility(View.VISIBLE);
+            if(imgUrl !=null && imgUrl.size()>0){
+                Picasso.with(context).load(imgUrl.get(position)).into(vh.imR);
+            }
             vh.cl3_tv1.setText(list.get(position));
-            vh.cl3_tv2.setText(DataManager.trademarkInfoList.get(position).APPLICATIONDATE);
+            vh.cl3_tv2.setText(DataManager.sb_searchS.data.trademark.get(position).APPLICATIONDATE);
         } else if (str.equals("judicial")) {//司法信息
 //            vh.im.setVisibility(View.VISIBLE);
             vh.cl_tv1.setVisibility(View.VISIBLE);
@@ -106,13 +100,13 @@ public class CC_List_itemAdapter extends BaseAdapter {
             vh.cl2_tv2.setText(imgUrl.get(position));
             vh.cl2_tv3.setText(DataManager.copyrightInfoeList.get(position).WORKCLASS);
 
-        } else if (str.equals("patent")) {//专利信息
+        }else if (str.equals("patent")) {//专利信息
             vh.cl_tv1.setVisibility(View.VISIBLE);
             vh.cl_tv2.setVisibility(View.VISIBLE);
             vh.cl_tv1.setText("专利名称");
             vh.cl_tv2.setText(list.get(position));
 
-        } else if (str.equals("pledge")) {//出质信息
+        }else if (str.equals("pledge")) {//出质信息
             vh.cl_tv1.setVisibility(View.VISIBLE);
             vh.cl_tv2.setVisibility(View.VISIBLE);
             vh.cl_tv1.setText("登记编号");

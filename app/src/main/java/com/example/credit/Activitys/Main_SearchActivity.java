@@ -1,6 +1,7 @@
 package com.example.credit.Activitys;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -8,10 +9,12 @@ import android.os.Handler;
 import android.os.Message;
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.example.credit.Dialogs.WaitDialog;
 import com.example.credit.R;
@@ -25,6 +28,9 @@ import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ViewInject;
 import com.yolanda.nohttp.RequestMethod;
 
+/**
+ * 主界面的【专利】，【商标】搜索界面
+ */
 public class Main_SearchActivity extends Activity {
     @ViewInject(R.id.search_et)
     EditText search_et;
@@ -33,7 +39,7 @@ public class Main_SearchActivity extends Activity {
     LinearLayout arrow_backm;
     String hit;
     public static Handler handler;
-    WaitDialog wd;
+    public static WaitDialog wd;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,15 +55,21 @@ public class Main_SearchActivity extends Activity {
                 finish();
             }
         });
-        search_et.setOnKeyListener(new View.OnKeyListener() {
+        search_et.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
-            public boolean onKey(View v, int keyCode, KeyEvent event) {
-                if (keyCode == KeyEvent.KEYCODE_ENTER) {
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if(actionId == EditorInfo.IME_ACTION_SEARCH){
                     // 先隐藏键盘
-                    ((InputMethodManager) getSystemService(INPUT_METHOD_SERVICE))
-                            .hideSoftInputFromWindow(Main_SearchActivity.this.getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
-                    //进行搜索操作的方法，在该方法中可以加入mEditSearchUser的非空判断
-                    search();
+                    ((InputMethodManager) search_et.getContext().getSystemService(Context.INPUT_METHOD_SERVICE))
+                            .hideSoftInputFromWindow(Main_SearchActivity.this.getCurrentFocus() .getWindowToken(),InputMethodManager.HIDE_NOT_ALWAYS);
+                    //执行方法
+                    if(!search_et.getText().toString().equals("")){
+                        search();
+                    }else{
+                        Toast.show("搜索关键字不能为空!");
+                    }
+
+                    return true;
                 }
                 return false;
             }
@@ -66,10 +78,19 @@ public class Main_SearchActivity extends Activity {
             @Override
             public void handleMessage(Message msg) {
                 super.handleMessage(msg);
+                Intent i;
                 switch (msg.what){
-                    case 0:
+                    case 0://商标
                         wd.dismiss();
-                        Toast.show("后续模块正在赶工中...!");
+                         i=new Intent(Main_SearchActivity.this,Main_Search_ListActivity.class);
+                        i.putExtra("Tname", "商标搜索结果");
+                        startActivity(i);
+                        break;
+                    case 1://专利
+                        wd.dismiss();
+                         i=new Intent(Main_SearchActivity.this,Main_Search_ListActivity.class);
+                        i.putExtra("Tname", "专利搜索结果");
+                        startActivity(i);
                         break;
                     case 500:
                         wd.dismiss();

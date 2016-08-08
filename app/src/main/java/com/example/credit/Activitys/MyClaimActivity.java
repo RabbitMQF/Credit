@@ -85,6 +85,8 @@ public class MyClaimActivity extends BaseActivity {
         b_return.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                GsonUtil NewClaimRequest=new GsonUtil(URLconstant.URLINSER + URLconstant.NEWCLAIM, RequestMethod.GET);//最新认领
+                CallServer.getInstance().add(MyClaimActivity.this,NewClaimRequest, MyhttpCallBack.getInstance(),0x113,true,false,true);
                 finish();
             }
         });

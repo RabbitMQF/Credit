@@ -111,6 +111,9 @@ public class MyhttpCallBack implements HttpCallBack {
                 DataManager.MyClaimUtilsModel = gson.fromJson(jsonString, DataManager.MyClaimUtils.class);
                 if (DataManager.MyClaimUtilsModel.data.Claimlist != null && DataManager.MyClaimUtilsModel.data.Claimlist.size() > 0) {
                     MainActivity.MyCliamList = DataManager.MyClaimUtilsModel.data.Claimlist;
+                    if (MainActivity.handler != null) {
+                        MainActivity.handler.sendEmptyMessage(7);
+                    }
                 }
                 break;
 
@@ -148,7 +151,7 @@ public class MyhttpCallBack implements HttpCallBack {
                     serchtemp.D_ADDTIME = (String) temp.get("D_ADDTIME");
                     serchtemp.C_STATE = (String) temp.get("C_STATE");
                     if (String.valueOf(temp.get("REGCAP")) == "null") {
-                        serchtemp.REGCAP="0";
+                        serchtemp.REGCAP = "0";
                     } else {
                         serchtemp.REGCAP = (String) temp.get("REGCAP");
                     }
@@ -189,7 +192,7 @@ public class MyhttpCallBack implements HttpCallBack {
                     serchtemp.D_ADDTIME = (String) temp.get("D_ADDTIME");
                     serchtemp.C_STATE = (String) temp.get("C_STATE");
                     if (String.valueOf(temp.get("REGCAP")) == "null") {
-                        serchtemp.REGCAP="0";
+                        serchtemp.REGCAP = "0";
                     } else {
                         serchtemp.REGCAP = (String) temp.get("REGCAP");
                     }
@@ -803,7 +806,7 @@ public class MyhttpCallBack implements HttpCallBack {
                 jsonString = (String) response.get();
                 DataManager.PatentInfoS = gson.fromJson(jsonString, DataManager.PatentInfo.class);
 
-                if (DataManager.PatentInfoS.patentInfo != null) {
+                if (DataManager.PatentInfoS.data.patentInfo != null) {
                     CompanyDetailsActivity.handler.sendEmptyMessage(10);
                 } else {
                     CompanyDetailsActivity.handler.sendEmptyMessage(500);
@@ -814,8 +817,6 @@ public class MyhttpCallBack implements HttpCallBack {
                 String jstring11 = (String) response.get();
                 map = gson.fromJson(jstring11, new TypeToken<Map<String, Object>>() {
                 }.getType());
-//                List<DataManager.trademarkInfo> list11 = gson.fromJson(((Map<String, Object>) map.get("data")).get("trademark").toString(), new TypeToken<List<DataManager.trademarkInfo>>() {
-//                }.getType());
                 map = (Map<String, Object>) map.get("data");
                 List<LinkedTreeMap> list11 = (List<LinkedTreeMap>) map.get("trademark");
                 if (DataManager.trademarkInfoList.size() != 0) {
@@ -1253,7 +1254,7 @@ public class MyhttpCallBack implements HttpCallBack {
             case 0x401://修改个人资料{"message":"Success","status":"1","version":"v1.0"}
                 jsonString = (String) response.get();
                 DataManager.user = gson.fromJson(jsonString, DataManager.User.class);
-                if (DataManager.user.message.equals("successs")) {
+                if (DataManager.user.message.equals("success")) {
                     csp.putUser(DataManager.user);
                     UserSetActivity.handler.sendEmptyMessage(1);
                     MainActivity.loginImg(csp.getICONSTEAM());
@@ -1283,7 +1284,7 @@ public class MyhttpCallBack implements HttpCallBack {
             case 0x601://二维码名片
                 jsonString = (String) response.get();
                 DataManager.TwoDimSli = gson.fromJson(jsonString, DataManager.TwoDim.class);
-                if (DataManager.TwoDimSli.message.equals("successs")) {
+                if (DataManager.TwoDimSli.message.equals("success")) {
                     CompanyDetailsActivity.waitDialog.dismiss();
                     CompanyDetailsActivity.handler.sendEmptyMessage(25);
                 } else {
@@ -1392,11 +1393,22 @@ public class MyhttpCallBack implements HttpCallBack {
                 break;
             case 0x1001://商标查询
                 jsonString = (String) response.get();
-                Main_SearchActivity.handler.sendEmptyMessage(0);
+                DataManager.sb_searchS = gson.fromJson(jsonString, DataManager.sb_search.class);
+                if(DataManager.sb_searchS.data.trademark.size()>0){
+                    Main_SearchActivity.handler.sendEmptyMessage(0);
+                }else{
+                    Main_SearchActivity.handler.sendEmptyMessage(500);
+                }
+
                 break;
             case 0x1002://专利查询
                 jsonString = (String) response.get();
-                Main_SearchActivity.handler.sendEmptyMessage(0);
+                DataManager.zl_searchS = gson.fromJson(jsonString, DataManager.zl_search.class);
+                if(DataManager.zl_searchS.data.patentInfo.size()>0 && DataManager.zl_searchS.data.patentInfo!=null){
+                    Main_SearchActivity.handler.sendEmptyMessage(1);
+                }else{
+                    Main_SearchActivity.handler.sendEmptyMessage(500);
+                }
                 break;
             default:
                 break;
@@ -1496,13 +1508,14 @@ public class MyhttpCallBack implements HttpCallBack {
             case 0x999://查询评论列表
                 LoginActivity.wd.dismiss();
                 break;
-            case 0x111://获取新闻
-                System.exit(0);
-                Toast.show("服务器连接失败");
+            case 0x1001://商标
+                Main_SearchActivity.wd.dismiss();
+                break;
+            case 0x1002://专利
+                Main_SearchActivity.wd.dismiss();
                 break;
             default:
                 break;
-
         }
     }
 }

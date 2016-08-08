@@ -113,7 +113,7 @@ public class CommentListDetailsActivity extends BaseActivity {
                         SimpleDateFormat sDateFormat=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
                         String  date =sDateFormat.format(new java.util.Date());
                         DataManager.MyCommentlistr.DataBean.UserreviewBean.Replay2review r2=new DataManager.MyCommentlistr.DataBean.UserreviewBean.Replay2review();
-                        r2.CHILDMEMBERNAME=DataManager.MyCommentlistrS.data.userreview.get(position).MEMBERNAME;
+                        r2.CHILDMEMBERNAME=csp.getUSERNAME();
                         r2.REPLAYCOMMENT=huifu_con.getText().toString();
                         r2.REPLAYTIME=date;
                         huifu_con.setText("");

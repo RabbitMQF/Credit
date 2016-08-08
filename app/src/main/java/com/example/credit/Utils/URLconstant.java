@@ -110,7 +110,7 @@ public class URLconstant {
 
     public static final String SHOW="http://101.201.211.27:8282/zhirong.credith5/entShowController/entShow.do";//企业展示
 
-    public static final String SBSREACH="getquerytrademark.do";//商标查询
+    public static final String SBSREACH="trademark/getquerytrademark.do";//商标查询
 
     public static final String ZLSREACH="tblPatent/getTblPatent";//专利查询
 // tblPatent/getTblPatent?token=202cb962ac59075b964b07152d234b70&KeyNo=&deviceId=123&patentName=药物包装盒片

@@ -10,8 +10,6 @@ import com.example.credit.R;
  */
 public class BaseActivity extends Activity {
 
-
-
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         // TODO Auto-generated method stub

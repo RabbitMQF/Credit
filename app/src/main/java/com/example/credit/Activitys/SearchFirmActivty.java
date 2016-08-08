@@ -490,10 +490,10 @@ public class SearchFirmActivty extends BaseActivity implements PullToRefreshView
                 searchEt.setHint("请输入法人名称");
                 break;
             case 2:
-                searchEt.setHint("请输入失信名称");
+                searchEt.setHint("请输入品牌名称");
                 break;
             case 3:
-                searchEt.setHint("请输入违法名称");
+                searchEt.setHint("请输入失信名称");
                 break;
         }
 
