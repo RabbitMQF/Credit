@@ -7,6 +7,8 @@ import java.util.List;
  * Created by Administrator on 2016/5/13 0013.
  */
 public class DataManager {
+    public static int FavoritefalgS=0;//默认为0 ，要关注为1.要取消关注为2   ，关注事件
+
     public static String StringZero="";//公司
     public static String String0="";//工商
     public static String String1="";//
@@ -35,7 +37,6 @@ public class DataManager {
 
 
     public static MyComm MyComms=new MyComm();
-
     /**
      *我的评价
      */
@@ -1194,7 +1195,7 @@ public class DataManager {
 
         public String HonorCount;//荣誉信息
         public String JudiciaryCount;//司法信息
-        public String PledgeCount;//抵押
+        public String PledgeCount;//出质
         public String CopyrightCount;//著作权
         public String AnnualCount;//自主公示
         public String AdvertisementCount;//广告资质
@@ -1206,7 +1207,7 @@ public class DataManager {
         public String AbnormityCount;//经营异常
         public String CreditCount;//守合同重信用
         public String SupportCount;//扶持
-        public String MortgagorCount;//出质
+        public String MortgagorCount;//抵押
         public String PatentCount;//专利
         public String PageView;//浏览量    +++
         public String IsClaim;//是否认领   +++
@@ -1827,6 +1828,35 @@ public class DataManager {
                 public String AGENCY;//代理机构
                 public String LEGALSTATUS;//法律状态
                 public String DETAILINFO;//详细信息
+            }
+        }
+    }
+
+    public static MyHot MyHotS=new MyHot();
+
+    /**
+     * 热点
+     */
+    public static class MyHot{
+        public String message;
+        public String status;
+        public DataBean data;
+        public String version;
+        public static class DataBean {
+            /**
+             * KEYWORDS : 智容
+             * COUNT : 1397
+             * LOGID : 0019de20d4354cf1bd5c3c5666ed8ccd
+             * LOGTIME : 2016-07-22 08:44:10
+             * REMARK :
+             */
+            public List<HotspotAnalysisBean> HotspotAnalysis;
+            public static class HotspotAnalysisBean {
+                public String KEYWORDS;
+                public String COUNT;
+                public String LOGID;
+                public String LOGTIME;
+                public String REMARK;
             }
         }
     }

@@ -13,6 +13,7 @@ import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -40,10 +41,13 @@ public class Main_SearchActivity extends Activity {
     String hit;
     public static Handler handler;
     public static WaitDialog wd;
+    @ViewInject(R.id.search_bt)
+    ImageView search_bt;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main__search);
+        setContentView(R.layout.activity_main__search2);
         ViewUtils.inject(this);
         wd=new WaitDialog(this);
         Intent i=getIntent();
@@ -72,6 +76,16 @@ public class Main_SearchActivity extends Activity {
                     return true;
                 }
                 return false;
+            }
+        });
+        search_bt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(!search_et.getText().toString().equals("")){
+                    search();
+                }else{
+                    Toast.show("搜索关键字不能为空!");
+                }
             }
         });
         handler=new Handler(){

@@ -44,6 +44,7 @@ import com.example.credit.R;
 import com.example.credit.Services.CallServer;
 import com.example.credit.Utils.CreditSharePreferences;
 import com.example.credit.Utils.GsonUtil;
+import com.example.credit.Utils.MD5;
 import com.example.credit.Utils.MyhttpCallBack;
 import com.example.credit.Utils.PullToRefreshView;
 import com.example.credit.Utils.Toast;
@@ -115,13 +116,17 @@ public class SearchFirmActivty extends BaseActivity implements PullToRefreshView
     int t=2;
     int sum=1;
     int por;
+    Intent i;
+    String Setname;
+    String hit;
+    String Urls;//地址集合
     PullToRefreshView mPullToRefreshView;
     LinearLayout typeSD;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.search_firm_activity);
-        Intent i = getIntent();
+        i = getIntent();
         type = i.getIntExtra("type", 0);
         initView();
         initCityData();
@@ -484,16 +489,24 @@ public class SearchFirmActivty extends BaseActivity implements PullToRefreshView
         //根据type判断查询类型
         switch (type) {
             case 0:
+                Setname=i.getStringExtra("Setname");
+                if(!Setname.equals("")){
+                    searchEt.setText(Setname);
+                }
                 searchEt.setHint("请输入企业名称");
+                Urls=URLconstant.URLINSER + URLconstant.SEARCHURL;
                 break;
             case 1:
                 searchEt.setHint("请输入法人名称");
+                Urls=URLconstant.URLINSER + URLconstant.SEARCHURL;
                 break;
             case 2:
                 searchEt.setHint("请输入品牌名称");
+                Urls=URLconstant.URLINSER + URLconstant.SEARCHURL;
                 break;
             case 3:
                 searchEt.setHint("请输入失信名称");
+                Urls=URLconstant.URLINSER + URLconstant.SEARCHURL;
                 break;
         }
 
@@ -1096,12 +1109,11 @@ public class SearchFirmActivty extends BaseActivity implements PullToRefreshView
 
             pd.setCancelable(false);
             pd.show();
-            GsonUtil request = new GsonUtil(URLconstant.URLINSER + URLconstant.SEARCHURL, RequestMethod.GET);
-            //request.setConnectTimeout(50000);
+            GsonUtil request = new GsonUtil(Urls, RequestMethod.GET);
             request.setReadTimeout(50000);
+            request.add("deviceId", model);//设备ID
             request.add("token", Tks);//加密结果
             request.add("searchKey", Tname);//string搜索关键字
-            request.add("deviceId", model);//设备ID
             request.add("memberId", csp.getID());//86D9D7F53FCA45DD93E2D83DFCA0CB42  记录用户ID
             //根据type判断查询类型
             switch (type) {

@@ -41,4 +41,5 @@
         <item name="android:layout_height">21dip</item>
         <item name="android:layout_gravity">center</item>
     </style>
+
 </resources>

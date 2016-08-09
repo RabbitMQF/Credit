@@ -122,4 +122,6 @@ public class URLconstant {
 
     public static final String NEWSURL ="newsController/getNewslistPage";//新闻URLObeyed
 
+    public static final String HOTSPOT ="businessController/getHotspotAnalysis";//热搜Hotspot
+//    tosSken=f60326838d68251be6bf08a62449152e&KeyNo=62d076b3cbd74e68ae8f1f089507c779&deviceId=123
 }

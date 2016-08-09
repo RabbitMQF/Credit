@@ -85,6 +85,12 @@ public class WelcomeActivity extends Activity {
     }
 
     private void initDataHttp() {
+        GsonUtil hOTClaimRequest=new GsonUtil(URLconstant.URLINSER + URLconstant.HOTSPOT, RequestMethod.GET);//最新认领
+        hOTClaimRequest.add("token", MD5.MD5s("" + new Build().MODEL));
+        hOTClaimRequest.add("KeyNo", "");
+        hOTClaimRequest.add("deviceId",(new Build()).MODEL);
+        CallServer.getInstance().add(WelcomeActivity.this,hOTClaimRequest, MyhttpCallBack.getInstance(),0x114,true,false,true);
+
         GsonUtil NewClaimRequest=new GsonUtil(URLconstant.URLINSER + URLconstant.NEWCLAIM, RequestMethod.GET);//最新认领
         CallServer.getInstance().add(WelcomeActivity.this,NewClaimRequest, MyhttpCallBack.getInstance(),0x113,true,false,true);
 

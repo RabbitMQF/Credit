@@ -28,7 +28,7 @@ public class H5ViewActivity extends Activity {
     @ViewInject(R.id.Hwebv)
     WebView Hwebv;
 
-    String KeyNo, pripid, URL, priptype, regno, entname, estdate,msg;
+    String KeyNo, pripid, URL, priptype, regno, entname, estdate,msg,Tname;
     WaitDialog wd;
     String str;
 
@@ -47,7 +47,7 @@ public class H5ViewActivity extends Activity {
         entname = i.getStringExtra("entname");
         estdate = i.getStringExtra("estdate");
         msg=i.getStringExtra("msg");
-        String Tname = i.getStringExtra("Tname");
+        Tname = i.getStringExtra("Tname");
         b_topname.setText(Tname);
         b_return.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,7 +67,6 @@ public class H5ViewActivity extends Activity {
         wd.show();
         switch (msg){
             case "1"://投资连图
-                b_topname.setText(entname);
                 str = URL + "?KeyNo=" + KeyNo + "&regno=" + regno + "&entname=" + entname + "&devicetype=1";
                 break;
             case "2"://发展历程

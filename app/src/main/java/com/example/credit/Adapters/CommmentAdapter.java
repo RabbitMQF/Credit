@@ -83,8 +83,13 @@ public class CommmentAdapter extends BaseAdapter {
 //@mipmap/good          好评图片 灰色
 //@mipmap/alreadynogood   差评 黑色
 //@mipmap/nogood  差评 灰色
+        String str="";
         if(!list.get(position).ICONPATH.equals("")){
-            vh.comm_img.setImageBitmap(decodeBitmap(Environment.getExternalStorageDirectory() + "/Credit/cache/"+((list.get(position).ICONPATH).substring(list.get(position).ICONPATH.length() - 20, list.get(position).ICONPATH.length()-5)).replaceAll("\\/", "_")+".jpg",35,35));
+            str=((list.get(position).ICONPATH).substring(list.get(position).ICONPATH.length() - 20, list.get(position).ICONPATH.length()-5)).replaceAll("\\/", "_");
+
+        }
+        if(!list.get(position).ICONPATH.equals("")){
+            vh.comm_img.setImageBitmap(decodeBitmap(Environment.getExternalStorageDirectory() + "/Credit/cache/"+str+".jpg",35,35));
         }else{
             vh.comm_img.setImageResource(R.mipmap.me_icon02);
         }

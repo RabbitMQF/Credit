@@ -92,16 +92,16 @@ public class MyGridAdapters extends BaseAdapter {
                 tv.setText((DataManager.allcountsList.get(0).SupportCount)+"");
                 break;
             case 4://抵押
-                if(DataManager.allcountsList.get(0).PledgeCount.equals("0")){
-                    tv.setTextColor(Color.parseColor("#B8B8B8"));
-                }
-                tv.setText((DataManager.allcountsList.get(0).PledgeCount)+"");
-                break;
-            case 5://出质
                 if(DataManager.allcountsList.get(0).MortgagorCount.equals("0")){
                     tv.setTextColor(Color.parseColor("#B8B8B8"));
                 }
                 tv.setText((DataManager.allcountsList.get(0).MortgagorCount)+"");
+                break;
+            case 5://出质
+                if(DataManager.allcountsList.get(0).PledgeCount.equals("0")){
+                    tv.setTextColor(Color.parseColor("#B8B8B8"));
+                }
+                tv.setText((DataManager.allcountsList.get(0).PledgeCount)+"");
                 break;
             case 6://司法信息
                 if(DataManager.allcountsList.get(0).JudiciaryCount.equals("0")){

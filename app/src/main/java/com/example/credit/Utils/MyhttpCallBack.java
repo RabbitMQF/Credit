@@ -116,7 +116,13 @@ public class MyhttpCallBack implements HttpCallBack {
                     }
                 }
                 break;
-
+            case 0x114://获取热点
+                jsonString = (String) response.get();
+                DataManager.MyHotS = gson.fromJson(jsonString, DataManager.MyHot.class);
+                if (DataManager.MyHotS.data.HotspotAnalysis != null && DataManager.MyHotS.data.HotspotAnalysis.size() > 0) {
+                    MainActivity.MyHotsList = DataManager.MyHotS.data.HotspotAnalysis;
+                }
+                break;
             case 0x022://搜索结果
                 String searchstr = (String) response.get();
                 //test

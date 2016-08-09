@@ -54,6 +54,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import Decoder.BASE64Decoder;
 
@@ -105,6 +106,14 @@ public class MainActivity extends Activity implements View.OnClickListener {
     @ViewInject(R.id.btmore)
     Button btmore;//加载更多
 
+    @ViewInject(R.id.hot_1)
+    TextView hot_1;//热点1
+    @ViewInject(R.id.hot_2)
+    TextView hot_2;//热点2
+    @ViewInject(R.id.hot_huan)
+    TextView hot_huan;//热点换
+
+
     @ViewInject(R.id.scmain)
     ScrollView scmain;
     @ViewInject(R.id.news_list)
@@ -124,7 +133,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
     TextView news_more;//新闻-查看更多
 
     NewsListAdapter adapter;
-    public static List<DataManager.MyNews.DataBean.NewslistBean> MyNewsList = new ArrayList<DataManager.MyNews.DataBean.NewslistBean>();//初始新闻集合
+    public static List<DataManager.MyHot.DataBean.HotspotAnalysisBean> MyHotsList = new ArrayList<DataManager.MyHot.DataBean.HotspotAnalysisBean>();//初始新闻集合
+
+    public static List<DataManager.MyNews.DataBean.NewslistBean> MyNewsList = new ArrayList<DataManager.MyNews.DataBean.NewslistBean>();//热点
 
     public static List<DataManager.MyClaimUtils.DataBean.ClaimlistBean> MyCliamList = new ArrayList<DataManager.MyClaimUtils.DataBean.ClaimlistBean>();//初始最新认领集合
 
@@ -142,6 +153,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
     public String[] txt = {"商标查询","专利查询",
             "招投标", "失信查询"};
     public static   NewClaimListAdapter adapter1;
+
+    int num1,num2;//热点随机数
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -379,22 +392,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 }
             }
         });
-//        try{
-//            if (!DataManager.MyNewsS.data.Newslist.equals(null) && DataManager.MyNewsS.data.Newslist != null && DataManager.MyNewsS.data.Newslist.size() > 0 ) {
-//                handler.sendEmptyMessage(0);
-//            }
-//        }catch (Exception e){
-//            e.printStackTrace();
-//            com.example.credit.Utils.Toast.show("新闻正在赶来的路上...");
-//            mPullToRefreshView.setVisibility(View.GONE);
-//        }
 
-//        new Thread(){
-//            @Override
-//            public void run() {
-//                super.run();
-//                try {
-//                    sleep(1000);
         if (MyNewsList != null && MyNewsList.size() > 0) {
             handler.sendEmptyMessage(0);
         } else {//没有数据
@@ -408,11 +406,10 @@ public class MainActivity extends Activity implements View.OnClickListener {
             btmore.setVisibility(View.GONE);
             NewClaimTxT.setVisibility(View.VISIBLE);
         }
-//                } catch (Exception e) {
-//                    e.printStackTrace();
-//                }
-//            }
-//        }.start();
+        if(!MyHotsList.get(0).KEYWORDS.equals("") && !MyHotsList.get(1).KEYWORDS.equals("")){
+            hot_1.setText(MyHotsList.get(0).KEYWORDS);
+            hot_2.setText(MyHotsList.get(1).KEYWORDS);
+        }
 
     }
 
@@ -433,6 +430,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
         Smenu_5.setOnClickListener(listener);
         Smenu_6.setOnClickListener(listener);
         isLogin();
+        hot_1.setOnClickListener(listener);
+        hot_2.setOnClickListener(listener);
+        hot_huan.setOnClickListener(listener);
         login.setOnClickListener(listener);
         tab1.setOnClickListener(listener);
         tab2.setOnClickListener(listener);
@@ -530,6 +530,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 case R.id.tab1://企业查询
                     Intent in1 = new Intent(MainActivity.this, SearchFirmActivty.class);
                     in1.putExtra("type", 0);
+                    in1.putExtra("Setname", "");
                     startActivity(in1);
                     overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
                     break;
@@ -585,6 +586,32 @@ public class MainActivity extends Activity implements View.OnClickListener {
                     i1w1.putExtra("Tname","最新认领");
                     startActivity(i1w1);
                     break;
+                case R.id.hot_huan:
+                    Random random = new Random();//随机数
+                    while (true){
+                        num1 = random.nextInt(MyHotsList.size());
+                        num2 = random.nextInt(MyHotsList.size());
+                        if(num1!=num2){
+                            break;
+                        }
+                    }
+                    hot_1.setText(MyHotsList.get(num1).KEYWORDS);
+                    hot_2.setText(MyHotsList.get(num2).KEYWORDS);
+                    break;
+                case R.id.hot_1:
+                    Intent hot_1s = new Intent(MainActivity.this, SearchFirmActivty.class);
+                    hot_1s.putExtra("Setname", hot_1.getText().toString());
+                    hot_1s.putExtra("type", 0);
+                    startActivity(hot_1s);
+                    overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
+                    break;
+                case R.id.hot_2:
+                    Intent hot_2s = new Intent(MainActivity.this, SearchFirmActivty.class);
+                    hot_2s.putExtra("Setname", hot_2.getText().toString());
+                    hot_2s.putExtra("type", 0);
+                    startActivity(hot_2s);
+                    overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
+                    break;
                 default:
                     break;
 
@@ -613,6 +640,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         switch (v.getId()) {
             case R.id.top_search:
                 Intent in = new Intent(this, SearchFirmActivty.class);
+                in.putExtra("Setname","");
                 startActivity(in);
                 overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
                 break;

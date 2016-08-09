@@ -223,6 +223,7 @@
         <activity android:name=".Activitys.Main_NewCliam_MoreListActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+
     </application>
 
 </manifest>
