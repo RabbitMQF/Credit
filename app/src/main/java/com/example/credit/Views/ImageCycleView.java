@@ -62,9 +62,9 @@ import java.util.List;
  //list.add(new ImageCycleView.ImageInfo(R.drawable.a3,"3333333333333",""));
 
  //SD卡图片资源
- list.add(new ImageCycleView.ImageInfo(new File(Environment.getExternalStorageDirectory(),"a1.jpg"),"11111",""));
- list.add(new ImageCycleView.ImageInfo(new File(Environment.getExternalStorageDirectory(),"a2.jpg"),"22222",""));
- list.add(new ImageCycleView.ImageInfo(new File(Environment.getExternalStorageDirectory(),"a3.jpg"),"33333",""));
+ list.add(new ImageCycleView.ImageInfo(new File(Environment.getExternalStorageDirectory(),"**.jpg"),"11111",""));
+ list.add(new ImageCycleView.ImageInfo(new File(Environment.getExternalStorageDirectory(),"**.jpg"),"22222",""));
+ list.add(new ImageCycleView.ImageInfo(new File(Environment.getExternalStorageDirectory(),"**.jpg"),"33333",""));
 
  //使用网络加载图片
  list.add(new ImageCycleView.ImageInfo("http://img.lakalaec.com/ad/57ab6dc2-43f2-4087-81e2-b5ab5681642d.jpg","3333333333333",""));
