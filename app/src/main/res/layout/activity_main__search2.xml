@@ -87,8 +87,6 @@
             android:layout_weight="1.4"
             android:src="@drawable/aic_search_black_24dp" />
     </LinearLayout>
-
-
     <FrameLayout
         android:id="@+id/his_sra"
         android:layout_width="match_parent"
@@ -96,6 +94,100 @@
         android:layout_weight="10">
 
         <include layout="@layout/bg_bg" />
+        <LinearLayout
+            android:id="@+id/his_yout"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal"
+            >
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="50dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                >
+                <TextView
+                    android:id="@+id/main_s1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/blue1"
+                    android:textSize="14sp"
+                    android:padding="5dp"
+                    android:maxEms="5"
+                    android:singleLine="true"
+                    android:ellipsize="end"
+                    android:background="@drawable/main_biaoqian"
+                    android:layout_gravity="center_vertical"
+                    android:text=""/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="50dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                >
+                <TextView
+                    android:id="@+id/main_s2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/blue1"
+                    android:textSize="14sp"
+                    android:padding="5dp"
+                    android:maxEms="5"
+                    android:singleLine="true"
+                    android:ellipsize="end"
+                    android:background="@drawable/main_biaoqian"
+                    android:layout_gravity="center_vertical"
+                    android:text=""/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="50dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                >
+                <TextView
+                    android:id="@+id/main_s3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/blue1"
+                    android:textSize="14sp"
+                    android:padding="5dp"
+                    android:maxEms="5"
+                    android:singleLine="true"
+                    android:ellipsize="end"
+                    android:background="@drawable/main_biaoqian"
+                    android:layout_gravity="center_vertical"
+                    android:text=""/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="50dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                >
+                <TextView
+                    android:id="@+id/main_s4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/blue1"
+                    android:textSize="14sp"
+                    android:padding="5dp"
+                    android:maxEms="5"
+                    android:singleLine="true"
+                    android:ellipsize="end"
+                    android:background="@drawable/main_biaoqian"
+                    android:layout_gravity="center_vertical"
+                    android:text=""/>
+            </LinearLayout>
+        </LinearLayout>
+
     </FrameLayout>
     <LinearLayout
 

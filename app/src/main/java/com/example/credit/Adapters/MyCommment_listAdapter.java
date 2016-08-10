@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.example.credit.Entitys.DataManager;
 import com.example.credit.R;
+import com.example.credit.Utils.CreditSharePreferences;
 import com.example.credit.Views.RoundImageView;
 import com.squareup.picasso.Picasso;
 
@@ -24,6 +25,7 @@ public class MyCommment_listAdapter extends BaseAdapter {
     private Context context;
     private List<DataManager.MyComm.DataBean.CommentListBean> list;
     ViewHolder vh = null;
+    CreditSharePreferences csp=CreditSharePreferences.getLifeSharedPreferences();
     public MyCommment_listAdapter(Context context, List<DataManager.MyComm.DataBean.CommentListBean> list) {
         this.context = context;
         this.list = list;
@@ -56,11 +58,14 @@ public class MyCommment_listAdapter extends BaseAdapter {
         } else {
             vh = (ViewHolder) view.getTag();
         }
-        File file = new File(Environment.getExternalStorageDirectory() + "/Credit/loginImg.jpg");
-        if (file.exists()) {//获取本地图片路径是否存在
-            vh.mycomm_img.setImageBitmap(decodeBitmap(Environment.getExternalStorageDirectory() + "/Credit/loginImg.jpg",35,35));
-            //Picasso.with(context).load(file).into(vh.mycomm_img);
+        if(!csp.getICONSTEAM().equals("")){
+            File file = new File(Environment.getExternalStorageDirectory() + "/Credit/loginImg.jpg");
+            if (file.exists()) {//获取本地图片路径是否存在
+                vh.mycomm_img.setImageBitmap(decodeBitmap(Environment.getExternalStorageDirectory() + "/Credit/loginImg.jpg",35,35));
+                //Picasso.with(context).load(file).into(vh.mycomm_img);
+            }
         }
+
         vh.mycomm_time.setText(list.get(position).CREATETIME);
         vh.mycomm_conn.setText(list.get(position).CONTENT);
         return view;

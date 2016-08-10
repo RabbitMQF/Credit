@@ -336,6 +336,7 @@
                                 android:layout_centerVertical="true"
                                 android:layout_alignParentRight="true"
                                 android:text="查看更多>"
+                                android:visibility="gone"
                                 android:layout_marginRight="20dp"
                                 android:textColor="@color/blue1"
                                 android:textSize="16sp" />

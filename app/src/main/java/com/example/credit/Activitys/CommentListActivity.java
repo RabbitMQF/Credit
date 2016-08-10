@@ -1,12 +1,14 @@
 package com.example.credit.Activitys;
 
 import android.app.Activity;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
+import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
@@ -65,7 +67,8 @@ public class CommentListActivity extends BaseActivity {
     CreditSharePreferences csp;
     int type;
     public static WaitDialog wd;
-
+    AlertDialog.Builder builder;
+    public static AlertDialog dialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -96,6 +99,27 @@ public class CommentListActivity extends BaseActivity {
     }
 
     public void init() {
+        builder = new AlertDialog.Builder(this);
+        builder.setTitle("是否登录");
+        builder.setMessage("浏览企业详情，请先登录账号。");
+        builder.setPositiveButton("去登陆", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+                startActivity(new Intent(CommentListActivity.this,LoginActivity.class));
+            }
+        });
+        builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+//                finish();
+//                startActivity(new Intent(SearchFirmActivty.this, MainActivity.class));
+            }
+        });
+        dialog = builder.create();
+        dialog.setCanceledOnTouchOutside(false);// 设置点击屏幕Dialog不消失
+
+
         b_topYicon.setVisibility(View.VISIBLE);
         b_topY.setVisibility(View.VISIBLE);//显示右上角控件“发表”
         b_topname.setText("评论");
@@ -105,11 +129,16 @@ public class CommentListActivity extends BaseActivity {
         Ccomm_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent i = new Intent(CommentListActivity.this, CommentListDetailsActivity.class);
-                i.putExtra("uid", DataManager.MyCommentlistrS.data.userreview.get(position).MEMBERID);
-                i.putExtra("pid", DataManager.MyCommentlistrS.data.userreview.get(position).COMMENTID);
-                i.putExtra("position", position);
-                startActivityForResult(i, 22);
+                if (!csp.getLoginStatus()) {//判定是否登录
+                    //Toast.show("请先登录账号");
+                    dialog.show();
+                } else {
+                    Intent i = new Intent(CommentListActivity.this, CommentListDetailsActivity.class);
+                    i.putExtra("uid", DataManager.MyCommentlistrS.data.userreview.get(position).MEMBERID);
+                    i.putExtra("pid", DataManager.MyCommentlistrS.data.userreview.get(position).COMMENTID);
+                    i.putExtra("position", position);
+                    startActivityForResult(i, 22);
+                }
             }
         });
     }
@@ -122,8 +151,13 @@ public class CommentListActivity extends BaseActivity {
                     finish();
                     break;
                 case R.id.b_topLLt://跳转发表评论界面
-                    Intent i = new Intent(CommentListActivity.this, ToCommentActivity.class);
-                    startActivityForResult(i, 11);
+                    if (!csp.getLoginStatus()) {//判定是否登录
+                        //Toast.show("请先登录账号");
+                        dialog.show();
+                    } else {
+                        Intent i = new Intent(CommentListActivity.this, ToCommentActivity.class);
+                        startActivityForResult(i, 11);
+                    }
                     break;
             }
         }
@@ -183,7 +217,7 @@ public class CommentListActivity extends BaseActivity {
         request14.add("deviceId", (new Build()).MODEL);
         request14.add("token", SearchFirmActivty.MD5s(DataManager.allcountsList.get(0).EnterAddtionID + (new Build()).MODEL));
         request14.add("KeyNo", DataManager.allcountsList.get(0).EnterAddtionID);
-        request14.add("memberId", csp.getID());
+        request14.add("memberId", "");
         CallServer.getInstance().add(CommentListActivity.this, request14, MyhttpCallBack.getInstance(), 0x201, true, false, true);
     }
 }

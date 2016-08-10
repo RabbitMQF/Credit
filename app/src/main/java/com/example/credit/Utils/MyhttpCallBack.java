@@ -6,6 +6,7 @@ import com.example.credit.Activitys.CompanyDetailsActivity;
 import com.example.credit.Activitys.LoginActivity;
 import com.example.credit.Activitys.MainActivity;
 import com.example.credit.Activitys.Main_SearchActivity;
+import com.example.credit.Activitys.Main_Search_ListActivity;
 import com.example.credit.Activitys.MyClaimActivity;
 import com.example.credit.Activitys.MycomplaintsListActivity;
 import com.example.credit.Activitys.MyconcernActivity;
@@ -119,7 +120,7 @@ public class MyhttpCallBack implements HttpCallBack {
             case 0x114://获取热点
                 jsonString = (String) response.get();
                 DataManager.MyHotS = gson.fromJson(jsonString, DataManager.MyHot.class);
-                if (DataManager.MyHotS.data.HotspotAnalysis != null && DataManager.MyHotS.data.HotspotAnalysis.size() > 0) {
+                if (DataManager.MyHotS.data!=null&&DataManager.MyHotS.data.HotspotAnalysis != null && DataManager.MyHotS.data.HotspotAnalysis.size() > 0) {
                     MainActivity.MyHotsList = DataManager.MyHotS.data.HotspotAnalysis;
                 }
                 break;
@@ -1405,7 +1406,6 @@ public class MyhttpCallBack implements HttpCallBack {
                 }else{
                     Main_SearchActivity.handler.sendEmptyMessage(500);
                 }
-
                 break;
             case 0x1002://专利查询
                 jsonString = (String) response.get();
@@ -1414,6 +1414,20 @@ public class MyhttpCallBack implements HttpCallBack {
                     Main_SearchActivity.handler.sendEmptyMessage(1);
                 }else{
                     Main_SearchActivity.handler.sendEmptyMessage(500);
+                }
+                break;
+            case 0x1003://商标查询(上下拉事件)
+                jsonString = (String) response.get();
+                DataManager.sb_searchS = gson.fromJson(jsonString, DataManager.sb_search.class);
+                if(DataManager.sb_searchS.data.trademark.size()>0){
+                    Main_Search_ListActivity.handler.sendEmptyMessage(0);
+                }
+                break;
+            case 0x1004://专利查询(上下拉事件)
+                jsonString = (String) response.get();
+                DataManager.zl_searchS = gson.fromJson(jsonString, DataManager.zl_search.class);
+                if(DataManager.zl_searchS.data.patentInfo.size()>0 && DataManager.zl_searchS.data.patentInfo!=null){
+                    Main_Search_ListActivity.handler.sendEmptyMessage(1);
                 }
                 break;
             default:

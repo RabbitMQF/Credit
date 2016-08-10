@@ -134,15 +134,6 @@ public class ToComplaintActivity extends BaseActivity implements OnItemLongClick
                                 e.printStackTrace();
                             }
                         }
-
-
-
-
-
-
-
-
-
                         if(imgs1!=null||listStirng.size()>0){
                             String attchmentDescS="";
                             String attchmentSteamS="";

@@ -381,7 +381,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
 //                        i=new Intent(MainActivity.this,Main_SearchActivity.class);
 //                        i.putExtra("hit","招投标");
 //                        startActivity(i);
-                        com.example.credit.Utils.Toast.show("模块正在赶工中...");
+                        startActivity(new Intent(MainActivity.this,Main_SearchActivity.class).putExtra("hit","招投标"));
+                        //com.example.credit.Utils.Toast.show("模块正在赶工中...");
                         break;
                     case 3://失信
 //                        i=new Intent(MainActivity.this,Main_SearchActivity.class);
@@ -406,11 +407,10 @@ public class MainActivity extends Activity implements View.OnClickListener {
             btmore.setVisibility(View.GONE);
             NewClaimTxT.setVisibility(View.VISIBLE);
         }
-        if(!MyHotsList.get(0).KEYWORDS.equals("") && !MyHotsList.get(1).KEYWORDS.equals("")){
+        if(MyHotsList.size()>1&&!MyHotsList.get(0).KEYWORDS.equals("") && !MyHotsList.get(1).KEYWORDS.equals("")){
             hot_1.setText(MyHotsList.get(0).KEYWORDS);
             hot_2.setText(MyHotsList.get(1).KEYWORDS);
         }
-
     }
 
     private void initView() {
@@ -587,16 +587,20 @@ public class MainActivity extends Activity implements View.OnClickListener {
                     startActivity(i1w1);
                     break;
                 case R.id.hot_huan:
-                    Random random = new Random();//随机数
-                    while (true){
-                        num1 = random.nextInt(MyHotsList.size());
-                        num2 = random.nextInt(MyHotsList.size());
-                        if(num1!=num2){
-                            break;
+                    if (MyHotsList.size()>0) {
+                        Random random = new Random();//随机数
+                        while (true){
+                            num1 = random.nextInt(MyHotsList.size());
+                            num2 = random.nextInt(MyHotsList.size());
+                            if(num1!=num2){
+                                break;
+                            }
                         }
+                        hot_1.setText(MyHotsList.get(num1).KEYWORDS);
+                        hot_2.setText(MyHotsList.get(num2).KEYWORDS);
+                    } else {
+                        com.example.credit.Utils.Toast.show("获取数据失败");
                     }
-                    hot_1.setText(MyHotsList.get(num1).KEYWORDS);
-                    hot_2.setText(MyHotsList.get(num2).KEYWORDS);
                     break;
                 case R.id.hot_1:
                     Intent hot_1s = new Intent(MainActivity.this, SearchFirmActivty.class);

@@ -1,6 +1,7 @@
 package com.example.credit.Adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,8 +12,10 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.example.credit.Activitys.H5ViewActivity;
 import com.example.credit.Entitys.DataManager;
 import com.example.credit.R;
+import com.example.credit.Utils.URLconstant;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -45,7 +48,7 @@ public class Main_CC_List_itemAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View view, ViewGroup parent) {
+    public View getView(final int position, View view, ViewGroup parent) {
         ViewHolder vh = null;
         if (view == null) {
             view = LayoutInflater.from(context).inflate(R.layout.activity_c_list_item, null);
@@ -64,6 +67,8 @@ public class Main_CC_List_itemAdapter extends BaseAdapter {
             vh.imR = (ImageView) view.findViewById(R.id.imR);
             vh.cl3_tv1 = (TextView) view.findViewById(R.id.cl3_tv1);
             vh.cl3_tv2 = (TextView) view.findViewById(R.id.cl3_tv2);
+            vh.cl3_tv3= (TextView) view.findViewById(R.id.cl3_tv3);
+            vh.cl3_tv4= (TextView) view.findViewById(R.id.cl3_tv4);
             view.setTag(vh);
         } else {
             vh = (ViewHolder) view.getTag();
@@ -88,6 +93,15 @@ public class Main_CC_List_itemAdapter extends BaseAdapter {
             }
             vh.cl3_tv1.setText(list.get(position));
             vh.cl3_tv2.setText(DataManager.sb_searchS.data.trademark.get(position).APPLICATIONDATE);
+            vh.cl3_tv3.setText(DataManager.sb_searchS.data.trademark.get(position).APPLICANT);
+            vh.cl3_tv4.setText(DataManager.sb_searchS.data.trademark.get(position).BRANDSTAUTS);
+            vh.punlic_3.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    context.startActivity(new Intent(context, H5ViewActivity.class).putExtra("msg","8").putExtra("URL", URLconstant.SBDETAILS).putExtra("KeyNo",DataManager.sb_searchS.data.trademark.get(position).ID));
+                }
+            });
+
         } else if (str.equals("judicial")) {//司法信息
 //            vh.im.setVisibility(View.VISIBLE);
             vh.cl_tv1.setVisibility(View.VISIBLE);
@@ -105,6 +119,13 @@ public class Main_CC_List_itemAdapter extends BaseAdapter {
             vh.cl_tv2.setVisibility(View.VISIBLE);
             vh.cl_tv1.setText("专利名称");
             vh.cl_tv2.setText(list.get(position));
+            vh.punlic_1.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                   context.startActivity(new Intent(context, H5ViewActivity.class).putExtra("msg","9").putExtra("URL", URLconstant.ZLDETAILS).putExtra("KeyNo",DataManager.zl_searchS.data.patentInfo.get(position).ID));
+
+                }
+            });
 
         }else if (str.equals("pledge")) {//出质信息
             vh.cl_tv1.setVisibility(View.VISIBLE);
@@ -131,5 +152,7 @@ public class Main_CC_List_itemAdapter extends BaseAdapter {
         ImageView imR;
         TextView cl3_tv1;
         TextView cl3_tv2;
+        TextView cl3_tv3;
+        TextView cl3_tv4;
     }
 }

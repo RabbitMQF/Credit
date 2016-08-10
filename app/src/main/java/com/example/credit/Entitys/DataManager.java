@@ -1817,6 +1817,7 @@ public class DataManager {
 
             }
             public static class PatentInfoBean {
+                public String ID;//后加的专利IDpatentId
                 public String PRIPID;//企业ID
                 public String PATENTNAME;//专利名称
                 public String RCODE;//申请号

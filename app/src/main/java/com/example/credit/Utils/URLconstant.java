@@ -124,4 +124,8 @@ public class URLconstant {
 
     public static final String HOTSPOT ="businessController/getHotspotAnalysis";//热搜Hotspot
 //    tosSken=f60326838d68251be6bf08a62449152e&KeyNo=62d076b3cbd74e68ae8f1f089507c779&deviceId=123
+
+    public static final String SBDETAILS="http://101.201.211.27:8282/zhirong.credith5/trademarkInfoController/gettrademarkDetails.do";//商标详情页URL
+
+    public static final String ZLDETAILS="http://101.201.211.27:8282/zhirong.credith5/patentController/getPatentinfoDetails.do";//专利详情页URl
 }

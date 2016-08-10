@@ -4,6 +4,7 @@ import android.app.ActivityManager;
 import android.app.ProgressDialog;
 import android.content.ComponentName;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
@@ -13,6 +14,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
+import android.support.v7.app.AlertDialog;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -163,6 +165,8 @@ public class CompanyDetailsActivity extends BaseActivity {
     CreditSharePreferences csp;
     int type, posit;
 
+    AlertDialog.Builder builder;
+    public static AlertDialog dialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -788,7 +792,7 @@ public class CompanyDetailsActivity extends BaseActivity {
                     startActivity(new Intent(CompanyDetailsActivity.this, Panoramic_Activity.class).putExtra("KeyNo", KeyNo).putExtra("deviceId", model).putExtra("priptype", DataManager.BaseinfoList.get(0).ENTTYPE).putExtra("regnore", regnore).putExtra("entname", DataManager.BaseinfoList.get(0).ENTNAME));
                     break;
                 case 17://投资连图
-                    startActivity(new Intent(CompanyDetailsActivity.this, H5ViewActivity.class).putExtra("KeyNo", DataManager.BaseinfoList.get(0).PRIPID).putExtra("URL", URLconstant.TOUZILIAN).putExtra("regno", DataManager.BaseinfoList.get(0).REGNO).putExtra("entname", DataManager.BaseinfoList.get(0).ENTNAME).putExtra("msg","1").putExtra("Tname", "投资连图"));
+                    startActivity(new Intent(CompanyDetailsActivity.this, H5ViewActivity.class).putExtra("KeyNo", DataManager.BaseinfoList.get(0).PRIPID).putExtra("URL", URLconstant.TOUZILIAN).putExtra("regno", DataManager.BaseinfoList.get(0).REGNO).putExtra("entname", DataManager.BaseinfoList.get(0).ENTNAME).putExtra("msg","1").putExtra("Tname", "投资链图"));
                     //Toast.show( "此模块，正在开发中...");
                     break;
                 case 18://发展历程
@@ -852,6 +856,27 @@ public class CompanyDetailsActivity extends BaseActivity {
     };
 
     public void init() {
+        builder = new AlertDialog.Builder(this);
+        builder.setTitle("是否登录");
+        builder.setMessage("浏览企业详情，请先登录账号。");
+        builder.setPositiveButton("去登陆", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+                startActivity(new Intent(CompanyDetailsActivity.this,LoginActivity.class));
+            }
+        });
+        builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+//                finish();
+//                startActivity(new Intent(SearchFirmActivty.this, MainActivity.class));
+            }
+        });
+        dialog = builder.create();
+        dialog.setCanceledOnTouchOutside(false);// 设置点击屏幕Dialog不消失
+
+
         if (DataManager.allcountsList.size() > 0) {
             details_tit1.setText(DataManager.allcountsList.get(0).PageView);
         }
@@ -877,7 +902,7 @@ public class CompanyDetailsActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 if( DataManager.FavoritefalgS!=0){
-                    
+
                     FavotiteShow();
                 }
                 finish();
@@ -1002,11 +1027,20 @@ public class CompanyDetailsActivity extends BaseActivity {
         public void onItemClick(ActionItem item, int position) {
             switch (position) {
                 case 0://认领企业
-                    if( DataManager.FavoritefalgS!=0){
-                        FavotiteShow();
+                    if (!csp.getLoginStatus()) {//判定是否登录
+                        //Toast.show("请先登录账号");
+                        dialog.show();
+                    } else {
+                        if(DataManager.allcountsList.get(0).IsClaim=="1"||DataManager.allcountsList.get(0).IsClaim.equals("1")){
+                            Toast.show("该企业已认领");
+                        }else{
+                            if (DataManager.FavoritefalgS != 0) {
+                                FavotiteShow();
+                            }
+                            Intent i = new Intent(CompanyDetailsActivity.this, ToClaimActivity.class);
+                            startActivity(i);
+                        }
                     }
-                    Intent i = new Intent(CompanyDetailsActivity.this, ToClaimActivity.class);
-                    startActivity(i);
                     break;
                 default:
                     break;
@@ -1020,7 +1054,7 @@ public class CompanyDetailsActivity extends BaseActivity {
             switch (v.getId()) {
                 case R.id.pb_1://首页
                     if( DataManager.FavoritefalgS!=0){
-                        
+
                         FavotiteShow();
                     }
                     Intent i1 = new Intent(CompanyDetailsActivity.this, MainActivity.class);
@@ -1029,7 +1063,6 @@ public class CompanyDetailsActivity extends BaseActivity {
                     break;
                 case R.id.pb_2://评论
                     if( DataManager.FavoritefalgS!=0){
-                        
                         FavotiteShow();
                     }
                     Intent i21 = new Intent(CompanyDetailsActivity.this, CommentListActivity.class);
@@ -1038,7 +1071,6 @@ public class CompanyDetailsActivity extends BaseActivity {
                     break;
                 case R.id.pb_0://二维码名片
                     if( DataManager.FavoritefalgS!=0){
-                        
                         FavotiteShow();
                     }
                     File file = new File(Environment.getExternalStorageDirectory() + "/Credit/cache/" + DataManager.BaseinfoList.get(0).REGNO + "_TwoDimImg.jpg");
@@ -1058,7 +1090,6 @@ public class CompanyDetailsActivity extends BaseActivity {
                     break;
                 case R.id.pb_3://企业投诉
                     if( DataManager.FavoritefalgS!=0){
-                        
                         FavotiteShow();
                     }
                     pd.show();
@@ -1071,14 +1102,19 @@ public class CompanyDetailsActivity extends BaseActivity {
 
                     break;
                 case R.id.pb_4://关注
-                    if (pb_4_txt.getText().toString().equals("关注")) {//当前状态为未关注，所以点击是关注
-                        DataManager.FavoritefalgS=1;
-                        pb_4_img.setBackgroundResource(R.mipmap.btm_4_s);
-                        pb_4_txt.setText("已关注");
-                    } else {//当前状态为已关注，所以点击是取消关注
-                        DataManager.FavoritefalgS=2;
-                        pb_4_img.setBackgroundResource(R.mipmap.btm_4_n);
-                        pb_4_txt.setText("关注");
+                    if (!csp.getLoginStatus()) {//判定是否登录
+                        //Toast.show("请先登录账号");
+                        dialog.show();
+                    } else {
+                        if (pb_4_txt.getText().toString().equals("关注")) {//当前状态为未关注，所以点击是关注
+                            DataManager.FavoritefalgS = 1;
+                            pb_4_img.setBackgroundResource(R.mipmap.btm_4_s);
+                            pb_4_txt.setText("已关注");
+                        } else {//当前状态为已关注，所以点击是取消关注
+                            DataManager.FavoritefalgS = 2;
+                            pb_4_img.setBackgroundResource(R.mipmap.btm_4_n);
+                            pb_4_txt.setText("关注");
+                        }
                     }
                     break;
                 case R.id.panoramic://全景
@@ -1087,6 +1123,7 @@ public class CompanyDetailsActivity extends BaseActivity {
 //                        DataManager.FavoritefalgS2!
                     }
                     startActivity(new Intent(CompanyDetailsActivity.this, Panoramic_Activity.class).putExtra("KeyNo", KeyNo).putExtra("deviceId", model).putExtra("priptype", DataManager.BaseinfoList.get(0).ENTTYPE).putExtra("regnore", regnore).putExtra("entname", DataManager.BaseinfoList.get(0).ENTNAME));
+                    break;
                 default:
                     break;
             }
@@ -1121,7 +1158,7 @@ public class CompanyDetailsActivity extends BaseActivity {
                 CallServer.getInstance().add(CompanyDetailsActivity.this, requestN, MyhttpCallBack.getInstance(), 0x102, true, false, true);
             }
         }
-        
+
     }
 
 }

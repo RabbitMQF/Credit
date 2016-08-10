@@ -112,7 +112,7 @@ public class SearchFirmActivty extends BaseActivity implements PullToRefreshView
     int po;
     int type;
     AlertDialog.Builder builder;
-    AlertDialog dialog;
+    public static AlertDialog dialog;
     int t=2;
     int sum=1;
     int por;
@@ -161,36 +161,31 @@ public class SearchFirmActivty extends BaseActivity implements PullToRefreshView
                         search_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                             @Override
                             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                                if (!csp.getLoginStatus()) {//判定是否登录
-                                    //Toast.show("请先登录账号");
-                                    dialog.show();
-                                } else {
-                                    po = position;
-                                    pd.show();
-                                    String KeyNo = DataManager.searchList.get(position).PRIPID;//市场主体身份代码
-                                    String token = MD5s(KeyNo + model);
-                                    GsonUtil requst = new GsonUtil(URLconstant.URLINSER + URLconstant.GETITEMNUM, RequestMethod.GET);
-                                    requst.setReadTimeout(30000);
-                                    requst.setConnectTimeout(30000);
-                                    requst.add("KeyNo", KeyNo);
-                                    requst.add("token", token);
-                                    requst.add("deviceId", model);
-                                    requst.add("memberId", csp.getID());//86D9D7F53FCA45DD93E2D83DFCA0CB42
-                                    requst.add("regnore", DataManager.searchList.get(position).REGNO);
-                                    requst.add("priptype", DataManager.searchList.get(position).ENTTYPE);
-                                    if(!DataManager.StringZero.equals(DataManager.searchList.get(position).ENTNAME)) {
-                                        GsonUtil request121 = new GsonUtil(URLconstant.URLINSER + URLconstant.SAVESUM, RequestMethod.GET);
-                                        request121.add("token", token);
-                                        request121.add("deviceId", model);
-                                        request121.add("KeyNo", KeyNo);
-                                        request121.add("memberId", csp.getID() );
-                                        request121.add("regnore", DataManager.searchList.get(position).REGNO );
-                                        request121.add("entname", DataManager.searchList.get(position).ENTNAME );
-                                        request121.add("enttype", DataManager.searchList.get(position).ENTTYPE );
-                                        CallServer.getInstance().add(SearchFirmActivty.this, request121, MyhttpCallBack.getInstance(), 0x12138, true, false, true);
-                                    }
-                                    CallServer.getInstance().add(SearchFirmActivty.this, requst, MyhttpCallBack.getInstance(), 0x024, true, false, true);
+                                po = position;
+                                pd.show();
+                                String KeyNo = DataManager.searchList.get(position).PRIPID;//市场主体身份代码
+                                String token = MD5s(KeyNo + model);
+                                GsonUtil requst = new GsonUtil(URLconstant.URLINSER + URLconstant.GETITEMNUM, RequestMethod.GET);
+                                requst.setReadTimeout(30000);
+                                requst.setConnectTimeout(30000);
+                                requst.add("KeyNo", KeyNo);
+                                requst.add("token", token);
+                                requst.add("deviceId", model);
+                                requst.add("memberId", csp.getID());//86D9D7F53FCA45DD93E2D83DFCA0CB42
+                                requst.add("regnore", DataManager.searchList.get(position).REGNO);
+                                requst.add("priptype", DataManager.searchList.get(position).ENTTYPE);
+                                if(!DataManager.StringZero.equals(DataManager.searchList.get(position).ENTNAME)) {
+                                    GsonUtil request121 = new GsonUtil(URLconstant.URLINSER + URLconstant.SAVESUM, RequestMethod.GET);
+                                    request121.add("token", token);
+                                    request121.add("deviceId", model);
+                                    request121.add("KeyNo", KeyNo);
+                                    request121.add("memberId", csp.getID() );
+                                    request121.add("regnore", DataManager.searchList.get(position).REGNO );
+                                    request121.add("entname", DataManager.searchList.get(position).ENTNAME );
+                                    request121.add("enttype", DataManager.searchList.get(position).ENTTYPE );
+                                    CallServer.getInstance().add(SearchFirmActivty.this, request121, MyhttpCallBack.getInstance(), 0x12138, true, false, true);
                                 }
+                                CallServer.getInstance().add(SearchFirmActivty.this, requst, MyhttpCallBack.getInstance(), 0x024, true, false, true);
                             }
                         });
                         break;
@@ -372,6 +367,7 @@ public class SearchFirmActivty extends BaseActivity implements PullToRefreshView
         mPullToRefreshView.setOnFooterRefreshListener(this);
 
         typeSD= (LinearLayout) findViewById(R.id.typeSD);
+
         builder = new AlertDialog.Builder(this);
         builder.setTitle("是否登录");
         builder.setMessage("浏览企业详情，请先登录账号。");
@@ -391,6 +387,7 @@ public class SearchFirmActivty extends BaseActivity implements PullToRefreshView
         });
         dialog = builder.create();
         dialog.setCanceledOnTouchOutside(false);// 设置点击屏幕Dialog不消失
+
         searchEt = (EditText) findViewById(R.id.search_et);
         search_et_cc = (ImageView) findViewById(R.id.search_et_cc);//叉叉
         //selectCity = (TextView) findViewById(R.id.selectCity);//旧版搜索城市

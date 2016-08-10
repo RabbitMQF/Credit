@@ -30,8 +30,11 @@ public class CreditSharePreferences {
         return esp;
     }
 
+    /**
+     * //保存历史记录
+     * @param listory
+     */
 
-    //保存历史记录
     public void putHistory(String listory) {
         if(sp!=null){
             Editor editor = sp.edit();
@@ -47,6 +50,21 @@ public class CreditSharePreferences {
         }
     }
 
+    //保存历史记录(临时)
+    public void putmainHistory(String mainlistory) {
+        if(sp!=null){
+            Editor editor = sp.edit();
+            editor.putString("mainlistory", mainlistory);
+            editor.commit();}
+    }
+
+    public String getmainHistory() {
+        if(sp!=null) {
+            return sp.getString("mainlistory", null);
+        }else{
+            return "";
+        }
+    }
     /**
      * 保存是否登录状态
      * @param b

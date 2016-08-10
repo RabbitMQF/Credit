@@ -18,6 +18,7 @@
             android:id="@+id/mycomm_img"
             android:layout_width="35dp"
             android:layout_height="35dp"
+            android:background="@mipmap/me_icon02"
             />
         <LinearLayout
             android:layout_width="match_parent"

@@ -1,11 +1,13 @@
 package com.example.credit.Activitys;
 
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -44,7 +46,8 @@ public class MycomplaintsListActivity extends BaseActivity {
     public static Handler handler;
     public static ProgressDialog pd;
     CreditSharePreferences csp;
-
+    AlertDialog.Builder builder;
+    public static AlertDialog dialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -94,6 +97,26 @@ public class MycomplaintsListActivity extends BaseActivity {
     }
 
     public void init() {
+        builder = new AlertDialog.Builder(this);
+        builder.setTitle("是否登录");
+        builder.setMessage("浏览企业详情，请先登录账号。");
+        builder.setPositiveButton("去登陆", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+                startActivity(new Intent(MycomplaintsListActivity.this,LoginActivity.class));
+            }
+        });
+        builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+//                finish();
+//                startActivity(new Intent(SearchFirmActivty.this, MainActivity.class));
+            }
+        });
+        dialog = builder.create();
+        dialog.setCanceledOnTouchOutside(false);// 设置点击屏幕Dialog不消失
+
         Cadapter = new ComplainListAdapter(this);
         Intent i = getIntent();
         if (i.getIntExtra("key", 0) == 1) {
@@ -129,7 +152,12 @@ public class MycomplaintsListActivity extends BaseActivity {
         b_topY.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MycomplaintsListActivity.this, ToComplaintActivity.class));
+                if (!csp.getLoginStatus()) {//判定是否登录
+                    //Toast.show("请先登录账号");
+                    dialog.show();
+                } else {
+                    startActivity(new Intent(MycomplaintsListActivity.this, ToComplaintActivity.class));
+                }
             }
         });
 

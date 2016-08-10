@@ -101,7 +101,7 @@ return imageView;
  *
  *
  * </Pre>
- * @author 代凯男
+ * @author Alucard
  *
  */
 public class ImageCycleView extends FrameLayout {

@@ -169,24 +169,27 @@ public class MyGridAdapters extends BaseAdapter {
 //                tv.setTextColor(Color.parseColor("#B8B8B8"));
 //            }
 //                tv.setText((DataManager.allcountsList.get(0).AnnualCount)+"");
-                tv.setTextColor(Color.parseColor("#B8B8B8"));
-                tv.setText("");
+
+//                tv.setTextColor(Color.parseColor("#B8B8B8"));
+                tv.setText("1");
                 break;
             case 17://投资连图
 //                if(DataManager.allcountsList.get(0).AnnualCount.equals("0")){
 //                    tv.setTextColor(Color.parseColor("#B8B8B8"));
 //                }
 //                tv.setText((DataManager.allcountsList.get(0).AnnualCount)+"");
-                tv.setTextColor(Color.parseColor("#B8B8B8"));
-                tv.setText("");
+
+//                tv.setTextColor(Color.parseColor("#B8B8B8"));
+                tv.setText("1");
                 break;
             case 18://发展历程
 //                if(DataManager.allcountsList.get(0).AnnualCount.equals("0")){
 //                    tv.setTextColor(Color.parseColor("#B8B8B8"));
 //                }
 //                tv.setText((DataManager.allcountsList.get(0).AnnualCount)+"");
-                tv.setTextColor(Color.parseColor("#B8B8B8"));
-                tv.setText("");
+
+//                tv.setTextColor(Color.parseColor("#B8B8B8"));
+                tv.setText("1");
                 break;
             case 19://招投标
                 if(DataManager.allcountsList.get(0).BiddingCount.equals("0")){

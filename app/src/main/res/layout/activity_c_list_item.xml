@@ -29,8 +29,8 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginLeft="10dp"
-            android:layout_toRightOf="@id/im"
             android:layout_marginRight="20dp"
+            android:layout_toRightOf="@id/im"
             android:orientation="vertical">
 
             <TextView
@@ -38,22 +38,22 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="40dp"
-                android:text="行政处罚决定书文号"
+                android:ellipsize="end"
                 android:maxEms="12"
                 android:singleLine="true"
-                android:ellipsize="end"
+                android:text="行政处罚决定书文号"
                 android:textColor="#000000"
-                android:visibility="gone"/>
+                android:visibility="gone" />
 
             <TextView
                 android:id="@+id/cl_tv2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
                 android:layout_marginRight="50dp"
+                android:layout_marginTop="5dp"
                 android:text="跟鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼"
                 android:textColor="#B8B8B8"
-                android:visibility="gone"/>
+                android:visibility="gone" />
         </LinearLayout>
 
         <LinearLayout
@@ -72,9 +72,9 @@
 
             <TextView
                 android:id="@+id/report_year"
-                android:paddingTop="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:paddingTop="5dp"
                 android:text="2016年度报告"
                 android:textColor="#57737D" />
         </LinearLayout>
@@ -89,23 +89,23 @@
 
             <LinearLayout
                 android:id="@+id/time"
-                android:visibility="gone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="10dp"
                 android:layout_toRightOf="@id/im"
                 android:gravity="center_vertical"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:visibility="gone">
 
                 <TextView
                     android:id="@+id/date"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="20dp"
+                    android:layout_marginTop="5dp"
                     android:gravity="center_vertical"
                     android:text="2015-05-8"
-                    android:layout_marginTop="5dp"
                     android:textColor="#B8B8B8"
                     android:textSize="16sp" />
             </LinearLayout>
@@ -113,8 +113,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="〉"
                 android:layout_marginRight="5dp"
+                android:text="〉"
                 android:textColor="@color/blue1"
                 android:textSize="12sp" />
         </LinearLayout>
@@ -131,49 +131,53 @@
             android:textColor="@color/blue1"
             android:textSize="14sp" />
     </RelativeLayout>
+    <!--著作权-->
     <FrameLayout
         android:id="@+id/punlic_2"
         android:layout_width="wrap_content"
-        android:visibility="gone"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:visibility="gone">
+
         <RelativeLayout
             android:id="@+id/punlic_yy"
             android:layout_width="match_parent"
             android:layout_height="80dp"
+            android:layout_marginLeft="15dp"
             android:layout_marginRight="5dp"
             android:layout_marginTop="15dp"
-            android:layout_marginLeft="15dp"
-            android:background="@color/huise"
-            />
+            android:background="@color/huise" />
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="80dp"
-            android:layout_marginTop="10dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:background="@drawable/details_con_bg"
-            >
+            android:layout_marginTop="10dp"
+            android:background="@drawable/details_con_bg">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:layout_toLeftOf="@+id/youx"
-                android:layout_marginTop="10dp"
                 android:layout_marginRight="5dp"
+                android:layout_marginTop="10dp"
+                android:layout_toLeftOf="@+id/youx"
+                android:orientation="vertical"
                 android:visibility="visible">
+
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
+                    android:layout_marginLeft="10dp"
                     android:layout_weight="1"
                     android:gravity="center_vertical"
-                    android:layout_marginLeft="10dp"
                     android:orientation="horizontal">
+
                     <ImageView
                         android:layout_width="25dp"
                         android:layout_height="25dp"
-                        android:background="@mipmap/public_biaoti"
                         android:layout_marginRight="5dp"
-                        />
+                        android:background="@mipmap/public_biaoti" />
+
                     <TextView
                         android:id="@+id/cl2_tv1"
                         android:layout_width="wrap_content"
@@ -185,17 +189,16 @@
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
+                    android:layout_marginLeft="10dp"
                     android:layout_weight="1"
                     android:gravity="center_vertical"
-                    android:layout_marginLeft="10dp"
                     android:orientation="horizontal">
 
                     <ImageView
                         android:layout_width="25dp"
                         android:layout_height="25dp"
-                        android:background="@mipmap/public_time"
                         android:layout_marginRight="5dp"
-                        />
+                        android:background="@mipmap/public_time" />
 
                     <TextView
                         android:id="@+id/cl2_tv2"
@@ -211,70 +214,78 @@
                 android:id="@+id/jiant"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
-                android:background="@mipmap/public_jiantou"
+                android:layout_alignParentRight="true"
                 android:layout_marginRight="5dp"
                 android:layout_marginTop="48dp"
-                android:layout_alignParentRight="true"
+                android:background="@mipmap/public_jiantou"
                 android:textColor="@color/blue1"
                 android:textSize="12sp" />
+
             <TextView
                 android:id="@+id/youx"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="详情"
                 android:layout_marginTop="50dp"
                 android:layout_toLeftOf="@id/jiant"
+                android:text="详情"
                 android:textColor="@color/blue1"
-                android:textSize="14sp"/>
+                android:textSize="14sp" />
         </RelativeLayout>
+
         <TextView
             android:id="@+id/cl2_tv3"
             android:layout_width="60dp"
             android:layout_height="20dp"
-            android:text="滑稽"
-            android:layout_marginTop="15dp"
-            android:gravity="center"
-            android:layout_marginRight="7dp"
-            android:layout_gravity="right"
             android:layout_alignParentRight="true"
+            android:layout_gravity="right"
+            android:layout_marginRight="7dp"
+            android:layout_marginTop="15dp"
             android:background="@mipmap/public_biaoqian"
+            android:gravity="center"
+            android:text="滑稽"
             android:textColor="#FFFFFF" />
     </FrameLayout>
+    <!--商标-->
 
     <LinearLayout
         android:id="@+id/punlic_3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:visibility="gone"
-        android:layout_marginTop="10dp">
+        >
+
         <FrameLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
+
             <LinearLayout
                 android:id="@+id/beijing_yy"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:visibility="visible"
+                android:layout_marginLeft="10dp"
                 android:layout_marginRight="5dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginLeft="10dp">
+                android:visibility="visible">
+
                 <FrameLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
+
                     <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="70dp"
+                        android:layout_height="100dp"
                         android:layout_gravity="center_vertical"
 
                         android:background="@color/huise">
+
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
                             android:layout_marginLeft="20dp"
 
-                            android:orientation="vertical">
-                        </LinearLayout>
+                            android:orientation="vertical"></LinearLayout>
                     </RelativeLayout>
                 </FrameLayout>
             </LinearLayout>
@@ -282,26 +293,45 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="70dp"
-                android:layout_marginRight="10dp"
+                android:layout_height="100dp"
                 android:layout_gravity="center_vertical"
+                android:layout_marginRight="10dp"
                 android:background="@drawable/details_con_bg">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="80dp"
+
                     android:orientation="vertical">
+
                     <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:background="@drawable/shangb_text_bg_1"
+                       >
+                        <TextView
+                            android:id="@+id/cl3_tv4"
+                            android:layout_margin="0.5dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/shangb_text_bg_2"
+                            android:text="商标状态商标状态商标状态"
+                            android:textColor="#30ff79"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_marginTop="5dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="center_vertical"
                         android:orientation="horizontal">
 
                         <ImageView
-                            android:layout_width="25dp"
-                            android:layout_height="25dp"
-                            android:background="@mipmap/b"/>
+                            android:layout_width="15dp"
+                            android:layout_height="15dp"
+                            android:background="@mipmap/b" />
 
                         <TextView
                             android:id="@+id/cl3_tv1"
@@ -311,6 +341,7 @@
                             android:text="跟鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼"
                             android:textColor="#57737D" />
                     </LinearLayout>
+
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -319,9 +350,9 @@
                         android:orientation="horizontal">
 
                         <ImageView
-                            android:layout_width="25dp"
-                            android:layout_height="25dp"
-                            android:background="@mipmap/public_time"/>
+                            android:layout_width="15dp"
+                            android:layout_height="15dp"
+                            android:background="@mipmap/public_time" />
 
                         <TextView
                             android:id="@+id/cl3_tv2"
@@ -331,10 +362,33 @@
                             android:text="2015-15-15"
                             android:textColor="#57737D" />
                     </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_marginTop="5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="15dp"
+                            android:layout_height="15dp"
+                            android:background="@mipmap/name" />
+
+                        <TextView
+                            android:id="@+id/cl3_tv3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dip"
+                            android:text="跟鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼"
+                            android:textColor="#57737D" />
+                    </LinearLayout>
+
                 </LinearLayout>
 
 
             </RelativeLayout>
+
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -342,10 +396,10 @@
                 android:orientation="vertical">
 
                 <ImageView
+                    android:layout_marginLeft="2dp"
                     android:id="@+id/imR"
-                    android:layout_width="70dp"
-                    android:layout_height="70dp"
-                     />
+                    android:layout_width="75dp"
+                    android:layout_height="75dp" />
                 <!--android:background="@mipmap/public_sb_bg"-->
             </LinearLayout>
 
@@ -356,20 +410,23 @@
                 android:layout_gravity="right|center_vertical"
                 android:layout_marginRight="5dp"
                 android:orientation="horizontal">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="详情"
                     android:textColor="@color/blue1"
-                    android:textSize="14sp"/>
+                    android:textSize="14sp" />
+
                 <ImageView
                     android:layout_width="20dp"
                     android:layout_height="20dp"
-                    android:background="@mipmap/public_jiantou"
                     android:layout_marginRight="5dp"
+                    android:background="@mipmap/public_jiantou"
                     android:textColor="@color/blue1"
                     android:textSize="12sp" />
             </LinearLayout>
+
         </FrameLayout>
     </LinearLayout>
 
@@ -382,19 +439,23 @@
             android:layout_width="90dp"
             android:layout_height="90dp"
             android:src="@mipmap/detail_fff" />
+
         <FrameLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center">
+
             <com.example.credit.Views.RoundImageView
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:src="@mipmap/detail_ccc" />
+
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:orientation="vertical">
+
                 <com.example.credit.Views.RoundImageView
                     android:layout_width="70dp"
                     android:layout_height="70dp"
