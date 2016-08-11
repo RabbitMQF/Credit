@@ -13,6 +13,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.credit.Activitys.H5ViewActivity;
+import com.example.credit.Activitys.Main_Search_ListActivity;
 import com.example.credit.Entitys.DataManager;
 import com.example.credit.R;
 import com.example.credit.Utils.URLconstant;
@@ -69,6 +70,12 @@ public class Main_CC_List_itemAdapter extends BaseAdapter {
             vh.cl3_tv2 = (TextView) view.findViewById(R.id.cl3_tv2);
             vh.cl3_tv3= (TextView) view.findViewById(R.id.cl3_tv3);
             vh.cl3_tv4= (TextView) view.findViewById(R.id.cl3_tv4);
+
+            vh.public_5 = (FrameLayout) view.findViewById(R.id.public_5);
+            vh.sx_1 = (TextView) view.findViewById(R.id.sx_1);
+            vh.sx_2 = (TextView) view.findViewById(R.id.sx_2);
+            vh.sx_3= (TextView) view.findViewById(R.id.sx_3);
+            vh.sx_4= (TextView) view.findViewById(R.id.sx_4);
             view.setTag(vh);
         } else {
             vh = (ViewHolder) view.getTag();
@@ -133,6 +140,19 @@ public class Main_CC_List_itemAdapter extends BaseAdapter {
             vh.cl_tv1.setText("登记编号");
             vh.cl_tv2.setText(list.get(position));
 
+        }else if (str.equals("Dishonesty")) {//失信信
+            vh.punlic_1.setVisibility(View.GONE);
+            vh.public_5.setVisibility(View.VISIBLE);
+            vh.sx_1.setText(list.get(position));
+            vh.sx_2.setText(Main_Search_ListActivity.listsx.get(position).INAME);
+            vh.sx_3.setText(Main_Search_ListActivity.listsx.get(position).INAME);
+            vh.sx_4.setText(Main_Search_ListActivity.listsx.get(position).INAME);
+            vh.public_5.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    context.startActivity(new Intent(context, H5ViewActivity.class).putExtra("courtcaseid",Main_Search_ListActivity.listsx.get(position).COURTCASEID).putExtra("URL", URLconstant.SXDETAILSDS).putExtra("msg","10").putExtra("KeyNo",Main_Search_ListActivity.listsx.get(position).INAME));
+                }
+            });
         }
         return view;
     }
@@ -154,5 +174,11 @@ public class Main_CC_List_itemAdapter extends BaseAdapter {
         TextView cl3_tv2;
         TextView cl3_tv3;
         TextView cl3_tv4;
+
+        FrameLayout public_5;
+        TextView sx_1;
+        TextView sx_2;
+        TextView sx_3;
+        TextView sx_4;
     }
 }

@@ -54,10 +54,12 @@ public class PatentActivity extends BaseActivity {
             }
         });
         List<String> list = new ArrayList<>();
+        List<String> listurl = new ArrayList<>();
         for(DataManager.PatentInfo.DataBean.PatentInfoBean p:DataManager.PatentInfoS.data.patentInfo){
             list.add(p.PATENTNAME);
+            listurl.add(p.ABSTRACTGRAPH);
         }
-        CC_List_itemAdapter adapter = new CC_List_itemAdapter(PatentActivity.this, list, "patent",null);
+        CC_List_itemAdapter adapter = new CC_List_itemAdapter(PatentActivity.this, list, "patent",listurl);
         paListView1.setAdapter(adapter);
         paListView1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

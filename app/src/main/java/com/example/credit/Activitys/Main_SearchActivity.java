@@ -132,6 +132,16 @@ public class Main_SearchActivity extends Activity {
                         i.putExtra("TotalPage", DataManager.zl_searchS.data.Paging.TotalPage);
                         startActivity(i);
                         break;
+                    case 2://专利
+                        wd.dismiss();
+                        Main_Search_ListActivity.listsx=DataManager.MyDishonestyS.data.Courtcaseinfo;
+                        i = new Intent(Main_SearchActivity.this, Main_Search_ListActivity.class);
+                        i.putExtra("Tname", "失信");
+                        i.putExtra("ETname", search_et.getText().toString());
+                        i.putExtra("CurrentPage", DataManager.MyDishonestyS.data.Paging.CurrentPage);
+                        i.putExtra("TotalPage", DataManager.MyDishonestyS.data.Paging.TotalPage);
+                        startActivity(i);
+                        break;
                     case 500:
                         wd.dismiss();
                         Toast.show("暂无数据!");
@@ -206,16 +216,19 @@ public class Main_SearchActivity extends Activity {
                 wd.dismiss();
                 break;
             case "失信":
-                urls = URLconstant.URLINSER + URLconstant.JYSREACH;
-                nam = "patentName";
+                urls = URLconstant.URLINSER + URLconstant.SXDETAILS;
+                num = 0x1005;
                 break;
         }
+
         if (hit != "招投标"&&!hit.equals("招投标")) {
             GsonUtil ComplaintsRuerst = new GsonUtil(urls, RequestMethod.GET);
             ComplaintsRuerst.add("token", MD5.MD5s("" + new Build().MODEL));
             ComplaintsRuerst.add("KeyNo", "");
             ComplaintsRuerst.add("deviceId", new Build().MODEL);
-            ComplaintsRuerst.add(nam, search_et.getText().toString());
+            if (hit != "失信"&&!hit.equals("失信")) {
+                ComplaintsRuerst.add(nam, search_et.getText().toString());
+            }
             CallServer.getInstance().add(Main_SearchActivity.this, ComplaintsRuerst, MyhttpCallBack.getInstance(), num, true, false, true);
         }
     }

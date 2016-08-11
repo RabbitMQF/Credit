@@ -32,6 +32,7 @@ public class AdminActivity extends FragmentActivity implements View.OnClickListe
     private LinearLayout b_return;
     TextView topBarTV;
     String Tname;
+    TextView xz_size1,xz_size2;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,8 +69,22 @@ public class AdminActivity extends FragmentActivity implements View.OnClickListe
         mViewPager = (ViewPager) findViewById(R.id.viewpager);
         mIndicator = (ViewPagerIndicator) findViewById(R.id.id_indicator);
         b_return = (LinearLayout) findViewById(R.id.b_return);
+        xz_size1 = (TextView) findViewById(R.id.xz_size1);
+        xz_size2 = (TextView) findViewById(R.id.xz_size2);
         b_return.setOnClickListener(this);
         topBarTV.setText(Tname);
+        if(DataManager.ad_List!=null && DataManager.ad_List.size()>0){
+            xz_size1.setText(DataManager.ad_List.size());
+        }else{
+            xz_size1.setText("0");
+            xz_size1.setTextColor(getResources().getColor(R.color.huise));
+        }
+        if(DataManager.admin_other_List!=null && DataManager.admin_other_List.size()>0){
+            xz_size2.setText(DataManager.admin_other_List.size()+"");
+        }else{
+            xz_size2.setText("0");
+            xz_size2.setTextColor(getResources().getColor(R.color.huise));
+        }
     }
 
     @Override

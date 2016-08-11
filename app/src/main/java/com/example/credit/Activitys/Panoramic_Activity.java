@@ -97,8 +97,7 @@ public class Panoramic_Activity extends BaseActivity {
             @Override
             public void onReceivedHttpError(WebView view, WebResourceRequest request, WebResourceResponse errorResponse) {
                 super.onReceivedHttpError(view, request, errorResponse);
-                fullview.setVisibility(View.GONE);
-                web_error.setVisibility(View.VISIBLE);
+
             }
 
             @Override

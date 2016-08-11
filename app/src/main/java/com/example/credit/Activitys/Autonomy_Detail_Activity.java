@@ -63,6 +63,7 @@ public class Autonomy_Detail_Activity extends BaseActivity{
         
         switch (value){
             case "企业年报":
+                report_title.setText("企业年报");
                 report.setVisibility(View.VISIBLE);
                 funded.setVisibility(View.GONE);
                 stock.setVisibility(View.GONE);
@@ -80,6 +81,7 @@ public class Autonomy_Detail_Activity extends BaseActivity{
                 });
                 break;
             case "股东及出资信息":
+                report_title.setText("股东及出资信息");
                 report.setVisibility(View.GONE);
                 funded.setVisibility(View.VISIBLE);
                 stock.setVisibility(View.GONE);
@@ -92,6 +94,7 @@ public class Autonomy_Detail_Activity extends BaseActivity{
 
                 break;
             case "股权变更信息":
+                report_title.setText("股权变更信息");
                 report.setVisibility(View.GONE);
                 funded.setVisibility(View.GONE);
                 stock.setVisibility(View.VISIBLE);
@@ -104,6 +107,7 @@ public class Autonomy_Detail_Activity extends BaseActivity{
 
                 break;
             case "行政许可信息":
+                report_title.setText("行政许可信息");
                 report.setVisibility(View.GONE);
                 funded.setVisibility(View.GONE);
                 stock.setVisibility(View.GONE);
@@ -116,6 +120,7 @@ public class Autonomy_Detail_Activity extends BaseActivity{
 
                 break;
             case"知识产权登记信息":
+                report_title.setText("知识产权登记信息");
                 report.setVisibility(View.GONE);
                 funded.setVisibility(View.GONE);
                 stock.setVisibility(View.GONE);
@@ -127,6 +132,7 @@ public class Autonomy_Detail_Activity extends BaseActivity{
                 autoAdapter.notifyDataSetChanged();
                 break;
             case"行政处罚信息":
+                report_title.setText("行政处罚信息");
                 report.setVisibility(View.GONE);
                 funded.setVisibility(View.GONE);
                 stock.setVisibility(View.GONE);

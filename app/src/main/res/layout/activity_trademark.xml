@@ -7,67 +7,49 @@
     android:orientation="vertical"
     tools:context="com.example.credit.Activitys.TrademarkActivity">
     <include layout="@layout/public_top_bar"/>
-    <!--<RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:background="@mipmap/detail_top">
-
-        <ImageView
-            android:id="@+id/t_return"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="10dp"
-            android:background="@mipmap/arrow_left_back" />
-
-        <TextView
-            android:id="@+id/t_topname"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:text="江西科技有限公司"
-            android:textColor="#ffffff"
-            android:textSize="20sp" />
-    </RelativeLayout>-->
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginBottom="30dp"
             android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/tvtit"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/details_gg_bgtit"
-                android:gravity="center"
-                android:paddingBottom="5dp"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp"
-                android:paddingTop="5dp"
-                android:text="专利信息"
-                android:textColor="#ffffff"
-                android:textSize="16sp" />
-
-            <ListView
-                android:id="@+id/tListView1"
+            <com.example.credit.Utils.PullToRefreshView
+                android:id="@+id/pull_refresh_view223"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginTop="10dp"
-                android:divider="#00000000"
-                android:listSelector="#00000000"
-                android:scrollbars="none" />
+                android:layout_height="match_parent"
+                android:background="#EEEEEE"
+                android:orientation="vertical">
+                <ListView
+                    android:id="@+id/tListView1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="50dp"
+                    android:divider="#00000000"
+                    android:listSelector="#00000000"
+                    android:scrollbars="none" />
+            </com.example.credit.Utils.PullToRefreshView>
         </LinearLayout>
 
+        <TextView
+            android:id="@+id/tvtit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/details_gg_bgtit"
+            android:gravity="center"
+            android:paddingBottom="5dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:paddingTop="5dp"
+            android:text="专利信息"
+            android:textColor="#ffffff"
+            android:textSize="16sp" />
         <View
             android:layout_width="match_parent"
             android:layout_height="30dp"

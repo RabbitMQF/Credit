@@ -265,7 +265,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                         startActivity(i6);
                         break;
                     case 7:
-                        adapter1 = new NewClaimListAdapter(MainActivity.this, DataManager.MyClaimUtilsModel.data.Claimlist,0);
+                        adapter1 = new NewClaimListAdapter(MainActivity.this, MyCliamList,0);
                         NewClaimListview.setAdapter(adapter1);
                         adapter1.notifyDataSetChanged();
                         NewClaimListview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -273,15 +273,15 @@ public class MainActivity extends Activity implements View.OnClickListener {
                             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                                 if (csp.getLoginStatus()) {
                                     ad.show();
-                                    String KeyNo = DataManager.MyClaimUtilsModel.data.Claimlist.get(position).PRIPID;//市场主体身份代码
+                                    String KeyNo = MyCliamList.get(position).PRIPID;//市场主体身份代码
                                     String token = SearchFirmActivty.MD5s(KeyNo + (new Build()).MODEL);
                                     GsonUtil requst = new GsonUtil(URLconstant.URLINSER + URLconstant.GETITEMNUM, RequestMethod.GET);
                                     requst.add("KeyNo", KeyNo);
                                     requst.add("token", token);
                                     requst.add("deviceId", (new Build()).MODEL);
                                     requst.add("memberId", csp.getID());
-                                    requst.add("regnore", DataManager.MyClaimUtilsModel.data.Claimlist.get(position).REGNORE);
-                                    requst.add("priptype", DataManager.MyClaimUtilsModel.data.Claimlist.get(position).ENTTYPE);
+                                    requst.add("regnore", MyCliamList.get(position).REGNORE);
+                                    requst.add("priptype", MyCliamList.get(position).ENTTYPE);
                                     CallServer.getInstance().add(MainActivity.this, requst, MyhttpCallBack.getInstance(), 0x026, true, false, true);
                                 } else {
                                     Toast.makeText(MainActivity.this, "请先登录!", Toast.LENGTH_SHORT).show();
@@ -305,6 +305,11 @@ public class MainActivity extends Activity implements View.OnClickListener {
                         break;
                     case 10://刷新新闻
                         adapter.notifyDataSetChanged();
+                        break;
+                    case 11:
+                        Intent i1w1=new Intent(MainActivity.this,Main_NewCliam_MoreListActivity.class);
+                        i1w1.putExtra("Tname","最新认领");
+                        startActivity(i1w1);
                         break;
                     default:
                         com.example.credit.Utils.Toast.show("数据正在赶来的路上...");
@@ -385,10 +390,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
                         //com.example.credit.Utils.Toast.show("模块正在赶工中...");
                         break;
                     case 3://失信
-//                        i=new Intent(MainActivity.this,Main_SearchActivity.class);
-//                        i.putExtra("hit","失信");
-//                        startActivity(i);
-                        com.example.credit.Utils.Toast.show("模块正在赶工中...");
+                        i=new Intent(MainActivity.this,Main_SearchActivity.class);
+                        i.putExtra("hit","失信");
+                        startActivity(i);
                         break;
                 }
             }
@@ -582,9 +586,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
                     }
                     break;
                 case R.id.cliam_more:
-                    Intent i1w1=new Intent(MainActivity.this,Main_NewCliam_MoreListActivity.class);
-                    i1w1.putExtra("Tname","最新认领");
-                    startActivity(i1w1);
+                    GsonUtil NewClaimRequest=new GsonUtil(URLconstant.URLINSER + URLconstant.NEWCLAIM, RequestMethod.GET);//最新认领
+                    CallServer.getInstance().add(MainActivity.this,NewClaimRequest, MyhttpCallBack.getInstance(),0x1131,true,false,true);
                     break;
                 case R.id.hot_huan:
                     if (MyHotsList.size()>0) {

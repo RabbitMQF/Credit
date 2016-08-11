@@ -18,7 +18,7 @@
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:layout_marginLeft="16dp"
-            android:background="@drawable/yuanxing_bule_bg" />
+            android:background="@drawable/yuanxing_yellow_bg" />
 
         <TextView
             android:id="@+id/stock_time"

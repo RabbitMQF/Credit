@@ -54,6 +54,9 @@ public class Main_Search_ListActivity extends BaseActivity implements PullToRefr
     public static List<DataManager.sb_search.DataBean.TrademarkBean> listsb = new ArrayList<>();//商标
 
     public static List<DataManager.zl_search.DataBean.PatentInfoBean> listzl = new ArrayList<>();//专利
+
+    public static List<DataManager.MyDishonesty.DataBean.CourtcaseinfoBean> listsx = new ArrayList<>();//专利
+
     String syatc="0";
     int por;
     @Override
@@ -106,16 +109,6 @@ public class Main_Search_ListActivity extends BaseActivity implements PullToRefr
                         type="trademark";
                         tListView1.setAdapter(adapter);
                         tListView1.setSelection(por-2);
-//                        tListView1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//                            @Override
-//                            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                                Intent i = new Intent(Main_Search_ListActivity.this, Main_Public_Detail_ctivity.class);
-//                                i.putExtra("position", position);
-//                                i.putExtra("state", type);
-//                                startActivity(i);
-//                                overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
-//                            }
-//                        });
                         break;
                     case 1://专利
                         if(!syatc.equals("1")) {
@@ -134,16 +127,24 @@ public class Main_Search_ListActivity extends BaseActivity implements PullToRefr
                         type="patent";
                         tListView1.setAdapter(adapter);
                         tListView1.setSelection(por-2);
-//                        tListView1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//                            @Override
-//                            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                                Intent i = new Intent(Main_Search_ListActivity.this, Main_Public_Detail_ctivity.class);
-//                                i.putExtra("position", position);
-//                                i.putExtra("state", type);
-//                                startActivity(i);
-//                                overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
-//                            }
-//                        });
+                        break;
+                    case 2://失信
+                        if(!syatc.equals("1")) {
+                            for (DataManager.MyDishonesty.DataBean.CourtcaseinfoBean p : listsx) {
+                                list.add(p.INAME);
+                            }
+                        }else{
+                            por=listzl.size()-1;
+                            listsx.addAll(DataManager.MyDishonestyS.data.Courtcaseinfo);
+                            for (DataManager.MyDishonesty.DataBean.CourtcaseinfoBean p : listsx) {
+                                list.add(p.INAME);
+                            }
+                            CurrentPage++;
+                        }
+                        adapter= new Main_CC_List_itemAdapter(Main_Search_ListActivity.this, list, "Dishonesty",null);
+                        type="Dishonesty";
+                        tListView1.setAdapter(adapter);
+                        tListView1.setSelection(por-2);
                         break;
                 }
             }
@@ -154,6 +155,9 @@ public class Main_Search_ListActivity extends BaseActivity implements PullToRefr
                 break;
             case "专利":
                 Main_Search_ListActivity.handler.sendEmptyMessage(1);
+                break;
+            case "失信":
+                Main_Search_ListActivity.handler.sendEmptyMessage(2);
                 break;
         }
     }
@@ -187,8 +191,8 @@ public class Main_Search_ListActivity extends BaseActivity implements PullToRefr
                             num = 0x1004;
                             break;
                         case "失信":
-                            urls = URLconstant.URLINSER + URLconstant.JYSREACH;
-                            nam = "patentName";
+                            urls = URLconstant.URLINSER + URLconstant.SXDETAILS;
+                            num = 0x1006;
                             break;
                     }
                     if (Tname != "招投标") {
@@ -196,7 +200,9 @@ public class Main_Search_ListActivity extends BaseActivity implements PullToRefr
                         ComplaintsRuerst.add("token", MD5.MD5s("" + new Build().MODEL));
                         ComplaintsRuerst.add("KeyNo", "");
                         ComplaintsRuerst.add("deviceId", new Build().MODEL);
-                        ComplaintsRuerst.add(nam, ETname);
+                        if (Tname != "失信"&&!Tname.equals("失信")) {
+                            ComplaintsRuerst.add(nam, ETname);
+                        }
                         ComplaintsRuerst.add("pageIndex", CurrentPage+1);
                         CallServer.getInstance().add(Main_Search_ListActivity.this, ComplaintsRuerst, MyhttpCallBack.getInstance(), num, true, false, true);
                     }

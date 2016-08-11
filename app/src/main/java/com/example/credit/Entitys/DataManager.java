@@ -37,6 +37,7 @@ public class DataManager {
 
 
     public static MyComm MyComms=new MyComm();
+
     /**
      *我的评价
      */
@@ -63,6 +64,7 @@ public class DataManager {
             }
         }
     }
+
 
     public class ContatUser {//联系人信息
         public Integer user_id;
@@ -555,6 +557,7 @@ public class DataManager {
                 public String AGENCY;//代理机构
                 public String LEGALSTATUS;//法律状态
                 public String DETAILINFO;//详细信息
+                public String ABSTRACTGRAPH;//图片地址
             }
         }
     }
@@ -579,26 +582,46 @@ public class DataManager {
         public String Remark;//备注
     }
 
+    public static trademarkModel trademarkModelS=new trademarkModel();
     /**
      * 商标信息实体类
      */
-    public static List<trademarkInfo> trademarkInfoList = new ArrayList<>();
+    public static class trademarkModel{
+        public String message;
+        public String status;
+        public DataBean data;
+        public String version;
+        public static class DataBean {
+            public PagingBean Paging;
+            public List<TrademarkBean> trademark;
+            public static class PagingBean {
+                public int TotalPage;
+                public int ShowCount;
+                public int TotalResult;
+                public int CurrentResult;
+                public int CurrentPage;
+            }
 
-    public static class trademarkInfo {
-        public String ID;//商标id
-        public String PRIPID;//企业id
-        public String REGNO;//注册号
-        public String APPLICATIONDATE;//申请日期
-        public String APPLICANT;//申请人
-        public String BRANDSTAUTS;//商标状态
-        public String CLASSIFYID;//商标分类号
-        public String BRANDIMG;//商标图标链接
-        public String AGENCY;//代理机构
-        public String LIFESPAN;//使用期限
-        public String REGCORE;//商标注册号
-        public String BRANDNAME;//商标名称
-        public String ENTNAME;//企业名称
-        public String UNISCID;//社会统一信用代码
+            public static class TrademarkBean {
+                public String BRANDLIST;
+                public String PROCEDURE;
+                public String ID;//商标id
+                public String PRIPID;//企业id
+                public String REGNO;//注册号
+                public String APPLICATIONDATE;//申请日期
+                public String APPLICANT;//申请人
+                public String BRANDSTAUTS;//商标状态
+                public String CLASSIFYID;//商标分类号
+                public String BRANDIMG;//商标图标链接
+                public String AGENCY;//代理机构
+                public String LIFESPAN;//使用期限
+                public String REGCORE;//商标注册号
+                public String BRANDNAME;//商标名称
+                public String ENTNAME;//企业名称
+                public String UNISCID;//社会统一信用代码
+            }
+        }
+
     }
 
 
@@ -1861,5 +1884,48 @@ public class DataManager {
             }
         }
     }
+    /**
+     * 失信
+     */
+    public static MyDishonesty MyDishonestyS=new MyDishonesty();
+    public static class MyDishonesty{
+        public String message;
+        public String status;
+        public DataBean data;
+        public String version;
+        public static class DataBean {
+            public PagingBean Paging;
+            /**
+             * CARDNUM : 693725177
+             * COURT_NAME : 江西省吉安市中级人民法院
+             * CASE_CODE : (2015)吉中执字第00046号
+             * INAME : 吉安市青年信息咨询有限公司
+             * COURTCASEID : 100911345
+             * PRIPID :
+             * CARDTYPE : 1
+             * PUBLISH_DATE : 2016-03-10 00:00:00
+             */
+            public List<CourtcaseinfoBean> Courtcaseinfo;
+            public static class PagingBean {
+                public int TotalPage;
+                public int ShowCount;
+                public int TotalResult;
+                public int CurrentResult;
+                public int CurrentPage;
+            }
+
+            public static class CourtcaseinfoBean {
+                public String CARDNUM;
+                public String COURT_NAME;
+                public String CASE_CODE;
+                public String INAME;
+                public String COURTCASEID;
+                public String PRIPID;
+                public String CARDTYPE;
+                public String PUBLISH_DATE;
+            }
+        }
+    }
+
 }
 

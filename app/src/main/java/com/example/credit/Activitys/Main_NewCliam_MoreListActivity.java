@@ -36,6 +36,8 @@ public class Main_NewCliam_MoreListActivity extends BaseActivity {
     @ViewInject(R.id.b_topname)
     TextView b_topname;
 
+    public static List<DataManager.MyClaimUtils.DataBean.ClaimlistBean> MyCliamListMore = new ArrayList<DataManager.MyClaimUtils.DataBean.ClaimlistBean>();//初始最新认领集合
+
     @ViewInject(R.id.tListViewNC)
     ListView tListViewNC;
     NewClaimListAdapter adapter;
@@ -54,11 +56,12 @@ public class Main_NewCliam_MoreListActivity extends BaseActivity {
         b_return.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                ad.dismiss();
                 finish();
                 overridePendingTransition(R.anim.finish_tran_one, R.anim.finish_tran_two);
             }
         });
-        adapter = new NewClaimListAdapter(Main_NewCliam_MoreListActivity.this, DataManager.MyClaimUtilsModel.data.Claimlist,1);
+        adapter = new NewClaimListAdapter(Main_NewCliam_MoreListActivity.this, MyCliamListMore,1);
         tListViewNC.setAdapter(adapter);
         tListViewNC.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -72,8 +75,8 @@ public class Main_NewCliam_MoreListActivity extends BaseActivity {
                     requst.add("token", token);
                     requst.add("deviceId", (new Build()).MODEL);
                     requst.add("memberId", csp.getID());
-                    requst.add("regnore", DataManager.MyClaimUtilsModel.data.Claimlist.get(position).REGNORE);
-                    requst.add("priptype", DataManager.MyClaimUtilsModel.data.Claimlist.get(position).ENTTYPE);
+                    requst.add("regnore",MyCliamListMore.get(position).REGNORE);
+                    requst.add("priptype", MyCliamListMore.get(position).ENTTYPE);
                     CallServer.getInstance().add(Main_NewCliam_MoreListActivity.this, requst, MyhttpCallBack.getInstance(), 0x026, true, false, true);
                 } else {
                     Toast.makeText(Main_NewCliam_MoreListActivity.this, "请先登录!", Toast.LENGTH_SHORT).show();

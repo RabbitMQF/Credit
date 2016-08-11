@@ -5,6 +5,7 @@ import com.example.credit.Activitys.CommentListDetailsActivity;
 import com.example.credit.Activitys.CompanyDetailsActivity;
 import com.example.credit.Activitys.LoginActivity;
 import com.example.credit.Activitys.MainActivity;
+import com.example.credit.Activitys.Main_NewCliam_MoreListActivity;
 import com.example.credit.Activitys.Main_SearchActivity;
 import com.example.credit.Activitys.Main_Search_ListActivity;
 import com.example.credit.Activitys.MyClaimActivity;
@@ -16,6 +17,7 @@ import com.example.credit.Activitys.SearchFirmActivty;
 import com.example.credit.Activitys.ToClaimActivity;
 import com.example.credit.Activitys.ToCommentActivity;
 import com.example.credit.Activitys.ToComplaintActivity;
+import com.example.credit.Activitys.TrademarkActivity;
 import com.example.credit.Activitys.UserSetActivity;
 import com.example.credit.Activitys.WelcomeActivity;
 import com.example.credit.Entitys.DataManager;
@@ -115,6 +117,14 @@ public class MyhttpCallBack implements HttpCallBack {
                     if (MainActivity.handler != null) {
                         MainActivity.handler.sendEmptyMessage(7);
                     }
+                }
+                break;
+            case 0x1131://获取最新认领(more)
+                jsonString = (String) response.get();
+                DataManager.MyClaimUtilsModel = gson.fromJson(jsonString, DataManager.MyClaimUtils.class);
+                if (DataManager.MyClaimUtilsModel.data.Claimlist != null && DataManager.MyClaimUtilsModel.data.Claimlist.size() > 0) {
+                    Main_NewCliam_MoreListActivity.MyCliamListMore = DataManager.MyClaimUtilsModel.data.Claimlist;
+                    MainActivity.handler.sendEmptyMessage(11);
                 }
                 break;
             case 0x114://获取热点
@@ -821,39 +831,19 @@ public class MyhttpCallBack implements HttpCallBack {
 
                 break;
             case 0x011://商标信息
-                String jstring11 = (String) response.get();
-                map = gson.fromJson(jstring11, new TypeToken<Map<String, Object>>() {
-                }.getType());
-                map = (Map<String, Object>) map.get("data");
-                List<LinkedTreeMap> list11 = (List<LinkedTreeMap>) map.get("trademark");
-                if (DataManager.trademarkInfoList.size() != 0) {
-                    DataManager.trademarkInfoList.clear();
-                }
-                if (list11 != null && list11.size() > 0) {
-                    for (LinkedTreeMap temp : list11) {
-                        DataManager.trademarkInfo trademarkInfo = new DataManager.trademarkInfo();
-                        trademarkInfo.ID = (String) temp.get("ID");
-                        trademarkInfo.REGNO = (String) temp.get("REGNO");
-                        trademarkInfo.PRIPID = (String) temp.get("PRIPID");
-                        trademarkInfo.APPLICATIONDATE = (String) temp.get("APPLICATIONDATE");
-                        trademarkInfo.APPLICANT = (String) temp.get("APPLICANT");
-                        trademarkInfo.BRANDSTAUTS = (String) temp.get("BRANDSTAUTS");
-                        trademarkInfo.CLASSIFYID = (String) temp.get("CLASSIFYID");
-                        trademarkInfo.BRANDIMG = (String) temp.get("BRANDIMG");
-                        trademarkInfo.AGENCY = (String) temp.get("AGENCY");
-                        trademarkInfo.LIFESPAN = (String) temp.get("LIFESPAN");
-                        trademarkInfo.REGCORE = (String) temp.get("REGCORE");
-                        trademarkInfo.BRANDNAME = (String) temp.get("BRANDNAME");
-                        trademarkInfo.ENTNAME = (String) temp.get("ENTNAME");
-                        trademarkInfo.UNISCID = (String) temp.get("UNISCID");
-                        DataManager.trademarkInfoList.add(trademarkInfo);
-                    }
-                }
-
-                if (DataManager.trademarkInfoList.size() > 0 && DataManager.trademarkInfoList != null) {
+                jsonString= (String) response.get();
+                DataManager.trademarkModelS = gson.fromJson(jsonString, DataManager.trademarkModel.class);
+                if (DataManager.trademarkModelS.data.trademark.size() > 0 && DataManager.trademarkModelS.data.trademark != null) {
                     CompanyDetailsActivity.handler.sendEmptyMessage(11);
                 } else {
                     CompanyDetailsActivity.handler.sendEmptyMessage(500);
+                }
+                break;
+            case 0x01112://商标信息（加载更多）
+                jsonString= (String) response.get();
+                DataManager.trademarkModelS = gson.fromJson(jsonString, DataManager.trademarkModel.class);
+                if (DataManager.trademarkModelS.data.trademark.size() > 0 && DataManager.trademarkModelS.data.trademark != null) {
+                    TrademarkActivity.handler.sendEmptyMessage(0);
                 }
                 break;
             case 0x012://著作信息
@@ -1428,6 +1418,20 @@ public class MyhttpCallBack implements HttpCallBack {
                 DataManager.zl_searchS = gson.fromJson(jsonString, DataManager.zl_search.class);
                 if(DataManager.zl_searchS.data.patentInfo.size()>0 && DataManager.zl_searchS.data.patentInfo!=null){
                     Main_Search_ListActivity.handler.sendEmptyMessage(1);
+                }
+                break;
+            case 0x1005://失信查询
+                jsonString = (String) response.get();
+                DataManager.MyDishonestyS = gson.fromJson(jsonString, DataManager.MyDishonesty.class);
+                if(DataManager.MyDishonestyS.data.Courtcaseinfo.size()>0 && DataManager.MyDishonestyS.data.Courtcaseinfo!=null){
+                    Main_SearchActivity.handler.sendEmptyMessage(2);
+                }
+                break;
+            case 0x1006://失信查询(上下拉事件)
+                jsonString = (String) response.get();
+                DataManager.MyDishonestyS = gson.fromJson(jsonString, DataManager.MyDishonesty.class);
+                if(DataManager.MyDishonestyS.data.Courtcaseinfo.size()>0 && DataManager.MyDishonestyS.data.Courtcaseinfo!=null){
+                    Main_Search_ListActivity.handler.sendEmptyMessage(2);
                 }
                 break;
             default:

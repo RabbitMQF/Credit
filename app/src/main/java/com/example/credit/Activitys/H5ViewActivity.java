@@ -28,7 +28,7 @@ public class H5ViewActivity extends Activity {
     @ViewInject(R.id.Hwebv)
     WebView Hwebv;
 
-    String KeyNo, pripid, URL, priptype, regno, entname, estdate,msg,Tname;
+    String KeyNo, pripid, URL, priptype, regno, entname, estdate,msg,Tname,courtcaseid;
     WaitDialog wd;
     String str;
 
@@ -42,6 +42,7 @@ public class H5ViewActivity extends Activity {
         KeyNo = i.getStringExtra("KeyNo");
         pripid = i.getStringExtra("pripid");
         URL = i.getStringExtra("URL");
+        courtcaseid=i.getStringExtra("courtcaseid");
         regno = i.getStringExtra("regno");
         priptype = i.getStringExtra("priptype");
         entname = i.getStringExtra("entname");
@@ -95,6 +96,12 @@ public class H5ViewActivity extends Activity {
             case"9"://首页专利详情
                 b_topname.setText("专利详情");
                 str=URL+"?patentId="+KeyNo+"&devicetype=1";
+                break;
+            case"10"://失信详情
+                b_topname.setText("失信详情");
+                str = URL + "?KeyNo=" + KeyNo + "&courtcaseId=" + courtcaseid ;
+                break;
+
             default:
                 break;
         }

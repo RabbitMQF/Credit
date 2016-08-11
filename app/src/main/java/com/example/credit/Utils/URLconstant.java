@@ -115,6 +115,9 @@ public class URLconstant {
     public static final String ZLSREACH="tblPatent/getTblPatent";//专利查询
 // tblPatent/getTblPatent?token=202cb962ac59075b964b07152d234b70&KeyNo=&deviceId=123&patentName=药物包装盒片
 
+    public static final String SXDETAILS="forensic/getCourtcaseinfolistPage";//失信查询URl
+    // ?token=aaa92206f6d756c6b0924f9cc07f0cda&KeyNo=江西康泰蔬菜有限公司&deviceId=123&courtcaseId=100906218
+
     public static final String TBSREACH="http://101.201.211.27:8282/zhirong.credith5/entShowController/entShow.do";//招投标
 
 
@@ -128,4 +131,8 @@ public class URLconstant {
     public static final String SBDETAILS="http://101.201.211.27:8282/zhirong.credith5/trademarkInfoController/gettrademarkDetails.do";//商标详情页URL
 
     public static final String ZLDETAILS="http://101.201.211.27:8282/zhirong.credith5/patentController/getPatentinfoDetails.do";//专利详情页URl
+
+    public static final String SXDETAILSDS="http://101.201.211.27:8282/zhirong.credith5/forensicInfoController/getforensicInfoDetails.do";//失信详情页URl
+
+
 }

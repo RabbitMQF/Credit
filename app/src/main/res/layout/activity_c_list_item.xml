@@ -311,7 +311,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center_vertical"
                         android:background="@drawable/shangb_text_bg_1"
-                       >
+                        >
                         <TextView
                             android:id="@+id/cl3_tv4"
                             android:layout_margin="0.5dp"
@@ -463,5 +463,84 @@
             </LinearLayout>
         </FrameLayout>
     </FrameLayout>
-
+    <FrameLayout
+        android:id="@+id/public_5"
+        android:layout_width="match_parent"
+        android:visibility="gone"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/details_con_bg"
+            android:padding="10dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/sx_1"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:textSize="20sp"
+                android:text="江西"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="执行法院："/>
+                <TextView
+                    android:id="@+id/sx_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="江西"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="5dp"
+                android:layout_weight="1"
+                android:layout_marginLeft="10dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="案号："/>
+                <TextView
+                    android:id="@+id/sx_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="asdasd"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="发布时间："/>
+                <TextView
+                    android:id="@+id/sx_4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="sas"/>
+            </LinearLayout>
+        </LinearLayout>
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginRight="10dp"
+            android:background="@mipmap/public_jiantou"
+            android:layout_gravity="right|center_vertical"
+            android:textColor="@color/blue1"
+            android:textSize="18sp" />
+    </FrameLayout>
 </LinearLayout>
