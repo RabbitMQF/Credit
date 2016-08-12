@@ -103,7 +103,7 @@ public class CommentListDetailsActivity extends BaseActivity {
         pid=i.getStringExtra("pid");
         Build bd = new Build();
         deviceId=bd.MODEL;//设备ID
-        KeyNo=DataManager.MyCommentlistrS.data.userreview.get(position).COMMENTID;
+        KeyNo=CommentListActivity.listpl.get(position).COMMENTID;
         token = SearchFirmActivty.MD5s(KeyNo + deviceId);
         handler=new Handler(){
             @Override
@@ -117,8 +117,8 @@ public class CommentListDetailsActivity extends BaseActivity {
                         r2.REPLAYCOMMENT=huifu_con.getText().toString();
                         r2.REPLAYTIME=date;
                         huifu_con.setText("");
-                        DataManager.MyCommentlistrS.data.userreview.get(position).replay2review.add(r2);
-                        Dliuyan_num.setText(DataManager.MyCommentlistrS.data.userreview.get(position).replay2review.size()+"");
+                        CommentListActivity.listpl.get(position).replay2review.add(r2);
+                        Dliuyan_num.setText(CommentListActivity.listpl.get(position).replay2review.size()+"");
                         Rinit();
                         break;
                     case 3:
@@ -139,27 +139,27 @@ public class CommentListDetailsActivity extends BaseActivity {
     }
     public void init(){
         b_topname.setText("详情");
-        if(!DataManager.MyCommentlistrS.data.userreview.get(position).ICONPATH.equals("")){
-            commD_img.setImageBitmap(decodeBitmap(Environment.getExternalStorageDirectory() + "/Credit/cache/"+((DataManager.MyCommentlistrS.data.userreview.get(position).ICONPATH).substring(DataManager.MyCommentlistrS.data.userreview.get(position).ICONPATH.length() - 20, DataManager.MyCommentlistrS.data.userreview.get(position).ICONPATH.length()-5)).replaceAll("\\/", "_")+".jpg",35,35));
+        if(!CommentListActivity.listpl.get(position).ICONPATH.equals("")){
+            commD_img.setImageBitmap(decodeBitmap(Environment.getExternalStorageDirectory() + "/Credit/cache/"+((CommentListActivity.listpl.get(position).ICONPATH).substring(CommentListActivity.listpl.get(position).ICONPATH.length() - 20, CommentListActivity.listpl.get(position).ICONPATH.length()-5)).replaceAll("\\/", "_")+".jpg",35,35));
         }else{
             commD_img.setImageResource(R.mipmap.me_icon02);
         }
-        commD_name.setText(DataManager.MyCommentlistrS.data.userreview.get(position).MEMBERNAME);
-        commD_time.setText(DataManager.MyCommentlistrS.data.userreview.get(position).CREATETIME);
-        commD_cont.setText(DataManager.MyCommentlistrS.data.userreview.get(position).CONTENT);
+        commD_name.setText(CommentListActivity.listpl.get(position).MEMBERNAME);
+        commD_time.setText(CommentListActivity.listpl.get(position).CREATETIME);
+        commD_cont.setText(CommentListActivity.listpl.get(position).CONTENT);
 
-        plD_good_num.setText(DataManager.MyCommentlistrS.data.userreview.get(position).SUCCESSQTY+"");
-        Dnogood_num.setText(DataManager.MyCommentlistrS.data.userreview.get(position).FAILEDQTY+"");
-        Dliuyan_num.setText(DataManager.MyCommentlistrS.data.userreview.get(position).replay2review.size()+"");
+        plD_good_num.setText(CommentListActivity.listpl.get(position).SUCCESSQTY+"");
+        Dnogood_num.setText(CommentListActivity.listpl.get(position).FAILEDQTY+"");
+        Dliuyan_num.setText(CommentListActivity.listpl.get(position).replay2review.size()+"");
 
-        if(DataManager.MyCommentlistrS.data.userreview.get(position).ISSUCCESS.equals("0")){//是否点赞0=no 1=yes
+        if(CommentListActivity.listpl.get(position).ISSUCCESS.equals("0")){//是否点赞0=no 1=yes
             plD_good.setVisibility(View.VISIBLE);
             plD_alreadgood.setVisibility(View.GONE);
         }else{
             plD_good.setVisibility(View.GONE);
             plD_alreadgood.setVisibility(View.VISIBLE);
         }
-        if(DataManager.MyCommentlistrS.data.userreview.get(position).ISFAILED.equals("0")){//是否吐槽0=no 1=yes
+        if(CommentListActivity.listpl.get(position).ISFAILED.equals("0")){//是否吐槽0=no 1=yes
             Dnogood.setVisibility(View.VISIBLE);
             Dalreadynogood.setVisibility(View.GONE);
         }else{
@@ -175,7 +175,7 @@ public class CommentListDetailsActivity extends BaseActivity {
                 public void onClick(View v) {
                     plD_alreadgood.setVisibility(View.GONE);
                     plD_good.setVisibility(View.VISIBLE);
-                    plD_good_num.setText(Integer.parseInt(DataManager.MyCommentlistrS.data.userreview.get(position).SUCCESSQTY.trim())-1+"");
+                    plD_good_num.setText(Integer.parseInt(CommentListActivity.listpl.get(position).SUCCESSQTY.trim())-1+"");
                 }
             });
             plD_good.setOnClickListener(new View.OnClickListener() {
@@ -183,7 +183,7 @@ public class CommentListDetailsActivity extends BaseActivity {
                 public void onClick(View v) {
                     plD_good.setVisibility(View.GONE);
                     plD_alreadgood.setVisibility(View.VISIBLE);
-                    plD_good_num.setText(Integer.parseInt(DataManager.MyCommentlistrS.data.userreview.get(position).SUCCESSQTY.trim())+"");
+                    plD_good_num.setText(Integer.parseInt(CommentListActivity.listpl.get(position).SUCCESSQTY.trim())+"");
                 }
             });
         }else{
@@ -192,7 +192,7 @@ public class CommentListDetailsActivity extends BaseActivity {
                 public void onClick(View v) {
                     plD_alreadgood.setVisibility(View.GONE);
                     plD_good.setVisibility(View.VISIBLE);
-                    plD_good_num.setText(Integer.parseInt(DataManager.MyCommentlistrS.data.userreview.get(position).SUCCESSQTY.trim())+"");
+                    plD_good_num.setText(Integer.parseInt(CommentListActivity.listpl.get(position).SUCCESSQTY.trim())+"");
                 }
             });
             plD_good.setOnClickListener(new View.OnClickListener() {
@@ -200,7 +200,7 @@ public class CommentListDetailsActivity extends BaseActivity {
                 public void onClick(View v) {
                     plD_good.setVisibility(View.GONE);
                     plD_alreadgood.setVisibility(View.VISIBLE);
-                    plD_good_num.setText(Integer.parseInt(DataManager.MyCommentlistrS.data.userreview.get(position).SUCCESSQTY.trim())+1+"");
+                    plD_good_num.setText(Integer.parseInt(CommentListActivity.listpl.get(position).SUCCESSQTY.trim())+1+"");
                 }
             });
         }
@@ -214,7 +214,7 @@ public class CommentListDetailsActivity extends BaseActivity {
                 public void onClick(View v) {
                     Dalreadynogood.setVisibility(View.GONE);
                     Dnogood.setVisibility(View.VISIBLE);
-                    Dnogood_num.setText(Integer.parseInt(DataManager.MyCommentlistrS.data.userreview.get(position).FAILEDQTY.trim())-1+"");
+                    Dnogood_num.setText(Integer.parseInt(CommentListActivity.listpl.get(position).FAILEDQTY.trim())-1+"");
                 }
             });
             Dnogood.setOnClickListener(new View.OnClickListener() {
@@ -222,7 +222,7 @@ public class CommentListDetailsActivity extends BaseActivity {
                 public void onClick(View v) {
                     Dnogood.setVisibility(View.GONE);
                     Dalreadynogood.setVisibility(View.VISIBLE);
-                    Dnogood_num.setText(Integer.parseInt(DataManager.MyCommentlistrS.data.userreview.get(position).FAILEDQTY.trim())+"");
+                    Dnogood_num.setText(Integer.parseInt(CommentListActivity.listpl.get(position).FAILEDQTY.trim())+"");
                 }
             });
         }else{
@@ -231,7 +231,7 @@ public class CommentListDetailsActivity extends BaseActivity {
                 public void onClick(View v) {
                     Dalreadynogood.setVisibility(View.GONE);
                     Dnogood.setVisibility(View.VISIBLE);
-                    Dnogood_num.setText(Integer.parseInt(DataManager.MyCommentlistrS.data.userreview.get(position).FAILEDQTY.trim())+"");
+                    Dnogood_num.setText(Integer.parseInt(CommentListActivity.listpl.get(position).FAILEDQTY.trim())+"");
                 }
             });
             Dnogood.setOnClickListener(new View.OnClickListener() {
@@ -239,7 +239,7 @@ public class CommentListDetailsActivity extends BaseActivity {
                 public void onClick(View v) {
                     Dnogood.setVisibility(View.GONE);
                     Dalreadynogood.setVisibility(View.VISIBLE);
-                    Dnogood_num.setText(Integer.parseInt(DataManager.MyCommentlistrS.data.userreview.get(position).FAILEDQTY.trim())+1+"");
+                    Dnogood_num.setText(Integer.parseInt(CommentListActivity.listpl.get(position).FAILEDQTY.trim())+1+"");
                 }
             });
         }
@@ -251,8 +251,8 @@ public class CommentListDetailsActivity extends BaseActivity {
         b_return.setOnClickListener(listener);
     }
     public void Rinit(){
-        if(DataManager.MyCommentlistrS.data.userreview.get(position).replay2review!=null){
-            Commment_ItemlistAdapter adapter=new Commment_ItemlistAdapter(CommentListDetailsActivity.this,DataManager.MyCommentlistrS.data.userreview.get(position).replay2review);
+        if(CommentListActivity.listpl.get(position).replay2review!=null){
+            Commment_ItemlistAdapter adapter=new Commment_ItemlistAdapter(CommentListDetailsActivity.this,CommentListActivity.listpl.get(position).replay2review);
             commplD_list.setAdapter(adapter);
         }
     }
@@ -286,9 +286,9 @@ public class CommentListDetailsActivity extends BaseActivity {
     };
 
     public void HttpInit(){
-        S=Integer.parseInt(DataManager.MyCommentlistrS.data.userreview.get(position).SUCCESSQTY.trim());//原来点赞数值
+        S=Integer.parseInt(CommentListActivity.listpl.get(position).SUCCESSQTY.trim());//原来点赞数值
         N=Integer.parseInt(plD_good_num.getText().toString());//当前点赞数值
-        So=Integer.parseInt(DataManager.MyCommentlistrS.data.userreview.get(position).FAILEDQTY.trim());//原来差评数值
+        So=Integer.parseInt(CommentListActivity.listpl.get(position).FAILEDQTY.trim());//原来差评数值
         No=Integer.parseInt(Dnogood_num.getText().toString());//当前差评数值
         if(N!=S){//当当前点赞数值等于原来所赋值的数值，差评数量不变，则只执行点赞请求
 //            pd.show();
@@ -298,14 +298,14 @@ public class CommentListDetailsActivity extends BaseActivity {
             request14.add("deviceId",deviceId);
             request14.add("memberId",csp.getID());
             if(N>S){//当当前点赞数值大于原来所赋值的数值，则为点赞+1
-                DataManager.MyCommentlistrS.data.userreview.get(position).ISSUCCESS="1";
+                CommentListActivity.listpl.get(position).ISSUCCESS="1";
                 request14.add("opeType","0");
             }else{
-                DataManager.MyCommentlistrS.data.userreview.get(position).ISSUCCESS="0";
+                CommentListActivity.listpl.get(position).ISSUCCESS="0";
                 request14.add("opeType","1");
             }
             CallServer.getInstance().add(CommentListDetailsActivity.this, request14, MyhttpCallBack.getInstance(), 0x202, true, false, true);
-            DataManager.MyCommentlistrS.data.userreview.get(position).SUCCESSQTY=N+"";
+            CommentListActivity.listpl.get(position).SUCCESSQTY=N+"";
         }
         if(No!=So) {//当当前差评数值等于原来所赋值的数值，好评数量不变，则只执行差评请求
             GsonUtil request14 = new GsonUtil(URLconstant.URLINSER + URLconstant.NNOMM, RequestMethod.GET);
@@ -314,14 +314,14 @@ public class CommentListDetailsActivity extends BaseActivity {
             request14.add("deviceId",deviceId);
             request14.add("memberId",csp.getID());
             if(No>So){//当当前差评数值大于原来所赋值的数值，则为差评+
-                DataManager.MyCommentlistrS.data.userreview.get(position).ISFAILED="1";
+                CommentListActivity.listpl.get(position).ISFAILED="1";
                 request14.add("opeType","0");
             }else{
-                DataManager.MyCommentlistrS.data.userreview.get(position).ISFAILED="0";
+                CommentListActivity.listpl.get(position).ISFAILED="0";
                 request14.add("opeType","1");
             }
             CallServer.getInstance().add(CommentListDetailsActivity.this, request14, MyhttpCallBack.getInstance(), 0x203, true, false, true);
-            DataManager.MyCommentlistrS.data.userreview.get(position).FAILEDQTY=No+"";
+            CommentListActivity.listpl.get(position).FAILEDQTY=No+"";
         }
         if(N==S && No==So){
         CommentListDetailsActivity.this.finish();

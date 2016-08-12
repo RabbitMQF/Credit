@@ -96,6 +96,8 @@ public class CompanyDetailsActivity extends BaseActivity {
     MyGridView myGridView1;
     @ViewInject(R.id.myGridView2)
     MyGridView myGridView2;
+    @ViewInject(R.id.gai1)
+    TextView gai1;//名称
     @ViewInject(R.id.name)
     TextView name;//法人
     @ViewInject(R.id.regcap)
@@ -845,7 +847,8 @@ public class CompanyDetailsActivity extends BaseActivity {
                     startActivity(new Intent(CompanyDetailsActivity.this,H5ViewActivity.class).putExtra("KeyNo", DataManager.BaseinfoList.get(0).PRIPID).putExtra("URL", URLconstant.SHOW).putExtra("regno", DataManager.BaseinfoList.get(0).REGNO).putExtra("priptype", DataManager.BaseinfoList.get(0).ENTTYPE).putExtra("entname", DataManager.BaseinfoList.get(0).ENTNAME).putExtra("msg","6"));
                     break;
                 case 23://信用报告
-                    Toast.show("此模块，正在开发中...");
+                    Intent i23=new Intent(CompanyDetailsActivity.this,ReportActivity.class);
+                    startActivity(i23);
                     break;
 
                 case 500://没有数据时返回信息
@@ -877,6 +880,8 @@ public class CompanyDetailsActivity extends BaseActivity {
         dialog.setCanceledOnTouchOutside(false);// 设置点击屏幕Dialog不消失
 
 
+
+
         if (DataManager.allcountsList.size() > 0) {
             details_tit1.setText(DataManager.allcountsList.get(0).PageView);
         }
@@ -890,7 +895,12 @@ public class CompanyDetailsActivity extends BaseActivity {
 //        }
 
         name.setText(DataManager.BaseinfoList.get(0).NAME);
-        regcap.setText(DataManager.BaseinfoList.get(0).REGCAP + "万元");
+        if((DataManager.BaseinfoList.get(0).ENTNAME).indexOf("分公司") != -1){
+            gai1.setText("负责人");
+            regcap.setText("无");
+        }else{
+            regcap.setText(DataManager.BaseinfoList.get(0).REGCAP + "万元");
+        }
         estdate.setText(DataManager.BaseinfoList.get(0).ESTDATE);
         enttype.setText(DataManager.BaseinfoList.get(0).ENTTYPE_CN);
 

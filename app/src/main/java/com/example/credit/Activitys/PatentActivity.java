@@ -61,15 +61,18 @@ public class PatentActivity extends BaseActivity {
         }
         CC_List_itemAdapter adapter = new CC_List_itemAdapter(PatentActivity.this, list, "patent",listurl);
         paListView1.setAdapter(adapter);
-        paListView1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent i = new Intent(PatentActivity.this, Public_Detail_ctivity.class);
-                i.putExtra("position",position);
-                i.putExtra("state","patent");
-                startActivity(i);
-                overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
-            }
-        });
+        /**
+         * 详情页改H5点击事件写adapter
+         */
+//        paListView1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//                Intent i = new Intent(PatentActivity.this, Public_Detail_ctivity.class);
+//                i.putExtra("position",position);
+//                i.putExtra("state","patent");
+//                startActivity(i);
+//                overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
+//            }
+//        });
     }
 }

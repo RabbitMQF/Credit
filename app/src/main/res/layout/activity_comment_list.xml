@@ -8,26 +8,31 @@
     tools:context="com.example.credit.Activitys.CommentListActivity">
 
     <include layout="@layout/public_top_bar"/>
-    <ScrollView
-        android:id="@+id/scrollV"
+    <com.example.credit.Utils.PullToRefreshView
+        android:id="@+id/pull_refresh_view233"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <com.example.credit.Views.MyListView
-
-            android:id="@+id/Ccomm_list"
+        android:layout_height="match_parent"
+        android:background="#EEEEEE"
+        android:orientation="vertical">
+        <ScrollView
+            android:id="@+id/scrollV"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="10dp"
-            android:onClick="@null"
-            android:divider="#00000000"
-            android:focusable="true"
-            android:scrollbars="none"
-            android:focusableInTouchMode="true"
-            android:listSelector="#00000000" />
-
-    </ScrollView>
+            android:layout_height="match_parent">
+            <com.example.credit.Views.MyListView
+                android:id="@+id/Ccomm_list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:onClick="@null"
+                android:divider="#00000000"
+                android:focusable="true"
+                android:scrollbars="none"
+                android:focusableInTouchMode="true"
+                android:listSelector="#00000000" />
+        </ScrollView>
+    </com.example.credit.Utils.PullToRefreshView>
 
     <LinearLayout
         android:visibility="gone"

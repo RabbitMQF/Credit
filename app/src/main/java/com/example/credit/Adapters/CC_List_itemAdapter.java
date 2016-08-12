@@ -1,6 +1,7 @@
 package com.example.credit.Adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Environment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,9 +13,11 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.example.credit.Activitys.H5ViewActivity;
 import com.example.credit.Activitys.TrademarkActivity;
 import com.example.credit.Entitys.DataManager;
 import com.example.credit.R;
+import com.example.credit.Utils.URLconstant;
 import com.example.credit.Views.RoundImageView;
 import com.squareup.picasso.Picasso;
 
@@ -51,7 +54,7 @@ public class CC_List_itemAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View view, ViewGroup parent) {
+    public View getView(final int position, View view, ViewGroup parent) {
         ViewHolder vh = null;
         if (view == null) {
             view = LayoutInflater.from(context).inflate(R.layout.activity_c_list_item, null);
@@ -72,6 +75,14 @@ public class CC_List_itemAdapter extends BaseAdapter {
             vh.cl3_tv2 = (TextView) view.findViewById(R.id.cl3_tv2);
             vh.cl3_tv3 = (TextView) view.findViewById(R.id.cl3_tv3);
             vh.cl3_tv4 = (TextView) view.findViewById(R.id.cl3_tv4);
+
+            vh.punlic_4 = (LinearLayout) view.findViewById(R.id.punlic_4);
+            vh.zlim = (ImageView) view.findViewById(R.id.zlim);
+            vh.zl_tv4_title = (TextView) view.findViewById(R.id.zl_tv4_title);
+            vh.zl_tv1_man = (TextView) view.findViewById(R.id.zl_tv1_man);
+            vh.zl_tv2_no = (TextView) view.findViewById(R.id.zl_tv2_no);
+            vh.zl_tv3_time = (TextView) view.findViewById(R.id.zl_tv3_time);
+
             view.setTag(vh);
         } else {
             vh = (ViewHolder) view.getTag();
@@ -98,6 +109,12 @@ public class CC_List_itemAdapter extends BaseAdapter {
             vh.cl3_tv2.setText(TrademarkActivity.listTr.get(position).APPLICATIONDATE);
             vh.cl3_tv3.setText(TrademarkActivity.listTr.get(position).APPLICANT);
             vh.cl3_tv4.setText(TrademarkActivity.listTr.get(position).BRANDSTAUTS);
+            vh.punlic_3.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    context.startActivity(new Intent(context, H5ViewActivity.class).putExtra("msg", "8").putExtra("URL", URLconstant.SBDETAILS).putExtra("KeyNo", TrademarkActivity.listTr.get(position).ID));
+                }
+            });
 
         } else if (str.equals("judicial")) {//司法信息
 //            vh.im.setVisibility(View.VISIBLE);
@@ -112,10 +129,24 @@ public class CC_List_itemAdapter extends BaseAdapter {
             vh.cl2_tv3.setText(DataManager.copyrightInfoeList.get(position).WORKCLASS);
 
         } else if (str.equals("patent")) {//专利信息
-            vh.cl_tv1.setVisibility(View.VISIBLE);
-            vh.cl_tv2.setVisibility(View.VISIBLE);
-            vh.cl_tv1.setText("专利名称");
-            vh.cl_tv2.setText(list.get(position));
+            vh.punlic_1.setVisibility(View.GONE);
+            vh.punlic_4.setVisibility(View.VISIBLE);
+//            vh.cl_tv1.setVisibility(View.VISIBLE);
+//            vh.cl_tv2.setVisibility(View.VISIBLE);
+//            vh.cl_tv1.setText("专利名称");
+//            vh.cl_tv2.setText(list.get(position));
+            Picasso.with(context).load(DataManager.PatentInfoS.data.patentInfo.get(position).ABSTRACTGRAPH).into(vh.zlim);
+            vh.zl_tv4_title.setText(DataManager.PatentInfoS.data.patentInfo.get(position).PATENTNAME);
+            vh.zl_tv1_man.setText(DataManager.PatentInfoS.data.patentInfo.get(position).ENTNAME);
+            vh.zl_tv2_no.setText(DataManager.PatentInfoS.data.patentInfo.get(position).RCODE);
+            vh.zl_tv3_time.setText(DataManager.PatentInfoS.data.patentInfo.get(position).RDATE);
+            vh.punlic_4.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    context.startActivity(new Intent(context, H5ViewActivity.class).putExtra("msg", "9").putExtra("URL", URLconstant.ZLDETAILS).putExtra("KeyNo", DataManager.PatentInfoS.data.patentInfo.get(position).ID));
+
+                }
+            });
         } else if (str.equals("pledge")) {//出质信息
             vh.cl_tv1.setVisibility(View.VISIBLE);
             vh.cl_tv2.setVisibility(View.VISIBLE);
@@ -142,6 +173,10 @@ public class CC_List_itemAdapter extends BaseAdapter {
         TextView cl3_tv2;
         TextView cl3_tv3;
         TextView cl3_tv4;
+
+        LinearLayout punlic_4;//修改的专利item
+        ImageView zlim;
+        TextView zl_tv4_title, zl_tv1_man, zl_tv2_no, zl_tv3_time;
 
     }
 }

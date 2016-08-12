@@ -25,7 +25,10 @@ import com.example.credit.R;
 import com.example.credit.Services.CallServer;
 import com.example.credit.Utils.CreditSharePreferences;
 import com.example.credit.Utils.GsonUtil;
+import com.example.credit.Utils.MD5;
 import com.example.credit.Utils.MyhttpCallBack;
+import com.example.credit.Utils.PullToRefreshView;
+import com.example.credit.Utils.Toast;
 import com.example.credit.Utils.URLconstant;
 import com.example.credit.Views.MyListView;
 import com.lidroid.xutils.ViewUtils;
@@ -43,7 +46,7 @@ import Decoder.BASE64Decoder;
 /**
  * 评论列表界面
  */
-public class CommentListActivity extends BaseActivity {
+public class CommentListActivity extends BaseActivity implements PullToRefreshView.OnHeaderRefreshListener, PullToRefreshView.OnFooterRefreshListener{
     @ViewInject(R.id.b_topname)
     TextView b_topname;
     @ViewInject(R.id.b_return)
@@ -62,6 +65,8 @@ public class CommentListActivity extends BaseActivity {
     @ViewInject(R.id.commentNull)
     LinearLayout commentNull;//空
 
+    @ViewInject(R.id.pull_refresh_view233)
+    PullToRefreshView mPullToRefreshView;
     CommmentAdapter adapter;
     public static Handler handler;
     CreditSharePreferences csp;
@@ -69,11 +74,17 @@ public class CommentListActivity extends BaseActivity {
     public static WaitDialog wd;
     AlertDialog.Builder builder;
     public static AlertDialog dialog;
+
+    public static List<DataManager.MyCommentlistr.DataBean.UserreviewBean> listpl = new ArrayList<>();
+    boolean falg=false;
+    int por;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_comment_list);
         ViewUtils.inject(this);
+        mPullToRefreshView.setOnHeaderRefreshListener(this);
+        mPullToRefreshView.setOnFooterRefreshListener(this);
         wd = new WaitDialog(this);
         Intent i = getIntent();
         type = i.getIntExtra("type", 0);
@@ -85,11 +96,21 @@ public class CommentListActivity extends BaseActivity {
                 super.handleMessage(msg);
                 switch (msg.what) {
                     case 0:
+                        if(falg==false){
+                            listpl=DataManager.MyCommentlistrS.data.userreview;
+                        }else{
+                            por=listpl.size()-1;
+                            listpl.addAll(DataManager.MyCommentlistrS.data.userreview);
+                        }
                         Rit();
-                        wd.dismiss();
+                        if(falg==false) {
+                            wd.dismiss();
+                        }
                         break;
                     case 500:
-                        wd.dismiss();
+                        if(falg==false) {
+                            wd.dismiss();
+                        }
                         scrollV.setVisibility(View.GONE);
                         commentNull.setVisibility(View.VISIBLE);
                         break;
@@ -133,9 +154,10 @@ public class CommentListActivity extends BaseActivity {
                     //Toast.show("请先登录账号");
                     dialog.show();
                 } else {
+                    falg=false;
                     Intent i = new Intent(CommentListActivity.this, CommentListDetailsActivity.class);
-                    i.putExtra("uid", DataManager.MyCommentlistrS.data.userreview.get(position).MEMBERID);
-                    i.putExtra("pid", DataManager.MyCommentlistrS.data.userreview.get(position).COMMENTID);
+                    i.putExtra("uid", listpl.get(position).MEMBERID);
+                    i.putExtra("pid", listpl.get(position).COMMENTID);
                     i.putExtra("position", position);
                     startActivityForResult(i, 22);
                 }
@@ -155,6 +177,7 @@ public class CommentListActivity extends BaseActivity {
                         //Toast.show("请先登录账号");
                         dialog.show();
                     } else {
+                        falg=false;
                         Intent i = new Intent(CommentListActivity.this, ToCommentActivity.class);
                         startActivityForResult(i, 11);
                     }
@@ -171,21 +194,20 @@ public class CommentListActivity extends BaseActivity {
                 break;
             case 22:
                 adapter.notifyDataSetChanged();
-//                intiow();
                 break;
         }
         super.onActivityResult(requestCode, resultCode, data);
     }
 
     public void Rit() {
-        for (int i = 0; i < DataManager.MyCommentlistrS.data.userreview.size(); i++) {
-            if (!DataManager.MyCommentlistrS.data.userreview.get(i).ICONPATH.equals("")) {
-                String strr = ((DataManager.MyCommentlistrS.data.userreview.get(i).ICONPATH).substring(DataManager.MyCommentlistrS.data.userreview.get(i).ICONPATH.length() - 20, DataManager.MyCommentlistrS.data.userreview.get(i).ICONPATH.length() - 5)).replaceAll("\\/", "_");
+        for (int i = 0; i < listpl.size(); i++) {
+            if (!listpl.get(i).ICONPATH.equals("")) {
+                String strr = ((listpl.get(i).ICONPATH).substring(listpl.get(i).ICONPATH.length() - 20, listpl.get(i).ICONPATH.length() - 5)).replaceAll("\\/", "_");
                 File file = new File(Environment.getExternalStorageDirectory() + "/Credit/cache/" + strr + ".jpg");
                 if (!file.exists()) {//获取本地图片路径是否存在
                     try {
                         BASE64Decoder decode = new BASE64Decoder();
-                        byte[] b = decode.decodeBuffer(DataManager.MyCommentlistrS.data.userreview.get(i).ICONPATH);
+                        byte[] b = decode.decodeBuffer(listpl.get(i).ICONPATH);
                         System.out.println(new String(b));
                         StringBuilder str = new StringBuilder();//不建议用String
                         for (byte bs : b) {
@@ -203,21 +225,69 @@ public class CommentListActivity extends BaseActivity {
                 }
             }
         }
-        adapter = new CommmentAdapter(CommentListActivity.this, DataManager.MyCommentlistrS.data.userreview);
+        adapter = new CommmentAdapter(CommentListActivity.this, listpl);
         adapter.notifyDataSetChanged();
         Ccomm_list.setAdapter(adapter);
+        Ccomm_list.setSelection(por-2);
+        mPullToRefreshView.onFooterRefreshComplete();
     }
 
     public void intiow() {
         /**
          * 查询评论
          */
-        wd.show();
         GsonUtil request14 = new GsonUtil(URLconstant.URLINSER + URLconstant.COMM, RequestMethod.GET);
         request14.add("deviceId", (new Build()).MODEL);
         request14.add("token", SearchFirmActivty.MD5s(DataManager.allcountsList.get(0).EnterAddtionID + (new Build()).MODEL));
         request14.add("KeyNo", DataManager.allcountsList.get(0).EnterAddtionID);
         request14.add("memberId", "");
+        if(falg==true){
+            request14.add("pageIndex", DataManager.MyCommentlistrS.data.Paging.CurrentPage+1);
+        }else{
+            wd.show();
+        }
         CallServer.getInstance().add(CommentListActivity.this, request14, MyhttpCallBack.getInstance(), 0x201, true, false, true);
     }
+
+    /**
+     * 上拉加载
+     * @param view
+     */
+    @Override
+    public void onFooterRefresh(PullToRefreshView view) {
+
+        mPullToRefreshView.postDelayed(new Runnable() {
+
+            @Override
+            public void run() {
+                if(DataManager.MyCommentlistrS.data.Paging.TotalPage>DataManager.MyCommentlistrS.data.Paging.CurrentPage){
+                    falg=true;
+                    intiow();
+                }else {
+                    mPullToRefreshView.onFooterRefreshComplete();
+                    Toast.show("没有数据了!");
+                }
+            }
+        }, 1000);
+
+    }
+
+    /**
+     * 下拉刷新
+     * @param view
+     */
+    @Override
+    public void onHeaderRefresh(PullToRefreshView view) {
+        mPullToRefreshView.postDelayed(new Runnable() {
+
+            @Override
+            public void run() {
+                mPullToRefreshView.onHeaderRefreshComplete();
+                adapter = new CommmentAdapter(CommentListActivity.this, listpl);
+                adapter.notifyDataSetChanged();
+                Ccomm_list.setAdapter(adapter);
+            }
+        }, 1000);
+    }
+
 }

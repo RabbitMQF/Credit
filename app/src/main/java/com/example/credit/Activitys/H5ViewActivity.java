@@ -99,7 +99,7 @@ public class H5ViewActivity extends Activity {
                 break;
             case"10"://失信详情
                 b_topname.setText("失信详情");
-                str = URL + "?KeyNo=" + KeyNo + "&courtcaseId=" + courtcaseid ;
+                str = URL + "?KeyNo=" + KeyNo + "&courtcaseId=" + courtcaseid+"&devicetype=1" ;
                 break;
 
             default:

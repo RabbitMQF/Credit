@@ -291,6 +291,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                         break;
                     case 8://跳公司详情
                         ad.dismiss();
+                        Main_NewCliam_MoreListActivity.ad.dismiss();
                         Intent i = new Intent(MainActivity.this, CompanyDetailsActivity.class);
                         i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(i);

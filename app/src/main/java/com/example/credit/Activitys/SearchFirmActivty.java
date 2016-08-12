@@ -149,7 +149,7 @@ public class SearchFirmActivty extends BaseActivity implements PullToRefreshView
                             por=listsea.size()-1;
                         }else{
                             listsea = DataManager.searchList;
-                            android.widget.Toast.makeText(SearchFirmActivty.this, "已搜索到" + MyhttpCallBack.baging.TotalRecords + "条数据", android.widget.Toast.LENGTH_SHORT).show();
+                            android.widget.Toast.makeText(SearchFirmActivty.this, "已搜索到" + MyhttpCallBack.baging.TotalResult+ "条数据", android.widget.Toast.LENGTH_SHORT).show();
                         }
                         his_sra.setVisibility(View.GONE);
                         search_list.setVisibility(View.VISIBLE);

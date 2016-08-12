@@ -134,5 +134,8 @@ public class URLconstant {
 
     public static final String SXDETAILSDS="http://101.201.211.27:8282/zhirong.credith5/forensicInfoController/getforensicInfoDetails.do";//失信详情页URl
 
+    public static final String REPORTURL1 ="baseinfo/makePdf.do";//信用报告Report1
+
+    public static final String REPORTURL2 ="baseinfo/sendPdfByEmail.do";//信用报告Report2
 
 }

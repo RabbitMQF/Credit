@@ -42,7 +42,7 @@ public class Main_NewCliam_MoreListActivity extends BaseActivity {
     ListView tListViewNC;
     NewClaimListAdapter adapter;
     CreditSharePreferences csp;
-    WaitDialog ad;
+   public static WaitDialog ad;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,7 +56,6 @@ public class Main_NewCliam_MoreListActivity extends BaseActivity {
         b_return.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ad.dismiss();
                 finish();
                 overridePendingTransition(R.anim.finish_tran_one, R.anim.finish_tran_two);
             }

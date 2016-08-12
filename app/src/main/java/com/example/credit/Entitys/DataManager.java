@@ -546,6 +546,7 @@ public class DataManager {
                 public int CurrentPage;
             }
             public static class PatentInfoBean {
+                public String ID;//专利ID   后加
                 public String PRIPID;//企业ID
                 public String PATENTNAME;//专利名称
                 public String RCODE;//申请号
@@ -558,6 +559,8 @@ public class DataManager {
                 public String LEGALSTATUS;//法律状态
                 public String DETAILINFO;//详细信息
                 public String ABSTRACTGRAPH;//图片地址
+                public String ENTNAME;//公司名称 后加
+
             }
         }
     }
@@ -1181,9 +1184,9 @@ public class DataManager {
      */
     public static class baging {
         public int TotalPage;
-        public int PageIndex;
-        public int showCount;
-        public int TotalRecords;
+        public int TotalResult;
+        public int ShowCount;
+        public int CurrentPage;
     }
 
     /**
@@ -1852,6 +1855,8 @@ public class DataManager {
                 public String AGENCY;//代理机构
                 public String LEGALSTATUS;//法律状态
                 public String DETAILINFO;//详细信息
+                public String ABSTRACTGRAPH;//后加图片路径
+                public String ENTNAME;//公司名称 后加
             }
         }
     }
@@ -1926,6 +1931,6 @@ public class DataManager {
             }
         }
     }
-
+    public static String ReportText="";
 }
 

@@ -91,16 +91,19 @@ public class TrademarkActivity extends BaseActivity implements PullToRefreshView
                 CC_List_itemAdapter adapter = new CC_List_itemAdapter(TrademarkActivity.this, list,"trademark",listurl);
                 tListView1.setAdapter(adapter);
                 tListView1.setSelection(por-2);
-                tListView1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                        Intent i = new Intent(TrademarkActivity.this, Public_Detail_ctivity.class);
-                        i.putExtra("position", position);
-                        i.putExtra("state", "trademark");
-                        startActivity(i);
-                        overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
-                    }
-                });
+                /**
+                 * 详情页改H5点击事件写adapter
+                 */
+//                tListView1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//                    @Override
+//                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//                        Intent i = new Intent(TrademarkActivity.this, Public_Detail_ctivity.class);
+//                        i.putExtra("position", position);
+//                        i.putExtra("state", "trademark");
+//                        startActivity(i);
+//                        overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
+//                    }
+//                });
             }
         };
 

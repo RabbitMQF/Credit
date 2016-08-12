@@ -71,6 +71,14 @@ public class Main_CC_List_itemAdapter extends BaseAdapter {
             vh.cl3_tv3= (TextView) view.findViewById(R.id.cl3_tv3);
             vh.cl3_tv4= (TextView) view.findViewById(R.id.cl3_tv4);
 
+
+            vh.punlic_4 = (LinearLayout) view.findViewById(R.id.punlic_4);
+            vh.zlim = (ImageView) view.findViewById(R.id.zlim);
+            vh.zl_tv4_title = (TextView) view.findViewById(R.id.zl_tv4_title);
+            vh.zl_tv1_man = (TextView) view.findViewById(R.id.zl_tv1_man);
+            vh.zl_tv2_no = (TextView) view.findViewById(R.id.zl_tv2_no);
+            vh.zl_tv3_time = (TextView) view.findViewById(R.id.zl_tv3_time);
+
             vh.public_5 = (FrameLayout) view.findViewById(R.id.public_5);
             vh.sx_1 = (TextView) view.findViewById(R.id.sx_1);
             vh.sx_2 = (TextView) view.findViewById(R.id.sx_2);
@@ -122,11 +130,18 @@ public class Main_CC_List_itemAdapter extends BaseAdapter {
             vh.cl2_tv3.setText(DataManager.copyrightInfoeList.get(position).WORKCLASS);
 
         }else if (str.equals("patent")) {//专利信息
-            vh.cl_tv1.setVisibility(View.VISIBLE);
-            vh.cl_tv2.setVisibility(View.VISIBLE);
-            vh.cl_tv1.setText("专利名称");
-            vh.cl_tv2.setText(list.get(position));
-            vh.punlic_1.setOnClickListener(new View.OnClickListener() {
+            vh.punlic_1.setVisibility(View.GONE);
+            vh.punlic_4.setVisibility(View.VISIBLE);
+//            vh.cl_tv1.setVisibility(View.VISIBLE);
+//            vh.cl_tv2.setVisibility(View.VISIBLE);
+//            vh.cl_tv1.setText("专利名称");
+//            vh.cl_tv2.setText(list.get(position));
+            Picasso.with(context).load(DataManager.zl_searchS.data.patentInfo.get(position).ABSTRACTGRAPH).into(vh.zlim);
+            vh.zl_tv4_title.setText(DataManager.zl_searchS.data.patentInfo.get(position).PATENTNAME);
+            vh.zl_tv1_man.setText(DataManager.zl_searchS.data.patentInfo.get(position).ENTNAME);
+            vh.zl_tv2_no.setText(DataManager.zl_searchS.data.patentInfo.get(position).RCODE);
+            vh.zl_tv3_time.setText(DataManager.zl_searchS.data.patentInfo.get(position).RDATE);
+            vh.punlic_4.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                    context.startActivity(new Intent(context, H5ViewActivity.class).putExtra("msg","9").putExtra("URL", URLconstant.ZLDETAILS).putExtra("KeyNo",DataManager.zl_searchS.data.patentInfo.get(position).ID));
@@ -144,9 +159,9 @@ public class Main_CC_List_itemAdapter extends BaseAdapter {
             vh.punlic_1.setVisibility(View.GONE);
             vh.public_5.setVisibility(View.VISIBLE);
             vh.sx_1.setText(list.get(position));
-            vh.sx_2.setText(Main_Search_ListActivity.listsx.get(position).INAME);
-            vh.sx_3.setText(Main_Search_ListActivity.listsx.get(position).INAME);
-            vh.sx_4.setText(Main_Search_ListActivity.listsx.get(position).INAME);
+            vh.sx_2.setText(Main_Search_ListActivity.listsx.get(position).COURT_NAME);
+            vh.sx_3.setText(Main_Search_ListActivity.listsx.get(position).CASE_CODE);
+            vh.sx_4.setText(Main_Search_ListActivity.listsx.get(position).PUBLISH_DATE);
             vh.public_5.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -174,6 +189,10 @@ public class Main_CC_List_itemAdapter extends BaseAdapter {
         TextView cl3_tv2;
         TextView cl3_tv3;
         TextView cl3_tv4;
+
+        LinearLayout punlic_4;//修改的专利item
+        ImageView zlim;
+        TextView zl_tv4_title, zl_tv1_man, zl_tv2_no, zl_tv3_time;
 
         FrameLayout public_5;
         TextView sx_1;
