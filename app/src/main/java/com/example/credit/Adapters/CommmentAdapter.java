@@ -205,7 +205,7 @@ public class CommmentAdapter extends BaseAdapter {
          * 绑定评论的回复列表
          */
         if(DataManager.replay2reviewList!=null){
-            vh.liuyan_num.setText(DataManager.replay2reviewList.size()+"");
+            vh.liuyan_num.setText(list.get(position).replay2reviewCount+"");
             Commment_ItemlistAdapter adapter=new Commment_ItemlistAdapter(context,list.get(position).replay2review);
             vh.commpl_list.setAdapter(adapter);
         }

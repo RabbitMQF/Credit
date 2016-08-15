@@ -142,11 +142,12 @@ public class SearchFirmActivty extends BaseActivity implements PullToRefreshView
                         pd.dismiss();
                         if(DataManager.searchListMore!=null && DataManager.searchListMore.size()>0){
                             mPullToRefreshView.onFooterRefreshComplete();
+                            por=listsea.size()-1;
                             t++;
                             for(int i=0;i<DataManager.searchListMore.size();i++){
                                 listsea.add(DataManager.searchListMore.get(i));
                             }
-                            por=listsea.size()-1;
+//                            por=listsea.size()-1;
                         }else{
                             listsea = DataManager.searchList;
                             android.widget.Toast.makeText(SearchFirmActivty.this, "已搜索到" + MyhttpCallBack.baging.TotalResult+ "条数据", android.widget.Toast.LENGTH_SHORT).show();

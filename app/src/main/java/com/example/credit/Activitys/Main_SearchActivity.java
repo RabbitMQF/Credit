@@ -7,6 +7,8 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
@@ -39,7 +41,7 @@ import java.util.List;
  * 主界面的【专利】，【商标】搜索界面
  */
 public class Main_SearchActivity extends Activity {
-    @ViewInject(R.id.search_et)
+    @ViewInject(R.id.search_et1)
     EditText search_et;
 
     @ViewInject(R.id.arrow_backm)
@@ -47,8 +49,10 @@ public class Main_SearchActivity extends Activity {
     String hit;
     public static Handler handler;
     public static WaitDialog wd;
-    @ViewInject(R.id.search_bt)
+    @ViewInject(R.id.search_bt1)
     ImageView search_bt;
+    @ViewInject(R.id.search_et_cc2)
+    ImageView search_et_cc;
 
     CreditSharePreferences csp=CreditSharePreferences.getLifeSharedPreferences();
 
@@ -188,7 +192,36 @@ public class Main_SearchActivity extends Activity {
         main_s2.setOnClickListener(listener);
         main_s3.setOnClickListener(listener);
         main_s4.setOnClickListener(listener);
+        search_et.addTextChangedListener(new TextWatcher() {//动态判断输入框中的字数并显示隐藏图标
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if (start > 0) {
+                    search_et_cc.setVisibility(View.VISIBLE);
+                } else {
+                    search_et_cc.setVisibility(View.GONE);
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable t) {
+                if (t.length() > 0) {
+                    search_et_cc.setVisibility(View.VISIBLE);
+                } else {
+                    search_et_cc.setVisibility(View.GONE);
+                }
+            }
+        });
+        search_et_cc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                search_et.setText("");
+            }
+        });
     }
     public void search() {
         hisinit();

@@ -107,13 +107,13 @@ public class Main_CC_List_itemAdapter extends BaseAdapter {
                 Picasso.with(context).load(imgUrl.get(position)).into(vh.imR);
             }
             vh.cl3_tv1.setText(list.get(position));
-            vh.cl3_tv2.setText(DataManager.sb_searchS.data.trademark.get(position).APPLICATIONDATE);
-            vh.cl3_tv3.setText(DataManager.sb_searchS.data.trademark.get(position).APPLICANT);
-            vh.cl3_tv4.setText(DataManager.sb_searchS.data.trademark.get(position).BRANDSTAUTS);
+            vh.cl3_tv2.setText(Main_Search_ListActivity.listsb.get(position).APPLICATIONDATE);
+            vh.cl3_tv3.setText(Main_Search_ListActivity.listsb.get(position).APPLICANT);
+            vh.cl3_tv4.setText(Main_Search_ListActivity.listsb.get(position).BRANDSTAUTS);
             vh.punlic_3.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    context.startActivity(new Intent(context, H5ViewActivity.class).putExtra("msg","8").putExtra("URL", URLconstant.SBDETAILS).putExtra("KeyNo",DataManager.sb_searchS.data.trademark.get(position).ID));
+                    context.startActivity(new Intent(context, H5ViewActivity.class).putExtra("msg","8").putExtra("URL", URLconstant.SBDETAILS).putExtra("KeyNo",Main_Search_ListActivity.listsb.get(position).ID));
                 }
             });
 
@@ -136,15 +136,15 @@ public class Main_CC_List_itemAdapter extends BaseAdapter {
 //            vh.cl_tv2.setVisibility(View.VISIBLE);
 //            vh.cl_tv1.setText("专利名称");
 //            vh.cl_tv2.setText(list.get(position));
-            Picasso.with(context).load(DataManager.zl_searchS.data.patentInfo.get(position).ABSTRACTGRAPH).into(vh.zlim);
-            vh.zl_tv4_title.setText(DataManager.zl_searchS.data.patentInfo.get(position).PATENTNAME);
-            vh.zl_tv1_man.setText(DataManager.zl_searchS.data.patentInfo.get(position).ENTNAME);
-            vh.zl_tv2_no.setText(DataManager.zl_searchS.data.patentInfo.get(position).RCODE);
-            vh.zl_tv3_time.setText(DataManager.zl_searchS.data.patentInfo.get(position).RDATE);
+            Picasso.with(context).load(imgUrl.get(position)).into(vh.zlim);
+            vh.zl_tv4_title.setText(list.get(position));
+            vh.zl_tv1_man.setText(Main_Search_ListActivity.listzl.get(position).ENTNAME);
+            vh.zl_tv2_no.setText(Main_Search_ListActivity.listzl.get(position).RCODE);
+            vh.zl_tv3_time.setText(Main_Search_ListActivity.listzl.get(position).RDATE);
             vh.punlic_4.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                   context.startActivity(new Intent(context, H5ViewActivity.class).putExtra("msg","9").putExtra("URL", URLconstant.ZLDETAILS).putExtra("KeyNo",DataManager.zl_searchS.data.patentInfo.get(position).ID));
+                   context.startActivity(new Intent(context, H5ViewActivity.class).putExtra("msg","9").putExtra("URL", URLconstant.ZLDETAILS).putExtra("KeyNo",Main_Search_ListActivity.listzl.get(position).ID));
 
                 }
             });

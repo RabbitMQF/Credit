@@ -2,6 +2,7 @@ package com.example.credit.Activitys;
 
 import android.app.Activity;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -50,6 +51,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -219,8 +221,12 @@ public class ToClaimActivity extends BaseActivity implements OnItemLongClickList
                     //==============
                     File file = new File(imgpath);
                     if (file.exists()) {//获取本地图片路径是否存在
-                        Bitmap bm = BitmapFactory.decodeFile(imgpath);
-                        Drawable drawable = new BitmapDrawable(null, bm);
+//                        Bitmap bm = BitmapFactory.decodeFile(imgpath);
+//                        Drawable drawable = new BitmapDrawable(null, bm);
+                        BitmapFactory.Options options = new BitmapFactory.Options();
+                        options.inSampleSize = 2;//图片宽高都为原来的二分之一，即图片为原来的四分之一
+                        Bitmap bs = BitmapFactory.decodeFile(imgpath, options);
+                        Drawable drawable = new BitmapDrawable(null, bs);
                         myList.add(drawable);
                     }
                 } catch (IOException e) {
@@ -483,4 +489,5 @@ public class ToClaimActivity extends BaseActivity implements OnItemLongClickList
         mAdapter.setIsShowDelete(isShowDelete);
         return true;
     }
+
 }

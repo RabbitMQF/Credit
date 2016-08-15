@@ -240,7 +240,11 @@ public class CommentListActivity extends BaseActivity implements PullToRefreshVi
         request14.add("deviceId", (new Build()).MODEL);
         request14.add("token", SearchFirmActivty.MD5s(DataManager.allcountsList.get(0).EnterAddtionID + (new Build()).MODEL));
         request14.add("KeyNo", DataManager.allcountsList.get(0).EnterAddtionID);
-        request14.add("memberId", "");
+        if (!csp.getLoginStatus()) {//判定是否登录
+            request14.add("memberId", "");
+        }else{
+            request14.add("memberId", csp.getID());
+        }
         if(falg==true){
             request14.add("pageIndex", DataManager.MyCommentlistrS.data.Paging.CurrentPage+1);
         }else{

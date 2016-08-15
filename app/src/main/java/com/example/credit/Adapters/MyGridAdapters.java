@@ -222,8 +222,8 @@ public class MyGridAdapters extends BaseAdapter {
 //                    tv.setTextColor(Color.parseColor("#B8B8B8"));
 //                }
 //                tv.setText((DataManager.allcountsList.get(0).AnnualCount)+"");
-                tv.setTextColor(Color.parseColor("#B8B8B8"));
-                tv.setText("0");
+//                tv.setTextColor(Color.parseColor("#B8B8B8"));
+                tv.setText("1");
                 break;
             default:
                 break;

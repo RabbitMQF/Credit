@@ -7,7 +7,6 @@ import java.util.List;
  * Created by Administrator on 2016/5/13 0013.
  */
 public class DataManager {
-    public static int FavoritefalgS=0;//默认为0 ，要关注为1.要取消关注为2   ，关注事件
 
     public static String StringZero="";//公司
     public static String String0="";//工商
@@ -1266,7 +1265,7 @@ public class DataManager {
             public static class UserreviewBean {
                 public String ENTERID;//附加表的企业ID
                 public String ICONPATH;//头像
-                public String FAILEDQTY;//点赞吐槽
+                public String FAILEDQTY;//吐槽数量
                 public String replay2reviewCount;
                 public String MEMBERID;//本评论用户ID
                 public String CREATETIME;//评论时间

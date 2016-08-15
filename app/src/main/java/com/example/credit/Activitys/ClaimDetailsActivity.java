@@ -56,7 +56,7 @@ public class ClaimDetailsActivity extends Activity {
     MyGridView myGridViewtcDD;//描述详情
 
     int position;
-    Drawable[] imgS;
+    String [] imgS;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -86,7 +86,7 @@ public class ClaimDetailsActivity extends Activity {
 
         cm_details.setText(DataManager.MyClaimUtilsModel.data.Claimlist.get(position).DESCRIPTION);
 
-        imgS=new Drawable[DataManager.MyClaimUtilsModel.data.Claimlist.get(position).AttachmentList.size()];
+        imgS=new String[DataManager.MyClaimUtilsModel.data.Claimlist.get(position).AttachmentList.size()];
         for(int i=0;i<DataManager.MyClaimUtilsModel.data.Claimlist.get(position).AttachmentList.size();i++){
             String base64String=DataManager.MyClaimUtilsModel.data.Claimlist.get(position).AttachmentList.get(i).ATTACHMENTPATH;
 //            byte[] bydata=Base64.decode(base64String,Base64.DEFAULT);
@@ -114,9 +114,9 @@ public class ClaimDetailsActivity extends Activity {
                 //==============
                 File file = new File(imgpath);
                 if (file.exists()) {//获取本地图片路径是否存在
-                    Bitmap bm = BitmapFactory.decodeFile(imgpath);
-                    Drawable drawable = new BitmapDrawable(null, bm);
-                    imgS[i]=drawable;
+//                    Bitmap bm = BitmapFactory.decodeFile(imgpath);
+//                    Drawable drawable = new BitmapDrawable(null, bm);
+                    imgS[i]=imgpath;
                 }
             } catch (IOException e) {
                 e.printStackTrace();

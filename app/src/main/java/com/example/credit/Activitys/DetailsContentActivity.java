@@ -352,7 +352,11 @@ public class DetailsContentActivity extends BaseActivity {
             }
         }
 
-        lt.add("暂无信息");
+        if(DataManager.gsxx.data.BaseInfo.PRIPID!=null&&!DataManager.gsxx.data.BaseInfo.PRIPID.equals(null)&&!DataManager.gsxx.data.BaseInfo.PRIPID.equals("")){
+            lt.add(DataManager.gsxx.data.BaseInfo.PRIPID);
+        }else{
+            lt.add("暂无信息");
+        }
         int size = lt.size();
         arrays4 = (String[]) lt.toArray(new String[size]);
         adapter2 = new MyGridAdapter3(DetailsContentActivity.this, arrays3, arrays4);

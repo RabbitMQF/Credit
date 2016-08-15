@@ -359,14 +359,20 @@ public class CompanyDetailsActivity extends BaseActivity {
                         startActivity(i21);
                         break;
                     case 22://关注
+                        waitDialog.dismiss();
                         if (DataManager.FavotiteS.data.result.equals("success")) {
+                            pb_4_img.setBackgroundResource(R.mipmap.btm_4_s);
+                            pb_4_txt.setText("已关注");
                             android.widget.Toast.makeText(CompanyDetailsActivity.this, "关注成功！", android.widget.Toast.LENGTH_SHORT).show();
                         } else {
                             android.widget.Toast.makeText(CompanyDetailsActivity.this, "关注失败！", android.widget.Toast.LENGTH_SHORT).show();
                         }
                         break;
                     case 23://取消关注
+                        waitDialog.dismiss();
                         if (DataManager.FavotiteS.data.result.equals("success")) {
+                            pb_4_img.setBackgroundResource(R.mipmap.btm_4_n);
+                            pb_4_txt.setText("关注");
                             android.widget.Toast.makeText(CompanyDetailsActivity.this, "取消关注成功！", android.widget.Toast.LENGTH_SHORT).show();
                         } else {
                             android.widget.Toast.makeText(CompanyDetailsActivity.this, "取消关注失败！", android.widget.Toast.LENGTH_SHORT).show();
@@ -396,9 +402,6 @@ public class CompanyDetailsActivity extends BaseActivity {
     AdapterView.OnItemClickListener listener = new AdapterView.OnItemClickListener() {
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int index, long id) {
-            if( DataManager.FavoritefalgS!=0){
-                FavotiteShow();
-            }
             switch (index) {
                 case 0://工商信息
                     if (a1 == 0) {
@@ -911,10 +914,6 @@ public class CompanyDetailsActivity extends BaseActivity {
         d_return.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if( DataManager.FavoritefalgS!=0){
-
-                    FavotiteShow();
-                }
                 finish();
                 overridePendingTransition(R.anim.finish_tran_one, R.anim.finish_tran_two);
 
@@ -1044,9 +1043,6 @@ public class CompanyDetailsActivity extends BaseActivity {
                         if(DataManager.allcountsList.get(0).IsClaim=="1"||DataManager.allcountsList.get(0).IsClaim.equals("1")){
                             Toast.show("该企业已认领");
                         }else{
-                            if (DataManager.FavoritefalgS != 0) {
-                                FavotiteShow();
-                            }
                             Intent i = new Intent(CompanyDetailsActivity.this, ToClaimActivity.class);
                             startActivity(i);
                         }
@@ -1063,26 +1059,16 @@ public class CompanyDetailsActivity extends BaseActivity {
         public void onClick(View v) {
             switch (v.getId()) {
                 case R.id.pb_1://首页
-                    if( DataManager.FavoritefalgS!=0){
-
-                        FavotiteShow();
-                    }
                     Intent i1 = new Intent(CompanyDetailsActivity.this, MainActivity.class);
                     startActivity(i1);
                     finish();
                     break;
                 case R.id.pb_2://评论
-                    if( DataManager.FavoritefalgS!=0){
-                        FavotiteShow();
-                    }
                     Intent i21 = new Intent(CompanyDetailsActivity.this, CommentListActivity.class);
                     i21.putExtra("type", 0);
                     startActivity(i21);
                     break;
                 case R.id.pb_0://二维码名片
-                    if( DataManager.FavoritefalgS!=0){
-                        FavotiteShow();
-                    }
                     File file = new File(Environment.getExternalStorageDirectory() + "/Credit/cache/" + DataManager.BaseinfoList.get(0).REGNO + "_TwoDimImg.jpg");
                     if (file.exists()) {//获取本地图片路径是否存在
                         CompanyDetailsActivity.handler.sendEmptyMessage(25);
@@ -1099,9 +1085,6 @@ public class CompanyDetailsActivity extends BaseActivity {
                     }
                     break;
                 case R.id.pb_3://企业投诉
-                    if( DataManager.FavoritefalgS!=0){
-                        FavotiteShow();
-                    }
                     pd.show();
                     GsonUtil ComplaintsRuerst = new GsonUtil(URLconstant.URLINSER + URLconstant.GETCOMPLAIN, RequestMethod.GET);
                     ComplaintsRuerst.add("token", MD5.MD5s("" + new Build().MODEL));//csp.getID()
@@ -1116,22 +1099,29 @@ public class CompanyDetailsActivity extends BaseActivity {
                         //Toast.show("请先登录账号");
                         dialog.show();
                     } else {
+                        waitDialog.show();
                         if (pb_4_txt.getText().toString().equals("关注")) {//当前状态为未关注，所以点击是关注
-                            DataManager.FavoritefalgS = 1;
-                            pb_4_img.setBackgroundResource(R.mipmap.btm_4_s);
-                            pb_4_txt.setText("已关注");
+                            GsonUtil requestG = new GsonUtil(URLconstant.URLINSER + URLconstant.YESFAVORITE, RequestMethod.GET);
+                            requestG.add("deviceId", model);
+                            requestG.add("token", tokens);
+                            requestG.add("KeyNo", KeyNos);
+                            requestG.add("memberId", csp.getID());
+                            requestG.add("attentionTypeId", "11");
+                            CallServer.getInstance().add(CompanyDetailsActivity.this, requestG, MyhttpCallBack.getInstance(), 0x101, true, false, true);
                         } else {//当前状态为已关注，所以点击是取消关注
-                            DataManager.FavoritefalgS = 2;
-                            pb_4_img.setBackgroundResource(R.mipmap.btm_4_n);
-                            pb_4_txt.setText("关注");
+                            if (type == 5) {
+                                DataManager.FavotiteListS.data.AttentionList.remove(posit);
+                            }
+                            GsonUtil requestN = new GsonUtil(URLconstant.URLINSER + URLconstant.NOFAVORITE, RequestMethod.GET);
+                            requestN.add("deviceId", model);
+                            requestN.add("token", tokens);
+                            requestN.add("KeyNo", KeyNos);
+                            requestN.add("memberId", csp.getID());
+                            CallServer.getInstance().add(CompanyDetailsActivity.this, requestN, MyhttpCallBack.getInstance(), 0x102, true, false, true);
                         }
                     }
                     break;
                 case R.id.panoramic://全景
-                    if( DataManager.FavoritefalgS!=0){
-                        FavotiteShow();
-//                        DataManager.FavoritefalgS2!
-                    }
                     startActivity(new Intent(CompanyDetailsActivity.this, Panoramic_Activity.class).putExtra("KeyNo", KeyNo).putExtra("deviceId", model).putExtra("priptype", DataManager.BaseinfoList.get(0).ENTTYPE).putExtra("regnore", regnore).putExtra("entname", DataManager.BaseinfoList.get(0).ENTNAME));
                     break;
                 default:
@@ -1139,36 +1129,5 @@ public class CompanyDetailsActivity extends BaseActivity {
             }
         }
     };
-
-    public  void FavotiteShow(){
-        String strf="";
-        if (DataManager.allcountsList.get(0).IsFavorite.equals("false")) {//当前状态为未关注，所以点击是关注
-            strf="关注";
-        } else {
-            strf="已关注";
-        }
-        if(!pb_4_txt.getText().toString().equals(strf)){
-            if (DataManager.FavoritefalgS==1) {//当前状态为未关注，所以点击是关注
-                GsonUtil requestG = new GsonUtil(URLconstant.URLINSER + URLconstant.YESFAVORITE, RequestMethod.GET);
-                requestG.add("deviceId", model);
-                requestG.add("token", tokens);
-                requestG.add("KeyNo", KeyNos);
-                requestG.add("memberId", csp.getID());
-                requestG.add("attentionTypeId", "11");
-                CallServer.getInstance().add(CompanyDetailsActivity.this, requestG, MyhttpCallBack.getInstance(), 0x101, true, false, true);
-            } else if( DataManager.FavoritefalgS==2){//当前状态为已关注，所以点击是取消关注
-                if (type == 5) {
-                    DataManager.FavotiteListS.data.AttentionList.remove(posit);
-                }
-                GsonUtil requestN = new GsonUtil(URLconstant.URLINSER + URLconstant.NOFAVORITE, RequestMethod.GET);
-                requestN.add("deviceId", model);
-                requestN.add("token", tokens);
-                requestN.add("KeyNo", KeyNos);
-                requestN.add("memberId", csp.getID());
-                CallServer.getInstance().add(CompanyDetailsActivity.this, requestN, MyhttpCallBack.getInstance(), 0x102, true, false, true);
-            }
-        }
-
-    }
 
 }

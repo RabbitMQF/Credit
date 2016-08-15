@@ -371,7 +371,7 @@ public class ReportActivity extends Activity {
                     }else if(!UserSetTowActivity.isNumeric(xx2.getText().toString()) || (xx2.getText().toString()).length()!=11){
                         Toast.show("手机号码格式不正确!");
                     }else{
-                        wd.dismiss();
+                        wd.show();
                         GsonUtil request = new GsonUtil(URLconstant.URLINSER+URLconstant.REPORTURL1, RequestMethod.GET);
                         request.add("pripid",  DataManager.BaseinfoList.get(0).PRIPID);
                         request.add("select",selectStr);//

@@ -39,7 +39,6 @@ public class MyClaim_listAdapter extends BaseAdapter {
     private Context context;
     private List<DataManager.MyClaimUtils.DataBean.ClaimlistBean> list;
     ViewHolder vh = null;
-    String ImgString="";
     int a=0;
     int b=0;
     CreditSharePreferences csp=CreditSharePreferences.getLifeSharedPreferences();
@@ -82,51 +81,14 @@ public class MyClaim_listAdapter extends BaseAdapter {
         vh.myclaim_name.setText(list.get(position).ENTERNAME);
         vh.myclaim_state.setText(list.get(position).STATUSNAME);
         vh.myclaim_base.setText(list.get(position).REFUSEREASON);
-
+        if(DataManager.MyClaimUtilsModel.data.Claimlist.get(position).STATUSNAME.equals("审核通过")){
+            vh.myclaim_text.setVisibility(View.GONE);
+            vh.myclaim_dimss.setVisibility(View.GONE);
+        }
 //        if(list.get(position).STATUS.equals("1")){
 //            vh.myclaim_text.setVisibility(View.GONE);
 //            vh.myclaim_dimss.setVisibility(View.GONE);
 //        }
-        /**
-         * 附件图片数组
-         */
-        final Drawable[] imgS=new Drawable[DataManager.MyClaimUtilsModel.data.Claimlist.get(position).AttachmentList.size()];
-        for(int i=0;i<DataManager.MyClaimUtilsModel.data.Claimlist.get(position).AttachmentList.size();i++){
-            String base64String=DataManager.MyClaimUtilsModel.data.Claimlist.get(position).AttachmentList.get(i).ATTACHMENTPATH;
-//            byte[] bydata=Base64.decode(base64String,Base64.DEFAULT);
-//            Bitmap bit= BitmapFactory.decodeByteArray(bydata,0,bydata.length);
-//            Drawable drawable = new BitmapDrawable(null, bit);
-            //=================
-            try {
-                BASE64Decoder decode = new BASE64Decoder();
-                byte[] b = decode.decodeBuffer(base64String);
-                System.out.println(new String(b));
-                StringBuilder str = new StringBuilder();//不建议用String
-                for (byte bs : b) {
-                    str.append(Integer.toBinaryString(bs));//转换为二进制
-                }
-                String imgpath = Environment.getExternalStorageDirectory() + "/ELife" + "/pag"+i+".jpg";
-                //把字节数组的图片写到另一个地方
-                File apple = new File(imgpath);
-                FileOutputStream fos = new FileOutputStream(apple);
-
-                fos.write(b);
-                fos.flush();
-                fos.close();
-                //==============
-                File file = new File(imgpath);
-                if (file.exists()) {//获取本地图片路径是否存在
-                    Bitmap bm = BitmapFactory.decodeFile(imgpath);
-                    Drawable drawable = new BitmapDrawable(null, bm);
-                    imgS[i]=drawable;
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-        for(int i=0;i<imgS.length;i++){
-            ImgString=ImgString+imgS[i]+"&";
-        }
         /**
          * 认领详情
          */

@@ -119,8 +119,21 @@ public class CC_List_itemAdapter extends BaseAdapter {
         } else if (str.equals("judicial")) {//司法信息
 //            vh.im.setVisibility(View.VISIBLE);
             vh.cl_tv1.setVisibility(View.VISIBLE);
-            vh.cl_tv1.setText(list.get(position));
+            switch (position){
+                case 0:
+                    vh.cl_tv1.setText(list.get(position)+"("+DataManager.JudicialDocumentsList.size()+")");
+                    break;
+                case 1:
+                    vh.cl_tv1.setText(list.get(position)+"("+DataManager.CrackCreditList.size()+")");
+                    break;
+                case 2:
+                    vh.cl_tv1.setText(list.get(position)+"("+DataManager.ShareholderInformationChangeList.size()+")");
+                    break;
+                case 3:
+                    vh.cl_tv1.setText(list.get(position)+"("+DataManager.FrozenInformationList.size()+")");
+                    break;
 
+            }
         } else if (str.equals("copyright")) {//著作权
             vh.punlic_1.setVisibility(View.GONE);
             vh.punlic_2.setVisibility(View.VISIBLE);

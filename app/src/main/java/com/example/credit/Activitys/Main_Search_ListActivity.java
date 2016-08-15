@@ -114,16 +114,18 @@ public class Main_Search_ListActivity extends BaseActivity implements PullToRefr
                         if(!syatc.equals("1")) {
                             for (DataManager.zl_search.DataBean.PatentInfoBean p : listzl) {
                                 list.add(p.PATENTNAME);
+                                listurl.add(p.ABSTRACTGRAPH);
                             }
                         }else{
                             por=listzl.size()-1;
                             listzl.addAll(DataManager.zl_searchS.data.patentInfo);
                             for (DataManager.zl_search.DataBean.PatentInfoBean p : listzl) {
                                 list.add(p.PATENTNAME);
+                                listurl.add(p.ABSTRACTGRAPH);
                             }
                             CurrentPage++;
                         }
-                        adapter= new Main_CC_List_itemAdapter(Main_Search_ListActivity.this, list, "patent",null);
+                        adapter= new Main_CC_List_itemAdapter(Main_Search_ListActivity.this, list, "patent",listurl);
                         type="patent";
                         tListView1.setAdapter(adapter);
                         tListView1.setSelection(por-2);

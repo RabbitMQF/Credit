@@ -191,7 +191,7 @@ public class MyhttpCallBack implements HttpCallBack {
                     jsonString = (String) response.get();
                     map = gson.fromJson(jsonString, new TypeToken<Map<String, Object>>() {
                     }.getType());
-                    baging = gson.fromJson(((Map<String, Object>) map.get("data")).get("Pageing").toString(), DataManager.baging.class);
+                    baging = gson.fromJson(((Map<String, Object>) map.get("data")).get("Paging").toString(), DataManager.baging.class);
                     List<LinkedTreeMap> searchstrlist22 = (List<LinkedTreeMap>) ((Map<String, Object>) map.get("data")).get("Result");
                     if (DataManager.searchListMore.size() != 0) {
                         DataManager.searchListMore.clear();

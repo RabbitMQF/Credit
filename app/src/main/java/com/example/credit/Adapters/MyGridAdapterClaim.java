@@ -4,6 +4,7 @@ import android.app.Dialog;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
+import android.os.Environment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,14 +19,16 @@ import com.example.credit.Views.BaseViewHolder;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import static com.example.credit.Views.FileUtil.decodeBitmap;
+
 /**
  * @author http://blog.csdn.net/finddreams
  * @Description:gridview的Adapter
  */
 public class MyGridAdapterClaim extends BaseAdapter {
     private Context mContext;
-    private Drawable[] imgs;
-    public MyGridAdapterClaim(Context context, Drawable[] imgs1) {
+    private String [] imgs;
+    public MyGridAdapterClaim(Context context, String[] imgs1) {
         super();
         this.mContext = context;
         imgs = imgs1;
@@ -57,7 +60,6 @@ public class MyGridAdapterClaim extends BaseAdapter {
         if (convertView == null) {
             convertView = LayoutInflater.from(mContext).inflate(
                     R.layout.grid_items_claim, parent, false);
-
         }
         if (imgs.length % 4 != 0) {
             if ((imgs.length - 1) < position) {
@@ -66,7 +68,7 @@ public class MyGridAdapterClaim extends BaseAdapter {
         }
         final ImageView bg= (ImageView) convertView.findViewById(R.id.ivc_items);
         final ImageView iv = BaseViewHolder.get(convertView, R.id.ivc_items);
-        iv.setImageDrawable(imgs[position]);
+        iv.setImageBitmap(decodeBitmap(imgs[position], 50,50));
         if (bg.getDrawable() != null){
             iv.setOnClickListener(new View.OnClickListener() {
                 @Override

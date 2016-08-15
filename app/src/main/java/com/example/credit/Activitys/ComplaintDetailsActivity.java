@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.util.Base64;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -33,6 +34,8 @@ import java.net.URISyntaxException;
 
 import Decoder.BASE64Decoder;
 
+import static com.example.credit.Views.FileUtil.decodeBitmap;
+
 /**
  * 投诉详情界面
  */
@@ -42,14 +45,18 @@ public class ComplaintDetailsActivity extends BaseActivity {
     @ViewInject(R.id.b_return)
     LinearLayout b_return;
     @ViewInject(R.id.com_title)
-    TextView com_title;
-    @ViewInject(R.id.complain_er)
-    TextView complain_er;
+    TextView com_title;//投诉主题
+//    @ViewInject(R.id.complain_er)
+//    TextView complain_er;//投诉人
+    @ViewInject(R.id.complain_qiye)
+    TextView complain_qiye;//投诉企业
+    @ViewInject(R.id.complain_time)
+    TextView complain_time;////投诉时间
     @ViewInject(R.id.complain_detail)
     TextView complain_detail;
     @ViewInject(R.id.myGridViewtcDD2)
     MyGridView myGridViewtcDD2;
-    Drawable[] imgS;//图片数组
+    String [] imgS;//图片数组
     // int position;//下标
 //    @ViewInject(R.id.mlgb)
 //    ImageView mlgb;
@@ -81,49 +88,59 @@ public class ComplaintDetailsActivity extends BaseActivity {
         b_topname.setText("投诉详情");
         com_title.setTextColor(getResources().getColor(R.color.black));
         com_title.setText(DataManager.complaintDetail.data.UserComplain.COMPLAINTTITLE);
-        complain_er.setTextColor(getResources().getColor(R.color.black));
-        complain_er.setText(DataManager.complaintDetail.data.UserComplain.MEMBERNAME);
+
+//        complain_er.setTextColor(getResources().getColor(R.color.black));
+//        complain_er.setText(DataManager.complaintDetail.data.UserComplain.MEMBERNAME);
+
+        complain_qiye.setTextColor(getResources().getColor(R.color.black));
+        complain_qiye.setText(DataManager.complaintDetail.data.UserComplain.ENTERNAME);
+
+        complain_time.setTextColor(getResources().getColor(R.color.black));
+        complain_time.setText(DataManager.complaintDetail.data.UserComplain.COMPLAINTIME);
+
         complain_detail.setTextColor(getResources().getColor(R.color.black));
         complain_detail.setText(DataManager.complaintDetail.data.UserComplain.COMPLAINCOMMENT);
-        imgS = new Drawable[DataManager.complaintDetail.data.AttachmentList.size()];
+
+        imgS = new String[DataManager.complaintDetail.data.AttachmentList.size()];
         /**
          * 循环加载9图片
          */
         for (int i = 0; i < DataManager.complaintDetail.data.AttachmentList.size(); i++) {
             String base64 = DataManager.complaintDetail.data.AttachmentList.get(i).ATTACHMENTPATH;
-            try {
-                BASE64Decoder decode = new BASE64Decoder();
-                byte[] b = decode.decodeBuffer(base64);
-                System.out.println(new String(b));
-                StringBuilder str = new StringBuilder();//不建议用String
-                for (byte bs : b) {
-                    str.append(Integer.toBinaryString(bs));//转换为二进制
-                }
-                String path=Environment.getExternalStorageDirectory() + "/Credit/cache/";
-                String imgpath = Environment.getExternalStorageDirectory() + "/Credit/cache" + "/pag" + i + ".jpg";
-                //把字节数组的图片写到另一个地方
-                File apple2=new File(path);
+            if(!base64.equals("")){
+                try {
+                    BASE64Decoder decode = new BASE64Decoder();
+                    byte[] b = decode.decodeBuffer(base64);
+                    System.out.println(new String(b));
+                    StringBuilder str = new StringBuilder();//不建议用String
+                    for (byte bs : b) {
+                        str.append(Integer.toBinaryString(bs));//转换为二进制
+                    }
+                    String path=Environment.getExternalStorageDirectory() + "/Credit/cache/";
+                    String imgpath = Environment.getExternalStorageDirectory() + "/Credit/cache" + "/pag" + i + ".jpg";
+                    //把字节数组的图片写到另一个地方
+                    File apple2=new File(path);
 
-                if (!apple2.exists()) {
-                    apple2.mkdir();
-                }
-                File apple = new File(imgpath);
-                FileOutputStream fos = new FileOutputStream(apple);
+                    if (!apple2.exists()) {
+                        apple2.mkdir();
+                    }
+                    File apple = new File(imgpath);
+                    FileOutputStream fos = new FileOutputStream(apple);
 
-                fos.write(b);
-                fos.flush();
-                fos.close();
-                //==============
-                File file = new File(imgpath);
-                if (file.exists()) {//获取本地图片路径是否存在
-                    Bitmap bm = BitmapFactory.decodeFile(imgpath);
-                    Drawable drawable = new BitmapDrawable(null, bm);
-                    imgS[i] = drawable;
+                    fos.write(b);
+                    fos.flush();
+                    fos.close();
+                    //==============
+                    File file = new File(imgpath);
+                    if (file.exists()) {//获取本地图片路径是否存在
+//                        Bitmap bm = BitmapFactory.decodeFile(imgpath);
+//                        Drawable drawable = new BitmapDrawable(null, bm);
+                        imgS[i] = imgpath;
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
                 }
-            } catch (IOException e) {
-                e.printStackTrace();
             }
-
 
         }
 

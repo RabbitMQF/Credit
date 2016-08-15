@@ -1,6 +1,5 @@
 package com.example.credit.Activitys;
 
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -11,10 +10,8 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.TextView;
 
-import com.example.credit.Adapters.CommmentAdapter;
 import com.example.credit.Adapters.Commment_ItemlistAdapter;
 import com.example.credit.Dialogs.WaitDialog;
 import com.example.credit.Entitys.DataManager;
@@ -23,11 +20,9 @@ import com.example.credit.Services.CallServer;
 import com.example.credit.Utils.CreditSharePreferences;
 import com.example.credit.Utils.GsonUtil;
 import com.example.credit.Utils.MyhttpCallBack;
-import com.example.credit.Utils.Toast;
 import com.example.credit.Utils.URLconstant;
 import com.example.credit.Views.MyListView;
 import com.lidroid.xutils.ViewUtils;
-import com.lidroid.xutils.db.annotation.Table;
 import com.lidroid.xutils.view.annotation.ViewInject;
 import com.yolanda.nohttp.RequestMethod;
 
@@ -117,7 +112,7 @@ public class CommentListDetailsActivity extends BaseActivity {
                         r2.REPLAYCOMMENT=huifu_con.getText().toString();
                         r2.REPLAYTIME=date;
                         huifu_con.setText("");
-                        CommentListActivity.listpl.get(position).replay2review.add(r2);
+                        CommentListActivity.listpl.get(position).replay2review.add(0,r2);
                         Dliuyan_num.setText(CommentListActivity.listpl.get(position).replay2review.size()+"");
                         Rinit();
                         break;

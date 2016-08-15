@@ -42,6 +42,7 @@ public class Main_NewCliam_MoreListActivity extends BaseActivity {
     ListView tListViewNC;
     NewClaimListAdapter adapter;
     CreditSharePreferences csp;
+    public static boolean falg=false;
    public static WaitDialog ad;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,6 +68,7 @@ public class Main_NewCliam_MoreListActivity extends BaseActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 if (csp.getLoginStatus()) {
                     ad.show();
+                    falg=true;
                     String KeyNo = DataManager.MyClaimUtilsModel.data.Claimlist.get(position).PRIPID;//市场主体身份代码
                     String token = SearchFirmActivty.MD5s(KeyNo + (new Build()).MODEL);
                     GsonUtil requst = new GsonUtil(URLconstant.URLINSER + URLconstant.GETITEMNUM, RequestMethod.GET);
