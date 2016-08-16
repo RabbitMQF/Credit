@@ -4,14 +4,18 @@ import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.ProgressDialog;
 import android.content.ComponentName;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
+import android.support.v7.app.AlertDialog;
+import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.AbsListView;
@@ -19,16 +23,15 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.credit.Adapters.MyGridAdaptermMain;
-import com.example.credit.Adapters.MyGridAdapters;
 import com.example.credit.Adapters.NewClaimListAdapter;
 import com.example.credit.Adapters.NewsListAdapter;
+import com.example.credit.Dialogs.Apk_updata_dialog;
 import com.example.credit.Dialogs.WaitDialog;
 import com.example.credit.Entitys.DataManager;
 import com.example.credit.R;
@@ -39,7 +42,6 @@ import com.example.credit.Utils.MD5;
 import com.example.credit.Utils.MyhttpCallBack;
 import com.example.credit.Utils.NetUtils;
 import com.example.credit.Utils.URLconstant;
-import com.example.credit.Views.FileUtil;
 import com.example.credit.Views.MyGridView;
 import com.example.credit.Views.ImageCycleView;
 import com.example.credit.Views.MyListView;
@@ -68,6 +70,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     private SlidingMenu mLeftMenu;
     private final int NOHTTP_CITY = 0x021;//获取城市
     private final int NOHTTP_INDUSTRY = 0x023;//获取行业
+
     @ViewInject(R.id.tab1)
     LinearLayout tab1;//企业查询
     @ViewInject(R.id.tab2)
@@ -144,10 +147,11 @@ public class MainActivity extends Activity implements View.OnClickListener {
     public static ProgressDialog pd;
     public static WaitDialog ad;
     private ImageCycleView mImageCycleView;
-
+    Apk_updata_dialog apppd;
     int t = 2;
     int str = 1;
-
+    AlertDialog.Builder builder;
+    public static AlertDialog dialog;
     public int[] imgs1 = {R.mipmap.maincon_1, R.mipmap.maincon_2,
             R.mipmap.maincon_3, R.mipmap.maincon_4};
     public String[] txt = {"商标查询","专利查询",
@@ -158,7 +162,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main2);
+        setContentView(R.layout.activity_main);
         filenewsexists();
         csp = CreditSharePreferences.getLifeSharedPreferences();
         LoginStatus = csp.getLoginStatus();
@@ -166,7 +170,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
         ad = new WaitDialog(this);
         boolean falg= NetUtils.isConnectingToInternet(this);
         mLeftMenu = (SlidingMenu) findViewById(R.id.id_menu);
-
         /**
          * 轮播
          */
@@ -271,20 +274,20 @@ public class MainActivity extends Activity implements View.OnClickListener {
                         NewClaimListview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                             @Override
                             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                                    ad.show();
-                                    String KeyNo = MyCliamList.get(position).PRIPID;//市场主体身份代码
-                                    String token = SearchFirmActivty.MD5s(KeyNo + (new Build()).MODEL);
-                                    GsonUtil requst = new GsonUtil(URLconstant.URLINSER + URLconstant.GETITEMNUM, RequestMethod.GET);
-                                    requst.add("KeyNo", KeyNo);
-                                    requst.add("token", token);
-                                    requst.add("deviceId", (new Build()).MODEL);
-                                    if (csp.getLoginStatus()) {
-                                        requst.add("memberId", csp.getID());
-                                    }
-                                    requst.add("memberId", "");
-                                    requst.add("regnore", MyCliamList.get(position).REGNORE);
-                                    requst.add("priptype", MyCliamList.get(position).ENTTYPE);
-                                    CallServer.getInstance().add(MainActivity.this, requst, MyhttpCallBack.getInstance(), 0x026, true, false, true);
+                                ad.show();
+                                String KeyNo = MyCliamList.get(position).PRIPID;//市场主体身份代码
+                                String token = SearchFirmActivty.MD5s(KeyNo + (new Build()).MODEL);
+                                GsonUtil requst = new GsonUtil(URLconstant.URLINSER + URLconstant.GETITEMNUM, RequestMethod.GET);
+                                requst.add("KeyNo", KeyNo);
+                                requst.add("token", token);
+                                requst.add("deviceId", (new Build()).MODEL);
+                                if (csp.getLoginStatus()) {
+                                    requst.add("memberId", csp.getID());
+                                }
+                                requst.add("memberId", "");
+                                requst.add("regnore", MyCliamList.get(position).REGNORE);
+                                requst.add("priptype", MyCliamList.get(position).ENTTYPE);
+                                CallServer.getInstance().add(MainActivity.this, requst, MyhttpCallBack.getInstance(), 0x026, true, false, true);
                             }
                         });
                         break;
@@ -362,11 +365,49 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
             }
         });
+//        if(DataManager.MyNewAppS.message.equals("success")){
+//            if(DataManager.MyNewAppS.data!=null & DataManager.MyNewAppS.data.size()>0){
+//                apppd = new Apk_updata_dialog(MainActivity.this, new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View arg0) {
+//                        Uri uri = Uri.parse(DataManager.MyNewAppS.data.get(0).PATH);
+//                        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+//                        startActivity(intent);
+//                        apppd.dismiss();
+//                    }
+//                });
+//                apppd.showAtLocation(MainActivity.this.findViewById(R.id.ab) ,Gravity.CENTER | Gravity.CENTER_HORIZONTAL, 0, 0);
+//            }
+//        }
 
-
+        if(DataManager.MyNewAppS.message.equals("success")){
+            if(DataManager.MyNewAppS.data!=null & DataManager.MyNewAppS.data.size()>0) {
+                if (DataManager.MyNewAppS.data.get(0).VERSION != null & DataManager.MyNewAppS.data.size() > 0) {
+                    dialog.show();
+                }
+            }
+        }
     }
-
     private void initData() {
+        builder = new AlertDialog.Builder(this);
+        builder.setTitle("最新版本");
+        builder.setMessage("是否更新最新版本?!");
+        builder.setPositiveButton("现在更新", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Uri uri = Uri.parse(DataManager.MyNewAppS.data.get(0).PATH);
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(intent);
+            }
+        });
+        builder.setNegativeButton("暂不更新", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+            }
+        });
+        dialog = builder.create();
+        dialog.setCanceledOnTouchOutside(false);// 设置点击屏幕Dialog不消失
+
         MyGridAdaptermMain adapters = new MyGridAdaptermMain(MainActivity.this, imgs1,txt);
         myGridViewMain.setAdapter(adapters);
         myGridViewMain.setSelector(new ColorDrawable(Color.TRANSPARENT));

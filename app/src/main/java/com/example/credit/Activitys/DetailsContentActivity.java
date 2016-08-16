@@ -324,8 +324,7 @@ public class DetailsContentActivity extends BaseActivity {
 
         List<String> lt = new ArrayList<String>();
 
-        lt.add(DataManager.gsxx.data.BaseInfo.REGCAP + "万元");
-
+        lt.add(DataManager.gsxx.data.BaseInfo.REGCAP.substring(0,DataManager.gsxx.data.BaseInfo.REGCAP.indexOf(".")) + "万元");
         if(DataManager.gsxx.data.BaseInfo.NAME!=null&&!DataManager.gsxx.data.BaseInfo.NAME.equals("")&&!DataManager.gsxx.data.BaseInfo.NAME.equals(null)){
             lt.add(DataManager.gsxx.data.BaseInfo.NAME);
         }else{

@@ -1,8 +1,6 @@
 package com.example.credit.Activitys;
 
-import android.app.Activity;
 import android.app.Dialog;
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -20,7 +18,6 @@ import android.text.TextWatcher;
 import android.util.Base64;
 import android.view.Gravity;
 import android.view.KeyEvent;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -36,10 +33,10 @@ import com.example.credit.Dialogs.enclosure_dialog;
 import com.example.credit.Entitys.DataManager;
 import com.example.credit.R;
 import com.example.credit.Services.CallServer;
+import com.example.credit.Utils.ContainsEmojiEditText;
 import com.example.credit.Utils.CreditSharePreferences;
 import com.example.credit.Utils.GsonUtil;
 import com.example.credit.Utils.MyhttpCallBack;
-import com.example.credit.Utils.TextUtils;
 import com.example.credit.Utils.Toast;
 import com.example.credit.Utils.URLconstant;
 import com.example.credit.Views.MyGridView;
@@ -51,7 +48,6 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -73,7 +69,7 @@ public class ToClaimActivity extends BaseActivity implements OnItemLongClickList
     @ViewInject(R.id.claim_phone)
     EditText claim_phone;//手机号
     @ViewInject(R.id.claim_details)
-    EditText claim_details;//描述详情
+    ContainsEmojiEditText claim_details;//描述详情
     @ViewInject(R.id.claim_details_num)
     TextView claim_details_num;//描述详情字数
     @ViewInject(R.id.claim_fj)

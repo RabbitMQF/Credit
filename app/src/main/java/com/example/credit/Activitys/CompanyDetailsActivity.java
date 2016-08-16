@@ -900,13 +900,22 @@ public class CompanyDetailsActivity extends BaseActivity {
 //        }else {
 //            details_tit3.setText("未认领");
 //        }
+        if(DataManager.BaseinfoList.get(0).NAME.equals("")){
+            name.setText("无");
+        }else{
+            name.setText(DataManager.BaseinfoList.get(0).NAME);
+        }
 
-        name.setText(DataManager.BaseinfoList.get(0).NAME);
         if((DataManager.BaseinfoList.get(0).ENTNAME).indexOf("分公司") != -1){
             gai1.setText("负责人");
             regcap.setText("无");
         }else{
-            regcap.setText(DataManager.BaseinfoList.get(0).REGCAP + "万元");
+            if(DataManager.BaseinfoList.get(0).REGCAP.equals("")){
+                regcap.setText("0万元");
+            }else{
+                regcap.setText(DataManager.BaseinfoList.get(0).REGCAP.substring(0,DataManager.BaseinfoList.get(0).REGCAP.indexOf(".")) + "万元");
+            }
+
         }
         estdate.setText(DataManager.BaseinfoList.get(0).ESTDATE);
         enttype.setText(DataManager.BaseinfoList.get(0).ENTTYPE_CN);

@@ -52,6 +52,7 @@ public class MyCommment_listAdapter extends BaseAdapter {
             view = LayoutInflater.from(context).inflate(R.layout.activity_my_commentlist_item, null);
             vh = new ViewHolder();
             vh.mycomm_img=(RoundImageView) view.findViewById(R.id.mycomm_img);
+            vh.mycomm_gongs=(TextView) view.findViewById(R.id.mycomm_gongs);
             vh.mycomm_time=(TextView) view.findViewById(R.id.mycomm_time);
             vh.mycomm_conn=(TextView) view.findViewById(R.id.mycomm_conn);
             view.setTag(vh);
@@ -65,14 +66,15 @@ public class MyCommment_listAdapter extends BaseAdapter {
                 //Picasso.with(context).load(file).into(vh.mycomm_img);
             }
         }
-
-        vh.mycomm_time.setText(list.get(position).CREATETIME);
-        vh.mycomm_conn.setText(list.get(position).CONTENT);
+        vh.mycomm_gongs.setText("评论企业:"+list.get(position).ENTNAME);
+        vh.mycomm_time.setText("评论时间:"+list.get(position).CREATETIME);
+        vh.mycomm_conn.setText("评论内容:"+list.get(position).CONTENT);
         return view;
     }
 
     public class ViewHolder {
         RoundImageView mycomm_img;//用户姓名
+        TextView mycomm_gongs;//评论企业
         TextView mycomm_time;//评论时间
         TextView mycomm_conn;//评论内容
     }

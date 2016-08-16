@@ -8,6 +8,8 @@ import android.widget.AbsListView;
 import android.widget.BaseAdapter;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.example.credit.Entitys.DataManager;
 import com.example.credit.R;
 import com.example.credit.Views.BaseViewHolder;
 
@@ -69,7 +71,26 @@ public class MyGridAdapter4 extends BaseAdapter {
 		}
 
 		TextView tv1 = BaseViewHolder.get(convertView, R.id.tbv);
-		tv1.setText(arrays1[position]);
+		switch (position){
+			case 0:
+				tv1.setText(arrays1[position]+"("+ DataManager.reportList.size()+")");
+				break;
+			case 1:
+				tv1.setText(arrays1[position]+"("+ DataManager.fundedList.size()+")");
+				break;
+			case 2:
+				tv1.setText(arrays1[position]+"("+ DataManager.stockList.size()+")");
+				break;
+			case 3:
+				tv1.setText(arrays1[position]+"("+ DataManager.permitList.size()+")");
+				break;
+			case 4:
+				tv1.setText(arrays1[position]+"("+ DataManager.loreList.size()+")");
+				break;
+			case 5:
+				tv1.setText(arrays1[position]+"("+ DataManager.punishList.size()+")");
+				break;
+		}
 		return convertView;
 	}
 

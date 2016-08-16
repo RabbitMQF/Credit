@@ -26,17 +26,24 @@
             android:layout_marginLeft="10dp"
             android:orientation="vertical">
             <TextView
+                android:id="@+id/mycomm_gongs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="企业：江西智容"
+                android:textColor="#757475"
+                android:textSize="14sp" />
+            <TextView
                 android:id="@+id/mycomm_time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="2016-05-02"
+                android:text="时间：2016-05-02"
                 android:textColor="#757475"
                 android:textSize="16sp" />
             <TextView
                 android:id="@+id/mycomm_conn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="时间sssssssss事实上事实上事实上事实上事实上事实上："
+                android:text="内容：时间sssssssss事实上事实上事实上事实上事实上事实上："
                 android:textColor="#757475"
                 android:textSize="14sp" />
         </LinearLayout>

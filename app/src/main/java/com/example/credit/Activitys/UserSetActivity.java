@@ -14,6 +14,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.provider.MediaStore;
 import android.util.Base64;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -22,6 +23,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.example.credit.Dialogs.Apk_updata_dialog;
 import com.example.credit.Dialogs.WaitDialog;
 import com.example.credit.Entitys.DataManager;
 import com.example.credit.R;

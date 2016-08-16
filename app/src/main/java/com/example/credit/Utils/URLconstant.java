@@ -4,10 +4,9 @@ package com.example.credit.Utils;
  * Created by alucard on 2016-05-13.
  */
 public class URLconstant {
-    //真数据Interface
-//    public static final String URLINSER="http://101.201.211.27:8282/esws.interface/";//所有接口前缀
+
     public static final String URLINSER = "http://101.201.211.27:8282/zhirong.creditcard/Interface/";//所有接口前缀
-    //public static  final  String GETCITY="baseinfo/querycitys.do";//获取城市接口
+
     public static final String GETCITY = "baseinfo/queryArea.do";//获取城市接口
 
     public static final String GETINDUSTRY = "baseinfo/queryindustry.do";//获取行业门类      没参    返回  data    industry：  EC_VALUE：行业门类代码   EC_NAME：行业门类名字
@@ -113,20 +112,16 @@ public class URLconstant {
     public static final String SBSREACH="trademark/getquerytrademark.do";//商标查询
 
     public static final String ZLSREACH="tblPatent/getTblPatent";//专利查询
-// tblPatent/getTblPatent?token=202cb962ac59075b964b07152d234b70&KeyNo=&deviceId=123&patentName=药物包装盒片
 
     public static final String SXDETAILS="forensic/getCourtcaseinfolistPage";//失信查询URl
-    // ?token=aaa92206f6d756c6b0924f9cc07f0cda&KeyNo=江西康泰蔬菜有限公司&deviceId=123&courtcaseId=100906218
 
     public static final String TBSREACH="http://101.201.211.27:8282/zhirong.credith5/entShowController/entShow.do";//招投标
-
 
     public static final String JYSREACH="http://101.201.211.27:8282/zhirong.credith5/entShowController/entShow.do";//经营异常
 
     public static final String NEWSURL ="newsController/getNewslistPage";//新闻URLObeyed
 
     public static final String HOTSPOT ="businessController/getHotspotAnalysis";//热搜Hotspot
-//    tosSken=f60326838d68251be6bf08a62449152e&KeyNo=62d076b3cbd74e68ae8f1f089507c779&deviceId=123
 
     public static final String SBDETAILS="http://101.201.211.27:8282/zhirong.credith5/trademarkInfoController/gettrademarkDetails.do";//商标详情页URL
 
@@ -137,5 +132,7 @@ public class URLconstant {
     public static final String REPORTURL1 ="baseinfo/makePdf.do";//信用报告Report1
 
     public static final String REPORTURL2 ="baseinfo/sendPdfByEmail.do";//信用报告Report2
+
+    public static final String NEWAPP ="appPathController/getAppPathByState";//APP最新版本
 
 }

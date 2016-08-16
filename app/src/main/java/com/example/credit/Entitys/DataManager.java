@@ -64,7 +64,6 @@ public class DataManager {
         }
     }
 
-
     public class ContatUser {//联系人信息
         public Integer user_id;
         public Integer corps_id;
@@ -1966,5 +1965,23 @@ public class DataManager {
         }
     }
     public static String ReportText="";
+
+
+    public static MyNewApp MyNewAppS=new MyNewApp();
+    /**
+     * 最新APP版本
+     */
+    public static class MyNewApp {
+        public String message;
+        public String status;
+        public List<DataBean> data;
+        public static class DataBean {
+            public String TIME;
+            public String NAME;
+            public String VERSION;
+            public String PATH;
+            public String DESCS;
+        }
+    }
 }
 

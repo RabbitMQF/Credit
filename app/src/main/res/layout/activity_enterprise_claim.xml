@@ -110,7 +110,7 @@
                     android:layout_marginTop="10dp"
                     android:layout_gravity="center_vertical"
                     android:text="描述详情"/>
-                <EditText
+                <com.example.credit.Utils.ContainsEmojiEditText
                     android:id="@+id/claim_details"
                     android:layout_width="match_parent"
                     android:layout_height="150dp"

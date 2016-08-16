@@ -93,6 +93,11 @@ public class MyhttpCallBack implements HttpCallBack {
                         }
                     }
                     break;
+                case 0x110://获取APP最新版本
+                    jsonString = (String) response.get();
+                    DataManager.MyNewAppS = gson.fromJson(jsonString, DataManager.MyNewApp.class);
+                    WelcomeActivity.handler.sendEmptyMessage(0);
+                    break;
                 case 0x111://获取新闻
                     jsonString = (String) response.get();
                     DataManager.MyNewsS = gson.fromJson(jsonString, DataManager.MyNews.class);
