@@ -99,7 +99,7 @@ public class MycomplaintsListActivity extends BaseActivity {
     public void init() {
         builder = new AlertDialog.Builder(this);
         builder.setTitle("是否登录");
-        builder.setMessage("浏览企业详情，请先登录账号。");
+        builder.setMessage("请先登录账号!");
         builder.setPositiveButton("去登陆", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {

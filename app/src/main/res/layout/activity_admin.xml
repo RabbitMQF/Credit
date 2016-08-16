@@ -7,28 +7,6 @@
     android:orientation="vertical"
     tools:context=".Activitys.AdminActivity">
     <include layout="@layout/public_top_bar"/>
-    <!--<RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:background="@mipmap/detail_top">
-
-        <ImageView
-            android:id="@+id/c_return"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="10dp"
-            android:background="@mipmap/arrow_left_back" />
-
-        <TextView
-            android:id="@+id/xtopname"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:text="江西科技有限公司"
-            android:textColor="#ffffff"
-            android:textSize="20sp" />
-    </RelativeLayout>-->
     <com.example.credit.Views.ViewPagerIndicator
         android:id="@+id/id_indicator"
         android:layout_height="48dp"

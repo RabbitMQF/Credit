@@ -41,8 +41,6 @@ public class TrademarkActivity extends BaseActivity implements PullToRefreshView
 
     @ViewInject(R.id.tListView1)
     ListView tListView1;
-    @ViewInject(R.id.tvtit)
-    TextView tvtit;
     int size;
     @ViewInject(R.id.pull_refresh_view223)
     PullToRefreshView mPullToRefreshView;
@@ -61,7 +59,6 @@ public class TrademarkActivity extends BaseActivity implements PullToRefreshView
         String Tname=i.getStringExtra("Tname");
         size=DataManager.trademarkModelS.data.Paging.CurrentPage;
         b_topname.setText(Tname);
-        tvtit.setText(Tname);
         b_return.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

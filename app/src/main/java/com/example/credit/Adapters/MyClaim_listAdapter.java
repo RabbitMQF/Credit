@@ -83,12 +83,7 @@ public class MyClaim_listAdapter extends BaseAdapter {
         vh.myclaim_base.setText(list.get(position).REFUSEREASON);
         if(DataManager.MyClaimUtilsModel.data.Claimlist.get(position).STATUSNAME.equals("审核通过")){
             vh.myclaim_text.setVisibility(View.GONE);
-            vh.myclaim_dimss.setVisibility(View.GONE);
         }
-//        if(list.get(position).STATUS.equals("1")){
-//            vh.myclaim_text.setVisibility(View.GONE);
-//            vh.myclaim_dimss.setVisibility(View.GONE);
-//        }
         /**
          * 认领详情
          */

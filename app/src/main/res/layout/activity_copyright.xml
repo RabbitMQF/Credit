@@ -7,28 +7,6 @@
     android:orientation="vertical"
     tools:context="com.example.credit.Activitys.CopyrightActivity">
 <include layout="@layout/public_top_bar"/>
-   <!-- <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:background="@mipmap/detail_top">
-
-        <ImageView
-            android:id="@+id/cc_return"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="10dp"
-            android:background="@mipmap/arrow_left_back" />
-
-        <TextView
-            android:id="@+id/cc_topname"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:text="江西科技有限公司"
-            android:textColor="#ffffff"
-            android:textSize="20sp" />
-    </RelativeLayout>-->
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -38,21 +16,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/details_gg_bgtit"
-                android:gravity="center"
-                android:paddingBottom="5dp"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp"
-                android:paddingTop="5dp"
-                android:text="著作权信息"
-                android:textColor="#ffffff"
-                android:textSize="16sp" />
 
             <ListView
                 android:id="@+id/ccListView1"

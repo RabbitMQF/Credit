@@ -260,11 +260,15 @@ public class CompanyDetailsActivity extends BaseActivity {
                         break;
                     case 4://抵押信息
                         waitDialog.dismiss();
-                        DataManager.String4 = DataManager.BaseinfoList.get(0).ENTNAME;
-                        Intent i4 = new Intent(CompanyDetailsActivity.this, Mortgage_detail_Activity.class);
-                        i4.putExtra("Tname", arrays1[msg.what]);
-                        startActivity(i4);
-                        overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
+                        if (DataManager.MyrealEstateS.data.realEstate != null || DataManager.MychattelS.data.chattel!= null) {
+                            DataManager.String4 = DataManager.BaseinfoList.get(0).ENTNAME;
+                            Intent i4 = new Intent(CompanyDetailsActivity.this, Mortgage_detail_Activity.class);
+                            i4.putExtra("Tname", arrays1[msg.what]);
+                            startActivity(i4);
+                            overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
+                        } else {
+                            CompanyDetailsActivity.handler.sendEmptyMessage(500);
+                        }
                         break;
                     case 5://出质信息
                         waitDialog.dismiss();
@@ -864,7 +868,7 @@ public class CompanyDetailsActivity extends BaseActivity {
     public void init() {
         builder = new AlertDialog.Builder(this);
         builder.setTitle("是否登录");
-        builder.setMessage("浏览企业详情，请先登录账号。");
+        builder.setMessage("请先登录账号!");
         builder.setPositiveButton("去登陆", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {

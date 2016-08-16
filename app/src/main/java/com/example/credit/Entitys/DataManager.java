@@ -353,35 +353,70 @@ public class DataManager {
     }
 
 
+    public static Mychattel MychattelS=new Mychattel();
     /**
-     * 抵押信息动产实体类
+     * 抵押信息动产实体类mortgageMP_List
      */
-    public static List<mortgageMP> mortgageMP_List = new ArrayList<>();
-
-    public static class mortgageMP {
-        public String MORREG_ID;//抵押登记ID
-        public String MORREGCNO;//登记编号
-        public String REGIDATE;//登记日期
-        public String PUBLICDATE;//公示日期
-        public String REGORG_CN;//登记机关
-        public String PRICLASECAM;//抵押数额 万元
-
+    public static class Mychattel {
+        public DataBean data;
+        public static class DataBean {
+            public PagingBean Paging;
+            /**
+             * REGIDATE : 2016-08-11
+             * REGORG_CN :
+             * PRICLASECAM :
+             * PUBLICDATE :
+             * MORREG_ID : 123456
+             * MORREGCNO :
+             */
+            public List<ChattelBean> chattel;
+            public static class PagingBean {
+                public int TotalPage;
+                public int ShowCount;
+                public int TotalResult;
+                public int CurrentResult;
+                public int CurrentPage;
+            }
+            public static class ChattelBean {
+                public String MORREG_ID;//抵押登记ID
+                public String MORREGCNO;//登记编号
+                public String REGIDATE;//登记日期
+                public String PUBLICDATE;//公示日期
+                public String REGORG_CN;//登记机关
+                public String PRICLASECAM;//抵押数额 万元
+            }
+        }
+    }
+    public static MyrealEstate MyrealEstateS=new MyrealEstate();
+    /**
+     * 抵押信息不动产实体类mortgageRE_List
+     */
+    public static class MyrealEstate {
+        public DataBean data;
+        public static class DataBean {
+            public PagingBean Paging;
+            public List<realEstateBean> realEstate;
+            public static class PagingBean {
+                public int TotalPage;
+                public int ShowCount;
+                public int TotalResult;
+                public int CurrentResult;
+                public int CurrentPage;
+            }
+            public static class realEstateBean {
+                public String C_INFOID;//登记id
+                public String C_DYDJZH;//登记编号
+                public String D_DJRQ;//登记日期
+                public String D_SQRQ;//公示时间
+                public String C_DJJG;//登记机关
+                public String C_DBFW;//详情
+                // public String valuation;//抵押物估值
+            }
+        }
     }
 
-    /**
-     * 抵押信息不动产实体类
-     */
-    public static List<mortgageRE> mortgageRE_List = new ArrayList<>();
 
-    public static class mortgageRE {
-        public String C_INFOID;//登记id
-        public String C_DYDJZH;//登记编号
-        public String D_DJRQ;//登记日期
-        public String D_SQRQ;//公示时间
-        public String C_DJJG;//登记机关
-        public String C_DBFW;//详情
-        // public String valuation;//抵押物估值
-    }
+
 
 
     public static List<administraton> ad_List = new ArrayList<>();

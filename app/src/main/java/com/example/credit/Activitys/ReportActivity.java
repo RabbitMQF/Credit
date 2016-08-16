@@ -366,11 +366,13 @@ public class ReportActivity extends Activity {
                         Toast.show("邮箱地址不能为空!");
                     }else if(!UserSetTowActivity.isEmail(xx1.getText().toString())){
                         Toast.show("邮箱地址格式不正确!");
-                    }else if(xx2.getText().toString().equals("")){
-                        Toast.show("手机号码不能为空!");
-                    }else if(!UserSetTowActivity.isNumeric(xx2.getText().toString()) || (xx2.getText().toString()).length()!=11){
-                        Toast.show("手机号码格式不正确!");
-                    }else{
+                    }
+//                    else if(xx2.getText().toString().equals("")){
+//                        Toast.show("手机号码不能为空!");
+//                    }else if(!UserSetTowActivity.isNumeric(xx2.getText().toString()) || (xx2.getText().toString()).length()!=11){
+//                        Toast.show("手机号码格式不正确!");
+//                    }
+                    else{
                         wd.show();
                         GsonUtil request = new GsonUtil(URLconstant.URLINSER+URLconstant.REPORTURL1, RequestMethod.GET);
                         request.add("pripid",  DataManager.BaseinfoList.get(0).PRIPID);

@@ -271,7 +271,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
                         NewClaimListview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                             @Override
                             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                                if (csp.getLoginStatus()) {
                                     ad.show();
                                     String KeyNo = MyCliamList.get(position).PRIPID;//市场主体身份代码
                                     String token = SearchFirmActivty.MD5s(KeyNo + (new Build()).MODEL);
@@ -279,13 +278,13 @@ public class MainActivity extends Activity implements View.OnClickListener {
                                     requst.add("KeyNo", KeyNo);
                                     requst.add("token", token);
                                     requst.add("deviceId", (new Build()).MODEL);
-                                    requst.add("memberId", csp.getID());
+                                    if (csp.getLoginStatus()) {
+                                        requst.add("memberId", csp.getID());
+                                    }
+                                    requst.add("memberId", "");
                                     requst.add("regnore", MyCliamList.get(position).REGNORE);
                                     requst.add("priptype", MyCliamList.get(position).ENTTYPE);
                                     CallServer.getInstance().add(MainActivity.this, requst, MyhttpCallBack.getInstance(), 0x026, true, false, true);
-                                } else {
-                                    Toast.makeText(MainActivity.this, "请先登录!", Toast.LENGTH_SHORT).show();
-                                }
                             }
                         });
                         break;

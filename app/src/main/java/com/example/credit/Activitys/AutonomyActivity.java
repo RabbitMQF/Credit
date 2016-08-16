@@ -21,7 +21,7 @@ import com.example.credit.Views.MyGridView;
  * 自主公示
  */
 public class AutonomyActivity extends BaseActivity {
-    TextView auto_title, topBar;
+    TextView  topBar;
     MyGridView auto_mgv;
     MyGridAdapter4 autoAdapter;
 
@@ -35,8 +35,6 @@ public class AutonomyActivity extends BaseActivity {
 
     private void initview() {
 
-        auto_title = (TextView) findViewById(R.id.menu_title);
-        auto_title.setText("企业自主公示");
         auto_mgv = (MyGridView) findViewById(R.id.myGridView4);
         topBar = (TextView) findViewById(R.id.b_topname);
         autoAdapter = new MyGridAdapter4(this, getResources().getStringArray(R.array.autonomy));

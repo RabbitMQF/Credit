@@ -275,7 +275,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@drawable/edit_bg"
-                    android:hint="请输入接收的邮箱"
+                    android:hint="请输入接收的邮箱(必填)"
                     android:gravity="center_vertical"
                     android:textColor="#000000"
                     android:textSize="18sp" />
@@ -303,7 +303,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@drawable/edit_bg"
-                    android:hint="请输入您的手机号码"
+                    android:hint="请输入您的手机号码(选填)"
                     android:gravity="center_vertical"
                     android:textColor="#000000"
                     android:textSize="18sp" />

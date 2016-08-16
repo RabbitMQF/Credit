@@ -27,8 +27,8 @@ public class Mortgage_detail_Fragment extends Fragment {
     public static final String BUNDLE_TITLE = "titile";
     ListView listView;
     Mortgage_Adapter adapter;
-    List<DataManager.mortgageMP> listMP;
-    List<DataManager.mortgageRE> listRE;
+    List<DataManager.Mychattel.DataBean.ChattelBean> listMP;
+    List<DataManager.MyrealEstate.DataBean.realEstateBean> listRE;
 
     public static Mortgage_detail_Fragment newInstance() { //对外提供创建实例的方法，你给我需要显示的内容，我给你Fragment实例
         //this.listMP=listMP;
@@ -39,7 +39,7 @@ public class Mortgage_detail_Fragment extends Fragment {
         //fragment.setArguments(bundle);
         return fragment;
     }
-    public void setListData(List<DataManager.mortgageMP> listMP, List<DataManager.mortgageRE> listRE){
+    public void setListData(List<DataManager.Mychattel.DataBean.ChattelBean> listMP, List<DataManager.MyrealEstate.DataBean.realEstateBean> listRE){
         this.listMP=listMP;
         this.listRE=listRE;
     }
@@ -63,8 +63,8 @@ public class Mortgage_detail_Fragment extends Fragment {
     }
 
     private void initdatas() {
-        listRE=DataManager.mortgageRE_List;
-        listMP=DataManager.mortgageMP_List;
+        listRE=DataManager.MyrealEstateS.data.realEstate;
+        listMP=DataManager.MychattelS.data.chattel;
     }
 
 

@@ -24,8 +24,6 @@ public class Honor_Support_Activity extends BaseActivity {
     LinearLayout b_return;
     @ViewInject(R.id.b_topname)
     TextView b_topname;
-    @ViewInject(R.id.sh_tit)
-    TextView sh_tit;
 
     @ViewInject(R.id.hs_sc)
     ScrollView hs_sc;
@@ -52,13 +50,11 @@ public class Honor_Support_Activity extends BaseActivity {
         switch (st){
             case 1:
                 b_topname.setText(Tname);
-                sh_tit.setText(Tname);
                 Honor_CAdapter hcadapter1=new Honor_CAdapter(Honor_Support_Activity.this, DataManager.honorInfoList);
                 hListView1.setAdapter(hcadapter1);
                 break;
             case 2:
                 b_topname.setText(Tname);
-                sh_tit.setText(Tname);
                Support_CAdapter hcadapter2=new Support_CAdapter(Honor_Support_Activity.this, DataManager.supportInfoS.data.advertising);
                 hListView1.setAdapter(hcadapter2);
                 break;

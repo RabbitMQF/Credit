@@ -16,10 +16,10 @@ import java.util.List;
  */
 public class Mortgage_Adapter extends BaseAdapter {
     Context context;
-    List<DataManager.mortgageRE> listRE;//不动产数据源
-    List<DataManager.mortgageMP> listMP;//动产数据源
+    List<DataManager.Mychattel.DataBean.ChattelBean> listMP;//动产数据源
+    List<DataManager.MyrealEstate.DataBean.realEstateBean> listRE;//不动产数据源
 
-    public Mortgage_Adapter(Context context, List<DataManager.mortgageRE> listRE, List<DataManager.mortgageMP> listMP) {
+    public Mortgage_Adapter(Context context, List<DataManager.MyrealEstate.DataBean.realEstateBean> listRE, List<DataManager.Mychattel.DataBean.ChattelBean> listMP) {
         this.context = context;
         this.listRE = listRE;
         this.listMP = listMP;
@@ -69,8 +69,8 @@ public class Mortgage_Adapter extends BaseAdapter {
         } else {
             vh = (ViewHolder) convertView.getTag();
         }
-        DataManager.mortgageMP tempMP = new DataManager.mortgageMP();
-        DataManager.mortgageRE tempRE = new DataManager.mortgageRE();
+        DataManager.Mychattel.DataBean.ChattelBean tempMP = new DataManager.Mychattel.DataBean.ChattelBean();
+        DataManager.MyrealEstate.DataBean.realEstateBean tempRE = new DataManager.MyrealEstate.DataBean.realEstateBean();
         if(listRE!=null){
         tempRE = listRE.get(position);}else {
             tempMP = listMP.get(position);

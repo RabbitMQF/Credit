@@ -20,6 +20,8 @@ import com.example.credit.Utils.GsonUtil;
 import com.example.credit.Utils.MyhttpCallBack;
 import com.example.credit.Utils.URLconstant;
 import com.example.credit.Views.ViewPagerIndicator;
+import com.lidroid.xutils.ViewUtils;
+import com.lidroid.xutils.view.annotation.ViewInject;
 import com.yolanda.nohttp.RequestMethod;
 
 import java.net.URL;
@@ -41,10 +43,15 @@ public class Mortgage_detail_Activity extends FragmentActivity implements View.O
     private LinearLayout b_return;
     TextView topBarTV;
     String Tname;
+    @ViewInject(R.id.dy_size1)
+    TextView dy_size1;
+    @ViewInject(R.id.dy_size2)
+    TextView dy_size2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mortgage_detail);
+        ViewUtils.inject(this);
         //getSupportActionBar().setDisplayShowHomeEnabled(false); //ActionBar不显示应用Icon
         Intent i=getIntent();
          Tname=i.getStringExtra("Tname");
@@ -78,13 +85,15 @@ public class Mortgage_detail_Activity extends FragmentActivity implements View.O
         b_return.setOnClickListener(this);
         topBarTV= (TextView) findViewById(R.id.b_topname);
         topBarTV.setText(Tname);
+        dy_size1.setText(DataManager.MychattelS.data.chattel.size()+"");
+        dy_size2.setText(DataManager.MyrealEstateS.data.realEstate.size()+"");
     }
 
     private void initDatas() {
         Mortgage_detail_Fragment fragment = Mortgage_detail_Fragment.newInstance();
         Mortgage_detail_Fragment fragment1 = Mortgage_detail_Fragment.newInstance();
-        fragment.setListData(DataManager.mortgageMP_List, null);
-        fragment1.setListData(null, DataManager.mortgageRE_List);
+        fragment.setListData(DataManager.MychattelS.data.chattel, null);
+        fragment1.setListData(null, DataManager.MyrealEstateS.data.realEstate);
         fragmentList.add(fragment);
         fragmentList.add(fragment1);
 

@@ -29,6 +29,8 @@ import com.google.gson.internal.LinkedTreeMap;
 import com.google.gson.reflect.TypeToken;
 import com.yolanda.nohttp.rest.Response;
 
+import org.json.JSONException;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -601,64 +603,12 @@ public class MyhttpCallBack implements HttpCallBack {
                     break;
                 case 0x004://抵押信息/动产
                     jsonString = (String) response.get();
-//                map = gson.fromJson(jsonString, new TypeToken<Map<String, Object>>() {
-//                }.getType());
-//                DataManager.mortgageMP_List = gson.fromJson(((Map<String, Object>) map.get("data")).get("chattel").toString().trim(), new TypeToken<List<DataManager.mortgageMP>>() {
-//                }.getType());
-                    map = gson.fromJson(jsonString, new TypeToken<Map<String, Object>>() {
-                    }.getType());
-                    List<LinkedTreeMap> list41 = (List<LinkedTreeMap>) ((Map<String, Object>) map.get("data")).get("chattel");
-
-                    if (DataManager.mortgageMP_List != null) {
-                        DataManager.mortgageMP_List.clear();
-                    }
-                    if (list41 != null && list41.size() > 0) {
-                        for (LinkedTreeMap temp : list41) {
-                            DataManager.mortgageMP cfo = new DataManager.mortgageMP();
-                            cfo.MORREG_ID = (String) temp.get("MORREG_ID");
-                            cfo.MORREGCNO = (String) temp.get("MORREGCNO");
-                            cfo.REGIDATE = (String) temp.get("REGIDATE");
-                            cfo.PUBLICDATE = (String) temp.get("PUBLICDATE");
-                            cfo.REGORG_CN = (String) temp.get("REGORG_CN");
-                            cfo.PRICLASECAM = (String) temp.get("PRICLASECAM");
-                            DataManager.mortgageMP_List.add(cfo);
-                        }
-                    }
-
+                    DataManager.MychattelS = gson.fromJson(jsonString, DataManager.Mychattel.class);
                     break;
                 case 0x0041://抵押信息/不动产
                     jsonString = (String) response.get();
-//                map = gson.fromJson(jsonString, new TypeToken<Map<String, Object>>() {
-//                }.getType());
-//                DataManager.mortgageRE_List = gson.fromJson(((Map<String, Object>) map.get("data")).get("realEstate").toString().trim(), new TypeToken<List<DataManager.mortgageRE>>() {
-//                }.getType());
-
-                    map = gson.fromJson(jsonString, new TypeToken<Map<String, Object>>() {
-                    }.getType());
-                    List<LinkedTreeMap> list412 = (List<LinkedTreeMap>) ((Map<String, Object>) map.get("data")).get("realEstate");
-
-                    if (DataManager.mortgageRE_List != null) {
-                        DataManager.mortgageRE_List.clear();
-                    }
-                    if (list412 != null && list412.size() > 0) {
-                        for (LinkedTreeMap temp : list412) {
-                            DataManager.mortgageRE cfo = new DataManager.mortgageRE();
-                            cfo.C_INFOID = (String) temp.get("C_INFOID");
-                            cfo.C_DYDJZH = (String) temp.get("C_DYDJZH");
-                            cfo.D_DJRQ = (String) temp.get("D_DJRQ");
-                            cfo.D_SQRQ = (String) temp.get("D_SQRQ");
-                            cfo.C_DJJG = (String) temp.get("C_DJJG");
-                            cfo.C_DBFW = (String) temp.get("C_DBFW");
-                            DataManager.mortgageRE_List.add(cfo);
-                        }
-                    }
-
-                    if (DataManager.mortgageRE_List != null && DataManager.mortgageRE_List.size() > 0) {
-                        CompanyDetailsActivity.handler.sendEmptyMessage(4);
-                    } else {
-                        CompanyDetailsActivity.handler.sendEmptyMessage(500);
-                    }
-
+                    DataManager.MyrealEstateS = gson.fromJson(jsonString, DataManager.MyrealEstate.class);
+                    CompanyDetailsActivity.handler.sendEmptyMessage(4);
                     break;
                 case 0x005://出质信息
                     String jstring5 = (String) response.get();
@@ -1456,16 +1406,19 @@ public class MyhttpCallBack implements HttpCallBack {
             }
         }catch (NullPointerException e){
             showdisplay(what);
-            Toast.show("数据后台返回空指针异常!");
+            Toast.show("后台数据空返回!");
         }catch (IndexOutOfBoundsException e){
             showdisplay(what);
-            Toast.show("数据数组下标越界异常!");
+            Toast.show("后台数据结构变更下标越界!");
         }catch (ClassCastException e){
             showdisplay(what);
-            Toast.show("数据类型转换异常类!");
+            Toast.show("后台数据变更类型转换出错!");
         }catch (NumberFormatException e){
             showdisplay(what);
-            Toast.show("数据字符串转换为数字类型时抛出的异常!");
+            Toast.show("字符串转换为数字异常!");
+        }catch (JsonSyntaxException e){
+            showdisplay(what);
+            Toast.show("后台数据变更json解析出错!");
         }
     }
     @Override
