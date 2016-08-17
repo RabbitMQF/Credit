@@ -120,7 +120,6 @@ public class ComplaintDetailsActivity extends BaseActivity {
                     String imgpath = Environment.getExternalStorageDirectory() + "/Credit/cache" + "/pag" + i + ".jpg";
                     //把字节数组的图片写到另一个地方
                     File apple2=new File(path);
-
                     if (!apple2.exists()) {
                         apple2.mkdir();
                     }
@@ -146,6 +145,7 @@ public class ComplaintDetailsActivity extends BaseActivity {
 
         MyGridAdapterClaim adapters = new MyGridAdapterClaim(ComplaintDetailsActivity.this, imgS);
         myGridViewtcDD2.setAdapter(adapters);
+        MycomplaintsListActivity.pd.dismiss();
         myGridViewtcDD2.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {

@@ -42,6 +42,7 @@ import com.example.credit.Adapters.SearchListAdapter2;
 import com.example.credit.Entitys.DataManager;
 import com.example.credit.R;
 import com.example.credit.Services.CallServer;
+import com.example.credit.Utils.ContainsEmojiEditText;
 import com.example.credit.Utils.CreditSharePreferences;
 import com.example.credit.Utils.GsonUtil;
 import com.example.credit.Utils.MD5;
@@ -69,7 +70,7 @@ public class SearchFirmActivty extends BaseActivity implements PullToRefreshView
     public static final String ENCODEING_TRYPE = "UTF-8";
     public static final String SEARCH_HISTORY = "search_history";
     public static final int NOHTTP_SEARCH = 0x022;
-    public static EditText searchEt;
+    public static ContainsEmojiEditText searchEt;
     public static ImageView search_et_cc;
     public static TextView downButton, city, capital, time, industry, selectCity, tab_frim, tab_illegal, tab_shareholder;
     TextView temp, tempprovince;
@@ -389,7 +390,7 @@ public class SearchFirmActivty extends BaseActivity implements PullToRefreshView
         dialog = builder.create();
         dialog.setCanceledOnTouchOutside(false);// 设置点击屏幕Dialog不消失
 
-        searchEt = (EditText) findViewById(R.id.search_et);
+        searchEt = (ContainsEmojiEditText) findViewById(R.id.search_et);
         search_et_cc = (ImageView) findViewById(R.id.search_et_cc);//叉叉
         //selectCity = (TextView) findViewById(R.id.selectCity);//旧版搜索城市
         //selectCity.setOnClickListener(this);////旧版搜索城市

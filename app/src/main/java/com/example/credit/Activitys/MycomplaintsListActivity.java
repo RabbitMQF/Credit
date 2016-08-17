@@ -70,7 +70,6 @@ public class MycomplaintsListActivity extends BaseActivity {
                         Toast.show("取消成功");
                         break;
                     case 3://点击item获取详情数据结束后跳转详情页
-                        pd.dismiss();
                         startActivity(new Intent(MycomplaintsListActivity.this, ComplaintDetailsActivity.class));
                         break;
                     case 4://提交投诉后重新请求获取企业投诉数据源

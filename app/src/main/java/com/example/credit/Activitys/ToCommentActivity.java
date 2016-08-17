@@ -17,6 +17,7 @@ import com.example.credit.Dialogs.WaitDialog;
 import com.example.credit.Entitys.DataManager;
 import com.example.credit.R;
 import com.example.credit.Services.CallServer;
+import com.example.credit.Utils.ContainsEmojiEditText;
 import com.example.credit.Utils.CreditSharePreferences;
 import com.example.credit.Utils.GsonUtil;
 import com.example.credit.Utils.MyhttpCallBack;
@@ -36,7 +37,7 @@ public class ToCommentActivity extends BaseActivity {
 
     public static WaitDialog wd;
     @ViewInject(R.id.To_details)
-    EditText To_details;
+    ContainsEmojiEditText To_details;
     @ViewInject(R.id.To_details_num)
     TextView To_details_num;
     @ViewInject(R.id.To_btn)

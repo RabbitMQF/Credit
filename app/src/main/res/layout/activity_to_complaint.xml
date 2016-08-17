@@ -38,7 +38,7 @@
             android:textColor="#757475"
             android:textSize="18sp" />
 
-        <EditText
+        <com.example.credit.Utils.ContainsEmojiEditText
             android:id="@+id/com_et_title"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -77,7 +77,7 @@
             android:textColor="#757475"
             android:textSize="18sp" />
 
-        <EditText
+        <com.example.credit.Utils.ContainsEmojiEditText
             android:id="@+id/com_et_conten"
             android:layout_width="match_parent"
             android:layout_height="150dp"

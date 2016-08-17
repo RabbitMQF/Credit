@@ -71,7 +71,7 @@ public class H5ViewActivity extends Activity {
                 str = URL + "?KeyNo=" + KeyNo + "&regno=" + regno + "&entname=" + entname + "&devicetype=1";
                 break;
             case "2"://发展历程
-                str=URL+"?KeyNo=" + KeyNo+ "&regno=" + regno+"&entname="+entname+"&estdate="+estdate+"&devicetype=1";
+                str=URL+"?KeyNo=" + KeyNo+ "&regno=" + regno+"&devicetype=1"+"&priptype="+priptype;
                 break;
             case "3"://招投标
                 str = URL + "?KeyNo=" + KeyNo + "&pripid=" + pripid + "&regno=" + regno + "&priptype=" + priptype + "&entname=" + entname + "&devicetype=1";
@@ -83,7 +83,8 @@ public class H5ViewActivity extends Activity {
                 str = URL + "?KeyNo=" + KeyNo + "&pripid=" + pripid + "&regno=" + regno + "&priptype=" + priptype + "&entname=" + entname + "&devicetype=1";
                 break;
             case "6"://企业展示
-                str = URL + "?KeyNo=" + KeyNo + "&pripid=" + pripid + "&regno=" + regno + "&priptype=" + priptype + "&entname=" + entname + "&devicetype=1";
+                b_topname.setText("企业展示");
+                str = URL + "?KeyNo=" + KeyNo +  "&regno=" + regno + "&entname=" + entname + "&devicetype=1";
                 break;
             case "7"://首页招投标
                 b_topname.setText("招投标");

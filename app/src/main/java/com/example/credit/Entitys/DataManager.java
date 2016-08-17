@@ -1268,6 +1268,7 @@ public class DataManager {
         public String SupportCount;//扶持
         public String MortgagorCount;//抵押
         public String PatentCount;//专利
+        public String EntShowCount;//企业展示
         public String PageView;//浏览量    +++
         public String IsClaim;//是否认领   +++
 

@@ -107,9 +107,9 @@ public class CompanyDetailsActivity extends BaseActivity {
     @ViewInject(R.id.estdate)
     TextView estdate;//成立日期
 
+    int a1=0,a2=0,a3=0,a4=0,a5=0,a6=0,a7=0,a8=0,a9=0,a10=0,a11=0,a12=0,a13=0,a14=0,a15=0,a16=0;
     MyGridAdapter2 adapter2;
     private final int MSG = 0x015;
-    int a1 = 0, a2 = 0, a3 = 0, a4 = 0, a5 = 0, a6 = 0, a7 = 0, a8 = 0, a9 = 0, a10 = 0, a11 = 0, a12 = 0, a13 = 0, a14 = 0, a15 = 0, a16 = 0;
 
     //    List<DataManager.search> detailsList = new ArrayList<DataManager.search>();
     public String[] arrays3 = {"注册资本", "法定代表人", "发照日期", "成立日期",
@@ -408,30 +408,32 @@ public class CompanyDetailsActivity extends BaseActivity {
         public void onItemClick(AdapterView<?> parent, View view, int index, long id) {
             switch (index) {
                 case 0://工商信息
-                    if (a1 == 0) {
+                    if(a1==1) {
                         waitDialog.show();
                         GsonUtil request0 = new GsonUtil(URLconstant.URLINSER + URLconstant.DETAILSCINFOURL, RequestMethod.GET);
                         request0.add("priptype", DataManager.BaseinfoList.get(0).ENTTYPE);
                         request0.add("token", token);
                         request0.add("deviceId", model);
                         request0.add("KeyNo", KeyNo);
-                        if(!DataManager.String0.equals(DataManager.BaseinfoList.get(0).ENTNAME)){
+                        if (!DataManager.String0.equals(DataManager.BaseinfoList.get(0).ENTNAME)) {
                             GsonUtil request121 = new GsonUtil(URLconstant.URLINSER + URLconstant.SAVESUM, RequestMethod.GET);
                             request121.add("token", token);
                             request121.add("deviceId", model);
                             request121.add("KeyNo", KeyNo);
-                            request121.add("regnore",  DataManager.BaseinfoList.get(0).REGNO );
-                            request121.add("entname",  DataManager.BaseinfoList.get(0).ENTNAME );
-                            request121.add("memberId", csp.getID() );
-                            request121.add("enttype",  DataManager.BaseinfoList.get(0).ENTTYPE );
+                            request121.add("regnore", DataManager.BaseinfoList.get(0).REGNO);
+                            request121.add("entname", DataManager.BaseinfoList.get(0).ENTNAME);
+                            request121.add("memberId", csp.getID());
+                            request121.add("enttype", DataManager.BaseinfoList.get(0).ENTTYPE);
                             request121.add("modulename", "工商信息");
                             CallServer.getInstance().add(CompanyDetailsActivity.this, request121, MyhttpCallBack.getInstance(), 0x12138, true, false, true);
                         }
                         CallServer.getInstance().add(CompanyDetailsActivity.this, request0, MyhttpCallBack.getInstance(), 0x000, true, false, true);
+                    } else{
+                        android.widget.Toast.makeText(CompanyDetailsActivity.this, "暂无数据！", android.widget.Toast.LENGTH_SHORT).show();
                     }
                     break;
                 case 1://行政审批
-                    if (a2 == 0) {
+                    if(a2==1) {
                         waitDialog.show();
                         GsonUtil request1 = new GsonUtil(URLconstant.URLINSER + URLconstant.ADMINURL, RequestMethod.GET);
                         request1.add("token", token);
@@ -451,10 +453,12 @@ public class CompanyDetailsActivity extends BaseActivity {
                             CallServer.getInstance().add(CompanyDetailsActivity.this, request121, MyhttpCallBack.getInstance(), 0x12138, true, false, true);
                         }
                         CallServer.getInstance().add(CompanyDetailsActivity.this, request1, MyhttpCallBack.getInstance(), 0x001, true, false, true);
+                    } else{
+                        android.widget.Toast.makeText(CompanyDetailsActivity.this, "暂无数据！", android.widget.Toast.LENGTH_SHORT).show();
                     }
                     break;
                 case 2://荣誉信息
-                    if (a3 == 0) {
+                    if(a3==1) {
                         waitDialog.show();
                         String KeyNoR = DataManager.BaseinfoList.get(0).REGNO;//注册号
                         String tokenr = SearchFirmActivty.MD5s(KeyNoR + model);//token 由 设备ID+/注册号 MD5生成
@@ -476,10 +480,12 @@ public class CompanyDetailsActivity extends BaseActivity {
                             CallServer.getInstance().add(CompanyDetailsActivity.this, request121, MyhttpCallBack.getInstance(), 0x12138, true, false, true);
                         }
                         CallServer.getInstance().add(CompanyDetailsActivity.this, request2, MyhttpCallBack.getInstance(), 0x002, true, false, true);
+                    } else{
+                        android.widget.Toast.makeText(CompanyDetailsActivity.this, "暂无数据！", android.widget.Toast.LENGTH_SHORT).show();
                     }
                     break;
                 case 3://扶持信息
-                    if (a4 == 0) {
+                    if(a4==1) {
                         waitDialog.show();
                         GsonUtil request3 = new GsonUtil(URLconstant.URLINSER + URLconstant.SUPPORTURL, RequestMethod.GET);
                         request3.add("token", token);
@@ -499,10 +505,12 @@ public class CompanyDetailsActivity extends BaseActivity {
                             CallServer.getInstance().add(CompanyDetailsActivity.this, request121, MyhttpCallBack.getInstance(), 0x12138, true, false, true);
                         }
                         CallServer.getInstance().add(CompanyDetailsActivity.this, request3, MyhttpCallBack.getInstance(), 0x003, true, false, true);
+                    } else{
+                        android.widget.Toast.makeText(CompanyDetailsActivity.this, "暂无数据！", android.widget.Toast.LENGTH_SHORT).show();
                     }
                     break;
                 case 4://抵押信息
-                    if (a5 == 0) {
+                    if(a5==1) {
                         waitDialog.show();
                         GsonUtil mortinfoRequest = new GsonUtil(URLconstant.URLINSER + URLconstant.MORTINFO, RequestMethod.GET);//动产request
                         mortinfoRequest.add("token", SearchFirmActivty.MD5s(DataManager.BaseinfoList.get(0).PRIPID + model));
@@ -528,10 +536,12 @@ public class CompanyDetailsActivity extends BaseActivity {
                         mortinfoBdcRequest.add("priptype", DataManager.BaseinfoList.get(0).ENTTYPE);
                         CallServer.getInstance().add(CompanyDetailsActivity.this, mortinfoRequest, MyhttpCallBack.getInstance(), 0x004, true, false, true);
                         CallServer.getInstance().add(CompanyDetailsActivity.this, mortinfoBdcRequest, MyhttpCallBack.getInstance(), 0x0041, true, false, true);
+                    } else{
+                        android.widget.Toast.makeText(CompanyDetailsActivity.this, "暂无数据！", android.widget.Toast.LENGTH_SHORT).show();
                     }
                     break;
                 case 5://出质信息
-                    if (a6 == 0) {
+                    if(a6==1) {
                         waitDialog.show();
                         GsonUtil request5 = new GsonUtil(URLconstant.URLINSER + URLconstant.PLEDGEURL, RequestMethod.GET);
                         request5.add("token", token);
@@ -551,10 +561,12 @@ public class CompanyDetailsActivity extends BaseActivity {
                             CallServer.getInstance().add(CompanyDetailsActivity.this, request121, MyhttpCallBack.getInstance(), 0x12138, true, false, true);
                         }
                         CallServer.getInstance().add(CompanyDetailsActivity.this, request5, MyhttpCallBack.getInstance(), 0x005, true, false, true);
+                    } else{
+                        android.widget.Toast.makeText(CompanyDetailsActivity.this, "暂无数据！", android.widget.Toast.LENGTH_SHORT).show();
                     }
                     break;
                 case 6://司法信息
-                    if (a7 == 0) {
+                    if(a7==1) {
                         waitDialog.show();
                         GsonUtil request6 = new GsonUtil(URLconstant.URLINSER + URLconstant.JUDICIALURL, RequestMethod.GET);
                         request6.add("token", token);
@@ -575,10 +587,13 @@ public class CompanyDetailsActivity extends BaseActivity {
                             CallServer.getInstance().add(CompanyDetailsActivity.this, request121, MyhttpCallBack.getInstance(), 0x12138, true, false, true);
                         }
                         CallServer.getInstance().add(CompanyDetailsActivity.this, request6, MyhttpCallBack.getInstance(), 0X006, true, false, true);
+                    } else{
+                        android.widget.Toast.makeText(CompanyDetailsActivity.this, "暂无数据！", android.widget.Toast.LENGTH_SHORT).show();
                     }
                     break;
                 case 7://预警信息
-                    if (a8 == 0) {
+                    if(a8==1) {
+
                         waitDialog.show();
                         GsonUtil request7 = new GsonUtil(URLconstant.URLINSER + URLconstant.GETALERT, RequestMethod.GET);
                         request7.add("token", token);
@@ -598,10 +613,12 @@ public class CompanyDetailsActivity extends BaseActivity {
                             CallServer.getInstance().add(CompanyDetailsActivity.this, request121, MyhttpCallBack.getInstance(), 0x12138, true, false, true);
                         }
                         CallServer.getInstance().add(CompanyDetailsActivity.this, request7, MyhttpCallBack.getInstance(), 0x007, true, false, true);
+                    } else{
+                        android.widget.Toast.makeText(CompanyDetailsActivity.this, "暂无数据！", android.widget.Toast.LENGTH_SHORT).show();
                     }
                     break;
                 case 8://行政处罚
-                    if (a9 == 0) {
+                    if(a9==1) {
                         waitDialog.show();
                         GsonUtil request = new GsonUtil(URLconstant.URLINSER + URLconstant.PUNISHURL, RequestMethod.GET);
                         request.add("token", token);
@@ -621,10 +638,12 @@ public class CompanyDetailsActivity extends BaseActivity {
                             CallServer.getInstance().add(CompanyDetailsActivity.this, request121, MyhttpCallBack.getInstance(), 0x12138, true, false, true);
                         }
                         CallServer.getInstance().add(CompanyDetailsActivity.this, request, MyhttpCallBack.getInstance(), 0X008, true, false, true);
+                    } else{
+                        android.widget.Toast.makeText(CompanyDetailsActivity.this, "暂无数据！", android.widget.Toast.LENGTH_SHORT).show();
                     }
                     break;
                 case 9://经营异常
-                    if (a10 == 0) {
+                    if(a10==1) {
                         waitDialog.show();
                         GsonUtil request9 = new GsonUtil(URLconstant.URLINSER + URLconstant.ABNORMALURL, RequestMethod.GET);
                         request9.add("token", token);
@@ -644,10 +663,12 @@ public class CompanyDetailsActivity extends BaseActivity {
                             CallServer.getInstance().add(CompanyDetailsActivity.this, request121, MyhttpCallBack.getInstance(), 0x12138, true, false, true);
                         }
                         CallServer.getInstance().add(CompanyDetailsActivity.this, request9, MyhttpCallBack.getInstance(), 0X009, true, false, true);
+                    } else{
+                        android.widget.Toast.makeText(CompanyDetailsActivity.this, "暂无数据！", android.widget.Toast.LENGTH_SHORT).show();
                     }
                     break;
                 case 10://专利信息
-                    if (a11 == 0) {
+                    if(a11==1) {
                         waitDialog.show();
                         GsonUtil request10 = new GsonUtil(URLconstant.URLINSER + URLconstant.PATENTURL, RequestMethod.GET);
                         request10.add("token", token);
@@ -667,22 +688,12 @@ public class CompanyDetailsActivity extends BaseActivity {
                             CallServer.getInstance().add(CompanyDetailsActivity.this, request121, MyhttpCallBack.getInstance(), 0x12138, true, false, true);
                         }
                         CallServer.getInstance().add(CompanyDetailsActivity.this, request10, MyhttpCallBack.getInstance(), 0X010, true, false, true);
-//                    Gson gson=new Gson();
-//                    String jstring10 = getResources().getString(R.string.test1);
-//                    Map<String, Object> map = gson.fromJson(jstring10, new TypeToken<Map<String, Object>>() {
-//                    }.getType());
-//                    List<DataManager.patentInfo> list10 = gson.fromJson(((Map<String, Object>) map.get("data")).get("patentInfo").toString(), new TypeToken<List<DataManager.patentInfo>>() {
-//                    }.getType());
-//                    DataManager.patentInfoList = list10;
-//                    if(DataManager.patentInfoList.size()>0 && DataManager.patentInfoList!=null){
-//                        CompanyDetailsActivity.handler.sendEmptyMessage(10);
-//                    }else{
-//                        CompanyDetailsActivity.handler.sendEmptyMessage(500);
-//                    }
+                    } else{
+                        android.widget.Toast.makeText(CompanyDetailsActivity.this, "暂无数据！", android.widget.Toast.LENGTH_SHORT).show();
                     }
                     break;
                 case 11://商标信息
-                    if (a12 == 0) {
+                    if(a12==1) {
                         waitDialog.show();
                         GsonUtil request11 = new GsonUtil(URLconstant.URLINSER + URLconstant.TRADEMARKURL, RequestMethod.GET);
                         request11.add("token", token);
@@ -702,10 +713,12 @@ public class CompanyDetailsActivity extends BaseActivity {
                             CallServer.getInstance().add(CompanyDetailsActivity.this, request121, MyhttpCallBack.getInstance(), 0x12138, true, false, true);
                         }
                         CallServer.getInstance().add(CompanyDetailsActivity.this, request11, MyhttpCallBack.getInstance(), 0x011, true, false, true);
+                    } else{
+                        android.widget.Toast.makeText(CompanyDetailsActivity.this, "暂无数据！", android.widget.Toast.LENGTH_SHORT).show();
                     }
                     break;
                 case 12://著作权
-                    if (a13 == 0) {
+                    if(a13==1) {
                         waitDialog.show();
                         GsonUtil request12 = new GsonUtil(URLconstant.URLINSER + URLconstant.COPYRIGHTURL, RequestMethod.GET);
                         request12.add("token", token);
@@ -725,10 +738,12 @@ public class CompanyDetailsActivity extends BaseActivity {
                             CallServer.getInstance().add(CompanyDetailsActivity.this, request121, MyhttpCallBack.getInstance(), 0x12138, true, false, true);
                         }
                         CallServer.getInstance().add(CompanyDetailsActivity.this, request12, MyhttpCallBack.getInstance(), 0x012, true, false, true);
+                    } else{
+                        android.widget.Toast.makeText(CompanyDetailsActivity.this, "暂无数据！", android.widget.Toast.LENGTH_SHORT).show();
                     }
                     break;
                 case 13://广告资质
-                    if (a14 == 0) {
+                    if(a14==1) {
                         waitDialog.show();
                         GsonUtil request13 = new GsonUtil(URLconstant.URLINSER + URLconstant.ADVERTISEMENTURL, RequestMethod.GET);
                         request13.add("token", token);
@@ -749,10 +764,12 @@ public class CompanyDetailsActivity extends BaseActivity {
                             CallServer.getInstance().add(CompanyDetailsActivity.this, request121, MyhttpCallBack.getInstance(), 0x12138, true, false, true);
                         }
                         CallServer.getInstance().add(CompanyDetailsActivity.this, request13, MyhttpCallBack.getInstance(), 0x013, true, false, true);
+                    } else{
+                        android.widget.Toast.makeText(CompanyDetailsActivity.this, "暂无数据！", android.widget.Toast.LENGTH_SHORT).show();
                     }
                     break;
                 case 14://守合同重信用
-                    if (a15 == 0) {
+                    if(a15==1) {
                         waitDialog.show();
                         GsonUtil request14 = new GsonUtil(URLconstant.URLINSER + URLconstant.OBEYEDURL, RequestMethod.GET);
                         request14.add("token", token);
@@ -772,10 +789,12 @@ public class CompanyDetailsActivity extends BaseActivity {
                             CallServer.getInstance().add(CompanyDetailsActivity.this, request121, MyhttpCallBack.getInstance(), 0x12138, true, false, true);
                         }
                         CallServer.getInstance().add(CompanyDetailsActivity.this, request14, MyhttpCallBack.getInstance(), 0x014, true, false, true);
+                    } else{
+                        android.widget.Toast.makeText(CompanyDetailsActivity.this, "暂无数据！", android.widget.Toast.LENGTH_SHORT).show();
                     }
                     break;
                 case 15://自主公示
-                    if (a16 == 0) {
+                    if(a16==1) {
                         waitDialog.show();
                         GsonUtil request15 = new GsonUtil(URLconstant.URLINSER + URLconstant.GETAUTO, RequestMethod.GET);
                         request15.add("token", token);
@@ -795,6 +814,8 @@ public class CompanyDetailsActivity extends BaseActivity {
                             CallServer.getInstance().add(CompanyDetailsActivity.this, request121, MyhttpCallBack.getInstance(), 0x12138, true, false, true);
                         }
                         CallServer.getInstance().add(CompanyDetailsActivity.this, request15, MyhttpCallBack.getInstance(), MSG, true, false, true);
+                    } else{
+                        android.widget.Toast.makeText(CompanyDetailsActivity.this, "暂无数据！", android.widget.Toast.LENGTH_SHORT).show();
                     }
                     break;
                 case 16://全景视图
@@ -805,53 +826,69 @@ public class CompanyDetailsActivity extends BaseActivity {
                     //Toast.show( "此模块，正在开发中...");
                     break;
                 case 18://发展历程
-                    startActivity(new Intent(CompanyDetailsActivity.this, H5ViewActivity.class).putExtra("KeyNo", DataManager.BaseinfoList.get(0).PRIPID).putExtra("URL", URLconstant.FAZHAN).putExtra("regno", DataManager.BaseinfoList.get(0).REGNO).putExtra("entname", DataManager.BaseinfoList.get(0).ENTNAME).putExtra("estdate",DataManager.BaseinfoList.get(0).ESTDATE).putExtra("msg","2").putExtra("Tname", "发展历程"));
+                    startActivity(new Intent(CompanyDetailsActivity.this, H5ViewActivity.class).putExtra("KeyNo", DataManager.BaseinfoList.get(0).PRIPID).putExtra("URL", URLconstant.FAZHAN).putExtra("regno", DataManager.BaseinfoList.get(0).REGNO).putExtra("entname", DataManager.BaseinfoList.get(0).ENTNAME).putExtra("estdate",DataManager.BaseinfoList.get(0).ESTDATE).putExtra("msg","2").putExtra("Tname", "发展历程").putExtra("priptype",DataManager.BaseinfoList.get(0).ENTTYPE));
                     //Toast.show("此模块，正在开发中...");
                     break;
                 case 19://招投标
-                    Intent i19 = new Intent(CompanyDetailsActivity.this, H5ViewActivity.class);
-                    i19.putExtra("KeyNo", DataManager.BaseinfoList.get(0).ENTNAME);
-                    i19.putExtra("pripid", DataManager.BaseinfoList.get(0).PRIPID);
-                    i19.putExtra("URL", URLconstant.TENDER);
-                    i19.putExtra("Tname", "招投标");
-                    i19.putExtra("regno", DataManager.BaseinfoList.get(0).REGNO);
-                    i19.putExtra("priptype", DataManager.BaseinfoList.get(0).ENTTYPE);
-                    i19.putExtra("msg","3");
-                    startActivity(i19);
-                    overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
+                    if(!DataManager.allcountsList.get(0).BiddingCount.equals("0")){
+                        Intent i19 = new Intent(CompanyDetailsActivity.this, H5ViewActivity.class);
+                        i19.putExtra("KeyNo", DataManager.BaseinfoList.get(0).ENTNAME);
+                        i19.putExtra("pripid", DataManager.BaseinfoList.get(0).PRIPID);
+                        i19.putExtra("URL", URLconstant.TENDER);
+                        i19.putExtra("Tname", "招投标");
+                        i19.putExtra("regno", DataManager.BaseinfoList.get(0).REGNO);
+                        i19.putExtra("priptype", DataManager.BaseinfoList.get(0).ENTTYPE);
+                        i19.putExtra("msg","3");
+                        startActivity(i19);
+                        overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
 //                    Toast.show( "此模块，正在开发中...");
+                    }else{
+                        android.widget.Toast.makeText(CompanyDetailsActivity.this, "暂无数据！", android.widget.Toast.LENGTH_SHORT).show();
+                    }
                     break;
 
                 case 20://企业新闻
-                    Intent i20 = new Intent(CompanyDetailsActivity.this, H5ViewActivity.class);
-                    i20.putExtra("KeyNo", DataManager.BaseinfoList.get(0).ENTNAME);
-                    i20.putExtra("pripid", DataManager.BaseinfoList.get(0).PRIPID);
-                    i20.putExtra("URL", URLconstant.COMPANYNEWS);
-                    i20.putExtra("Tname", "企业新闻");
-                    i20.putExtra("regno", DataManager.BaseinfoList.get(0).REGNO);
-                    i20.putExtra("priptype", DataManager.BaseinfoList.get(0).ENTTYPE);
-                    i20.putExtra("msg","4");
-                    startActivity(i20);
-                    overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
-                    //                    Toast.show( "此模块，正在开发中...");
+                    if(!DataManager.allcountsList.get(0).EntNewCount.equals("0")) {
+                        Intent i20 = new Intent(CompanyDetailsActivity.this, H5ViewActivity.class);
+                        i20.putExtra("KeyNo", DataManager.BaseinfoList.get(0).ENTNAME);
+                        i20.putExtra("pripid", DataManager.BaseinfoList.get(0).PRIPID);
+                        i20.putExtra("URL", URLconstant.COMPANYNEWS);
+                        i20.putExtra("Tname", "企业新闻");
+                        i20.putExtra("regno", DataManager.BaseinfoList.get(0).REGNO);
+                        i20.putExtra("priptype", DataManager.BaseinfoList.get(0).ENTTYPE);
+                        i20.putExtra("msg", "4");
+                        startActivity(i20);
+                        overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
+                        //                    Toast.show( "此模块，正在开发中...");
+                    }else{
+                        android.widget.Toast.makeText(CompanyDetailsActivity.this, "暂无数据！", android.widget.Toast.LENGTH_SHORT).show();
+                    }
                     break;
 
                 case 21://企业招聘
-                    Intent i21 = new Intent(CompanyDetailsActivity.this, H5ViewActivity.class);
-                    i21.putExtra("KeyNo", DataManager.BaseinfoList.get(0).ENTNAME);
-                    i21.putExtra("pripid", DataManager.BaseinfoList.get(0).PRIPID);
-                    i21.putExtra("URL", URLconstant.RECRUIT);
-                    i21.putExtra("Tname", "企业招聘");
-                    i21.putExtra("regno", DataManager.BaseinfoList.get(0).REGNO);
-                    i21.putExtra("priptype", DataManager.BaseinfoList.get(0).ENTTYPE);
-                    i21.putExtra("msg","5");
-                    startActivity(i21);
-                    overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
-                    //                    Toast.show( "此模块，正在开发中...");
+                    if(!DataManager.allcountsList.get(0).JobCount.equals("0")) {
+                        Intent i21 = new Intent(CompanyDetailsActivity.this, H5ViewActivity.class);
+                        i21.putExtra("KeyNo", DataManager.BaseinfoList.get(0).ENTNAME);
+                        i21.putExtra("pripid", DataManager.BaseinfoList.get(0).PRIPID);
+                        i21.putExtra("URL", URLconstant.RECRUIT);
+                        i21.putExtra("Tname", "企业招聘");
+                        i21.putExtra("regno", DataManager.BaseinfoList.get(0).REGNO);
+                        i21.putExtra("priptype", DataManager.BaseinfoList.get(0).ENTTYPE);
+                        i21.putExtra("msg", "5");
+                        startActivity(i21);
+                        overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
+                        //                    Toast.show( "此模块，正在开发中...");
+                    }else{
+                        android.widget.Toast.makeText(CompanyDetailsActivity.this, "暂无数据！", android.widget.Toast.LENGTH_SHORT).show();
+                    }
                     break;
                 case 22://企业展示
-                    //Toast.show("此模块，正在开发中...");
-                    startActivity(new Intent(CompanyDetailsActivity.this,H5ViewActivity.class).putExtra("KeyNo", DataManager.BaseinfoList.get(0).PRIPID).putExtra("URL", URLconstant.SHOW).putExtra("regno", DataManager.BaseinfoList.get(0).REGNO).putExtra("priptype", DataManager.BaseinfoList.get(0).ENTTYPE).putExtra("entname", DataManager.BaseinfoList.get(0).ENTNAME).putExtra("msg","6"));
+                    if(!DataManager.allcountsList.get(0).EntShowCount.equals("0")) {
+                        //Toast.show("此模块，正在开发中...");
+                        startActivity(new Intent(CompanyDetailsActivity.this, H5ViewActivity.class).putExtra("KeyNo", DataManager.BaseinfoList.get(0).PRIPID).putExtra("URL", URLconstant.SHOW).putExtra("regno", DataManager.BaseinfoList.get(0).REGNO).putExtra("priptype", DataManager.BaseinfoList.get(0).ENTTYPE).putExtra("entname", DataManager.BaseinfoList.get(0).ENTNAME).putExtra("msg", "6"));
+                    }else{
+                        android.widget.Toast.makeText(CompanyDetailsActivity.this, "暂无数据！", android.widget.Toast.LENGTH_SHORT).show();
+                    }
                     break;
                 case 23://信用报告
                     Intent i23=new Intent(CompanyDetailsActivity.this,ReportActivity.class);
@@ -906,6 +943,57 @@ public class CompanyDetailsActivity extends BaseActivity {
             name.setText(DataManager.BaseinfoList.get(0).NAME);
         }
 
+        if(!DataManager.allcountsList.get(0).HonorCount.equals("0")){
+            a3=1;
+        }
+        if(!DataManager.allcountsList.get(0).JudiciaryCount.equals("0")){
+            a7=1;
+        }
+        if(!DataManager.allcountsList.get(0).PledgeCount.equals("0")){
+            a6=1;
+        }
+        if(!DataManager.allcountsList.get(0).CopyrightCount.equals("0")){
+            a13=1;
+        }
+        if(!DataManager.allcountsList.get(0).AnnualCount.equals("0")){
+            a16=1;
+        }
+        if(!DataManager.allcountsList.get(0).AdvertisementCount.equals("0")){
+            a14=1;
+        }
+        if(DataManager.allcountsList.get(0).BaseInfoCount.equals("0")){
+            a1=1;
+        }
+        if(!DataManager.allcountsList.get(0).ApprovalCount.equals("0")){
+            a2=1;
+        }
+        if(!DataManager.allcountsList.get(0).PunishCount.equals("0")){
+            a9=1;
+        }
+        if(!DataManager.allcountsList.get(0).WarningCount.equals("0")){
+            a8=1;
+        }
+        if(!DataManager.allcountsList.get(0).TrademarkCount.equals("0")){
+            a12=1;
+        }
+        if(!DataManager.allcountsList.get(0).AbnormityCount.equals("0")){
+            a10=1;
+        }
+        if(!DataManager.allcountsList.get(0).CreditCount.equals("0")){
+            a15=1;
+        } if(!DataManager.allcountsList.get(0).SupportCount.equals("0")){
+            a4=1;
+        }
+        if(!DataManager.allcountsList.get(0).MortgagorCount.equals("0")){
+            a5=1;
+        }
+        if(!DataManager.allcountsList.get(0).PatentCount.equals("0")){
+            a11=1;
+        }
+
+
+
+
         if((DataManager.BaseinfoList.get(0).ENTNAME).indexOf("分公司") != -1){
             gai1.setText("负责人");
             regcap.setText("无");
@@ -948,71 +1036,6 @@ public class CompanyDetailsActivity extends BaseActivity {
             lt.add("暂无信息");
             int size = lt.size();
             arrays4 = (String[]) lt.toArray(new String[size]);
-        }
-//        图片变灰
-        if (DataManager.allcountsList.get(0).BaseInfoCount == "0" || DataManager.allcountsList.get(0).BaseInfoCount.equals("0")) {
-            a1 = 1;
-//            imgs1[0] = R.mipmap.icon1_1;
-        }
-        if (DataManager.allcountsList.get(0).ApprovalCount == "0" || DataManager.allcountsList.get(0).ApprovalCount.equals("0")) {
-            a2 = 1;
-//            imgs1[1] = R.mipmap.icon2_1;
-        }
-        if (DataManager.allcountsList.get(0).HonorCount == "0" || DataManager.allcountsList.get(0).HonorCount.equals("0")) {
-            a3 = 1;
-//            imgs1[2] = R.mipmap.icon3_1;
-        }
-        if (DataManager.allcountsList.get(0).SupportCount == "0" || DataManager.allcountsList.get(0).SupportCount.equals("0")) {
-            a4 = 1;
-//            imgs1[3] = R.mipmap.icon4_1;
-        }
-        if (DataManager.allcountsList.get(0).PledgeCount == "0" || DataManager.allcountsList.get(0).PledgeCount.equals("0")) {
-            a6 = 1;
-//            imgs1[4] = R.mipmap.icon5_1;
-        }
-        if (DataManager.allcountsList.get(0).MortgagorCount == "0" || DataManager.allcountsList.get(0).MortgagorCount.equals("0")) {
-            a5 = 1;
-//            imgs1[5] = R.mipmap.icon6_1;
-        }
-        if (DataManager.allcountsList.get(0).JudiciaryCount == "0" || DataManager.allcountsList.get(0).JudiciaryCount.equals("0")) {
-            a7 = 1;
-//            imgs1[6] = R.mipmap.icon7_1;
-        }
-        if (DataManager.allcountsList.get(0).WarningCount == "0" || DataManager.allcountsList.get(0).WarningCount.equals("0")) {
-            a8 = 1;
-//            imgs1[7] = R.mipmap.icon8_1;
-        }
-        if (DataManager.allcountsList.get(0).PunishCount == "0" || DataManager.allcountsList.get(0).PunishCount.equals("0")) {
-            a9 = 1;
-//            imgs1[8] = R.mipmap.icon9_1;
-        }
-        if (DataManager.allcountsList.get(0).AbnormityCount == "0" || DataManager.allcountsList.get(0).AbnormityCount.equals("0")) {
-            a10 = 1;
-//            imgs1[9] = R.mipmap.icon10_1;
-        }
-        if (DataManager.allcountsList.get(0).PatentCount == "0" || DataManager.allcountsList.get(0).PatentCount.equals("0")) {
-            a11 = 1;
-//            imgs1[10] = R.mipmap.icon11_1;
-        }
-        if (DataManager.allcountsList.get(0).TrademarkCount == "0" || DataManager.allcountsList.get(0).TrademarkCount.equals("0")) {
-            a12 = 1;
-//            imgs1[11] = R.mipmap.icon12_1;
-        }
-        if (DataManager.allcountsList.get(0).CopyrightCount == "0" || DataManager.allcountsList.get(0).CopyrightCount.equals("0")) {
-            a13 = 1;
-//            imgs1[12] = R.mipmap.icon13_1;
-        }
-        if (DataManager.allcountsList.get(0).AdvertisementCount == "0" || DataManager.allcountsList.get(0).AdvertisementCount.equals("0")) {
-            a14 = 1;
-//            imgs1[13] = R.mipmap.icon14_1;
-        }
-        if (DataManager.allcountsList.get(0).CreditCount == "0" || DataManager.allcountsList.get(0).CreditCount.equals("0")) {
-            a15 = 1;
-//            imgs1[14] = R.mipmap.icon15_1;
-        }
-        if (DataManager.allcountsList.get(0).AnnualCount == "0" || DataManager.allcountsList.get(0).AnnualCount.equals("0")) {
-            a16 = 1;
-//            imgs1[15] = R.mipmap.icon16_1;
         }
 
         if (DataManager.allcountsList.get(0).IsFavorite.equals("false")) {//当前状态为未关注，所以点击是关注

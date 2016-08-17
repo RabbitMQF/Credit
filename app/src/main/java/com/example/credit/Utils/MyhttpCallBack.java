@@ -287,7 +287,7 @@ public class MyhttpCallBack implements HttpCallBack {
                     }
 
                     break;
-                case 0x024://获取企业详情16宫格等
+                case 0x024://获取企业详情24宫格等
                     jsonString = (String) response.get();
                     try {
                         map = gson.fromJson(jsonString, new TypeToken<Map<String, Object>>() {
@@ -327,7 +327,7 @@ public class MyhttpCallBack implements HttpCallBack {
                                 cfo.PatentCount = temp.get("PatentCount").toString();
                                 cfo.PageView = temp.get("PageView").toString();
                                 cfo.IsClaim = temp.get("IsClaim").toString();
-
+                                cfo.EntShowCount=temp.get("EntShowCount").toString();//++
                                 cfo.BiddingCount = temp.get("BiddingCount").toString();
                                 cfo.JobCount = temp.get("JobCount").toString();
                                 cfo.EntNewCount = temp.get("EntNewCount").toString();
@@ -397,7 +397,7 @@ public class MyhttpCallBack implements HttpCallBack {
                             cfo.PatentCount = temp.get("PatentCount").toString();
                             cfo.PageView = temp.get("PageView").toString();
                             cfo.IsClaim = temp.get("IsClaim").toString();
-
+                            cfo.EntShowCount=temp.get("EntShowCount").toString();//++
                             cfo.BiddingCount = temp.get("BiddingCount").toString();
                             cfo.JobCount = temp.get("JobCount").toString();
                             cfo.EntNewCount = temp.get("EntNewCount").toString();
@@ -462,7 +462,7 @@ public class MyhttpCallBack implements HttpCallBack {
                             cfo.PatentCount = temp.get("PatentCount").toString();
                             cfo.PageView = temp.get("PageView").toString();
                             cfo.IsClaim = temp.get("IsClaim").toString();
-
+                            cfo.EntShowCount=temp.get("EntShowCount").toString();//++
                             cfo.BiddingCount = temp.get("BiddingCount").toString();
                             cfo.JobCount = temp.get("JobCount").toString();
                             cfo.EntNewCount = temp.get("EntNewCount").toString();

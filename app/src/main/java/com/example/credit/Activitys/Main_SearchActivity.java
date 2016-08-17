@@ -23,6 +23,7 @@ import com.example.credit.Dialogs.WaitDialog;
 import com.example.credit.Entitys.DataManager;
 import com.example.credit.R;
 import com.example.credit.Services.CallServer;
+import com.example.credit.Utils.ContainsEmojiEditText;
 import com.example.credit.Utils.CreditSharePreferences;
 import com.example.credit.Utils.GsonUtil;
 import com.example.credit.Utils.MD5;
@@ -42,7 +43,7 @@ import java.util.List;
  */
 public class Main_SearchActivity extends Activity {
     @ViewInject(R.id.search_et1)
-    EditText search_et;
+    ContainsEmojiEditText search_et;
 
     @ViewInject(R.id.arrow_backm)
     LinearLayout arrow_backm;

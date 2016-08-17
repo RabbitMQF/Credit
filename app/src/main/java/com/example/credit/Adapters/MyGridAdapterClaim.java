@@ -15,6 +15,7 @@ import android.widget.TextView;
 import com.example.credit.Entitys.DataManager;
 import com.example.credit.R;
 import com.example.credit.Views.BaseViewHolder;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -68,7 +69,8 @@ public class MyGridAdapterClaim extends BaseAdapter {
         }
         final ImageView bg= (ImageView) convertView.findViewById(R.id.ivc_items);
         final ImageView iv = BaseViewHolder.get(convertView, R.id.ivc_items);
-        iv.setImageBitmap(decodeBitmap(imgs[position], 50,50));
+//        Picasso.with(mContext).load(imgs[position]).into(bg);
+        iv.setImageBitmap(decodeBitmap(imgs[position], 200,200));
         if (bg.getDrawable() != null){
             iv.setOnClickListener(new View.OnClickListener() {
                 @Override

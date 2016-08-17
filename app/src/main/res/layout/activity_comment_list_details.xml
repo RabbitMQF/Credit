@@ -161,7 +161,7 @@
                     android:focusableInTouchMode="true"
                     android:layout_gravity="center_vertical"
                     android:text="回复："/>
-                <EditText
+                <com.example.credit.Utils.ContainsEmojiEditText
                     android:id="@+id/Dhuifu_con"
                     android:layout_width="0dp"
                     android:layout_weight="4"

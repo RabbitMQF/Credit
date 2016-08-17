@@ -53,7 +53,7 @@
             android:background="@drawable/edit_bg"
             android:orientation="horizontal">
 
-            <EditText
+            <com.example.credit.Utils.ContainsEmojiEditText
                 android:id="@+id/search_et1"
                 android:layout_width="0dp"
                 android:layout_height="35dp"

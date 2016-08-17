@@ -15,19 +15,7 @@
         android:layout_marginTop="10dp"
         android:orientation="vertical"
         android:background="@drawable/details_con_bg">
-        <!--<TextView-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:textSize="18sp"-->
-            <!--android:textColor="#757475"-->
-            <!--android:layout_marginLeft="10dp"-->
-            <!--android:layout_marginRight="25dp"-->
-            <!--android:layout_marginTop="10dp"-->
-            <!--android:focusable="true"-->
-            <!--android:focusableInTouchMode="true"-->
-            <!--android:layout_gravity="center_vertical"-->
-            <!--android:text="评论内容"/>-->
-        <EditText
+        <com.example.credit.Utils.ContainsEmojiEditText
             android:id="@+id/To_details"
             android:layout_width="match_parent"
             android:layout_height="150dp"

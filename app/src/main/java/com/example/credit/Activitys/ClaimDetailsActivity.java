@@ -124,6 +124,7 @@ public class ClaimDetailsActivity extends Activity {
         }
         MyGridAdapterClaim adapters = new MyGridAdapterClaim(ClaimDetailsActivity.this, imgS);
         myGridViewtcDD.setAdapter(adapters);
+        MyClaimActivity.wd.dismiss();
         myGridViewtcDD.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {

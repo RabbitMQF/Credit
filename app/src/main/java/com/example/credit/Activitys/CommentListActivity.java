@@ -102,6 +102,10 @@ public class CommentListActivity extends BaseActivity implements PullToRefreshVi
                             por=listpl.size()-1;
                             listpl.addAll(DataManager.MyCommentlistrS.data.userreview);
                         }
+                        if(listpl.size()>0){
+                            mPullToRefreshView.setVisibility(View.VISIBLE);
+                            commentNull.setVisibility(View.GONE);
+                        }
                         Rit();
                         if(falg==false) {
                             wd.dismiss();
@@ -111,7 +115,7 @@ public class CommentListActivity extends BaseActivity implements PullToRefreshVi
                         if(falg==false) {
                             wd.dismiss();
                         }
-                        scrollV.setVisibility(View.GONE);
+                        mPullToRefreshView.setVisibility(View.GONE);
                         commentNull.setVisibility(View.VISIBLE);
                         break;
                 }
@@ -226,8 +230,8 @@ public class CommentListActivity extends BaseActivity implements PullToRefreshVi
             }
         }
         adapter = new CommmentAdapter(CommentListActivity.this, listpl);
-        adapter.notifyDataSetChanged();
         Ccomm_list.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
         Ccomm_list.setSelection(por-2);
         mPullToRefreshView.onFooterRefreshComplete();
     }

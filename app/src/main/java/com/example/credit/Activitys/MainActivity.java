@@ -1,5 +1,6 @@
 package com.example.credit.Activitys;
 
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.ProgressDialog;
@@ -15,7 +16,6 @@ import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AlertDialog;
-import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.AbsListView;
@@ -42,11 +42,13 @@ import com.example.credit.Utils.MD5;
 import com.example.credit.Utils.MyhttpCallBack;
 import com.example.credit.Utils.NetUtils;
 import com.example.credit.Utils.URLconstant;
-import com.example.credit.Views.MyGridView;
+import com.example.credit.Views.FileUtil;
 import com.example.credit.Views.ImageCycleView;
+import com.example.credit.Views.MyGridView;
 import com.example.credit.Views.MyListView;
 import com.example.credit.Views.RoundImageView;
 import com.example.credit.Views.SlidingMenu;
+import com.igexin.sdk.PushManager;
 import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ViewInject;
 import com.yolanda.nohttp.RequestMethod;
@@ -90,7 +92,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
     @ViewInject(R.id.set)
     ImageView set;//设置
 
-
+    @ViewInject(R.id.togg)
+    ImageView togg;//左上角侧滑按钮
     @ViewInject(R.id.Smenu_1)
     RelativeLayout Smenu_1;//我的评价
     @ViewInject(R.id.Smenu_2)
@@ -154,11 +157,12 @@ public class MainActivity extends Activity implements View.OnClickListener {
     public static AlertDialog dialog;
     public int[] imgs1 = {R.mipmap.maincon_1, R.mipmap.maincon_2,
             R.mipmap.maincon_3, R.mipmap.maincon_4};
-    public String[] txt = {"商标查询","专利查询",
+    public String[] txt = {"商标查询", "专利查询",
             "招投标", "失信查询"};
-    public static   NewClaimListAdapter adapter1;
+    public static NewClaimListAdapter adapter1;
 
-    int num1,num2;//热点随机数
+    int num1, num2;//热点随机数
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -168,23 +172,25 @@ public class MainActivity extends Activity implements View.OnClickListener {
         LoginStatus = csp.getLoginStatus();
         ViewUtils.inject(this);
         ad = new WaitDialog(this);
-        boolean falg= NetUtils.isConnectingToInternet(this);
+        boolean falg = NetUtils.isConnectingToInternet(this);
         mLeftMenu = (SlidingMenu) findViewById(R.id.id_menu);
+        PushManager.getInstance().initialize(this.getApplicationContext());
+        PushManager.getInstance().getClientid(MainActivity.this);
         /**
          * 轮播
          */
         mImageCycleView = (ImageCycleView) findViewById(R.id.icv_topView);
-        List<ImageCycleView.ImageInfo> list=new ArrayList<ImageCycleView.ImageInfo>();
+        List<ImageCycleView.ImageInfo> list = new ArrayList<ImageCycleView.ImageInfo>();
         //res图片资源
-        list.add(new ImageCycleView.ImageInfo(R.drawable.banner1,"",""));
-        list.add(new ImageCycleView.ImageInfo(R.drawable.banner2,"",""));
+        list.add(new ImageCycleView.ImageInfo(R.drawable.banner1, "", ""));
+        list.add(new ImageCycleView.ImageInfo(R.drawable.banner2, "", ""));
         //list.add(new ImageCycleView.ImageInfo(R.drawable.a3,"3333333333333",""));
         mImageCycleView.loadData(list, new ImageCycleView.LoadImageCallBack() {
             @Override
             public ImageView loadAndDisplay(ImageCycleView.ImageInfo imageInfo) {
 
                 //本地图片
-                ImageView imageView=new ImageView(MainActivity.this);
+                ImageView imageView = new ImageView(MainActivity.this);
                 imageView.setImageResource(Integer.parseInt(imageInfo.image.toString()));
                 return imageView;
 
@@ -268,7 +274,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                         startActivity(i6);
                         break;
                     case 7:
-                        adapter1 = new NewClaimListAdapter(MainActivity.this, MyCliamList,0);
+                        adapter1 = new NewClaimListAdapter(MainActivity.this, MyCliamList, 0);
                         NewClaimListview.setAdapter(adapter1);
                         adapter1.notifyDataSetChanged();
                         NewClaimListview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -293,9 +299,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
                         break;
                     case 8://跳公司详情
                         ad.dismiss();
-                        if(Main_NewCliam_MoreListActivity.falg==true){
+                        if (Main_NewCliam_MoreListActivity.falg == true) {
                             Main_NewCliam_MoreListActivity.ad.dismiss();
-                            Main_NewCliam_MoreListActivity.falg=false;
+                            Main_NewCliam_MoreListActivity.falg = false;
                         }
                         Intent i = new Intent(MainActivity.this, CompanyDetailsActivity.class);
                         i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -313,8 +319,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
                         adapter.notifyDataSetChanged();
                         break;
                     case 11:
-                        Intent i1w1=new Intent(MainActivity.this,Main_NewCliam_MoreListActivity.class);
-                        i1w1.putExtra("Tname","最新认领");
+                        Intent i1w1 = new Intent(MainActivity.this, Main_NewCliam_MoreListActivity.class);
+                        i1w1.putExtra("Tname", "最新认领");
                         startActivity(i1w1);
                         break;
                     default:
@@ -324,10 +330,10 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
             }
         };
-        if(falg==true){
+        if (falg == true) {
             initView();
             initData();
-        }else{
+        } else {
             this.finish();
             System.exit(0);
         }
@@ -380,14 +386,19 @@ public class MainActivity extends Activity implements View.OnClickListener {
 //            }
 //        }
 
-        if(DataManager.MyNewAppS.message.equals("success")){
-            if(DataManager.MyNewAppS.data!=null & DataManager.MyNewAppS.data.size()>0) {
-                if (DataManager.MyNewAppS.data.get(0).VERSION != null & DataManager.MyNewAppS.data.size() > 0) {
-                    dialog.show();
+        if (DataManager.MyNewAppS.message.equals("success")) {
+            if (DataManager.MyNewAppS.data != null & DataManager.MyNewAppS.data.size() > 0) {
+                if (DataManager.MyNewAppS.data.get(0).VERSION != null & DataManager.MyNewAppS.data.get(0).PATH != null) {
+                    double in = Double.parseDouble(DataManager.MyNewAppS.data.get(0).VERSION);//最新版本号
+                    double isn = (double) FileUtil.getVersionCode(MainActivity.this);//当前版本号
+                    if (isn < in) {
+                        dialog.show();
+                    }
                 }
             }
         }
     }
+
     private void initData() {
         builder = new AlertDialog.Builder(this);
         builder.setTitle("最新版本");
@@ -408,34 +419,34 @@ public class MainActivity extends Activity implements View.OnClickListener {
         dialog = builder.create();
         dialog.setCanceledOnTouchOutside(false);// 设置点击屏幕Dialog不消失
 
-        MyGridAdaptermMain adapters = new MyGridAdaptermMain(MainActivity.this, imgs1,txt);
+        MyGridAdaptermMain adapters = new MyGridAdaptermMain(MainActivity.this, imgs1, txt);
         myGridViewMain.setAdapter(adapters);
         myGridViewMain.setSelector(new ColorDrawable(Color.TRANSPARENT));
         myGridViewMain.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent i;
-                switch (position){
+                switch (position) {
                     case 0://商标查询
-                        i=new Intent(MainActivity.this,Main_SearchActivity.class);
-                        i.putExtra("hit","商标");
+                        i = new Intent(MainActivity.this, Main_SearchActivity.class);
+                        i.putExtra("hit", "商标");
                         startActivity(i);
                         break;
                     case 1://专利查询
-                        i=new Intent(MainActivity.this,Main_SearchActivity.class);
-                        i.putExtra("hit","专利");
+                        i = new Intent(MainActivity.this, Main_SearchActivity.class);
+                        i.putExtra("hit", "专利");
                         startActivity(i);
                         break;
                     case 2://招投标
 //                        i=new Intent(MainActivity.this,Main_SearchActivity.class);
 //                        i.putExtra("hit","招投标");
 //                        startActivity(i);
-                        startActivity(new Intent(MainActivity.this,Main_SearchActivity.class).putExtra("hit","招投标"));
+                        startActivity(new Intent(MainActivity.this, Main_SearchActivity.class).putExtra("hit", "招投标"));
                         //com.example.credit.Utils.Toast.show("模块正在赶工中...");
                         break;
                     case 3://失信
-                        i=new Intent(MainActivity.this,Main_SearchActivity.class);
-                        i.putExtra("hit","失信");
+                        i = new Intent(MainActivity.this, Main_SearchActivity.class);
+                        i.putExtra("hit", "失信");
                         startActivity(i);
                         break;
                 }
@@ -455,7 +466,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
             btmore.setVisibility(View.GONE);
             NewClaimTxT.setVisibility(View.VISIBLE);
         }
-        if(MyHotsList.size()>1&&!MyHotsList.get(0).KEYWORDS.equals("") && !MyHotsList.get(1).KEYWORDS.equals("")){
+        if (MyHotsList.size() > 1 && !MyHotsList.get(0).KEYWORDS.equals("") && !MyHotsList.get(1).KEYWORDS.equals("")) {
             hot_1.setText(MyHotsList.get(0).KEYWORDS);
             hot_2.setText(MyHotsList.get(1).KEYWORDS);
         }
@@ -623,23 +634,23 @@ public class MainActivity extends Activity implements View.OnClickListener {
                         NewsRequest.add("pageSize", 5);
                         CallServer.getInstance().add(MainActivity.this, NewsRequest, MyhttpCallBack.getInstance(), 0x1111, true, false, true);
                         t++;
-                        str=2;
-                    }else{
+                        str = 2;
+                    } else {
                         com.example.credit.Utils.Toast.show("没有更多数据了！");
                         btmore.setVisibility(View.GONE);
                     }
                     break;
                 case R.id.cliam_more:
-                    GsonUtil NewClaimRequest=new GsonUtil(URLconstant.URLINSER + URLconstant.NEWCLAIM, RequestMethod.GET);//最新认领
-                    CallServer.getInstance().add(MainActivity.this,NewClaimRequest, MyhttpCallBack.getInstance(),0x1131,true,false,true);
+                    GsonUtil NewClaimRequest = new GsonUtil(URLconstant.URLINSER + URLconstant.NEWCLAIM, RequestMethod.GET);//最新认领
+                    CallServer.getInstance().add(MainActivity.this, NewClaimRequest, MyhttpCallBack.getInstance(), 0x1131, true, false, true);
                     break;
                 case R.id.hot_huan:
-                    if (MyHotsList.size()>0) {
+                    if (MyHotsList.size() > 0) {
                         Random random = new Random();//随机数
-                        while (true){
+                        while (true) {
                             num1 = random.nextInt(MyHotsList.size());
                             num2 = random.nextInt(MyHotsList.size());
-                            if(num1!=num2){
+                            if (num1 != num2) {
                                 break;
                             }
                         }
@@ -684,6 +695,17 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
     public void toggleMenu(View view) {
         mLeftMenu.toggle();
+        settogg();
+    }
+
+
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
+    private void settogg() {
+        if (togg.getBackground().equals(getResources().getDrawable(R.drawable.ic_more_horiz_black_24dp))) {
+            togg.setBackground(getResources().getDrawable(R.drawable.ic_more_vert_black_24dp));
+        }else {
+            togg.setBackground(getResources().getDrawable(R.drawable.ic_more_horiz_black_24dp));
+        }
     }
 
     @Override
@@ -691,7 +713,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         switch (v.getId()) {
             case R.id.top_search:
                 Intent in = new Intent(this, SearchFirmActivty.class);
-                in.putExtra("Setname","");
+                in.putExtra("Setname", "");
                 startActivity(in);
                 overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
                 break;
@@ -759,14 +781,14 @@ public class MainActivity extends Activity implements View.OnClickListener {
     }
 
 
-
     @Override
     protected void onResume() {
         super.onResume();
         isLogin();
         initData();
     }
-    public void filenewsexists(){
+
+    public void filenewsexists() {
         File destDir1 = new File(Environment.getExternalStorageDirectory() + "/Credit");//项目文件夹
         File destDir2 = new File(Environment.getExternalStorageDirectory() + "/Credit/cache");//项目缓存文件夹
         File destDir3 = new File(Environment.getExternalStorageDirectory() + "/Credit/TwoDimImg");//项目存放二维码文件夹
@@ -780,6 +802,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
             destDir3.mkdirs();
         }
     }
+
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK

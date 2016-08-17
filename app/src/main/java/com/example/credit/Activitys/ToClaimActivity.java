@@ -325,6 +325,8 @@ public class ToClaimActivity extends BaseActivity implements OnItemLongClickList
                         Toast.show("描述详情不能为空!");
                     }else if((claim_phone.getText().toString()).length()!=11){
                         Toast.show("手机号码格式错误!");
+                    }else if(myList.size()<=0){
+                        Toast.show("附件不能为空!");
                     }else{
                         wd.show();
                         GsonUtil request14 = new GsonUtil(URLconstant.URLINSER + URLconstant.CLAIMURL, RequestMethod.GET);

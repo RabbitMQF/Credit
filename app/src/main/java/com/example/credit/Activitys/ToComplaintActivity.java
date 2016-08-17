@@ -36,6 +36,7 @@ import com.example.credit.Adapters.MyGridAdapterClaim2;
 import com.example.credit.Entitys.DataManager;
 import com.example.credit.R;
 import com.example.credit.Services.CallServer;
+import com.example.credit.Utils.ContainsEmojiEditText;
 import com.example.credit.Utils.CreditSharePreferences;
 import com.example.credit.Utils.GsonUtil;
 import com.example.credit.Utils.MD5;
@@ -65,9 +66,9 @@ public class ToComplaintActivity extends BaseActivity implements OnItemLongClick
     @ViewInject(R.id.b_return)
     LinearLayout b_return;//退出
     @ViewInject(R.id.com_et_title)
-    EditText com_et_title;//投诉主题
+    ContainsEmojiEditText com_et_title;//投诉主题
     @ViewInject(R.id.com_et_conten)
-    EditText com_et_conten;//投诉内容
+    ContainsEmojiEditText com_et_conten;//投诉内容
     @ViewInject(R.id.com_et_num)
     TextView com_et_num;//内容字数
     @ViewInject(R.id.com_photo)

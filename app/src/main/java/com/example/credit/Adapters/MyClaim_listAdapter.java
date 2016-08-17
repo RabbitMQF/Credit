@@ -81,7 +81,7 @@ public class MyClaim_listAdapter extends BaseAdapter {
         vh.myclaim_name.setText(list.get(position).ENTERNAME);
         vh.myclaim_state.setText(list.get(position).STATUSNAME);
         vh.myclaim_base.setText(list.get(position).REFUSEREASON);
-        if(DataManager.MyClaimUtilsModel.data.Claimlist.get(position).STATUSNAME.equals("审核通过")){
+        if(DataManager.MyClaimUtilsModel.data.Claimlist.get(position).STATUSNAME.equals("审核通过")||DataManager.MyClaimUtilsModel.data.Claimlist.get(position).STATUSNAME.equals("审核失败")){
             vh.myclaim_text.setVisibility(View.GONE);
         }
         /**
@@ -90,6 +90,7 @@ public class MyClaim_listAdapter extends BaseAdapter {
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                MyClaimActivity.wd.show();
                 if(a<b){
                     GsonUtil MyClaimRuerst = new GsonUtil(URLconstant.URLINSER + URLconstant.MYCLAIMURL, RequestMethod.GET);
                     MyClaimRuerst.add("deviceId",(new Build()).MODEL);

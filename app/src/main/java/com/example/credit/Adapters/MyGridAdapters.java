@@ -68,100 +68,100 @@ public class MyGridAdapters extends BaseAdapter {
 
         switch (position) {
             case 0://工商信息
-                if(DataManager.allcountsList.get(0).BaseInfoCount.equals("0")){
+                if (DataManager.allcountsList.get(0).BaseInfoCount.equals("0")) {
                     tv.setTextColor(Color.parseColor("#B8B8B8"));
                 }
-                tv.setText((DataManager.allcountsList.get(0).BaseInfoCount)+"");
+                tv.setText((DataManager.allcountsList.get(0).BaseInfoCount) + "");
                 break;
             case 1://行政审批
-                if(DataManager.allcountsList.get(0).ApprovalCount.equals("0")){
+                if (DataManager.allcountsList.get(0).ApprovalCount.equals("0")) {
                     tv.setTextColor(Color.parseColor("#B8B8B8"));
                 }
-                tv.setText((DataManager.allcountsList.get(0).ApprovalCount)+"");
+                tv.setText((DataManager.allcountsList.get(0).ApprovalCount) + "");
                 break;
             case 2://荣誉
-                if(DataManager.allcountsList.get(0).HonorCount.equals("0")){
+                if (DataManager.allcountsList.get(0).HonorCount.equals("0")) {
                     tv.setTextColor(Color.parseColor("#B8B8B8"));
                 }
-                tv.setText((DataManager.allcountsList.get(0).HonorCount)+"");
+                tv.setText((DataManager.allcountsList.get(0).HonorCount) + "");
                 break;
             case 3://扶持
-                if(DataManager.allcountsList.get(0).SupportCount.equals("0")){
+                if (DataManager.allcountsList.get(0).SupportCount.equals("0")) {
                     tv.setTextColor(Color.parseColor("#B8B8B8"));
                 }
-                tv.setText((DataManager.allcountsList.get(0).SupportCount)+"");
+                tv.setText((DataManager.allcountsList.get(0).SupportCount) + "");
                 break;
             case 4://抵押
-                if(DataManager.allcountsList.get(0).MortgagorCount.equals("0")){
+                if (DataManager.allcountsList.get(0).MortgagorCount.equals("0")) {
                     tv.setTextColor(Color.parseColor("#B8B8B8"));
                 }
-                tv.setText((DataManager.allcountsList.get(0).MortgagorCount)+"");
+                tv.setText((DataManager.allcountsList.get(0).MortgagorCount) + "");
                 break;
             case 5://出质
-                if(DataManager.allcountsList.get(0).PledgeCount.equals("0")){
+                if (DataManager.allcountsList.get(0).PledgeCount.equals("0")) {
                     tv.setTextColor(Color.parseColor("#B8B8B8"));
                 }
-                tv.setText((DataManager.allcountsList.get(0).PledgeCount)+"");
+                tv.setText((DataManager.allcountsList.get(0).PledgeCount) + "");
                 break;
             case 6://司法信息
-                if(DataManager.allcountsList.get(0).JudiciaryCount.equals("0")){
+                if (DataManager.allcountsList.get(0).JudiciaryCount.equals("0")) {
                     tv.setTextColor(Color.parseColor("#B8B8B8"));
                 }
-                tv.setText((DataManager.allcountsList.get(0).JudiciaryCount)+"");
+                tv.setText((DataManager.allcountsList.get(0).JudiciaryCount) + "");
                 break;
             case 7://预警信息
-                if(DataManager.allcountsList.get(0).WarningCount.equals("0")){
+                if (DataManager.allcountsList.get(0).WarningCount.equals("0")) {
                     tv.setTextColor(Color.parseColor("#B8B8B8"));
                 }
-                tv.setText((DataManager.allcountsList.get(0).WarningCount)+"");
+                tv.setText((DataManager.allcountsList.get(0).WarningCount) + "");
                 break;
             case 8://行政处罚
-                if(DataManager.allcountsList.get(0).PunishCount.equals("0")){
+                if (DataManager.allcountsList.get(0).PunishCount.equals("0")) {
                     tv.setTextColor(Color.parseColor("#B8B8B8"));
                 }
-                tv.setText((DataManager.allcountsList.get(0).PunishCount)+"");
+                tv.setText((DataManager.allcountsList.get(0).PunishCount) + "");
                 break;
             case 9://经营异常
-                if(DataManager.allcountsList.get(0).AbnormityCount.equals("0")){
+                if (DataManager.allcountsList.get(0).AbnormityCount.equals("0")) {
                     tv.setTextColor(Color.parseColor("#B8B8B8"));
                 }
-                tv.setText((DataManager.allcountsList.get(0).AbnormityCount)+"");
+                tv.setText((DataManager.allcountsList.get(0).AbnormityCount) + "");
                 break;
             case 10://专利信息
-                if(DataManager.allcountsList.get(0).PatentCount.equals("0")){
+                if (DataManager.allcountsList.get(0).PatentCount.equals("0")) {
                     tv.setTextColor(Color.parseColor("#B8B8B8"));
                 }
-                tv.setText((DataManager.allcountsList.get(0).PatentCount)+"");
+                tv.setText((DataManager.allcountsList.get(0).PatentCount) + "");
                 break;
             case 11://商标信息
-                if(DataManager.allcountsList.get(0).TrademarkCount.equals("0")){
+                if (DataManager.allcountsList.get(0).TrademarkCount.equals("0")) {
                     tv.setTextColor(Color.parseColor("#B8B8B8"));
                 }
-                tv.setText((DataManager.allcountsList.get(0).TrademarkCount)+"");
+                tv.setText((DataManager.allcountsList.get(0).TrademarkCount) + "");
                 break;
             case 12://著作权
-                if(DataManager.allcountsList.get(0).CopyrightCount.equals("0")){
+                if (DataManager.allcountsList.get(0).CopyrightCount.equals("0")) {
                     tv.setTextColor(Color.parseColor("#B8B8B8"));
                 }
-                tv.setText((DataManager.allcountsList.get(0).CopyrightCount)+"");
+                tv.setText((DataManager.allcountsList.get(0).CopyrightCount) + "");
                 break;
             case 13://广告资质
-                if(DataManager.allcountsList.get(0).AdvertisementCount.equals("0")){
+                if (DataManager.allcountsList.get(0).AdvertisementCount.equals("0")) {
                     tv.setTextColor(Color.parseColor("#B8B8B8"));
                 }
-                tv.setText((DataManager.allcountsList.get(0).AdvertisementCount)+"");
+                tv.setText((DataManager.allcountsList.get(0).AdvertisementCount) + "");
                 break;
             case 14://守合同重信用
-                if(DataManager.allcountsList.get(0).CreditCount.equals("0")){
+                if (DataManager.allcountsList.get(0).CreditCount.equals("0")) {
                     tv.setTextColor(Color.parseColor("#B8B8B8"));
                 }
-                tv.setText((DataManager.allcountsList.get(0).CreditCount)+"");
+                tv.setText((DataManager.allcountsList.get(0).CreditCount) + "");
                 break;
             case 15://自主公示
-                if(DataManager.allcountsList.get(0).AnnualCount.equals("0")){
+                if (DataManager.allcountsList.get(0).AnnualCount.equals("0")) {
                     tv.setTextColor(Color.parseColor("#B8B8B8"));
                 }
-                tv.setText((DataManager.allcountsList.get(0).AnnualCount)+"");
+                tv.setText((DataManager.allcountsList.get(0).AnnualCount) + "");
                 break;
             //===========================================================后续功能
             case 16://全景视图
@@ -192,30 +192,32 @@ public class MyGridAdapters extends BaseAdapter {
                 tv.setText("1");
                 break;
             case 19://招投标
-                if(DataManager.allcountsList.get(0).BiddingCount.equals("0")){
+                if (DataManager.allcountsList.get(0).BiddingCount.equals("0")) {
                     tv.setTextColor(Color.parseColor("#B8B8B8"));
                 }
-                tv.setText((DataManager.allcountsList.get(0).BiddingCount)+"");
+                tv.setText((DataManager.allcountsList.get(0).BiddingCount) + "");
                 break;
             case 20://企业新闻
-                if(DataManager.allcountsList.get(0).EntNewCount.equals("0")){
+                if (DataManager.allcountsList.get(0).EntNewCount.equals("0")) {
                     tv.setTextColor(Color.parseColor("#B8B8B8"));
                 }
-                tv.setText((DataManager.allcountsList.get(0).EntNewCount)+"");
+                tv.setText((DataManager.allcountsList.get(0).EntNewCount) + "");
                 break;
             case 21://企业招聘
-                if(DataManager.allcountsList.get(0).JobCount.equals("0")){
+                if (DataManager.allcountsList.get(0).JobCount.equals("0")) {
                     tv.setTextColor(Color.parseColor("#B8B8B8"));
                 }
-                tv.setText((DataManager.allcountsList.get(0).JobCount)+"");
+                tv.setText((DataManager.allcountsList.get(0).JobCount) + "");
                 break;
             case 22://企业展示
 //                if(DataManager.allcountsList.get(0).AnnualCount.equals("0")){
 //                    tv.setTextColor(Color.parseColor("#B8B8B8"));
 //                }
 //                tv.setText((DataManager.allcountsList.get(0).AnnualCount)+"");
-                tv.setTextColor(Color.parseColor("#B8B8B8"));
-                tv.setText("0");
+                if (DataManager.allcountsList.get(0).EntShowCount.equals("0")) {
+                    tv.setTextColor(Color.parseColor("#B8B8B8"));
+                }
+                tv.setText(DataManager.allcountsList.get(0).EntShowCount+"");
                 break;
             case 23://信用报告
 //                if(DataManager.allcountsList.get(0).AnnualCount.equals("0")){

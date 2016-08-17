@@ -17,6 +17,7 @@ import com.example.credit.Dialogs.WaitDialog;
 import com.example.credit.Entitys.DataManager;
 import com.example.credit.R;
 import com.example.credit.Services.CallServer;
+import com.example.credit.Utils.ContainsEmojiEditText;
 import com.example.credit.Utils.CreditSharePreferences;
 import com.example.credit.Utils.GsonUtil;
 import com.example.credit.Utils.MyhttpCallBack;
@@ -75,7 +76,7 @@ public class CommentListDetailsActivity extends BaseActivity {
     @ViewInject(R.id.Dhuifu)
     LinearLayout huifu;//回复布局
     @ViewInject(R.id.Dhuifu_con)
-    EditText huifu_con;//回复内容
+    ContainsEmojiEditText huifu_con;//回复内容
     @ViewInject(R.id.Dhuifu_btn)
     TextView huifu_btn;//回复按钮、
     public static WaitDialog wd;

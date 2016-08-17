@@ -43,7 +43,6 @@ public class MyClaimActivity extends BaseActivity {
     MyClaim_listAdapter adapter;
     public static WaitDialog wd;
     CreditSharePreferences csp;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -77,8 +76,8 @@ public class MyClaimActivity extends BaseActivity {
                 }
             }
         };
-
     }
+
 
     public void init() {
         b_topname.setText("我的认领");
