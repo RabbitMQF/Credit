@@ -1092,6 +1092,19 @@ public class DataManager {
         public String GIST_CID;//执行依据文号
         public String PERFORMANCE;//被执行人的履行情况
         public String DISREPUT_TYPE_NAME;//类型名称（APP增加此项）
+
+        public String DATARESOURCE;
+        public String STATE;
+        public String CASE_CODE;
+        public String INAME;
+        public String PUBLISH_DATE;
+        public String GIST_UNIT;
+        public String REGNORE;
+        public String AREA_NAME;
+        public String BUESINESSENTITY;
+        public String DELETEMARK;
+        public String DUTY;//具体详情
+        public String CARDTYPE;
     }
 
     public static List<ShareholderInformationChange> ShareholderInformationChangeList=new ArrayList<>();

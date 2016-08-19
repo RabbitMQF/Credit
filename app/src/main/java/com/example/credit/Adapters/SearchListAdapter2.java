@@ -52,10 +52,9 @@ public class SearchListAdapter2 extends BaseAdapter {
 		}
 		search c=list.get(position);
 		vh.firm_name.setText(c.ENTNAME);
-		if(c.NAME.equals("")){
+		vh.corporate.setText(c.NAME);
+		if(vh.corporate.getText().toString().equals("")){
 			vh.corporate.setText("无");
-		}else{
-			vh.corporate.setText(c.NAME);
 		}
 		if(c.REGCAP.equals("")){
 			vh.funds.setText("0万元");

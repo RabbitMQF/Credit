@@ -323,8 +323,7 @@ public class DetailsContentActivity extends BaseActivity {
          */
 
         List<String> lt = new ArrayList<String>();
-
-        lt.add(DataManager.gsxx.data.BaseInfo.REGCAP.substring(0,DataManager.gsxx.data.BaseInfo.REGCAP.indexOf(".")) + "万元");
+        lt.add(DataManager.gsxx.data.BaseInfo.REGCAP+"");
         if(DataManager.gsxx.data.BaseInfo.NAME!=null&&!DataManager.gsxx.data.BaseInfo.NAME.equals("")&&!DataManager.gsxx.data.BaseInfo.NAME.equals(null)){
             lt.add(DataManager.gsxx.data.BaseInfo.NAME);
         }else{
@@ -356,6 +355,13 @@ public class DetailsContentActivity extends BaseActivity {
         }else{
             lt.add("暂无信息");
         }
+
+        if(lt.get(0).equals("") || lt.get(0).equals("null") || lt.get(0)==null){
+            lt.set(0,"0万元");
+        }else{
+            lt.set(0,DataManager.gsxx.data.BaseInfo.REGCAP.substring(0,DataManager.gsxx.data.BaseInfo.REGCAP.indexOf(".")) + "万元");
+        }
+
         int size = lt.size();
         arrays4 = (String[]) lt.toArray(new String[size]);
         adapter2 = new MyGridAdapter3(DetailsContentActivity.this, arrays3, arrays4);

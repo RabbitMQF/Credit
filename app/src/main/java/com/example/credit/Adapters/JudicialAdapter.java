@@ -89,6 +89,7 @@ public class JudicialAdapter extends BaseAdapter {
             listst.add(list2.get(position).GIST_CID);
             listst.add(list2.get(position).PERFORMANCE);
             listst.add(list2.get(position).DISREPUT_TYPE_NAME);
+            listst.add(list2.get(position).DUTY);
         }
         if(list3!=null && list3.size()>0){
             listst.add(list3.get(position).INV);

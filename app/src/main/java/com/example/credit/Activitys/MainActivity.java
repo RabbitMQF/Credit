@@ -17,6 +17,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AlertDialog;
 import android.view.KeyEvent;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
@@ -128,7 +129,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
     MyListView NewClaimListview;
 
     @ViewInject(R.id.NewClaimTxT)
-    TextView NewClaimTxT;
+    TextView NewClaimTxT;//最新认领暂无数据
+    @ViewInject(R.id.News_list_null)
+    TextView News_list_null;//最新热点暂无数据
 
     @ViewInject(R.id.myGridViewMain)
     MyGridView myGridViewMain;
@@ -139,9 +142,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
     TextView news_more;//新闻-查看更多
 
     NewsListAdapter adapter;
-    public static List<DataManager.MyHot.DataBean.HotspotAnalysisBean> MyHotsList = new ArrayList<DataManager.MyHot.DataBean.HotspotAnalysisBean>();//初始新闻集合
+    public static List<DataManager.MyHot.DataBean.HotspotAnalysisBean> MyHotsList = new ArrayList<DataManager.MyHot.DataBean.HotspotAnalysisBean>();//热搜
 
-    public static List<DataManager.MyNews.DataBean.NewslistBean> MyNewsList = new ArrayList<DataManager.MyNews.DataBean.NewslistBean>();//热点
+    public static List<DataManager.MyNews.DataBean.NewslistBean> MyNewsList = new ArrayList<DataManager.MyNews.DataBean.NewslistBean>();//初始新闻集合
 
     public static List<DataManager.MyClaimUtils.DataBean.ClaimlistBean> MyCliamList = new ArrayList<DataManager.MyClaimUtils.DataBean.ClaimlistBean>();//初始最新认领集合
 
@@ -174,6 +177,18 @@ public class MainActivity extends Activity implements View.OnClickListener {
         ad = new WaitDialog(this);
         boolean falg = NetUtils.isConnectingToInternet(this);
         mLeftMenu = (SlidingMenu) findViewById(R.id.id_menu);
+//        mLeftMenu.setOnTouchListener(new View.OnTouchListener()
+//        {
+//            public boolean onTouch(View v, MotionEvent event)
+//            {
+//                if (event.getAction() == MotionEvent.ACTION_UP)
+//                {
+//                    mLeftMenu.startScrollerTask();
+//                }
+//                return false;
+//            }
+//        });
+        mLeftMenu.setOnScrollStopListner(onScrollStop);
         PushManager.getInstance().initialize(this.getApplicationContext());
         PushManager.getInstance().getClientid(MainActivity.this);
         /**
@@ -237,8 +252,13 @@ public class MainActivity extends Activity implements View.OnClickListener {
                         btmore.setVisibility(View.VISIBLE);
                         int por = MyNewsList.size() - 1;
                         adapter = new NewsListAdapter(MainActivity.this, MyNewsList);
-                        NewsListview.setAdapter(adapter);
-                        adapter.notifyDataSetChanged();
+                        if (MyNewsList.size() == 0) {
+                            News_list_null.setVisibility(View.VISIBLE);
+                            NewsListview.setVisibility(View.GONE);
+                        } else {
+                            NewsListview.setAdapter(adapter);
+                            adapter.notifyDataSetChanged();
+                        }
                         if (str == 2) {
                             NewsListview.setSelection(por - 1);
                         }
@@ -386,11 +406,11 @@ public class MainActivity extends Activity implements View.OnClickListener {
 //            }
 //        }
 
-        if (DataManager.MyNewAppS.message.equals("success")) {
+        if (DataManager.MyNewAppS.message != null && DataManager.MyNewAppS.message.equals("success")) {
             if (DataManager.MyNewAppS.data != null & DataManager.MyNewAppS.data.size() > 0) {
                 if (DataManager.MyNewAppS.data.get(0).VERSION != null & DataManager.MyNewAppS.data.get(0).PATH != null) {
                     double in = Double.parseDouble(DataManager.MyNewAppS.data.get(0).VERSION);//最新版本号
-                    double isn = (double) FileUtil.getVersionCode(MainActivity.this);//当前版本号
+                    double isn = Double.parseDouble( FileUtil.getVersionName(MainActivity.this));//当前版本号
                     if (isn < in) {
                         dialog.show();
                     }
@@ -458,6 +478,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         } else {//没有数据
             news_more.setVisibility(View.GONE);
             btmore.setVisibility(View.GONE);
+            News_list_null.setVisibility(View.VISIBLE);
         }
         if (MyCliamList != null && MyCliamList.size() > 0) {
             handler.sendEmptyMessage(7);
@@ -474,7 +495,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
     private void initView() {
 
-        mLeftMenu = (SlidingMenu) findViewById(R.id.id_menu);
         topSearch = (RelativeLayout) findViewById(R.id.top_search);
         topSearch.setOnClickListener(this);
         pd = new ProgressDialog(MainActivity.this);
@@ -701,10 +721,10 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     private void settogg() {
-        if (togg.getBackground().equals(getResources().getDrawable(R.drawable.ic_more_horiz_black_24dp))) {
-            togg.setBackground(getResources().getDrawable(R.drawable.ic_more_vert_black_24dp));
-        }else {
-            togg.setBackground(getResources().getDrawable(R.drawable.ic_more_horiz_black_24dp));
+        if (SlidingMenu.isOpen) {
+            togg.setBackground(getResources().getDrawable(R.drawable.gang32));
+        } else {
+            togg.setBackground(getResources().getDrawable(R.drawable.gang3));
         }
     }
 
@@ -819,7 +839,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
         }
         return super.onKeyDown(keyCode, event);
     }
-//    /**
+
+    //    /**
 //     * 上啦加载
 //     * @param view
 //     */
@@ -878,5 +899,25 @@ public class MainActivity extends Activity implements View.OnClickListener {
 //            }
 //        }, 1000);
 //    }
+
+    /**
+     * 横滑置顶监听器
+     */
+    SlidingMenu.OnScrollStopListner onScrollStop = new SlidingMenu.OnScrollStopListner() {
+        public void onScrollToRightEdge() {
+            settogg();
+        }
+
+        public void onScrollToMiddle() {
+        }
+
+        public void onScrollToLeftEdge() {
+            settogg();
+        }
+
+        public void onScrollStoped() {
+        }
+    };
+
 
 }

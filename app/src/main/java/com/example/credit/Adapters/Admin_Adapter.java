@@ -60,7 +60,6 @@ public class Admin_Adapter extends BaseAdapter {
         if (convertView == null) {
             convertView = LayoutInflater.from(context).inflate(R.layout.admin_list_item, null);
             vh = new ViewHolder();
-            vh.title = (TextView) convertView.findViewById(R.id.title1);
 
             vh.apripid = (TextView) convertView.findViewById(R.id.apripid);
             vh.aname = (TextView) convertView.findViewById(R.id.aname);
@@ -82,10 +81,6 @@ public class Admin_Adapter extends BaseAdapter {
         }
         if(adminList!=null) {
             DataManager.administraton temp_admin = adminList.get(position);
-            if(position==0){
-                vh.title.setVisibility(View.VISIBLE);
-                vh.title.setText("行政许可信息");
-            }
             vh.apripid.setText(temp_admin.PRIPID);
             vh.aname.setText(temp_admin.LICNAME);
             vh.ano.setText(temp_admin.LICNO);
@@ -96,10 +91,6 @@ public class Admin_Adapter extends BaseAdapter {
 
         if(otherList!=null) {
             DataManager.admin_other temp_admin = otherList.get(position);
-            if(position==0){
-                vh.title.setVisibility(View.VISIBLE);
-                vh.title.setText("其他信息");
-            }
             vh.apripid_tit.setText("许可文件名称");
             vh.aname_tit.setText("许可证号");
             vh.ano_tit.setText("有效期");
@@ -119,7 +110,6 @@ public class Admin_Adapter extends BaseAdapter {
     }
 
     class ViewHolder {
-        TextView title;
         TextView aname;
         TextView ano;
         TextView adate;

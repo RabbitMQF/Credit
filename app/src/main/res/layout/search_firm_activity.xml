@@ -545,24 +545,31 @@
         </LinearLayout>
     </FrameLayout>
     <!--搜索结果list-->
-    <com.example.credit.Utils.PullToRefreshView
-        android:id="@+id/pull_refresh_view"
+    <LinearLayout
+        android:id="@+id/search_list_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/white"
+        android:layout_height="0dp"
+        android:layout_weight="10"
+        android:background="@android:color/white"
         android:orientation="vertical"
         android:visibility="gone">
-
-        <ListView
-            android:id="@+id/search_list"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_weight="10"
-            android:divider="#00000000"
-            android:listSelector="#00000000"
-            android:scrollbars="none"
-            android:visibility="gone" />
-    </com.example.credit.Utils.PullToRefreshView>
+        <com.example.credit.Utils.PullToRefreshView
+            android:id="@+id/pull_refresh_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:orientation="vertical"
+            android:visibility="gone">
+            <ListView
+                android:id="@+id/search_list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:divider="#00000000"
+                android:listSelector="#00000000"
+                android:scrollbars="none"
+                android:visibility="gone" />
+        </com.example.credit.Utils.PullToRefreshView>
+    </LinearLayout>
     <!--城市选择布局-->
     <LinearLayout
         android:id="@+id/select"
@@ -577,12 +584,10 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@android:color/white"
-
             android:contextClickable="false"
             android:divider="@color/dim_foreground_disabled_material_dark"
             android:dividerHeight="0.5dip"
             android:textFilterEnabled="true">
-
         </ListView>
 
         <ListView

@@ -122,7 +122,7 @@ public class SearchFirmActivty extends BaseActivity implements PullToRefreshView
     String hit;
     String Urls;//地址集合
     PullToRefreshView mPullToRefreshView;
-    LinearLayout typeSD;
+    LinearLayout typeSD,search_list_layout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -138,7 +138,7 @@ public class SearchFirmActivty extends BaseActivity implements PullToRefreshView
             public void handleMessage(Message msg) {
                 switch (msg.what) {
                     case 0:
-                        typeSD.setVisibility(View.VISIBLE);
+                        search_list_layout.setVisibility(View.VISIBLE);
                         falg = 2;//设置搜索结果时的默认值
                         pd.dismiss();
                         if(DataManager.searchListMore!=null && DataManager.searchListMore.size()>0){
@@ -163,6 +163,7 @@ public class SearchFirmActivty extends BaseActivity implements PullToRefreshView
                         search_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                             @Override
                             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
                                 po = position;
                                 pd.show();
                                 String KeyNo = DataManager.searchList.get(position).PRIPID;//市场主体身份代码
@@ -197,6 +198,9 @@ public class SearchFirmActivty extends BaseActivity implements PullToRefreshView
                         Intent i = new Intent(SearchFirmActivty.this, CompanyDetailsActivity.class);
                         i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(i);
+                        cityindex=null;
+                        provinceindex=null;
+                        industryindex=null;
                         overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
                         break;
                     case 110:
@@ -291,10 +295,12 @@ public class SearchFirmActivty extends BaseActivity implements PullToRefreshView
                     }
                 } catch (ArrayIndexOutOfBoundsException e) {//捕获数组越界异常用于处理城市选择器的不限
                     select.setVisibility(View.GONE);
+                    GETsearch();
                     if (his_sra.getVisibility() == View.GONE) {//当历史界面隐藏
                         if (falg == 2) {//并且当前处于已经搜索结果时
                             search_list.setVisibility(View.VISIBLE);//则显示搜索结果list
                             mPullToRefreshView.setVisibility(View.VISIBLE);
+                            search_list_layout.setVisibility(View.VISIBLE);
                         } else {
                             his_sra.setVisibility(View.VISIBLE);//反之则显示历史UI
                         }
@@ -326,6 +332,7 @@ public class SearchFirmActivty extends BaseActivity implements PullToRefreshView
                             if (falg == 2) {//并且当前处于已经搜索结果时
                                 search_list.setVisibility(View.VISIBLE);//则显示搜索结果list
                                 mPullToRefreshView.setVisibility(View.VISIBLE);
+                                search_list_layout.setVisibility(View.VISIBLE);
                             } else {
                                 his_sra.setVisibility(View.VISIBLE);//反之则显示历史UI
                             }
@@ -367,6 +374,8 @@ public class SearchFirmActivty extends BaseActivity implements PullToRefreshView
         mPullToRefreshView = (PullToRefreshView) findViewById(R.id.pull_refresh_view);
         mPullToRefreshView.setOnHeaderRefreshListener(this);
         mPullToRefreshView.setOnFooterRefreshListener(this);
+
+        search_list_layout= (LinearLayout) findViewById(R.id.search_list_layout);
 
         typeSD= (LinearLayout) findViewById(R.id.typeSD);
 
@@ -419,7 +428,7 @@ public class SearchFirmActivty extends BaseActivity implements PullToRefreshView
         menu_one = (ListView) findViewById(R.id.menu_one);
         menu_two = (ListView) findViewById(R.id.menu_two);
 //        history = (LinearLayout) findViewById(R.id.history);
-        select = (LinearLayout) findViewById(R.id.select);
+        select = (LinearLayout) findViewById(R.id.select);//城市list
         WindowManager wm = (WindowManager) getSystemService(WINDOW_SERVICE);
         screenWidth = wm.getDefaultDisplay().getWidth();
         oneLayoutParams = (ViewGroup.MarginLayoutParams) menu_one.getLayoutParams();
@@ -535,6 +544,7 @@ public class SearchFirmActivty extends BaseActivity implements PullToRefreshView
                             if (falg == 2) {//并且当前处于已经搜索结果时
                                 search_list.setVisibility(View.VISIBLE);//则显示搜索结果list
                                 mPullToRefreshView.setVisibility(View.VISIBLE);
+                                search_list_layout.setVisibility(View.VISIBLE);
                             } else {
                                 his_sra.setVisibility(View.VISIBLE);//反之则显示历史UI
                             }
@@ -562,7 +572,8 @@ public class SearchFirmActivty extends BaseActivity implements PullToRefreshView
                         city_check = true;
                         if (his_sra.getVisibility() == View.GONE) {//当历史界面隐藏
                             search_list.setVisibility(View.GONE);//则隐藏搜索结果list
-                            mPullToRefreshView.setVisibility(View.VISIBLE);
+                            mPullToRefreshView.setVisibility(View.GONE);
+                            search_list_layout.setVisibility(View.GONE);
                         } else {
                             his_sra.setVisibility(View.GONE);//反之则隐藏历史UI
                         }
@@ -594,6 +605,7 @@ public class SearchFirmActivty extends BaseActivity implements PullToRefreshView
                                 if (falg == 2) {//并且当前处于已经搜索结果时
                                     search_list.setVisibility(View.VISIBLE);//则显示搜索结果list
                                     mPullToRefreshView.setVisibility(View.VISIBLE);
+                                    search_list_layout.setVisibility(View.VISIBLE);
                                 } else {
                                     his_sra.setVisibility(View.VISIBLE);//反之则显示历史UI
                                 }
@@ -639,6 +651,7 @@ public class SearchFirmActivty extends BaseActivity implements PullToRefreshView
                                 if (falg == 2) {//并且当前处于已经搜索结果时
                                     search_list.setVisibility(View.VISIBLE);//则显示搜索结果list
                                     mPullToRefreshView.setVisibility(View.VISIBLE);
+                                    search_list_layout.setVisibility(View.VISIBLE);
                                 } else {
                                     his_sra.setVisibility(View.VISIBLE);//反之则显示历史UI
                                 }
@@ -685,6 +698,7 @@ public class SearchFirmActivty extends BaseActivity implements PullToRefreshView
                                 if (falg == 2) {//并且当前处于已经搜索结果时
                                     search_list.setVisibility(View.VISIBLE);//则显示搜索结果list
                                     mPullToRefreshView.setVisibility(View.VISIBLE);
+                                    search_list_layout.setVisibility(View.VISIBLE);
                                 } else {
                                     his_sra.setVisibility(View.VISIBLE);//反之则显示历史UI
                                 }
@@ -722,6 +736,9 @@ public class SearchFirmActivty extends BaseActivity implements PullToRefreshView
                 case R.id.arrow_back:
                     finish();
                     overridePendingTransition(R.anim.finish_tran_one, R.anim.finish_tran_two);
+                    cityindex=null;
+                    provinceindex=null;
+                    industryindex=null;
                     break;
                 case R.id.tab_frim:
                     if (!tab_frim_check) {
@@ -1113,7 +1130,11 @@ public class SearchFirmActivty extends BaseActivity implements PullToRefreshView
             request.add("deviceId", model);//设备ID
             request.add("token", Tks);//加密结果
             request.add("searchKey", Tname);//string搜索关键字
-            request.add("memberId", csp.getID());//86D9D7F53FCA45DD93E2D83DFCA0CB42  记录用户ID
+            if (!csp.getLoginStatus()){
+                request.add("memberId", "");
+            }else{
+                request.add("memberId", csp.getID());//记录用户ID
+            }
             //根据type判断查询类型
             switch (type) {
                 case 0:
@@ -1151,8 +1172,11 @@ public class SearchFirmActivty extends BaseActivity implements PullToRefreshView
             }
             if (cityindex != null && provinceindex != null && cityindex != "") {//int 城市代码  为空为当前省所有城市
                 request.add("cityCode", cityindex);
+
             }
+
             CallServer.getInstance().add(SearchFirmActivty.this, request, MyhttpCallBack.getInstance(), NOHTTP_SEARCH, true, false, true);
+
 
         } else {
             android.widget.Toast.makeText(SearchFirmActivty.this, "搜索关键词不能为空!", android.widget.Toast.LENGTH_SHORT).show();

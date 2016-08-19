@@ -52,7 +52,7 @@ public class AdminActivity extends FragmentActivity implements View.OnClickListe
                 return fragmentList.size();
             }
         });
-        mIndicator.setViewPager(mViewPager, 0);
+        mIndicator.setViewPager(mViewPager, 1);
     }
 
     private void initDatas() {

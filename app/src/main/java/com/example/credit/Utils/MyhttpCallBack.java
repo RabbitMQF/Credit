@@ -1,5 +1,7 @@
 package com.example.credit.Utils;
 
+import android.util.Log;
+
 import com.example.credit.Activitys.CommentListActivity;
 import com.example.credit.Activitys.CommentListDetailsActivity;
 import com.example.credit.Activitys.CompanyDetailsActivity;
@@ -678,6 +680,7 @@ public class MyhttpCallBack implements HttpCallBack {
                             cra.GIST_CID = (String) temp.get("GIST_CID");
                             cra.PERFORMANCE = (String) temp.get("PERFORMANCE");
                             cra.REG_DATE = (String) temp.get("REG_DATE");
+                            cra.DUTY = (String) temp.get("DUTY");
                             DataManager.CrackCreditList.add(cra);
                         }
                     }
@@ -1531,6 +1534,14 @@ public class MyhttpCallBack implements HttpCallBack {
                 break;
             case 0x1002://专利
                 Main_SearchActivity.wd.dismiss();
+                break;
+            case 0x111://获取新闻
+                WelcomeActivity.handler.sendEmptyMessage(10);
+
+                  break;
+            case 0x110://获取APP最新版本
+                WelcomeActivity.handler.sendEmptyMessage(10);
+                Toast.show("连接服务器失败");
                 break;
             default:
                 break;

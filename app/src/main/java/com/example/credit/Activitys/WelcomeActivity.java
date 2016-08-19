@@ -92,7 +92,7 @@ public class WelcomeActivity extends Activity {
     }
 
     private void initDataHttp() {
-        GsonUtil NewClaimRequest=new GsonUtil(URLconstant.URLINSER + URLconstant.NEWAPP, RequestMethod.GET);//最新认领
+        GsonUtil NewClaimRequest=new GsonUtil(URLconstant.URLINSER + URLconstant.NEWAPP, RequestMethod.GET);//获取最新版本
         CallServer.getInstance().add(WelcomeActivity.this,NewClaimRequest, MyhttpCallBack.getInstance(),0x110,true,false,true);
     }
     Animation.AnimationListener listener=new Animation.AnimationListener() {
