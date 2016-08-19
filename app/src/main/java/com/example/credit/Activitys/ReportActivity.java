@@ -11,6 +11,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.credit.Dialogs.WaitDialog;
+import com.example.credit.Dialogs.WaitDialog_pdf;
 import com.example.credit.Entitys.DataManager;
 import com.example.credit.R;
 import com.example.credit.Services.CallServer;
@@ -75,12 +76,14 @@ public class ReportActivity extends Activity {
     public static Handler handler;
     public static List<Integer> list=new ArrayList<>();//点击事件
     public static WaitDialog wd;
+    WaitDialog_pdf wp;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_report);
         ViewUtils.inject(this);
         wd=new WaitDialog(this);
+        wp=new WaitDialog_pdf(this);
         b_topname.setText("信用报告");
         b_return.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -94,6 +97,8 @@ public class ReportActivity extends Activity {
                 super.handleMessage(msg);
                 switch (msg.what){
                     case 0:
+                        wd.dismiss();
+                        wp.show();
                         GsonUtil request = new GsonUtil(URLconstant.URLINSER+URLconstant.REPORTURL2, RequestMethod.GET);
                         request.add("fileName",  DataManager.ReportText);
                         request.add("sendTo",xx1.getText().toString());//
@@ -101,10 +106,14 @@ public class ReportActivity extends Activity {
                         break;
                     case  1:
                         wd.dismiss();
+                        Toast.show("信用报告请求失败!请重试!");
+                        break;
+                    case  2:
+                        wp.dismiss();
                         Toast.show("信用报告发送失败!请重试!");
                         break;
-                    case 2:
-                        wd.dismiss();
+                    case 3:
+                        wp.dismiss();
                         Toast.show("信用报告发送成功!");
                         finish();
                         break;

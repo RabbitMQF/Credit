@@ -15,6 +15,8 @@ import com.example.credit.Views.BaseViewHolder;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import static com.example.credit.Views.FileUtil.decodeBitmap;
+
 /**
  * @author http://blog.csdn.net/finddreams
  * @Description:gridview的Adapter

@@ -16,6 +16,8 @@ import com.example.credit.Entitys.DataManager;
 import com.example.credit.R;
 import com.example.credit.Views.MyGridView;
 
+import java.util.ArrayList;
+
 /**
  * Created by alucard on 2016-05-26.
  * 自主公示
@@ -35,8 +37,12 @@ public class AutonomyActivity extends BaseActivity {
 
     private void initview() {
 
+
         auto_mgv = (MyGridView) findViewById(R.id.myGridView4);
         topBar = (TextView) findViewById(R.id.b_topname);
+//        if(getIntent().getStringExtra("tag")=="list"||getIntent().getStringExtra("tag").equals("list")){
+//          autoAdapter=new MyGridAdapter4(Authis,WebAutonomy.class)
+//        }
         autoAdapter = new MyGridAdapter4(this, getResources().getStringArray(R.array.autonomy));
         LinearLayout.LayoutParams layoutParam = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         layoutParam.setMargins(10, 10, 0, 10);
@@ -49,14 +55,15 @@ public class AutonomyActivity extends BaseActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 TextView tbv = (TextView) view.findViewById(R.id.tbv);
-//                if (tbv.getText() == "企业年报") {
-//                   startActivity(new Intent(AutonomyActivity.this,WebAutonomy.class).putExtra("KeyNo", DataManager.reportList.get(position).ANCHEID));
-//                } else {
+                if (tbv.getText().toString().substring(0,4).equals("企业年报")) {
+                   startActivity(new Intent(AutonomyActivity.this,YearReportList.class));
+                    overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
+                } else {
                     Intent in = new Intent(AutonomyActivity.this, Autonomy_Detail_Activity.class);
                     in.putExtra("key", tbv.getText());
                     startActivity(in);
                     overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
-//                }
+                }
             }
         });
         findViewById(R.id.b_return).setOnClickListener(new View.OnClickListener() {

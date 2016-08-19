@@ -30,10 +30,10 @@ public class WebAutonomy extends BaseActivity {
     LinearLayout b_return;
     @ViewInject(R.id.web_conten)
     WebView web_conten;
-    String KeyNo,devicetype;
-    String Url="http://101.201.211.27:8282/zhirong.credith5/enterpriseNoticeController/getAnnualReportInfo.do?";
+    String KeyNo,devicetype,infoname,infotype;
+    String Url废弃="http://101.201.211.27:8282/zhirong.credith5/enterpriseNoticeController/getquerymyselferType.do";
+    String Url="http://101.201.211.27:8282/zhirong.credith5/enterpriseNoticeController/getAnnualReportInfo.do";
     WaitDialog wd;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,8 +46,10 @@ public class WebAutonomy extends BaseActivity {
         wd=new WaitDialog(this);
         wd.show();
         Intent in=getIntent();
-        KeyNo="KeyNo="+in.getStringExtra("KeyNo")+"&";
-        devicetype="devicetype=1";
+        KeyNo="?KeyNo="+in.getStringExtra("KeyNo");
+        infoname="&infoname=企业年报";
+        infotype="&infotype="+in.getStringExtra("infotype");
+        devicetype="&devicetype=1";
         b_topname.setText("企业年报");
         b_return.setOnClickListener(new View.OnClickListener() {
             @Override

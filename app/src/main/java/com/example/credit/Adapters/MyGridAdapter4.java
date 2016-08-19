@@ -71,26 +71,72 @@ public class MyGridAdapter4 extends BaseAdapter {
 		}
 
 		TextView tv1 = BaseViewHolder.get(convertView, R.id.tbv);
-		switch (position){
-			case 0:
-				tv1.setText(arrays1[position]+"("+ DataManager.reportList.size()+")");
+		switch (arrays1[position]){
+			case "证照到期":
+				for(int i=0;i<DataManager.AlertInfoS.data.size();i++){
+					if(DataManager.AlertInfoS.data.get(i).type.equals("zzdq")){
+						tv1.setText(arrays1[position]+"("+ DataManager.AlertInfoS.data.get(i).data.size()+")");
+					}
+				}
 				break;
-			case 1:
-				tv1.setText(arrays1[position]+"("+ DataManager.fundedList.size()+")");
+			case "证照过期":
+				for(int i=0;i<DataManager.AlertInfoS.data.size();i++){
+					if(DataManager.AlertInfoS.data.get(i).type.equals("zzgq")){
+						tv1.setText(arrays1[position]+"("+ DataManager.AlertInfoS.data.get(i).data.size()+")");
+					}
+				}
 				break;
-			case 2:
-				tv1.setText(arrays1[position]+"("+ DataManager.stockList.size()+")");
+			case "责令改正":
+				for(int i=0;i<DataManager.AlertInfoS.data.size();i++){
+					if(DataManager.AlertInfoS.data.get(i).type.equals("zlgz")){
+						tv1.setText(arrays1[position]+"("+ DataManager.AlertInfoS.data.get(i).data.size()+")");
+					}
+				}
 				break;
-			case 3:
-				tv1.setText(arrays1[position]+"("+ DataManager.permitList.size()+")");
+			case "欠贷信息":
+				for(int i=0;i<DataManager.AlertInfoS.data.size();i++){
+					if(DataManager.AlertInfoS.data.get(i).type.equals("qdxx")){
+						tv1.setText(arrays1[position]+"("+ DataManager.AlertInfoS.data.get(i).data.size()+")");
+					}
+				}
 				break;
-			case 4:
-				tv1.setText(arrays1[position]+"("+ DataManager.loreList.size()+")");
+			case "欠税信息":
+				for(int i=0;i<DataManager.AlertInfoS.data.size();i++){
+					if(DataManager.AlertInfoS.data.get(i).type.equals("qsxx")){
+						tv1.setText(arrays1[position]+"("+ DataManager.AlertInfoS.data.get(i).data.size()+")");
+					}
+				}
 				break;
-			case 5:
-				tv1.setText(arrays1[position]+"("+ DataManager.punishList.size()+")");
+			case "欠薪信息":
+				for(int i=0;i<DataManager.AlertInfoS.data.size();i++){
+					if(DataManager.AlertInfoS.data.get(i).type.equals("qxxx")){
+						tv1.setText(arrays1[position]+"("+ DataManager.AlertInfoS.data.get(i).data.size()+")");
+					}
+				}
 				break;
 		}
+
+
+//		switch (position){
+//			case 0:
+//				tv1.setText(arrays1[position]+"("+ DataManager.AlertInfoS.data.get(position).data.size()+")");
+//				break;
+//			case 1:
+//				tv1.setText(arrays1[position]+"("+ DataManager.AlertInfoS.data.get(position).data.size()+")");
+//				break;
+//			case 2:
+//				tv1.setText(arrays1[position]+"("+ DataManager.AlertInfoS.data.get(position).data.size()+")");
+//				break;
+//			case 3:
+//				tv1.setText(arrays1[position]+"("+ DataManager.AlertInfoS.data.get(position).data.size()+")");
+//				break;
+//			case 4:
+//				tv1.setText(arrays1[position]+"("+ DataManager.AlertInfoS.data.get(position).data.size()+")");
+//				break;
+//			case 5:
+//				tv1.setText(arrays1[position]+"("+ DataManager.AlertInfoS.data.get(position).data.size()+")");
+//				break;
+//		}
 		return convertView;
 	}
 

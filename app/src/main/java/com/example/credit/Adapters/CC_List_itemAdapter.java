@@ -38,9 +38,14 @@ public class CC_List_itemAdapter extends BaseAdapter {
         this.imgUrl = imgUrl;
     }
 
+
     @Override
     public int getCount() {
-        return list.size();
+        if (list != null) {
+            return list.size();
+        } else {
+            return 0;
+        }
     }
 
     @Override
@@ -83,6 +88,11 @@ public class CC_List_itemAdapter extends BaseAdapter {
             vh.zl_tv2_no = (TextView) view.findViewById(R.id.zl_tv2_no);
             vh.zl_tv3_time = (TextView) view.findViewById(R.id.zl_tv3_time);
 
+            vh.year_item = (RelativeLayout) view.findViewById(R.id.year_item);
+            vh.year = (TextView) view.findViewById(R.id.year);
+            vh.year_time = (TextView) view.findViewById(R.id.year_time);
+
+
             view.setTag(vh);
         } else {
             vh = (ViewHolder) view.getTag();
@@ -119,18 +129,18 @@ public class CC_List_itemAdapter extends BaseAdapter {
         } else if (str.equals("judicial")) {//司法信息
 //            vh.im.setVisibility(View.VISIBLE);
             vh.cl_tv1.setVisibility(View.VISIBLE);
-            switch (position){
+            switch (position) {
                 case 0:
-                    vh.cl_tv1.setText(list.get(position)+"("+DataManager.JudicialDocumentsList.size()+")");
+                    vh.cl_tv1.setText(list.get(position) + "(" + DataManager.JudicialDocumentsList.size() + ")");
                     break;
                 case 1:
-                    vh.cl_tv1.setText(list.get(position)+"("+DataManager.CrackCreditList.size()+")");
+                    vh.cl_tv1.setText(list.get(position) + "(" + DataManager.CrackCreditList.size() + ")");
                     break;
                 case 2:
-                    vh.cl_tv1.setText(list.get(position)+"("+DataManager.ShareholderInformationChangeList.size()+")");
+                    vh.cl_tv1.setText(list.get(position) + "(" + DataManager.ShareholderInformationChangeList.size() + ")");
                     break;
                 case 3:
-                    vh.cl_tv1.setText(list.get(position)+"("+DataManager.FrozenInformationList.size()+")");
+                    vh.cl_tv1.setText(list.get(position) + "(" + DataManager.FrozenInformationList.size() + ")");
                     break;
 
             }
@@ -165,6 +175,11 @@ public class CC_List_itemAdapter extends BaseAdapter {
             vh.cl_tv2.setVisibility(View.VISIBLE);
             vh.cl_tv1.setText("登记编号");
             vh.cl_tv2.setText(list.get(position));
+        } else if (str.equals("企业年报")) {
+            vh.punlic_1.setVisibility(View.GONE);
+            vh.year_item.setVisibility(View.VISIBLE);
+            vh.year.setText(list.get(position));
+            vh.year_time.setText(DataManager.reportList.get(position).ANCHEDATE);
         }
         return view;
     }
@@ -190,6 +205,9 @@ public class CC_List_itemAdapter extends BaseAdapter {
         LinearLayout punlic_4;//修改的专利item
         ImageView zlim;
         TextView zl_tv4_title, zl_tv1_man, zl_tv2_no, zl_tv3_time;
+
+        RelativeLayout year_item;//年报item
+        TextView year, year_time;
 
     }
 }

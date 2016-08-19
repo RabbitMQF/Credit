@@ -946,25 +946,6 @@ public class DataManager {
     }
 
 
-//    public static List<paperwork_expire> paperwork_expireList = new ArrayList<>();
-//    /**
-//     * 证照到期zzdq(证照到期)
-//     */
-//    public static class paperwork_expire {
-//        public String No;//编号
-//        public String certificateName;//证件名
-//        public String deadline;//证照期间
-//        public String daysRemaining;//剩余天数
-//
-//    }
-
-//    public static List<date> pdateList_zzdq = new ArrayList<>();
-//    public static List<date> pdateList_zzgq = new ArrayList<>();
-//    public static List<date> pdateList_zlgz = new ArrayList<>();
-//    public static List<date> pdateList_qdxx = new ArrayList<>();
-//    public static List<date> pdateList_qsxx = new ArrayList<>();
-//    public static List<date> pdateList_qxxx = new ArrayList<>();
-
     public static AlertInfo AlertInfoS=new AlertInfo();
     public static class AlertInfo {
         public String message;
@@ -1006,68 +987,6 @@ public class DataManager {
 
 
     }
-//    /**
-//     * 证照过期zzgq(证照过期)
-//     */
-//    public static List<paperwork_Expired> paperwork_ExpiredList = new ArrayList<>();
-//
-//    public static class paperwork_Expired {
-//        public String No;//编号
-//        public String certificateName;//证件名
-//        public String deadline;//证照期间
-//        public String state;//状态（是否过期）
-//    }
-//
-//    /**
-//     * 责令改正 zlgz（责令改正）
-//     */
-//    public static List<correction> correctionList = new ArrayList<>();
-//
-//    public static class correction {
-//        public String No;//编号
-//        public String project;//整改项目名
-//        public String centent;//整改内容
-//
-//    }
-//
-//    /**
-//     * 欠贷信息 qdxx(欠贷信息)
-//     */
-//    public static List<loan> loanList = new ArrayList<>();
-//
-//    public static class loan {
-//        public String No;//编号
-//        public String time;//欠贷时间
-//        public String money;//欠贷金额
-//        public String bank;//欠贷银行
-//        public String status;//欠贷状态（还清、未还清）
-//    }
-//
-//    /**
-//     * 欠税信息  qsxx(欠税信息)
-//     */
-//    public static List<Taxes> taxesList = new ArrayList<>();
-//
-//    public static class Taxes {
-//        public String No;//编号
-//        public String time;//欠税日期
-//        public String money;//欠税金额
-//        public String organ;//征缴机关
-//        public String status;//完税状态（完税,未缴）
-//    }
-//
-//    /**
-//     * 欠薪信息qxxx(欠薪信息)
-//     */
-//    public static List<Wages> wagesList = new ArrayList<>();
-//
-//    public static class Wages {
-//        public String No;//编号
-//        public String time;//欠薪日期
-//        public String money;//欠薪金额
-//        public String status;//给薪状态
-//        public String source;//信息来源
-//    }
 
     /**
      * 司法信息实体类

@@ -63,7 +63,7 @@ public class Alert_CActivity extends BaseActivity {
             case "证照到期":
                 for(int i=0;i<DataManager.AlertInfoS.data.size();i++){
                     if(DataManager.AlertInfoS.data.get(i).type.equals("zzdq")){
-                        adapter.setData(DataManager.AlertInfoS.data.get(i).data,null,null,null,null,null);
+                        adapter.setData(DataManager.AlertInfoS.data.get(i).data,"证照到期");
                     }
                 }
                 alert_lv.setAdapter(adapter);
@@ -72,7 +72,7 @@ public class Alert_CActivity extends BaseActivity {
             case "证照过期":
                 for(int i=0;i<DataManager.AlertInfoS.data.size();i++){
                     if(DataManager.AlertInfoS.data.get(i).type.equals("zzgq")){
-                        adapter.setData(null,DataManager.AlertInfoS.data.get(i).data,null,null,null,null);
+                        adapter.setData(DataManager.AlertInfoS.data.get(i).data,"证照过期");
                     }
                 }
                 alert_lv.setAdapter(adapter);
@@ -81,7 +81,7 @@ public class Alert_CActivity extends BaseActivity {
             case "责令改正":
                 for(int i=0;i<DataManager.AlertInfoS.data.size();i++){
                     if(DataManager.AlertInfoS.data.get(i).type.equals("zlgz")){
-                        adapter.setData(null,null,DataManager.AlertInfoS.data.get(i).data,null,null,null);
+                        adapter.setData(DataManager.AlertInfoS.data.get(i).data,"责令改正");
                     }
                 }
                 alert_lv.setAdapter(adapter);
@@ -90,7 +90,7 @@ public class Alert_CActivity extends BaseActivity {
             case "欠贷信息":
                 for(int i=0;i<DataManager.AlertInfoS.data.size();i++){
                     if(DataManager.AlertInfoS.data.get(i).type.equals("qdxx")){
-                        adapter.setData(null,null,null,DataManager.AlertInfoS.data.get(i).data,null,null);
+                        adapter.setData(DataManager.AlertInfoS.data.get(i).data,"欠贷信息");
                     }
                 }
                 alert_lv.setAdapter(adapter);
@@ -99,7 +99,7 @@ public class Alert_CActivity extends BaseActivity {
             case "欠税信息":
                 for(int i=0;i<DataManager.AlertInfoS.data.size();i++){
                     if(DataManager.AlertInfoS.data.get(i).type.equals("qsxx")){
-                        adapter.setData(null,null,null,null,DataManager.AlertInfoS.data.get(i).data,null);
+                        adapter.setData(DataManager.AlertInfoS.data.get(i).data,"欠税信息");
                     }
                 }
                 alert_lv.setAdapter(adapter);
@@ -108,14 +108,13 @@ public class Alert_CActivity extends BaseActivity {
             case "欠薪信息":
                 for(int i=0;i<DataManager.AlertInfoS.data.size();i++){
                     if(DataManager.AlertInfoS.data.get(i).type.equals("qxxx")){
-                        adapter.setData(null,null,null,null,null,DataManager.AlertInfoS.data.get(i).data);
+                        adapter.setData(DataManager.AlertInfoS.data.get(i).data,"欠薪信息");
                     }
                 }
                 alert_lv.setAdapter(adapter);
                 adapter.notifyDataSetChanged();
                 break;
         }
-
 
     }
 

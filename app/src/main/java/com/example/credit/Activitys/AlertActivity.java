@@ -60,7 +60,7 @@ public class AlertActivity extends BaseActivity {
                       TextView temp= (TextView) view.findViewById(R.id.tbv);
                         Intent i1=new Intent(AlertActivity.this,Alert_CActivity.class);
                         i1.putExtra("position",index);
-                        i1.putExtra("key",temp.getText());
+                        i1.putExtra("key",temp.getText().toString().substring(0,4));
                         startActivity(i1);
                         overridePendingTransition(R.anim.start_tran_one,R.anim.start_tran_two);
             }

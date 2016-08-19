@@ -1259,9 +1259,9 @@ public class MyhttpCallBack implements HttpCallBack {
                 case 0x702://信用报告2
                     jsonString = (String) response.get();
                     if (jsonString.equals("success")) {
-                        ReportActivity.handler.sendEmptyMessage(2);
+                        ReportActivity.handler.sendEmptyMessage(3);
                     } else {
-                        ReportActivity.handler.sendEmptyMessage(1);
+                        ReportActivity.handler.sendEmptyMessage(2);
                     }
                     break;
                 case 0x999://登入
