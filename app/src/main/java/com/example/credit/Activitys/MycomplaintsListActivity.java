@@ -163,6 +163,18 @@ public class MycomplaintsListActivity extends BaseActivity {
 
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if(dialog!=null){
+            dialog.dismiss();
+
+        }
+        if(pd!=null){
+            pd.dismiss();
+        }
+
+    }
 
     /*@Override
     protected void onRestart() {

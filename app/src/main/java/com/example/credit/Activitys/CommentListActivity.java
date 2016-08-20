@@ -212,11 +212,11 @@ public class CommentListActivity extends BaseActivity implements PullToRefreshVi
                     try {
                         BASE64Decoder decode = new BASE64Decoder();
                         byte[] b = decode.decodeBuffer(listpl.get(i).ICONPATH);
-                        System.out.println(new String(b));
-                        StringBuilder str = new StringBuilder();//不建议用String
-                        for (byte bs : b) {
-                            str.append(Integer.toBinaryString(bs));//转换为二进制
-                        }
+//                        System.out.println(new String(b));
+//                        StringBuffer str = new StringBuffer();//不建议用String
+//                        for (byte bs : b) {
+//                            str.append(Integer.toBinaryString(bs));//转换为二进制
+//                        }
                         //把字节数组的图片写到另一个地方
                         File apple = new File(Environment.getExternalStorageDirectory() + "/Credit/cache/" + strr + ".jpg");
                         FileOutputStream fos = new FileOutputStream(apple);

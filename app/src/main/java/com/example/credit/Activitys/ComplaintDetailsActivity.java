@@ -26,6 +26,7 @@ import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ViewInject;
 import com.squareup.picasso.Picasso;
 
+import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -111,11 +112,18 @@ public class ComplaintDetailsActivity extends BaseActivity {
                 try {
                     BASE64Decoder decode = new BASE64Decoder();
                     byte[] b = decode.decodeBuffer(base64);
-                    System.out.println(new String(b));
-                    StringBuilder str = new StringBuilder();//不建议用String
-                    for (byte bs : b) {
-                        str.append(Integer.toBinaryString(bs));//转换为二进制
-                    }
+                    //System.out.println(new String(b));
+
+                   /* byte [] byt =new byte[1024];
+                    for (input.read(byt)!=-1){
+                        output.write(byt);
+                    }*/
+
+
+//                    StringBuffer str = new StringBuffer();//不建议用String
+//                    for (byte bs : b) {
+//                        str.append(Integer.toBinaryString(bs));//转换为二进制
+//                    }
                     String path=Environment.getExternalStorageDirectory() + "/Credit/cache/";
                     String imgpath = Environment.getExternalStorageDirectory() + "/Credit/cache" + "/pag" + i + ".jpg";
                     //把字节数组的图片写到另一个地方

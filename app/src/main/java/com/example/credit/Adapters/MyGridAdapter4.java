@@ -72,47 +72,23 @@ public class MyGridAdapter4 extends BaseAdapter {
 
 		TextView tv1 = BaseViewHolder.get(convertView, R.id.tbv);
 		switch (arrays1[position]){
-			case "证照到期":
-				for(int i=0;i<DataManager.AlertInfoS.data.size();i++){
-					if(DataManager.AlertInfoS.data.get(i).type.equals("zzdq")){
-						tv1.setText(arrays1[position]+"("+ DataManager.AlertInfoS.data.get(i).data.size()+")");
-					}
-				}
+			case "企业年报":
+				tv1.setText(arrays1[position]+"("+ DataManager.reportList.size()+")");
 				break;
-			case "证照过期":
-				for(int i=0;i<DataManager.AlertInfoS.data.size();i++){
-					if(DataManager.AlertInfoS.data.get(i).type.equals("zzgq")){
-						tv1.setText(arrays1[position]+"("+ DataManager.AlertInfoS.data.get(i).data.size()+")");
-					}
-				}
+			case "股东及出资信息":
+				tv1.setText(arrays1[position]+"("+  DataManager.fundedList.size()+")");
 				break;
-			case "责令改正":
-				for(int i=0;i<DataManager.AlertInfoS.data.size();i++){
-					if(DataManager.AlertInfoS.data.get(i).type.equals("zlgz")){
-						tv1.setText(arrays1[position]+"("+ DataManager.AlertInfoS.data.get(i).data.size()+")");
-					}
-				}
+			case "股权变更信息":
+				tv1.setText(arrays1[position]+"("+ DataManager.stockList.size()+")");
 				break;
-			case "欠贷信息":
-				for(int i=0;i<DataManager.AlertInfoS.data.size();i++){
-					if(DataManager.AlertInfoS.data.get(i).type.equals("qdxx")){
-						tv1.setText(arrays1[position]+"("+ DataManager.AlertInfoS.data.get(i).data.size()+")");
-					}
-				}
+			case "行政许可信息":
+				tv1.setText(arrays1[position]+"("+ DataManager.permitList.size()+")");
 				break;
-			case "欠税信息":
-				for(int i=0;i<DataManager.AlertInfoS.data.size();i++){
-					if(DataManager.AlertInfoS.data.get(i).type.equals("qsxx")){
-						tv1.setText(arrays1[position]+"("+ DataManager.AlertInfoS.data.get(i).data.size()+")");
-					}
-				}
+			case "知识产权登记":
+				tv1.setText(arrays1[position]+"("+ DataManager.loreList.size()+")");
 				break;
-			case "欠薪信息":
-				for(int i=0;i<DataManager.AlertInfoS.data.size();i++){
-					if(DataManager.AlertInfoS.data.get(i).type.equals("qxxx")){
-						tv1.setText(arrays1[position]+"("+ DataManager.AlertInfoS.data.get(i).data.size()+")");
-					}
-				}
+			case "行政处罚信息":
+				tv1.setText(arrays1[position]+"("+ DataManager.punishList.size()+")");
 				break;
 		}
 

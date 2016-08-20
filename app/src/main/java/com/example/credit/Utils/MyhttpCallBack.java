@@ -61,7 +61,7 @@ public class MyhttpCallBack implements HttpCallBack {
     public void onSucceed(int what, Response response) {
         //gson = new Gson();
         gson = new Gson();
-        try{
+        try {
             switch (what) {
                 case 0x021://获取城市
 
@@ -141,7 +141,7 @@ public class MyhttpCallBack implements HttpCallBack {
                 case 0x114://获取热点
                     jsonString = (String) response.get();
                     DataManager.MyHotS = gson.fromJson(jsonString, DataManager.MyHot.class);
-                    if (DataManager.MyHotS.data!=null&&DataManager.MyHotS.data.HotspotAnalysis != null && DataManager.MyHotS.data.HotspotAnalysis.size() > 0) {
+                    if (DataManager.MyHotS.data != null && DataManager.MyHotS.data.HotspotAnalysis != null && DataManager.MyHotS.data.HotspotAnalysis.size() > 0) {
                         MainActivity.MyHotsList = DataManager.MyHotS.data.HotspotAnalysis;
                     }
                     break;
@@ -329,7 +329,7 @@ public class MyhttpCallBack implements HttpCallBack {
                                 cfo.PatentCount = temp.get("PatentCount").toString();
                                 cfo.PageView = temp.get("PageView").toString();
                                 cfo.IsClaim = temp.get("IsClaim").toString();
-                                cfo.EntShowCount=temp.get("EntShowCount").toString();//++
+                                cfo.EntShowCount = temp.get("EntShowCount").toString();//++
                                 cfo.BiddingCount = temp.get("BiddingCount").toString();
                                 cfo.JobCount = temp.get("JobCount").toString();
                                 cfo.EntNewCount = temp.get("EntNewCount").toString();
@@ -399,7 +399,7 @@ public class MyhttpCallBack implements HttpCallBack {
                             cfo.PatentCount = temp.get("PatentCount").toString();
                             cfo.PageView = temp.get("PageView").toString();
                             cfo.IsClaim = temp.get("IsClaim").toString();
-                            cfo.EntShowCount=temp.get("EntShowCount").toString();//++
+                            cfo.EntShowCount = temp.get("EntShowCount").toString();//++
                             cfo.BiddingCount = temp.get("BiddingCount").toString();
                             cfo.JobCount = temp.get("JobCount").toString();
                             cfo.EntNewCount = temp.get("EntNewCount").toString();
@@ -464,7 +464,7 @@ public class MyhttpCallBack implements HttpCallBack {
                             cfo.PatentCount = temp.get("PatentCount").toString();
                             cfo.PageView = temp.get("PageView").toString();
                             cfo.IsClaim = temp.get("IsClaim").toString();
-                            cfo.EntShowCount=temp.get("EntShowCount").toString();//++
+                            cfo.EntShowCount = temp.get("EntShowCount").toString();//++
                             cfo.BiddingCount = temp.get("BiddingCount").toString();
                             cfo.JobCount = temp.get("JobCount").toString();
                             cfo.EntNewCount = temp.get("EntNewCount").toString();
@@ -790,7 +790,7 @@ public class MyhttpCallBack implements HttpCallBack {
 
                     break;
                 case 0x011://商标信息
-                    jsonString= (String) response.get();
+                    jsonString = (String) response.get();
                     DataManager.trademarkModelS = gson.fromJson(jsonString, DataManager.trademarkModel.class);
                     if (DataManager.trademarkModelS.data.trademark.size() > 0 && DataManager.trademarkModelS.data.trademark != null) {
                         CompanyDetailsActivity.handler.sendEmptyMessage(11);
@@ -799,7 +799,7 @@ public class MyhttpCallBack implements HttpCallBack {
                     }
                     break;
                 case 0x01112://商标信息（加载更多）
-                    jsonString= (String) response.get();
+                    jsonString = (String) response.get();
                     DataManager.trademarkModelS = gson.fromJson(jsonString, DataManager.trademarkModel.class);
                     if (DataManager.trademarkModelS.data.trademark.size() > 0 && DataManager.trademarkModelS.data.trademark != null) {
                         TrademarkActivity.handler.sendEmptyMessage(0);
@@ -1249,8 +1249,8 @@ public class MyhttpCallBack implements HttpCallBack {
                     break;
                 case 0x701://信用报告1
                     jsonString = (String) response.get();
-                    if (jsonString.equals(DataManager.BaseinfoList.get(0).ENTNAME+".pdf")) {
-                        DataManager.ReportText=jsonString;
+                    if (jsonString.equals(DataManager.BaseinfoList.get(0).ENTNAME + ".pdf")) {
+                        DataManager.ReportText = jsonString;
                         ReportActivity.handler.sendEmptyMessage(0);
                     } else {
                         ReportActivity.handler.sendEmptyMessage(1);
@@ -1329,7 +1329,9 @@ public class MyhttpCallBack implements HttpCallBack {
                 case 0x994://获取企业投诉列表
                     jsonString = (String) response.get();
                     DataManager.myComplaint = gson.fromJson(jsonString, DataManager.MyComplaint.class);
-                    CompanyDetailsActivity.pd.dismiss();
+                    if (CompanyDetailsActivity.waitDialog != null) {
+                        CompanyDetailsActivity.waitDialog.dismiss();
+                    }
                     CompanyDetailsActivity.handler.sendEmptyMessage(24);
                     break;
                 case 0x993://提交企业投诉
@@ -1366,74 +1368,76 @@ public class MyhttpCallBack implements HttpCallBack {
                 case 0x1001://商标查询
                     jsonString = (String) response.get();
                     DataManager.sb_searchS = gson.fromJson(jsonString, DataManager.sb_search.class);
-                    if(DataManager.sb_searchS.data.trademark.size()>0){
+                    if (DataManager.sb_searchS.data.trademark.size() > 0) {
                         Main_SearchActivity.handler.sendEmptyMessage(0);
-                    }else{
+                    } else {
                         Main_SearchActivity.handler.sendEmptyMessage(500);
                     }
                     break;
                 case 0x1002://首页专利查询
                     jsonString = (String) response.get();
                     DataManager.zl_searchS = gson.fromJson(jsonString, DataManager.zl_search.class);
-                    if(DataManager.zl_searchS.data.patentInfo.size()>0 && DataManager.zl_searchS.data.patentInfo!=null){
+                    if (DataManager.zl_searchS.data.patentInfo.size() > 0 && DataManager.zl_searchS.data.patentInfo != null) {
                         Main_SearchActivity.handler.sendEmptyMessage(1);
-                    }else{
+                    } else {
                         Main_SearchActivity.handler.sendEmptyMessage(500);
                     }
                     break;
                 case 0x1003://首页商标查询(上下拉事件)
                     jsonString = (String) response.get();
                     DataManager.sb_searchS = gson.fromJson(jsonString, DataManager.sb_search.class);
-                    if(DataManager.sb_searchS.data.trademark.size()>0){
+                    if (DataManager.sb_searchS.data.trademark.size() > 0) {
                         Main_Search_ListActivity.handler.sendEmptyMessage(0);
                     }
                     break;
                 case 0x1004://专利查询(上下拉事件)
                     jsonString = (String) response.get();
                     DataManager.zl_searchS = gson.fromJson(jsonString, DataManager.zl_search.class);
-                    if(DataManager.zl_searchS.data.patentInfo.size()>0 && DataManager.zl_searchS.data.patentInfo!=null){
+                    if (DataManager.zl_searchS.data.patentInfo.size() > 0 && DataManager.zl_searchS.data.patentInfo != null) {
                         Main_Search_ListActivity.handler.sendEmptyMessage(1);
                     }
                     break;
                 case 0x1005://失信查询
                     jsonString = (String) response.get();
                     DataManager.MyDishonestyS = gson.fromJson(jsonString, DataManager.MyDishonesty.class);
-                    if(DataManager.MyDishonestyS.data.Courtcaseinfo.size()>0 && DataManager.MyDishonestyS.data.Courtcaseinfo!=null){
+                    if (DataManager.MyDishonestyS.data.Courtcaseinfo.size() > 0 && DataManager.MyDishonestyS.data.Courtcaseinfo != null) {
                         Main_SearchActivity.handler.sendEmptyMessage(2);
                     }
                     break;
                 case 0x1006://失信查询(上下拉事件)
                     jsonString = (String) response.get();
                     DataManager.MyDishonestyS = gson.fromJson(jsonString, DataManager.MyDishonesty.class);
-                    if(DataManager.MyDishonestyS.data.Courtcaseinfo.size()>0 && DataManager.MyDishonestyS.data.Courtcaseinfo!=null){
+                    if (DataManager.MyDishonestyS.data.Courtcaseinfo.size() > 0 && DataManager.MyDishonestyS.data.Courtcaseinfo != null) {
                         Main_Search_ListActivity.handler.sendEmptyMessage(2);
                     }
                     break;
                 default:
                     break;
             }
-        }catch (NullPointerException e){
+        } catch (NullPointerException e) {
             showdisplay(what);
             Toast.show("后台数据空返回!");
-        }catch (IndexOutOfBoundsException e){
+        } catch (IndexOutOfBoundsException e) {
             showdisplay(what);
             Toast.show("后台数据结构变更下标越界!");
-        }catch (ClassCastException e){
+        } catch (ClassCastException e) {
             showdisplay(what);
             Toast.show("后台数据变更类型转换出错!");
-        }catch (NumberFormatException e){
+        } catch (NumberFormatException e) {
             showdisplay(what);
             Toast.show("字符串转换为数字异常!");
-        }catch (JsonSyntaxException e){
+        } catch (JsonSyntaxException e) {
             showdisplay(what);
             Toast.show("后台数据变更json解析出错!");
         }
     }
+
     @Override
     public void onFailed(int what, String url, Object tag, Exception exception, int responseCode, long networkMillis) {
         showdisplay(what);
     }
-    public void showdisplay(int what){
+
+    public void showdisplay(int what) {
         switch (what) {
             case 0x022://搜索接口
                 SearchFirmActivty.pd.dismiss();
@@ -1489,10 +1493,20 @@ public class MyhttpCallBack implements HttpCallBack {
             case 0x204://发表评论
             case 0x205://回复评论
             case 0x201://公司我的评价链表
-                CommentListActivity.wd.dismiss();
-                CompanyDetailsActivity.pd.dismiss();
-                ToCommentActivity.wd.dismiss();
-                CommentListDetailsActivity.wd.dismiss();
+
+                if (CommentListActivity.wd != null) {
+                    CommentListActivity.wd.dismiss();
+                }
+                if (CompanyDetailsActivity.pd != null) {
+                    CompanyDetailsActivity.pd.dismiss();
+                }
+                if (ToCommentActivity.wd != null) {
+                    ToCommentActivity.wd.dismiss();
+                }
+                if (CommentListDetailsActivity.wd != null) {
+                    CommentListDetailsActivity.wd.dismiss();
+                }
+
                 break;
             case 0x206://我的评价
                 MainActivity.ad.dismiss();
@@ -1503,8 +1517,12 @@ public class MyhttpCallBack implements HttpCallBack {
             case 0x993://提交企业投诉
             case 0x992://提交投诉附件
             case 0x991://提交投诉后刷新企业投诉
-                ToComplaintActivity.pd.dismiss();
-                MycomplaintsListActivity.pd.dismiss();
+                if (ToComplaintActivity.pd != null) {
+                    ToComplaintActivity.pd.dismiss();
+                }
+                if (MycomplaintsListActivity.pd != null) {
+                    MycomplaintsListActivity.pd.dismiss();
+                }
                 break;
             case 0x3031://我的认领列表{副}
             case 0x305://取消认领
@@ -1538,7 +1556,7 @@ public class MyhttpCallBack implements HttpCallBack {
             case 0x111://获取新闻
                 WelcomeActivity.handler.sendEmptyMessage(10);
 
-                  break;
+                break;
             case 0x110://获取APP最新版本
                 WelcomeActivity.handler.sendEmptyMessage(10);
                 Toast.show("连接服务器失败");

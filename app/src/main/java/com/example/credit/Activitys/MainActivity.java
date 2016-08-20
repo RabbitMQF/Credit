@@ -52,6 +52,7 @@ import com.example.credit.Views.SlidingMenu;
 import com.igexin.sdk.PushManager;
 import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ViewInject;
+import com.squareup.picasso.Picasso;
 import com.yolanda.nohttp.RequestMethod;
 
 import java.io.File;
@@ -761,7 +762,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 File file = new File(Environment.getExternalStorageDirectory() + "/Credit/loginImg.jpg");
                 if (file.exists()) {//获取本地图片路径是否存在
                     headimg.setImageBitmap(decodeBitmap(Environment.getExternalStorageDirectory() + "/Credit/loginImg.jpg", 80, 80));
-//                Picasso.with(MainActivity.this).load(file).into(headimg);
+               // Picasso.with(MainActivity.this).load(decodeBitmap(Environment.getExternalStorageDirectory() + "/Credit/loginImg.jpg", 80, 80)).into(headimg);
+
                 }
             }
         } else {//若当前状态未未登录
@@ -776,11 +778,11 @@ public class MainActivity extends Activity implements View.OnClickListener {
             try {
                 BASE64Decoder decode = new BASE64Decoder();
                 byte[] b = decode.decodeBuffer(base64);
-                System.out.println(new String(b));
-                StringBuilder str = new StringBuilder();//不建议用String
-                for (byte bs : b) {
-                    str.append(Integer.toBinaryString(bs));//转换为二进制
-                }
+//                System.out.println(new String(b));
+//                StringBuffer str = new StringBuffer();//不建议用String
+//                for (byte bs : b) {
+//                    str.append(Integer.toBinaryString(bs));//转换为二进制
+//                }
                 //把字节数组的图片写到另一个地方
                 File apple = new File(Environment.getExternalStorageDirectory() + "/Credit/loginImg.jpg");
                 FileOutputStream fos = new FileOutputStream(apple);

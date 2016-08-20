@@ -58,11 +58,11 @@ public class TwoDimActivity extends Activity {
             try {
                 BASE64Decoder decode = new BASE64Decoder();
                 byte[] b = decode.decodeBuffer(DataManager.TwoDimSli.data.result);
-                System.out.println(new String(b));
-                StringBuilder str = new StringBuilder();//不建议用String
-                for (byte bs : b) {
-                    str.append(Integer.toBinaryString(bs));//转换为二进制
-                }
+//                System.out.println(new String(b));
+//                StringBuffer str = new StringBuffer();//不建议用String
+//                for (byte bs : b) {
+//                    str.append(Integer.toBinaryString(bs));//转换为二进制
+//                }
                 //把字节数组的图片写到另一个地方
                 File apple = new File(Environment.getExternalStorageDirectory() + "/Credit/cache/"+DataManager.BaseinfoList.get(0).REGNO+"_TwoDimImg.jpg");
                 FileOutputStream fos = new FileOutputStream(apple);

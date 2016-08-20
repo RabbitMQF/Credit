@@ -202,11 +202,11 @@ public class ToClaimActivity extends BaseActivity implements OnItemLongClickList
                 try {
                     BASE64Decoder decode = new BASE64Decoder();
                     byte[] b = decode.decodeBuffer(base64String);
-                    System.out.println(new String(b));
-                    StringBuilder str = new StringBuilder();//不建议用String
-                    for (byte bs : b) {
-                        str.append(Integer.toBinaryString(bs));//转换为二进制
-                    }
+//                    System.out.println(new String(b));
+//                    StringBuffer str = new StringBuffer();//不建议用String
+//                    for (byte bs : b) {
+//                        str.append(Integer.toBinaryString(bs));//转换为二进制
+//                    }
                     String imgpath =Environment.getExternalStorageDirectory() + "/Credit/cache" + "/pag"+j+".jpg";
                     //把字节数组的图片写到另一个地方
                     File apple = new File(imgpath);

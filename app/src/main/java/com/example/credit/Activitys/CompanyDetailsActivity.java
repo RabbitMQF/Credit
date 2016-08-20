@@ -384,9 +384,13 @@ public class CompanyDetailsActivity extends BaseActivity {
                         }
                         break;
                     case 24://投诉跳转列表
+                        if (waitDialog != null) {
+                           waitDialog.dismiss();
+                        }
                         ActivityManager am = (ActivityManager) getSystemService(ACTIVITY_SERVICE);
                         ComponentName cn = am.getRunningTasks(1).get(0).topActivity;
                         if (!cn.getClassName().equals(MycomplaintsListActivity.class.getName())) {
+
                             startActivity(new Intent(CompanyDetailsActivity.this, MycomplaintsListActivity.class).putExtra("key", 1));
                         } else {//用于判定是否更新数据，是否跳转
                             MycomplaintsListActivity.handler.sendEmptyMessage(5);//通知企业投诉ListView更新数据源刷新UI
@@ -942,11 +946,11 @@ public class CompanyDetailsActivity extends BaseActivity {
         }
 
 
-        if ((DataManager.BaseinfoList.get(0).ENTNAME).indexOf("分公司") != -1) {
+        if (DataManager.BaseinfoList.size()!=0&&(DataManager.BaseinfoList.get(0).ENTNAME).indexOf("分公司") != -1) {
             gai1.setText("负责人");
             regcap.setText("无");
         } else {
-            if (DataManager.BaseinfoList.get(0).REGCAP.equals("")) {
+            if (DataManager.BaseinfoList.size()>0&&DataManager.BaseinfoList.get(0).REGCAP.equals("")) {
                 regcap.setText("0万元");
             } else {
                 regcap.setText(DataManager.BaseinfoList.get(0).REGCAP.substring(0, DataManager.BaseinfoList.get(0).REGCAP.indexOf(".")) + "万元");
@@ -1069,7 +1073,7 @@ public class CompanyDetailsActivity extends BaseActivity {
                     }
                     break;
                 case R.id.pb_3://企业投诉
-                    pd.show();
+                    waitDialog.show();
                     GsonUtil ComplaintsRuerst = new GsonUtil(URLconstant.URLINSER + URLconstant.GETCOMPLAIN, RequestMethod.GET);
                     ComplaintsRuerst.add("token", MD5.MD5s("" + new Build().MODEL));//csp.getID()
                     ComplaintsRuerst.add("KeyNo", "");//csp.getID()
@@ -1114,4 +1118,16 @@ public class CompanyDetailsActivity extends BaseActivity {
         }
     };
 
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (waitDialog!=null){
+            pd.dismiss();
+        }
+        if(pd!=null){
+            pd.dismiss();
+        }
+
+    }
 }
