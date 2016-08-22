@@ -31,6 +31,11 @@ public class ReportActivity extends Activity {
     LinearLayout b_return;
     @ViewInject(R.id.b_topname)
     TextView b_topname;
+    @ViewInject(R.id.b_topLLt)
+    LinearLayout b_topLLt;
+    @ViewInject(R.id.b_topY)
+    TextView b_topY;
+
     @ViewInject(R.id.gs1)
     TextView gs1;
     @ViewInject(R.id.gs2)
@@ -77,6 +82,7 @@ public class ReportActivity extends Activity {
     public static List<Integer> list=new ArrayList<>();//点击事件
     public static WaitDialog wd;
     WaitDialog_pdf wp;
+    int max=16;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -84,6 +90,10 @@ public class ReportActivity extends Activity {
         ViewUtils.inject(this);
         wd=new WaitDialog(this);
         wp=new WaitDialog_pdf(this);
+        b_topLLt.setVisibility(View.VISIBLE);
+        b_topY.setVisibility(View.VISIBLE);
+        b_topY.setText("全选");
+        b_topY.setTextSize(16);
         b_topname.setText("信用报告");
         b_return.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -124,22 +134,9 @@ public class ReportActivity extends Activity {
         init();
     }
     public void init(){
-        list.add(0);
-        list.add(0);
-        list.add(0);
-        list.add(0);
-        list.add(0);
-        list.add(0);
-        list.add(0);
-        list.add(0);
-        list.add(0);
-        list.add(0);
-        list.add(0);
-        list.add(0);
-        list.add(0);
-        list.add(0);
-        list.add(0);
-        list.add(0);
+        for(int i=1;i<=max;i++){
+            list.add(0);
+        }
 
         gs1.setOnClickListener(listener);
         gs2.setOnClickListener(listener);
@@ -162,6 +159,7 @@ public class ReportActivity extends Activity {
 
         bt_send.setOnClickListener(listener);
 
+        b_topY.setOnClickListener(listener);
     }
     View.OnClickListener listener=new View.OnClickListener() {
         @Override
@@ -171,144 +169,228 @@ public class ReportActivity extends Activity {
                     if(list.get(0)==0){
                         list.set(0, 1);
                         gs1.setBackgroundResource(R.drawable.xxbaogao_tit);
+                        nexshow();
                     }else{
                         list.set(0, 0);
                         gs1.setBackgroundResource(R.drawable.maintop_shape);
+                        if(b_topY.getText().toString().equals("取消全选")) {
+                            b_topY.setText("全选");
+                        }
                     }
                     break;
                 case R.id.gs2:
                     if(list.get(1)==0){
                         list.set(1, 1);
                         gs2.setBackgroundResource(R.drawable.xxbaogao_tit);
+                        nexshow();
                     }else{
                         list.set(1, 0);
                         gs2.setBackgroundResource(R.drawable.maintop_shape);
+                        if(b_topY.getText().toString().equals("取消全选")) {
+                            b_topY.setText("全选");
+                        }
                     }
                     break;
                 case R.id.gs3:
                     if(list.get(2)==0){
                         list.set(2, 1);
                         gs3.setBackgroundResource(R.drawable.xxbaogao_tit);
+                        nexshow();
                     }else{
                         list.set(2, 0);
                         gs3.setBackgroundResource(R.drawable.maintop_shape);
+                        if(b_topY.getText().toString().equals("取消全选")) {
+                            b_topY.setText("全选");
+                        }
                     }
                     break;
                 case R.id.gs4:
                     if(list.get(3)==0){
                         list.set(3, 1);
                         gs4.setBackgroundResource(R.drawable.xxbaogao_tit);
+                        nexshow();
                     }else{
                         list.set(3, 0);
                         gs4.setBackgroundResource(R.drawable.maintop_shape);
+                        if(b_topY.getText().toString().equals("取消全选")) {
+                            b_topY.setText("全选");
+                        }
                     }
                     break;
                 case R.id.gs5:
                     if(list.get(4)==0){
                         list.set(4, 1);
                         gs5.setBackgroundResource(R.drawable.xxbaogao_tit);
+                        nexshow();
                     }else{
                         list.set(4, 0);
                         gs5.setBackgroundResource(R.drawable.maintop_shape);
+                        if(b_topY.getText().toString().equals("取消全选")) {
+                            b_topY.setText("全选");
+                        }
                     }
                     break;
                 case R.id.gs6:
                     if(list.get(5)==0){
                         list.set(5, 1);
                         gs6.setBackgroundResource(R.drawable.xxbaogao_tit);
+                        nexshow();
                     }else{
                         list.set(5, 0);
                         gs6.setBackgroundResource(R.drawable.maintop_shape);
+                        if(b_topY.getText().toString().equals("取消全选")) {
+                            b_topY.setText("全选");
+                        }
                     }
                     break;
                 case R.id.gs7:
                     if(list.get(6)==0){
                         list.set(6, 1);
                         gs7.setBackgroundResource(R.drawable.xxbaogao_tit);
+                        nexshow();
                     }else{
                         list.set(6, 0);
                         gs7.setBackgroundResource(R.drawable.maintop_shape);
+                        if(b_topY.getText().toString().equals("取消全选")) {
+                            b_topY.setText("全选");
+                        }
                     }
                     break;
                 case R.id.gs8:
                     if(list.get(7)==0){
                         list.set(7, 1);
                         gs8.setBackgroundResource(R.drawable.xxbaogao_tit);
+                        nexshow();
                     }else{
                         list.set(7, 0);
                         gs8.setBackgroundResource(R.drawable.maintop_shape);
+                        if(b_topY.getText().toString().equals("取消全选")) {
+                            b_topY.setText("全选");
+                        }
                     }
                     break;
                 case R.id.gs9:
                     if(list.get(8)==0){
                         list.set(8, 1);
                         gs9.setBackgroundResource(R.drawable.xxbaogao_tit);
+                        nexshow();
                     }else{
                         list.set(8, 0);
                         gs9.setBackgroundResource(R.drawable.maintop_shape);
+                        if(b_topY.getText().toString().equals("取消全选")) {
+                            b_topY.setText("全选");
+                        }
                     }
                     break;
                 case R.id.gs10:
                     if(list.get(9)==0){
                         list.set(9, 1);
                         gs10.setBackgroundResource(R.drawable.xxbaogao_tit);
+                        nexshow();
                     }else{
                         list.set(9, 0);
                         gs10.setBackgroundResource(R.drawable.maintop_shape);
+                        if(b_topY.getText().toString().equals("取消全选")) {
+                            b_topY.setText("全选");
+                        }
                     }
                     break;
                 case R.id.zzcq1:
                     if(list.get(10)==0){
                         list.set(10, 1);
                         zzcq1.setBackgroundResource(R.drawable.xxbaogao_tit);
+                        nexshow();
                     }else{
                         list.set(10, 0);
                         zzcq1.setBackgroundResource(R.drawable.maintop_shape);
+                        if(b_topY.getText().toString().equals("取消全选")) {
+                            b_topY.setText("全选");
+                        }
                     }
                     break;
                 case R.id.zzcq2:
                     if(list.get(11)==0){
                         list.set(11, 1);
                         zzcq2.setBackgroundResource(R.drawable.xxbaogao_tit);
+                        nexshow();
                     }else{
                         list.set(11, 0);
                         zzcq2.setBackgroundResource(R.drawable.maintop_shape);
+                        if(b_topY.getText().toString().equals("取消全选")) {
+                            b_topY.setText("全选");
+                        }
                     }
                     break;
                 case R.id.zzcq3:
                     if(list.get(12)==0){
                         list.set(12, 1);
                         zzcq3.setBackgroundResource(R.drawable.xxbaogao_tit);
+                        nexshow();
                     }else{
                         list.set(12,0);
                         zzcq3.setBackgroundResource(R.drawable.maintop_shape);
+                        if(b_topY.getText().toString().equals("取消全选")) {
+                            b_topY.setText("全选");
+                        }
                     }
                     break;
                 case R.id.zzcq4:
                     if(list.get(13)==0){
                         list.set(13, 1);
                         zzcq4.setBackgroundResource(R.drawable.xxbaogao_tit);
+                        nexshow();
                     }else{
                         list.set(13, 0);
                         zzcq4.setBackgroundResource(R.drawable.maintop_shape);
+                        if(b_topY.getText().toString().equals("取消全选")) {
+                            b_topY.setText("全选");
+                        }
                     }
                     break;
                 case R.id.qt1:
                     if(list.get(14)==0){
                         list.set(14, 1);
                         qt1.setBackgroundResource(R.drawable.xxbaogao_tit);
+                        nexshow();
                     }else{
                         list.set(14, 0);
                         qt1.setBackgroundResource(R.drawable.maintop_shape);
+                        if(b_topY.getText().toString().equals("取消全选")) {
+                            b_topY.setText("全选");
+                        }
                     }
                     break;
                 case R.id.qt2:
                     if(list.get(15)==0){
                         list.set(15, 1);
                         qt2.setBackgroundResource(R.drawable.xxbaogao_tit);
+                        nexshow();
                     }else{
                         list.set(15, 0);
                         qt2.setBackgroundResource(R.drawable.maintop_shape);
+                        if(b_topY.getText().toString().equals("取消全选")) {
+                            b_topY.setText("全选");
+                        }
+                    }
+                    break;
+                case R.id.b_topY://全选or取消全选
+                    list.clear();
+                    if(b_topY.getText().toString().equals("全选")){
+                        b_topY.setText("取消全选");
+                        for(int i=1;i<=max;i++){
+                            list.add(1);
+                        }
+                        for (int i = R.id.gs1; i <= R.id.qt2; i++) {
+                            ((TextView) findViewById(i)).setBackgroundResource(R.drawable.xxbaogao_tit);
+                        }
+                    }else{
+                        b_topY.setText("全选");
+                        for(int i=1;i<=max;i++){
+                            list.add(0);
+                        }
+                        for (int i = R.id.gs1; i <= R.id.qt2; i++) {
+                            ((TextView) findViewById(i)).setBackgroundResource(R.drawable.maintop_shape);
+                        }
                     }
                     break;
                 case R.id.bt_send:
@@ -392,4 +474,17 @@ public class ReportActivity extends Activity {
             }
         }
     };
+    public void nexshow(){
+        String str="";
+        for(int i=0;i<list.size();i++){
+            if(list.get(i)==1){
+                str=str+1;
+            }
+        }
+        if(str.equals("1111111111111111")){
+            b_topY.setText("取消全选");
+        }else{
+            b_topY.setText("全选");
+        }
+    }
 }

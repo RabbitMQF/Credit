@@ -176,7 +176,7 @@ public class MyhttpCallBack implements HttpCallBack {
                         serchtemp.OPTO = (String) temp.get("OPTO");
                         serchtemp.REGSTATE_CN = (String) temp.get("REGSTATE_CN");
                         serchtemp.C_PROVINCE = (String) temp.get("C_PROVINCE");
-                        serchtemp.D_ADDTIME = (String) temp.get("D_ADDTIME");
+                        serchtemp.D_ADDTIME = (Object) temp.get("D_ADDTIME");
                         serchtemp.C_STATE = (String) temp.get("C_STATE");
                         if (String.valueOf(temp.get("REGCAP")) == "null") {
                             serchtemp.REGCAP = "0";
@@ -217,7 +217,7 @@ public class MyhttpCallBack implements HttpCallBack {
                         serchtemp.OPTO = (String) temp.get("OPTO");
                         serchtemp.REGSTATE_CN = (String) temp.get("REGSTATE_CN");
                         serchtemp.C_PROVINCE = (String) temp.get("C_PROVINCE");
-                        serchtemp.D_ADDTIME = (String) temp.get("D_ADDTIME");
+                        serchtemp.D_ADDTIME = (long) temp.get("D_ADDTIME");
                         serchtemp.C_STATE = (String) temp.get("C_STATE");
                         if (String.valueOf(temp.get("REGCAP")) == "null") {
                             serchtemp.REGCAP = "0";

@@ -111,7 +111,7 @@ public class DataManager {
         public String OPTO;//经营(驻在)期限至
         public String REGSTATE_CN;//登记状态中文名称
         public String C_PROVINCE;//省代码
-        public String D_ADDTIME;//更新时间
+        public Object D_ADDTIME;//更新时间
         public String C_STATE;//经营状态  1 存续（在营，开业，在册）  2 吊销，未注销    3吊销，已注销  4，注销  5，撤销  6，迁出   9，其他
         public String REGCAP;//注册资本(金)  万元
         public String ENTTYPE_CN;//市场主体类型
