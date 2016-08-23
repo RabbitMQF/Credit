@@ -1,7 +1,5 @@
 package com.example.credit.Utils;
 
-import android.util.Log;
-
 import com.example.credit.Activitys.CommentListActivity;
 import com.example.credit.Activitys.CommentListDetailsActivity;
 import com.example.credit.Activitys.CompanyDetailsActivity;
@@ -24,14 +22,11 @@ import com.example.credit.Activitys.TrademarkActivity;
 import com.example.credit.Activitys.UserSetActivity;
 import com.example.credit.Activitys.WelcomeActivity;
 import com.example.credit.Entitys.DataManager;
-import com.example.credit.Entitys.DataManager.Replay2review;
 import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
 import com.google.gson.internal.LinkedTreeMap;
 import com.google.gson.reflect.TypeToken;
 import com.yolanda.nohttp.rest.Response;
-
-import org.json.JSONException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -217,7 +212,7 @@ public class MyhttpCallBack implements HttpCallBack {
                         serchtemp.OPTO = (String) temp.get("OPTO");
                         serchtemp.REGSTATE_CN = (String) temp.get("REGSTATE_CN");
                         serchtemp.C_PROVINCE = (String) temp.get("C_PROVINCE");
-                        serchtemp.D_ADDTIME = (long) temp.get("D_ADDTIME");
+                        serchtemp.D_ADDTIME = (Object) temp.get("D_ADDTIME");
                         serchtemp.C_STATE = (String) temp.get("C_STATE");
                         if (String.valueOf(temp.get("REGCAP")) == "null") {
                             serchtemp.REGCAP = "0";
@@ -1310,6 +1305,13 @@ public class MyhttpCallBack implements HttpCallBack {
                     MainActivity.handler.sendEmptyMessage(2);
 
                     break;
+                case 0x9971://个人中心获取投诉列表
+                    jsonString = (String) response.get();
+                    DataManager.myComplaint = gson.fromJson(jsonString, DataManager.MyComplaint.class);
+                    MycomplaintsListActivity.handler.sendEmptyMessage(21);
+
+                    break;
+
                 case 0x996://个人中心取消投诉请求
                     jsonString = (String) response.get();
                     map = gson.fromJson(jsonString, new TypeToken<Map<String, Object>>() {
@@ -1334,6 +1336,15 @@ public class MyhttpCallBack implements HttpCallBack {
                     }
                     CompanyDetailsActivity.handler.sendEmptyMessage(24);
                     break;
+                case 0x9941://获取企业投诉列表更多
+                    jsonString = (String) response.get();
+                    DataManager.myComplaint = gson.fromJson(jsonString, DataManager.MyComplaint.class);
+                    if (CompanyDetailsActivity.waitDialog != null) {
+                        CompanyDetailsActivity.waitDialog.dismiss();
+                    }
+                    MycomplaintsListActivity.handler.sendEmptyMessage(6);
+                    break;
+
                 case 0x993://提交企业投诉
                     jsonString = (String) response.get();
                     DataManager.toComplain = gson.fromJson(jsonString, DataManager.ToComplain.class);

@@ -8,8 +8,8 @@ android {
         applicationId "com.example.credit"
         minSdkVersion 14
         targetSdkVersion 23
-        versionCode 3
-        versionName "1.02"
+        versionCode 4
+        versionName "1.03"
 
 //参数说明
         manifestPlaceholders = [
@@ -40,7 +40,7 @@ dependencies {
     compile 'com.nineoldandroids:library:2.4.0'
     compile files('libs/pinyin4j-2.5.0.jar')
     compile files('libs/xUtils-2.6.14.jar')
-    compile 'com.yolanda.nohttp:nohttp:+'
+    compile 'com.yolanda.nohttp:nohttp:1.0.4'
     compile 'com.google.code.gson:gson:+'
     compile 'co.roverlabs:picasso:2.5.2'
     compile 'com.getui:sdk:2.9.0.0'

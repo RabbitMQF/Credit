@@ -113,7 +113,7 @@ public class CommentListDetailsActivity extends BaseActivity {
                         r2.REPLAYCOMMENT=huifu_con.getText().toString();
                         r2.REPLAYTIME=date;
                         huifu_con.setText("");
-                        CommentListActivity.listpl.get(position).replay2review.add(0,r2);
+                        CommentListActivity.listpl.get(position).replay2review.add(r2);
                         Dliuyan_num.setText(CommentListActivity.listpl.get(position).replay2review.size()+"");
                         Rinit();
                         break;

@@ -13,6 +13,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.credit.Adapters.MyGridAdapter4;
+import com.example.credit.Adapters.MyGridAdapter41;
 import com.example.credit.R;
 import com.example.credit.Views.MyGridView;
 import com.lidroid.xutils.ViewUtils;
@@ -51,7 +52,7 @@ public class AlertActivity extends BaseActivity {
             }
         });
 //
-        MyGridAdapter4 adapter4 = new MyGridAdapter4(AlertActivity.this, getResources().getStringArray(R.array.alert));
+        MyGridAdapter41 adapter4 = new MyGridAdapter41(AlertActivity.this, getResources().getStringArray(R.array.alert));
         myGridView4.setAdapter(adapter4);
         myGridView4.setSelector(new ColorDrawable(Color.TRANSPARENT));
         myGridView4.setOnItemClickListener(new AdapterView.OnItemClickListener() {

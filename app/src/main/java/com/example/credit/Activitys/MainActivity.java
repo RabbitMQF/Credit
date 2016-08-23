@@ -17,7 +17,6 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AlertDialog;
 import android.view.KeyEvent;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
@@ -52,7 +51,6 @@ import com.example.credit.Views.SlidingMenu;
 import com.igexin.sdk.PushManager;
 import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ViewInject;
-import com.squareup.picasso.Picasso;
 import com.yolanda.nohttp.RequestMethod;
 
 import java.io.File;
@@ -281,7 +279,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                         ComponentName cn = am.getRunningTasks(1).get(0).topActivity;
                         if (!cn.getClassName().equals(MycomplaintsListActivity.class.getName())) {
                             pd.dismiss();
-                            startActivity(new Intent(MainActivity.this, MycomplaintsListActivity.class));
+                            startActivity(new Intent(MainActivity.this, MycomplaintsListActivity.class).putExtra("falgg",1));
                         } else {
                             MycomplaintsListActivity.handler.sendEmptyMessage(2);
                         }

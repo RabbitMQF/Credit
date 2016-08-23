@@ -8,13 +8,21 @@
     tools:context="com.example.credit.Activitys.MycomplaintsListActivity">
     <include layout="@layout/public_top_bar"/>
 
-    <ListView
 
+    <com.example.credit.Utils.PullToRefreshView
+        android:id="@+id/pull_refresh_view450"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#EEEEEE"
+        android:orientation="vertical">
+    <ListView
         android:id="@+id/complain_lv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scrollbars="none"
         android:listSelector="#00000000"/>
+    </com.example.credit.Utils.PullToRefreshView>
+
     <LinearLayout
         android:visibility="gone"
         android:id="@+id/Null"

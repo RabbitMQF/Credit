@@ -66,7 +66,6 @@
         android:layout_marginLeft="10dp"
         android:layout_marginTop="20dp"
         android:orientation="horizontal"
-        android:background="@drawable/login_et_bg"
         android:visibility="gone">
         <RadioGroup
             android:id="@+id/rg"
@@ -99,7 +98,7 @@
         android:layout_marginLeft="10dp"
         android:layout_marginTop="20dp"
         android:orientation="horizontal"
-        android:visibility="gone"
+        android:visibility="visible"
         android:background="@drawable/login_et_bg">
         <ImageView
             android:layout_width="25dp"

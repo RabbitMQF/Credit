@@ -13,10 +13,14 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.example.credit.Dialogs.WaitDialog;
@@ -43,7 +47,7 @@ import java.util.List;
  */
 public class Main_SearchActivity extends Activity {
     @ViewInject(R.id.search_et1)
-    ContainsEmojiEditText search_et;
+    EditText search_et;
 
     @ViewInject(R.id.arrow_backm)
     LinearLayout arrow_backm;
@@ -54,6 +58,8 @@ public class Main_SearchActivity extends Activity {
     ImageView search_bt;
     @ViewInject(R.id.search_et_cc2)
     ImageView search_et_cc;
+    @ViewInject(R.id.list2main)
+    ListView list2main;//下拉列表
 
     CreditSharePreferences csp=CreditSharePreferences.getLifeSharedPreferences();
 
@@ -201,10 +207,18 @@ public class Main_SearchActivity extends Activity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if (start > 0) {
+                if (start >= 0) {
                     search_et_cc.setVisibility(View.VISIBLE);
+                    if(search_et.getText().toString().equals("")){
+                        list2main.setVisibility(View.GONE);
+                    }else{
+                        list2main.setVisibility(View.VISIBLE);
+                        spshow();
+                    }
                 } else {
                     search_et_cc.setVisibility(View.GONE);
+                        list2main.setVisibility(View.GONE);
+
                 }
             }
 
@@ -323,4 +337,31 @@ public class Main_SearchActivity extends Activity {
             }
         }
     };
+
+    public void spshow(){
+        final List<String> data_list = new ArrayList<String>();
+        List<String> list_test = new ArrayList<String>();//测试
+        list_test.add("玉嫦娥");
+        list_test.add("药物");
+        list_test.add("江西");
+        list_test.add("555555");
+        list_test.add("Yoooooo");
+        list_test.add("12138");
+        list_test.add("233333");
+        list_test.add("666666");
+        for(int i=0;i<list_test.size();i++){
+            if(!list_test.get(i).equals("") && (list_test.get(i)).indexOf(search_et.getText().toString()) != -1){
+                data_list.add(list_test.get(i));
+            }
+        }
+        ArrayAdapter<String> arr_adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, data_list);
+        arr_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        list2main.setAdapter(arr_adapter);
+        list2main.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                search_et.setText(data_list.get(position));
+        }
+        });
+    }
 }

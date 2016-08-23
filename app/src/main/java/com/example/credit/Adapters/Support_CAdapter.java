@@ -50,7 +50,7 @@ public class Support_CAdapter extends BaseAdapter {
         } else {
             vh = (ViewHolder) view.getTag();
         }
-        vh.sitem_tv1C.setText(list.get(position).ENJSPAMOUNT+"");
+        vh.sitem_tv1C.setText(list.get(position).ENJSPAMOUNT+"万元");
         vh.sitem_tv2C.setText(list.get(position).ENJSPCONTENT);
         vh.sitem_tv3C.setText(list.get(position).IMPSPDEPART);
         vh.sitem_tv4C.setText(list.get(position).IMPSPDATE);

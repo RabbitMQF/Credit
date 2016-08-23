@@ -17,9 +17,7 @@ import com.example.credit.Services.CallServer;
 import com.example.credit.Utils.GsonUtil;
 import com.example.credit.Utils.MD5;
 import com.example.credit.Utils.MyhttpCallBack;
-import com.example.credit.Utils.Toast;
 import com.example.credit.Utils.URLconstant;
-import com.squareup.picasso.Picasso;
 import com.yolanda.nohttp.RequestMethod;
 
 import java.util.List;
@@ -97,13 +95,13 @@ public class ComplainListAdapter extends BaseAdapter {
             case "1"://已处理
 
                 vh.complain_status.setTextColor(context.getResources().getColor(R.color.green));
-                vh.complain_status.setText("已处理");
+                vh.complain_status.setText("已审核");
                 //vh.complain_cancel.setVisibility(View.GONE);
                 break;
             case "2"://已拒绝
 
                 vh.complain_status.setTextColor(context.getResources().getColor(R.color.red));
-                vh.complain_status.setText("已拒绝");
+                vh.complain_status.setText("拒绝审核");
                 break;
             default:break;
         }
@@ -133,8 +131,8 @@ public class ComplainListAdapter extends BaseAdapter {
             public void onClick(View v) {
                 MycomplaintsListActivity.pd.show();
                 GsonUtil DetailQuerst=new GsonUtil(URLconstant.URLINSER+URLconstant.GETCOMDETAIL, RequestMethod.GET);
-                DetailQuerst.add("token", MD5.MD5s(DataManager.myComplaint.data.commentList.get(position).COMPLAINTID+new Build().MODEL));
-                DetailQuerst.add("KeyNo",DataManager.myComplaint.data.commentList.get(position).COMPLAINTID);
+                DetailQuerst.add("token", MD5.MD5s(ComplainList.get(position).COMPLAINTID+new Build().MODEL));
+                DetailQuerst.add("KeyNo",ComplainList.get(position).COMPLAINTID);
                 DetailQuerst.add("deviceId",new Build().MODEL);
                 CallServer.getInstance().add(context,DetailQuerst, MyhttpCallBack.getInstance(),0x995,true,false,true);
             }

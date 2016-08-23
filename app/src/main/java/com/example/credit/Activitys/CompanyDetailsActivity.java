@@ -3,11 +3,9 @@ package com.example.credit.Activitys;
 import android.app.ActivityManager;
 import android.app.ProgressDialog;
 import android.content.ComponentName;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
-import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
@@ -15,31 +13,19 @@ import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AlertDialog;
-import android.view.Gravity;
-import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ListView;
-import android.widget.PopupMenu;
-import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
-import android.widget.ScrollView;
 import android.widget.TextView;
 
+import com.example.credit.Adapters.MyGridAdapter2;
 import com.example.credit.Adapters.MyGridAdapters;
 import com.example.credit.Dialogs.WaitDialog;
 import com.example.credit.Entitys.DataManager;
 import com.example.credit.R;
-import com.example.credit.Adapters.MyGridAdapter1;
-import com.example.credit.Adapters.MyGridAdapter2;
 import com.example.credit.Services.CallServer;
 import com.example.credit.Utils.CreditSharePreferences;
 import com.example.credit.Utils.GsonUtil;
@@ -50,18 +36,13 @@ import com.example.credit.Utils.URLconstant;
 import com.example.credit.Views.ActionItem;
 import com.example.credit.Views.MyGridView;
 import com.example.credit.Views.TitlePopup;
-import com.google.gson.Gson;
-import com.google.gson.internal.LinkedTreeMap;
-import com.google.gson.reflect.TypeToken;
 import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ViewInject;
 import com.yolanda.nohttp.RequestMethod;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
-import java.util.Map;
 
 /**
  * 公司信息界面
@@ -396,6 +377,7 @@ public class CompanyDetailsActivity extends BaseActivity {
                             MycomplaintsListActivity.handler.sendEmptyMessage(5);//通知企业投诉ListView更新数据源刷新UI
                         }
                         break;
+
                     case 25://我的二维码名片
                         startActivity(new Intent(CompanyDetailsActivity.this, TwoDimActivity.class));
                         break;
