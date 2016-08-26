@@ -89,15 +89,17 @@
             android:background="#757475" />
 
         <LinearLayout
+            android:id="@+id/bec"
             android:layout_width="match_parent"
-            android:layout_height="30dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:layout_marginBottom="3dp"
             android:background="@drawable/details_con_bg"
             android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
                 android:layout_marginLeft="10dp"
                 android:focusable="true"
                 android:focusableInTouchMode="true"
@@ -118,6 +120,7 @@
         </LinearLayout>
 
         <View
+            android:id="@+id/bec1"
             android:layout_width="match_parent"
             android:layout_height="0.5dp"
             android:layout_margin="5dp"

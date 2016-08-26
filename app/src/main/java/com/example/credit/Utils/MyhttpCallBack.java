@@ -12,6 +12,7 @@ import com.example.credit.Activitys.MyClaimActivity;
 import com.example.credit.Activitys.MycomplaintsListActivity;
 import com.example.credit.Activitys.MyconcernActivity;
 import com.example.credit.Activitys.PassWordActivity;
+import com.example.credit.Activitys.PatentActivity;
 import com.example.credit.Activitys.RegisterActivity;
 import com.example.credit.Activitys.ReportActivity;
 import com.example.credit.Activitys.SearchFirmActivty;
@@ -784,6 +785,14 @@ public class MyhttpCallBack implements HttpCallBack {
                     }
 
                     break;
+                case 0x01012://专利信息(加载更多)
+                    jsonString = (String) response.get();
+                    DataManager.PatentInfoS = gson.fromJson(jsonString, DataManager.PatentInfo.class);
+                    if (DataManager.PatentInfoS.data.patentInfo != null) {
+                        PatentActivity.handler.sendEmptyMessage(0);
+                    }
+
+                    break;
                 case 0x011://商标信息
                     jsonString = (String) response.get();
                     DataManager.trademarkModelS = gson.fromJson(jsonString, DataManager.trademarkModel.class);
@@ -1444,7 +1453,7 @@ public class MyhttpCallBack implements HttpCallBack {
     }
 
     @Override
-    public void onFailed(int what, String url, Object tag, Exception exception, int responseCode, long networkMillis) {
+    public void onFailed(int what, Response response) {
         showdisplay(what);
     }
 

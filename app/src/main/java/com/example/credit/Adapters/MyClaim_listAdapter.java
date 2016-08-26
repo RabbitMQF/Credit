@@ -13,9 +13,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.credit.Activitys.ClaimDetailsActivity;
+import com.example.credit.Activitys.LoginActivity;
 import com.example.credit.Activitys.MyClaimActivity;
 import com.example.credit.Activitys.SearchFirmActivty;
 import com.example.credit.Activitys.ToClaimActivity;
@@ -73,6 +75,10 @@ public class MyClaim_listAdapter extends BaseAdapter {
             vh.myclaim_base=(TextView) view.findViewById(R.id.myclaim_base);
             vh.myclaim_text=(TextView) view.findViewById(R.id.myclaim_text);
             vh.myclaim_dimss=(TextView) view.findViewById(R.id.myclaim_dimss);
+
+            vh.bec= (LinearLayout) view.findViewById(R.id.bec);
+            vh.bec1= (View) view.findViewById(R.id.bec1);
+
             view.setTag(vh);
         } else {
             vh = (ViewHolder) view.getTag();
@@ -81,8 +87,12 @@ public class MyClaim_listAdapter extends BaseAdapter {
         vh.myclaim_name.setText(list.get(position).ENTERNAME);
         vh.myclaim_state.setText(list.get(position).STATUSNAME);
         vh.myclaim_base.setText(list.get(position).REFUSEREASON);
-        if(DataManager.MyClaimUtilsModel.data.Claimlist.get(position).STATUSNAME.equals("审核通过")||DataManager.MyClaimUtilsModel.data.Claimlist.get(position).STATUSNAME.equals("审核失败")){
+        if(list.get(position).STATUSNAME.equals("审核通过")||list.get(position).STATUSNAME.equals("审核失败")){
             vh.myclaim_text.setVisibility(View.GONE);
+        }
+        if(list.get(position).STATUSNAME.equals("审核通过")||list.get(position).STATUSNAME.equals("审核中")){
+            vh.bec.setVisibility(View.GONE);
+            vh.bec1.setVisibility(View.GONE);
         }
         /**
          * 认领详情
@@ -96,7 +106,7 @@ public class MyClaim_listAdapter extends BaseAdapter {
                     MyClaimRuerst.add("deviceId",(new Build()).MODEL);
                     MyClaimRuerst.add("token", SearchFirmActivty.MD5s(csp.getID() + (new Build()).MODEL));
                     MyClaimRuerst.add("KeyNo",csp.getID());
-                    MyClaimRuerst.add("claimId",DataManager.MyClaimUtilsModel.data.Claimlist.get(position).CLAIMID);
+                    MyClaimRuerst.add("claimId",list.get(position).CLAIMID);
                     CallServer.getInstance().add(context,MyClaimRuerst, MyhttpCallBack.getInstance(),0x304,true,false,true);
                     Intent i=new Intent(context, ClaimDetailsActivity.class);
                     i.putExtra("position",position);
@@ -148,5 +158,8 @@ public class MyClaim_listAdapter extends BaseAdapter {
         TextView myclaim_base;//注册资金
         TextView myclaim_text;//编辑
         TextView myclaim_dimss;//取消
+
+        LinearLayout bec;
+        View bec1;
     }
 }

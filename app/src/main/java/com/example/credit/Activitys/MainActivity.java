@@ -46,6 +46,7 @@ import com.example.credit.Views.FileUtil;
 import com.example.credit.Views.ImageCycleView;
 import com.example.credit.Views.MyGridView;
 import com.example.credit.Views.MyListView;
+import com.example.credit.Views.MyScrollView;
 import com.example.credit.Views.RoundImageView;
 import com.example.credit.Views.SlidingMenu;
 import com.igexin.sdk.PushManager;
@@ -62,6 +63,7 @@ import java.util.Random;
 
 import Decoder.BASE64Decoder;
 
+import static com.example.credit.R.id.top_search;
 import static com.example.credit.Views.FileUtil.decodeBitmap;
 import static com.example.credit.Views.FileUtil.deleteDir;
 
@@ -72,6 +74,13 @@ public class MainActivity extends Activity implements View.OnClickListener {
     private SlidingMenu mLeftMenu;
     private final int NOHTTP_CITY = 0x021;//获取城市
     private final int NOHTTP_INDUSTRY = 0x023;//获取行业
+
+    private int searchLayoutTop;//顶部位置
+    @ViewInject(R.id.search_top1)
+    RelativeLayout search_top1;//搜索
+    @ViewInject(R.id.search_top2)
+    LinearLayout search_top2;//顶部悬浮
+    MyScrollView myScrollView;//自定义ScrollView
 
     @ViewInject(R.id.tab1)
     LinearLayout tab1;//企业查询
@@ -173,6 +182,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         csp = CreditSharePreferences.getLifeSharedPreferences();
         LoginStatus = csp.getLoginStatus();
         ViewUtils.inject(this);
+
         ad = new WaitDialog(this);
         boolean falg = NetUtils.isConnectingToInternet(this);
         mLeftMenu = (SlidingMenu) findViewById(R.id.id_menu);
@@ -302,6 +312,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                                 ad.show();
                                 String KeyNo = MyCliamList.get(position).PRIPID;//市场主体身份代码
                                 String token = SearchFirmActivty.MD5s(KeyNo + (new Build()).MODEL);
+                                String b=SearchFirmActivty.MD5s("14591365178594053553" + (new Build()).MODEL);
                                 GsonUtil requst = new GsonUtil(URLconstant.URLINSER + URLconstant.GETITEMNUM, RequestMethod.GET);
                                 requst.add("KeyNo", KeyNo);
                                 requst.add("token", token);
@@ -494,7 +505,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
     private void initView() {
 
-        topSearch = (RelativeLayout) findViewById(R.id.top_search);
+        topSearch = (RelativeLayout) findViewById(top_search);
         topSearch.setOnClickListener(this);
         pd = new ProgressDialog(MainActivity.this);
         pd.setMessage("请稍后...");
@@ -519,6 +530,30 @@ public class MainActivity extends Activity implements View.OnClickListener {
         btmore.setOnClickListener(listener);
         set.setOnClickListener(listener);
         cliam_more.setOnClickListener(listener);
+        myScrollView = (MyScrollView) findViewById(R.id.myScrollView1);
+        myScrollView.setOnScrollListener(new MyScrollView.OnScrollListener(){
+            /**
+             * 监听滚动Y值变化，通过addView和removeView来实现悬停效果
+             * @param scrollY
+             */
+            @Override
+            public void onScroll(int scrollY) {
+                if(scrollY >= searchLayoutTop){
+                    if (topSearch.getParent()!=search_top2) {
+                        search_top1.removeView(topSearch);
+                        search_top2.setVisibility(View.VISIBLE);
+                        search_top2.addView(topSearch);
+                    }
+                }else{
+                    if (topSearch.getParent()!=search_top1) {
+                        search_top2.removeView(topSearch);
+                        search_top2.setVisibility(View.GONE);
+                        search_top1.addView(topSearch);
+                    }
+                }
+            }
+        });
+
 //        pb_4.setOnClickListener(listener);
     }
 
@@ -730,7 +765,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.top_search:
+            case top_search:
                 Intent in = new Intent(this, SearchFirmActivty.class);
                 in.putExtra("Setname", "");
                 startActivity(in);
@@ -918,6 +953,15 @@ public class MainActivity extends Activity implements View.OnClickListener {
         public void onScrollStoped() {
         }
     };
+
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
+        if(hasFocus){
+            searchLayoutTop = togg.getBottom();//获取ImageView的顶部位置
+        }
+    }
+
 
 
 }

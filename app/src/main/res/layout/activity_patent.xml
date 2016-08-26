@@ -11,6 +11,13 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+        <com.example.credit.Utils.PullToRefreshView
+            android:id="@+id/pull_refresh_view250"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="15dp"
+            android:background="#EEEEEE"
+            android:orientation="vertical">
 
         <ScrollView
             android:id="@+id/pa_sc"
@@ -34,6 +41,7 @@
                     android:listSelector="#00000000" />
             </LinearLayout>
         </ScrollView>
+        </com.example.credit.Utils.PullToRefreshView>
 
         <View
             android:layout_width="match_parent"

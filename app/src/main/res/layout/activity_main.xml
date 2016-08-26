@@ -22,7 +22,8 @@
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
-                <ScrollView
+                <com.example.credit.Views.MyScrollView
+                    android:id="@+id/myScrollView1"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:scrollbars="none">
@@ -57,13 +58,20 @@
                                 <!--android:layout_marginTop="45dp"-->
                                 <!--android:textSize="18sp" />-->
                             <RelativeLayout
+                                android:id="@+id/search_top1"
+                                android:layout_width="match_parent"
+                                android:layout_height="40dp"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginRight="10dp"
+                                android:layout_marginBottom="60dp"
+                                android:layout_alignParentBottom="true">
+                            <RelativeLayout
                                 android:id="@+id/top_search"
                                 android:layout_width="match_parent"
                                 android:layout_height="40dp"
                                 android:layout_marginLeft="10dp"
                                 android:layout_marginRight="10dp"
                                 android:layout_marginBottom="60dp"
-                                android:layout_alignParentBottom="true"
                                 android:background="@drawable/maintop_shape">
 
                                 <ImageView
@@ -82,6 +90,8 @@
                                     android:textColor="#999999"
                                     android:textSize="14sp" />
                             </RelativeLayout>
+                            </RelativeLayout>
+
                         </RelativeLayout>
 
                         <LinearLayout
@@ -389,7 +399,19 @@
                             />
 
                     </LinearLayout>
-                </ScrollView>
+                </com.example.credit.Views.MyScrollView>
+                <LinearLayout
+                    android:id="@+id/search_top2"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:background="#3A96D5"
+                    android:visibility="gone"
+                    android:orientation="vertical">
+                </LinearLayout>
             </FrameLayout>
         </LinearLayout>
 

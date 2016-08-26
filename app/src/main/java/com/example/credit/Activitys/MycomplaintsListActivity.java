@@ -160,6 +160,7 @@ public class MycomplaintsListActivity extends BaseActivity implements  PullToRef
             complain_lv.setAdapter(Cadapter);
             Cadapter.notifyDataSetChanged();
         } else {
+            mPullToRefreshView.setVisibility(View.GONE);
             complain_lv.setVisibility(View.GONE);
             Null.setVisibility(View.VISIBLE);
         }
@@ -243,7 +244,7 @@ public class MycomplaintsListActivity extends BaseActivity implements  PullToRef
                             ComplaintsRuerst = new GsonUtil(URLconstant.URLINSER + URLconstant.GETCOMPLAIN, RequestMethod.GET);
                             ComplaintsRuerst.add("token", MD5.MD5s("" + new Build().MODEL));//csp.getID()
                             ComplaintsRuerst.add("KeyNo", "");//csp.getID()
-                            ComplaintsRuerst.add("enterId", DataManager.allcountsList.get(0).EnterAddtionID);
+                            ComplaintsRuerst.add("enterId",     DataManager.allcountsList.get(0).EnterAddtionID);
                             ComplaintsRuerst.add("deviceId", new Build().MODEL);
                             ComplaintsRuerst.add("pageIndex", DataManager.myComplaint.data.Paging.CurrentPage+1);
                             CallServer.getInstance().add(MycomplaintsListActivity.this, ComplaintsRuerst, MyhttpCallBack.getInstance(), 0x9941, true, false, true);

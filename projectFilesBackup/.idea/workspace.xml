@@ -4,15 +4,11 @@
     <shared>
       <config>
         <devices>
-          <device id="Nexus S" />
           <device id="Nexus 5X" />
-          <device id="Nexus 6P" />
-          <device id="Nexus One" />
-          <device id="Nexus 7" />
-          <device id="Nexus 5" />
-          <device id="Nexus 6" />
           <device id="Nexus 10" />
+          <device id="Nexus 5" />
           <device id="Galaxy Nexus" />
+          <device id="Nexus One" />
           <device id="Nexus 4" />
         </devices>
         <pickBest>false</pickBest>
@@ -25,32 +21,7 @@
           <theme>@android:style/Theme.Black.NoTitleBar</theme>
         </config>
       </layout>
-      <layout url="file://$PROJECT_DIR$/app/src/main/res/drawable/comment_item_item_bg.xml">
-        <config>
-          <theme>@android:style/Theme.Black.NoTitleBar</theme>
-        </config>
-      </layout>
-      <layout url="file://$PROJECT_DIR$/app/src/main/res/drawable/details_c_tle.xml">
-        <config>
-          <theme>@android:style/Theme.Black.NoTitleBar</theme>
-        </config>
-      </layout>
-      <layout url="file://$PROJECT_DIR$/app/src/main/res/drawable/details_con_tabbg1.xml">
-        <config>
-          <theme>@android:style/Theme.Black.NoTitleBar</theme>
-        </config>
-      </layout>
-      <layout url="file://$PROJECT_DIR$/app/src/main/res/drawable/details_gg_bg1.xml">
-        <config>
-          <theme>@android:style/Theme.Black.NoTitleBar</theme>
-        </config>
-      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/drawable/logout_bg.xml">
-        <config>
-          <theme>@android:style/Theme.Black.NoTitleBar</theme>
-        </config>
-      </layout>
-      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_about.xml">
         <config>
           <theme>@android:style/Theme.Black.NoTitleBar</theme>
         </config>
@@ -65,11 +36,6 @@
           <theme>@android:style/Theme.Black.NoTitleBar</theme>
         </config>
       </layout>
-      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_alert.xml">
-        <config>
-          <theme>@android:style/Theme.Black.NoTitleBar</theme>
-        </config>
-      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_autonomy_detai.xml">
         <config>
           <theme>@android:style/Theme.Black.NoTitleBar</theme>
@@ -80,67 +46,17 @@
           <theme>@android:style/Theme.Black.NoTitleBar</theme>
         </config>
       </layout>
-      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_c_list_item.xml">
-        <config>
-          <theme>@style/Theme.AppCompat.Light.NoActionBar</theme>
-        </config>
-      </layout>
-      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_comment_list.xml">
-        <config>
-          <theme>@style/Theme.AppCompat.Light.NoActionBar</theme>
-        </config>
-      </layout>
-      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_company_details.xml">
-        <config>
-          <theme>@style/Theme.AppCompat.Light.NoActionBar</theme>
-        </config>
-      </layout>
-      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_complaint_details.xml">
-        <config>
-          <theme>@style/Theme.AppCompat.Light.NoActionBar</theme>
-        </config>
-      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_details_content.xml">
-        <config>
-          <theme>@android:style/Theme.Black.NoTitleBar</theme>
-        </config>
-      </layout>
-      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml">
         <config>
           <theme>@android:style/Theme.Black.NoTitleBar</theme>
         </config>
       </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
         <config>
-          <theme>@style/Theme.AppCompat.Light.NoActionBar</theme>
+          <theme>@android:style/Theme.Black.NoTitleBar</theme>
         </config>
       </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_mortgage_detail.xml">
-        <config>
-          <theme>@android:style/Theme.Black.NoTitleBar</theme>
-        </config>
-      </layout>
-      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_mycomplaints_list_item.xml">
-        <config>
-          <theme>@style/Theme.AppCompat.Light.NoActionBar</theme>
-        </config>
-      </layout>
-      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_panoramic.xml">
-        <config>
-          <theme>@android:style/Theme.Black.NoTitleBar</theme>
-        </config>
-      </layout>
-      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_register.xml">
-        <config>
-          <theme>@style/Theme.AppCompat.Light.NoActionBar</theme>
-        </config>
-      </layout>
-      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_user_set.xml">
-        <config>
-          <theme>@style/Theme.AppCompat.Light.NoActionBar</theme>
-        </config>
-      </layout>
-      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_welcome.xml">
         <config>
           <theme>@android:style/Theme.Black.NoTitleBar</theme>
         </config>
@@ -165,34 +81,14 @@
           <theme>@android:style/Theme.Black.NoTitleBar</theme>
         </config>
       </layout>
-      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/bg_bg.xml">
-        <config>
-          <theme>@style/Theme.AppCompat.Light.NoActionBar</theme>
-        </config>
-      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/left_menu.xml">
         <config>
           <theme>@style/AppTheme</theme>
         </config>
       </layout>
-      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/news_list_item.xml">
-        <config>
-          <theme>@android:style/Theme.Black.NoTitleBar</theme>
-        </config>
-      </layout>
-      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/public_bottom_bar.xml">
-        <config>
-          <theme>@android:style/Theme.Black.NoTitleBar</theme>
-        </config>
-      </layout>
-      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/public_top_bar.xml">
-        <config>
-          <theme>@android:style/Theme.Black.NoTitleBar</theme>
-        </config>
-      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/search_firm_activity.xml">
         <config>
-          <theme>@style/Theme.AppCompat.Light.NoActionBar</theme>
+          <theme>@android:style/Theme.Black.NoTitleBar</theme>
         </config>
       </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/menu/activity_main_drawer.xml">
@@ -204,10 +100,29 @@
   </component>
   <component name="AndroidLogFilters">
     <option name="TOOL_WINDOW_LOG_LEVEL" value="ERROR" />
-    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="No Filters" />
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" readonly="true" id="3460f83a-ce76-458c-bccb-0cb7899e278f" name="Default" comment="" />
+    <list default="true" readonly="true" id="3460f83a-ce76-458c-bccb-0cb7899e278f" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/cache.properties.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/fileHashes.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/fileSnapshots.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/outputFileStates.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/outputFileStates.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/taskArtifacts.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" afterPath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" afterPath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/generated/mockable-android-23.jar" afterPath="$PROJECT_DIR$/build/generated/mockable-android-23.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build.gradle" afterPath="$PROJECT_DIR$/app/build.gradle" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/credit/Activitys/SearchFirmActivty.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/credit/Activitys/SearchFirmActivty.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/credit/Entitys/DataManager.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/credit/Entitys/DataManager.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/credit/Utils/MyhttpCallBack.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/credit/Utils/MyhttpCallBack.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" afterPath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" />
+    </list>
     <ignored path="Credit.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/" />
@@ -226,7 +141,7 @@
   </component>
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="CreatePatchCommitExecutor">
-    <option name="PATCH_PATH" value="E:\ZLH\android_studio_zlh\Credit" />
+    <option name="PATCH_PATH" value="" />
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="ExternalProjectsData">
@@ -237,25 +152,8 @@
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
       <state>
-        <task path="$PROJECT_DIR$">
-          <activation />
-        </task>
-        <task path="$PROJECT_DIR$/app">
-          <activation />
-        </task>
         <projects_view>
-          <tree_state>
-            <PATH>
-              <PATH_ELEMENT>
-                <option name="myItemId" value="" />
-                <option name="myItemType" value="com.intellij.openapi.externalSystem.view.ExternalProjectsStructure$RootNode" />
-              </PATH_ELEMENT>
-              <PATH_ELEMENT>
-                <option name="myItemId" value="Credit" />
-                <option name="myItemType" value="com.intellij.openapi.externalSystem.view.ProjectNode" />
-              </PATH_ELEMENT>
-            </PATH>
-          </tree_state>
+          <tree_state />
         </projects_view>
       </state>
     </system>
@@ -288,45 +186,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Activitys/MainActivity.java">
+      <file leaf-file-name="MyhttpCallBack.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Utils/MyhttpCallBack.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="91" column="31" selection-start-line="91" selection-start-column="31" selection-end-line="91" selection-end-column="31" />
+            <state vertical-scroll-proportion="1.3518931">
+              <caret line="146" column="62" selection-start-line="146" selection-start-column="62" selection-end-line="146" selection-end-column="62" />
               <folding>
-                <element signature="imports" expanded="false" />
-                <element signature="e#29836#29837#0" expanded="false" />
-                <element signature="e#29870#29871#0" expanded="false" />
+                <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="NewClaimListAdapter.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Adapters/NewClaimListAdapter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="21" column="11" selection-start-line="21" selection-start-column="11" selection-end-line="21" selection-end-column="11" />
-              <folding>
-                <element signature="imports" expanded="false" />
-                <element signature="e#1062#1063#0" expanded="false" />
-                <element signature="e#1107#1108#0" expanded="false" />
-                <element signature="e#1164#1165#0" expanded="false" />
-                <element signature="e#1195#1196#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="activity_main2.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main2.xml">
-          <provider editor-type-id="android-designer">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="310" column="56" selection-start-line="310" selection-start-column="45" selection-end-line="310" selection-end-column="56" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -335,81 +202,80 @@
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Entitys/DataManager.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="552" column="43" selection-start-line="552" selection-start-column="43" selection-end-line="552" selection-end-column="43" />
+              <caret line="143" column="0" selection-start-line="143" selection-start-column="0" selection-end-line="143" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Main_Search_ListActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Activitys/Main_Search_ListActivity.java">
+      <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Activitys/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="127" column="55" selection-start-line="127" selection-start-column="55" selection-end-line="127" selection-end-column="55" />
+              <caret line="58" column="58" selection-start-line="58" selection-start-column="58" selection-end-line="58" selection-end-column="58" />
               <folding>
                 <element signature="imports" expanded="false" />
-                <element signature="e#9383#9384#0" expanded="false" />
-                <element signature="e#9459#9460#0" expanded="false" />
-                <marker date="1471256263774" expanded="true" signature="9476:9478" placeholder="//..." />
+                <element signature="e#4646#4647#0" expanded="false" />
+                <element signature="e#4680#4681#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Main_CC_List_itemAdapter.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Adapters/Main_CC_List_itemAdapter.java">
+      <file leaf-file-name="URLconstant.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Utils/URLconstant.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="139" column="12" selection-start-line="139" selection-start-column="12" selection-end-line="139" selection-end-column="12" />
-              <folding>
-                <element signature="imports" expanded="false" />
-                <element signature="e#1134#1135#0" expanded="false" />
-                <element signature="e#1168#1169#0" expanded="false" />
-                <element signature="e#1225#1226#0" expanded="false" />
-                <element signature="e#1249#1250#0" expanded="false" />
-                <element signature="e#1306#1307#0" expanded="false" />
-                <element signature="e#1330#1331#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PatentActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Activitys/PatentActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="24" column="3" selection-start-line="24" selection-start-column="3" selection-end-line="24" selection-end-column="3" />
-              <folding>
-                <element signature="imports" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CC_List_itemAdapter.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Adapters/CC_List_itemAdapter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="165" column="38" selection-start-line="165" selection-start-column="38" selection-end-line="165" selection-end-column="38" />
-              <folding>
-                <element signature="imports" expanded="false" />
-                <element signature="e#1262#1263#0" expanded="false" />
-                <element signature="e#1296#1297#0" expanded="false" />
-                <element signature="e#1353#1354#0" expanded="false" />
-                <element signature="e#1377#1378#0" expanded="false" />
-                <element signature="e#1434#1435#0" expanded="false" />
-                <element signature="e#1458#1459#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MyhttpCallBack.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Utils/MyhttpCallBack.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.4310595">
-              <caret line="171" column="75" selection-start-line="171" selection-start-column="75" selection-end-line="171" selection-end-column="75" />
+              <caret line="25" column="6" selection-start-line="25" selection-start-column="6" selection-end-line="25" selection-end-column="6" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SearchFirmActivty.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Activitys/SearchFirmActivty.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="128" column="23" selection-start-line="128" selection-start-column="23" selection-end-line="128" selection-end-column="23" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Citys_Adapter.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Adapters/Citys_Adapter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="74" column="18" selection-start-line="74" selection-start-column="18" selection-end-line="74" selection-end-column="18" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CreditSharePreferences.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Utils/CreditSharePreferences.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="35" column="24" selection-start-line="35" selection-start-column="24" selection-end-line="35" selection-end-column="24" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NewsListAdapter.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Adapters/NewsListAdapter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="58" column="0" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="e#847#848#0" expanded="false" />
+                <element signature="e#885#886#0" expanded="false" />
+                <element signature="e#942#943#0" expanded="false" />
+                <element signature="e#987#988#0" expanded="false" />
+                <element signature="e#1044#1045#0" expanded="false" />
+                <element signature="e#1075#1076#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -420,15 +286,11 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="layoutResourceFile" />
-        <option value="Class" />
-        <option value="layoutResourceFile_vertical" />
         <option value="resourceFile" />
+        <option value="layoutResourceFile_vertical" />
+        <option value="Class" />
       </list>
     </option>
-  </component>
-  <component name="GenerateSignedApkSettings">
-    <option name="KEY_STORE_PATH" value="E:\ZLH\work\密钥\key.keystore" />
-    <option name="KEY_ALIAS" value="Credit" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -959,9 +821,9 @@
                 <option name="name" value="prepareComAndroidSupportSupportVectorDrawable2340Library" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Prepare com.yolanda.nohttp:nohttp:1.0.4" />
+                <option name="description" value="Prepare com.yolanda.nohttp:nohttp:1.0.1" />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="prepareComYolandaNohttpNohttp104Library" />
+                <option name="name" value="prepareComYolandaNohttpNohttp101Library" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
@@ -1602,9 +1464,9 @@
                 <option name="name" value="prepareComAndroidSupportSupportVectorDrawable2340Library" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Prepare com.yolanda.nohttp:nohttp:1.0.4" />
+                <option name="description" value="Prepare com.yolanda.nohttp:nohttp:1.0.1" />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
-                <option name="name" value="prepareComYolandaNohttpNohttp104Library" />
+                <option name="name" value="prepareComYolandaNohttpNohttp101Library" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
@@ -1789,7 +1651,7 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$" value="4398243745985" />
+        <entry key="$PROJECT_DIR$" value="4392068581823" />
       </map>
     </option>
     <option name="projectBuildClasspath">
@@ -1975,19 +1837,108 @@
                             <option value="D:/ZLH/Android_SDK/extras/android/m2repository/com/android/support/support-v4/23.4.0/support-v4-23.4.0.aar" />
                             <option value="D:/ZLH/Android_SDK/extras/android/m2repository/com/android/support/design/23.4.0/design-23.4.0.aar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.nineoldandroids/library/2.4.0/e9b63380f3a242dbdbf103a2355ad7e43bad17cb/library-2.4.0.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.yolanda.nohttp/nohttp/1.0.4/d1c5ed818d06244e1b6210f7a44db829f43bef5a/nohttp-1.0.4.aar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.7/751f548c85fa49f330cecbb1875893f971b33c4e/gson-2.7.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.yolanda.nohttp/nohttp/1.0.1/5ba4ad6ec5ce75d125b8bf68560d538a98e48989/nohttp-1.0.1.aar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.6.2/f1bc476cc167b18e66c297df599b2377131a8947/gson-2.6.2.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/co.roverlabs/picasso/2.5.2/e30ff941b33a6219733dc8325b2e541b2c8ba343/picasso-2.5.2.aar" />
                             <option value="D:/ZLH/Android_SDK/extras/android/m2repository/com/android/support/animated-vector-drawable/23.4.0/animated-vector-drawable-23.4.0.aar" />
                             <option value="D:/ZLH/Android_SDK/extras/android/m2repository/com/android/support/support-vector-drawable/23.4.0/support-vector-drawable-23.4.0.aar" />
                             <option value="D:/ZLH/Android_SDK/extras/android/m2repository/com/android/support/support-annotations/23.4.0/support-annotations-23.4.0.jar" />
                             <option value="D:/ZLH/Android_SDK/extras/android/m2repository/com/android/support/recyclerview-v7/23.4.0/recyclerview-v7-23.4.0.aar" />
                             <option value="$MODULE_DIR$/libs/pinyin4j-2.5.0.jar" />
-                            <option value="$MODULE_DIR$/libs/sun.misc.BASE64Decoder.jar" />
                             <option value="$MODULE_DIR$/libs/xUtils-2.6.14.jar" />
                           </list>
                         </option>
                         <option name="path" value="$PROJECT_DIR$/app" />
+                      </ExternalModuleBuildClasspathPojo>
+                    </value>
+                  </entry>
+                  <entry key="$PROJECT_DIR$/library">
+                    <value>
+                      <ExternalModuleBuildClasspathPojo>
+                        <option name="entries">
+                          <list>
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/build/gradle/2.1.0/gradle-2.1.0.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/build/gradle-core/2.1.0/gradle-core-2.1.0.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/jacoco/org.jacoco.core/0.7.4.201502262128/org.jacoco.core-0.7.4.201502262128-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/jacoco/org.jacoco.core/0.7.4.201502262128/org.jacoco.core-0.7.4.201502262128.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/ow2/asm/asm-commons/5.0.3/asm-commons-5.0.3-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/ow2/asm/asm-commons/5.0.3/asm-commons-5.0.3.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/build/gradle-api/2.1.0/gradle-api-2.1.0.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/lint/lint/25.1.0/lint-25.1.0.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/databinding/compilerCommon/2.1.0/compilerCommon-2.1.0.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/ow2/asm/asm/5.0.3/asm-5.0.3-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/ow2/asm/asm/5.0.3/asm-5.0.3.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/net/sf/proguard/proguard-gradle/5.2.1/proguard-gradle-5.2.1-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/net/sf/proguard/proguard-gradle/5.2.1/proguard-gradle-5.2.1.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/build/transform-api/2.0.0-deprecated-use-gradle-api/transform-api-2.0.0-deprecated-use-gradle-api.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/build/builder/2.1.0/builder-2.1.0.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/ow2/asm/asm-debug-all/5.0.1/asm-debug-all-5.0.1-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/ow2/asm/asm-debug-all/5.0.1/asm-debug-all-5.0.1.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/ow2/asm/asm-tree/5.0.3/asm-tree-5.0.3-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/ow2/asm/asm-tree/5.0.3/asm-tree-5.0.3.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/google/guava/guava/17.0/guava-17.0-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/google/guava/guava/17.0/guava-17.0.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/annotations/25.1.0/annotations-25.1.0.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/lint/lint-checks/25.1.0/lint-checks-25.1.0.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/eclipse/jdt/core/compiler/ecj/4.4.2/ecj-4.4.2-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/eclipse/jdt/core/compiler/ecj/4.4.2/ecj-4.4.2.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/googlecode/juniversalchardet/juniversalchardet/1.0.3/juniversalchardet-1.0.3.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/tunnelvisionlabs/antlr4/4.5/antlr4-4.5.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/commons-io/commons-io/2.4/commons-io-2.4-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/commons-io/commons-io/2.4/commons-io-2.4.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/databinding/baseLibrary/2.1.0/baseLibrary-2.1.0.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/net/sf/proguard/proguard-base/5.2.1/proguard-base-5.2.1-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/net/sf/proguard/proguard-base/5.2.1/proguard-base-5.2.1.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/build/builder-model/2.1.0/builder-model-2.1.0.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/common/25.1.0/common-25.1.0.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/ddms/ddmlib/25.1.0/ddmlib-25.1.0.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/bouncycastle/bcprov-jdk15on/1.48/bcprov-jdk15on-1.48-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/bouncycastle/bcprov-jdk15on/1.48/bcprov-jdk15on-1.48.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/sdklib/25.1.0/sdklib-25.1.0.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/squareup/javawriter/2.5.0/javawriter-2.5.0-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/squareup/javawriter/2.5.0/javawriter-2.5.0.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/build/builder-test-api/2.1.0/builder-test-api-2.1.0.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/sdk-common/25.1.0/sdk-common-25.1.0.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/build/manifest-merger/25.1.0/manifest-merger-25.1.0.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/jack/jack-api/0.10.0/jack-api-0.10.0.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/bouncycastle/bcpkix-jdk15on/1.48/bcpkix-jdk15on-1.48-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/bouncycastle/bcpkix-jdk15on/1.48/bcpkix-jdk15on-1.48.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/jill/jill-api/0.10.0/jill-api-0.10.0.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/ow2/asm/asm-analysis/5.0.3/asm-analysis-5.0.3-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/ow2/asm/asm-analysis/5.0.3/asm-analysis-5.0.3.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/lint/lint-api/25.1.0/lint-api-25.1.0.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/tunnelvisionlabs/antlr4-runtime/4.5/antlr4-runtime-4.5.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/tunnelvisionlabs/antlr4-annotations/4.5/antlr4-annotations-4.5.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/antlr/antlr-runtime/3.5.2/antlr-runtime-3.5.2.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/antlr/ST4/4.0.8/ST4-4.0.8.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/net/sf/kxml/kxml2/2.3.0/kxml2-2.3.0-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/net/sf/kxml/kxml2/2.3.0/kxml2-2.3.0.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/repository/25.1.0/repository-25.1.0.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/apache/httpcomponents/httpclient/4.1.1/httpclient-4.1.1-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/apache/httpcomponents/httpclient/4.1.1/httpclient-4.1.1.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/apache/httpcomponents/httpmime/4.1/httpmime-4.1-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/apache/httpcomponents/httpmime/4.1/httpmime-4.1.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/google/code/gson/gson/2.2.4/gson-2.2.4-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/google/code/gson/gson/2.2.4/gson-2.2.4.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/apache/commons/commons-compress/1.8.1/commons-compress-1.8.1-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/apache/commons/commons-compress/1.8.1/commons-compress-1.8.1.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/dvlib/25.1.0/dvlib-25.1.0.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/layoutlib/layoutlib-api/25.1.0/layoutlib-api-25.1.0.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/external/lombok/lombok-ast/0.2.3/lombok-ast-0.2.3-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/external/lombok/lombok-ast/0.2.3/lombok-ast-0.2.3.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/abego/treelayout/org.abego.treelayout.core/1.0.1/org.abego.treelayout.core-1.0.1.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/apache/httpcomponents/httpcore/4.1/httpcore-4.1-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/apache/httpcomponents/httpcore/4.1/httpcore-4.1.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/commons-logging/commons-logging/1.1.1/commons-logging-1.1.1-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/commons-logging/commons-logging/1.1.1/commons-logging-1.1.1.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/commons-codec/commons-codec/1.4/commons-codec-1.4-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/commons-codec/commons-codec/1.4/commons-codec-1.4.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/intellij/annotations/12.0/annotations-12.0-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/intellij/annotations/12.0/annotations-12.0.jar" />
+                            <option value="D:/ZLH/Android_SDK/extras/android/m2repository/com/android/support/support-v4/19.0.0/support-v4-19.0.0.jar" />
+                          </list>
+                        </option>
+                        <option name="path" value="$PROJECT_DIR$/library" />
                       </ExternalModuleBuildClasspathPojo>
                     </value>
                   </entry>
@@ -2070,57 +2021,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/res/drawable/details_con_tabbg2.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/credit/Activitys/ToClaimActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/credit/Activitys/ToCommentActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_comment_list.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/credit/Activitys/CommentListActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_my_commentlist.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/credit/Activitys/MyCommentlistActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_mycomplaints_list.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_my_claim.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_myconcern.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/credit/Activitys/MyconcernActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/credit/Adapters/Admin_Adapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_advertisement.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/arrays.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/credit/Activitys/Autonomy_Detail_Activity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/credit/Activitys/MycomplaintsListActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/credit/Activitys/ToComplaintActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/credit/Utils/ResponseListener.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/credit/Activitys/WelcomeActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_copyright.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/grid_item_zy.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/credit/Activitys/DetailsContentActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/credit/Adapters/MyGridZYAdapter.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/newclaim_list_item.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/view_image_cycle.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/drawable/ic_menu_black_24dp.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/credit/Activitys/MyClaimActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main2.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/credit/Activitys/SearchFirmActivty.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/values/styles.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/credit/Views/BaseToast.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/credit/Adapters/MyGridAdapters.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/credit/Activitys/CompanyDetailsActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/search_bid_activity.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/credit/Activitys/SearchBidActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/credit/Views/ImageCycleView.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/credit/Activitys/Main_SearchActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/drawable/shangb_text_bg_2.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/drawable/shangb_text_bg_1.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/credit/Utils/URLconstant.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/credit/Activitys/Panoramic_Activity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/credit/Activitys/Main_Search_ListActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/credit/Activitys/PatentActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/credit/Activitys/TrademarkActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/credit/Activitys/H5ViewActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/autonomy_stock_item.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/auto_permit_item.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/autonomy_funded_item.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/autonomy_report_item.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_c_list_item.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/credit/Utils/MyhttpCallBack.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/credit/Entitys/DataManager.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/credit/Adapters/Main_CC_List_itemAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_autonomy_detai.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/credit/Activitys/AdvertisementActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/credit/Adapters/CC_List_itemAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/search_result_list_item.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_admin.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_mortgage_detail.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/drawable/aic_search_black_24dp.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_alert.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/credit/Activitys/AutonomyActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/credit/Adapters/MyGridAdapter4.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/autonomy_permit_item.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/paperwork_expire_item.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/paperwork_Expired_item.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/correction_item.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/loan_item.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/Taxes_item.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/Wages_item.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/credit/Adapters/Alert_Adapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/credit/Activitys/AlertActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/credit/Activitys/Alert_CActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_alert__content.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/credit/Activitys/CompanyDetailsActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/credit/Adapters/NewsListAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/search_firm_activity.xml" />
+        <option value="$PROJECT_DIR$/app/build/generated/source/r/debug/com/example/credit/R.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/credit/Views/CustomPopupwindow.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/credit/Services/CallServer.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/credit/Utils/HttpCallBack.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/credit/Utils/GsonUtil.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/credit/Utils/ResponseListener.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/credit/Application.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/news_list_item.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/credit/Views/ViewPagerIndicator.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/credit/Utils/CreditSharePreferences.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/credit/Adapters/Citys_Adapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/credit/Activitys/SearchFirmActivty.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/credit/Entitys/DataManager.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/credit/Utils/URLconstant.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/credit/Activitys/MainActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/credit/Utils/MyhttpCallBack.java" />
       </list>
     </option>
   </component>
@@ -2177,7 +2128,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="AndroidView">
         <subPane>
           <PATH>
@@ -2195,9 +2146,60 @@
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Credit" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="menu" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderTypeNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Credit" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="layout" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderTypeNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Credit" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -2205,15 +2207,9 @@
               <option name="myItemId" value="Credit" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
-          </PATH>
-          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Credit" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Credit" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+              <option name="myItemId" value="External Libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -2223,96 +2219,12 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Credit" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Credit" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Credit" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="build" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Credit" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Credit" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="build" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="outputs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Credit" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Credit" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="build" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="outputs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="apk" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Credit" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -2323,71 +2235,137 @@
     <property name="device.picker.selection" value="127.0.0.1:62001" />
     <property name="android.project.structure.last.selected" value="app" />
     <property name="android.project.structure.proportion" value="0.15" />
-    <property name="SearchEverywhereHistoryKey" value="header_bg&#9;FILE&#9;file://E:/ZLH/android_studio_zlh/Credit/app/src/main/res/mipmap-xxhdpi/header_bg.png&#10;CC_List_itemAdapter&#9;FILE&#9;file://E:/ZLH/android_studio_zlh/Credit/app/src/main/java/com/example/credit/Adapters/CC_List_itemAdapter.java&#10;punlic_3&#9;PSI&#9;JAVA://com.example.credit.Adapters.CC_List_itemAdapter.ViewHolder#punlic_3&#10;b_return&#9;PSI&#9;JAVA://com.example.credit.Activitys.TrademarkActivity#b_return" />
+    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://E:/ZLH/android_studio_zlh/Credit/app/src/main/res/mipmap-hdpi/img_frame_background.jpg" />
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager2.SHOW" value="false" />
     <property name="UI_DESIGNER_EDITOR_MODE.PaletteToolWindowManager.SHOW" value="false" />
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager2.WIDTH" value="445" />
-    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_flatWidth0" value="89" />
-    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_flatOrder0" value="0" />
-    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_flatWidth1" value="95" />
-    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_flatOrder1" value="1" />
-    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_flatWidth2" value="97" />
-    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_flatOrder2" value="2" />
-    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_flatWidth3" value="73" />
-    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_flatOrder3" value="3" />
-    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_flatWidth4" value="128" />
-    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_flatOrder4" value="4" />
-    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_flatWidth5" value="871" />
-    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_flatOrder5" value="5" />
-    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_treeWidth0" value="92" />
-    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_treeOrder0" value="0" />
-    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_treeWidth1" value="99" />
-    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_treeOrder1" value="1" />
-    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_treeWidth2" value="98" />
-    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_treeOrder2" value="2" />
-    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_treeWidth3" value="92" />
-    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_treeOrder3" value="3" />
-    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_treeWidth4" value="94" />
-    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_treeOrder4" value="4" />
-    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_treeWidth5" value="878" />
-    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_treeOrder5" value="5" />
-    <property name="ExportApk.ApkPath" value="C:\Users\Administrator\Desktop" />
-    <property name="ExportApk.Flavors" value="" />
-    <property name="ExportApk.BuildType" value="release" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="118" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="148" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="147" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="940" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder3" value="3" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="135" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder0" value="0" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="142" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder1" value="1" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="141" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="935" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\ZLH\android_studio_zlh\Credit\app\src\main\res\drawable" />
-      <recent name="E:\ZLH\android_studio_zlh\Credit\app\src\main\res\mipmap-mdpi" />
-      <recent name="E:\ZLH\android_studio_zlh\Credit\app\src\main\res\anim" />
       <recent name="E:\ZLH\android_studio_zlh\Credit\app\src\main\res\layout" />
+      <recent name="E:\ZLH\android_studio_zlh\Credit\app\src\main\res\mipmap-xhdpi" />
       <recent name="E:\ZLH\android_studio_zlh\Credit\app\src\main\res\mipmap-xxhdpi" />
+      <recent name="E:\ZLH\android_studio_zlh\Credit\app\src\main\res\mipmap-xxxhdpi" />
+      <recent name="E:\ZLH\android_studio_zlh\Credit\app\src\main\java\com\example\credit\Fragments" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.example.credit.Views" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="E:\ZLH\android_studio_zlh\Credit\app\libs" />
-      <recent name="E:\ZLH\android_studio_zlh\Credit\app\src\main\res\mipmap-mdpi" />
-      <recent name="E:\ZLH\android_studio_zlh\Credit\app\src\main\res\mipmap-xxhdpi" />
       <recent name="E:\ZLH\android_studio_zlh\Credit" />
     </key>
+  </component>
+  <component name="RestoreUpdateTree" date="Moments ago" ActionInfo="_Update">
+    <UpdatedFiles>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Updated from server" />
+        <option name="myStatusName" value="Changed on server" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="CHANGED_ON_SERVER" />
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Updated" />
+          <option name="myStatusName" value="Changed" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="UPDATED" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/src/main/java/com/example/credit/Activitys/SearchFirmActivty.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/src/main/java/com/example/credit/Entitys/DataManager.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/src/main/java/com/example/credit/Utils/MyhttpCallBack.java</PATH>
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Created" />
+          <option name="myStatusName" value="Created" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="CREATED" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Deleted" />
+          <option name="myStatusName" value="Deleted" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="true" />
+          <option name="myId" value="REMOVED_FROM_REPOSITORY" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Restored" />
+          <option name="myStatusName" value="Will be restored" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="RESTORED" />
+        </FILE-GROUP>
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Modified" />
+        <option name="myStatusName" value="Modified" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MODIFIED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Skipped" />
+        <option name="myStatusName" value="Skipped" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="SKIPPED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with conflicts" />
+        <option name="myStatusName" value="Will be merged with conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_CONFLICTS" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with tree conflicts" />
+        <option name="myStatusName" value="Merged with tree conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_TREE_CONFLICT" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with property conflicts" />
+        <option name="myStatusName" value="Will be merged with property conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_PROPERTY_CONFLICT" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged" />
+        <option name="myStatusName" value="Will be merged" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Not in repository" />
+        <option name="myStatusName" value="Not in repository" />
+        <option name="mySupportsDeletion" value="true" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="UNKNOWN" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Locally added" />
+        <option name="myStatusName" value="Locally added" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="LOCALLY_ADDED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Locally removed" />
+        <option name="myStatusName" value="Locally removed" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="LOCALLY_REMOVED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Switched" />
+        <option name="myStatusName" value="Switched" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="SWITCHED" />
+      </FILE-GROUP>
+    </UpdatedFiles>
   </component>
   <component name="RunManager" selected="Android Application.app">
     <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android Application">
@@ -2470,15 +2448,6 @@
       <option name="PASS_PARENT_ENVS" value="true" />
       <module name="" />
       <envs />
-      <method />
-    </configuration>
-    <configuration default="true" type="GroovyScriptRunConfiguration" factoryName="Groovy">
-      <module name="" />
-      <setting name="path" value="" />
-      <setting name="vmparams" value="" />
-      <setting name="params" value="" />
-      <setting name="workDir" value="file://$PROJECT_DIR$" />
-      <setting name="debug" value="false" />
       <method />
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
@@ -2666,6 +2635,32 @@
     <configuration>C:\Users\Administrator\AppData\Roaming\Subversion</configuration>
     <supportedVersion>125</supportedVersion>
   </component>
+  <component name="SvnFileUrlMappingImpl">
+    <option name="myMappingRoots">
+      <list>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="E:\ZLH\android_studio_zlh\Credit" />
+          <option name="myCopyRoot" value="E:\ZLH\android_studio_zlh\Credit" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="E:\ZLH\android_studio_zlh\Credit\.idea" />
+          <option name="myCopyRoot" value="E:\ZLH\android_studio_zlh\Credit\.idea" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="E:\ZLH\android_studio_zlh\Credit\app" />
+          <option name="myCopyRoot" value="E:\ZLH\android_studio_zlh\Credit\app" />
+        </SvnCopyRootSimple>
+      </list>
+    </option>
+    <option name="myMoreRealMappingRoots">
+      <list>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="E:\ZLH\android_studio_zlh\Credit" />
+          <option name="myCopyRoot" value="E:\ZLH\android_studio_zlh\Credit" />
+        </SvnCopyRootSimple>
+      </list>
+    </option>
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="3460f83a-ce76-458c-bccb-0cb7899e278f" name="Default" comment="" />
@@ -2673,301 +2668,217 @@
       <option name="number" value="Default" />
       <updated>1463024203586</updated>
     </task>
-    <task id="LOCAL-00104" summary="修改注册（暂时不用邮箱验证）；&#10;分享功能；&#10;修改选择器；&#10;已处理投诉开启取消按钮；&#10;优化评论；">
-      <created>1468923448713</created>
-      <option name="number" value="00104" />
+    <task id="LOCAL-00001" summary="重做导航">
+      <created>1463109252231</created>
+      <option name="number" value="00001" />
       <option name="project" value="LOCAL" />
-      <updated>1468923448713</updated>
+      <updated>1463109252231</updated>
     </task>
-    <task id="LOCAL-00105" summary="修改UI企业16宫格头；&#10;获取浏览量；&#10;获取是否认领；">
-      <created>1468999588776</created>
-      <option name="number" value="00105" />
+    <task id="LOCAL-00002" summary="新建搜索界面">
+      <created>1463135551698</created>
+      <option name="number" value="00002" />
       <option name="project" value="LOCAL" />
-      <updated>1468999588785</updated>
+      <updated>1463135551698</updated>
     </task>
-    <task id="LOCAL-00106" summary="添加16宫格；&#10;修改企业16宫格详情页头；&#10;获取访问量；&#10;获取是否认领；">
-      <created>1469009445157</created>
-      <option name="number" value="00106" />
+    <task id="LOCAL-00003" summary="重做搜索界面UI，&#10;替换slidingmenu背景图">
+      <created>1463705075625</created>
+      <option name="number" value="00003" />
       <option name="project" value="LOCAL" />
-      <updated>1469009445157</updated>
+      <updated>1463705075625</updated>
     </task>
-    <task id="LOCAL-00107" summary="修改假数据引起bug；&#10;添加首页最新认领；">
-      <created>1469097501289</created>
-      <option name="number" value="00107" />
+    <task id="LOCAL-00004" summary="重做搜索界面UI+逻辑，&#10;重做主界面UI+逻辑">
+      <created>1463737706094</created>
+      <option name="number" value="00004" />
       <option name="project" value="LOCAL" />
-      <updated>1469097501337</updated>
+      <updated>1463737706094</updated>
     </task>
-    <task id="LOCAL-00108" summary="修改UI；&#10;改16宫格头；">
-      <created>1469177447438</created>
-      <option name="number" value="00108" />
+    <task id="LOCAL-00005" summary="新建基类baseAdapter；&#10;完成行政审和批抵押信息；">
+      <created>1464158764311</created>
+      <option name="number" value="00005" />
       <option name="project" value="LOCAL" />
-      <updated>1469177447454</updated>
+      <updated>1464158764311</updated>
     </task>
-    <task id="LOCAL-00109" summary="修改UI；&#10;改16宫格头；">
-      <created>1469181144639</created>
-      <option name="number" value="00109" />
+    <task id="LOCAL-00006" summary="完成广告资质界面">
+      <created>1464171974277</created>
+      <option name="number" value="00006" />
       <option name="project" value="LOCAL" />
-      <updated>1469181144639</updated>
+      <updated>1464171974277</updated>
     </task>
-    <task id="LOCAL-00110" summary="修改UI；&#10;改16宫格头；&#10;修改新闻；&#10;修复各种bug">
-      <created>1469183829605</created>
-      <option name="number" value="00110" />
+    <task id="LOCAL-00007" summary="所有Activity继承BASE。删除每次重写的共用方法。&#10;Datas包名变更成Entitys。&#10;共用详情页改名为Public_Detail_Activity。">
+      <created>1464226595373</created>
+      <option name="number" value="00007" />
       <option name="project" value="LOCAL" />
-      <updated>1469183829605</updated>
+      <updated>1464226595373</updated>
     </task>
-    <task id="LOCAL-00111" summary="改loading；&#10;修复bug；">
-      <created>1469442645928</created>
-      <option name="number" value="00111" />
+    <task id="LOCAL-00008" summary="重做搜索界面UI，&#10;替换slidingmenu背景图">
+      <created>1464242946150</created>
+      <option name="number" value="00008" />
       <option name="project" value="LOCAL" />
-      <updated>1469442645940</updated>
+      <updated>1464242946150</updated>
     </task>
-    <task id="LOCAL-00112" summary="改loading；&#10;修复bug；&#10;增加16宫格点击请求判定；&#10;锁头；">
-      <created>1469443319767</created>
-      <option name="number" value="00112" />
+    <task id="LOCAL-00009" summary="新建项目">
+      <created>1464243229651</created>
+      <option name="number" value="00009" />
       <option name="project" value="LOCAL" />
-      <updated>1469443319767</updated>
+      <updated>1464243229651</updated>
     </task>
-    <task id="LOCAL-00113" summary="改16宫格UI；替换资源改字体等">
-      <created>1469530620534</created>
-      <option name="number" value="00113" />
+    <task id="LOCAL-00010" summary="编辑自主公示">
+      <created>1464256671986</created>
+      <option name="number" value="00010" />
       <option name="project" value="LOCAL" />
-      <updated>1469530620546</updated>
+      <updated>1464256671986</updated>
     </task>
-    <task id="LOCAL-00114" summary="改UI logo；&#10;加载更多">
-      <created>1469619972065</created>
-      <option name="number" value="00114" />
+    <task id="LOCAL-00011" summary="编辑自主公示">
+      <created>1464257963885</created>
+      <option name="number" value="00011" />
       <option name="project" value="LOCAL" />
-      <updated>1469619972079</updated>
+      <updated>1464257963885</updated>
     </task>
-    <task id="LOCAL-00115" summary="改UI logo；&#10;加载更多">
-      <created>1469620071472</created>
-      <option name="number" value="00115" />
+    <task id="LOCAL-00012" summary="编辑自主公示">
+      <created>1464258035260</created>
+      <option name="number" value="00012" />
       <option name="project" value="LOCAL" />
-      <updated>1469620071472</updated>
+      <updated>1464258035260</updated>
     </task>
-    <task id="LOCAL-00116" summary="调整搜索UI&#10;调整16宫格UI&#10;调整评论UI">
-      <created>1469687870908</created>
-      <option name="number" value="00116" />
+    <task id="LOCAL-00013" summary="自主公示json解析">
+      <created>1464336463945</created>
+      <option name="number" value="00013" />
       <option name="project" value="LOCAL" />
-      <updated>1469687870926</updated>
+      <updated>1464336463945</updated>
     </task>
-    <task id="LOCAL-00117" summary="完善遗漏网络连接请求失败的判定；&#10;修改搜索UI，修改16宫格UI">
-      <created>1469700138399</created>
-      <option name="number" value="00117" />
+    <task id="LOCAL-00014" summary="改放大镜，改字体颜色，屏蔽部分功能">
+      <created>1464339758628</created>
+      <option name="number" value="00014" />
       <option name="project" value="LOCAL" />
-      <updated>1469700138399</updated>
+      <updated>1464339758628</updated>
     </task>
-    <task id="LOCAL-00118" summary="完善遗漏网络连接请求失败的判定；&#10;修复新闻加载bug；&#10;修改搜索UI，修改16宫格UI；&#10;">
-      <created>1469701199681</created>
-      <option name="number" value="00118" />
+    <task id="LOCAL-00015" summary="修改UI界面布局等等">
+      <created>1464342564568</created>
+      <option name="number" value="00015" />
       <option name="project" value="LOCAL" />
-      <updated>1469701199682</updated>
+      <updated>1464342564568</updated>
     </task>
-    <task id="LOCAL-00119" summary="修复新闻不刷新bug；&#10;增加各种空listview 暂无数据提示；">
-      <created>1469763943269</created>
-      <option name="number" value="00119" />
+    <task id="LOCAL-00016" summary="+++">
+      <created>1464343751987</created>
+      <option name="number" value="00016" />
       <option name="project" value="LOCAL" />
-      <updated>1469763943279</updated>
+      <updated>1464343751987</updated>
     </task>
-    <task id="LOCAL-00120" summary="修复新闻加载不出bug；&#10;修复网络空指针bug；">
-      <created>1469775828269</created>
-      <option name="number" value="00120" />
+    <task id="LOCAL-00017" summary="+++">
+      <created>1464346978861</created>
+      <option name="number" value="00017" />
       <option name="project" value="LOCAL" />
-      <updated>1469775828287</updated>
+      <updated>1464346978861</updated>
     </task>
-    <task id="LOCAL-00121" summary="修复我的投诉bug；&#10;">
-      <created>1469785698438</created>
-      <option name="number" value="00121" />
+    <task id="LOCAL-00018" summary="自主公示解析json，数据源适配UI。">
+      <created>1464568101068</created>
+      <option name="number" value="00018" />
       <option name="project" value="LOCAL" />
-      <updated>1469785698438</updated>
+      <updated>1464568101068</updated>
     </task>
-    <task id="LOCAL-00122" summary="完成测试版">
-      <created>1469787839932</created>
-      <option name="number" value="00122" />
+    <task id="LOCAL-00019" summary="预警信息">
+      <created>1464603335051</created>
+      <option name="number" value="00019" />
       <option name="project" value="LOCAL" />
-      <updated>1469787839932</updated>
+      <updated>1464603335051</updated>
     </task>
-    <task id="LOCAL-00123" summary="修改UI">
-      <created>1470047262338</created>
-      <option name="number" value="00123" />
+    <task id="LOCAL-00020" summary="预警信息完成">
+      <created>1464664619135</created>
+      <option name="number" value="00020" />
       <option name="project" value="LOCAL" />
-      <updated>1470047262350</updated>
+      <updated>1464664619135</updated>
     </task>
-    <task id="LOCAL-00124" summary="完成后3个模块，调整著作权listUI">
-      <created>1470134074644</created>
-      <option name="number" value="00124" />
+    <task id="LOCAL-00021" summary="预警信息完成">
+      <created>1464664763112</created>
+      <option name="number" value="00021" />
       <option name="project" value="LOCAL" />
-      <updated>1470134074655</updated>
+      <updated>1464664763112</updated>
     </task>
-    <task id="LOCAL-00125" summary="webview内部跳转bug">
-      <created>1470134889963</created>
-      <option name="number" value="00125" />
+    <task id="LOCAL-00022" summary="重写商标解析">
+      <created>1464682075595</created>
+      <option name="number" value="00022" />
       <option name="project" value="LOCAL" />
-      <updated>1470134889974</updated>
+      <updated>1464682075595</updated>
     </task>
-    <task id="LOCAL-00126" summary="webview内部跳转bug">
-      <created>1470135111604</created>
-      <option name="number" value="00126" />
+    <task id="LOCAL-00023" summary="重写商标解析，并完成。">
+      <created>1464689738860</created>
+      <option name="number" value="00023" />
       <option name="project" value="LOCAL" />
-      <updated>1470135111604</updated>
+      <updated>1464689738860</updated>
     </task>
-    <task id="LOCAL-00127" summary="后台换数据，修复bug；">
-      <created>1470210648851</created>
-      <option name="number" value="00127" />
+    <task id="LOCAL-00024" summary="获取新闻">
+      <created>1464771363085</created>
+      <option name="number" value="00024" />
       <option name="project" value="LOCAL" />
-      <updated>1470210648865</updated>
+      <updated>1464771363085</updated>
     </task>
-    <task id="LOCAL-00128" summary="后台换数据，修复登录bug；">
-      <created>1470213802310</created>
-      <option name="number" value="00128" />
+    <task id="LOCAL-00025" summary="获取新闻">
+      <created>1464771560684</created>
+      <option name="number" value="00025" />
       <option name="project" value="LOCAL" />
-      <updated>1470213802310</updated>
+      <updated>1464771560684</updated>
     </task>
-    <task id="LOCAL-00129" summary="添加库文件">
-      <created>1470215666339</created>
-      <option name="number" value="00129" />
+    <task id="LOCAL-00026" summary="测试获取新闻">
+      <created>1464775802087</created>
+      <option name="number" value="00026" />
       <option name="project" value="LOCAL" />
-      <updated>1470215666339</updated>
+      <updated>1464775802087</updated>
     </task>
-    <task id="LOCAL-00130" summary="修复提交投诉bug；&#10;投资连图嵌入一般；">
-      <created>1470220734574</created>
-      <option name="number" value="00130" />
+    <task id="LOCAL-00027" summary="改搜索界面UI，换四合一选择器，改nohttp框架；">
+      <created>1464856518823</created>
+      <option name="number" value="00027" />
       <option name="project" value="LOCAL" />
-      <updated>1470220734574</updated>
+      <updated>1464856518823</updated>
     </task>
-    <task id="LOCAL-00131" summary="修复后台数据bug；&#10;修复提交投诉bug；&#10;投资连图嵌入一般；">
-      <created>1470220843438</created>
-      <option name="number" value="00131" />
+    <task id="LOCAL-00028" summary="修改UI，更换接口，加密等等。">
+      <created>1464863513688</created>
+      <option name="number" value="00028" />
       <option name="project" value="LOCAL" />
-      <updated>1470220843438</updated>
+      <updated>1464863513688</updated>
     </task>
-    <task id="LOCAL-00132" summary="修复后台数据bug；&#10;改回登录判定；&#10;修改商标item；&#10;嵌入投资链图；&#10;">
-      <created>1470294754562</created>
-      <option name="number" value="00132" />
+    <task id="LOCAL-00029" summary="调试搜索接口，加密方法等，城市列表完成中">
+      <created>1464947082852</created>
+      <option name="number" value="00029" />
       <option name="project" value="LOCAL" />
-      <updated>1470294754571</updated>
+      <updated>1464947082852</updated>
     </task>
-    <task id="LOCAL-00133" summary="去掉主页蓝条；&#10;著作权触底；">
-      <created>1470301445474</created>
-      <option name="number" value="00133" />
+    <task id="LOCAL-00030" summary="重做历史记录，修改搜索，修改城市。bug中···">
+      <created>1464949456346</created>
+      <option name="number" value="00030" />
       <option name="project" value="LOCAL" />
-      <updated>1470301445474</updated>
+      <updated>1464949456346</updated>
     </task>
-    <task id="LOCAL-00134" summary="去掉主页蓝条；&#10;著作权触底；&#10;修复各种bug；&#10;集成H5">
-      <created>1470305324431</created>
-      <option name="number" value="00134" />
+    <task id="LOCAL-00031" summary="获取城市，调试搜索接口">
+      <created>1465000993455</created>
+      <option name="number" value="00031" />
       <option name="project" value="LOCAL" />
-      <updated>1470305324431</updated>
+      <updated>1465000993455</updated>
     </task>
-    <task id="LOCAL-00135" summary="接入发展历程；&#10;企业展示；&#10;修复浏览量角标bug；">
-      <created>1470392343413</created>
-      <option name="number" value="00135" />
+    <task id="LOCAL-00032" summary="重解城市json适配，全省判定。调搜索界面各种bug">
+      <created>1465029465932</created>
+      <option name="number" value="00032" />
       <option name="project" value="LOCAL" />
-      <updated>1470392343435</updated>
+      <updated>1465029465933</updated>
     </task>
-    <task id="LOCAL-00136" summary="接入发展历程；&#10;企业展示；&#10;修复浏览量角标bug；">
-      <created>1470392587591</created>
-      <option name="number" value="00136" />
+    <task id="LOCAL-00033" summary="重解城市json适配，全省判定。调搜索界面各种bug。重做工商信息模块">
+      <created>1465029922853</created>
+      <option name="number" value="00033" />
       <option name="project" value="LOCAL" />
-      <updated>1470392587591</updated>
+      <updated>1465029922853</updated>
     </task>
-    <task id="LOCAL-00137" summary="轮播，侧滑等等">
-      <created>1470481602557</created>
-      <option name="number" value="00137" />
+    <task id="LOCAL-00034" summary="城市列表解注">
+      <created>1465035704090</created>
+      <option name="number" value="00034" />
       <option name="project" value="LOCAL" />
-      <updated>1470481602590</updated>
+      <updated>1465035704091</updated>
     </task>
-    <task id="LOCAL-00138" summary="调整头部">
-      <created>1470485375499</created>
-      <option name="number" value="00138" />
+    <task id="LOCAL-00035" summary="调试搜索，调试工商信息">
+      <created>1465036500728</created>
+      <option name="number" value="00035" />
       <option name="project" value="LOCAL" />
-      <updated>1470485375499</updated>
+      <updated>1465036500728</updated>
     </task>
-    <task id="LOCAL-00139" summary="大改首页">
-      <created>1470485617479</created>
-      <option name="number" value="00139" />
-      <option name="project" value="LOCAL" />
-      <updated>1470485617479</updated>
-    </task>
-    <task id="LOCAL-00140" summary="大改首页">
-      <created>1470488069759</created>
-      <option name="number" value="00140" />
-      <option name="project" value="LOCAL" />
-      <updated>1470488069759</updated>
-    </task>
-    <task id="LOCAL-00141" summary="修复首页最新认领刷新bug；">
-      <created>1470627377185</created>
-      <option name="number" value="00141" />
-      <option name="project" value="LOCAL" />
-      <updated>1470627377197</updated>
-    </task>
-    <task id="LOCAL-00142" summary="修复bug，完成首页查专项  商标  专利">
-      <created>1470652463679</created>
-      <option name="number" value="00142" />
-      <option name="project" value="LOCAL" />
-      <updated>1470652463679</updated>
-    </task>
-    <task id="LOCAL-00143" summary="修复16宫格角标bug；&#10;新建H5搜索招投标；">
-      <created>1470736728625</created>
-      <option name="number" value="00143" />
-      <option name="project" value="LOCAL" />
-      <updated>1470736728639</updated>
-    </task>
-    <task id="LOCAL-00144" summary="修复16宫格角标bug；&#10;新建H5搜索招投标；&#10;商标查询，专利查询；的搜索界面">
-      <created>1470737684490</created>
-      <option name="number" value="00144" />
-      <option name="project" value="LOCAL" />
-      <updated>1470737684491</updated>
-    </task>
-    <task id="LOCAL-00145" summary="删除无用文件">
-      <created>1470792007950</created>
-      <option name="number" value="00145" />
-      <option name="project" value="LOCAL" />
-      <updated>1470792008026</updated>
-    </task>
-    <task id="LOCAL-00146" summary="删除无用文件">
-      <created>1470796629632</created>
-      <option name="number" value="00146" />
-      <option name="project" value="LOCAL" />
-      <updated>1470796629647</updated>
-    </task>
-    <task id="LOCAL-00147" summary="变更首页查专项 专利和商标模块；">
-      <created>1470824233281</created>
-      <option name="number" value="00147" />
-      <option name="project" value="LOCAL" />
-      <updated>1470824233293</updated>
-    </task>
-    <task id="LOCAL-00148" summary="变更首页查专项 专利和商标模块以及上下拉和历史记录；">
-      <created>1470824453425</created>
-      <option name="number" value="00148" />
-      <option name="project" value="LOCAL" />
-      <updated>1470824453425</updated>
-    </task>
-    <task id="LOCAL-00149" summary="上下拉刷新加载 &#10;新增失信 &#10;修改UI样式 &#10;修复个人界面bug&#10;">
-      <created>1470910402321</created>
-      <option name="number" value="00149" />
-      <option name="project" value="LOCAL" />
-      <updated>1470910402336</updated>
-    </task>
-    <task id="LOCAL-00150" summary="修改里外专利item；&#10;修改专利详情改为H5；">
-      <created>1470999053988</created>
-      <option name="number" value="00150" />
-      <option name="project" value="LOCAL" />
-      <updated>1470999053997</updated>
-    </task>
-    <task id="LOCAL-00151" summary="修改里外专利item；&#10;修改专利详情改为H5；&#10;信用报告；&#10;评论上下拉；&#10;修复搜索后台问题；&#10;捕获异常；&#10;">
-      <created>1470999281562</created>
-      <option name="number" value="00151" />
-      <option name="project" value="LOCAL" />
-      <updated>1470999281562</updated>
-    </task>
-    <task id="LOCAL-00152" summary="修复bug；&#10;修复溢出；">
-      <created>1471257468807</created>
-      <option name="number" value="00152" />
-      <option name="project" value="LOCAL" />
-      <updated>1471257468807</updated>
-    </task>
-    <option name="localTasksCounter" value="153" />
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TodoView">
@@ -2980,37 +2891,37 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1456" height="876" extended-state="0" />
-    <editor active="false" />
+    <frame x="-8" y="-8" width="1456" height="876" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32729805" sideWeight="0.49713466" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.47493038" sideWeight="0.491404" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286908" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.90250695" sideWeight="0.49426934" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.41922006" sideWeight="0.55014324" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.41922006" sideWeight="0.44985673" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.42339832" sideWeight="0.47707736" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32729805" sideWeight="0.49713466" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32729805" sideWeight="0.47994268" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.40529248" sideWeight="0.5028653" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.48467967" sideWeight="0.48853868" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33426183" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286908" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.45543176" sideWeight="0.5157593" order="11" side_tool="true" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2765043" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295129" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2170487" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295129" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295129" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295129" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35564855" sideWeight="0.45845273" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.40529248" sideWeight="0.49713466" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.42765042" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.40668523" sideWeight="0.49713466" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4226361" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32729805" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -3025,37 +2936,42 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="完成后3个模块，调整著作权listUI" />
-    <MESSAGE value="webview内部跳转bug" />
-    <MESSAGE value="后台换数据，修复bug；" />
-    <MESSAGE value="后台换数据，修复登录bug；" />
-    <MESSAGE value="添加库文件" />
-    <MESSAGE value="修复提交投诉bug；&#10;投资连图嵌入一般；" />
-    <MESSAGE value="修复后台数据bug；&#10;修复提交投诉bug；&#10;投资连图嵌入一般；" />
-    <MESSAGE value="修复后台数据bug；&#10;改回登录判定；&#10;修改商标item；&#10;嵌入投资链图；&#10;" />
-    <MESSAGE value="去掉主页蓝条；&#10;著作权触底；" />
-    <MESSAGE value="去掉主页蓝条；&#10;著作权触底；&#10;修复各种bug；&#10;集成H5" />
-    <MESSAGE value="接入发展历程；&#10;企业展示；&#10;修复浏览量角标bug；" />
-    <MESSAGE value="轮播，侧滑等等" />
-    <MESSAGE value="调整头部" />
-    <MESSAGE value="大改首页" />
-    <MESSAGE value="修复首页最新认领刷新bug；" />
-    <MESSAGE value="修复bug，完成首页查专项  商标  专利" />
-    <MESSAGE value="修复16宫格角标bug；&#10;新建H5搜索招投标；" />
-    <MESSAGE value="修复16宫格角标bug；&#10;新建H5搜索招投标；&#10;商标查询，专利查询；的搜索界面" />
-    <MESSAGE value="删除无用文件" />
-    <MESSAGE value="变更首页查专项 专利和商标模块；" />
-    <MESSAGE value="变更首页查专项 专利和商标模块以及上下拉和历史记录；" />
-    <MESSAGE value="上下拉刷新加载 &#10;新增失信 &#10;修改UI样式 &#10;修复个人界面bug&#10;" />
-    <MESSAGE value="修改里外专利item；&#10;修改专利详情改为H5；" />
-    <MESSAGE value="修改里外专利item；&#10;修改专利详情改为H5；&#10;信用报告；&#10;评论上下拉；&#10;修复搜索后台问题；&#10;捕获异常；&#10;" />
-    <MESSAGE value="修复bug；&#10;修复溢出；" />
-    <option name="LAST_COMMIT_MESSAGE" value="修复bug；&#10;修复溢出；" />
-    <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.7" />
+    <MESSAGE value="所有Activity继承BASE。删除每次重写的共用方法。&#10;Datas包名变更成Entitys。&#10;共用详情页改名为Public_Detail_Activity。" />
+    <MESSAGE value="重做搜索界面UI，&#10;替换slidingmenu背景图" />
+    <MESSAGE value="新建项目" />
+    <MESSAGE value="编辑自主公示" />
+    <MESSAGE value="自主公示json解析" />
+    <MESSAGE value="改放大镜，改字体颜色，屏蔽部分功能" />
+    <MESSAGE value="修改UI界面布局等等" />
+    <MESSAGE value="+++" />
+    <MESSAGE value="自主公示解析json，数据源适配UI。" />
+    <MESSAGE value="预警信息" />
+    <MESSAGE value="预警信息完成" />
+    <MESSAGE value="重写商标解析" />
+    <MESSAGE value="重写商标解析，并完成。" />
+    <MESSAGE value="获取新闻" />
+    <MESSAGE value="测试获取新闻" />
+    <MESSAGE value="改搜索界面UI，换四合一选择器，改nohttp框架；" />
+    <MESSAGE value="修改UI，更换接口，加密等等。" />
+    <MESSAGE value="调试搜索接口，加密方法等，城市列表完成中" />
+    <MESSAGE value="重做历史记录，修改搜索，修改城市。bug中···" />
+    <MESSAGE value="获取城市，调试搜索接口" />
+    <MESSAGE value="重解城市json适配，全省判定。调搜索界面各种bug" />
+    <MESSAGE value="重解城市json适配，全省判定。调搜索界面各种bug。重做工商信息模块" />
+    <MESSAGE value="城市列表解注" />
+    <MESSAGE value="调试搜索，调试工商信息" />
+    <MESSAGE value="优化搜索接口，解析写死。" />
+    <option name="LAST_COMMIT_MESSAGE" value="优化搜索接口，解析写死。" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Activitys/SearchFirmActivty.java</url>
+          <line>387</line>
+          <properties />
+          <option name="timeStamp" value="23" />
+        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Adapters/Citys_Adapter.java</url>
           <line>74</line>
@@ -3063,844 +2979,441 @@
           <option name="timeStamp" value="29" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Activitys/Mortgage_detail_Activity.java</url>
-          <line>55</line>
-          <properties />
-          <option name="timeStamp" value="55" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Activitys/Public_Detail_ctivity.java</url>
-          <line>88</line>
-          <properties />
-          <option name="timeStamp" value="67" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Utils/MyhttpCallBack.java</url>
-          <line>475</line>
+          <line>185</line>
           <properties />
-          <option name="timeStamp" value="91" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Utils/MyhttpCallBack.java</url>
-          <line>474</line>
-          <properties />
-          <option name="timeStamp" value="92" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Utils/MyhttpCallBack.java</url>
-          <line>1151</line>
-          <properties />
-          <option name="timeStamp" value="99" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Utils/MyhttpCallBack.java</url>
-          <line>1153</line>
-          <properties />
-          <option name="timeStamp" value="103" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Activitys/MainActivity.java</url>
-          <line>493</line>
-          <properties />
-          <option name="timeStamp" value="104" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Activitys/RegisterActivity.java</url>
-          <line>225</line>
-          <properties />
-          <option name="timeStamp" value="111" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Utils/MyhttpCallBack.java</url>
-          <line>1055</line>
-          <properties />
-          <option name="timeStamp" value="112" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Utils/MyhttpCallBack.java</url>
-          <line>1063</line>
-          <properties />
-          <option name="timeStamp" value="117" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Utils/URLconstant.java</url>
-          <line>8</line>
-          <properties />
-          <option name="timeStamp" value="118" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Utils/MyhttpCallBack.java</url>
-          <line>1232</line>
-          <properties />
-          <option name="timeStamp" value="130" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Utils/MyhttpCallBack.java</url>
-          <line>1238</line>
-          <properties />
-          <option name="timeStamp" value="131" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Activitys/MycomplaintsListActivity.java</url>
-          <line>63</line>
-          <properties />
-          <option name="timeStamp" value="132" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Activitys/ComplaintDetailsActivity.java</url>
-          <line>160</line>
-          <properties />
-          <option name="timeStamp" value="142" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Activitys/ToComplaintActivity.java</url>
-          <line>136</line>
-          <properties />
-          <option name="timeStamp" value="165" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Utils/MyhttpCallBack.java</url>
-          <line>1240</line>
-          <properties />
-          <option name="timeStamp" value="168" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Activitys/MycomplaintsListActivity.java</url>
-          <line>76</line>
-          <properties />
-          <option name="timeStamp" value="169" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Activitys/MycomplaintsListActivity.java</url>
-          <line>72</line>
-          <properties />
-          <option name="timeStamp" value="170" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Activitys/MycomplaintsListActivity.java</url>
-          <line>66</line>
-          <properties />
-          <option name="timeStamp" value="171" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Activitys/MycomplaintsListActivity.java</url>
-          <line>85</line>
-          <properties />
-          <option name="timeStamp" value="172" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Activitys/ComplaintDetailsActivity.java</url>
-          <line>107</line>
-          <properties />
-          <option name="timeStamp" value="173" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Activitys/ComplaintDetailsActivity.java</url>
-          <line>109</line>
-          <properties />
-          <option name="timeStamp" value="174" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Activitys/ComplaintDetailsActivity.java</url>
-          <line>135</line>
-          <properties />
-          <option name="timeStamp" value="175" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Activitys/ComplaintDetailsActivity.java</url>
-          <line>122</line>
-          <properties />
-          <option name="timeStamp" value="177" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Activitys/ComplaintDetailsActivity.java</url>
-          <line>119</line>
-          <properties />
-          <option name="timeStamp" value="179" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Activitys/ComplaintDetailsActivity.java</url>
-          <line>96</line>
-          <properties />
-          <option name="timeStamp" value="180" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Utils/MyhttpCallBack.java</url>
-          <line>598</line>
-          <properties />
-          <option name="timeStamp" value="186" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Activitys/ToClaimActivity.java</url>
-          <line>116</line>
-          <properties />
-          <option name="timeStamp" value="193" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Activitys/ToClaimActivity.java</url>
-          <line>203</line>
-          <properties />
-          <option name="timeStamp" value="195" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Activitys/ToClaimActivity.java</url>
-          <line>246</line>
-          <properties />
-          <option name="timeStamp" value="198" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Activitys/ToClaimActivity.java</url>
-          <line>294</line>
-          <properties />
-          <option name="timeStamp" value="199" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Activitys/ToClaimActivity.java</url>
-          <line>470</line>
-          <properties />
-          <option name="timeStamp" value="200" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Activitys/ToClaimActivity.java</url>
-          <line>482</line>
-          <properties />
-          <option name="timeStamp" value="201" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Activitys/ToClaimActivity.java</url>
-          <line>309</line>
-          <properties />
-          <option name="timeStamp" value="202" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Activitys/ToClaimActivity.java</url>
-          <line>130</line>
-          <properties />
-          <option name="timeStamp" value="203" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Activitys/ToClaimActivity.java</url>
-          <line>179</line>
-          <properties />
-          <option name="timeStamp" value="204" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Activitys/ToClaimActivity.java</url>
-          <line>184</line>
-          <properties />
-          <option name="timeStamp" value="205" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Activitys/ToClaimActivity.java</url>
-          <line>174</line>
-          <properties />
-          <option name="timeStamp" value="206" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Activitys/CompanyDetailsActivity.java</url>
-          <line>594</line>
-          <properties />
-          <option name="timeStamp" value="207" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Utils/MyhttpCallBack.java</url>
-          <line>842</line>
-          <properties />
-          <option name="timeStamp" value="209" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Activitys/AutonomyActivity.java</url>
-          <line>52</line>
-          <properties />
-          <option name="timeStamp" value="210" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Activitys/WebAutonomy.java</url>
-          <line>70</line>
-          <properties />
-          <option name="timeStamp" value="211" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Utils/MyhttpCallBack.java</url>
-          <line>442</line>
-          <properties />
-          <option name="timeStamp" value="212" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Activitys/CompanyDetailsActivity.java</url>
-          <line>874</line>
-          <properties />
-          <option name="timeStamp" value="215" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Utils/PullToRefreshView.java</url>
-          <line>317</line>
-          <properties />
-          <option name="timeStamp" value="221" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Adapters/MyCommment_listAdapter.java</url>
-          <line>65</line>
-          <properties />
-          <option name="timeStamp" value="224" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Adapters/MyCommment_listAdapter.java</url>
-          <line>64</line>
-          <properties />
-          <option name="timeStamp" value="225" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Adapters/MyCommment_listAdapter.java</url>
-          <line>62</line>
-          <properties />
-          <option name="timeStamp" value="226" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Activitys/CommentListActivity.java</url>
-          <line>145</line>
-          <properties />
-          <option name="timeStamp" value="229" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Activitys/MainActivity.java</url>
-          <line>303</line>
-          <properties />
-          <option name="timeStamp" value="248" />
+          <option name="timeStamp" value="43" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Activitys/SearchFirmActivty.java</url>
-          <line>292</line>
+          <line>146</line>
           <properties />
-          <option name="timeStamp" value="249" />
+          <option name="timeStamp" value="44" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Utils/MyhttpCallBack.java</url>
-          <line>487</line>
+          <line>190</line>
           <properties />
-          <option name="timeStamp" value="250" />
+          <option name="timeStamp" value="45" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Activitys/AutonomyActivity.java</url>
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Utils/MyhttpCallBack.java</url>
           <line>57</line>
           <properties />
-          <option name="timeStamp" value="257" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Activitys/Autonomy_Detail_Activity.java</url>
-          <line>63</line>
-          <properties />
-          <option name="timeStamp" value="258" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Activitys/Autonomy_Detail_Activity.java</url>
-          <line>61</line>
-          <properties />
-          <option name="timeStamp" value="259" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Activitys/CopyrightActivity.java</url>
-          <line>61</line>
-          <properties />
-          <option name="timeStamp" value="260" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Activitys/CopyrightActivity.java</url>
-          <line>60</line>
-          <properties />
-          <option name="timeStamp" value="261" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Utils/MyhttpCallBack.java</url>
-          <line>1343</line>
-          <properties />
-          <option name="timeStamp" value="266" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Utils/MyhttpCallBack.java</url>
-          <line>1355</line>
-          <properties />
-          <option name="timeStamp" value="269" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Utils/MyhttpCallBack.java</url>
-          <line>1369</line>
-          <properties />
-          <option name="timeStamp" value="270" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Utils/MyhttpCallBack.java</url>
-          <line>1380</line>
-          <properties />
-          <option name="timeStamp" value="271" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Utils/MyhttpCallBack.java</url>
-          <line>1385</line>
-          <properties />
-          <option name="timeStamp" value="272" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Utils/MyhttpCallBack.java</url>
-          <line>1391</line>
-          <properties />
-          <option name="timeStamp" value="273" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Activitys/ToComplaintActivity.java</url>
-          <line>115</line>
-          <properties />
-          <option name="timeStamp" value="276" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Activitys/ToComplaintActivity.java</url>
-          <line>109</line>
-          <properties />
-          <option name="timeStamp" value="277" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Activitys/H5ViewActivity.java</url>
-          <line>118</line>
-          <properties />
-          <option name="timeStamp" value="280" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Activitys/DetailsContentActivity.java</url>
-          <line>475</line>
-          <properties />
-          <option name="timeStamp" value="284" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Activitys/DetailsContentActivity.java</url>
-          <line>453</line>
-          <properties />
-          <option name="timeStamp" value="285" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Adapters/MyGridZYAdapter.java</url>
-          <line>62</line>
-          <properties />
-          <option name="timeStamp" value="293" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Activitys/H5ViewActivity.java</url>
-          <line>115</line>
-          <properties />
-          <option name="timeStamp" value="294" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Activitys/H5ViewActivity.java</url>
-          <line>111</line>
-          <properties />
-          <option name="timeStamp" value="295" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Activitys/MainActivity.java</url>
-          <line>737</line>
-          <properties />
-          <option name="timeStamp" value="296" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Activitys/MainActivity.java</url>
-          <line>728</line>
-          <properties />
-          <option name="timeStamp" value="298" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Activitys/H5ViewActivity.java</url>
-          <line>81</line>
-          <properties />
-          <option name="timeStamp" value="302" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Activitys/H5ViewActivity.java</url>
-          <line>93</line>
-          <properties />
-          <option name="timeStamp" value="309" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Activitys/Main_SearchActivity.java</url>
-          <line>306</line>
-          <properties />
-          <option name="timeStamp" value="313" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Activitys/Main_SearchActivity.java</url>
-          <line>316</line>
-          <properties />
-          <option name="timeStamp" value="314" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Utils/MyhttpCallBack.java</url>
-          <line>1407</line>
-          <properties />
-          <option name="timeStamp" value="315" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Utils/MyhttpCallBack.java</url>
-          <line>1460</line>
-          <properties />
-          <option name="timeStamp" value="316" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Activitys/Panoramic_Activity.java</url>
-          <line>91</line>
-          <properties />
-          <option name="timeStamp" value="317" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Activitys/Panoramic_Activity.java</url>
-          <line>98</line>
-          <properties />
-          <option name="timeStamp" value="319" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Activitys/Panoramic_Activity.java</url>
-          <line>104</line>
-          <properties />
-          <option name="timeStamp" value="320" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Activitys/Panoramic_Activity.java</url>
-          <line>111</line>
-          <properties />
-          <option name="timeStamp" value="321" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Adapters/CC_List_itemAdapter.java</url>
-          <line>114</line>
-          <properties />
-          <option name="timeStamp" value="322" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Adapters/CC_List_itemAdapter.java</url>
-          <line>158</line>
-          <properties />
-          <option name="timeStamp" value="323" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Activitys/H5ViewActivity.java</url>
-          <line>97</line>
-          <properties />
-          <option name="timeStamp" value="325" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Utils/MyhttpCallBack.java</url>
-          <line>147</line>
-          <properties />
-          <option name="timeStamp" value="327" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Utils/MyhttpCallBack.java</url>
-          <line>825</line>
-          <properties />
-          <option name="timeStamp" value="328" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Utils/MyhttpCallBack.java</url>
-          <line>1418</line>
-          <properties />
-          <option name="timeStamp" value="329" />
+          <option name="timeStamp" value="46" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="330" />
+      <option name="time" value="47" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/ic_menu_black_24dp.xml">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/autonomy_stock_item.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/newclaim_list_item.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/user_list_item.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4030303">
-          <caret line="18" column="48" selection-start-line="18" selection-start-column="48" selection-end-line="18" selection-end-column="48" />
-          <folding />
+        <state vertical-scroll-proportion="0.33280507">
+          <caret line="32" column="8" selection-start-line="32" selection-start-column="8" selection-end-line="32" selection-end-column="8" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_c_details.xml">
-      <provider selected="true" editor-type-id="android-designer">
+      <provider editor-type-id="android-designer">
         <state />
       </provider>
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="26.214285">
-          <caret line="11" column="45" selection-start-line="11" selection-start-column="45" selection-end-line="11" selection-end-column="45" />
-          <folding />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/autonomy_permit_item.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6022187">
+          <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/correction_item.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6386688">
+          <caret line="26" column="30" selection-start-line="26" selection-start-column="30" selection-end-line="26" selection-end-column="30" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/loan_item.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.15689382">
+          <caret line="70" column="0" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/taxes_item.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.41521394">
+          <caret line="51" column="42" selection-start-line="51" selection-start-column="42" selection-end-line="51" selection-end-column="42" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/wages_item.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.72266245">
+          <caret line="84" column="39" selection-start-line="84" selection-start-column="39" selection-end-line="84" selection-end-column="39" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/paperwork_expired_item.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.518225">
+          <caret line="44" column="0" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/paperwork_expire_item.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.78922343">
+          <caret line="52" column="0" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Adapters/MyGridAdapter4.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="57" column="36" selection-start-line="57" selection-start-column="36" selection-end-line="57" selection-end-column="36" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Activitys/MycomplaintsListActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/grid_item4.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="110" column="12" selection-start-line="110" selection-start-column="12" selection-end-line="110" selection-end-column="12" />
+        <state vertical-scroll-proportion="0.6624406">
+          <caret line="22" column="31" selection-start-line="22" selection-start-column="31" selection-end-line="22" selection-end-column="31" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Adapters/Alert_Adapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.53120464">
+          <caret line="178" column="0" selection-start-line="178" selection-start-column="0" selection-end-line="178" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="false" />
-            <element signature="e#5627#5628#0" expanded="false" />
-            <element signature="e#5667#5668#0" expanded="false" />
+            <element signature="e#778#779#0" expanded="false" />
+            <element signature="e#816#817#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Activitys/WelcomeActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Activitys/AlertActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="88" column="0" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.7793904">
+          <caret line="63" column="5" selection-start-line="63" selection-start-column="5" selection-end-line="63" selection-end-column="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/styles.xml">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Activitys/Alert_CActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5421687">
-          <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="40" column="40" selection-start-line="40" selection-start-column="40" selection-end-line="40" selection-end-column="40" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Activitys/CommentListDetailsActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_alert__content.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.19303338">
-          <caret line="42" column="13" selection-start-line="42" selection-start-column="13" selection-end-line="42" selection-end-column="13" />
+        <state vertical-scroll-proportion="-1.7068965">
+          <caret line="51" column="35" selection-start-line="51" selection-start-column="35" selection-end-line="51" selection-end-column="35" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Activitys/ClaimDetailsActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.44847605">
-          <caret line="121" column="36" selection-start-line="121" selection-start-column="36" selection-end-line="121" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Activitys/ComplaintDetailsActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.63425255">
-          <caret line="54" column="21" selection-start-line="54" selection-start-column="21" selection-end-line="54" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Activitys/CommentListActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="61" column="0" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Activitys/MyClaimActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="83" column="34" selection-start-line="83" selection-start-column="34" selection-end-line="83" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Adapters/MyGridAdapters.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="99" column="23" selection-start-line="99" selection-start-column="23" selection-end-line="99" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/search_background.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/search_firm_activity.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.yolanda.nohttp/nohttp/1.0.0/8a47a20024ef7878d561ec819230f1f3f2a7093d/nohttp-1.0.0-sources.jar!/com/yolanda/nohttp/RequestDispatcher.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="363" column="16" selection-start-line="363" selection-start-column="4" selection-end-line="545" selection-end-column="18" />
-          <folding />
+        <state vertical-scroll-proportion="0.7793904">
+          <caret line="183" column="5" selection-start-line="183" selection-start-column="5" selection-end-line="183" selection-end-column="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/search_bid_activity.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Activitys/TrademarkActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="67" column="21" selection-start-line="67" selection-start-column="21" selection-end-line="67" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="230" column="0" selection-start-line="230" selection-start-column="0" selection-end-line="230" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/detail_top.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Activitys/SearchFirmActivty.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="219" column="5" selection-start-line="219" selection-start-column="5" selection-end-line="219" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#22976#22977#0" expanded="false" />
-            <element signature="e#23028#23029#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Views/ImageCycleView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="86" column="22" selection-start-line="86" selection-start-column="22" selection-end-line="86" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main__search2.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="56" column="42" selection-start-line="56" selection-start-column="33" selection-end-line="56" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/anim/start_tran_one.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.31666666">
-          <caret line="6" column="12" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Activitys/SearchBidActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.30715936">
-          <caret line="103" column="0" selection-start-line="103" selection-start-column="0" selection-end-line="103" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/b.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/bg_edittext_normal.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.08623298">
-          <caret line="3" column="30" selection-start-line="3" selection-start-column="30" selection-end-line="3" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/bg_gv.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/details_con_bg.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/details_c_tle.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.08623298">
-          <caret line="3" column="41" selection-start-line="3" selection-start-column="8" selection-end-line="3" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/public_biaoqian.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/shangb_text_bg_2.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.7142856">
-          <caret line="4" column="8" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/shangb_text_bg_1.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.10555556">
-          <caret line="2" column="33" selection-start-line="2" selection-start-column="27" selection-end-line="2" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/banner2.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Activitys/DetailsContentActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="14.298969">
-          <caret line="333" column="144" selection-start-line="333" selection-start-column="144" selection-end-line="333" selection-end-column="144" />
-          <folding>
-            <element signature="e#14085#14093#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Activitys/Panoramic_Activity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="107" column="13" selection-start-line="107" selection-start-column="13" selection-end-line="107" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Activitys/Main_SearchActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="117" column="77" selection-start-line="117" selection-start-column="77" selection-end-line="117" selection-end-column="77" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main__search_list.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Activitys/Public_Detail_ctivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.130624">
-          <caret line="41" column="13" selection-start-line="41" selection-start-column="13" selection-end-line="41" selection-end-column="13" />
-          <folding />
+        <state vertical-scroll-proportion="0.42089987">
+          <caret line="45" column="67" selection-start-line="45" selection-start-column="67" selection-end-line="45" selection-end-column="67" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Activitys/CompanyDetailsActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.2">
-          <caret line="317" column="85" selection-start-line="317" selection-start-column="85" selection-end-line="317" selection-end-column="85" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="171" column="28" selection-start-line="171" selection-start-column="28" selection-end-line="171" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/search_firm_activity.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.4886363">
+          <caret line="209" column="33" selection-start-line="209" selection-start-column="29" selection-end-line="209" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/search_select_twolistitem.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.6551724">
+          <caret line="2" column="32" selection-start-line="2" selection-start-column="21" selection-end-line="2" selection-end-column="32" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Views/CustomPopupwindow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.4775037">
+          <caret line="82" column="6" selection-start-line="82" selection-start-column="6" selection-end-line="82" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.yolanda.nohttp/nohttp/1.0.1/96a83db5ba50fec750a395ada8295476810ae1f4/nohttp-1.0.1-sources.jar!/com/yolanda/nohttp/error/ServerError.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33091438">
+          <caret line="26" column="29" selection-start-line="26" selection-start-column="29" selection-end-line="26" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/settings.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7445573">
+          <caret line="27" column="47" selection-start-line="27" selection-start-column="47" selection-end-line="27" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/ZLH/Android_SDK/sources/android-23/java/lang/Exception.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.13788098">
+          <caret line="29" column="13" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.yolanda.nohttp/nohttp/1.0.1/96a83db5ba50fec750a395ada8295476810ae1f4/nohttp-1.0.1-sources.jar!/com/yolanda/nohttp/error/NetworkError.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.66182876">
+          <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.yolanda.nohttp/nohttp/1.0.1/96a83db5ba50fec750a395ada8295476810ae1f4/nohttp-1.0.1-sources.jar!/com/yolanda/nohttp/NoHttp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.081277214">
+          <caret line="164" column="31" selection-start-line="164" selection-start-column="31" selection-end-line="164" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Utils/Toast.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.63425255">
+          <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Services/CallServer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="35" column="35" selection-start-line="35" selection-start-column="35" selection-end-line="35" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/ZLH/Android_SDK/sources/android-23/android/app/Application.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33236575">
+          <caret line="93" column="16" selection-start-line="93" selection-start-column="16" selection-end-line="93" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/news_list_item.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="26" column="48" selection-start-line="26" selection-start-column="48" selection-end-line="26" selection-end-column="48" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="26" column="26" selection-start-line="26" selection-start-column="26" selection-end-line="26" selection-end-column="26" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Application.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.49637157">
+          <caret line="21" column="24" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Views/ViewPagerIndicator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="26" column="15" selection-start-line="26" selection-start-column="15" selection-end-line="26" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/ZLH/Android_SDK/sources/android-23/android/os/Build.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.7178683">
+          <caret line="30" column="13" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Adapters/NewsListAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="58" column="0" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#847#848#0" expanded="false" />
+            <element signature="e#885#886#0" expanded="false" />
+            <element signature="e#942#943#0" expanded="false" />
+            <element signature="e#987#988#0" expanded="false" />
+            <element signature="e#1044#1045#0" expanded="false" />
+            <element signature="e#1075#1076#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/search_select_onelistitem.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.13427562">
+          <caret line="2" column="28" selection-start-line="2" selection-start-column="21" selection-end-line="2" selection-end-column="28" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Utils/CreditSharePreferences.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="35" column="24" selection-start-line="35" selection-start-column="24" selection-end-line="35" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/ZLH/Android_SDK/sources/android-23/com/android/internal/os/ZygoteInit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3316583">
+          <caret line="594" column="0" selection-start-line="594" selection-start-column="0" selection-end-line="594" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Adapters/Citys_Adapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="74" column="18" selection-start-line="74" selection-start-column="18" selection-end-line="74" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://D:/ZLH/Android_SDK/platforms/android-23/android.jar!/java/util/List.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Utils/ResponseListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.047738694">
+          <caret line="48" column="0" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.yolanda.nohttp/nohttp/1.0.1/96a83db5ba50fec750a395ada8295476810ae1f4/nohttp-1.0.1-sources.jar!/com/yolanda/nohttp/rest/RequestDispatcher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3313783">
+          <caret line="182" column="0" selection-start-line="182" selection-start-column="0" selection-end-line="182" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Utils/HttpCallBack.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.22110553">
+          <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Utils/GsonUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="27" column="8" selection-start-line="27" selection-start-column="8" selection-end-line="27" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Entitys/DataManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="143" column="0" selection-start-line="143" selection-start-column="0" selection-end-line="143" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -3908,155 +3421,38 @@
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Utils/URLconstant.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="138" column="0" selection-start-line="138" selection-start-column="0" selection-end-line="138" selection-end-column="0" />
-          <folding>
-            <marker date="1470997597601" expanded="true" signature="6042:6051" placeholder="//..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Activitys/TrademarkActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="88" column="21" selection-start-line="88" selection-start-column="21" selection-end-line="88" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Activitys/H5ViewActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="107" column="0" selection-start-line="107" selection-start-column="0" selection-end-line="107" selection-end-column="0" />
+          <caret line="25" column="6" selection-start-line="25" selection-start-column="6" selection-end-line="25" selection-end-column="6" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_c_list_item.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Activitys/SearchFirmActivty.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="139" column="39" selection-start-line="139" selection-start-column="39" selection-end-line="139" selection-end-column="39" />
+          <caret line="128" column="23" selection-start-line="128" selection-start-column="23" selection-end-line="128" selection-end-column="23" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Activitys/Main_Search_ListActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="127" column="55" selection-start-line="127" selection-start-column="55" selection-end-line="127" selection-end-column="55" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#9383#9384#0" expanded="false" />
-            <element signature="e#9459#9460#0" expanded="false" />
-            <marker date="1471256263774" expanded="true" signature="9476:9478" placeholder="//..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Adapters/Main_CC_List_itemAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="139" column="12" selection-start-line="139" selection-start-column="12" selection-end-line="139" selection-end-column="12" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#1134#1135#0" expanded="false" />
-            <element signature="e#1168#1169#0" expanded="false" />
-            <element signature="e#1225#1226#0" expanded="false" />
-            <element signature="e#1249#1250#0" expanded="false" />
-            <element signature="e#1306#1307#0" expanded="false" />
-            <element signature="e#1330#1331#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Adapters/CC_List_itemAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="165" column="38" selection-start-line="165" selection-start-column="38" selection-end-line="165" selection-end-column="38" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#1262#1263#0" expanded="false" />
-            <element signature="e#1296#1297#0" expanded="false" />
-            <element signature="e#1353#1354#0" expanded="false" />
-            <element signature="e#1377#1378#0" expanded="false" />
-            <element signature="e#1434#1435#0" expanded="false" />
-            <element signature="e#1458#1459#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Activitys/PatentActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="24" column="3" selection-start-line="24" selection-start-column="3" selection-end-line="24" selection-end-column="3" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Entitys/DataManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="552" column="43" selection-start-line="552" selection-start-column="43" selection-end-line="552" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main2.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="310" column="56" selection-start-line="310" selection-start-column="45" selection-end-line="310" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Adapters/NewClaimListAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="21" column="11" selection-start-line="21" selection-start-column="11" selection-end-line="21" selection-end-column="11" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#1062#1063#0" expanded="false" />
-            <element signature="e#1107#1108#0" expanded="false" />
-            <element signature="e#1164#1165#0" expanded="false" />
-            <element signature="e#1195#1196#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/ZLH/Android_SDK/sources/android-23/android/os/Handler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33236575">
-          <caret line="516" column="25" selection-start-line="516" selection-start-column="25" selection-end-line="516" selection-end-column="25" />
-          <folding>
-            <element signature="e#21494#21495#0" expanded="false" />
-            <element signature="e#21549#21550#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Activitys/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="91" column="31" selection-start-line="91" selection-start-column="31" selection-end-line="91" selection-end-column="31" />
+          <caret line="58" column="58" selection-start-line="58" selection-start-column="58" selection-end-line="58" selection-end-column="58" />
           <folding>
             <element signature="imports" expanded="false" />
-            <element signature="e#29836#29837#0" expanded="false" />
-            <element signature="e#29870#29871#0" expanded="false" />
+            <element signature="e#4646#4647#0" expanded="false" />
+            <element signature="e#4680#4681#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/credit/Utils/MyhttpCallBack.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4310595">
-          <caret line="171" column="75" selection-start-line="171" selection-start-column="75" selection-end-line="171" selection-end-column="75" />
-          <folding />
+        <state vertical-scroll-proportion="1.3518931">
+          <caret line="146" column="62" selection-start-line="146" selection-start-column="62" selection-end-line="146" selection-end-column="62" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -1,15 +1,24 @@
 package com.example.credit.Adapters;
 
 import android.content.Context;
+import android.graphics.Color;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.SpannableStringBuilder;
+import android.text.Spanned;
+import android.text.style.BackgroundColorSpan;
+import android.text.style.ForegroundColorSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import com.example.credit.Activitys.SearchFirmActivty;
 import com.example.credit.Entitys.DataManager.search;
 import com.example.credit.R;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class SearchListAdapter2 extends BaseAdapter {
@@ -51,7 +60,18 @@ public class SearchListAdapter2 extends BaseAdapter {
 			vh=(ViewHolder) view.getTag();
 		}
 		search c=list.get(position);
-		vh.firm_name.setText(c.ENTNAME);
+		String str=SearchFirmActivty.searchEt.getText().toString();
+		String[] strR=str.split("");
+		SpannableStringBuilder style = new SpannableStringBuilder(c.ENTNAME);
+		for(int i=0;i<strR.length;i++){
+			if(!strR[i].equals("")){
+				int start=c.ENTNAME.indexOf(strR[i]);
+				int end=start+1;
+//				style.setSpan(new BackgroundColorSpan(Color.RED), start, end, Spannable.SPAN_EXCLUSIVE_INCLUSIVE); //设置指定位置文字的背景颜色
+				style.setSpan(new ForegroundColorSpan(Color.RED), start, end, Spannable.SPAN_EXCLUSIVE_INCLUSIVE); //设置指定位置文字的颜色
+			}
+		}
+		vh.firm_name.setText(style);
 		vh.corporate.setText(c.NAME);
 		if(vh.corporate.getText().toString().equals("")){
 			vh.corporate.setText("无");
