@@ -164,7 +164,7 @@ public class CompanyDetailsActivity extends BaseActivity {
         type = i.getIntExtra("type", 0);
 //        detailsList = DataManager.searchList;
         Build bd = new Build();
-        model = bd.MODEL;//设备ID
+        model = Build.MODEL;//设备ID
 
         if (DataManager.BaseinfoList.size() > 0) {
             KeyNo = DataManager.BaseinfoList.get(0).PRIPID;//市场主体身份代码
@@ -969,7 +969,7 @@ public class CompanyDetailsActivity extends BaseActivity {
 //            lt.add(detailsList.get(position).INDUSTRYPHY);
             lt.add("暂无信息");
             int size = lt.size();
-            arrays4 = (String[]) lt.toArray(new String[size]);
+            arrays4 = lt.toArray(new String[size]);
         }
 
         if (DataManager.allcountsList.get(0).IsFavorite.equals("false")) {//当前状态为未关注，所以点击是关注

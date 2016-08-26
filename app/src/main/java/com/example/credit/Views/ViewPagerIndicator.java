@@ -80,13 +80,13 @@ public class ViewPagerIndicator extends LinearLayout {
     private ViewPager mViewPager;
     public interface PageOnchangeListener{
 
-        public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels);
+        void onPageScrolled(int position, float positionOffset, int positionOffsetPixels);
 
 
-        public void onPageSelected(int position);
+        void onPageSelected(int position);
 
 
-        public void onPageScrollStateChanged(int state);
+        void onPageScrollStateChanged(int state);
     }
     public PageOnchangeListener mListener;
     public void setOnPageChangeListener(PageOnchangeListener listener){

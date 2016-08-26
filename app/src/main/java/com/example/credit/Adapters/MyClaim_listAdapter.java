@@ -77,7 +77,7 @@ public class MyClaim_listAdapter extends BaseAdapter {
             vh.myclaim_dimss=(TextView) view.findViewById(R.id.myclaim_dimss);
 
             vh.bec= (LinearLayout) view.findViewById(R.id.bec);
-            vh.bec1= (View) view.findViewById(R.id.bec1);
+            vh.bec1= view.findViewById(R.id.bec1);
 
             view.setTag(vh);
         } else {

@@ -186,10 +186,6 @@ public class ComplaintDetailsActivity extends BaseActivity {
      */
     public static boolean hasSdcard() {
         String status = Environment.getExternalStorageState();
-        if (status.equals(Environment.MEDIA_MOUNTED)) {
-            return true;
-        } else {
-            return false;
-        }
+        return status.equals(Environment.MEDIA_MOUNTED);
     }
 }
