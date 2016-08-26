@@ -18,7 +18,7 @@ public class CreditSharePreferences {
     //初始化本地xml文件
     public static void init(Context ctx) {
         if (sp == null) {
-            sp = ctx.getSharedPreferences(SPNAME, Context.MODE_PRIVATE);
+            sp = ctx.getSharedPreferences(SPNAME, ctx.MODE_PRIVATE);
         }
     }
 

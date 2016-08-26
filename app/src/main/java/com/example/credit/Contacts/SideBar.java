@@ -137,6 +137,6 @@ public class SideBar extends View
 	
 	public interface OnTouchingLetterChangedListener
 	{
-		void onTouchingLetterChanged(String str);
+		public void onTouchingLetterChanged(String str);
 	}
 }

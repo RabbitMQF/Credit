@@ -647,7 +647,7 @@ public class PullToRefreshView extends LinearLayout {
      * view should be refreshed. 
      */  
     public interface OnFooterRefreshListener {  
-        void onFooterRefresh(PullToRefreshView view);
+        public void onFooterRefresh(PullToRefreshView view);  
     }  
   
     /** 
@@ -655,6 +655,6 @@ public class PullToRefreshView extends LinearLayout {
      * view should be refreshed. 
      */  
     public interface OnHeaderRefreshListener {  
-        void onHeaderRefresh(PullToRefreshView view);
+        public void onHeaderRefresh(PullToRefreshView view);  
     }  
 }  

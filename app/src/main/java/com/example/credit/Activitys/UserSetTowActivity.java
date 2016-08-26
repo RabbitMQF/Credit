@@ -244,6 +244,9 @@ public class UserSetTowActivity extends Activity {
     public static boolean isNumeric(String str) {
         Pattern pattern = Pattern.compile("[0-9]*");
         Matcher isNum = pattern.matcher(str);
-        return isNum.matches();
+        if (!isNum.matches()) {
+            return false;
+        }
+        return true;
     }
 }

@@ -98,7 +98,7 @@ public class CommentListDetailsActivity extends BaseActivity {
         uid=i.getStringExtra("uid");
         pid=i.getStringExtra("pid");
         Build bd = new Build();
-        deviceId= Build.MODEL;//设备ID
+        deviceId=bd.MODEL;//设备ID
         KeyNo=CommentListActivity.listpl.get(position).COMMENTID;
         token = SearchFirmActivty.MD5s(KeyNo + deviceId);
         handler=new Handler(){
