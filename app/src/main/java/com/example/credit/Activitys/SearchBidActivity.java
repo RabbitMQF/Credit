@@ -90,14 +90,9 @@ public class SearchBidActivity extends BaseActivity implements GestureDetector.O
                 //当actionId == XX_SEND 或者 XX_DONE时都触发
                 //或者event.getKeyCode == ENTER 且 event.getAction == ACTION_DOWN时也触发
                 //注意，这是一定要判断event != null。因为在某些输入法上会返回null。
-                if (actionId == EditorInfo.IME_ACTION_SEND
+                return actionId == EditorInfo.IME_ACTION_SEND
                         || actionId == EditorInfo.IME_ACTION_DONE
-                        || (event != null && KeyEvent.KEYCODE_ENTER == event.getKeyCode() && KeyEvent.ACTION_DOWN == event.getAction())) {
-                    //处理事件
-                    //GETsearch();
-                    return true;
-                }
-                return false;
+                        || (event != null && KeyEvent.KEYCODE_ENTER == event.getKeyCode() && KeyEvent.ACTION_DOWN == event.getAction());
             }
         });
 

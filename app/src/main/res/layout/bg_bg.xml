@@ -12,6 +12,6 @@
         android:layout_height="200dp"
         android:layout_gravity="center"
         android:layout_marginLeft="10dp"
-        android:background="@mipmap/bg_null"/>
+        android:background="@mipmap/bg_null234"/>
 
 </LinearLayout>

@@ -53,7 +53,7 @@ public class ToCommentActivity extends BaseActivity {
         wd=new WaitDialog(this);
         csp=CreditSharePreferences.getLifeSharedPreferences();
         Build bd = new Build();
-        deviceId=bd.MODEL;//设备ID
+        deviceId= Build.MODEL;//设备ID
         init();
 
         handler=new Handler(){

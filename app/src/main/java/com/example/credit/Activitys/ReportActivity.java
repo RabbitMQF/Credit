@@ -381,7 +381,7 @@ public class ReportActivity extends Activity {
                             list.add(1);
                         }
                         for (int i = R.id.gs1; i <= R.id.qt2; i++) {
-                            ((TextView) findViewById(i)).setBackgroundResource(R.drawable.xxbaogao_tit);
+                            findViewById(i).setBackgroundResource(R.drawable.xxbaogao_tit);
                         }
                     }else{
                         b_topY.setText("全选");
@@ -389,7 +389,7 @@ public class ReportActivity extends Activity {
                             list.add(0);
                         }
                         for (int i = R.id.gs1; i <= R.id.qt2; i++) {
-                            ((TextView) findViewById(i)).setBackgroundResource(R.drawable.maintop_shape);
+                            findViewById(i).setBackgroundResource(R.drawable.maintop_shape);
                         }
                     }
                     break;

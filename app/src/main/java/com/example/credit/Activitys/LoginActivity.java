@@ -159,7 +159,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
 
                 } else {
                     //Toast.show("通过判定");
-                    wd.show();;
+                    wd.show();
                     GsonUtil LoginRequest = new GsonUtil(URLconstant.URLINSER + URLconstant.USERLOGIN, RequestMethod.GET);
                     LoginRequest.add("token", MD5.MD5s(login_user.getText() + new Build().MODEL));
                     LoginRequest.add("KeyNo", login_user.getText().toString());

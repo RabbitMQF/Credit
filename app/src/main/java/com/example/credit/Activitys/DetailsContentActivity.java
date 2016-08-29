@@ -363,7 +363,7 @@ public class DetailsContentActivity extends BaseActivity {
         }
 
         int size = lt.size();
-        arrays4 = (String[]) lt.toArray(new String[size]);
+        arrays4 = lt.toArray(new String[size]);
         adapter2 = new MyGridAdapter3(DetailsContentActivity.this, arrays3, arrays4);
         myGridView3.setAdapter(adapter2);
         myGridView3.setSelector(new ColorDrawable(Color.TRANSPARENT));
@@ -463,8 +463,8 @@ public class DetailsContentActivity extends BaseActivity {
             }
             int size11 = p1.size();
             int size21 = p2.size();
-            String[] arrayszy11 = (String[]) p1.toArray(new String[size11]);
-            String[] arrayszy21 = (String[]) p2.toArray(new String[size21]);
+            String[] arrayszy11 = p1.toArray(new String[size11]);
+            String[] arrayszy21 = p2.toArray(new String[size21]);
             adapterzy = new MyGridZYAdapter(DetailsContentActivity.this, arrayszy11, arrayszy21);
             myGridViewp.setAdapter(adapterzy);
             myGridViewp.setSelector(new ColorDrawable(Color.TRANSPARENT));
@@ -485,8 +485,8 @@ public class DetailsContentActivity extends BaseActivity {
             }
             int size1 = zy1.size();
             int size2 = zy2.size();
-            String[] arrayszy1 = (String[]) zy1.toArray(new String[size1]);
-            String[] arrayszy2 = (String[]) zy2.toArray(new String[size2]);
+            String[] arrayszy1 = zy1.toArray(new String[size1]);
+            String[] arrayszy2 = zy2.toArray(new String[size2]);
             adapterzy = new MyGridZYAdapter(DetailsContentActivity.this, arrayszy1, arrayszy2);
             myGridViewZY.setAdapter(adapterzy);
             myGridViewZY.setSelector(new ColorDrawable(Color.TRANSPARENT));
