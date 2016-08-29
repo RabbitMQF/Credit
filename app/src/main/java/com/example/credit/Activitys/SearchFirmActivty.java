@@ -109,7 +109,7 @@ public class SearchFirmActivty extends BaseActivity implements PullToRefreshView
     public static ProgressDialog pd;
     int falg = 0;
     Build bd = new Build();
-    String model = Build.MODEL;//设备ID
+    String model = bd.MODEL;//设备ID
     int po;
     int type;
     AlertDialog.Builder builder;

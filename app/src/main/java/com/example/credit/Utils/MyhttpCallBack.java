@@ -172,7 +172,7 @@ public class MyhttpCallBack implements HttpCallBack {
                         serchtemp.OPTO = (String) temp.get("OPTO");
                         serchtemp.REGSTATE_CN = (String) temp.get("REGSTATE_CN");
                         serchtemp.C_PROVINCE = (String) temp.get("C_PROVINCE");
-                        serchtemp.D_ADDTIME = temp.get("D_ADDTIME");
+                        serchtemp.D_ADDTIME = (Object) temp.get("D_ADDTIME");
                         serchtemp.C_STATE = (String) temp.get("C_STATE");
                         if (String.valueOf(temp.get("REGCAP")) == "null") {
                             serchtemp.REGCAP = "0";
@@ -213,7 +213,7 @@ public class MyhttpCallBack implements HttpCallBack {
                         serchtemp.OPTO = (String) temp.get("OPTO");
                         serchtemp.REGSTATE_CN = (String) temp.get("REGSTATE_CN");
                         serchtemp.C_PROVINCE = (String) temp.get("C_PROVINCE");
-                        serchtemp.D_ADDTIME = temp.get("D_ADDTIME");
+                        serchtemp.D_ADDTIME = (Object) temp.get("D_ADDTIME");
                         serchtemp.C_STATE = (String) temp.get("C_STATE");
                         if (String.valueOf(temp.get("REGCAP")) == "null") {
                             serchtemp.REGCAP = "0";
@@ -815,6 +815,7 @@ public class MyhttpCallBack implements HttpCallBack {
                     }.getType());
                     List<LinkedTreeMap> list112 = (List<LinkedTreeMap>) ((Map<String, Object>) map.get("data")).get("patentInfo");
                     List<LinkedTreeMap> list112_1 = (List<LinkedTreeMap>) ((Map<String, Object>) map.get("data")).get("patentInfoSoftwore");
+                    ;
 
 
                     if (DataManager.copyrightInfoeList != null) {
@@ -933,7 +934,7 @@ public class MyhttpCallBack implements HttpCallBack {
                     jsonString = (String) response.get();
                     map = gson.fromJson(jsonString, new TypeToken<Map<String, Object>>() {
                     }.getType());
-                    if (map.get("data") != null) {
+                    if ((List<LinkedTreeMap>) map.get("data") != null) {
                         List<LinkedTreeMap> listtemp = (List<LinkedTreeMap>) map.get("data");
 
                         for (int i = 0; i < listtemp.size(); i++) {

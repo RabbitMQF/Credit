@@ -434,7 +434,7 @@ public class ToClaimActivity extends BaseActivity implements OnItemLongClickList
             // 取得SDCard图片路径做显示
             Bitmap photo = extras.getParcelable("data");
             Drawable drawable = new BitmapDrawable(null, photo);
-            myList.add(drawable);
+            myList.add(drawable);;
             mAdapter = new MyGridAdapterClaim2(ToClaimActivity.this, myList);
             myGridViewtc.setAdapter(mAdapter);
         }

@@ -403,7 +403,7 @@ public class ToComplaintActivity extends BaseActivity implements OnItemLongClick
             // 取得SDCard图片路径做显示
             Bitmap photo = extras.getParcelable("data");
             Drawable drawable = new BitmapDrawable(null, photo);
-            myList.add(drawable);
+            myList.add(drawable);;
             adapters = new MyGridAdapterClaim2(ToComplaintActivity.this, myList);
             myGridViewtc.setAdapter(adapters);
         }
