@@ -9,7 +9,6 @@
     <LinearLayout
         android:id="@+id/fenzhijiegou"
         android:layout_width="match_parent"
-        android:layout_marginTop="10dp"
         android:layout_height="wrap_content"
         android:background="@drawable/details_con_bg"
         android:orientation="vertical"
@@ -20,7 +19,7 @@
             android:layout_height="wrap_content"
             android:text="分支机构主体身份代码"
             android:textColor="#000000"
-            android:textSize="16sp" />
+            android:textSize="@dimen/ctitle_size" />
 
         <TextView
             android:id="@+id/fz_tv1C"
@@ -29,7 +28,7 @@
             android:layout_marginTop="5dp"
             android:text="纳税先锋"
             android:textColor="#57737D"
-            android:textSize="14sp" />
+            android:textSize="@dimen/ctest_size" />
 
         <View
             android:background="#B8B8B8"
@@ -40,10 +39,10 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="5dp"
             android:text="分支机构名称"
             android:textColor="#000000"
-            android:textSize="16sp" />
+            android:textSize="@dimen/ctitle_size" />
 
         <TextView
             android:id="@+id/fz_tv2C"
@@ -52,7 +51,7 @@
             android:layout_marginTop="5dp"
             android:text="国家级"
             android:textColor="#57737D"
-            android:textSize="14sp" />
+            android:textSize="@dimen/ctest_size" />
         <View
             android:background="#B8B8B8"
             android:layout_width="match_parent"
@@ -63,10 +62,10 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="登记日期"
+            android:layout_marginTop="5dp"
+            android:text="登记时间"
             android:textColor="#000000"
-            android:textSize="16sp" />
+            android:textSize="@dimen/ctitle_size" />
 
         <TextView
             android:id="@+id/fz_tv3C"
@@ -75,7 +74,7 @@
             android:layout_marginTop="5dp"
             android:text="江西省工商银行"
             android:textColor="#57737D"
-            android:textSize="14sp" />
+            android:textSize="@dimen/ctest_size" />
         <View
             android:background="#B8B8B8"
             android:layout_width="match_parent"

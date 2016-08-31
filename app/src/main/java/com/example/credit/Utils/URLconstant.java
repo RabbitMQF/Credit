@@ -135,4 +135,7 @@ public class URLconstant {
 
     public static final String NEWAPP ="appPathController/getAppPathByState";//APP最新版本
 
+    public static final String LUNBOIMH ="photoSortController/getPhotolistPage";//APP首页轮播图
+
+
 }

@@ -26,7 +26,7 @@ import com.yolanda.nohttp.RequestMethod;
 
 import java.io.File;
 
-public class WelcomeActivity extends Activity {
+public class WelcomeActivity extends BaseActivity {
     @ViewInject(R.id.welcom)
     ImageView iv;
     @ViewInject(R.id.next)
@@ -76,6 +76,13 @@ public class WelcomeActivity extends Activity {
                         NewsRequest.add("pageIndex",1);
                         NewsRequest.add("pageSize",5);
                         CallServer.getInstance().add(WelcomeActivity.this,NewsRequest, MyhttpCallBack.getInstance(),0x111,true,false,true);
+                        break;
+                    case 1:
+                        GsonUtil LUNboimgRequest=new GsonUtil(URLconstant.URLINSER + URLconstant.LUNBOIMH, RequestMethod.GET);//获取轮播图
+                        LUNboimgRequest.add("token", MD5.MD5s("" + new Build().MODEL));
+                        LUNboimgRequest.add("KeyNo","");
+                        LUNboimgRequest.add("deviceId",(new Build()).MODEL);
+                        CallServer.getInstance().add(WelcomeActivity.this,LUNboimgRequest, MyhttpCallBack.getInstance(),0x112,true,false,true);
                         break;
                     case 10:
                         startActivity(new Intent(WelcomeActivity.this,MainActivity.class));

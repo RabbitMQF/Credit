@@ -20,7 +20,7 @@ import com.lidroid.xutils.view.annotation.ViewInject;
 /**
  * 我的评论
  */
-public class MyCommentlistActivity extends Activity {
+public class MyCommentlistActivity extends BaseActivity {
     @ViewInject(R.id.b_topname)
     TextView b_topname;
     @ViewInject(R.id.b_return)

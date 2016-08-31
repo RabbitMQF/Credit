@@ -45,7 +45,7 @@ import java.util.List;
 /**
  * 主界面的【专利】，【商标】搜索界面
  */
-public class Main_SearchActivity extends Activity {
+public class Main_SearchActivity extends BaseActivity {
     @ViewInject(R.id.search_et1)
     EditText search_et;
 

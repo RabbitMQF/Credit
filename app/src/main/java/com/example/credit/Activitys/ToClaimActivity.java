@@ -36,6 +36,7 @@ import com.example.credit.Services.CallServer;
 import com.example.credit.Utils.ContainsEmojiEditText;
 import com.example.credit.Utils.CreditSharePreferences;
 import com.example.credit.Utils.GsonUtil;
+import com.example.credit.Utils.MD5;
 import com.example.credit.Utils.MyhttpCallBack;
 import com.example.credit.Utils.Toast;
 import com.example.credit.Utils.URLconstant;
@@ -149,17 +150,17 @@ public class ToClaimActivity extends BaseActivity implements OnItemLongClickList
                                 attchmentSteamS=attchmentSteamS+listStirng.get(c)+"@";
                             }
                             String a=(new Build()).MODEL;
-                            String b=SearchFirmActivty.MD5s(DataManager.ClaimUtilsModel.data.CLAIMID + (new Build()).MODEL);
+                            String b= MD5.MD5s(DataManager.ClaimUtilsModel.data.CLAIMID + (new Build()).MODEL);
                             String d=DataManager.ClaimUtilsModel.data.CLAIMID;
                             GsonUtil request14 = new GsonUtil(URLconstant.URLINSER + URLconstant.ENCLOSUREURL, RequestMethod.POST);
                             request14.setReadTimeout(40000);
                             request14.setConnectTimeout(40000);
                             request14.add("deviceId",(new Build()).MODEL);
                             if(type!=1){
-                                request14.add("token",SearchFirmActivty.MD5s(DataManager.ClaimUtilsModel.data.CLAIMID + (new Build()).MODEL));
+                                request14.add("token",MD5.MD5s(DataManager.ClaimUtilsModel.data.CLAIMID + (new Build()).MODEL));
                                 request14.add("KeyNo",DataManager.ClaimUtilsModel.data.CLAIMID);
                             }else{
-                                request14.add("token",SearchFirmActivty.MD5s(DataManager.MyClaimUtilsModel.data.Claimlist.get(position).CLAIMID + (new Build()).MODEL));
+                                request14.add("token",MD5.MD5s(DataManager.MyClaimUtilsModel.data.Claimlist.get(position).CLAIMID + (new Build()).MODEL));
                                 request14.add("KeyNo",DataManager.MyClaimUtilsModel.data.Claimlist.get(position).CLAIMID);
                             }
                             request14.add("memberId",csp.getID());
@@ -337,11 +338,11 @@ public class ToClaimActivity extends BaseActivity implements OnItemLongClickList
                         request14.add("telphone",claim_phone.getText().toString());
                         if(type!=1){//id为空则是添加，否则是修改
                             request14.add("KeyNo",DataManager.allcountsList.get(0).EnterAddtionID);
-                            request14.add("token",SearchFirmActivty.MD5s(DataManager.allcountsList.get(0).EnterAddtionID + (new Build()).MODEL));
+                            request14.add("token",MD5.MD5s(DataManager.allcountsList.get(0).EnterAddtionID + (new Build()).MODEL));
                             request14.add("openType","0");//0为添加，1为修改
                         }else{
                             request14.add("KeyNo",DataManager.MyClaimUtilsModel.data.Claimlist.get(position).CLAIMID);
-                            request14.add("token",SearchFirmActivty.MD5s(DataManager.MyClaimUtilsModel.data.Claimlist.get(position).CLAIMID + (new Build()).MODEL));
+                            request14.add("token",MD5.MD5s(DataManager.MyClaimUtilsModel.data.Claimlist.get(position).CLAIMID + (new Build()).MODEL));
                             request14.add("openType","1");//0为添加，1为修改
                         }
                         CallServer.getInstance().add(ToClaimActivity.this, request14, MyhttpCallBack.getInstance(), 0x301, true, false, true);

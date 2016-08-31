@@ -17,7 +17,7 @@ import com.example.credit.R;
 import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ViewInject;
 
-public class NewsContentActivity extends Activity {
+public class NewsContentActivity extends BaseActivity {
     @ViewInject(R.id.b_return)
     LinearLayout b_return;
     @ViewInject(R.id.b_topname)

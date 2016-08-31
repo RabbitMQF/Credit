@@ -27,8 +27,7 @@ import com.example.credit.R;
 import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ViewInject;
 
-public class ContactsActivity extends Activity
-{
+public class ContactsActivity extends Activity{
 	public PinyinComparator comparator = new PinyinComparator();
 	@ViewInject(R.id.txt_user_list_user_num)
 	private TextView userListNumTxt;

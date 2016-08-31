@@ -20,6 +20,7 @@ import com.example.credit.Services.CallServer;
 import com.example.credit.Utils.ContainsEmojiEditText;
 import com.example.credit.Utils.CreditSharePreferences;
 import com.example.credit.Utils.GsonUtil;
+import com.example.credit.Utils.MD5;
 import com.example.credit.Utils.MyhttpCallBack;
 import com.example.credit.Utils.URLconstant;
 import com.lidroid.xutils.ViewUtils;
@@ -114,7 +115,7 @@ public class ToCommentActivity extends BaseActivity {
                     if(!To_details.getText().toString().equals("")){
                         wd.show();
                         String KeyNo= DataManager.allcountsList.get(0).EnterAddtionID;
-                        String token = SearchFirmActivty.MD5s(KeyNo + deviceId);
+                        String token = MD5.MD5s(KeyNo + deviceId);
                         GsonUtil request14 = new GsonUtil(URLconstant.URLINSER + URLconstant.HHOMM, RequestMethod.GET);
                         request14.add("KeyNo",KeyNo);
                         request14.add("token",token);

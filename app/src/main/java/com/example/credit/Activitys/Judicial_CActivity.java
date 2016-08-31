@@ -23,7 +23,7 @@ import java.util.List;
 /**
  * 司法信息详情页
  */
-public class Judicial_CActivity extends Activity {
+public class Judicial_CActivity extends BaseActivity {
     @ViewInject(R.id.b_return)
     LinearLayout b_return;
     @ViewInject(R.id.b_topname)

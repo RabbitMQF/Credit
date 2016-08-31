@@ -34,7 +34,7 @@ import Decoder.BASE64Decoder;
 /**
  * 认领详情界面
  */
-public class ClaimDetailsActivity extends Activity {
+public class ClaimDetailsActivity extends BaseActivity {
     @ViewInject(R.id.b_topname)
     TextView b_topname;
     @ViewInject(R.id.b_return)

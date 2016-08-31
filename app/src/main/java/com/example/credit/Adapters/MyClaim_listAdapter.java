@@ -26,6 +26,7 @@ import com.example.credit.R;
 import com.example.credit.Services.CallServer;
 import com.example.credit.Utils.CreditSharePreferences;
 import com.example.credit.Utils.GsonUtil;
+import com.example.credit.Utils.MD5;
 import com.example.credit.Utils.MyhttpCallBack;
 import com.example.credit.Utils.URLconstant;
 import com.yolanda.nohttp.RequestMethod;
@@ -104,7 +105,7 @@ public class MyClaim_listAdapter extends BaseAdapter {
                 if(a<b){
                     GsonUtil MyClaimRuerst = new GsonUtil(URLconstant.URLINSER + URLconstant.MYCLAIMURL, RequestMethod.GET);
                     MyClaimRuerst.add("deviceId",(new Build()).MODEL);
-                    MyClaimRuerst.add("token", SearchFirmActivty.MD5s(csp.getID() + (new Build()).MODEL));
+                    MyClaimRuerst.add("token", MD5.MD5s(csp.getID() + (new Build()).MODEL));
                     MyClaimRuerst.add("KeyNo",csp.getID());
                     MyClaimRuerst.add("claimId",list.get(position).CLAIMID);
                     CallServer.getInstance().add(context,MyClaimRuerst, MyhttpCallBack.getInstance(),0x304,true,false,true);
@@ -129,7 +130,7 @@ public class MyClaim_listAdapter extends BaseAdapter {
                 MyClaimActivity.wd.show();
                 GsonUtil MyClaimRuerst = new GsonUtil(URLconstant.URLINSER + URLconstant.DISSCLAIMURL, RequestMethod.GET);
                 MyClaimRuerst.add("deviceId",(new Build()).MODEL);
-                MyClaimRuerst.add("token", SearchFirmActivty.MD5s(csp.getID() + (new Build()).MODEL));
+                MyClaimRuerst.add("token", MD5.MD5s(csp.getID() + (new Build()).MODEL));
                 MyClaimRuerst.add("KeyNo",csp.getID());
                 MyClaimRuerst.add("enterId",list.get(position).ENTERID);
                 CallServer.getInstance().add(context,MyClaimRuerst, MyhttpCallBack.getInstance(),0x305,true,false,true);

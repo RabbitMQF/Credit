@@ -1,7 +1,9 @@
 package com.example.credit.Activitys;
 
 import android.app.Activity;
+import android.os.Build;
 import android.view.KeyEvent;
+import android.view.View;
 
 import com.example.credit.R;
 
@@ -19,7 +21,6 @@ public class BaseActivity extends Activity {
         }
         return super.onKeyDown(keyCode, event);
     }
-
 }
 
 

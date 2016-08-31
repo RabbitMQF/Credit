@@ -208,7 +208,7 @@
                             android:lines="1"
                             android:text="标题标题标题标题"
                             android:textColor="#000000"
-                            android:textSize="18sp" />
+                            android:textSize="@dimen/ctitle_size" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -222,7 +222,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="申请人:"
-
+                            android:textSize="@dimen/ctitle_size"
                             />
 
                         <TextView
@@ -233,7 +233,8 @@
                             android:ellipsize="end"
                             android:lines="1"
                             android:text="跟鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼"
-                            android:textColor="#57737D" />
+                            android:textColor="#57737D"
+                            android:textSize="@dimen/ctest_size"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -247,7 +248,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="申请号:"
-
+                            android:textSize="@dimen/ctitle_size"
                             />
 
                         <TextView
@@ -258,7 +259,8 @@
                             android:ellipsize="end"
                             android:lines="1"
                             android:text="2015-15-15"
-                            android:textColor="#57737D" />
+                            android:textColor="#57737D"
+                            android:textSize="@dimen/ctest_size"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -272,7 +274,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="申请日期:"
-
+                            android:textSize="@dimen/ctitle_size"
                             />
 
                         <TextView
@@ -283,7 +285,8 @@
                             android:ellipsize="end"
                             android:lines="1"
                             android:text="跟鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼"
-                            android:textColor="#57737D" />
+                            android:textColor="#57737D"
+                            android:textSize="@dimen/ctest_size"/>
                     </LinearLayout>
 
                 </LinearLayout>
@@ -386,7 +389,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="我的专利独一无二我的专利独一无二我的专利独一无二"
-                        android:textColor="#57737D" />
+                        android:textColor="#57737D"
+                        android:textSize="@dimen/ctitle_size"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -408,7 +412,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="2015-05-15"
-                        android:textColor="#57737D" />
+                        android:textColor="#57737D"
+                        android:textSize="@dimen/ctitle_size"/>
                 </LinearLayout>
             </LinearLayout>
 
@@ -446,7 +451,8 @@
             android:background="@mipmap/public_biaoqian"
             android:gravity="center"
             android:text="滑稽"
-            android:textColor="#FFFFFF" />
+            android:textColor="#FFFFFF"
+            android:textSize="@dimen/ctest_size"/>
     </FrameLayout>
     <!--商标-->
 
@@ -521,7 +527,8 @@
                             android:layout_margin="0.5dp"
                             android:background="@drawable/shangb_text_bg_2"
                             android:text="商标状态商标状态商标状态"
-                            android:textColor="#30ff79" />
+                            android:textColor="#30ff79"
+                            android:textSize="@dimen/ctitle_size"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -542,7 +549,8 @@
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="5dip"
                             android:text="跟鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼"
-                            android:textColor="#57737D" />
+                            android:textColor="#57737D"
+                            android:textSize="@dimen/ctest_size"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -563,7 +571,8 @@
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="5dip"
                             android:text="2015-15-15"
-                            android:textColor="#57737D" />
+                            android:textColor="#57737D"
+                            android:textSize="@dimen/ctest_size"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -584,7 +593,8 @@
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="5dip"
                             android:text="跟鬼鬼鬼鬼鬼鬼鬼鬼鬼鬼"
-                            android:textColor="#57737D" />
+                            android:textColor="#57737D"
+                            android:textSize="@dimen/ctest_size"/>
                     </LinearLayout>
 
                 </LinearLayout>
@@ -633,39 +643,6 @@
         </FrameLayout>
     </LinearLayout>
 
-    <FrameLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="gone">
-
-        <com.example.credit.Views.RoundImageView
-            android:layout_width="90dp"
-            android:layout_height="90dp"
-            android:src="@mipmap/detail_fff" />
-
-        <FrameLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center">
-
-            <com.example.credit.Views.RoundImageView
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:src="@mipmap/detail_ccc" />
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:orientation="vertical">
-
-                <com.example.credit.Views.RoundImageView
-                    android:layout_width="70dp"
-                    android:layout_height="70dp"
-                    android:background="@mipmap/public_sb_bg" />
-            </LinearLayout>
-        </FrameLayout>
-    </FrameLayout>
 
     <FrameLayout
         android:id="@+id/public_5"

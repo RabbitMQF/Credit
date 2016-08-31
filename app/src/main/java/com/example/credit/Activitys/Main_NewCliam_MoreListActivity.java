@@ -18,6 +18,7 @@ import com.example.credit.R;
 import com.example.credit.Services.CallServer;
 import com.example.credit.Utils.CreditSharePreferences;
 import com.example.credit.Utils.GsonUtil;
+import com.example.credit.Utils.MD5;
 import com.example.credit.Utils.MyhttpCallBack;
 import com.example.credit.Utils.URLconstant;
 import com.lidroid.xutils.ViewUtils;
@@ -70,7 +71,7 @@ public class Main_NewCliam_MoreListActivity extends BaseActivity {
                     ad.show();
                     falg=true;
                     String KeyNo = DataManager.MyClaimUtilsModel.data.Claimlist.get(position).PRIPID;//市场主体身份代码
-                    String token = SearchFirmActivty.MD5s(KeyNo + (new Build()).MODEL);
+                    String token = MD5.MD5s(KeyNo + (new Build()).MODEL);
                     GsonUtil requst = new GsonUtil(URLconstant.URLINSER + URLconstant.GETITEMNUM, RequestMethod.GET);
                     requst.add("KeyNo", KeyNo);
                     requst.add("token", token);

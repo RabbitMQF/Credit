@@ -21,7 +21,7 @@
             android:layout_marginRight="2dip"
             android:maxLines="1"
             android:textColor="#000000"
-            android:textSize="14sp"
+            android:textSize="@dimen/ctitle_size"
             />
 
         <TextView
@@ -30,7 +30,7 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="2dip"
             android:textColor="#B8B8B8"
-            android:textSize="14sp"
+            android:textSize="@dimen/ctest_size"
             />
 
     </LinearLayout>

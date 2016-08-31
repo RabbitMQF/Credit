@@ -67,7 +67,6 @@ import java.util.Random;
  * Created by alucard on 2016-05-12.
  */
 public class SearchFirmActivty extends BaseActivity implements PullToRefreshView.OnHeaderRefreshListener, PullToRefreshView.OnFooterRefreshListener,GestureDetector.OnGestureListener {
-    public static final String ENCODEING_TRYPE = "UTF-8";
     public static final String SEARCH_HISTORY = "search_history";
     public static final int NOHTTP_SEARCH = 0x022;
     public static ContainsEmojiEditText searchEt;
@@ -167,7 +166,7 @@ public class SearchFirmActivty extends BaseActivity implements PullToRefreshView
                                 po = position;
                                 pd.show();
                                 String KeyNo = DataManager.searchList.get(position).PRIPID;//市场主体身份代码
-                                String token = MD5s(KeyNo + model);
+                                String token =MD5.MD5s(KeyNo + model);
                                 GsonUtil requst = new GsonUtil(URLconstant.URLINSER + URLconstant.GETITEMNUM, RequestMethod.GET);
                                 requst.setReadTimeout(30000);
                                 requst.setConnectTimeout(30000);
@@ -792,34 +791,6 @@ public class SearchFirmActivty extends BaseActivity implements PullToRefreshView
         }
     };
 
-
-    /**
-     * MD5加密
-     *
-     * @param s
-     * @return
-     */
-    public final static String MD5s(String s) {
-        try {
-
-            MessageDigest mdInst = MessageDigest.getInstance("MD5");
-            byte[] btInput = s.getBytes(ENCODEING_TRYPE);
-            mdInst.update(btInput);
-            byte[] md = mdInst.digest();
-            StringBuffer sb = new StringBuffer();
-            for (int i = 0; i < md.length; i++) {
-                int val = ((int) md[i]) & 0xff;
-                if (val < 16)
-                    sb.append("0");
-                sb.append(Integer.toHexString(val));
-
-            }
-            return sb.toString();
-        } catch (Exception e) {
-            return null;
-        }
-    }
-
     /**
      * 历史记录悬浮动画效果监听手势滑动如果滑动就随机乱序
      *
@@ -1080,7 +1051,7 @@ public class SearchFirmActivty extends BaseActivity implements PullToRefreshView
 
         //model = Settings.System.getString(getContentResolver(), Settings.System.ANDROID_ID);
         String Tname = searchEt.getText().toString();
-        String Tks = MD5s(Tname + model);
+        String Tks = MD5.MD5s(Tname + model);
 
 
         //历史记录保存本地SP
@@ -1197,7 +1168,7 @@ public class SearchFirmActivty extends BaseActivity implements PullToRefreshView
                 if (t <=  MyhttpCallBack.baging.TotalPage) {
                     GsonUtil request = new GsonUtil(URLconstant.URLINSER + URLconstant.SEARCHURL, RequestMethod.GET);
                     request.setReadTimeout(50000);
-                    request.add("token",  MD5s(searchEt.getText().toString() + model));//加密结果
+                    request.add("token",  MD5.MD5s(searchEt.getText().toString() + model));//加密结果
                     request.add("searchKey", searchEt.getText().toString());//string搜索关键字
                     request.add("deviceId", model);//设备ID
                     request.add("memberId", csp.getID());//86D9D7F53FCA45DD93E2D83DFCA0CB42  记录用户搜索关键字

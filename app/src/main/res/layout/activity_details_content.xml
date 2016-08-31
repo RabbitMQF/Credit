@@ -136,7 +136,7 @@
                         android:gravity="center"
                         android:text="登记信息"
                         android:textColor="#ffffff"
-                        android:textSize="18sp" />
+                        android:textSize="16sp" />
 
                     <com.example.credit.Views.MyGridView
                         android:id="@+id/myGridView3"
@@ -154,16 +154,16 @@
                         android:layout_marginRight="10dp"
                         android:background="@drawable/details_con_bg"
                         android:orientation="vertical"
-                        android:paddingBottom="10dp"
+                        android:paddingBottom="5dp"
                         android:paddingLeft="10dp"
-                        android:paddingTop="10dp">
+                        android:paddingTop="5dp">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="类型"
                             android:textColor="#000000"
-                            android:textSize="16sp" />
+                            android:textSize="@dimen/ctitle_size" />
 
                         <TextView
                             android:id="@+id/c_type"
@@ -172,7 +172,7 @@
                             android:layout_marginTop="5dp"
                             android:text="有限"
                             android:textColor="#57737D"
-                            android:textSize="14sp" />
+                            android:textSize="@dimen/ctest_size" />
 
                     </LinearLayout>
 
@@ -184,16 +184,16 @@
                         android:layout_marginTop="10dp"
                         android:background="@drawable/details_con_bg"
                         android:orientation="vertical"
-                        android:paddingBottom="10dp"
+                        android:paddingBottom="5dp"
                         android:paddingLeft="10dp"
-                        android:paddingTop="10dp">
+                        android:paddingTop="5dp">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="经营状态"
                             android:textColor="#000000"
-                            android:textSize="16sp" />
+                            android:textSize="@dimen/ctitle_size" />
 
                         <TextView
                             android:id="@+id/c_state"
@@ -202,7 +202,7 @@
                             android:layout_marginTop="5dp"
                             android:text="开业"
                             android:textColor="#57737D"
-                            android:textSize="14sp" />
+                            android:textSize="@dimen/ctest_size" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -213,16 +213,16 @@
                         android:layout_marginTop="10dp"
                         android:background="@drawable/details_con_bg"
                         android:orientation="vertical"
-                        android:paddingBottom="10dp"
+                        android:paddingBottom="5dp"
                         android:paddingLeft="10dp"
-                        android:paddingTop="10dp">
+                        android:paddingTop="5dp">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="经营范围"
                             android:textColor="#000000"
-                            android:textSize="16sp" />
+                            android:textSize="@dimen/ctitle_size" />
 
                         <TextView
                             android:id="@+id/c_fangwei"
@@ -231,7 +231,7 @@
                             android:layout_marginTop="5dp"
                             android:text="水水水水的阿飞"
                             android:textColor="#57737D"
-                            android:textSize="14sp" />
+                            android:textSize="@dimen/ctest_size" />
 
                     </LinearLayout>
 
@@ -243,16 +243,16 @@
                         android:layout_marginTop="10dp"
                         android:background="@drawable/details_con_bg"
                         android:orientation="vertical"
-                        android:paddingBottom="10dp"
+                        android:paddingBottom="5dp"
                         android:paddingLeft="10dp"
-                        android:paddingTop="10dp">
+                        android:paddingTop="5dp">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="公司地址"
                             android:textColor="#000000"
-                            android:textSize="16sp" />
+                            android:textSize="@dimen/ctitle_size" />
 
                         <TextView
                             android:id="@+id/c_address"
@@ -261,7 +261,7 @@
                             android:layout_marginTop="5dp"
                             android:text="水水水水水水水"
                             android:textColor="#57737D"
-                            android:textSize="14sp" />
+                            android:textSize="@dimen/ctest_size" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -272,16 +272,16 @@
                         android:layout_marginTop="10dp"
                         android:background="@drawable/details_con_bg"
                         android:orientation="vertical"
-                        android:paddingBottom="10dp"
+                        android:paddingBottom="5dp"
                         android:paddingLeft="10dp"
-                        android:paddingTop="10dp">
+                        android:paddingTop="5dp">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="经营期限"
                             android:textColor="#000000"
-                            android:textSize="16sp" />
+                            android:textSize="@dimen/ctitle_size" />
 
                         <TextView
                             android:id="@+id/c_datetiem"
@@ -289,7 +289,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="5dp"
                             android:textColor="#57737D"
-                            android:textSize="14sp" />
+                            android:textSize="@dimen/ctest_size" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -300,16 +300,16 @@
                         android:layout_marginTop="10dp"
                         android:background="@drawable/details_con_bg"
                         android:orientation="vertical"
-                        android:paddingBottom="10dp"
+                        android:paddingBottom="5dp"
                         android:paddingLeft="10dp"
-                        android:paddingTop="10dp">
+                        android:paddingTop="5dp">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="登记机关"
                             android:textColor="#000000"
-                            android:textSize="16sp" />
+                            android:textSize="@dimen/ctitle_size" />
 
                         <TextView
                             android:id="@+id/c_djjg"
@@ -318,7 +318,7 @@
                             android:layout_marginTop="5dp"
                             android:text="工商局"
                             android:textColor="#57737D"
-                            android:textSize="14sp" />
+                            android:textSize="@dimen/ctest_size" />
                     </LinearLayout>
 
                     <TextView
@@ -330,7 +330,7 @@
                         android:gravity="center"
                         android:text="投资人"
                         android:textColor="#ffffff"
-                        android:textSize="18sp" />
+                        android:textSize="16sp" />
                     <com.example.credit.Views.MyGridView
                         android:id="@+id/myGridViewp"
                         android:layout_width="match_parent"
@@ -348,10 +348,10 @@
                         android:background="@drawable/details_con_bg"
                         android:gravity="center"
                         android:orientation="vertical"
-                        android:paddingBottom="10dp"
+                        android:paddingBottom="5dp"
                         android:visibility="gone"
                         android:paddingLeft="10dp"
-                        android:paddingTop="10dp">
+                        android:paddingTop="5dp">
 
                         <TextView
                             android:layout_width="match_parent"
@@ -359,7 +359,7 @@
                             android:layout_marginTop="5dp"
                             android:text="该企业没有相关信息"
                             android:textColor="#57737D"
-                            android:textSize="14sp" />
+                            android:textSize="@dimen/ctest_size" />
                     </LinearLayout>
 
                     <TextView
@@ -371,7 +371,7 @@
                         android:gravity="center"
                         android:text="主要人员"
                         android:textColor="#ffffff"
-                        android:textSize="18sp" />
+                        android:textSize="16sp" />
 
                     <com.example.credit.Views.MyGridView
                         android:id="@+id/myGridViewZY"
@@ -390,10 +390,10 @@
                         android:background="@drawable/details_con_bg"
                         android:gravity="center"
                         android:orientation="vertical"
-                        android:paddingBottom="10dp"
+                        android:paddingBottom="5dp"
                         android:visibility="gone"
                         android:paddingLeft="10dp"
-                        android:paddingTop="10dp">
+                        android:paddingTop="5dp">
 
                         <TextView
                             android:layout_width="match_parent"
@@ -401,7 +401,7 @@
                             android:layout_marginTop="5dp"
                             android:text="该企业没有相关信息"
                             android:textColor="#57737D"
-                            android:textSize="14sp" />
+                            android:textSize="@dimen/ctest_size" />
                     </LinearLayout>
 
                     <TextView
@@ -413,7 +413,7 @@
                         android:gravity="center"
                         android:text="工商变更"
                         android:textColor="#ffffff"
-                        android:textSize="18sp" />
+                        android:textSize="16sp" />
 
                     <com.example.credit.Views.MyListView
                         android:id="@+id/GSmylist"
@@ -435,10 +435,10 @@
                         android:background="@drawable/details_con_bg"
                         android:gravity="center"
                         android:orientation="vertical"
-                        android:paddingBottom="10dp"
+                        android:paddingBottom="5dp"
                         android:visibility="gone"
                         android:paddingLeft="10dp"
-                        android:paddingTop="10dp">
+                        android:paddingTop="5dp">
 
                         <TextView
                             android:layout_width="match_parent"
@@ -446,7 +446,7 @@
                             android:layout_marginTop="5dp"
                             android:text="该企业没有相关信息"
                             android:textColor="#57737D"
-                            android:textSize="14sp" />
+                            android:textSize="@dimen/ctest_size" />
                     </LinearLayout>
                     <TextView
                         android:id="@+id/c_tv5"
@@ -457,7 +457,7 @@
                         android:gravity="center"
                         android:text="分支机构"
                         android:textColor="#ffffff"
-                        android:textSize="18sp" />
+                        android:textSize="16sp" />
                     <com.example.credit.Views.MyListView
                         android:id="@+id/myGridViewZYfz"
                         android:layout_width="match_parent"
@@ -489,7 +489,7 @@
                             android:layout_marginTop="5dp"
                             android:text="该企业没有相关信息"
                             android:textColor="#57737D"
-                            android:textSize="14sp" />
+                            android:textSize="@dimen/ctest_size" />
                     </LinearLayout>
 
                 </LinearLayout>

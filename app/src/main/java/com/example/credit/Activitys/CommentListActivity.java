@@ -242,7 +242,7 @@ public class CommentListActivity extends BaseActivity implements PullToRefreshVi
          */
         GsonUtil request14 = new GsonUtil(URLconstant.URLINSER + URLconstant.COMM, RequestMethod.GET);
         request14.add("deviceId", (new Build()).MODEL);
-        request14.add("token", SearchFirmActivty.MD5s(DataManager.allcountsList.get(0).EnterAddtionID + (new Build()).MODEL));
+        request14.add("token", MD5.MD5s(DataManager.allcountsList.get(0).EnterAddtionID + (new Build()).MODEL));
         request14.add("KeyNo", DataManager.allcountsList.get(0).EnterAddtionID);
         if (!csp.getLoginStatus()) {//判定是否登录
             request14.add("memberId", "");

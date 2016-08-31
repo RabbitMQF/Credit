@@ -1,17 +1,16 @@
 package com.example.credit.Views;
 
 import android.app.ActivityManager;
-import android.app.KeyguardManager;
 import android.content.ComponentName;
 import android.content.Context;
-import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.Bitmap.CompressFormat;
 import android.graphics.BitmapFactory;
-import android.os.Debug;
 import android.os.Environment;
+
+import com.example.credit.Entitys.DataManager;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -19,6 +18,8 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.List;
+
+import Decoder.BASE64Decoder;
 
 public class FileUtil {
 
@@ -224,5 +225,38 @@ public class FileUtil {
         }
         return pi;
     }
-
+    public static void filenewsexists() {//创建文件夹
+        File destDir1 = new File(Environment.getExternalStorageDirectory() + "/Credit");//项目文件夹
+        File destDir2 = new File(Environment.getExternalStorageDirectory() + "/Credit/cache");//项目缓存文件夹
+        File destDir3 = new File(Environment.getExternalStorageDirectory() + "/Credit/TwoDimImg");//项目存放二维码文件夹
+        if (!destDir1.exists()) {
+            destDir1.mkdirs();
+        }
+        if (!destDir2.exists()) {
+            destDir2.mkdirs();
+        }
+        if (!destDir3.exists()) {
+            destDir3.mkdirs();
+        }
+    }
+    public static void imgscache() {
+        if (DataManager.LBimgS.data.Photolist != null && DataManager.LBimgS.data.Photolist.size()>0) {
+            for (int i = 0; i < DataManager.LBimgS.data.Photolist.size(); i++) {
+                if (DataManager.LBimgS.data.Photolist.get(i).ATTACHMENTPATH != null) {
+                    try {
+                        BASE64Decoder decode = new BASE64Decoder();
+                        byte[] b = decode.decodeBuffer(DataManager.LBimgS.data.Photolist.get(i).ATTACHMENTPATH);
+                        //把字节数组的图片写到另一个地方
+                        File apple = new File(Environment.getExternalStorageDirectory() + "/Credit/cache/CarouselImg"+i+".jpg");
+                        FileOutputStream fos = new FileOutputStream(apple);
+                        fos.write(b);
+                        fos.flush();
+                        fos.close();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }
+    }
 }

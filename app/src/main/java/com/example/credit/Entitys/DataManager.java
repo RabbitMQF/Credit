@@ -1916,5 +1916,38 @@ public class DataManager {
             public String DESCS;
         }
     }
+
+    public static LBimg LBimgS=new LBimg();
+    /**
+     *APP首页轮播图
+     */
+    public static class LBimg {
+        public String message;
+        public String status;
+        public DataBean data;
+        public String version;
+
+        public static class DataBean {
+            public PagingBean Paging;
+            public List<PhotolistBean> Photolist;
+
+            public static class PagingBean {
+                public int TotalPage;
+                public int ShowCount;
+                public int TotalResult;
+                public int CurrentResult;
+                public int CurrentPage;
+            }
+
+            public static class PhotolistBean {
+                public String ATTACHMENTNAME;
+                public String DESCRIPTION;
+                public String ID;
+                public String CREATEUSER;
+                public String CREATETIME;
+                public String ATTACHMENTPATH;
+            }
+        }
+    }
 }
 

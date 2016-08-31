@@ -22,7 +22,7 @@
             android:layout_marginTop="10dp"
             android:text="享受扶持政策的数额"
             android:textColor="#000000"
-            android:textSize="16sp" />
+            android:textSize="@dimen/ctitle_size" />
 
         <TextView
             android:id="@+id/sitem_tv1C"
@@ -31,7 +31,7 @@
             android:layout_marginTop="5dp"
             android:text="100万"
             android:textColor="#57737D"
-            android:textSize="14sp" />
+            android:textSize="@dimen/ctest_size" />
 
         <View
             android:background="#B8B8B8"
@@ -45,7 +45,7 @@
             android:layout_marginTop="10dp"
             android:text="享受扶持政策的内容"
             android:textColor="#000000"
-            android:textSize="16sp" />
+            android:textSize="@dimen/ctitle_size" />
 
         <TextView
             android:id="@+id/sitem_tv2C"
@@ -54,7 +54,7 @@
             android:layout_marginTop="5dp"
             android:text="国家级"
             android:textColor="#57737D"
-            android:textSize="14sp" />
+            android:textSize="@dimen/ctest_size" />
 
         <View
             android:background="#B8B8B8"
@@ -68,7 +68,7 @@
             android:layout_marginTop="10dp"
             android:text="实施扶持政策的部门"
             android:textColor="#000000"
-            android:textSize="16sp" />
+            android:textSize="@dimen/ctitle_size" />
 
         <TextView
             android:id="@+id/sitem_tv3C"
@@ -77,7 +77,7 @@
             android:layout_marginTop="5dp"
             android:text="江西省工商银行"
             android:textColor="#57737D"
-            android:textSize="14sp" />
+            android:textSize="@dimen/ctest_size" />
         <View
             android:background="#B8B8B8"
             android:layout_width="match_parent"
@@ -90,7 +90,7 @@
             android:layout_marginTop="10dp"
             android:text="实施扶持政策的日期"
             android:textColor="#000000"
-            android:textSize="16sp" />
+            android:textSize="@dimen/ctitle_size" />
 
         <TextView
             android:id="@+id/sitem_tv4C"
@@ -99,7 +99,7 @@
             android:layout_marginTop="5dp"
             android:text="2014年"
             android:textColor="#57737D"
-            android:textSize="14sp" />
+            android:textSize="@dimen/ctest_size" />
         <View
             android:background="#B8B8B8"
             android:layout_width="match_parent"

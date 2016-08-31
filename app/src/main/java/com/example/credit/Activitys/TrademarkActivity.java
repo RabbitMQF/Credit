@@ -123,7 +123,7 @@ public class TrademarkActivity extends BaseActivity implements PullToRefreshView
                 if(DataManager.trademarkModelS.data.Paging.TotalPage>size){
                     falg=true;
                     GsonUtil request11 = new GsonUtil(URLconstant.URLINSER + URLconstant.TRADEMARKURL, RequestMethod.GET);
-                    request11.add("token", SearchFirmActivty.MD5s(DataManager.BaseinfoList.get(0).PRIPID +  new Build().MODEL));
+                    request11.add("token", MD5.MD5s(DataManager.BaseinfoList.get(0).PRIPID +  new Build().MODEL));
                     request11.add("deviceId", new Build().MODEL);
                     request11.add("KeyNo", DataManager.BaseinfoList.get(0).PRIPID);
                     request11.add("priptype", DataManager.BaseinfoList.get(0).ENTTYPE);

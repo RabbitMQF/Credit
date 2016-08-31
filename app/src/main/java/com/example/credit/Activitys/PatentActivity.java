@@ -15,6 +15,7 @@ import com.example.credit.Entitys.DataManager;
 import com.example.credit.R;
 import com.example.credit.Services.CallServer;
 import com.example.credit.Utils.GsonUtil;
+import com.example.credit.Utils.MD5;
 import com.example.credit.Utils.MyhttpCallBack;
 import com.example.credit.Utils.PullToRefreshView;
 import com.example.credit.Utils.Toast;
@@ -107,7 +108,7 @@ public class PatentActivity extends BaseActivity implements  PullToRefreshView.O
                 if (DataManager.PatentInfoS.data.Paging.TotalPage>size){
                     falg = true;
                     GsonUtil request10 = new GsonUtil(URLconstant.URLINSER + URLconstant.PATENTURL, RequestMethod.GET);
-                    request10.add("token", SearchFirmActivty.MD5s(DataManager.BaseinfoList.get(0).PRIPID +  new Build().MODEL));
+                    request10.add("token", MD5.MD5s(DataManager.BaseinfoList.get(0).PRIPID +  new Build().MODEL));
                     request10.add("deviceId", new Build().MODEL);
                     request10.add("KeyNo", DataManager.BaseinfoList.get(0).PRIPID);
                     request10.add("priptype", DataManager.BaseinfoList.get(0).ENTTYPE);

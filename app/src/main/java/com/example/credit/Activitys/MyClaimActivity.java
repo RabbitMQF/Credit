@@ -128,7 +128,7 @@ public class MyClaimActivity extends BaseActivity {
     public void UInit() {
         GsonUtil MyClaimRuerst = new GsonUtil(URLconstant.URLINSER + URLconstant.MYCLAIMURL, RequestMethod.GET);
         MyClaimRuerst.add("deviceId", (new Build()).MODEL);
-        MyClaimRuerst.add("token", SearchFirmActivty.MD5s(csp.getID() + (new Build()).MODEL));
+        MyClaimRuerst.add("token", MD5.MD5s(csp.getID() + (new Build()).MODEL));
         MyClaimRuerst.add("KeyNo", csp.getID());
         CallServer.getInstance().add(MyClaimActivity.this, MyClaimRuerst, MyhttpCallBack.getInstance(), 0x3031, true, false, true);
 

@@ -30,6 +30,7 @@ import com.example.credit.R;
 import com.example.credit.Services.CallServer;
 import com.example.credit.Utils.CreditSharePreferences;
 import com.example.credit.Utils.GsonUtil;
+import com.example.credit.Utils.MD5;
 import com.example.credit.Utils.MyhttpCallBack;
 import com.example.credit.Utils.Toast;
 import com.example.credit.Utils.URLconstant;
@@ -205,7 +206,7 @@ public class UserSetActivity extends BaseActivity {
                         wd.show();
                         GsonUtil MyClaimRuerst = new GsonUtil(URLconstant.URLINSER + URLconstant.REVISEUSER, RequestMethod.POST);
                         MyClaimRuerst.add("deviceId", (new Build()).MODEL);
-                        MyClaimRuerst.add("token", SearchFirmActivty.MD5s(csf.getID() + (new Build()).MODEL));
+                        MyClaimRuerst.add("token", MD5.MD5s(csf.getID() + (new Build()).MODEL));
                         MyClaimRuerst.add("KeyNo", csf.getID());
                         if(!us_emils.getText().toString().equals(csf.getEMAIL())){
                             MyClaimRuerst.add("Email", us_emils.getText().toString());//邮箱
@@ -295,7 +296,7 @@ public class UserSetActivity extends BaseActivity {
                     sa=55;
                     GsonUtil  MyClaimRuerst1232= new GsonUtil(URLconstant.URLINSER + URLconstant.DICTIONARIE, RequestMethod.GET);
                     MyClaimRuerst1232.add("deviceId", (new Build()).MODEL);
-                    MyClaimRuerst1232.add("token", SearchFirmActivty.MD5s("" + (new Build()).MODEL));
+                    MyClaimRuerst1232.add("token", MD5.MD5s("" + (new Build()).MODEL));
                     MyClaimRuerst1232.add("KeyNo", "");
                     MyClaimRuerst1232.add("pname", "行业");
                     CallServer.getInstance().add(UserSetActivity.this, MyClaimRuerst1232, MyhttpCallBack.getInstance(), 0x4011, true, false, true);
@@ -307,7 +308,7 @@ public class UserSetActivity extends BaseActivity {
                     sa=66;
                     GsonUtil MyClaimRuerst123 = new GsonUtil(URLconstant.URLINSER + URLconstant.DICTIONARIE, RequestMethod.GET);
                     MyClaimRuerst123.add("deviceId", (new Build()).MODEL);
-                    MyClaimRuerst123.add("token", SearchFirmActivty.MD5s("" + (new Build()).MODEL));
+                    MyClaimRuerst123.add("token", MD5.MD5s("" + (new Build()).MODEL));
                     MyClaimRuerst123.add("KeyNo", "");
                     MyClaimRuerst123.add("pname", "学历");
                     CallServer.getInstance().add(UserSetActivity.this, MyClaimRuerst123, MyhttpCallBack.getInstance(), 0x4011, true, false, true);

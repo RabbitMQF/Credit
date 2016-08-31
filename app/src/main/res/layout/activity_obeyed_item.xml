@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:text="企业名称"
             android:textColor="#000000"
-            android:textSize="14sp" />
+            android:textSize="@dimen/ctitle_size" />
 
         <TextView
             android:id="@+id/puc_tv1"
@@ -28,7 +28,7 @@
             android:layout_marginTop="5dp"
             android:text="纳税先锋"
             android:textColor="#57737D"
-            android:textSize="12sp" />
+            android:textSize="@dimen/ctest_size" />
         <View
             android:background="#B8B8B8"
             android:layout_width="match_parent"
@@ -42,7 +42,7 @@
             android:layout_marginTop="10dp"
             android:text="注册号"
             android:textColor="#000000"
-            android:textSize="14sp" />
+            android:textSize="@dimen/ctitle_size" />
 
         <TextView
             android:id="@+id/puc_tv2"
@@ -51,7 +51,7 @@
             android:layout_marginTop="5dp"
             android:text="国家级"
             android:textColor="#57737D"
-            android:textSize="12sp" />
+            android:textSize="@dimen/ctest_size" />
         <View
             android:background="#B8B8B8"
             android:layout_width="match_parent"
@@ -64,7 +64,7 @@
             android:layout_marginTop="10dp"
             android:text="统一社会信用代码"
             android:textColor="#000000"
-            android:textSize="14sp" />
+            android:textSize="@dimen/ctitle_size" />
 
         <TextView
             android:id="@+id/puc_tv3"
@@ -73,7 +73,7 @@
             android:layout_marginTop="5dp"
             android:text="国家级"
             android:textColor="#57737D"
-            android:textSize="12sp" />
+            android:textSize="@dimen/ctest_size" />
         <View
             android:background="#B8B8B8"
             android:layout_width="match_parent"
@@ -86,7 +86,7 @@
             android:layout_marginTop="10dp"
             android:text="内容"
             android:textColor="#000000"
-            android:textSize="14sp" />
+            android:textSize="@dimen/ctitle_size" />
 
         <TextView
             android:id="@+id/puc_tv4"
@@ -95,7 +95,7 @@
             android:layout_marginTop="5dp"
             android:text="国家级"
             android:textColor="#57737D"
-            android:textSize="12sp" />
+            android:textSize="@dimen/ctest_size" />
         <View
             android:background="#B8B8B8"
             android:layout_width="match_parent"
@@ -108,7 +108,7 @@
             android:layout_marginTop="10dp"
             android:text="认定日期"
             android:textColor="#000000"
-            android:textSize="14sp" />
+            android:textSize="@dimen/ctitle_size" />
 
         <TextView
             android:id="@+id/puc_tv5"
@@ -117,7 +117,7 @@
             android:layout_marginTop="5dp"
             android:text="国家级"
             android:textColor="#57737D"
-            android:textSize="12sp" />
+            android:textSize="@dimen/ctest_size" />
         <View
             android:background="#B8B8B8"
             android:layout_width="match_parent"
@@ -130,7 +130,7 @@
             android:layout_marginTop="10dp"
             android:text="认定机关"
             android:textColor="#000000"
-            android:textSize="14sp" />
+            android:textSize="@dimen/ctitle_size" />
 
         <TextView
             android:id="@+id/puc_tv6"
@@ -139,7 +139,7 @@
             android:layout_marginTop="5dp"
             android:text="国家级"
             android:textColor="#57737D"
-            android:textSize="12sp" />
+            android:textSize="@dimen/ctest_size" />
         <View
             android:background="#B8B8B8"
             android:layout_width="match_parent"
@@ -152,7 +152,7 @@
             android:layout_marginTop="10dp"
             android:text="状态"
             android:textColor="#000000"
-            android:textSize="14sp" />
+            android:textSize="@dimen/ctitle_size" />
 
         <TextView
             android:id="@+id/puc_tv7"
@@ -161,7 +161,7 @@
             android:layout_marginTop="5dp"
             android:text="状态"
             android:textColor="#57737D"
-            android:textSize="12sp" />
+            android:textSize="@dimen/ctest_size" />
         <View
             android:background="#B8B8B8"
             android:layout_width="match_parent"

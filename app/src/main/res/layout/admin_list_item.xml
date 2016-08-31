@@ -13,10 +13,9 @@
         android:layout_marginRight="10dp"
         android:background="@drawable/details_con_bg"
         android:orientation="vertical"
-        android:paddingBottom="10dp"
+        android:paddingBottom="5dp"
         android:paddingLeft="10dp"
-        android:paddingTop="10dp">
-
+        android:paddingTop="5dp">
         <TextView
             android:id="@+id/apripid_tit"
             android:layout_width="wrap_content"
@@ -24,7 +23,7 @@
             android:layout_marginRight="5dp"
             android:text="主体身份代码"
             android:textColor="#000000"
-            android:textSize="16sp" />
+            android:textSize="@dimen/ctitle_size" />
 
         <TextView
             android:id="@+id/apripid"
@@ -32,7 +31,7 @@
             android:layout_height="wrap_content"
             android:text="123123123131"
             android:textColor="#57737D"
-            android:textSize="14sp" />
+            android:textSize="@dimen/ctest_size" />
 
         <View
             android:background="#B8B8B8"
@@ -48,7 +47,7 @@
             android:layout_marginTop="5dp"
             android:text="许可文件名称"
             android:textColor="#000000"
-            android:textSize="16sp" />
+            android:textSize="@dimen/ctitle_size" />
 
         <TextView
             android:id="@+id/aname"
@@ -56,7 +55,7 @@
             android:layout_height="wrap_content"
             android:text="4561561651"
             android:textColor="#57737D"
-            android:textSize="14sp" />
+            android:textSize="@dimen/ctest_size" />
 
         <View
             android:background="#B8B8B8"
@@ -72,7 +71,7 @@
             android:layout_marginTop="5dp"
             android:text="许可文件编号"
             android:textColor="#000000"
-            android:textSize="16sp" />
+            android:textSize="@dimen/ctitle_size" />
 
         <TextView
             android:id="@+id/ano"
@@ -80,7 +79,7 @@
             android:layout_height="wrap_content"
             android:text="2019年11月12日-2020年11月20日"
             android:textColor="#57737D"
-            android:textSize="14sp" />
+            android:textSize="@dimen/ctest_size" />
 
         <View
             android:background="#B8B8B8"
@@ -96,7 +95,7 @@
             android:layout_marginTop="5dp"
             android:text="有效期自"
             android:textColor="#000000"
-            android:textSize="16sp" />
+            android:textSize="@dimen/ctitle_size" />
 
         <TextView
             android:id="@+id/atime"
@@ -104,7 +103,7 @@
             android:layout_height="wrap_content"
             android:text="南昌经开区**局"
             android:textColor="#57737D"
-            android:textSize="14sp" />
+            android:textSize="@dimen/ctest_size" />
         <View
             android:background="#B8B8B8"
             android:layout_width="match_parent"
@@ -118,7 +117,7 @@
             android:layout_marginTop="5dp"
             android:text="许可机关"
             android:textColor="#000000"
-            android:textSize="16sp" />
+            android:textSize="@dimen/ctitle_size" />
 
         <TextView
             android:id="@+id/aoffice"
@@ -126,7 +125,7 @@
             android:layout_height="wrap_content"
             android:text="2015年1月30日"
             android:textColor="#57737D"
-            android:textSize="14sp" />
+            android:textSize="@dimen/ctest_size" />
         <View
             android:background="#B8B8B8"
             android:layout_width="match_parent"
@@ -141,7 +140,7 @@
             android:layout_marginTop="5dp"
             android:text="有效期止"
             android:textColor="#000000"
-            android:textSize="16sp" />
+            android:textSize="@dimen/ctitle_size" />
 
         <TextView
             android:id="@+id/adate"
@@ -150,7 +149,7 @@
             android:layout_marginRight="10dp"
             android:text="6546546546546456465465"
             android:textColor="#57737D"
-            android:textSize="14sp" />
+            android:textSize="@dimen/ctest_size" />
         <View
             android:background="#B8B8B8"
             android:layout_width="match_parent"

@@ -94,7 +94,7 @@ public class MyhttpCallBack implements HttpCallBack {
                 case 0x110://获取APP最新版本
                     jsonString = (String) response.get();
                     DataManager.MyNewAppS = gson.fromJson(jsonString, DataManager.MyNewApp.class);
-                    WelcomeActivity.handler.sendEmptyMessage(0);
+                    WelcomeActivity.handler.sendEmptyMessage(1);
                     break;
                 case 0x111://获取新闻
                     jsonString = (String) response.get();
@@ -115,6 +115,11 @@ public class MyhttpCallBack implements HttpCallBack {
                     } else {
                         MainActivity.handler.sendEmptyMessage(101);
                     }
+                    break;
+                case 0x112://获取APP首页轮播图
+                    jsonString = (String) response.get();
+                    DataManager.LBimgS = gson.fromJson(jsonString, DataManager.LBimg.class);
+                    WelcomeActivity.handler.sendEmptyMessage(0);
                     break;
                 case 0x113://获取最新认领
                     jsonString = (String) response.get();

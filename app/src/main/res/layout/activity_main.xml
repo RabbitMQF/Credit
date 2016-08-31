@@ -282,7 +282,7 @@
                             <com.example.credit.Views.ImageCycleView
                                 android:id="@+id/icv_topView"
                                 android:layout_width="match_parent"
-                                android:layout_height="80dp"></com.example.credit.Views.ImageCycleView>
+                                android:layout_height="80dp"/>
                         </LinearLayout>
 
                         <RelativeLayout

@@ -31,7 +31,7 @@ import static com.example.credit.Views.FileUtil.saveBitmap;
 /**
  * 二维码详情页
  */
-public class TwoDimActivity extends Activity {
+public class TwoDimActivity extends BaseActivity {
     @ViewInject(R.id.b_topname)
     TextView b_topname;
     @ViewInject(R.id.b_return)

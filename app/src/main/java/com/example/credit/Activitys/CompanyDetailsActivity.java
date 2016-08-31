@@ -49,24 +49,14 @@ import java.util.List;
  */
 public class CompanyDetailsActivity extends BaseActivity {
     public static WaitDialog waitDialog;
-//    @ViewInject(R.id.sc)
-//    ScrollView mScrollView;
-
     @ViewInject(R.id.d_return)
     LinearLayout d_return;
-
-    @ViewInject(R.id.details_logo)
-    ImageView details_logo;
     @ViewInject(R.id.cp_name)
     TextView cp_name;
     @ViewInject(R.id.details_tit1)//浏览量
             TextView details_tit1;
-
     @ViewInject(R.id.saveG)
     LinearLayout saveG;
-    @ViewInject(R.id.details_tit3)
-    TextView details_tit3;
-
     @ViewInject(R.id.vg)
     RelativeLayout vg;
     @ViewInject(R.id.state_tv)
@@ -87,28 +77,15 @@ public class CompanyDetailsActivity extends BaseActivity {
     TextView enttype;//市场主体类型
     @ViewInject(R.id.estdate)
     TextView estdate;//成立日期
-
-    int a1 = 0, a2 = 0, a3 = 0, a4 = 0, a5 = 0, a6 = 0, a7 = 0, a8 = 0, a9 = 0, a10 = 0, a11 = 0, a12 = 0, a13 = 0, a14 = 0, a15 = 0, a16 = 0;
     MyGridAdapter2 adapter2;
     private final int MSG = 0x015;
-
-    //    List<DataManager.search> detailsList = new ArrayList<DataManager.search>();
     public String[] arrays3 = {"注册资本", "法定代表人", "发照日期", "成立日期",
             "工商注册号", "组织机构代码"};
-
     public String[] arrays4;
-
-
     public String[] arrays1 = {"工商信息", "行政审批", "荣誉信息", "扶持信息",
             "抵押信息", "出质信息", "司法信息", "预警信息",
             "行政处罚", "经营异常", "专利信息", "商标信息",
             "著作权", "广告资质", "守合同重信用", "企业自主公示"};
-    public String[] arrays2 = {"+1", "+1", "+1", "+1",
-            "+1", "+1", "+1", "+1",
-            "+1", "+1", "+1", "+1",
-            "+1", "+1", "+1", "+1"};
-
-
     public int[] imgs1 = {R.mipmap.icon1, R.mipmap.icon2,
             R.mipmap.icon3, R.mipmap.icon4,
             R.mipmap.icon5, R.mipmap.icon6,
@@ -147,10 +124,8 @@ public class CompanyDetailsActivity extends BaseActivity {
     String KeyNos, tokens;
     CreditSharePreferences csp;
     int type, posit;
-
     AlertDialog.Builder builder;
     public static AlertDialog dialog;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -158,25 +133,23 @@ public class CompanyDetailsActivity extends BaseActivity {
         ViewUtils.inject(this);
         csp = CreditSharePreferences.getLifeSharedPreferences();
         waitDialog = new WaitDialog(this);
-//        mScrollView.smoothScrollTo(0, 20);
         Intent i = getIntent();
         posit = i.getIntExtra("posit", 0);
         type = i.getIntExtra("type", 0);
-//        detailsList = DataManager.searchList;
         Build bd = new Build();
         model = bd.MODEL;//设备ID
 
         if (DataManager.BaseinfoList.size() > 0) {
             KeyNo = DataManager.BaseinfoList.get(0).PRIPID;//市场主体身份代码
             enterId = DataManager.allcountsList.get(0).EnterAddtionID;//企业附加表ID
-            token = SearchFirmActivty.MD5s(KeyNo + model);//token 由 设备ID+市场主体身份代码 MD5生成
+            token = MD5.MD5s(KeyNo + model);//token 由 设备ID+市场主体身份代码 MD5生成
             regnore = DataManager.BaseinfoList.get(0).REGNO;//注册号
             KeyNos = DataManager.allcountsList.get(0).EnterAddtionID;//企业附加信息主键ID
         } else {
             Toast.show("暂无数据...");
         }
 
-        tokens = SearchFirmActivty.MD5s(KeyNos + model);
+        tokens = MD5.MD5s(KeyNos + model);
         init();//初始化16宫格等
 
         MyGridAdapters adapters = new MyGridAdapters(CompanyDetailsActivity.this, imgs1);
@@ -448,7 +421,7 @@ public class CompanyDetailsActivity extends BaseActivity {
                     if (!DataManager.allcountsList.get(0).HonorCount.equals("0")) {
                         waitDialog.show();
                         String KeyNoR = DataManager.BaseinfoList.get(0).REGNO;//注册号
-                        String tokenr = SearchFirmActivty.MD5s(KeyNoR + model);//token 由 设备ID+/注册号 MD5生成
+                        String tokenr = MD5.MD5s(KeyNoR + model);//token 由 设备ID+/注册号 MD5生成
                         GsonUtil request2 = new GsonUtil(URLconstant.URLINSER + URLconstant.HONORURL, RequestMethod.GET);
                         request2.add("token", tokenr);
                         request2.add("deviceId", model);
@@ -500,7 +473,7 @@ public class CompanyDetailsActivity extends BaseActivity {
                     if (!DataManager.allcountsList.get(0).MortgagorCount.equals("0")) {
                         waitDialog.show();
                         GsonUtil mortinfoRequest = new GsonUtil(URLconstant.URLINSER + URLconstant.MORTINFO, RequestMethod.GET);//动产request
-                        mortinfoRequest.add("token", SearchFirmActivty.MD5s(DataManager.BaseinfoList.get(0).PRIPID + model));
+                        mortinfoRequest.add("token", MD5.MD5s(DataManager.BaseinfoList.get(0).PRIPID + model));
                         mortinfoRequest.add("deviceId", model);
                         mortinfoRequest.add("KeyNo", DataManager.BaseinfoList.get(0).PRIPID);
                         mortinfoRequest.add("priptype", DataManager.BaseinfoList.get(0).ENTTYPE);
@@ -517,7 +490,7 @@ public class CompanyDetailsActivity extends BaseActivity {
                             CallServer.getInstance().add(CompanyDetailsActivity.this, request121, MyhttpCallBack.getInstance(), 0x12138, true, false, true);
                         }
                         GsonUtil mortinfoBdcRequest = new GsonUtil(URLconstant.URLINSER + URLconstant.MORTINFOBDC, RequestMethod.GET);//不动产request
-                        mortinfoBdcRequest.add("token", SearchFirmActivty.MD5s(DataManager.BaseinfoList.get(0).REGNO + model));
+                        mortinfoBdcRequest.add("token", MD5.MD5s(DataManager.BaseinfoList.get(0).REGNO + model));
                         mortinfoBdcRequest.add("deviceId", model);
                         mortinfoBdcRequest.add("KeyNo", DataManager.BaseinfoList.get(0).REGNO);
                         mortinfoBdcRequest.add("priptype", DataManager.BaseinfoList.get(0).ENTTYPE);
