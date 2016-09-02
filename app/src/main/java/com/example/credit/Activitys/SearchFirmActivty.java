@@ -110,7 +110,7 @@ public class SearchFirmActivty extends BaseActivity implements PullToRefreshView
     Build bd = new Build();
     String model = bd.MODEL;//设备ID
     int po;
-    int type;
+    public static int type;
     AlertDialog.Builder builder;
     public static AlertDialog dialog;
     int t=2;

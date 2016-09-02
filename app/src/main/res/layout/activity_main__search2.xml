@@ -7,87 +7,186 @@
     android:background="#ffffff"
     android:orientation="vertical"
     tools:context=".Activitys.SearchFirmActivty">
-
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:background="@mipmap/search_background"
-            android:orientation="horizontal">
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
             <LinearLayout
-                android:id="@+id/arrow_backm"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:padding="10dp">
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:background="@mipmap/search_background"
+                android:orientation="horizontal">
+                <LinearLayout
+                    android:id="@+id/arrow_backm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:padding="10dp">
+
+                    <ImageView
+                        android:layout_width="15dp"
+                        android:layout_height="25dp"
+                        android:layout_gravity="center_vertical"
+                        android:background="@mipmap/arrow_left_back" />
+                </LinearLayout>
 
                 <ImageView
-                    android:layout_width="15dp"
-                    android:layout_height="25dp"
+                    android:id="@+id/magnifying"
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
                     android:layout_gravity="center_vertical"
-                    android:background="@mipmap/arrow_left_back" />
-            </LinearLayout>
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/spinner_bg"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:src="@mipmap/search_drawable_left"
+                    android:visibility="gone" />
 
-            <ImageView
-                android:id="@+id/magnifying"
-                android:layout_width="wrap_content"
-                android:layout_height="35dp"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="10dp"
-                android:background="@drawable/spinner_bg"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:src="@mipmap/search_drawable_left"
-                android:visibility="gone" />
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="35dp"
-                android:layout_gravity="center_vertical"
-                />
-            <!--android:layout_marginRight="10dp"-->
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="35dp"
-                android:layout_gravity="center_vertical"
-                android:layout_weight="10"
-                android:background="@drawable/edit_bg"
-                android:orientation="horizontal">
-
-                <EditText
-                    android:id="@+id/search_et1"
+                <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="35dp"
                     android:layout_gravity="center_vertical"
-                    android:layout_marginLeft="5dp"
+                    />
+                <!--android:layout_marginRight="10dp"-->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="35dp"
+                    android:layout_gravity="center_vertical"
                     android:layout_weight="10"
                     android:background="@drawable/edit_bg"
-                    android:hint="请输入企业名称"
-                    android:imeOptions="actionSearch"
-                    android:lines="1"
-                    android:maxLines="1"
-                    android:singleLine="true"
-                    android:textSize="14sp" />
+                    android:orientation="horizontal">
 
+                    <EditText
+                        android:id="@+id/search_et1"
+                        android:layout_width="0dp"
+                        android:layout_height="35dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="5dp"
+                        android:layout_weight="10"
+                        android:background="@drawable/edit_bg"
+                        android:hint="请输入企业名称"
+                        android:imeOptions="actionSearch"
+                        android:lines="1"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:textSize="14sp" />
+
+                    <ImageView
+                        android:id="@+id/search_et_cc2"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginRight="5dp"
+                        android:layout_weight="1.4"
+                        android:src="@mipmap/www"
+                        android:visibility="gone" />
+                </LinearLayout>
                 <ImageView
-                    android:id="@+id/search_et_cc2"
+                    android:id="@+id/search_bt1"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_gravity="center_vertical"
-                    android:layout_marginRight="5dp"
                     android:layout_weight="1.4"
-                    android:src="@mipmap/www"
-                    android:visibility="gone" />
+                    android:src="@drawable/aic_search_black_24dp" />
             </LinearLayout>
-            <ImageView
-                android:id="@+id/search_bt1"
-                android:layout_width="0dp"
+
+            <LinearLayout
+                android:id="@+id/his_yout"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_gravity="center_vertical"
-                android:layout_weight="1.4"
-                android:src="@drawable/aic_search_black_24dp" />
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal"
+                >
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="50dp"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    >
+                    <TextView
+                        android:id="@+id/main_s1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/blue1"
+                        android:textSize="14sp"
+                        android:padding="5dp"
+                        android:maxEms="5"
+                        android:singleLine="true"
+                        android:ellipsize="end"
+                        android:background="@drawable/main_biaoqian"
+                        android:layout_gravity="center_vertical"
+                        android:text=""/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="50dp"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    >
+                    <TextView
+                        android:id="@+id/main_s2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/blue1"
+                        android:textSize="14sp"
+                        android:padding="5dp"
+                        android:maxEms="5"
+                        android:singleLine="true"
+                        android:ellipsize="end"
+                        android:background="@drawable/main_biaoqian"
+                        android:layout_gravity="center_vertical"
+                        android:text=""/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="50dp"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    >
+                    <TextView
+                        android:id="@+id/main_s3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/blue1"
+                        android:textSize="14sp"
+                        android:padding="5dp"
+                        android:maxEms="5"
+                        android:singleLine="true"
+                        android:ellipsize="end"
+                        android:background="@drawable/main_biaoqian"
+                        android:layout_gravity="center_vertical"
+                        android:text=""/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="50dp"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    >
+                    <TextView
+                        android:id="@+id/main_s4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/blue1"
+                        android:textSize="14sp"
+                        android:padding="5dp"
+                        android:maxEms="5"
+                        android:singleLine="true"
+                        android:ellipsize="end"
+                        android:background="@drawable/main_biaoqian"
+                        android:layout_gravity="center_vertical"
+                        android:text=""/>
+                </LinearLayout>
+            </LinearLayout>
         </LinearLayout>
         <ListView
             android:id="@+id/list2main"
@@ -97,116 +196,13 @@
             android:layout_marginRight="45dp"
             android:layout_marginTop="45dp"
             android:gravity="center_vertical"
+            android:visibility="gone"
             android:background="@drawable/login_et_bg"
             />
-    </FrameLayout>
-    <FrameLayout
-        android:id="@+id/his_sra"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="10">
-
-        <include layout="@layout/bg_bg" />
-        <LinearLayout
-            android:id="@+id/his_yout"
+        <View
+            android:layout_gravity="bottom"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="20dp"
-            android:orientation="horizontal"
-            >
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="50dp"
-                android:gravity="center"
-                android:orientation="horizontal"
-                >
-                <TextView
-                    android:id="@+id/main_s1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/blue1"
-                    android:textSize="14sp"
-                    android:padding="5dp"
-                    android:maxEms="5"
-                    android:singleLine="true"
-                    android:ellipsize="end"
-                    android:background="@drawable/main_biaoqian"
-                    android:layout_gravity="center_vertical"
-                    android:text=""/>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="50dp"
-                android:gravity="center"
-                android:orientation="horizontal"
-                >
-                <TextView
-                    android:id="@+id/main_s2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/blue1"
-                    android:textSize="14sp"
-                    android:padding="5dp"
-                    android:maxEms="5"
-                    android:singleLine="true"
-                    android:ellipsize="end"
-                    android:background="@drawable/main_biaoqian"
-                    android:layout_gravity="center_vertical"
-                    android:text=""/>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="50dp"
-                android:gravity="center"
-                android:orientation="horizontal"
-                >
-                <TextView
-                    android:id="@+id/main_s3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/blue1"
-                    android:textSize="14sp"
-                    android:padding="5dp"
-                    android:maxEms="5"
-                    android:singleLine="true"
-                    android:ellipsize="end"
-                    android:background="@drawable/main_biaoqian"
-                    android:layout_gravity="center_vertical"
-                    android:text=""/>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="50dp"
-                android:gravity="center"
-                android:orientation="horizontal"
-                >
-                <TextView
-                    android:id="@+id/main_s4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/blue1"
-                    android:textSize="14sp"
-                    android:padding="5dp"
-                    android:maxEms="5"
-                    android:singleLine="true"
-                    android:ellipsize="end"
-                    android:background="@drawable/main_biaoqian"
-                    android:layout_gravity="center_vertical"
-                    android:text=""/>
-            </LinearLayout>
-        </LinearLayout>
-
+            android:layout_height="30dp"
+            android:background="@mipmap/search_bottom"/>
     </FrameLayout>
-    <LinearLayout
-
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:background="@mipmap/search_bottom">
-
-    </LinearLayout>
 </LinearLayout>

@@ -55,12 +55,13 @@ public class AutonomyActivity extends BaseActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 TextView tbv = (TextView) view.findViewById(R.id.tbv);
+                String [] str=tbv.getText().toString().split("\\(");
                 if (tbv.getText().toString().substring(0,4).equals("企业年报")) {
                    startActivity(new Intent(AutonomyActivity.this,YearReportList.class));
                     overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
                 } else {
                     Intent in = new Intent(AutonomyActivity.this, Autonomy_Detail_Activity.class);
-                    in.putExtra("key", tbv.getText());
+                    in.putExtra("key",str[0]);
                     startActivity(in);
                     overridePendingTransition(R.anim.start_tran_one, R.anim.start_tran_two);
                 }

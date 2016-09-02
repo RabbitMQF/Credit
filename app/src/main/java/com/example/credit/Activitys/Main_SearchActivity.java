@@ -162,6 +162,7 @@ public class Main_SearchActivity extends BaseActivity {
         };
 
         if (csp.getmainHistory() != null && !(csp.getmainHistory()).equals("")) {
+            his_yout.setVisibility(View.VISIBLE);
             String str = csp.getmainHistory();
             String[] strh = str.split(",");
             List<String> listh = new ArrayList<String>(Arrays.asList(strh));
@@ -344,7 +345,7 @@ public class Main_SearchActivity extends BaseActivity {
         list_test.add("玉嫦娥");
         list_test.add("药物");
         list_test.add("江西");
-        list_test.add("555555");
+        list_test.add("");
         list_test.add("Yoooooo");
         list_test.add("12138");
         list_test.add("233333");
@@ -361,6 +362,7 @@ public class Main_SearchActivity extends BaseActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 search_et.setText(data_list.get(position));
+                list2main.setVisibility(View.GONE);
         }
         });
     }

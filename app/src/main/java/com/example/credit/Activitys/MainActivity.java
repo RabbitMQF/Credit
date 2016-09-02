@@ -440,8 +440,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                         startActivity(i);
                         break;
                     case 2://招投标
-//                        startActivity(new Intent(MainActivity.this, Main_SearchActivity.class).putExtra("hit", "招投标"));
-                        startActivity(new Intent(MainActivity.this, ContactsActivity.class));
+                        startActivity(new Intent(MainActivity.this, Main_SearchActivity.class).putExtra("hit", "招投标"));
                         break;
                     case 3://失信
                         i = new Intent(MainActivity.this, Main_SearchActivity.class);

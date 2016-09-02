@@ -15,6 +15,7 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.example.credit.Activitys.SearchFirmActivty;
+import com.example.credit.Entitys.DataManager;
 import com.example.credit.Entitys.DataManager.search;
 import com.example.credit.R;
 
@@ -60,19 +61,42 @@ public class SearchListAdapter2 extends BaseAdapter {
 			vh=(ViewHolder) view.getTag();
 		}
 		search c=list.get(position);
-		String str=SearchFirmActivty.searchEt.getText().toString();
-		String[] strR=str.split("");
-		SpannableStringBuilder style = new SpannableStringBuilder(c.ENTNAME);
-		for(int i=0;i<strR.length;i++){
-			if(!strR[i].equals("")){
-				int start=c.ENTNAME.indexOf(strR[i]);
-				int end=start+1;
+		switch (SearchFirmActivty.type){
+			case 0:
+				String str=SearchFirmActivty.searchEt.getText().toString();
+				String[] strR=str.split("");
+				SpannableStringBuilder style = new SpannableStringBuilder(c.ENTNAME);
+				for(int i=0;i<strR.length;i++){
+					if(!strR[i].equals("") && (c.ENTNAME).indexOf(strR[i]) != -1){
+						int start=c.ENTNAME.indexOf(strR[i]);
+						int end=start+1;
 //				style.setSpan(new BackgroundColorSpan(Color.RED), start, end, Spannable.SPAN_EXCLUSIVE_INCLUSIVE); //设置指定位置文字的背景颜色
-				style.setSpan(new ForegroundColorSpan(Color.RED), start, end, Spannable.SPAN_EXCLUSIVE_INCLUSIVE); //设置指定位置文字的颜色
-			}
+						style.setSpan(new ForegroundColorSpan(Color.RED), start, end, Spannable.SPAN_EXCLUSIVE_INCLUSIVE); //设置指定位置文字的颜色
+					}
+				}
+				vh.firm_name.setText(style);
+				vh.corporate.setText(c.NAME);
+				break;
+			case 1:
+				String str1=SearchFirmActivty.searchEt.getText().toString();
+				String[] strR1=str1.split("");
+				SpannableStringBuilder style1 = new SpannableStringBuilder(c.NAME);
+				for(int j=0;j<strR1.length;j++){
+					if(!strR1[j].equals("") && (c.NAME).indexOf(strR1[j]) != -1){
+						int start=c.NAME.indexOf(strR1[j]);
+						int end=start+1;
+//				style.setSpan(new BackgroundColorSpan(Color.RED), start, end, Spannable.SPAN_EXCLUSIVE_INCLUSIVE); //设置指定位置文字的背景颜色
+						style1.setSpan(new ForegroundColorSpan(Color.RED), start, end, Spannable.SPAN_EXCLUSIVE_INCLUSIVE); //设置指定位置文字的颜色
+					}
+				}
+				vh.corporate.setText(style1);
+				vh.firm_name.setText(c.ENTNAME);
+				break;
+			default:
+				vh.corporate.setText(c.NAME);
+				vh.firm_name.setText(c.ENTNAME);
+				break;
 		}
-		vh.firm_name.setText(style);
-		vh.corporate.setText(c.NAME);
 		if(vh.corporate.getText().toString().equals("")){
 			vh.corporate.setText("无");
 		}
