@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:id="@+id/line"
+        android:layout_width="250dp"
+        android:layout_height="160dp"
+        android:layout_centerInParent="true"
+        android:background="@mipmap/body_cont"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/dialog_top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:paddingTop="15dp"
+            android:text="@string/app_name"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
+       <TextView
+           android:id="@+id/dialog_ts"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:paddingTop="15dp"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
+        <RelativeLayout
+            android:id="@+id/line_bottom"
+            android:layout_width="250dp"
+            android:layout_height="100dp"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/quxiao_dialog_pay"
+                android:layout_width="80dp"
+                android:layout_height="40dp"
+                android:layout_alignParentLeft="true"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:text="取消"
+                android:textColor="@color/white"
+                android:background="@drawable/button_back" />
+
+            <Button
+                android:id="@+id/del_dialog_pay"
+                android:layout_width="80dp"
+                android:layout_height="40dp"
+                android:layout_alignParentRight="true"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="20dp"
+                android:text="确认"
+                android:textColor="@color/white"
+                android:background="@drawable/button_back" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</RelativeLayout>

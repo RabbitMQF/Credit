@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#EEEEEE"
+    android:orientation="vertical"
+    tools:context=".Activitys.AdminActivity">
+    <include layout="@layout/public_top_bar"/>
+    <com.example.credit.Views.ViewPagerIndicator
+        android:id="@+id/id_indicator"
+        android:layout_height="48dp"
+        android:layout_width="match_parent"
+        android:background="#D9EFFC"
+        android:visibility="gone"
+        android:orientation="horizontal"
+        android:layout_marginTop="-2dp"
+        >
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/xz1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="行政许可信息"
+                android:textColor="@color/blue2"
+                android:layout_centerInParent="true"/>
+            <TextView
+                android:id="@+id/xz_size1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="9"
+                android:layout_toRightOf="@id/xz1"
+                android:textColor="@color/red"
+                android:textSize="10sp"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="20dp"
+                android:gravity="center" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="0.5dp"
+            android:layout_height="match_parent"
+            android:background="@color/material_grey_600"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"/>
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/xz2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="其他信息"
+                android:textColor="@color/blue2"
+                android:layout_centerInParent="true"/>
+            <TextView
+                android:id="@+id/xz_size2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="9"
+                android:layout_toRightOf="@id/xz2"
+                android:textColor="@color/red"
+                android:textSize="10sp"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="20dp"
+                android:gravity="center" />
+        </RelativeLayout>
+
+    </com.example.credit.Views.ViewPagerIndicator>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:background="#EEEEEE"/>
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewpager"
+        android:overScrollMode="never"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        />
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:background="@mipmap/backgroudstop" />
+
+</LinearLayout>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#EEEEEE"
+    android:descendantFocusability="beforeDescendants">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="vertical"
+        android:layout_margin="5dp"
+        android:gravity="center_vertical"
+        android:paddingLeft="10dp"
+        android:background="@drawable/details_gg_bg1">
+
+
+        <TextView
+            android:id="@+id/tv2_item1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:text="注册资本"
+            android:textColor="#ff333333"
+            android:textSize="14sp" />
+        <TextView
+            android:id="@+id/tv2_item2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="5000万人民币"
+            android:textColor="#57737D"
+            android:textSize="12sp" />
+
+
+    </LinearLayout>
+
+</RelativeLayout>

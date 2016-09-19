@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#EEEEEE"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/details_con_bg"
+        android:orientation="vertical"
+        android:paddingBottom="10dp"
+        android:paddingLeft="10dp"
+        android:paddingTop="10dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dp"
+            android:text="改正内容"
+            android:textColor="#000000"
+            android:textSize="16sp" />
+        <TextView
+            android:id="@+id/correction_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="曾母暗沙我国最南端的领土这张照片是科技部第三届网络摄影比赛获奖作品，名叫《晨曦中的曾母暗沙》曾母暗沙，位于这条船下方20米处。这是09年中国国家地理杂志放置的主权碑曾母暗沙是中国南端的领土，因受自然条件的限制，此地并未被他国驻守，也未被他国控…"
+            android:textColor="#57737D"
+            android:textSize="14sp" />
+        <View
+            android:background="#B8B8B8"
+            android:layout_width="match_parent"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="10dp"
+            android:layout_height="1dp"/>
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#EEEEEE"
+    android:orientation="vertical"
+    tools:context="com.example.credit.Activitys.ObeyedActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/details_con_bg"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="企业名称"
+            android:textColor="#000000"
+            android:textSize="@dimen/ctitle_size" />
+
+        <TextView
+            android:id="@+id/puc_tv1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="纳税先锋"
+            android:textColor="#57737D"
+            android:textSize="@dimen/ctest_size" />
+        <View
+            android:background="#B8B8B8"
+            android:layout_width="match_parent"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="10dp"
+            android:layout_height="1dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="注册号"
+            android:textColor="#000000"
+            android:textSize="@dimen/ctitle_size" />
+
+        <TextView
+            android:id="@+id/puc_tv2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="国家级"
+            android:textColor="#57737D"
+            android:textSize="@dimen/ctest_size" />
+        <View
+            android:background="#B8B8B8"
+            android:layout_width="match_parent"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="10dp"
+            android:layout_height="1dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="统一社会信用代码"
+            android:textColor="#000000"
+            android:textSize="@dimen/ctitle_size" />
+
+        <TextView
+            android:id="@+id/puc_tv3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="国家级"
+            android:textColor="#57737D"
+            android:textSize="@dimen/ctest_size" />
+        <View
+            android:background="#B8B8B8"
+            android:layout_width="match_parent"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="10dp"
+            android:layout_height="1dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="内容"
+            android:textColor="#000000"
+            android:textSize="@dimen/ctitle_size" />
+
+        <TextView
+            android:id="@+id/puc_tv4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="国家级"
+            android:textColor="#57737D"
+            android:textSize="@dimen/ctest_size" />
+        <View
+            android:background="#B8B8B8"
+            android:layout_width="match_parent"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="10dp"
+            android:layout_height="1dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="认定日期"
+            android:textColor="#000000"
+            android:textSize="@dimen/ctitle_size" />
+
+        <TextView
+            android:id="@+id/puc_tv5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="国家级"
+            android:textColor="#57737D"
+            android:textSize="@dimen/ctest_size" />
+        <View
+            android:background="#B8B8B8"
+            android:layout_width="match_parent"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="10dp"
+            android:layout_height="1dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="认定机关"
+            android:textColor="#000000"
+            android:textSize="@dimen/ctitle_size" />
+
+        <TextView
+            android:id="@+id/puc_tv6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="国家级"
+            android:textColor="#57737D"
+            android:textSize="@dimen/ctest_size" />
+        <View
+            android:background="#B8B8B8"
+            android:layout_width="match_parent"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="10dp"
+            android:layout_height="1dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="状态"
+            android:textColor="#000000"
+            android:textSize="@dimen/ctitle_size" />
+
+        <TextView
+            android:id="@+id/puc_tv7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="状态"
+            android:textColor="#57737D"
+            android:textSize="@dimen/ctest_size" />
+        <View
+            android:background="#B8B8B8"
+            android:layout_width="match_parent"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="10dp"
+            android:layout_height="1dp"/>
+
+
+    </LinearLayout>
+</LinearLayout>

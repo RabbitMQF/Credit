@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="#EEEEEE">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/details_con_bg"
+        android:orientation="vertical"
+        android:paddingBottom="10dp"
+        android:paddingLeft="10dp"
+        android:paddingTop="10dp"
+        android:layout_marginBottom="5dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="预警机关"
+            android:textColor="#000000"
+            android:textSize="@dimen/ctitle_size"
+            android:layout_marginRight="5dp"/>
+
+        <TextView
+            android:id="@+id/loan_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2015年1月"
+            android:textColor="#57737D"
+            android:textSize="@dimen/ctest_size" />
+
+
+        <View
+            android:background="#B8B8B8"
+            android:layout_width="match_parent"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="10dp"
+            android:layout_height="1dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="预警金额"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="5dp"
+            android:textColor="#000000"
+            android:textSize="@dimen/ctitle_size" />
+
+        <TextView
+            android:id="@+id/loan_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="5000万"
+            android:textColor="#57737D"
+            android:textSize="@dimen/ctest_size" />
+
+        <View
+            android:background="#B8B8B8"
+            android:layout_width="match_parent"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="10dp"
+            android:layout_height="1dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="预警状态"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="5dp"
+            android:textColor="#000000"
+            android:textSize="@dimen/ctitle_size" />
+
+        <TextView
+            android:id="@+id/loan_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="江西省工商银行"
+            android:textColor="#57737D"
+            android:textSize="@dimen/ctest_size" />
+        <View
+            android:background="#B8B8B8"
+            android:layout_width="match_parent"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="10dp"
+            android:layout_height="1dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="预警日期"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="5dp"
+            android:textColor="#000000"
+            android:textSize="@dimen/ctitle_size" />
+
+        <TextView
+            android:id="@+id/loan_4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="未还清"
+            android:textColor="#57737D"
+            android:textSize="@dimen/ctest_size" />
+        <View
+            android:background="#B8B8B8"
+            android:layout_width="match_parent"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="10dp"
+            android:layout_height="1dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="预警内容"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="5dp"
+            android:textColor="#000000"
+            android:textSize="@dimen/ctitle_size" />
+
+        <TextView
+            android:id="@+id/loan_5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="未还清"
+            android:textColor="#57737D"
+            android:textSize="@dimen/ctest_size" />
+        <View
+            android:background="#B8B8B8"
+            android:layout_width="match_parent"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="10dp"
+            android:layout_height="1dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="数据状态"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="5dp"
+            android:textColor="#000000"
+            android:textSize="@dimen/ctitle_size" />
+
+        <TextView
+            android:id="@+id/loan_6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="未还清"
+            android:textColor="#57737D"
+            android:textSize="@dimen/ctest_size" />
+        <View
+            android:background="#B8B8B8"
+            android:layout_width="match_parent"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="10dp"
+            android:layout_height="1dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="部门名称"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="5dp"
+            android:textColor="#000000"
+            android:textSize="@dimen/ctitle_size" />
+
+        <TextView
+            android:id="@+id/loan_7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="未还清"
+            android:textColor="#57737D"
+            android:textSize="@dimen/ctest_size" />
+        <View
+            android:background="#B8B8B8"
+            android:layout_width="match_parent"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="10dp"
+            android:layout_height="1dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="上级部门名称"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="5dp"
+            android:textColor="#000000"
+            android:textSize="@dimen/ctitle_size" />
+
+        <TextView
+            android:id="@+id/loan_8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="未还清"
+            android:textColor="#57737D"
+            android:textSize="@dimen/ctest_size" />
+        <View
+            android:background="#B8B8B8"
+            android:layout_width="match_parent"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="10dp"
+            android:layout_height="1dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="业务属性"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="5dp"
+            android:textColor="#000000"
+            android:textSize="@dimen/ctitle_size" />
+
+        <TextView
+            android:id="@+id/loan_9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="未还清"
+            android:textColor="#57737D"
+            android:textSize="@dimen/ctest_size" />
+        <View
+            android:background="#B8B8B8"
+            android:layout_width="match_parent"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="10dp"
+            android:layout_height="1dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="数据种类"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="5dp"
+            android:textColor="#000000"
+            android:textSize="@dimen/ctitle_size" />
+
+        <TextView
+            android:id="@+id/loan_10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="未还清"
+            android:textColor="#57737D"
+            android:textSize="@dimen/ctest_size" />
+        <View
+            android:background="#B8B8B8"
+            android:layout_width="match_parent"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="10dp"
+            android:layout_height="1dp"/>
+    </LinearLayout>
+
+
+</LinearLayout>

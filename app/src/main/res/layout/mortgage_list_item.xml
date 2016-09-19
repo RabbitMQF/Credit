@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#EEEEEE"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/title2"
+        android:layout_width="150dp"
+        android:layout_height="30dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/details_gg_bgtit"
+        android:gravity="center"
+        android:visibility="gone"
+        android:textColor="#ffffff"
+        android:textSize="18sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/details_con_bg"
+        android:orientation="vertical"
+        android:paddingBottom="10dp"
+        android:paddingLeft="10dp"
+        android:paddingTop="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:text="抵押登记ID:"
+                android:textColor="#000000"
+                android:textSize="@dimen/ctitle_size" />
+
+            <TextView
+                android:id="@+id/mort_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="123123123131"
+                android:textColor="#57737D"
+                android:textSize="@dimen/ctest_size" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="5dp"
+            android:background="#B8B8B8" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:text="登记编号:"
+                android:textColor="#000000"
+                android:textSize="@dimen/ctitle_size" />
+
+            <TextView
+                android:id="@+id/mort_no"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2019年11月12日"
+                android:textColor="#57737D"
+                android:textSize="@dimen/ctest_size" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="5dp"
+            android:background="#B8B8B8" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:text="登记日期:"
+                android:textColor="#000000"
+                android:textSize="@dimen/ctitle_size" />
+
+            <TextView
+                android:id="@+id/mort_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2019年11月12日-2020年11月20日"
+                android:textColor="#57737D"
+                android:textSize="@dimen/ctest_size" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="5dp"
+            android:background="#B8B8B8" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:text="公示日期:"
+                android:textColor="#000000"
+                android:textSize="@dimen/ctitle_size" />
+
+            <TextView
+                android:id="@+id/mort_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="100万"
+                android:textColor="#57737D"
+                android:textSize="@dimen/ctest_size" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="5dp"
+            android:background="#B8B8B8" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="登记机关:"
+            android:textColor="#000000"
+            android:textSize="@dimen/ctitle_size" />
+
+        <TextView
+            android:id="@+id/mort_office"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="南昌市西湖区人民法院"
+            android:textColor="#57737D"
+            android:textSize="@dimen/ctest_size" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="5dp"
+            android:background="#B8B8B8" />
+
+        <!--<TextView
+            android:id="@+id/Collateral1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="抵押物:"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/Collateral"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="阿斯顿马丁 ONE-77"
+            android:textColor="#57737D"
+            android:textSize="14sp"
+            android:visibility="gone" />-->
+        <LinearLayout
+            android:id="@+id/ll_val"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/Valuation1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="抵押数额(万元):"
+                android:textColor="#000000"
+                android:textSize="@dimen/ctitle_size" />
+
+            <TextView
+                android:id="@+id/mort_Val"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="4700万人民币"
+                android:textColor="#57737D"
+                android:textSize="@dimen/ctest_size" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:background="#B8B8B8" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_detail"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/detail1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="详情:"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/mort_detail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:text="许可该机构经营中国银行业监督管理委员会依照有关法律、行政法规和其他规定批准的业务，经营范围以批准文件所列的为准。"
+                android:textColor="#57737D"
+                android:textSize="14sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:background="#B8B8B8" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

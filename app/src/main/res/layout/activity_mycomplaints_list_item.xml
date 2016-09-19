@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#EEEEEF"
+    tools:context="com.example.credit.Activitys.MycomplaintsListActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:background="@drawable/details_con_bg"
+        android:orientation="horizontal">
+        <ImageView
+            android:id="@+id/complain_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:background="@mipmap/nullpic"
+            android:visibility="gone"/>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="5"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/complain_firm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="这里是企业名称"
+                android:textColor="#030303"
+                android:textSize="18sp" />
+            <TextView
+                android:id="@+id/complain_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="主题：我要投诉这家公司"
+                android:textColor="#ec5a00"
+                android:textSize="16sp" />
+            <TextView
+                android:id="@+id/complain_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="时间：2016-05-02"
+                android:textColor="#060606"
+                android:textSize="16sp" />
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:gravity="center">
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/complain_status"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="状态信息"
+                ></android.support.v7.widget.AppCompatTextView>
+            <android.support.v7.widget.AppCompatButton
+                android:id="@+id/complain_cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:text="取消"/>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

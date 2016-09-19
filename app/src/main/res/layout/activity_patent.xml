@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#EEEEEE"
+    android:orientation="vertical"
+    tools:context="com.example.credit.Activitys.PatentActivity">
+    <include layout="@layout/public_top_bar"/>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <com.example.credit.Utils.PullToRefreshView
+            android:id="@+id/pull_refresh_view250"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="15dp"
+            android:background="#EEEEEE"
+            android:orientation="vertical">
+
+        <ScrollView
+            android:id="@+id/pa_sc"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="30dp"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <com.example.credit.Views.MyListView
+                    android:id="@+id/paListView1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="10dp"
+                    android:divider="#00000000"
+                    android:listSelector="#00000000" />
+            </LinearLayout>
+        </ScrollView>
+        </com.example.credit.Utils.PullToRefreshView>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_gravity="bottom"
+            android:background="@mipmap/detail_top" />
+    </FrameLayout>
+</LinearLayout>

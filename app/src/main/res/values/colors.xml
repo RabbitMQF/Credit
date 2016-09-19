@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="blue1">#2BA8D8</color>
+    <color name="blue2">#18b4ed</color>
+    <color name="text_check">#2b5691</color>
+    <color name="text_nocheck">#ff5a595b</color>
+    <color name="white">#ffffff</color>
+    <color name="black">#000000</color>
+    <color name="huise">#B8B8B8</color>
+    <color name="background_tab_pressed">#6633B5E5</color>
+    <color name="tou">#00000000</color>
+    <color name="orange">#ec7e17</color>
+    <color name="green">#03700e</color>
+    <color name="red">#b70303</color>
+    <color name="buttonbule">#00A8E9</color>
+    <color name="touming">#1a000000</color>
+    <color name="t1">#0ca7dd</color>
+    <color name="t2">#ff3030</color>
+    <color name="t3">#04bb87</color>
+    <color name="t4">#ffc900</color>
+    <color name="t5">#9b32ff</color>
+    <color name="t6">#ef7600</color>
+    <color name="t7">#0ca7dd</color>
+
+
+</resources>
