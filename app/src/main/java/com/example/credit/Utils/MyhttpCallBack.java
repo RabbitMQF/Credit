@@ -173,7 +173,7 @@ public class MyhttpCallBack implements HttpCallBack {
                         serchtemp.REGNO = (String) temp.get("REGNO");
                         serchtemp.REGORG_CN = (String) temp.get("REGORG_CN");
                         serchtemp.NAME = (String) temp.get("NAME");
-                        serchtemp.OPFROM = (String) temp.get("OPFROM");
+                        serchtemp.OPFROM = (String) temp.get("ESTDATE");//以前是OPFROM后来无缘无故变成ESTDATE
                         serchtemp.OPTO = (String) temp.get("OPTO");
                         serchtemp.REGSTATE_CN = (String) temp.get("REGSTATE_CN");
                         serchtemp.C_PROVINCE = (String) temp.get("C_PROVINCE");
@@ -181,6 +181,9 @@ public class MyhttpCallBack implements HttpCallBack {
                         serchtemp.C_STATE = (String) temp.get("C_STATE");
                         if (String.valueOf(temp.get("REGCAP")) == "null") {
                             serchtemp.REGCAP = "0";
+                        }
+                        if (((String) temp.get("REGCAP")).contains(".")) {
+                            serchtemp.REGCAP = ((String) temp.get("REGCAP")).substring(0, ((String) temp.get("REGCAP")).indexOf("."));//查企业,品牌和失信判定是否有小数点
                         } else {
                             serchtemp.REGCAP = (String) temp.get("REGCAP");
                         }
@@ -214,7 +217,7 @@ public class MyhttpCallBack implements HttpCallBack {
                         serchtemp.REGNO = (String) temp.get("REGNO");
                         serchtemp.REGORG_CN = (String) temp.get("REGORG_CN");
                         serchtemp.NAME = (String) temp.get("NAME");
-                        serchtemp.OPFROM = (String) temp.get("OPFROM");
+                        serchtemp.OPFROM = (String) temp.get("ESTDATE");//以前是OPFROM后来无缘无故变成ESTDATE
                         serchtemp.OPTO = (String) temp.get("OPTO");
                         serchtemp.REGSTATE_CN = (String) temp.get("REGSTATE_CN");
                         serchtemp.C_PROVINCE = (String) temp.get("C_PROVINCE");
@@ -222,9 +225,13 @@ public class MyhttpCallBack implements HttpCallBack {
                         serchtemp.C_STATE = (String) temp.get("C_STATE");
                         if (String.valueOf(temp.get("REGCAP")) == "null") {
                             serchtemp.REGCAP = "0";
+                        }
+                        if (((String) temp.get("REGCAP")).contains(".")) {
+                            serchtemp.REGCAP = ((String) temp.get("REGCAP")).substring(0, ((String) temp.get("REGCAP")).indexOf("."));//查企业,品牌和失信去小数点
                         } else {
                             serchtemp.REGCAP = (String) temp.get("REGCAP");
                         }
+
                         serchtemp.ENTTYPE_CN = (String) temp.get("ENTTYPE_CN");
                         serchtemp.DOM = (String) temp.get("DOM");
                         serchtemp.INDUSTRYPHY = (String) temp.get("INDUSTRYPHY");

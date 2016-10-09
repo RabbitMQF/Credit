@@ -8,8 +8,8 @@ android {
         applicationId "com.example.credit"
         minSdkVersion 14
         targetSdkVersion 23
-        versionCode 5
-        versionName "1.04"
+        versionCode 6
+        versionName "1.05"
 
 //参数说明
         manifestPlaceholders = [
